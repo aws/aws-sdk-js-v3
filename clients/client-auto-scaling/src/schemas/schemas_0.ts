@@ -325,7 +325,7 @@ const _LTN = "LaunchTemplateName";
 const _LTO = "LaunchTemplateOverrides";
 const _LTS = "LaunchTemplateSpecification";
 const _LTi = "LifecycleTransition";
-const _M = "Min";
+const _M = "Message";
 const _MAM = "MinAdjustmentMagnitude";
 const _MAS = "MinAdjustmentStep";
 const _MAT = "MetricAggregationType";
@@ -365,8 +365,8 @@ const _MT = "MarketType";
 const _MV = "MetricValue";
 const _Ma = "Max";
 const _Me = "Metrics";
-const _Mes = "Message";
 const _Met = "Metric";
+const _Mi = "Min";
 const _Mo = "Mode";
 const _N = "Namespace";
 const _NBG = "NetworkBandwidthGbps";
@@ -582,8 +582,8 @@ const _e = "error";
 const _hE = "httpError";
 const _i = "item";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.autoscaling";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.autoscaling";
+const _se = "server";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.autoscaling";
 
@@ -607,22 +607,95 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AcceleratorCountRequest$: StaticStructureSchema = [3, n0, _ACR,
-  0,
-  [_M, _Ma],
-  [1, 1]
-];
-export var AcceleratorTotalMemoryMiBRequest$: StaticStructureSchema = [3, n0, _ATMMBR,
-  0,
-  [_M, _Ma],
-  [1, 1]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var AutoScalingServiceException$: StaticErrorSchema = [-3, _s, "AutoScalingServiceException", 0, [], []];
+_s_registry.registerError(AutoScalingServiceException$, AutoScalingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ActiveInstanceRefreshNotFoundFault$: StaticErrorSchema = [-3, n0, _AIRNFF,
   { [_aQE]: [`ActiveInstanceRefreshNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ActiveInstanceRefreshNotFoundFault$, ActiveInstanceRefreshNotFoundFault);
+n0_registry.registerError(ActiveInstanceRefreshNotFoundFault$, ActiveInstanceRefreshNotFoundFault);
+export var AlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AEF,
+  { [_aQE]: [`AlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AlreadyExistsFault$, AlreadyExistsFault);
+export var IdempotentParameterMismatchError$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IdempotentParameterMismatchError$, IdempotentParameterMismatchError);
+export var InstanceRefreshInProgressFault$: StaticErrorSchema = [-3, n0, _IRIPF,
+  { [_aQE]: [`InstanceRefreshInProgress`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceRefreshInProgressFault$, InstanceRefreshInProgressFault);
+export var InvalidNextToken$: StaticErrorSchema = [-3, n0, _INT,
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextToken$, InvalidNextToken);
+export var IrreversibleInstanceRefreshFault$: StaticErrorSchema = [-3, n0, _IIRF,
+  { [_aQE]: [`IrreversibleInstanceRefresh`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IrreversibleInstanceRefreshFault$, IrreversibleInstanceRefreshFault);
+export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededFault$, LimitExceededFault);
+export var ResourceContentionFault$: StaticErrorSchema = [-3, n0, _RCF,
+  { [_aQE]: [`ResourceContention`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceContentionFault$, ResourceContentionFault);
+export var ResourceInUseFault$: StaticErrorSchema = [-3, n0, _RIUF,
+  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseFault$, ResourceInUseFault);
+export var ScalingActivityInProgressFault$: StaticErrorSchema = [-3, n0, _SAIPF,
+  { [_aQE]: [`ScalingActivityInProgress`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScalingActivityInProgressFault$, ScalingActivityInProgressFault);
+export var ServiceLinkedRoleFailure$: StaticErrorSchema = [-3, n0, _SLRF,
+  { [_aQE]: [`ServiceLinkedRoleFailure`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceLinkedRoleFailure$, ServiceLinkedRoleFailure);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AcceleratorCountRequest$: StaticStructureSchema = [3, n0, _ACR,
+  0,
+  [_Mi, _Ma],
+  [1, 1]
+];
+export var AcceleratorTotalMemoryMiBRequest$: StaticStructureSchema = [3, n0, _ATMMBR,
+  0,
+  [_Mi, _Ma],
+  [1, 1]
+];
 export var ActivitiesType$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_A, _NT],
@@ -653,12 +726,6 @@ export var AlarmSpecification$: StaticStructureSchema = [3, n0, _AS,
   [_Ala],
   [64 | 0]
 ];
-export var AlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AEF,
-  { [_aQE]: [`AlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsFault$, AlreadyExistsFault);
 export var AttachInstancesQuery$: StaticStructureSchema = [3, n0, _AIQ,
   0,
   [_ASGN, _II],
@@ -731,7 +798,7 @@ export var AvailabilityZoneImpairmentPolicy$: StaticStructureSchema = [3, n0, _A
 ];
 export var BaselineEbsBandwidthMbpsRequest$: StaticStructureSchema = [3, n0, _BEBMR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1]
 ];
 export var BaselinePerformanceFactorsRequest$: StaticStructureSchema = [3, n0, _BPFR,
@@ -1104,12 +1171,6 @@ export var GetPredictiveScalingForecastType$: StaticStructureSchema = [3, n0, _G
   [_ASGN, _PN, _ST, _ET],
   [0, 0, 4, 4], 4
 ];
-export var IdempotentParameterMismatchError$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
-  [_Mes],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchError$, IdempotentParameterMismatchError);
 export var Instance$: StaticStructureSchema = [3, n0, _In,
   0,
   [_IIns, _AZv, _LS, _HS, _PFSI, _IT, _LCN, _LT, _IIm, _WC],
@@ -1145,12 +1206,6 @@ export var InstanceRefresh$: StaticStructureSchema = [3, n0, _IRn,
   [_IRI, _ASGN, _S, _SR, _ST, _ET, _PCe, _ITU, _PD, _Pr, _DCes, _RD, _Str],
   [0, 0, 0, 0, 4, 4, 1, 1, () => InstanceRefreshProgressDetails$, () => RefreshPreferences$, [() => DesiredConfiguration$, 0], () => RollbackDetails$, 0]
 ];
-export var InstanceRefreshInProgressFault$: StaticErrorSchema = [-3, n0, _IRIPF,
-  { [_aQE]: [`InstanceRefreshInProgress`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceRefreshInProgressFault$, InstanceRefreshInProgressFault);
 export var InstanceRefreshLivePoolProgress$: StaticStructureSchema = [3, n0, _IRLPP,
   0,
   [_PCe, _ITU],
@@ -1181,18 +1236,6 @@ export var InstancesDistribution$: StaticStructureSchema = [3, n0, _ID,
   [_ODAS, _ODBC, _ODPABC, _SAS, _SIP, _SMP],
   [0, 1, 1, 0, 1, 0]
 ];
-export var InvalidNextToken$: StaticErrorSchema = [-3, n0, _INT,
-  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextToken$, InvalidNextToken);
-export var IrreversibleInstanceRefreshFault$: StaticErrorSchema = [-3, n0, _IIRF,
-  { [_aQE]: [`IrreversibleInstanceRefresh`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IrreversibleInstanceRefreshFault$, IrreversibleInstanceRefreshFault);
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LCN, _IIm, _IT, _CT, _LCARN, _KN, _SG, _CLVPCI, _CLVPCSG, _UD, _KI, _RI, _BDMl, _IM, _SPp, _IIP, _EO, _APIA, _PT, _MO],
@@ -1253,12 +1296,6 @@ export var LifecycleHookSpecification$: StaticStructureSchema = [3, n0, _LHS,
   [_LHN, _LTi, _NM, _HTe, _DR, _NTARN, _RARN],
   [0, 0, 0, 1, 0, 0, 0], 2
 ];
-export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
-  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededFault$, LimitExceededFault);
 export var LoadBalancerState$: StaticStructureSchema = [3, n0, _LBS,
   0,
   [_LBNo, _Sta],
@@ -1276,12 +1313,12 @@ export var LoadForecast$: StaticStructureSchema = [3, n0, _LF,
 ];
 export var MemoryGiBPerVCpuRequest$: StaticStructureSchema = [3, n0, _MGBPVCR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1]
 ];
 export var MemoryMiBRequest$: StaticStructureSchema = [3, n0, _MMBR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1], 1
 ];
 export var Metric$: StaticStructureSchema = [3, n0, _Met,
@@ -1321,12 +1358,12 @@ export var MixedInstancesPolicy$: StaticStructureSchema = [3, n0, _MIP,
 ];
 export var NetworkBandwidthGbpsRequest$: StaticStructureSchema = [3, n0, _NBGR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1]
 ];
 export var NetworkInterfaceCountRequest$: StaticStructureSchema = [3, n0, _NICR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1]
 ];
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NCo,
@@ -1454,18 +1491,6 @@ export var RefreshPreferences$: StaticStructureSchema = [3, n0, _RP,
   [_MHP, _IW, _CP, _CD, _SMk, _AR, _SIPI, _SIt, _AS, _MHPa, _BTa],
   [1, 1, 64 | 1, 1, 2, 2, 0, 0, () => AlarmSpecification$, 1, 1]
 ];
-export var ResourceContentionFault$: StaticErrorSchema = [-3, n0, _RCF,
-  { [_aQE]: [`ResourceContention`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceContentionFault$, ResourceContentionFault);
-export var ResourceInUseFault$: StaticErrorSchema = [-3, n0, _RIUF,
-  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseFault$, ResourceInUseFault);
 export var RetentionTriggers$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_THA],
@@ -1486,12 +1511,6 @@ export var RollbackInstanceRefreshType$: StaticStructureSchema = [3, n0, _RIRT,
   [_ASGN],
   [0], 1
 ];
-export var ScalingActivityInProgressFault$: StaticErrorSchema = [-3, n0, _SAIPF,
-  { [_aQE]: [`ScalingActivityInProgress`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScalingActivityInProgressFault$, ScalingActivityInProgressFault);
 export var ScalingPolicy$: StaticStructureSchema = [3, n0, _SPca,
   0,
   [_ASGN, _PN, _PARN, _PToli, _ATd, _MAS, _MAM, _SA, _Coo, _SAt, _MAT, _EIW, _Ala, _TTC, _Ena, _PSC],
@@ -1517,12 +1536,6 @@ export var ScheduledUpdateGroupActionRequest$: StaticStructureSchema = [3, n0, _
   [_SANc, _ST, _ET, _Rec, _MS, _MSa, _DC, _TZ],
   [0, 4, 4, 0, 1, 1, 1, 0], 1
 ];
-export var ServiceLinkedRoleFailure$: StaticErrorSchema = [-3, n0, _SLRF,
-  { [_aQE]: [`ServiceLinkedRoleFailure`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceLinkedRoleFailure$, ServiceLinkedRoleFailure);
 export var SetDesiredCapacityType$: StaticStructureSchema = [3, n0, _SDCT,
   0,
   [_ASGN, _DC, _HC],
@@ -1600,7 +1613,7 @@ export var TerminateInstanceInAutoScalingGroupType$: StaticStructureSchema = [3,
 ];
 export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1]
 ];
 export var TrafficSourceIdentifier$: StaticStructureSchema = [3, n0, _TSI,
@@ -1620,7 +1633,7 @@ export var UpdateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _UASGT,
 ];
 export var VCpuCountRequest$: StaticStructureSchema = [3, n0, _VCCR,
   0,
-  [_M, _Ma],
+  [_Mi, _Ma],
   [1, 1], 1
 ];
 export var WarmPoolConfiguration$: StaticStructureSchema = [3, n0, _WPC,
@@ -1629,8 +1642,6 @@ export var WarmPoolConfiguration$: StaticStructureSchema = [3, n0, _WPC,
   [1, 1, 0, 0, () => InstanceReusePolicy$]
 ];
 var __Unit = "unit" as const;
-export var AutoScalingServiceException$: StaticErrorSchema = [-3, _sm, "AutoScalingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AutoScalingServiceException$, AutoScalingServiceException);
 var AcceleratorManufacturers = 64 | 0;
 var AcceleratorNames = 64 | 0;
 var AcceleratorTypes = 64 | 0;

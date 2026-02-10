@@ -134,8 +134,8 @@ const _URI = "UntagResourceInput";
 const _URO = "UntagResourceOutput";
 const _V = "Value";
 const _VC = "VmwareCategory";
-const _VE = "VpcEndpoint";
-const _VEa = "ValidationException";
+const _VE = "ValidationException";
+const _VEp = "VpcEndpoint";
 const _VM = "VirtualMachine";
 const _VMD = "VirtualMachineDetails";
 const _VMi = "VirtualMachines";
@@ -148,8 +148,8 @@ const _VTm = "VmwareTag";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.backupgateway";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.backupgateway";
+const _se = "server";
 const n0 = "com.amazonaws.backupgateway";
 
 // smithy-typescript generated code
@@ -173,14 +173,57 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
-var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var BackupGatewayServiceException$: StaticErrorSchema = [-3, _s, "BackupGatewayServiceException", 0, [], []];
+_s_registry.registerError(BackupGatewayServiceException$, BackupGatewayServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_EC, _M],
   [0, 0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
+var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AssociateGatewayToServerInput$: StaticStructureSchema = [3, n0, _AGTSI,
   0,
   [_GA, _SA],
@@ -196,12 +239,6 @@ export var BandwidthRateLimitInterval$: StaticStructureSchema = [3, n0, _BRLI,
   [_SHOD, _EHOD, _SMOH, _EMOH, _DOW, _AURLIBPS],
   [1, 1, 1, 1, 64 | 1, 1], 5
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGatewayInput$: StaticStructureSchema = [3, n0, _CGI,
   0,
   [_AK, _GDN, _GT, _T],
@@ -249,7 +286,7 @@ export var Gateway$: StaticStructureSchema = [3, n0, _G,
 ];
 export var GatewayDetails$: StaticStructureSchema = [3, n0, _GD,
   0,
-  [_GA, _GDN, _GT, _HI, _LST, _MST, _NUAT, _VE],
+  [_GA, _GDN, _GT, _HI, _LST, _MST, _NUAT, _VEp],
   [0, 0, 0, 0, 4, () => MaintenanceStartTime$, 4, 0]
 ];
 export var GetBandwidthRateLimitScheduleInput$: StaticStructureSchema = [3, n0, _GBRLSI,
@@ -322,12 +359,6 @@ export var ImportHypervisorConfigurationOutput$: StaticStructureSchema = [3, n0,
   [_HA],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListGatewaysInput$: StaticStructureSchema = [3, n0, _LGI,
   0,
   [_MR, _NT],
@@ -403,12 +434,6 @@ export var PutMaintenanceStartTimeOutput$: StaticStructureSchema = [3, n0, _PMST
   [_GA],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartVirtualMachinesMetadataSyncInput$: StaticStructureSchema = [3, n0, _SVMMSI,
   0,
   [_HA],
@@ -444,12 +469,6 @@ export var TestHypervisorConfigurationOutput$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARN, _TK],
@@ -490,12 +509,6 @@ export var UpdateHypervisorOutput$: StaticStructureSchema = [3, n0, _UHO,
   [_HA],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VirtualMachine$: StaticStructureSchema = [3, n0, _VM,
   0,
   [_HN, _HI, _N, _Pa, _RA, _LBD],
@@ -516,8 +529,6 @@ export var VmwareToAwsTagMapping$: StaticStructureSchema = [3, n0, _VTATMm,
   [_VC, _VTN, _ATK, _ATV],
   [0, 0, 0, 0], 4
 ];
-export var BackupGatewayServiceException$: StaticErrorSchema = [-3, _sm, "BackupGatewayServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BackupGatewayServiceException$, BackupGatewayServiceException);
 var BandwidthRateLimitIntervals: StaticListSchema = [1, n0, _BRLIa,
   0, () => BandwidthRateLimitInterval$
 ];

@@ -113,7 +113,7 @@ const _r = "reason";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "symbol";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.managedblockchainquery";
 const _sB = "sortBy";
 const _sC = "serviceCode";
 const _sO = "sortOrder";
@@ -124,8 +124,8 @@ const _sVI = "spentVoutIndex";
 const _sVTH = "spentVoutTransactionHash";
 const _sVTI = "spentVoutTransactionId";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.managedblockchainquery";
 const _so = "sort";
+const _sy = "symbol";
 const _t = "time";
 const _tB = "tokenBalances";
 const _tBI = "toBlockchainInstant";
@@ -164,12 +164,55 @@ import {
 import { ManagedBlockchainQueryServiceException } from "../models/ManagedBlockchainQueryServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ManagedBlockchainQueryServiceException$: StaticErrorSchema = [-3, _s, "ManagedBlockchainQueryServiceException", 0, [], []];
+_s_registry.registerError(ManagedBlockchainQueryServiceException$, ManagedBlockchainQueryServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 3
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddressIdentifierFilter$: StaticStructureSchema = [3, n0, _AIF,
   0,
   [_tETA],
@@ -227,7 +270,7 @@ export var ContractIdentifier$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var ContractMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
-  [_na, _s, _d],
+  [_na, _sy, _d],
   [0, 0, 1]
 ];
 export var GetAssetContractInput$: StaticStructureSchema = [3, n0, _GACI,
@@ -260,12 +303,6 @@ export var GetTransactionOutput$: StaticStructureSchema = [3, n0, _GTO,
   [_tr],
   [() => Transaction$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssetContractsInput$: StaticStructureSchema = [3, n0, _LACI,
   0,
   [_cF, _nT, _mR],
@@ -336,24 +373,6 @@ export var OwnerIdentifier$: StaticStructureSchema = [3, n0, _OI,
   [_a],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 3
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_f, _to],
@@ -389,12 +408,6 @@ export var TransactionOutputItem$: StaticStructureSchema = [3, n0, _TOI,
   [_tH, _n, _tT, _tIr, _cS],
   [0, 0, 4, 0, 0], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _m],
@@ -405,8 +418,6 @@ export var VoutFilter$: StaticStructureSchema = [3, n0, _VF,
   [_vS],
   [2], 1
 ];
-export var ManagedBlockchainQueryServiceException$: StaticErrorSchema = [-3, _sm, "ManagedBlockchainQueryServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ManagedBlockchainQueryServiceException$, ManagedBlockchainQueryServiceException);
 var AssetContractList: StaticListSchema = [1, n0, _ACL,
   0, () => AssetContract$
 ];

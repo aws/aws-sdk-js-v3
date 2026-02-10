@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEFSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { EFSClientConfig } from "./EFSClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: EFSClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.efs",
+      errorTypeRegistries,
       version: "2015-02-01",
       serviceTarget: "MagnolioAPIService_v20150201",
     },

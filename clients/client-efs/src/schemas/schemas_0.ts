@@ -207,8 +207,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.efs";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.efs";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.efs";
 
@@ -253,35 +253,216 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EFSServiceException$: StaticErrorSchema = [-3, _s, "EFSServiceException", 0, [], []];
+_s_registry.registerError(EFSServiceException$, EFSServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessPointAlreadyExists$: StaticErrorSchema = [-3, n0, _APAE,
   { [_e]: _c, [_hE]: 409 },
   [_EC, _API, _M],
   [0, 0, 0], 2
 ];
-TypeRegistry.for(n0).registerError(AccessPointAlreadyExists$, AccessPointAlreadyExists);
-export var AccessPointDescription$: StaticStructureSchema = [3, n0, _APD,
-  0,
-  [_CT, _N, _T, _API, _APA, _FSI, _PU, _RD, _OI, _LCS],
-  [0, 0, () => Tags, 0, 0, 0, () => PosixUser$, () => RootDirectory$, 0, 0]
-];
+n0_registry.registerError(AccessPointAlreadyExists$, AccessPointAlreadyExists);
 export var AccessPointLimitExceeded$: StaticErrorSchema = [-3, n0, _APLE,
   { [_e]: _c, [_hE]: 403 },
   [_EC, _M],
   [0, 0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessPointLimitExceeded$, AccessPointLimitExceeded);
+n0_registry.registerError(AccessPointLimitExceeded$, AccessPointLimitExceeded);
 export var AccessPointNotFound$: StaticErrorSchema = [-3, n0, _APNF,
   { [_e]: _c, [_hE]: 404 },
   [_EC, _M],
   [0, 0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessPointNotFound$, AccessPointNotFound);
+n0_registry.registerError(AccessPointNotFound$, AccessPointNotFound);
 export var AvailabilityZonesMismatch$: StaticErrorSchema = [-3, n0, _AZM,
   { [_e]: _c, [_hE]: 400 },
   [_EC, _M],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AvailabilityZonesMismatch$, AvailabilityZonesMismatch);
+n0_registry.registerError(AvailabilityZonesMismatch$, AvailabilityZonesMismatch);
+export var BadRequest$: StaticErrorSchema = [-3, n0, _BR,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(BadRequest$, BadRequest);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyTimeout$: StaticErrorSchema = [-3, n0, _DT,
+  { [_e]: _se, [_hE]: 504 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(DependencyTimeout$, DependencyTimeout);
+export var FileSystemAlreadyExists$: StaticErrorSchema = [-3, n0, _FSAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _FSI, _M],
+  [0, 0, 0], 2
+];
+n0_registry.registerError(FileSystemAlreadyExists$, FileSystemAlreadyExists);
+export var FileSystemInUse$: StaticErrorSchema = [-3, n0, _FSIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(FileSystemInUse$, FileSystemInUse);
+export var FileSystemLimitExceeded$: StaticErrorSchema = [-3, n0, _FSLE,
+  { [_e]: _c, [_hE]: 403 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(FileSystemLimitExceeded$, FileSystemLimitExceeded);
+export var FileSystemNotFound$: StaticErrorSchema = [-3, n0, _FSNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(FileSystemNotFound$, FileSystemNotFound);
+export var IncorrectFileSystemLifeCycleState$: StaticErrorSchema = [-3, n0, _IFSLCS,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(IncorrectFileSystemLifeCycleState$, IncorrectFileSystemLifeCycleState);
+export var IncorrectMountTargetState$: StaticErrorSchema = [-3, n0, _IMTS,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(IncorrectMountTargetState$, IncorrectMountTargetState);
+export var InsufficientThroughputCapacity$: StaticErrorSchema = [-3, n0, _ITC,
+  { [_e]: _se, [_hE]: 503 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(InsufficientThroughputCapacity$, InsufficientThroughputCapacity);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(InvalidPolicyException$, InvalidPolicyException);
+export var IpAddressInUse$: StaticErrorSchema = [-3, n0, _IAIU,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(IpAddressInUse$, IpAddressInUse);
+export var MountTargetConflict$: StaticErrorSchema = [-3, n0, _MTC,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(MountTargetConflict$, MountTargetConflict);
+export var MountTargetNotFound$: StaticErrorSchema = [-3, n0, _MTNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(MountTargetNotFound$, MountTargetNotFound);
+export var NetworkInterfaceLimitExceeded$: StaticErrorSchema = [-3, n0, _NILE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(NetworkInterfaceLimitExceeded$, NetworkInterfaceLimitExceeded);
+export var NoFreeAddressesInSubnet$: StaticErrorSchema = [-3, n0, _NFAIS,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(NoFreeAddressesInSubnet$, NoFreeAddressesInSubnet);
+export var PolicyNotFound$: StaticErrorSchema = [-3, n0, _PNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(PolicyNotFound$, PolicyNotFound);
+export var ReplicationAlreadyExists$: StaticErrorSchema = [-3, n0, _RAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ReplicationAlreadyExists$, ReplicationAlreadyExists);
+export var ReplicationNotFound$: StaticErrorSchema = [-3, n0, _RNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ReplicationNotFound$, ReplicationNotFound);
+export var SecurityGroupLimitExceeded$: StaticErrorSchema = [-3, n0, _SGLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(SecurityGroupLimitExceeded$, SecurityGroupLimitExceeded);
+export var SecurityGroupNotFound$: StaticErrorSchema = [-3, n0, _SGNF,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(SecurityGroupNotFound$, SecurityGroupNotFound);
+export var SubnetNotFound$: StaticErrorSchema = [-3, n0, _SNF,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(SubnetNotFound$, SubnetNotFound);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ThroughputLimitExceeded$: StaticErrorSchema = [-3, n0, _TLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(ThroughputLimitExceeded$, ThroughputLimitExceeded);
+export var TooManyRequests$: StaticErrorSchema = [-3, n0, _TMR,
+  { [_e]: _c, [_hE]: 429 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(TooManyRequests$, TooManyRequests);
+export var UnsupportedAvailabilityZone$: StaticErrorSchema = [-3, n0, _UAZ,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(UnsupportedAvailabilityZone$, UnsupportedAvailabilityZone);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AccessPointDescription$: StaticStructureSchema = [3, n0, _APD,
+  0,
+  [_CT, _N, _T, _API, _APA, _FSI, _PU, _RD, _OI, _LCS],
+  [0, 0, () => Tags, 0, 0, 0, () => PosixUser$, () => RootDirectory$, 0, 0]
+];
 export var BackupPolicy$: StaticStructureSchema = [3, n0, _BP,
   0,
   [_S],
@@ -292,18 +473,6 @@ export var BackupPolicyDescription$: StaticStructureSchema = [3, n0, _BPD,
   [_BP],
   [() => BackupPolicy$]
 ];
-export var BadRequest$: StaticErrorSchema = [-3, n0, _BR,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(BadRequest$, BadRequest);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessPointRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
   [_FSI, _CT, _T, _PU, _RD],
@@ -364,12 +533,6 @@ export var DeleteTagsRequest$: StaticStructureSchema = [3, n0, _DTR,
   [_FSI, _TK],
   [[0, 1], 64 | 0], 2
 ];
-export var DependencyTimeout$: StaticErrorSchema = [-3, n0, _DT,
-  { [_e]: _s, [_hE]: 504 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(DependencyTimeout$, DependencyTimeout);
 export var DescribeAccessPointsRequest$: StaticStructureSchema = [3, n0, _DAPRe,
   0,
   [_MR, _NT, _API, _FSI],
@@ -465,35 +628,11 @@ export var DestinationToCreate$: StaticStructureSchema = [3, n0, _DTC,
   [_Re, _AZN, _KKI, _FSI, _RA],
   [0, 0, 0, 0, 0]
 ];
-export var FileSystemAlreadyExists$: StaticErrorSchema = [-3, n0, _FSAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _FSI, _M],
-  [0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(FileSystemAlreadyExists$, FileSystemAlreadyExists);
 export var FileSystemDescription$: StaticStructureSchema = [3, n0, _FSD,
   0,
   [_OI, _CTr, _FSI, _CTre, _LCS, _NOMT, _SIB, _PM, _T, _FSA, _N, _E, _KKI, _TM, _PTIM, _AZN, _AZI, _FSP],
   [0, 0, 0, 4, 0, 1, () => FileSystemSize$, 0, () => Tags, 0, 0, 2, 0, 0, 1, 0, 0, () => FileSystemProtectionDescription$], 9
 ];
-export var FileSystemInUse$: StaticErrorSchema = [-3, n0, _FSIU,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(FileSystemInUse$, FileSystemInUse);
-export var FileSystemLimitExceeded$: StaticErrorSchema = [-3, n0, _FSLE,
-  { [_e]: _c, [_hE]: 403 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(FileSystemLimitExceeded$, FileSystemLimitExceeded);
-export var FileSystemNotFound$: StaticErrorSchema = [-3, n0, _FSNF,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(FileSystemNotFound$, FileSystemNotFound);
 export var FileSystemPolicyDescription$: StaticStructureSchema = [3, n0, _FSPD,
   0,
   [_FSI, _Po],
@@ -509,42 +648,6 @@ export var FileSystemSize$: StaticStructureSchema = [3, n0, _FSS,
   [_V, _Ti, _VIIA, _VIS, _VIA],
   [1, 4, 1, 1, 1], 1
 ];
-export var IncorrectFileSystemLifeCycleState$: StaticErrorSchema = [-3, n0, _IFSLCS,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(IncorrectFileSystemLifeCycleState$, IncorrectFileSystemLifeCycleState);
-export var IncorrectMountTargetState$: StaticErrorSchema = [-3, n0, _IMTS,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(IncorrectMountTargetState$, IncorrectMountTargetState);
-export var InsufficientThroughputCapacity$: StaticErrorSchema = [-3, n0, _ITC,
-  { [_e]: _s, [_hE]: 503 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(InsufficientThroughputCapacity$, InsufficientThroughputCapacity);
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyException$, InvalidPolicyException);
-export var IpAddressInUse$: StaticErrorSchema = [-3, n0, _IAIU,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(IpAddressInUse$, IpAddressInUse);
 export var LifecycleConfigurationDescription$: StaticStructureSchema = [3, n0, _LCD,
   0,
   [_LP],
@@ -570,41 +673,11 @@ export var ModifyMountTargetSecurityGroupsRequest$: StaticStructureSchema = [3, 
   [_MTI, _SG],
   [[0, 1], 64 | 0], 1
 ];
-export var MountTargetConflict$: StaticErrorSchema = [-3, n0, _MTC,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(MountTargetConflict$, MountTargetConflict);
 export var MountTargetDescription$: StaticStructureSchema = [3, n0, _MTD,
   0,
   [_MTI, _FSI, _SI, _LCS, _OI, _IA, _IAp, _NII, _AZI, _AZN, _VI],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
-export var MountTargetNotFound$: StaticErrorSchema = [-3, n0, _MTNF,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(MountTargetNotFound$, MountTargetNotFound);
-export var NetworkInterfaceLimitExceeded$: StaticErrorSchema = [-3, n0, _NILE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(NetworkInterfaceLimitExceeded$, NetworkInterfaceLimitExceeded);
-export var NoFreeAddressesInSubnet$: StaticErrorSchema = [-3, n0, _NFAIS,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(NoFreeAddressesInSubnet$, NoFreeAddressesInSubnet);
-export var PolicyNotFound$: StaticErrorSchema = [-3, n0, _PNF,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(PolicyNotFound$, PolicyNotFound);
 export var PosixUser$: StaticStructureSchema = [3, n0, _PU,
   0,
   [_U, _G, _SGe],
@@ -635,23 +708,11 @@ export var PutLifecycleConfigurationRequest$: StaticStructureSchema = [3, n0, _P
   [_FSI, _LP],
   [[0, 1], () => LifecyclePolicies], 2
 ];
-export var ReplicationAlreadyExists$: StaticErrorSchema = [-3, n0, _RAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ReplicationAlreadyExists$, ReplicationAlreadyExists);
 export var ReplicationConfigurationDescription$: StaticStructureSchema = [3, n0, _RCD,
   0,
   [_SFSI, _SFSR, _SFSA, _OSFSA, _CTre, _D, _SFSOI],
   [0, 0, 0, 0, 4, () => Destinations, 0], 6
 ];
-export var ReplicationNotFound$: StaticErrorSchema = [-3, n0, _RNF,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ReplicationNotFound$, ReplicationNotFound);
 export var ResourceIdPreference$: StaticStructureSchema = [3, n0, _RIP,
   0,
   [_RIT, _Res],
@@ -662,24 +723,6 @@ export var RootDirectory$: StaticStructureSchema = [3, n0, _RD,
   [_Pa, _CI],
   [0, () => CreationInfo$]
 ];
-export var SecurityGroupLimitExceeded$: StaticErrorSchema = [-3, n0, _SGLE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(SecurityGroupLimitExceeded$, SecurityGroupLimitExceeded);
-export var SecurityGroupNotFound$: StaticErrorSchema = [-3, n0, _SGNF,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(SecurityGroupNotFound$, SecurityGroupNotFound);
-export var SubnetNotFound$: StaticErrorSchema = [-3, n0, _SNF,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(SubnetNotFound$, SubnetNotFound);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -690,30 +733,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RI, _T],
   [[0, 1], () => Tags], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_EC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ThroughputLimitExceeded$: StaticErrorSchema = [-3, n0, _TLE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThroughputLimitExceeded$, ThroughputLimitExceeded);
-export var TooManyRequests$: StaticErrorSchema = [-3, n0, _TMR,
-  { [_e]: _c, [_hE]: 429 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(TooManyRequests$, TooManyRequests);
-export var UnsupportedAvailabilityZone$: StaticErrorSchema = [-3, n0, _UAZ,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(UnsupportedAvailabilityZone$, UnsupportedAvailabilityZone);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RI, _TK],
@@ -729,15 +748,7 @@ export var UpdateFileSystemRequest$: StaticStructureSchema = [3, n0, _UFSR,
   [_FSI, _TM, _PTIM],
   [[0, 1], 0, 1], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var EFSServiceException$: StaticErrorSchema = [-3, _sm, "EFSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EFSServiceException$, EFSServiceException);
 var AccessPointDescriptions: StaticListSchema = [1, n0, _APDc,
   0, () => AccessPointDescription$
 ];

@@ -208,7 +208,7 @@ const _pK = "primaryKeys";
 const _pS = "partitionSpec";
 const _q = "query";
 const _rA = "resourceArn";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.supplychain";
 const _sI = "sourceInfo";
 const _sN = "sourceName";
 const _sO = "sortOrder";
@@ -219,9 +219,9 @@ const _sTo = "sourceType";
 const _sTq = "sqlTransformation";
 const _sc = "schema";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.supplychain";
 const _so = "sources";
-const _st = "state";
+const _st = "status";
+const _sta = "state";
 const _su = "s3uri";
 const _t = "transformation";
 const _tK = "tagKeys";
@@ -258,25 +258,68 @@ import {
 import { SupplyChainServiceException } from "../models/SupplyChainServiceException";
 
 /* eslint no-var: 0 */
-var DataIntegrationEventData: StaticSimpleSchema = [0, n0, _DIED, 8, 0];
-var DataIntegrationFlowSQLQuery: StaticSimpleSchema = [0, n0, _DIFSQLQ, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SupplyChainServiceException$: StaticErrorSchema = [-3, _s, "SupplyChainServiceException", 0, [], []];
+_s_registry.registerError(SupplyChainServiceException$, SupplyChainServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var BillOfMaterialsImportJob$: StaticStructureSchema = [3, n0, _BOMIJ,
-  0,
-  [_iI, _jI, _s, _su, _m],
-  [0, 0, 0, 0, 0], 4
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var DataIntegrationEventData: StaticSimpleSchema = [0, n0, _DIED, 8, 0];
+var DataIntegrationFlowSQLQuery: StaticSimpleSchema = [0, n0, _DIFSQLQ, 8, 0];
+export var BillOfMaterialsImportJob$: StaticStructureSchema = [3, n0, _BOMIJ,
+  0,
+  [_iI, _jI, _st, _su, _m],
+  [0, 0, 0, 0, 0], 4
+];
 export var CreateBillOfMaterialsImportJobRequest$: StaticStructureSchema = [3, n0, _CBOMIJR,
   0,
   [_iI, _su, _cT],
@@ -334,7 +377,7 @@ export var DataIntegrationEvent$: StaticStructureSchema = [3, n0, _DIE,
 ];
 export var DataIntegrationEventDatasetLoadExecutionDetails$: StaticStructureSchema = [3, n0, _DIEDLED,
   0,
-  [_s, _m],
+  [_st, _m],
   [0, 0], 1
 ];
 export var DataIntegrationEventDatasetTargetConfiguration$: StaticStructureSchema = [3, n0, _DIEDTC,
@@ -379,7 +422,7 @@ export var DataIntegrationFlowDedupeStrategy$: StaticStructureSchema = [3, n0, _
 ];
 export var DataIntegrationFlowExecution$: StaticStructureSchema = [3, n0, _DIFE,
   0,
-  [_iI, _fN, _eIx, _s, _sI, _m, _sT, _eTn, _oM],
+  [_iI, _fN, _eIx, _st, _sI, _m, _sT, _eTn, _oM],
   [0, 0, 0, 0, () => DataIntegrationFlowExecutionSourceInfo$, 0, 4, 4, () => DataIntegrationFlowExecutionOutputMetadata$], 3
 ];
 export var DataIntegrationFlowExecutionOutputMetadata$: StaticStructureSchema = [3, n0, _DIFEOM,
@@ -594,15 +637,9 @@ export var GetInstanceResponse$: StaticStructureSchema = [3, n0, _GIRe,
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_iI, _aAI, _st, _eM, _wADD, _cTr, _lMT, _iN, _iD, _kKA, _vN],
+  [_iI, _aAI, _sta, _eM, _wADD, _cTr, _lMT, _iN, _iD, _kKA, _vN],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 1], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDataIntegrationEventsRequest$: StaticStructureSchema = [3, n0, _LDIER,
   0,
   [_iI, _eT, _nT, _mR],
@@ -673,12 +710,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_tag],
   [128 | 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendDataIntegrationEventRequest$: StaticStructureSchema = [3, n0, _SDIER,
   0,
   [_iI, _eT, _data, _eGI, _eTv, _cT, _dT],
@@ -689,12 +720,6 @@ export var SendDataIntegrationEventResponse$: StaticStructureSchema = [3, n0, _S
   [_eI],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _tag],
@@ -705,12 +730,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -761,14 +780,6 @@ export var UpdateInstanceResponse$: StaticStructureSchema = [3, n0, _UIRp,
   [_i],
   [() => Instance$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SupplyChainServiceException$: StaticErrorSchema = [-3, _sm, "SupplyChainServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SupplyChainServiceException$, SupplyChainServiceException);
 var DataIntegrationEventList: StaticListSchema = [1, n0, _DIEL,
   0, () => DataIntegrationEvent$
 ];

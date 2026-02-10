@@ -74,10 +74,10 @@ const _pT = "probeTags";
 const _pr = "protocol";
 const _pro = "probe";
 const _rA = "resourceArn";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.networkmonitor";
 const _sA = "sourceArn";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.networkmonitor";
+const _st = "state";
 const _t = "tags";
 const _tK = "tagKeys";
 const _vI = "vpcId";
@@ -105,18 +105,61 @@ import {
 import { NetworkMonitorServiceException } from "../models/NetworkMonitorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var NetworkMonitorServiceException$: StaticErrorSchema = [-3, _s, "NetworkMonitorServiceException", 0, [], []];
+_s_registry.registerError(NetworkMonitorServiceException$, NetworkMonitorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_mN, _p, _aP, _cT, _t],
@@ -124,7 +167,7 @@ export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
 ];
 export var CreateMonitorOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
-  [_mA, _mN, _s, _aP, _t],
+  [_mA, _mN, _st, _aP, _t],
   [0, 0, 0, 1, 128 | 0], 3
 ];
 export var CreateMonitorProbeInput$: StaticStructureSchema = [3, n0, _CMPI,
@@ -139,7 +182,7 @@ export var CreateProbeInput$: StaticStructureSchema = [3, n0, _CPI,
 ];
 export var CreateProbeOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
-  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _s, _cA, _mAo, _t],
+  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _st, _cA, _mAo, _t],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 4, 4, 128 | 0], 3
 ];
 export var DeleteMonitorInput$: StaticStructureSchema = [3, n0, _DMI,
@@ -169,7 +212,7 @@ export var GetMonitorInput$: StaticStructureSchema = [3, n0, _GMI,
 ];
 export var GetMonitorOutput$: StaticStructureSchema = [3, n0, _GMO,
   0,
-  [_mA, _mN, _s, _aP, _cA, _mAo, _t, _p],
+  [_mA, _mN, _st, _aP, _cA, _mAo, _t, _p],
   [0, 0, 0, 1, 4, 4, 128 | 0, () => ProbeList], 6
 ];
 export var GetProbeInput$: StaticStructureSchema = [3, n0, _GPI,
@@ -179,19 +222,13 @@ export var GetProbeInput$: StaticStructureSchema = [3, n0, _GPI,
 ];
 export var GetProbeOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _s, _cA, _mAo, _t],
+  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _st, _cA, _mAo, _t],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 4, 4, 128 | 0], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListMonitorsInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
-  [_nT, _mR, _s],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _s }]]
+  [_nT, _mR, _st],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }]]
 ];
 export var ListMonitorsOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
@@ -210,12 +247,12 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var MonitorSummary$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_mA, _mN, _s, _aP, _t],
+  [_mA, _mN, _st, _aP, _t],
   [0, 0, 0, 1, 128 | 0], 3
 ];
 export var Probe$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _s, _cA, _mAo, _t],
+  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _st, _cA, _mAo, _t],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 4, 4, 128 | 0], 3
 ];
 export var ProbeInput$: StaticStructureSchema = [3, n0, _PI,
@@ -223,18 +260,6 @@ export var ProbeInput$: StaticStructureSchema = [3, n0, _PI,
   [_sA, _d, _pr, _dP, _pS, _t],
   [0, 0, 0, 1, 1, 128 | 0], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -245,12 +270,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -268,27 +287,19 @@ export var UpdateMonitorInput$: StaticStructureSchema = [3, n0, _UMI,
 ];
 export var UpdateMonitorOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
-  [_mA, _mN, _s, _aP, _t],
+  [_mA, _mN, _st, _aP, _t],
   [0, 0, 0, 1, 128 | 0], 3
 ];
 export var UpdateProbeInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_mN, _pI, _s, _d, _dP, _pr, _pS],
+  [_mN, _pI, _st, _d, _dP, _pr, _pS],
   [[0, 1], [0, 1], 0, 0, 1, 0, 1], 2
 ];
 export var UpdateProbeOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
-  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _s, _cA, _mAo, _t],
+  [_sA, _d, _pr, _pI, _pA, _dP, _pS, _aF, _vI, _st, _cA, _mAo, _t],
   [0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 4, 4, 128 | 0], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var NetworkMonitorServiceException$: StaticErrorSchema = [-3, _sm, "NetworkMonitorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NetworkMonitorServiceException$, NetworkMonitorServiceException);
 var CreateMonitorProbeInputList: StaticListSchema = [1, n0, _CMPIL,
   0, () => CreateMonitorProbeInput$
 ];

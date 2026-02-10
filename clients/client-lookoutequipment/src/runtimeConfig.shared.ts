@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultLookoutEquipmentHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: LookoutEquipmentClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.lookoutequipment",
+      errorTypeRegistries,
       version: "2020-12-15",
       serviceTarget: "AWSLookoutEquipmentFrontendService",
     },

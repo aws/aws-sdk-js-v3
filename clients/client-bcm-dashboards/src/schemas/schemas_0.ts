@@ -94,11 +94,11 @@ const _rC = "reservationCoverage";
 const _rT = "resourceTags";
 const _rTK = "resourceTagKeys";
 const _rU = "reservationUtilization";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bcmdashboards";
 const _sPC = "savingsPlansCoverage";
 const _sPU = "savingsPlansUtilization";
 const _sT = "startTime";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bcmdashboards";
+const _se = "server";
 const _t = "type";
 const _tR = "timeRange";
 const _ta = "tags";
@@ -134,12 +134,55 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BCMDashboardsServiceException$: StaticErrorSchema = [-3, _s, "BCMDashboardsServiceException", 0, [], []];
+_s_registry.registerError(BCMDashboardsServiceException$, BCMDashboardsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CostAndUsageQuery$: StaticStructureSchema = [3, n0, _CAUQ,
   0,
   [_me, _tR, _g, _gB, _f],
@@ -225,12 +268,6 @@ export var GroupDefinition$: StaticStructureSchema = [3, n0, _GD,
   [_k, _t],
   [0, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDashboardsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_mR, _nT],
@@ -261,12 +298,6 @@ export var ReservationUtilizationQuery$: StaticStructureSchema = [3, n0, _RUQ,
   [_tR, _gB, _g, _f],
   [() => DateTimeRange$, () => GroupDefinitions, 0, () => Expression$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_k, _va],
@@ -282,12 +313,6 @@ export var SavingsPlansUtilizationQuery$: StaticStructureSchema = [3, n0, _SPUQ,
   [_tR, _g, _f],
   [() => DateTimeRange$, 0, () => Expression$], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TableDisplayConfigStruct$: StaticStructureSchema = [3, n0, _TDCS,
   0,
   [],
@@ -308,12 +333,6 @@ export var TagValues$: StaticStructureSchema = [3, n0, _TV,
   [_k, _v, _mO],
   [0, 64 | 0, 64 | 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _rTK],
@@ -334,12 +353,6 @@ export var UpdateDashboardResponse$: StaticStructureSchema = [3, n0, _UDRp,
   [_a],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Widget$: StaticStructureSchema = [3, n0, _W,
   0,
   [_ti, _co, _d, _wi, _h, _hO],
@@ -350,8 +363,6 @@ export var WidgetConfig$: StaticStructureSchema = [3, n0, _WC,
   [_qP, _dC],
   [() => QueryParameters$, () => DisplayConfig$], 2
 ];
-export var BCMDashboardsServiceException$: StaticErrorSchema = [-3, _sm, "BCMDashboardsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BCMDashboardsServiceException$, BCMDashboardsServiceException);
 var DashboardReferenceList: StaticListSchema = [1, n0, _DRL,
   0, () => DashboardReference$
 ];

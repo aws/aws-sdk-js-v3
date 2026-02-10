@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultFinspaceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { FinspaceClientConfig } from "./FinspaceClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: FinspaceClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.finspace",
+      errorTypeRegistries,
       version: "2021-03-12",
       serviceTarget: "AWSHabaneroManagementService",
     },

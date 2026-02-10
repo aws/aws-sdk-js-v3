@@ -34,9 +34,9 @@ const _iT = "idToken";
 const _r = "reason";
 const _rT = "refreshToken";
 const _rU = "redirectUri";
-const _s = "scope";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssooidc";
+const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssooidc";
 const _tT = "tokenType";
 const n0 = "com.amazonaws.ssooidc";
 
@@ -66,11 +66,10 @@ import {
 import { SSOOIDCServiceException } from "../models/SSOOIDCServiceException";
 
 /* eslint no-var: 0 */
-var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
-var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
-var CodeVerifier: StaticSimpleSchema = [0, n0, _CV, 8, 0];
-var IdToken: StaticSimpleSchema = [0, n0, _IT, 8, 0];
-var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SSOOIDCServiceException$: StaticErrorSchema = [-3, _s, "SSOOIDCServiceException", 0, [], []];
+_s_registry.registerError(SSOOIDCServiceException$, SSOOIDCServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [
   -3,
   n0,
@@ -79,7 +78,7 @@ export var AccessDeniedException$: StaticErrorSchema = [
   [_e, _r, _ed],
   [0, 0, 0],
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var AuthorizationPendingException$: StaticErrorSchema = [
   -3,
   n0,
@@ -88,13 +87,63 @@ export var AuthorizationPendingException$: StaticErrorSchema = [
   [_e, _ed],
   [0, 0],
 ];
-TypeRegistry.for(n0).registerError(AuthorizationPendingException$, AuthorizationPendingException);
+n0_registry.registerError(AuthorizationPendingException$, AuthorizationPendingException);
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c, [_hE]: 401 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(InvalidClientException$, InvalidClientException);
+export var InvalidGrantException$: StaticErrorSchema = [-3, n0, _IGE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(InvalidGrantException$, InvalidGrantException);
+export var InvalidRequestException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _r, _ed],
+  [0, 0, 0],
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidScopeException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(InvalidScopeException$, InvalidScopeException);
+export var SlowDownException$: StaticErrorSchema = [-3, n0, _SDE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
+n0_registry.registerError(SlowDownException$, SlowDownException);
+export var UnauthorizedClientException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _UCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0],
+];
+n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
+export var UnsupportedGrantTypeException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _UGTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _ed],
+  [0, 0],
+];
+n0_registry.registerError(UnsupportedGrantTypeException$, UnsupportedGrantTypeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [_s_registry, n0_registry];
+var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
+var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
+var CodeVerifier: StaticSimpleSchema = [0, n0, _CV, 8, 0];
+var IdToken: StaticSimpleSchema = [0, n0, _IT, 8, 0];
+var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
 export var CreateTokenRequest$: StaticStructureSchema = [
   3,
   n0,
   _CTR,
   0,
-  [_cI, _cS, _gT, _dC, _co, _rT, _s, _rU, _cV],
+  [_cI, _cS, _gT, _dC, _co, _rT, _sc, _rU, _cV],
   [0, [() => ClientSecret, 0], 0, 0, 0, [() => RefreshToken, 0], 64 | 0, 0, [() => CodeVerifier, 0]],
   3,
 ];
@@ -106,47 +155,6 @@ export var CreateTokenResponse$: StaticStructureSchema = [
   [_aT, _tT, _eI, _rT, _iT],
   [[() => AccessToken, 0], 0, 1, [() => RefreshToken, 0], [() => IdToken, 0]],
 ];
-export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(ExpiredTokenException$, ExpiredTokenException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE, { [_e]: _se, [_hE]: 500 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidClientException$: StaticErrorSchema = [-3, n0, _ICE, { [_e]: _c, [_hE]: 401 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidClientException$, InvalidClientException);
-export var InvalidGrantException$: StaticErrorSchema = [-3, n0, _IGE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidGrantException$, InvalidGrantException);
-export var InvalidRequestException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_e, _r, _ed],
-  [0, 0, 0],
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidScopeException$: StaticErrorSchema = [-3, n0, _ISEn, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(InvalidScopeException$, InvalidScopeException);
-export var SlowDownException$: StaticErrorSchema = [-3, n0, _SDE, { [_e]: _c, [_hE]: 400 }, [_e, _ed], [0, 0]];
-TypeRegistry.for(n0).registerError(SlowDownException$, SlowDownException);
-export var UnauthorizedClientException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_e, _ed],
-  [0, 0],
-];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
-export var UnsupportedGrantTypeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _UGTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_e, _ed],
-  [0, 0],
-];
-TypeRegistry.for(n0).registerError(UnsupportedGrantTypeException$, UnsupportedGrantTypeException);
-export var SSOOIDCServiceException$: StaticErrorSchema = [-3, _sm, "SSOOIDCServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSOOIDCServiceException$, SSOOIDCServiceException);
 var Scopes = 64 | 0;
 export var CreateToken$: StaticOperationSchema = [
   9,

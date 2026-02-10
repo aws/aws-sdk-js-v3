@@ -538,15 +538,15 @@ const _pD = "postDirectional";
 const _pDr = "preDirectional";
 const _pnt = "phone-number-type";
 const _pt = "product-type";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkvoice";
 const _sI = "streetInfo";
 const _sN = "streetName";
 const _sNt = "streetNumber";
 const _sS = "streetSuffix";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkvoice";
 const _sma = "sip-media-application";
-const _st = "status";
+const _st = "state";
+const _sta = "status";
 const _tfp = "toll-free-prefix";
 const _vpdi = "voice-profile-domain-id";
 const _xN = "xmlName";
@@ -580,6 +580,91 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ChimeSDKVoiceServiceException$: StaticErrorSchema = [-3, _s, "ChimeSDKVoiceServiceException", 0, [], []];
+_s_registry.registerError(ChimeSDKVoiceServiceException$, ChimeSDKVoiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
+  { [_e]: _c, [_hE]: 410 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(GoneException$, GoneException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 429 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 401 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AlexaSkillId: StaticSimpleSchema = [0, n0, _ASI, 8, 0];
 var Arn: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var CallingName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
@@ -591,15 +676,9 @@ var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Address$: StaticStructureSchema = [3, n0, _Ad,
   0,
-  [_sN, _sS, _pD, _pDr, _sNt, _ci, _s, _pC, _pCP, _co],
+  [_sN, _sS, _pD, _pDr, _sNt, _ci, _st, _pC, _pCP, _co],
   [[() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0]]
 ];
 export var AssociatePhoneNumbersWithVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _APNWVCGR,
@@ -622,12 +701,6 @@ export var AssociatePhoneNumbersWithVoiceConnectorResponse$: StaticStructureSche
   [_PNE],
   [[() => PhoneNumberErrorList, 0]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchDeletePhoneNumberRequest$: StaticStructureSchema = [3, n0, _BDPNR,
   0,
   [_PNI],
@@ -655,15 +728,9 @@ export var CallDetails$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CandidateAddress$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_sI, _sNt, _ci, _s, _pC, _pCP, _co],
+  [_sI, _sNt, _ci, _st, _pC, _pCP, _co],
   [[() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0], [() => SensitiveNonEmptyString, 0]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreatePhoneNumberOrderRequest$: StaticStructureSchema = [3, n0, _CPNOR,
   0,
   [_PT, _EPNh, _N],
@@ -869,12 +936,6 @@ export var ExternalSystemsConfiguration$: StaticStructureSchema = [3, n0, _ESC,
   [_SBCT, _CCST],
   [64 | 0, 64 | 0]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GeoMatchParams$: StaticStructureSchema = [3, n0, _GMP,
   0,
   [_Co, _AC],
@@ -1100,12 +1161,6 @@ export var GetVoiceToneAnalysisTaskResponse$: StaticStructureSchema = [3, n0, _G
   [_VTAT],
   [() => VoiceToneAnalysisTask$]
 ];
-export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
-  { [_e]: _c, [_hE]: 410 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(GoneException$, GoneException);
 export var ListAvailableVoiceConnectorRegionsResponse$: StaticStructureSchema = [3, n0, _LAVCRR,
   0,
   [_VCR],
@@ -1124,7 +1179,7 @@ export var ListPhoneNumberOrdersResponse$: StaticStructureSchema = [3, n0, _LPNO
 export var ListPhoneNumbersRequest$: StaticStructureSchema = [3, n0, _LPNR,
   0,
   [_S, _PT, _FN, _FV, _MR, _NTe],
-  [[0, { [_hQ]: _st }], [0, { [_hQ]: _pt }], [0, { [_hQ]: _fn }], [0, { [_hQ]: _fv }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [[0, { [_hQ]: _sta }], [0, { [_hQ]: _pt }], [0, { [_hQ]: _fn }], [0, { [_hQ]: _fv }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
 ];
 export var ListPhoneNumbersResponse$: StaticStructureSchema = [3, n0, _LPNRi,
   0,
@@ -1134,7 +1189,7 @@ export var ListPhoneNumbersResponse$: StaticStructureSchema = [3, n0, _LPNRi,
 export var ListProxySessionsRequest$: StaticStructureSchema = [3, n0, _LPSR,
   0,
   [_VCI, _S, _NTe, _MR],
-  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
+  [[0, 1], [0, { [_hQ]: _sta }], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
 ];
 export var ListProxySessionsResponse$: StaticStructureSchema = [3, n0, _LPSRi,
   0,
@@ -1241,12 +1296,6 @@ export var MediaInsightsConfiguration$: StaticStructureSchema = [3, n0, _MIC,
   [_D, _CAo],
   [2, [() => Arn, 0]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OrderedPhoneNumber$: StaticStructureSchema = [3, n0, _OPN,
   0,
   [_EPN, _S],
@@ -1402,12 +1451,6 @@ export var PutVoiceConnectorTerminationResponse$: StaticStructureSchema = [3, n0
   [_Te],
   [[() => Termination$, 0]]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
 export var RestorePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
   0,
   [_PNIh],
@@ -1421,7 +1464,7 @@ export var RestorePhoneNumberResponse$: StaticStructureSchema = [3, n0, _RPNRe,
 export var SearchAvailablePhoneNumbersRequest$: StaticStructureSchema = [3, n0, _SAPNR,
   0,
   [_AC, _Ci, _Co, _St, _TFP, _PNT, _MR, _NTe],
-  [[0, { [_hQ]: _ac }], [0, { [_hQ]: _ci }], [0, { [_hQ]: _co }], [0, { [_hQ]: _s }], [0, { [_hQ]: _tfp }], [0, { [_hQ]: _pnt }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+  [[0, { [_hQ]: _ac }], [0, { [_hQ]: _ci }], [0, { [_hQ]: _co }], [0, { [_hQ]: _st }], [0, { [_hQ]: _tfp }], [0, { [_hQ]: _pnt }], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
 ];
 export var SearchAvailablePhoneNumbersResponse$: StaticStructureSchema = [3, n0, _SAPNRe,
   0,
@@ -1433,18 +1476,6 @@ export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _
   [_KKA],
   [[() => Arn, 0]], 1
 ];
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SipMediaApplication$: StaticStructureSchema = [3, n0, _SMA,
   0,
   [_SMAI, _AR, _N, _E, _CT, _UT, _SMAA],
@@ -1555,24 +1586,6 @@ export var TerminationHealth$: StaticStructureSchema = [3, n0, _TH,
   [_Ti, _So],
   [5, 0]
 ];
-export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c, [_hE]: 429 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
-export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
-  { [_e]: _c, [_hE]: 401 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_e]: _c, [_hE]: 422 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
@@ -1739,8 +1752,6 @@ export var VoiceToneAnalysisTask$: StaticStructureSchema = [3, n0, _VTAT,
   [0, 0, () => CallDetails$, 5, 5, 5, 0]
 ];
 var __Unit = "unit" as const;
-export var ChimeSDKVoiceServiceException$: StaticErrorSchema = [-3, _sm, "ChimeSDKVoiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ChimeSDKVoiceServiceException$, ChimeSDKVoiceServiceException);
 var AlexaSkillIdList: StaticListSchema = [1, n0, _ASIL,
   0, [() => AlexaSkillId,
     0]

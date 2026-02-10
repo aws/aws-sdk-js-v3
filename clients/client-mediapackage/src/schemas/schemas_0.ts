@@ -170,12 +170,12 @@ const _cP = "cmafPackage";
 const _ch = "channels";
 const _d = "description";
 const _dP = "dashPackage";
-const _e = "encryption";
+const _e = "error";
 const _eAL = "egressAccessLogs";
 const _eCC = "encryptionContractConfiguration";
 const _eM = "encryptionMethod";
 const _eT = "endTime";
-const _er = "error";
+const _en = "encryption";
 const _h = "http";
 const _hE = "httpError";
 const _hI = "hlsIngest";
@@ -225,7 +225,7 @@ const _pa = "password";
 const _rA = "roleArn";
 const _rEXK = "repeatExtXKey";
 const _rI = "resourceId";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackage";
 const _sD = "s3Destination";
 const _sDS = "segmentDurationSeconds";
 const _sI = "systemIds";
@@ -239,7 +239,7 @@ const _sT = "startTime";
 const _sTF = "segmentTemplateFormat";
 const _sWS = "startoverWindowSeconds";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackage";
+const _st = "status";
 const _t = "tags";
 const _tDS = "timeDelaySeconds";
 const _tK = "tagKeys";
@@ -273,6 +273,55 @@ import {
 import { MediaPackageServiceException } from "../models/MediaPackageServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaPackageServiceException$: StaticErrorSchema = [-3, _s, "MediaPackageServiceException", 0, [], []];
+_s_registry.registerError(MediaPackageServiceException$, MediaPackageServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Authorization$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -292,12 +341,12 @@ export var CmafEncryption$: StaticStructureSchema = [3, n0, _CE,
 export var CmafPackage$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_E, _HM, _SDS, _SP, _SSt],
-  [[() => CmafEncryption$, { [_jN]: _e }], [() => __listOfHlsManifest, { [_jN]: _hM }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sP }], [() => StreamSelection$, { [_jN]: _sS }]]
+  [[() => CmafEncryption$, { [_jN]: _en }], [() => __listOfHlsManifest, { [_jN]: _hM }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sP }], [() => StreamSelection$, { [_jN]: _sS }]]
 ];
 export var CmafPackageCreateOrUpdateParameters$: StaticStructureSchema = [3, n0, _CPCOUP,
   0,
   [_E, _HM, _SDS, _SP, _SSt],
-  [[() => CmafEncryption$, { [_jN]: _e }], [() => __listOfHlsManifestCreateOrUpdateParameters, { [_jN]: _hM }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sP }], [() => StreamSelection$, { [_jN]: _sS }]]
+  [[() => CmafEncryption$, { [_jN]: _en }], [() => __listOfHlsManifestCreateOrUpdateParameters, { [_jN]: _hM }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sP }], [() => StreamSelection$, { [_jN]: _sS }]]
 ];
 export var ConfigureLogsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
@@ -327,7 +376,7 @@ export var CreateHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJR,
 export var CreateHarvestJobResponse$: StaticStructureSchema = [3, n0, _CHJRr,
   0,
   [_Ar, _CI, _CA, _ET, _I, _OEI, _SD, _ST, _S],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _st }]]
 ];
 export var CreateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _COER,
   0,
@@ -347,7 +396,7 @@ export var DashEncryption$: StaticStructureSchema = [3, n0, _DE,
 export var DashPackage$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_AT, _AODR, _E, _IIOS, _ML, _MWS, _MBTS, _MUPS, _PT, _P, _SDS, _STF, _SSt, _SPDS, _UT, _UTU],
-  [[64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [() => DashEncryption$, { [_jN]: _e }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mL }], [1, { [_jN]: _mWS }], [1, { [_jN]: _mBTS }], [1, { [_jN]: _mUPS }], [64 | 0, { [_jN]: _pT }], [0, { [_jN]: _p }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }], [() => StreamSelection$, { [_jN]: _sS }], [1, { [_jN]: _sPDS }], [0, { [_jN]: _uT }], [0, { [_jN]: _uTU }]]
+  [[64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [() => DashEncryption$, { [_jN]: _en }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _mL }], [1, { [_jN]: _mWS }], [1, { [_jN]: _mBTS }], [1, { [_jN]: _mUPS }], [64 | 0, { [_jN]: _pT }], [0, { [_jN]: _p }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }], [() => StreamSelection$, { [_jN]: _sS }], [1, { [_jN]: _sPDS }], [0, { [_jN]: _uT }], [0, { [_jN]: _uTU }]]
 ];
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -387,7 +436,7 @@ export var DescribeHarvestJobRequest$: StaticStructureSchema = [3, n0, _DHJR,
 export var DescribeHarvestJobResponse$: StaticStructureSchema = [3, n0, _DHJRe,
   0,
   [_Ar, _CI, _CA, _ET, _I, _OEI, _SD, _ST, _S],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _st }]]
 ];
 export var DescribeOriginEndpointRequest$: StaticStructureSchema = [3, n0, _DOERes,
   0,
@@ -409,16 +458,10 @@ export var EncryptionContractConfiguration$: StaticStructureSchema = [3, n0, _EC
   [_PSA, _PSV],
   [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]], 2
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_er]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var HarvestJob$: StaticStructureSchema = [3, n0, _HJ,
   0,
   [_Ar, _CI, _CA, _ET, _I, _OEI, _SD, _ST, _S],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _a }], [0, { [_jN]: _cI }], [0, { [_jN]: _cA }], [0, { [_jN]: _eT }], [0, { [_jN]: _i }], [0, { [_jN]: _oEI }], [() => S3Destination$, { [_jN]: _sD }], [0, { [_jN]: _sT }], [0, { [_jN]: _st }]]
 ];
 export var HlsEncryption$: StaticStructureSchema = [3, n0, _HE,
   0,
@@ -443,7 +486,7 @@ export var HlsManifestCreateOrUpdateParameters$: StaticStructureSchema = [3, n0,
 export var HlsPackage$: StaticStructureSchema = [3, n0, _HP,
   0,
   [_AM, _AT, _AODR, _E, _IDS, _IIOS, _PTl, _PWS, _PDTIS, _SDS, _SSt, _UARG],
-  [[0, { [_jN]: _aM }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [() => HlsEncryption$, { [_jN]: _e }], [2, { [_jN]: _iDS }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }], [1, { [_jN]: _sDS }], [() => StreamSelection$, { [_jN]: _sS }], [2, { [_jN]: _uARG }]]
+  [[0, { [_jN]: _aM }], [64 | 0, { [_jN]: _aT }], [0, { [_jN]: _aODR }], [() => HlsEncryption$, { [_jN]: _en }], [2, { [_jN]: _iDS }], [2, { [_jN]: _iIOS }], [0, { [_jN]: _pTl }], [1, { [_jN]: _pWS }], [1, { [_jN]: _pDTIS }], [1, { [_jN]: _sDS }], [() => StreamSelection$, { [_jN]: _sS }], [2, { [_jN]: _uARG }]]
 ];
 export var IngestEndpoint$: StaticStructureSchema = [3, n0, _IEn,
   0,
@@ -455,12 +498,6 @@ export var IngressAccessLogs$: StaticStructureSchema = [3, n0, _IAL,
   [_LGN],
   [[0, { [_jN]: _lGN }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_er]: _se, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_MR, _NT],
@@ -509,14 +546,8 @@ export var MssEncryption$: StaticStructureSchema = [3, n0, _ME,
 export var MssPackage$: StaticStructureSchema = [3, n0, _MP,
   0,
   [_E, _MWS, _SDS, _SSt],
-  [[() => MssEncryption$, { [_jN]: _e }], [1, { [_jN]: _mWS }], [1, { [_jN]: _sDS }], [() => StreamSelection$, { [_jN]: _sS }]]
+  [[() => MssEncryption$, { [_jN]: _en }], [1, { [_jN]: _mWS }], [1, { [_jN]: _sDS }], [() => StreamSelection$, { [_jN]: _sS }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OriginEndpoint$: StaticStructureSchema = [3, n0, _OEr,
   0,
   [_Ar, _A, _CI, _CP, _CA, _DP, _D, _HP, _I, _MN, _MP, _O, _SWS, _T, _TDS, _U, _W],
@@ -547,12 +578,6 @@ export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   [_BN, _MK, _RAo],
   [[0, { [_jN]: _bN }], [0, { [_jN]: _mK }], [0, { [_jN]: _rA }]], 3
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_er]: _se, [_hE]: 503 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
   [_RI, _RAo, _SI, _U, _CAe, _ECC],
@@ -568,18 +593,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RA, _T],
   [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_er]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_er]: _c, [_hE]: 422 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -606,8 +619,6 @@ export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp
   [[0, { [_jN]: _a }], [() => Authorization$, { [_jN]: _au }], [0, { [_jN]: _cI }], [() => CmafPackage$, { [_jN]: _cP }], [0, { [_jN]: _cA }], [() => DashPackage$, { [_jN]: _dP }], [0, { [_jN]: _d }], [() => HlsPackage$, { [_jN]: _hP }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [() => MssPackage$, { [_jN]: _mP }], [0, { [_jN]: _o }], [1, { [_jN]: _sWS }], [128 | 0, { [_jN]: _t }], [1, { [_jN]: _tDS }], [0, { [_jN]: _u }], [64 | 0, { [_jN]: _w }]]
 ];
 var __Unit = "unit" as const;
-export var MediaPackageServiceException$: StaticErrorSchema = [-3, _sm, "MediaPackageServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaPackageServiceException$, MediaPackageServiceException);
 var __listOf__PeriodTriggersElement = 64 | 0;
 var __listOf__string = 64 | 0;
 var __listOfChannel: StaticListSchema = [1, n0, _lOC,

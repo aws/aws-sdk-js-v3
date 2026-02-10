@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPartnerCentralChannelHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PartnerCentralChannelClientConfig } from "./PartnerCentralChannelClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: PartnerCentralChannelClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.partnercentralchannel",
+      errorTypeRegistries,
       version: "2024-03-18",
       serviceTarget: "PartnerCentralChannel",
     },

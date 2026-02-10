@@ -97,7 +97,7 @@ const _pa = "passed";
 const _qRDU = "qualificationReportDownloadUrl";
 const _rA = "resourceArn";
 const _rG = "rootGroup";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotdeviceadvisor";
 const _sA = "startedAt";
 const _sDA = "suiteDefinitionArn";
 const _sDC = "suiteDefinitionConfiguration";
@@ -113,7 +113,7 @@ const _sRL = "suiteRunsList";
 const _sT = "startTime";
 const _sTL = "selectedTestList";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotdeviceadvisor";
+const _st = "status";
 const _t = "tags";
 const _tA = "thingArn";
 const _tCDI = "testCaseDefinitionId";
@@ -147,12 +147,43 @@ import {
 import { IotDeviceAdvisorServiceException } from "../models/IotDeviceAdvisorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IotDeviceAdvisorServiceException$: StaticErrorSchema = [-3, _s, "IotDeviceAdvisorServiceException", 0, [], []];
+_s_registry.registerError(IotDeviceAdvisorServiceException$, IotDeviceAdvisorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateSuiteDefinitionRequest$: StaticStructureSchema = [3, n0, _CSDR,
   0,
   [_sDC, _t, _cT],
@@ -215,7 +246,7 @@ export var GetSuiteRunRequest$: StaticStructureSchema = [3, n0, _GSRR,
 ];
 export var GetSuiteRunResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
-  [_sDI, _sDV, _sRI, _sRA, _sRC, _tR, _sT, _eT, _s, _eR, _t],
+  [_sDI, _sDV, _sRI, _sRA, _sRC, _tR, _sT, _eT, _st, _eR, _t],
   [0, 0, 0, 0, () => SuiteRunConfiguration$, () => TestResult$, 4, 4, 0, 0, 128 | 0]
 ];
 export var GroupResult$: StaticStructureSchema = [3, n0, _GR,
@@ -223,12 +254,6 @@ export var GroupResult$: StaticStructureSchema = [3, n0, _GR,
   [_gI, _gN, _te],
   [0, 0, () => TestCaseRuns]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListSuiteDefinitionsRequest$: StaticStructureSchema = [3, n0, _LSDR,
   0,
   [_mR, _nT],
@@ -259,12 +284,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartSuiteRunRequest$: StaticStructureSchema = [3, n0, _SSRR,
   0,
   [_sDI, _sRC, _sDV, _t],
@@ -302,7 +321,7 @@ export var SuiteRunConfiguration$: StaticStructureSchema = [3, n0, _SRC,
 ];
 export var SuiteRunInformation$: StaticStructureSchema = [3, n0, _SRI,
   0,
-  [_sDI, _sDV, _sDN, _sRI, _cA, _sA, _eA, _s, _pa, _f],
+  [_sDI, _sDV, _sDN, _sRI, _cA, _sA, _eA, _st, _pa, _f],
   [0, 0, 0, 0, 4, 4, 4, 0, 1, 1]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -317,12 +336,12 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TestCaseRun$: StaticStructureSchema = [3, n0, _TCR,
   0,
-  [_tCRI, _tCDI, _tCDN, _s, _sT, _eT, _lU, _w, _fa, _tS],
+  [_tCRI, _tCDI, _tCDN, _st, _sT, _eT, _lU, _w, _fa, _tS],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, () => TestCaseScenariosList]
 ];
 export var TestCaseScenario$: StaticStructureSchema = [3, n0, _TCS,
   0,
-  [_tCSI, _tCST, _s, _fa, _sM],
+  [_tCSI, _tCST, _st, _fa, _sM],
   [0, 0, 0, 0, 0]
 ];
 export var TestResult$: StaticStructureSchema = [3, n0, _TR,
@@ -350,14 +369,6 @@ export var UpdateSuiteDefinitionResponse$: StaticStructureSchema = [3, n0, _USDR
   [_sDI, _sDA, _sDN, _sDV, _cA, _lUA],
   [0, 0, 0, 0, 4, 4]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var IotDeviceAdvisorServiceException$: StaticErrorSchema = [-3, _sm, "IotDeviceAdvisorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IotDeviceAdvisorServiceException$, IotDeviceAdvisorServiceException);
 var DeviceUnderTestList: StaticListSchema = [1, n0, _DUTL,
   0, () => DeviceUnderTest$
 ];

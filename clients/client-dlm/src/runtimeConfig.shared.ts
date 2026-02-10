@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDLMHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DLMClientConfig } from "./DLMClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DLMClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.dlm",
+      errorTypeRegistries,
       version: "2018-01-12",
       serviceTarget: "dlm_20180112",
     },

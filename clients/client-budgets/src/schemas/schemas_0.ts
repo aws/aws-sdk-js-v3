@@ -215,8 +215,8 @@ const _Va = "Value";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.budgets";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.budgets";
+const _se = "server";
 const n0 = "com.amazonaws.budgets";
 
 // smithy-typescript generated code
@@ -247,13 +247,92 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var SubscriberAddress: StaticSimpleSchema = [0, n0, _SA, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var BudgetsServiceException$: StaticErrorSchema = [-3, _s, "BudgetsServiceException", 0, [], []];
+_s_registry.registerError(BudgetsServiceException$, BudgetsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
+export var CreationLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c, [_hE]: 405 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CreationLimitExceededException$, CreationLimitExceededException);
+export var DuplicateRecordException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateRecordException$, DuplicateRecordException);
+export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceLockedException$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c, [_hE]: 423 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceLockedException$, ResourceLockedException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SubscriberAddress: StaticSimpleSchema = [0, n0, _SA, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AI, _BN, _NT, _AT, _ATc, _D, _ERA, _AM, _S, _Su],
@@ -279,12 +358,6 @@ export var AutoAdjustData$: StaticStructureSchema = [3, n0, _AAD,
   [_AAT, _HO, _LAAT],
   [0, () => HistoricalOptions$, 4], 1
 ];
-export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
 export var Budget$: StaticStructureSchema = [3, n0, _B,
   0,
   [_BN, _TU, _BT, _BL, _PBL, _CF, _CT, _TP, _CS, _LUT, _AAD, _FE, _Me, _BVA, _HS],
@@ -360,12 +433,6 @@ export var CreateSubscriberResponse$: StaticStructureSchema = [3, n0, _CSRr,
   [],
   []
 ];
-export var CreationLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
-  { [_e]: _c, [_hE]: 405 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CreationLimitExceededException$, CreationLimitExceededException);
 export var Definition$: StaticStructureSchema = [3, n0, _D,
   0,
   [_IAD, _SAD, _SADs],
@@ -511,12 +578,6 @@ export var DescribeSubscribersForNotificationResponse$: StaticStructureSchema = 
   [_Su, _NTe],
   [[() => Subscribers, 0], 0]
 ];
-export var DuplicateRecordException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateRecordException$, DuplicateRecordException);
 export var ExecuteBudgetActionRequest$: StaticStructureSchema = [3, n0, _EBAR,
   0,
   [_AIc, _BN, _AI, _ETx],
@@ -527,12 +588,6 @@ export var ExecuteBudgetActionResponse$: StaticStructureSchema = [3, n0, _EBARx,
   [_AIc, _BN, _AI, _ETx],
   [0, 0, 0, 0], 4
 ];
-export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
 export var Expression$: StaticStructureSchema = [3, n0, _E,
   0,
   [_O, _An, _Not, _Di, _Ta, _CC],
@@ -558,24 +613,6 @@ export var IamActionDefinition$: StaticStructureSchema = [3, n0, _IAD,
   [_PA, _R, _G, _U],
   [0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
@@ -586,12 +623,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_RT],
   [() => ResourceTagList]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Notification$: StaticStructureSchema = [3, n0, _No,
   0,
   [_NT, _CO, _Th, _TT, _NS],
@@ -602,12 +633,6 @@ export var NotificationWithSubscribers$: StaticStructureSchema = [3, n0, _NWSo,
   [_No, _Su],
   [() => Notification$, [() => Subscribers, 0]], 2
 ];
-export var ResourceLockedException$: StaticErrorSchema = [-3, n0, _RLE,
-  { [_e]: _c, [_hE]: 423 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLockedException$, ResourceLockedException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_K, _Va],
@@ -618,12 +643,6 @@ export var ScpActionDefinition$: StaticStructureSchema = [3, n0, _SAD,
   [_PI, _TI],
   [0, 64 | 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Spend$: StaticStructureSchema = [3, n0, _Sp,
   0,
   [_Am, _Un],
@@ -654,12 +673,6 @@ export var TagValues$: StaticStructureSchema = [3, n0, _TV,
   [_K, _V, _MO],
   [0, 64 | 0, 64 | 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_St, _En],
@@ -715,8 +728,6 @@ export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
   [],
   []
 ];
-export var BudgetsServiceException$: StaticErrorSchema = [-3, _sm, "BudgetsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BudgetsServiceException$, BudgetsServiceException);
 var ActionHistories: StaticListSchema = [1, n0, _AHc,
   0, [() => ActionHistory$,
     0]

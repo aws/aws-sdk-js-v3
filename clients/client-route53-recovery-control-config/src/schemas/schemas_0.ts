@@ -11,9 +11,9 @@ const _CCPR = "CreateControlPanelRequest";
 const _CCPRr = "CreateControlPanelResponse";
 const _CCR = "CreateClusterRequest";
 const _CCRr = "CreateClusterResponse";
-const _CE = "ClusterEndpoints";
-const _CEl = "ClusterEndpoint";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEl = "ClusterEndpoints";
+const _CElu = "ClusterEndpoint";
 const _CN = "ClusterName";
 const _CP = "ControlPanel";
 const _CPA = "ControlPanelArn";
@@ -142,8 +142,8 @@ const _lOCP = "__listOfControlPanel";
 const _lOR = "__listOfRule";
 const _lORC = "__listOfRoutingControl";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.route53recoverycontrolconfig";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53recoverycontrolconfig";
+const _se = "server";
 const n0 = "com.amazonaws.route53recoverycontrolconfig";
 
 // smithy-typescript generated code
@@ -168,12 +168,61 @@ import {
 import { Route53RecoveryControlConfigServiceException } from "../models/Route53RecoveryControlConfigServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Route53RecoveryControlConfigServiceException$: StaticErrorSchema = [-3, _s, "Route53RecoveryControlConfigServiceException", 0, [], []];
+_s_registry.registerError(Route53RecoveryControlConfigServiceException$, Route53RecoveryControlConfigServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [[0, { [_jN]: _m }]], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssertionRule$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_AC, _CPA, _N, _RC, _SRA, _S, _WPM, _O],
@@ -186,20 +235,14 @@ export var AssertionRuleUpdate$: StaticStructureSchema = [3, n0, _ARU,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CA, _CE, _N, _S, _O, _NT],
+  [_CA, _CEl, _N, _S, _O, _NT],
   [0, () => __listOfClusterEndpoint, 0, 0, 0, 0]
 ];
-export var ClusterEndpoint$: StaticStructureSchema = [3, n0, _CEl,
+export var ClusterEndpoint$: StaticStructureSchema = [3, n0, _CElu,
   0,
   [_E, _R],
   [0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ControlPanel$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_CA, _CPA, _DCP, _N, _RCC, _S, _O],
@@ -345,12 +388,6 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_P],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssociatedRoute53HealthChecksRequest$: StaticStructureSchema = [3, n0, _LARHCR,
   0,
   [_RCA, _MR, _NTe],
@@ -421,12 +458,6 @@ export var NewGatingRule$: StaticStructureSchema = [3, n0, _NGR,
   [_CPA, _GC, _N, _RC, _TC, _WPM],
   [0, 64 | 0, 0, () => RuleConfig$, 64 | 0, 1], 6
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoutingControl$: StaticStructureSchema = [3, n0, _RCo,
   0,
   [_CPA, _N, _RCA, _S, _O],
@@ -442,12 +473,6 @@ export var RuleConfig$: StaticStructureSchema = [3, n0, _RC,
   [_I, _Th, _Ty],
   [2, 1, 0], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
@@ -458,12 +483,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -514,14 +533,6 @@ export var UpdateSafetyRuleResponse$: StaticStructureSchema = [3, n0, _USRRp,
   [_AR, _GR],
   [() => AssertionRule$, () => GatingRule$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var Route53RecoveryControlConfigServiceException$: StaticErrorSchema = [-3, _sm, "Route53RecoveryControlConfigServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Route53RecoveryControlConfigServiceException$, Route53RecoveryControlConfigServiceException);
 var __listOf__string = 64 | 0;
 var __listOf__stringMax36PatternS = 64 | 0;
 var __listOf__stringMin1Max256PatternAZaZ09 = 64 | 0;

@@ -126,10 +126,10 @@ const _iN = "inputName";
 const _iPV = "inputPropertyValue";
 const _kV = "keyValue";
 const _lUT = "lastUpdateTime";
-const _m = "messages";
+const _m = "message";
 const _mI = "messageId";
 const _mR = "maxResults";
-const _me = "message";
+const _me = "messages";
 const _n = "note";
 const _nT = "nextToken";
 const _na = "name";
@@ -139,7 +139,7 @@ const _rAC = "resetActionConfiguration";
 const _rAR = "resetActionRequests";
 const _rE = "ruleEvaluation";
 const _rI = "requestId";
-const _s = "severity";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ioteventsdata";
 const _sAC = "snoozeActionConfiguration";
 const _sAR = "snoozeActionRequests";
 const _sCC = "stateChangeConfiguration";
@@ -149,7 +149,7 @@ const _sN = "stateName";
 const _sRE = "simpleRuleEvaluation";
 const _se = "server";
 const _sec = "seconds";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ioteventsdata";
+const _sev = "severity";
 const _st = "state";
 const _t = "timers";
 const _tIM = "timeInMillis";
@@ -174,6 +174,49 @@ import {
 import { IoTEventsDataServiceException } from "../models/IoTEventsDataServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTEventsDataServiceException$: StaticErrorSchema = [-3, _s, "IoTEventsDataServiceException", 0, [], []];
+_s_registry.registerError(IoTEventsDataServiceException$, IoTEventsDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcknowledgeActionConfiguration$: StaticStructureSchema = [3, n0, _AAC,
   0,
   [_n],
@@ -186,7 +229,7 @@ export var AcknowledgeAlarmActionRequest$: StaticStructureSchema = [3, n0, _AAAR
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aMN, _aMV, _kV, _aS, _s, _cT, _lUT],
+  [_aMN, _aMV, _kV, _aS, _sev, _cT, _lUT],
   [0, 0, 0, () => AlarmState$, 1, 4, 4]
 ];
 export var AlarmState$: StaticStructureSchema = [3, n0, _AS,
@@ -256,7 +299,7 @@ export var BatchPutMessageErrorEntry$: StaticStructureSchema = [3, n0, _BPMEE,
 ];
 export var BatchPutMessageRequest$: StaticStructureSchema = [3, n0, _BPMR,
   0,
-  [_m],
+  [_me],
   [() => Messages], 1
 ];
 export var BatchPutMessageResponse$: StaticStructureSchema = [3, n0, _BPMRa,
@@ -374,18 +417,6 @@ export var EnableAlarmActionRequest$: StaticStructureSchema = [3, n0, _EAAR,
   [_rI, _aMN, _kV, _n],
   [0, 0, 0, 0], 2
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAlarmsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_aMN, _nT, _mR],
@@ -421,23 +452,11 @@ export var ResetAlarmActionRequest$: StaticStructureSchema = [3, n0, _RAAR,
   [_rI, _aMN, _kV, _n],
   [0, 0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuleEvaluation$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_sRE],
   [() => SimpleRuleEvaluation$]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SimpleRuleEvaluation$: StaticStructureSchema = [3, n0, _SRE,
   0,
   [_iPV, _o, _tV],
@@ -463,12 +482,6 @@ export var SystemEvent$: StaticStructureSchema = [3, n0, _SE,
   [_eT, _sCC],
   [0, () => StateChangeConfiguration$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Timer$: StaticStructureSchema = [3, n0, _T,
   0,
   [_na, _ti],
@@ -499,8 +512,6 @@ export var VariableDefinition$: StaticStructureSchema = [3, n0, _VD,
   [_na, _va],
   [0, 0], 2
 ];
-export var IoTEventsDataServiceException$: StaticErrorSchema = [-3, _sm, "IoTEventsDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTEventsDataServiceException$, IoTEventsDataServiceException);
 var AcknowledgeAlarmActionRequests: StaticListSchema = [1, n0, _AAARc,
   0, () => AcknowledgeAlarmActionRequest$
 ];

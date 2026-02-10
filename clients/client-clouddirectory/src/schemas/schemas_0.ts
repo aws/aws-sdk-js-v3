@@ -461,8 +461,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.clouddirectory";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.clouddirectory";
+const _se = "server";
 const _st = "state";
 const _xacl = "x-amz-consistency-level";
 const _xadp = "x-amz-data-partition";
@@ -519,12 +519,229 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudDirectoryServiceException$: StaticErrorSchema = [-3, _s, "CloudDirectoryServiceException", 0, [], []];
+_s_registry.registerError(CloudDirectoryServiceException$, CloudDirectoryServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BatchWriteException$: StaticErrorSchema = [-3, n0, _BWE,
+  { [_e]: _c },
+  [_I, _T, _M],
+  [1, 0, 0]
+];
+n0_registry.registerError(BatchWriteException$, BatchWriteException);
+export var CannotListParentOfRootException$: StaticErrorSchema = [-3, n0, _CLPORE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CannotListParentOfRootException$, CannotListParentOfRootException);
+export var DirectoryAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DirectoryAlreadyExistsException$, DirectoryAlreadyExistsException);
+export var DirectoryDeletedException$: StaticErrorSchema = [-3, n0, _DDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DirectoryDeletedException$, DirectoryDeletedException);
+export var DirectoryNotDisabledException$: StaticErrorSchema = [-3, n0, _DNDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DirectoryNotDisabledException$, DirectoryNotDisabledException);
+export var DirectoryNotEnabledException$: StaticErrorSchema = [-3, n0, _DNEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DirectoryNotEnabledException$, DirectoryNotEnabledException);
+export var FacetAlreadyExistsException$: StaticErrorSchema = [-3, n0, _FAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FacetAlreadyExistsException$, FacetAlreadyExistsException);
+export var FacetInUseException$: StaticErrorSchema = [-3, n0, _FIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FacetInUseException$, FacetInUseException);
+export var FacetNotFoundException$: StaticErrorSchema = [-3, n0, _FNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FacetNotFoundException$, FacetNotFoundException);
+export var FacetValidationException$: StaticErrorSchema = [-3, n0, _FVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FacetValidationException$, FacetValidationException);
+export var IncompatibleSchemaException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IncompatibleSchemaException$, IncompatibleSchemaException);
+export var IndexedAttributeMissingException$: StaticErrorSchema = [-3, n0, _IAME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IndexedAttributeMissingException$, IndexedAttributeMissingException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidArnException$, InvalidArnException);
+export var InvalidAttachmentException$: StaticErrorSchema = [-3, n0, _IAEn,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidAttachmentException$, InvalidAttachmentException);
+export var InvalidFacetUpdateException$: StaticErrorSchema = [-3, n0, _IFUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidFacetUpdateException$, InvalidFacetUpdateException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidRuleException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRuleException$, InvalidRuleException);
+export var InvalidSchemaDocException$: StaticErrorSchema = [-3, n0, _ISDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSchemaDocException$, InvalidSchemaDocException);
+export var InvalidTaggingRequestException$: StaticErrorSchema = [-3, n0, _ITRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidTaggingRequestException$, InvalidTaggingRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var LinkNameAlreadyInUseException$: StaticErrorSchema = [-3, n0, _LNAIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LinkNameAlreadyInUseException$, LinkNameAlreadyInUseException);
+export var NotIndexException$: StaticErrorSchema = [-3, n0, _NIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotIndexException$, NotIndexException);
+export var NotNodeException$: StaticErrorSchema = [-3, n0, _NNE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotNodeException$, NotNodeException);
+export var NotPolicyException$: StaticErrorSchema = [-3, n0, _NPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotPolicyException$, NotPolicyException);
+export var ObjectAlreadyDetachedException$: StaticErrorSchema = [-3, n0, _OADE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ObjectAlreadyDetachedException$, ObjectAlreadyDetachedException);
+export var ObjectNotDetachedException$: StaticErrorSchema = [-3, n0, _ONDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ObjectNotDetachedException$, ObjectNotDetachedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RetryableConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RetryableConflictException$, RetryableConflictException);
+export var SchemaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SchemaAlreadyExistsException$, SchemaAlreadyExistsException);
+export var SchemaAlreadyPublishedException$: StaticErrorSchema = [-3, n0, _SAPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SchemaAlreadyPublishedException$, SchemaAlreadyPublishedException);
+export var StillContainsLinksException$: StaticErrorSchema = [-3, n0, _SCLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StillContainsLinksException$, StillContainsLinksException);
+export var UnsupportedIndexTypeException$: StaticErrorSchema = [-3, n0, _UITE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedIndexTypeException$, UnsupportedIndexTypeException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddFacetToObjectRequest$: StaticStructureSchema = [3, n0, _AFTOR,
   0,
   [_DA, _SF, _OR, _OAL],
@@ -920,12 +1137,6 @@ export var BatchUpdateObjectAttributesResponse$: StaticStructureSchema = [3, n0,
   [_OI],
   [0]
 ];
-export var BatchWriteException$: StaticErrorSchema = [-3, n0, _BWE,
-  { [_e]: _c },
-  [_I, _T, _M],
-  [1, 0, 0]
-];
-TypeRegistry.for(n0).registerError(BatchWriteException$, BatchWriteException);
 export var BatchWriteOperation$: StaticStructureSchema = [3, n0, _BWO,
   0,
   [_CO, _AO, _DO, _UOA, _DOe, _AFTO, _RFFO, _AP, _DP, _CI, _ATI, _DFI, _ATL, _DTL, _ULA],
@@ -946,12 +1157,6 @@ export var BatchWriteResponse$: StaticStructureSchema = [3, n0, _BWRa,
   [_R],
   [() => BatchWriteOperationResponseList]
 ];
-export var CannotListParentOfRootException$: StaticErrorSchema = [-3, n0, _CLPORE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CannotListParentOfRootException$, CannotListParentOfRootException);
 export var CreateDirectoryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_N, _SA],
@@ -1102,30 +1307,6 @@ export var Directory$: StaticStructureSchema = [3, n0, _D,
   [_N, _DA, _S, _CDT],
   [0, 0, 0, 4]
 ];
-export var DirectoryAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DAEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectoryAlreadyExistsException$, DirectoryAlreadyExistsException);
-export var DirectoryDeletedException$: StaticErrorSchema = [-3, n0, _DDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectoryDeletedException$, DirectoryDeletedException);
-export var DirectoryNotDisabledException$: StaticErrorSchema = [-3, n0, _DNDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectoryNotDisabledException$, DirectoryNotDisabledException);
-export var DirectoryNotEnabledException$: StaticErrorSchema = [-3, n0, _DNEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectoryNotEnabledException$, DirectoryNotEnabledException);
 export var DisableDirectoryRequest$: StaticStructureSchema = [3, n0, _DDRi,
   0,
   [_DA],
@@ -1151,12 +1332,6 @@ export var Facet$: StaticStructureSchema = [3, n0, _F,
   [_N, _OT, _FS],
   [0, 0, 0]
 ];
-export var FacetAlreadyExistsException$: StaticErrorSchema = [-3, n0, _FAEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FacetAlreadyExistsException$, FacetAlreadyExistsException);
 export var FacetAttribute$: StaticStructureSchema = [3, n0, _FA,
   0,
   [_N, _AD, _AR, _RB],
@@ -1177,24 +1352,6 @@ export var FacetAttributeUpdate$: StaticStructureSchema = [3, n0, _FAU,
   [_At, _Ac],
   [() => FacetAttribute$, 0]
 ];
-export var FacetInUseException$: StaticErrorSchema = [-3, n0, _FIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FacetInUseException$, FacetInUseException);
-export var FacetNotFoundException$: StaticErrorSchema = [-3, n0, _FNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FacetNotFoundException$, FacetNotFoundException);
-export var FacetValidationException$: StaticErrorSchema = [-3, n0, _FVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FacetValidationException$, FacetValidationException);
 export var GetAppliedSchemaVersionRequest$: StaticStructureSchema = [3, n0, _GASVR,
   0,
   [_SA],
@@ -1275,77 +1432,11 @@ export var GetTypedLinkFacetInformationResponse$: StaticStructureSchema = [3, n0
   [_IAO],
   [64 | 0]
 ];
-export var IncompatibleSchemaException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleSchemaException$, IncompatibleSchemaException);
 export var IndexAttachment$: StaticStructureSchema = [3, n0, _IAn,
   0,
   [_IAnd, _OI],
   [() => AttributeKeyAndValueList, 0]
 ];
-export var IndexedAttributeMissingException$: StaticErrorSchema = [-3, n0, _IAME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IndexedAttributeMissingException$, IndexedAttributeMissingException);
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArnException$, InvalidArnException);
-export var InvalidAttachmentException$: StaticErrorSchema = [-3, n0, _IAEn,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAttachmentException$, InvalidAttachmentException);
-export var InvalidFacetUpdateException$: StaticErrorSchema = [-3, n0, _IFUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidFacetUpdateException$, InvalidFacetUpdateException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidRuleException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRuleException$, InvalidRuleException);
-export var InvalidSchemaDocException$: StaticErrorSchema = [-3, n0, _ISDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSchemaDocException$, InvalidSchemaDocException);
-export var InvalidTaggingRequestException$: StaticErrorSchema = [-3, n0, _ITRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTaggingRequestException$, InvalidTaggingRequestException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var LinkAttributeAction$: StaticStructureSchema = [3, n0, _LAA,
   0,
   [_AAT, _AUV],
@@ -1356,12 +1447,6 @@ export var LinkAttributeUpdate$: StaticStructureSchema = [3, n0, _LAU,
   [_AK, _AA],
   [() => AttributeKey$, () => LinkAttributeAction$]
 ];
-export var LinkNameAlreadyInUseException$: StaticErrorSchema = [-3, n0, _LNAIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LinkNameAlreadyInUseException$, LinkNameAlreadyInUseException);
 export var ListAppliedSchemaArnsRequest$: StaticStructureSchema = [3, n0, _LASAR,
   0,
   [_DA, _SA, _NT, _MR],
@@ -1572,30 +1657,6 @@ export var LookupPolicyResponse$: StaticStructureSchema = [3, n0, _LPRo,
   [_PTPL, _NT],
   [() => PolicyToPathList, 0]
 ];
-export var NotIndexException$: StaticErrorSchema = [-3, n0, _NIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotIndexException$, NotIndexException);
-export var NotNodeException$: StaticErrorSchema = [-3, n0, _NNE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotNodeException$, NotNodeException);
-export var NotPolicyException$: StaticErrorSchema = [-3, n0, _NPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotPolicyException$, NotPolicyException);
-export var ObjectAlreadyDetachedException$: StaticErrorSchema = [-3, n0, _OADE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ObjectAlreadyDetachedException$, ObjectAlreadyDetachedException);
 export var ObjectAttributeAction$: StaticStructureSchema = [3, n0, _OAA,
   0,
   [_OAAT, _OAUV],
@@ -1616,12 +1677,6 @@ export var ObjectIdentifierAndLinkNameTuple$: StaticStructureSchema = [3, n0, _O
   [_OI, _LN],
   [0, 0]
 ];
-export var ObjectNotDetachedException$: StaticErrorSchema = [-3, n0, _ONDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ObjectNotDetachedException$, ObjectNotDetachedException);
 export var ObjectReference$: StaticStructureSchema = [3, n0, _OR,
   0,
   [_Se],
@@ -1672,46 +1727,16 @@ export var RemoveFacetFromObjectResponse$: StaticStructureSchema = [3, n0, _RFFO
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var RetryableConflictException$: StaticErrorSchema = [-3, n0, _RCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RetryableConflictException$, RetryableConflictException);
 export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
   [_T, _Par],
   [0, 128 | 0]
 ];
-export var SchemaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SchemaAlreadyExistsException$, SchemaAlreadyExistsException);
-export var SchemaAlreadyPublishedException$: StaticErrorSchema = [-3, n0, _SAPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SchemaAlreadyPublishedException$, SchemaAlreadyPublishedException);
 export var SchemaFacet$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_SA, _FN],
   [0, 0]
 ];
-export var StillContainsLinksException$: StaticErrorSchema = [-3, n0, _SCLE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StillContainsLinksException$, StillContainsLinksException);
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
@@ -1762,12 +1787,6 @@ export var TypedLinkSpecifier$: StaticStructureSchema = [3, n0, _TLS,
   [_TLF, _SOR, _TOR, _IAV],
   [() => TypedLinkSchemaAndFacetName$, () => ObjectReference$, () => ObjectReference$, () => AttributeNameAndValueList], 4
 ];
-export var UnsupportedIndexTypeException$: StaticErrorSchema = [-3, n0, _UITE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedIndexTypeException$, UnsupportedIndexTypeException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1848,15 +1867,7 @@ export var UpgradePublishedSchemaResponse$: StaticStructureSchema = [3, n0, _UPS
   [_USA],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var CloudDirectoryServiceException$: StaticErrorSchema = [-3, _sm, "CloudDirectoryServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudDirectoryServiceException$, CloudDirectoryServiceException);
 var Arns = 64 | 0;
 var AttributeKeyAndValueList: StaticListSchema = [1, n0, _AKAVL,
   0, () => AttributeKeyAndValue$

@@ -205,8 +205,8 @@ const _QSP = "QueryStringParameters";
 const _QSPM = "QueryStringParametersMap";
 const _QSV = "QueryStringValue";
 const _R = "Resources";
-const _RA = "RoleArn";
-const _RA_ = "Retry-After";
+const _RA = "Retry-After";
+const _RAo = "RoleArn";
 const _RDP = "RedshiftDataParameters";
 const _RI = "ReferenceId";
 const _RMQBP = "RabbitMQBrokerParameters";
@@ -322,10 +322,10 @@ const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pipes";
 const _sC = "serviceCode";
 const _sIGB = "sizeInGiB";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pipes";
+const _se = "server";
 const _t = "type";
 const _tK = "tagKeys";
 const _ta = "tags";
@@ -356,6 +356,55 @@ import {
 import { PipesServiceException } from "../models/PipesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PipesServiceException$: StaticErrorSchema = [-3, _s, "PipesServiceException", 0, [], []];
+_s_registry.registerError(PipesServiceException$, PipesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _fL],
+  [0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CapacityProvider: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 var Database: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
@@ -438,15 +487,9 @@ export var CloudwatchLogsLogDestinationParameters$: StaticStructureSchema = [3, 
   [_LGA],
   [0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreatePipeRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
-  [_N, _So, _Ta, _RA, _De, _DS, _SP, _En, _EPn, _TP, _Tag, _LC, _KKI],
+  [_N, _So, _Ta, _RAo, _De, _DS, _SP, _En, _EPn, _TP, _Tag, _LC, _KKI],
   [[0, 1], 0, 0, 0, [() => PipeDescription, 0], 0, [() => PipeSourceParameters$, 0], 0, [() => PipeEnrichmentParameters$, 0], [() => PipeTargetParameters$, 0], [() => TagMap, 0], () => PipeLogConfigurationParameters$, 0], 4
 ];
 export var CreatePipeResponse$: StaticStructureSchema = [3, n0, _CPRr,
@@ -476,7 +519,7 @@ export var DescribePipeRequest$: StaticStructureSchema = [3, n0, _DPRes,
 ];
 export var DescribePipeResponse$: StaticStructureSchema = [3, n0, _DPResc,
   0,
-  [_Ar, _N, _De, _DS, _CS, _SR, _So, _SP, _En, _EPn, _Ta, _TP, _RA, _Tag, _CT, _LMT, _LC, _KKI],
+  [_Ar, _N, _De, _DS, _CS, _SR, _So, _SP, _En, _EPn, _Ta, _TP, _RAo, _Tag, _CT, _LMT, _LC, _KKI],
   [0, 0, [() => PipeDescription, 0], 0, 0, 0, 0, [() => PipeSourceParameters$, 0], 0, [() => PipeEnrichmentParameters$, 0], 0, [() => PipeTargetParameters$, 0], 0, [() => TagMap, 0], 4, 4, () => PipeLogConfiguration$, 0]
 ];
 export var DimensionMapping$: StaticStructureSchema = [3, n0, _DM,
@@ -539,12 +582,6 @@ export var FirehoseLogDestinationParameters$: StaticStructureSchema = [3, n0, _F
   [_DSA],
   [0], 1
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
 export var ListPipesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_NP, _DS, _CS, _SPo, _TPa, _NT, _L],
@@ -580,12 +617,6 @@ export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   [_aC],
   [[() => AwsVpcConfiguration$, 0]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Pipe$: StaticStructureSchema = [3, n0, _Pip,
   0,
   [_N, _Ar, _DS, _CS, _SR, _CT, _LMT, _So, _Ta, _En],
@@ -746,12 +777,6 @@ export var SelfManagedKafkaAccessConfigurationVpc$: StaticStructureSchema = [3, 
   [_Sub, _SG],
   [[() => SubnetIds, 0], [() => SecurityGroupIds, 0]]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SingleMeasureMapping$: StaticStructureSchema = [3, n0, _SMMi,
   0,
   [_MV, _MVT, _MN],
@@ -792,12 +817,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -810,7 +829,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdatePipeRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_N, _RA, _De, _DS, _SP, _En, _EPn, _Ta, _TP, _LC, _KKI],
+  [_N, _RAo, _De, _DS, _SP, _En, _EPn, _Ta, _TP, _LC, _KKI],
   [[0, 1], 0, [() => PipeDescription, 0], 0, [() => UpdatePipeSourceParameters$, 0], 0, [() => PipeEnrichmentParameters$, 0], 0, [() => PipeTargetParameters$, 0], () => PipeLogConfigurationParameters$, 0], 2
 ];
 export var UpdatePipeResponse$: StaticStructureSchema = [3, n0, _UPRp,
@@ -858,19 +877,11 @@ export var UpdatePipeSourceSqsQueueParameters$: StaticStructureSchema = [3, n0, 
   [_BS, _MBWIS],
   [1, 1]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var PipesServiceException$: StaticErrorSchema = [-3, _sm, "PipesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PipesServiceException$, PipesServiceException);
 var BatchDependsOn: StaticListSchema = [1, n0, _BDO,
   0, () => BatchJobDependency$
 ];

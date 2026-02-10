@@ -44,6 +44,17 @@ import type { StaticErrorSchema, StaticListSchema, StaticOperationSchema, Static
 import { SageMakerMetricsServiceException } from "../models/SageMakerMetricsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerMetricsServiceException$: StaticErrorSchema = [-3, _s, "SageMakerMetricsServiceException", 0, [], []];
+_s_registry.registerError(SageMakerMetricsServiceException$, SageMakerMetricsServiceException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+]
 export var BatchGetMetricsRequest$: StaticStructureSchema = [3, n0, _BGMR,
   0,
   [_MQ],
@@ -84,8 +95,6 @@ export var RawMetricData$: StaticStructureSchema = [3, n0, _RMD,
   [_MN, _T, _V, _Ste],
   [0, 4, 1, 1], 3
 ];
-export var SageMakerMetricsServiceException$: StaticErrorSchema = [-3, _s, "SageMakerMetricsServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SageMakerMetricsServiceException$, SageMakerMetricsServiceException);
 var BatchPutMetricsErrorList: StaticListSchema = [1, n0, _BPMEL,
   0, () => BatchPutMetricsError$
 ];

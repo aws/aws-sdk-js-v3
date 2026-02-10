@@ -126,9 +126,9 @@ const _RIe = "RecordIndex";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RecordsProcessed";
 const _RPe = "RetentionProperties";
-const _RR = "RejectedRecord";
+const _RR = "RejectedRecords";
 const _RRE = "RejectedRecordsException";
-const _RRe = "RejectedRecords";
+const _RRe = "RejectedRecord";
 const _RSC = "ReportS3Configuration";
 const _RU = "ResumableUntil";
 const _RV = "RecordVersion";
@@ -183,8 +183,8 @@ const _WRRr = "WriteRecordsResponse";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.timestreamwrite";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.timestreamwrite";
+const _se = "server";
 const n0 = "com.amazonaws.timestreamwrite";
 
 // smithy-typescript generated code
@@ -211,13 +211,74 @@ import {
 import { TimestreamWriteServiceException } from "../models/TimestreamWriteServiceException";
 
 /* eslint no-var: 0 */
-var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var TimestreamWriteServiceException$: StaticErrorSchema = [-3, _s, "TimestreamWriteServiceException", 0, [], []];
+_s_registry.registerError(TimestreamWriteServiceException$, TimestreamWriteServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c, [_hE]: 421 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidEndpointException$, InvalidEndpointException);
+export var RejectedRecordsException$: StaticErrorSchema = [-3, n0, _RRE,
+  { [_e]: _c, [_hE]: 419 },
+  [_M, _RR],
+  [0, () => RejectedRecords]
+];
+n0_registry.registerError(RejectedRecordsException$, RejectedRecordsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 export var BatchLoadProgressReport$: StaticStructureSchema = [3, n0, _BLPR,
   0,
   [_RP, _RI, _PF, _RIF, _FF, _BM],
@@ -233,12 +294,6 @@ export var BatchLoadTaskDescription$: StaticStructureSchema = [3, n0, _BLTD,
   [_TI, _EM, _DSC, _PR, _RC, _DMC, _TDN, _TTN, _TS, _RV, _CT, _LUT, _RU],
   [0, 0, () => DataSourceConfiguration$, () => BatchLoadProgressReport$, () => ReportConfiguration$, () => DataModelConfiguration$, 0, 0, 0, 1, 4, 4, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBatchLoadTaskRequest$: StaticStructureSchema = [3, n0, _CBLTR,
   0,
   [_DSC, _RC, _TDN, _TTN, _CTl, _DMC, _RV],
@@ -369,18 +424,6 @@ export var Endpoint$: StaticStructureSchema = [3, n0, _En,
   [_Ad, _CPIM],
   [0, 1], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _c, [_hE]: 421 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEndpointException$, InvalidEndpointException);
 export var ListBatchLoadTasksRequest$: StaticStructureSchema = [3, n0, _LBLTR,
   0,
   [_NT, _MR, _TS],
@@ -466,17 +509,11 @@ export var RecordsIngested$: StaticStructureSchema = [3, n0, _RI,
   [_To, _MS, _MSa],
   [1, 1, 1]
 ];
-export var RejectedRecord$: StaticStructureSchema = [3, n0, _RR,
+export var RejectedRecord$: StaticStructureSchema = [3, n0, _RRe,
   0,
   [_RIe, _Re, _EV],
   [1, 0, 1]
 ];
-export var RejectedRecordsException$: StaticErrorSchema = [-3, n0, _RRE,
-  { [_e]: _c, [_hE]: 419 },
-  [_M, _RRe],
-  [0, () => RejectedRecords]
-];
-TypeRegistry.for(n0).registerError(RejectedRecordsException$, RejectedRecordsException);
 export var ReportConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_RSC],
@@ -487,12 +524,6 @@ export var ReportS3Configuration$: StaticStructureSchema = [3, n0, _RSC,
   [_BN, _OKP, _EO, _KKI],
   [0, 0, 0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResumeBatchLoadTaskRequest$: StaticStructureSchema = [3, n0, _RBLTR,
   0,
   [_TI],
@@ -518,12 +549,6 @@ export var Schema$: StaticStructureSchema = [3, n0, _S,
   [_CPK],
   [() => PartitionKeyList]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Table$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_A, _TN, _DN, _TSa, _RPe, _CT, _LUT, _MSWP, _S],
@@ -544,12 +569,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -580,12 +599,6 @@ export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [_Ta],
   [() => Table$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WriteRecordsRequest$: StaticStructureSchema = [3, n0, _WRR,
   0,
   [_DN, _TN, _Rec, _CA],
@@ -597,8 +610,6 @@ export var WriteRecordsResponse$: StaticStructureSchema = [3, n0, _WRRr,
   [() => RecordsIngested$]
 ];
 var __Unit = "unit" as const;
-export var TimestreamWriteServiceException$: StaticErrorSchema = [-3, _sm, "TimestreamWriteServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TimestreamWriteServiceException$, TimestreamWriteServiceException);
 var BatchLoadTaskList: StaticListSchema = [1, n0, _BLTL,
   0, () => BatchLoadTask$
 ];
@@ -629,7 +640,7 @@ var PartitionKeyList: StaticListSchema = [1, n0, _PKL,
 var Records: StaticListSchema = [1, n0, _Rec,
   0, () => _Record$
 ];
-var RejectedRecords: StaticListSchema = [1, n0, _RRe,
+var RejectedRecords: StaticListSchema = [1, n0, _RR,
   0, () => RejectedRecord$
 ];
 var TableList: StaticListSchema = [1, n0, _TL,

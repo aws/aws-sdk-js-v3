@@ -72,15 +72,15 @@ const _nC = "notificationConfiguration";
 const _oC = "outputConfiguration";
 const _oS = "outputSegments";
 const _rARN = "resourceARN";
-const _s = "stage";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockdataautomationruntime";
 const _sC = "segmentConfiguration";
 const _sM = "semanticModality";
 const _sO = "standardOutput";
 const _sTM = "startTimeMillis";
 const _sU = "s3Uri";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockdataautomationruntime";
-const _st = "status";
+const _st = "stage";
+const _sta = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tS = "timestampSegment";
@@ -112,12 +112,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockDataAutomationRuntimeServiceException$: StaticErrorSchema = [-3, _s, "BedrockDataAutomationRuntimeServiceException", 0, [], []];
+_s_registry.registerError(BedrockDataAutomationRuntimeServiceException$, BedrockDataAutomationRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssetProcessingConfiguration$: StaticStructureSchema = [3, n0, _APC,
   0,
   [_v],
@@ -125,12 +174,12 @@ export var AssetProcessingConfiguration$: StaticStructureSchema = [3, n0, _APC,
 ];
 export var Blueprint$: StaticStructureSchema = [3, n0, _B,
   0,
-  [_bA, _ve, _s],
+  [_bA, _ve, _st],
   [0, 0, 0], 1
 ];
 export var DataAutomationConfiguration$: StaticStructureSchema = [3, n0, _DAC,
   0,
-  [_dAPA, _s],
+  [_dAPA, _st],
   [0, 0], 1
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
@@ -150,7 +199,7 @@ export var GetDataAutomationStatusRequest$: StaticStructureSchema = [3, n0, _GDA
 ];
 export var GetDataAutomationStatusResponse$: StaticStructureSchema = [3, n0, _GDASRe,
   0,
-  [_st, _eT, _eM, _oC, _jST, _jCT, _jDIS],
+  [_sta, _eT, _eM, _oC, _jST, _jCT, _jDIS],
   [0, 0, 0, () => OutputConfiguration$, 5, 5, 1]
 ];
 export var InputConfiguration$: StaticStructureSchema = [3, n0, _IC,
@@ -158,12 +207,6 @@ export var InputConfiguration$: StaticStructureSchema = [3, n0, _IC,
   [_sU, _aPC],
   [0, () => AssetProcessingConfiguration$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeDataAutomationAsyncRequest$: StaticStructureSchema = [3, n0, _IDAAR,
   0,
   [_iC, _oC, _dAPAa, _cT, _dAC, _eC, _nC, _b, _t],
@@ -209,24 +252,6 @@ export var OutputSegment$: StaticStructureSchema = [3, n0, _OS,
   [_cOS, _cO, _sO],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SyncInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
   0,
   [_by, _sU],
@@ -247,12 +272,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimestampSegment$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_sTM, _eTM],
@@ -268,19 +287,11 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VideoAssetProcessingConfiguration$: StaticStructureSchema = [3, n0, _VAPC,
   0,
   [_sC],
   [() => VideoSegmentConfiguration$]
 ];
-export var BedrockDataAutomationRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "BedrockDataAutomationRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockDataAutomationRuntimeServiceException$, BedrockDataAutomationRuntimeServiceException);
 var BlueprintList: StaticListSchema = [1, n0, _BL,
   0, () => Blueprint$
 ];

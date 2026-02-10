@@ -13,8 +13,8 @@ const _eU = "embedUrl";
 const _h = "http";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacereporting";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacereporting";
+const _se = "server";
 const n0 = "com.amazonaws.marketplacereporting";
 
 // smithy-typescript generated code
@@ -30,18 +30,43 @@ import {
 import { MarketplaceReportingServiceException } from "../models/MarketplaceReportingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MarketplaceReportingServiceException$: StaticErrorSchema = [-3, _s, "MarketplaceReportingServiceException", 0, [], []];
+_s_registry.registerError(MarketplaceReportingServiceException$, MarketplaceReportingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var GetBuyerDashboardInput$: StaticStructureSchema = [3, n0, _GBDI,
   0,
   [_dI, _eD],
@@ -52,20 +77,6 @@ export var GetBuyerDashboardOutput$: StaticStructureSchema = [3, n0, _GBDO,
   [_eU, _dI, _eD],
   [0, 0, 64 | 0], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var MarketplaceReportingServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceReportingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MarketplaceReportingServiceException$, MarketplaceReportingServiceException);
 var EmbeddingDomains = 64 | 0;
 export var GetBuyerDashboard$: StaticOperationSchema = [9, n0, _GBD,
   { [_h]: ["POST", "/getBuyerDashboard", 200] }, () => GetBuyerDashboardInput$, () => GetBuyerDashboardOutput$

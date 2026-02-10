@@ -32,11 +32,6 @@ describe(AwsJsonRpcProtocol.name, () => {
     });
   });
 
-  it("has a composite error registry", () => {
-    const registry = (protocol as any).compositeErrorRegistry;
-    expect(registry).toBeInstanceOf(TypeRegistry);
-  });
-
   it("should support awsQueryCompatible", async () => {
     class MyQueryError extends Error {}
 

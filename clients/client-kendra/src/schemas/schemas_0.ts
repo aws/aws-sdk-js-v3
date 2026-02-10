@@ -112,12 +112,12 @@ const _CFRSR = "CreateFeaturedResultsSetRequest";
 const _CFRSRr = "CreateFeaturedResultsSetResponse";
 const _CFRr = "CreateFaqResponse";
 const _CFr = "CreateFaq";
-const _CI = "ConflictingItem";
+const _CI = "ConflictingItems";
 const _CIC = "CrawlIssueComment";
 const _CICA = "CrawlIssueCommentAttachment";
 const _CIR = "CreateIndexRequest";
 const _CIRr = "CreateIndexResponse";
-const _CIo = "ConflictingItems";
+const _CIo = "ConflictingItem";
 const _CIr = "CrawlIssue";
 const _CIre = "CreateIndex";
 const _CKATC = "CustomKnowledgeArticleTypeConfigurations";
@@ -720,8 +720,8 @@ const _TDAK = "TargetDocumentAttributeKey";
 const _TDAV = "TargetDocumentAttributeValue";
 const _TDAVD = "TargetDocumentAttributeValueDeletion";
 const _TDS = "TextDocumentStatistics";
-const _TE = "TableExcerpt";
-const _TEh = "ThrottlingException";
+const _TE = "ThrottlingException";
+const _TEa = "TableExcerpt";
 const _TFM = "TaskFieldMappings";
 const _TFMh = "ThreadFieldMappings";
 const _TI = "TeamId";
@@ -807,8 +807,8 @@ const _Wa = "Warning";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kendra";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kendra";
+const _se = "server";
 const n0 = "com.amazonaws.kendra";
 
 // smithy-typescript generated code
@@ -839,6 +839,91 @@ import {
 import { KendraServiceException } from "../models/KendraServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KendraServiceException$: StaticErrorSchema = [-3, _s, "KendraServiceException", 0, [], []];
+_s_registry.registerError(KendraServiceException$, KendraServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var FeaturedResultsConflictException$: StaticErrorSchema = [-3, n0, _FRCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _CI],
+  [0, () => ConflictingItems]
+];
+n0_registry.registerError(FeaturedResultsConflictException$, FeaturedResultsConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceAlreadyExistException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistException$, ResourceAlreadyExistException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
 var NameType: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 export var AccessControlConfigurationSummary$: StaticStructureSchema = [3, n0, _ACCS,
@@ -851,12 +936,6 @@ export var AccessControlListConfiguration$: StaticStructureSchema = [3, n0, _ACL
   [_KP],
   [0]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AclConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AGCN],
@@ -1022,13 +1101,7 @@ export var ColumnConfiguration$: StaticStructureSchema = [3, n0, _CCol,
   [_DICN, _DDCN, _CDC, _DTCN, _FM],
   [0, 0, 64 | 0, 0, () => DataSourceToIndexFieldMappingList], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ConflictingItem$: StaticStructureSchema = [3, n0, _CI,
+export var ConflictingItem$: StaticStructureSchema = [3, n0, _CIo,
   0,
   [_QT, _SN, _SIe],
   [0, 0, 0]
@@ -1528,12 +1601,6 @@ export var FeaturedDocumentWithMetadata$: StaticStructureSchema = [3, n0, _FDWMe
   [_I, _Ti, _URI],
   [0, 0, 0]
 ];
-export var FeaturedResultsConflictException$: StaticErrorSchema = [-3, n0, _FRCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _CIo],
-  [0, () => ConflictingItems]
-];
-TypeRegistry.for(n0).registerError(FeaturedResultsConflictException$, FeaturedResultsConflictException);
 export var FeaturedResultsItem$: StaticStructureSchema = [3, n0, _FRI,
   0,
   [_I, _Ty, _AA, _DI, _DT, _DE, _DURI, _DAoc, _FT],
@@ -1634,18 +1701,6 @@ export var InlineCustomDocumentEnrichmentConfiguration$: StaticStructureSchema =
   [_Cond, _Tar, _DCD],
   [() => DocumentAttributeCondition$, () => DocumentAttributeTarget$, 2]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var JiraConfiguration$: StaticStructureSchema = [3, n0, _JC,
   0,
   [_JAU, _SA, _UCL, _Pr, _IT, _St, _ISEF, _AFM, _CFM, _IFM, _PFMr, _WLFMo, _IP, _EP, _VC],
@@ -1848,7 +1903,7 @@ export var QueryResult$: StaticStructureSchema = [3, n0, _QRu,
 ];
 export var QueryResultItem$: StaticStructureSchema = [3, n0, _QRI,
   0,
-  [_I, _Ty, _Fo, _AA, _DI, _DT, _DE, _DURI, _DAoc, _SAc, _FT, _TE, _CRD],
+  [_I, _Ty, _Fo, _AA, _DI, _DT, _DE, _DURI, _DAoc, _SAc, _FT, _TEa, _CRD],
   [0, 0, 0, () => AdditionalResultAttributeList, 0, () => TextWithHighlights$, () => TextWithHighlights$, 0, () => DocumentAttributeList, () => ScoreAttributes$, 0, () => TableExcerpt$, () => CollapsedResultDetail$]
 ];
 export var QuerySuggestionsBlockListSummary$: StaticStructureSchema = [3, n0, _QSBLS,
@@ -1871,30 +1926,6 @@ export var RelevanceFeedback$: StaticStructureSchema = [3, n0, _RFe,
   [_RI, _RV],
   [0, 0], 2
 ];
-export var ResourceAlreadyExistException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistException$, ResourceAlreadyExistException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_II, _QT, _AF, _RDA, _DROC, _PN, _PSa, _UC],
@@ -1995,12 +2026,6 @@ export var ServiceNowServiceCatalogConfiguration$: StaticStructureSchema = [3, n
   [_DDFN, _CAr, _IAFP, _EAFP, _DTFN, _FM],
   [0, 2, 64 | 0, 64 | 0, 0, () => DataSourceToIndexFieldMappingList], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SharePointConfiguration$: StaticStructureSchema = [3, n0, _SPC,
   0,
   [_SPV, _U, _SA, _CAr, _UCL, _IP, _EP, _VC, _FM, _DTFN, _DLG, _SCSP, _AT, _PCr],
@@ -2096,7 +2121,7 @@ export var TableCell$: StaticStructureSchema = [3, n0, _TCa,
   [_V, _TA, _High, _He],
   [0, 2, 2, 2]
 ];
-export var TableExcerpt$: StaticStructureSchema = [3, n0, _TE,
+export var TableExcerpt$: StaticStructureSchema = [3, n0, _TEa,
   0,
   [_Ro, _TNORo],
   [() => TableRowList, 1]
@@ -2141,12 +2166,6 @@ export var ThesaurusSummary$: StaticStructureSchema = [3, n0, _TS,
   [_I, _N, _St, _CAre, _UA],
   [0, 0, 0, 4, 4]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRange$: StaticStructureSchema = [3, n0, _TRi,
   0,
   [_ST, _ETn],
@@ -2237,12 +2256,6 @@ export var UserTokenConfiguration$: StaticStructureSchema = [3, n0, _UTCs,
   [_JTTCw, _JTTC],
   [() => JwtTokenTypeConfiguration$, () => JsonTokenTypeConfiguration$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Warning$: StaticStructureSchema = [3, n0, _Wa,
   0,
   [_M, _Cod],
@@ -2259,8 +2272,6 @@ export var WorkDocsConfiguration$: StaticStructureSchema = [3, n0, _WDC,
   [0, 2, 2, 64 | 0, 64 | 0, () => DataSourceToIndexFieldMappingList], 1
 ];
 var __Unit = "unit" as const;
-export var KendraServiceException$: StaticErrorSchema = [-3, _sm, "KendraServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KendraServiceException$, KendraServiceException);
 var AccessControlConfigurationSummaryList: StaticListSchema = [1, n0, _ACCSL,
   0, () => AccessControlConfigurationSummary$
 ];
@@ -2295,7 +2306,7 @@ var ChangeDetectingColumns = 64 | 0;
 var ClickFeedbackList: StaticListSchema = [1, n0, _CFL,
   0, () => ClickFeedback$
 ];
-var ConflictingItems: StaticListSchema = [1, n0, _CIo,
+var ConflictingItems: StaticListSchema = [1, n0, _CI,
   0, () => ConflictingItem$
 ];
 var ConfluenceAttachmentFieldMappingsList: StaticListSchema = [1, n0, _CAFML,

@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultResourceGroupsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { ResourceGroupsClientConfig } from "./ResourceGroupsClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ResourceGroupsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.resourcegroups",
+      errorTypeRegistries,
       version: "2017-11-27",
       serviceTarget: "Ardi",
     },

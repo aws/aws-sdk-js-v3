@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRbinHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { RbinClientConfig } from "./RbinClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: RbinClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.rbin",
+      errorTypeRegistries,
       version: "2021-06-15",
       serviceTarget: "AmazonRecycleBin",
     },

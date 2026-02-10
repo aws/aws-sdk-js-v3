@@ -180,7 +180,7 @@ const _rS = "resourcesSupported";
 const _rT = "resourceTypes";
 const _rTo = "rollbackTriggers";
 const _rU = "readmeUrl";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.serverlessapplicationrepository";
 const _sCAU = "sourceCodeArchiveUrl";
 const _sCU = "sourceCodeUrl";
 const _sI = "statementId";
@@ -189,8 +189,8 @@ const _sLI = "spdxLicenseId";
 const _sN = "stackName";
 const _sV = "semanticVersion";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.serverlessapplicationrepository";
-const _st = "statements";
+const _st = "status";
+const _sta = "statements";
 const _t = "tags";
 const _tB = "templateBody";
 const _tI = "templateId";
@@ -219,6 +219,55 @@ import {
 } from "../models/ServerlessApplicationRepositoryServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ServerlessApplicationRepositoryServiceException$: StaticErrorSchema = [-3, _s, "ServerlessApplicationRepositoryServiceException", 0, [], []];
+_s_registry.registerError(ServerlessApplicationRepositoryServiceException$, ServerlessApplicationRepositoryServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_EC, _M],
+  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApplicationDependencySummary$: StaticStructureSchema = [3, n0, _ADS,
   0,
   [_AI, _SV],
@@ -234,18 +283,6 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   [_AI, _Au, _D, _N, _CT, _HPU, _L, _SLI],
   [[0, { [_jN]: _aI }], [0, { [_jN]: _au }], [0, { [_jN]: _d }], [0, { [_jN]: _n }], [0, { [_jN]: _cT }], [0, { [_jN]: _hPU }], [64 | 0, { [_jN]: _l }], [0, { [_jN]: _sLI }]], 4
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_Au, _D, _N, _HPU, _L, _LB, _LU, _RB, _RU, _SV, _SCAU, _SCU, _SLI, _TB, _TU],
@@ -284,19 +321,13 @@ export var CreateCloudFormationTemplateRequest$: StaticStructureSchema = [3, n0,
 export var CreateCloudFormationTemplateResponse$: StaticStructureSchema = [3, n0, _CCFTRr,
   0,
   [_AI, _CT, _ET, _SV, _S, _TI, _TU],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _eT }], [0, { [_jN]: _sV }], [0, { [_jN]: _s }], [0, { [_jN]: _tI }], [0, { [_jN]: _tU }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _eT }], [0, { [_jN]: _sV }], [0, { [_jN]: _st }], [0, { [_jN]: _tI }], [0, { [_jN]: _tU }]]
 ];
 export var DeleteApplicationRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_AI],
   [[0, 1]], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _GAPR,
   0,
   [_AI],
@@ -305,7 +336,7 @@ export var GetApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _GAPR,
 export var GetApplicationPolicyResponse$: StaticStructureSchema = [3, n0, _GAPRe,
   0,
   [_St],
-  [[() => __listOfApplicationPolicyStatement, { [_jN]: _st }]]
+  [[() => __listOfApplicationPolicyStatement, { [_jN]: _sta }]]
 ];
 export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
@@ -325,14 +356,8 @@ export var GetCloudFormationTemplateRequest$: StaticStructureSchema = [3, n0, _G
 export var GetCloudFormationTemplateResponse$: StaticStructureSchema = [3, n0, _GCFTRe,
   0,
   [_AI, _CT, _ET, _SV, _S, _TI, _TU],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _eT }], [0, { [_jN]: _sV }], [0, { [_jN]: _s }], [0, { [_jN]: _tI }], [0, { [_jN]: _tU }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _eT }], [0, { [_jN]: _sV }], [0, { [_jN]: _st }], [0, { [_jN]: _tI }], [0, { [_jN]: _tU }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListApplicationDependenciesRequest$: StaticStructureSchema = [3, n0, _LADR,
   0,
   [_AI, _MI, _NT, _SV],
@@ -363,12 +388,6 @@ export var ListApplicationVersionsResponse$: StaticStructureSchema = [3, n0, _LA
   [_NT, _Ve],
   [[0, { [_jN]: _nT }], [() => __listOfVersionSummary, { [_jN]: _ve }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var ParameterDefinition$: StaticStructureSchema = [3, n0, _PDa,
   0,
   [_N, _RBR, _AP, _AV, _CD, _DV, _D, _ML, _MV, _MLi, _MVi, _NE, _Ty],
@@ -382,12 +401,12 @@ export var ParameterValue$: StaticStructureSchema = [3, n0, _PV,
 export var PutApplicationPolicyRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
   [_AI, _St],
-  [[0, 1], [() => __listOfApplicationPolicyStatement, { [_jN]: _st }]], 2
+  [[0, 1], [() => __listOfApplicationPolicyStatement, { [_jN]: _sta }]], 2
 ];
 export var PutApplicationPolicyResponse$: StaticStructureSchema = [3, n0, _PAPRu,
   0,
   [_St],
-  [[() => __listOfApplicationPolicyStatement, { [_jN]: _st }]]
+  [[() => __listOfApplicationPolicyStatement, { [_jN]: _sta }]]
 ];
 export var RollbackConfiguration$: StaticStructureSchema = [3, n0, _RCo,
   0,
@@ -404,12 +423,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _Va],
   [[0, { [_jN]: _k }], [0, { [_jN]: _va }]], 2
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_EC, _M],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UnshareApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_AI, _OI],
@@ -436,8 +449,6 @@ export var VersionSummary$: StaticStructureSchema = [3, n0, _VS,
   [[0, { [_jN]: _aI }], [0, { [_jN]: _cT }], [0, { [_jN]: _sV }], [0, { [_jN]: _sCU }]], 3
 ];
 var __Unit = "unit" as const;
-export var ServerlessApplicationRepositoryServiceException$: StaticErrorSchema = [-3, _sm, "ServerlessApplicationRepositoryServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ServerlessApplicationRepositoryServiceException$, ServerlessApplicationRepositoryServiceException);
 var __listOf__string = 64 | 0;
 var __listOfApplicationDependencySummary: StaticListSchema = [1, n0, _lOADS,
   0, [() => ApplicationDependencySummary$,

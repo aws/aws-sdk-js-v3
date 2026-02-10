@@ -112,8 +112,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.directoryservicedata";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.directoryservicedata";
+const _se = "server";
 const n0 = "com.amazonaws.directoryservicedata";
 
 // smithy-typescript generated code
@@ -140,6 +140,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DirectoryServiceDataServiceException$: StaticErrorSchema = [-3, _s, "DirectoryServiceDataServiceException", 0, [], []];
+_s_registry.registerError(DirectoryServiceDataServiceException$, DirectoryServiceDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DirectoryUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryUnavailableException$, DirectoryUnavailableException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var BooleanAttributeValue: StaticSimpleSchema = [0, n0, _BAV, 8, 2];
 var DistinguishedName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
@@ -150,12 +205,6 @@ var SearchString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var StringAttributeValue: StaticSimpleSchema = [0, n0, _SAV, 8, 0];
 var Surname: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var UserPrincipalName: StaticSimpleSchema = [0, n0, _UPN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddGroupMemberRequest$: StaticStructureSchema = [3, n0, _AGMR,
   0,
   [_DI, _GNr, _MN, _MR, _CT],
@@ -166,12 +215,6 @@ export var AddGroupMemberResult$: StaticStructureSchema = [3, n0, _AGMRd,
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGroupRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_DI, _SAMAN, _GT, _GS, _OA, _CT],
@@ -232,12 +275,6 @@ export var DescribeUserResult$: StaticStructureSchema = [3, n0, _DUResc,
   [_DI, _Re, _SID, _SAMAN, _DN, _UPN, _EA, _GN, _S, _E, _OA],
   [0, 0, 0, 0, [() => DistinguishedName, 0], [() => UserPrincipalName, 0], [() => EmailAddress, 0], [() => GivenName, 0], [() => Surname, 0], 2, [() => Attributes, 0]]
 ];
-export var DirectoryUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryUnavailableException$, DirectoryUnavailableException);
 export var DisableUserRequest$: StaticStructureSchema = [3, n0, _DURi,
   0,
   [_DI, _SAMAN, _CT],
@@ -258,12 +295,6 @@ export var GroupSummary$: StaticStructureSchema = [3, n0, _GSr,
   [_SID, _SAMAN, _GT, _GS],
   [0, 0, 0, 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListGroupMembersRequest$: StaticStructureSchema = [3, n0, _LGMR,
   0,
   [_DI, _SAMAN, _Re, _MR, _NT, _MRa],
@@ -319,12 +350,6 @@ export var RemoveGroupMemberResult$: StaticStructureSchema = [3, n0, _RGMRe,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchGroupsRequest$: StaticStructureSchema = [3, n0, _SGR,
   0,
   [_DI, _SS, _SA, _Re, _NT, _MRa],
@@ -345,12 +370,6 @@ export var SearchUsersResult$: StaticStructureSchema = [3, n0, _SURe,
   [_DI, _Re, _U, _NT],
   [0, 0, [() => UserList, 0], [() => NextToken, 0]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateGroupRequest$: StaticStructureSchema = [3, n0, _UGR,
   0,
   [_DI, _SAMAN, _GT, _GS, _OA, _UT, _CT],
@@ -381,14 +400,6 @@ export var UserSummary$: StaticStructureSchema = [3, n0, _US,
   [_SID, _SAMAN, _E, _GN, _S],
   [0, 0, 2, [() => GivenName, 0], [() => Surname, 0]], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var DirectoryServiceDataServiceException$: StaticErrorSchema = [-3, _sm, "DirectoryServiceDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DirectoryServiceDataServiceException$, DirectoryServiceDataServiceException);
 var GroupList: StaticListSchema = [1, n0, _GL,
   0, [() => Group$,
     0]

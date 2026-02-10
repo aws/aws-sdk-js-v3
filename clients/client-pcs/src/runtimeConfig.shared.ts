@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPCSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PCSClientConfig } from "./PCSClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: PCSClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.pcs",
+      errorTypeRegistries,
       version: "2023-02-10",
       serviceTarget: "AWSParallelComputingService",
     },

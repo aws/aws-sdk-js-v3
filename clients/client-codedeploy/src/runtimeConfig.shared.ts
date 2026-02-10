@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeDeployHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeDeployClientConfig } from "./CodeDeployClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeDeployClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codedeploy",
+      errorTypeRegistries,
       xmlNamespace: "http://codedeploy.amazonaws.com/doc/2014-10-06/",
       version: "2014-10-06",
       serviceTarget: "CodeDeploy_20141006",

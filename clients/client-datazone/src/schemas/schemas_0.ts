@@ -1463,7 +1463,7 @@ const _req = "required";
 const _res = "resource";
 const _ro = "role";
 const _ru = "rule";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.datazone";
 const _sA = "secretArn";
 const _sAGLI = "s3AccessGrantLocationId";
 const _sAK = "secretAccessKey";
@@ -1524,12 +1524,12 @@ const _sch = "schedule";
 const _se = "server";
 const _sen = "sensitive";
 const _sk = "skipped";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.datazone";
-const _smi = "smithy";
+const _sm = "smithy";
 const _so = "source";
 const _sor = "sort";
 const _ss = "sso";
-const _st = "stage";
+const _st = "status";
+const _sta = "stage";
 const _sto = "storage";
 const _su = "subjects";
 const _sub = "subject";
@@ -1623,6 +1623,67 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DataZoneServiceException$: StaticErrorSchema = [-3, _s, "DataZoneServiceException", 0, [], []];
+_s_registry.registerError(DataZoneServiceException$, DataZoneServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccountPoolName: StaticSimpleSchema = [0, n0, _APN, 8, 0];
 var ActionLink: StaticSimpleSchema = [0, n0, _AL, 8, 0];
 var AssetName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
@@ -1695,15 +1756,9 @@ export var AcceptSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _ASR
 ];
 export var AcceptSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _ASRO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataForms, 0]], 9
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_aAI, _sR, _aAN],
@@ -1781,7 +1836,7 @@ export var AmazonQPropertiesPatch$: StaticStructureSchema = [3, n0, _AQPP,
 ];
 export var AssetFilterSummary$: StaticStructureSchema = [3, n0, _AFS,
   0,
-  [_id, _dIo, _aI, _n, _de, _s, _eCN, _eRF, _cA, _eM],
+  [_id, _dIo, _aI, _n, _de, _st, _eCN, _eRF, _cA, _eM],
   [0, 0, 0, [() => FilterName, 0], [() => Description, 0], 0, 64 | 0, 0, 4, 0], 4
 ];
 export var AssetInDataProductListingItem$: StaticStructureSchema = [3, n0, _AIDPLI,
@@ -1831,7 +1886,7 @@ export var AssetRevision$: StaticStructureSchema = [3, n0, _ARs,
 ];
 export var AssetScope$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _fI, _s, _eM],
+  [_aI, _fI, _st, _eM],
   [0, 64 | 0, 0, 0], 3
 ];
 export var AssetTargetNameMap$: StaticStructureSchema = [3, n0, _ATNM,
@@ -1981,7 +2036,7 @@ export var CancelSubscriptionInput$: StaticStructureSchema = [3, n0, _CSI,
 ];
 export var CancelSubscriptionOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
+  [_id, _cB, _dIo, _st, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
   [0, 0, 0, 0, 4, 4, [() => SubscribedPrincipal$, 0], [() => SubscribedListing$, 0], 0, 0, 2], 8
 ];
 export var CloudFormationProperties$: StaticStructureSchema = [3, n0, _CFP,
@@ -2004,12 +2059,6 @@ export var ConfigurableEnvironmentAction$: StaticStructureSchema = [3, n0, _CEA,
   [_ty, _par, _au],
   [0, () => ConfigurableActionParameterList, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
   8,
   [_aKI, _sAK, _sT, _ex],
@@ -2037,7 +2086,7 @@ export var CreateAssetFilterInput$: StaticStructureSchema = [3, n0, _CAFI,
 ];
 export var CreateAssetFilterOutput$: StaticStructureSchema = [3, n0, _CAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _s, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var CreateAssetInput$: StaticStructureSchema = [3, n0, _CAI,
@@ -2092,7 +2141,7 @@ export var CreateDataProductInput$: StaticStructureSchema = [3, n0, _CDPI,
 ];
 export var CreateDataProductOutput$: StaticStructureSchema = [3, n0, _CDPO,
   0,
-  [_dIo, _id, _r, _oPI, _n, _s, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
+  [_dIo, _id, _r, _oPI, _n, _st, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
   [0, 0, 0, 0, [() => DataProductName, 0], 0, [() => DataProductDescription, 0], 64 | 0, () => DataProductItems, [() => FormOutputList, 0], 4, 0, 4, 0], 6
 ];
 export var CreateDataProductRevisionInput$: StaticStructureSchema = [3, n0, _CDPRI,
@@ -2102,7 +2151,7 @@ export var CreateDataProductRevisionInput$: StaticStructureSchema = [3, n0, _CDP
 ];
 export var CreateDataProductRevisionOutput$: StaticStructureSchema = [3, n0, _CDPRO,
   0,
-  [_dIo, _id, _r, _oPI, _n, _s, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
+  [_dIo, _id, _r, _oPI, _n, _st, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
   [0, 0, 0, 0, [() => DataProductName, 0], 0, [() => DataProductDescription, 0], 64 | 0, () => DataProductItems, [() => FormOutputList, 0], 4, 0, 4, 0], 6
 ];
 export var CreateDataSourceInput$: StaticStructureSchema = [3, n0, _CDSI,
@@ -2112,7 +2161,7 @@ export var CreateDataSourceInput$: StaticStructureSchema = [3, n0, _CDSI,
 ];
 export var CreateDataSourceOutput$: StaticStructureSchema = [3, n0, _CDSO,
   0,
-  [_id, _n, _dIo, _pI, _s, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5], 4
 ];
 export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDI,
@@ -2122,7 +2171,7 @@ export var CreateDomainInput$: StaticStructureSchema = [3, n0, _CDI,
 ];
 export var CreateDomainOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,
-  [_id, _rDUI, _n, _de, _sSO, _dER, _ar, _kKI, _s, _pU, _ta, _dVo, _sRe],
+  [_id, _rDUI, _n, _de, _sSO, _dER, _ar, _kKI, _st, _pU, _ta, _dVo, _sRe],
   [0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 0, 0, 128 | 0, 0, 0], 1
 ];
 export var CreateDomainUnitInput$: StaticStructureSchema = [3, n0, _CDUI,
@@ -2167,7 +2216,7 @@ export var CreateEnvironmentInput$: StaticStructureSchema = [3, n0, _CEI,
 ];
 export var CreateEnvironmentOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _s, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
 ];
 export var CreateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _CEPI,
@@ -2187,7 +2236,7 @@ export var CreateEnvironmentProfilePolicyGrantDetail$: StaticStructureSchema = [
 ];
 export var CreateFormTypeInput$: StaticStructureSchema = [3, n0, _CFTI,
   0,
-  [_dI, _n, _mo, _oPIw, _s, _de],
+  [_dI, _n, _mo, _oPIw, _st, _de],
   [[0, 1], [() => FormTypeName, 0], [() => Model$, 0], 0, 0, [() => Description, 0]], 4
 ];
 export var CreateFormTypeOutput$: StaticStructureSchema = [3, n0, _CFTO,
@@ -2202,12 +2251,12 @@ export var CreateFormTypePolicyGrantDetail$: StaticStructureSchema = [3, n0, _CF
 ];
 export var CreateGlossaryInput$: StaticStructureSchema = [3, n0, _CGI,
   0,
-  [_dI, _n, _oPIw, _de, _s, _uR, _cT],
+  [_dI, _n, _oPIw, _de, _st, _uR, _cT],
   [[0, 1], [() => GlossaryName, 0], 0, [() => GlossaryDescription, 0], 0, 64 | 0, [0, 4]], 3
 ];
 export var CreateGlossaryOutput$: StaticStructureSchema = [3, n0, _CGO,
   0,
-  [_dIo, _id, _n, _oPI, _de, _s, _uR],
+  [_dIo, _id, _n, _oPI, _de, _st, _uR],
   [0, 0, [() => GlossaryName, 0], 0, [() => GlossaryDescription, 0], 0, 64 | 0], 4
 ];
 export var CreateGlossaryPolicyGrantDetail$: StaticStructureSchema = [3, n0, _CGPGD,
@@ -2217,12 +2266,12 @@ export var CreateGlossaryPolicyGrantDetail$: StaticStructureSchema = [3, n0, _CG
 ];
 export var CreateGlossaryTermInput$: StaticStructureSchema = [3, n0, _CGTI,
   0,
-  [_dI, _gIl, _n, _s, _sD, _lDo, _tRe, _cT],
+  [_dI, _gIl, _n, _st, _sD, _lDo, _tRe, _cT],
   [[0, 1], 0, [() => GlossaryTermName, 0], 0, [() => ShortDescription, 0], [() => LongDescription, 0], () => TermRelations$, [0, 4]], 3
 ];
 export var CreateGlossaryTermOutput$: StaticStructureSchema = [3, n0, _CGTO,
   0,
-  [_id, _dIo, _gIlo, _n, _s, _sD, _lDo, _tRe, _uR],
+  [_id, _dIo, _gIlo, _n, _st, _sD, _lDo, _tRe, _uR],
   [0, 0, 0, [() => GlossaryTermName, 0], 0, [() => ShortDescription, 0], [() => LongDescription, 0], () => TermRelations$, 64 | 0], 5
 ];
 export var CreateGroupProfileInput$: StaticStructureSchema = [3, n0, _CGPI,
@@ -2232,7 +2281,7 @@ export var CreateGroupProfileInput$: StaticStructureSchema = [3, n0, _CGPI,
 ];
 export var CreateGroupProfileOutput$: StaticStructureSchema = [3, n0, _CGPO,
   0,
-  [_dIo, _id, _s, _gN],
+  [_dIo, _id, _st, _gN],
   [0, 0, 0, [() => GroupProfileName, 0]]
 ];
 export var CreateListingChangeSetInput$: StaticStructureSchema = [3, n0, _CLCSI,
@@ -2242,7 +2291,7 @@ export var CreateListingChangeSetInput$: StaticStructureSchema = [3, n0, _CLCSI,
 ];
 export var CreateListingChangeSetOutput$: StaticStructureSchema = [3, n0, _CLCSO,
   0,
-  [_lI, _lR, _s],
+  [_lI, _lR, _st],
   [0, 0, 0], 3
 ];
 export var CreateProjectFromProjectProfilePolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPFPPPGD,
@@ -2277,12 +2326,12 @@ export var CreateProjectPolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPP
 ];
 export var CreateProjectProfileInput$: StaticStructureSchema = [3, n0, _CPPI,
   0,
-  [_dI, _n, _de, _s, _pRT, _aCPRT, _pRTD, _eC, _dUIo],
+  [_dI, _n, _de, _st, _pRT, _aCPRT, _pRTD, _eC, _dUIo],
   [[0, 1], [() => ProjectProfileName, 0], [() => Description, 0], 0, () => ProjectResourceTagParameters, 2, [() => Description, 0], [() => EnvironmentConfigurationsList, 0], 0], 2
 ];
 export var CreateProjectProfileOutput$: StaticStructureSchema = [3, n0, _CPPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _s, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
+  [_dIo, _id, _n, _cB, _de, _st, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
   [0, 0, [() => ProjectProfileName, 0], 0, [() => Description, 0], 0, () => ProjectResourceTagParameters, 2, [() => Description, 0], [() => EnvironmentConfigurationsList, 0], 5, 5, 0], 4
 ];
 export var CreateRuleInput$: StaticStructureSchema = [3, n0, _CRI,
@@ -2302,7 +2351,7 @@ export var CreateSubscriptionGrantInput$: StaticStructureSchema = [3, n0, _CSGI,
 ];
 export var CreateSubscriptionGrantOutput$: StaticStructureSchema = [3, n0, _CSGO,
   0,
-  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _s, _uB, _eInvi, _as, _sI],
+  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _st, _uB, _eInvi, _as, _sI],
   [0, 0, 0, 4, 4, 0, () => GrantedEntity$, 0, 0, 0, () => SubscribedAssets, 0], 8
 ];
 export var CreateSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _CSRI,
@@ -2312,7 +2361,7 @@ export var CreateSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _CSR
 ];
 export var CreateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _CSRO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataForms, 0]], 9
 ];
 export var CreateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _CSTI,
@@ -2332,7 +2381,7 @@ export var CreateUserProfileInput$: StaticStructureSchema = [3, n0, _CUPI,
 ];
 export var CreateUserProfileOutput$: StaticStructureSchema = [3, n0, _CUPO,
   0,
-  [_dIo, _id, _ty, _s, _det],
+  [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
 ];
 export var CustomAccountPoolHandler$: StaticStructureSchema = [3, n0, _CAPH,
@@ -2397,12 +2446,12 @@ export var DataSourceRunLineageSummary$: StaticStructureSchema = [3, n0, _DSRLS,
 ];
 export var DataSourceRunSummary$: StaticStructureSchema = [3, n0, _DSRS,
   0,
-  [_id, _dSI, _ty, _s, _pI, _cA, _uA, _rSFA, _eM, _sAt, _sAto, _lSi],
+  [_id, _dSI, _ty, _st, _pI, _cA, _uA, _rSFA, _eM, _sAt, _sAto, _lSi],
   [0, 0, 0, 0, 0, 5, 5, () => RunStatisticsForAssets$, () => DataSourceErrorMessage$, 5, 5, () => DataSourceRunLineageSummary$], 7
 ];
 export var DataSourceSummary$: StaticStructureSchema = [3, n0, _DSS,
   0,
-  [_dIo, _dSI, _n, _ty, _s, _eInvi, _cI, _eS, _sch, _lRS, _lRA, _lREM, _lRAC, _cA, _uA, _de],
+  [_dIo, _dSI, _n, _ty, _st, _eInvi, _cI, _eS, _sch, _lRS, _lRA, _lREM, _lRAC, _cA, _uA, _de],
   [0, 0, [() => Name, 0], 0, 0, 0, 0, 0, [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, 1, 5, 5, [() => Description, 0]], 5
 ];
 export var DeleteAccountPoolInput$: StaticStructureSchema = [3, n0, _DAPI,
@@ -2447,7 +2496,7 @@ export var DeleteConnectionInput$: StaticStructureSchema = [3, n0, _DCI,
 ];
 export var DeleteConnectionOutput$: StaticStructureSchema = [3, n0, _DCO,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var DeleteDataExportConfigurationInput$: StaticStructureSchema = [3, n0, _DDECI,
@@ -2477,7 +2526,7 @@ export var DeleteDataSourceInput$: StaticStructureSchema = [3, n0, _DDSI,
 ];
 export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
   0,
-  [_id, _n, _dIo, _pI, _s, _ty, _de, _eInvi, _cI, _con, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
 export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDI,
@@ -2487,7 +2536,7 @@ export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDI,
 ];
 export var DeleteDomainOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var DeleteDomainUnitInput$: StaticStructureSchema = [3, n0, _DDUI,
@@ -2617,7 +2666,7 @@ export var DeleteSubscriptionGrantInput$: StaticStructureSchema = [3, n0, _DSGI,
 ];
 export var DeleteSubscriptionGrantOutput$: StaticStructureSchema = [3, n0, _DSGO,
   0,
-  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _s, _uB, _eInvi, _as, _sI],
+  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _st, _uB, _eInvi, _as, _sI],
   [0, 0, 0, 4, 4, 0, () => GrantedEntity$, 0, 0, 0, () => SubscribedAssets, 0], 8
 ];
 export var DeleteSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _DSRI,
@@ -2677,7 +2726,7 @@ export var DisassociateGovernedTermsOutput$: StaticStructureSchema = [3, n0, _DG
 ];
 export var DomainSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_id, _n, _ar, _mAI, _s, _cA, _de, _pU, _lUA, _dVo],
+  [_id, _n, _ar, _mAI, _st, _cA, _de, _pU, _lUA, _dVo],
   [0, [() => DomainName, 0], 0, 0, 0, 4, [() => DomainDescription, 0], 0, 4, 0], 6
 ];
 export var DomainUnitFilterForProject$: StaticStructureSchema = [3, n0, _DUFFP,
@@ -2777,7 +2826,7 @@ export var EnvironmentResolvedAccount$: StaticStructureSchema = [3, n0, _ERA,
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _s, _eCI],
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _st, _eCI],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, 0, [() => EnvironmentConfigurationId, 0]], 5
 ];
 export var EqualToExpression$: StaticStructureSchema = [3, n0, _ETE,
@@ -2822,7 +2871,7 @@ export var FormOutput$: StaticStructureSchema = [3, n0, _FO,
 ];
 export var FormTypeData$: StaticStructureSchema = [3, n0, _FTD,
   0,
-  [_dIo, _n, _r, _mo, _s, _oPI, _oDI, _oPIr, _cA, _cB, _de, _im],
+  [_dIo, _n, _r, _mo, _st, _oPI, _oDI, _oPIr, _cA, _cB, _de, _im],
   [0, [() => FormTypeName, 0], 0, [() => Model$, 0], 0, 0, 0, 0, 4, 0, [() => Description, 0], [() => ImportList, 0]], 3
 ];
 export var GetAccountPoolInput$: StaticStructureSchema = [3, n0, _GAPI,
@@ -2842,7 +2891,7 @@ export var GetAssetFilterInput$: StaticStructureSchema = [3, n0, _GAFI,
 ];
 export var GetAssetFilterOutput$: StaticStructureSchema = [3, n0, _GAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _s, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var GetAssetInput$: StaticStructureSchema = [3, n0, _GAI,
@@ -2882,7 +2931,7 @@ export var GetDataExportConfigurationInput$: StaticStructureSchema = [3, n0, _GD
 ];
 export var GetDataExportConfigurationOutput$: StaticStructureSchema = [3, n0, _GDECO,
   0,
-  [_iEE, _s, _eCn, _sTBA, _cA, _uA],
+  [_iEE, _st, _eCn, _sTBA, _cA, _uA],
   [2, 0, () => EncryptionConfiguration$, 0, 4, 4]
 ];
 export var GetDataProductInput$: StaticStructureSchema = [3, n0, _GDPI,
@@ -2892,7 +2941,7 @@ export var GetDataProductInput$: StaticStructureSchema = [3, n0, _GDPI,
 ];
 export var GetDataProductOutput$: StaticStructureSchema = [3, n0, _GDPO,
   0,
-  [_dIo, _id, _r, _oPI, _n, _s, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
+  [_dIo, _id, _r, _oPI, _n, _st, _de, _gT, _it, _fO, _cA, _cB, _fRCA, _fRCB],
   [0, 0, 0, 0, [() => DataProductName, 0], 0, [() => DataProductDescription, 0], 64 | 0, () => DataProductItems, [() => FormOutputList, 0], 4, 0, 4, 0], 6
 ];
 export var GetDataSourceInput$: StaticStructureSchema = [3, n0, _GDSI,
@@ -2902,7 +2951,7 @@ export var GetDataSourceInput$: StaticStructureSchema = [3, n0, _GDSI,
 ];
 export var GetDataSourceOutput$: StaticStructureSchema = [3, n0, _GDSO,
   0,
-  [_id, _n, _dIo, _pI, _s, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _lRAC, _eM, _cA, _uA, _sGS],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _lRAC, _eM, _cA, _uA, _sGS],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, 1, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$], 4
 ];
 export var GetDataSourceRunInput$: StaticStructureSchema = [3, n0, _GDSRI,
@@ -2912,7 +2961,7 @@ export var GetDataSourceRunInput$: StaticStructureSchema = [3, n0, _GDSRI,
 ];
 export var GetDataSourceRunOutput$: StaticStructureSchema = [3, n0, _GDSRO,
   0,
-  [_dIo, _dSI, _id, _pI, _s, _ty, _cA, _uA, _dSCS, _rSFA, _lSi, _eM, _sAt, _sAto],
+  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _lSi, _eM, _sAt, _sAto],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, () => RunStatisticsForAssets$, () => DataSourceRunLineageSummary$, () => DataSourceErrorMessage$, 5, 5], 8
 ];
 export var GetDomainInput$: StaticStructureSchema = [3, n0, _GDI,
@@ -2922,7 +2971,7 @@ export var GetDomainInput$: StaticStructureSchema = [3, n0, _GDI,
 ];
 export var GetDomainOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
-  [_id, _dER, _s, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe],
+  [_id, _dER, _st, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe],
   [0, 0, 0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 4, 4, 128 | 0, 0, 0], 3
 ];
 export var GetDomainUnitInput$: StaticStructureSchema = [3, n0, _GDUI,
@@ -2982,7 +3031,7 @@ export var GetEnvironmentInput$: StaticStructureSchema = [3, n0, _GEI,
 ];
 export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _s, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
 ];
 export var GetEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _GEPI,
@@ -3002,7 +3051,7 @@ export var GetFormTypeInput$: StaticStructureSchema = [3, n0, _GFTI,
 ];
 export var GetFormTypeOutput$: StaticStructureSchema = [3, n0, _GFTO,
   0,
-  [_dIo, _n, _r, _mo, _oPI, _oDI, _oPIr, _s, _cA, _cB, _de, _im],
+  [_dIo, _n, _r, _mo, _oPI, _oDI, _oPIr, _st, _cA, _cB, _de, _im],
   [0, [() => FormTypeName, 0], 0, [() => Model$, 0], 0, 0, 0, 0, 4, 0, [() => Description, 0], [() => ImportList, 0]], 4
 ];
 export var GetGlossaryInput$: StaticStructureSchema = [3, n0, _GGI,
@@ -3012,7 +3061,7 @@ export var GetGlossaryInput$: StaticStructureSchema = [3, n0, _GGI,
 ];
 export var GetGlossaryOutput$: StaticStructureSchema = [3, n0, _GGO,
   0,
-  [_dIo, _id, _oPI, _n, _s, _de, _cA, _cB, _uA, _uB, _uR],
+  [_dIo, _id, _oPI, _n, _st, _de, _cA, _cB, _uA, _uB, _uR],
   [0, 0, 0, [() => GlossaryName, 0], 0, [() => GlossaryDescription, 0], 4, 0, 4, 0, 64 | 0], 5
 ];
 export var GetGlossaryTermInput$: StaticStructureSchema = [3, n0, _GGTI,
@@ -3022,7 +3071,7 @@ export var GetGlossaryTermInput$: StaticStructureSchema = [3, n0, _GGTI,
 ];
 export var GetGlossaryTermOutput$: StaticStructureSchema = [3, n0, _GGTO,
   0,
-  [_dIo, _gIlo, _id, _n, _s, _sD, _lDo, _tRe, _cA, _cB, _uA, _uB, _uR],
+  [_dIo, _gIlo, _id, _n, _st, _sD, _lDo, _tRe, _cA, _cB, _uA, _uB, _uR],
   [0, 0, 0, [() => GlossaryTermName, 0], 0, [() => ShortDescription, 0], [() => LongDescription, 0], () => TermRelations$, 4, 0, 4, 0, 64 | 0], 5
 ];
 export var GetGroupProfileInput$: StaticStructureSchema = [3, n0, _GGPI,
@@ -3032,7 +3081,7 @@ export var GetGroupProfileInput$: StaticStructureSchema = [3, n0, _GGPI,
 ];
 export var GetGroupProfileOutput$: StaticStructureSchema = [3, n0, _GGPO,
   0,
-  [_dIo, _id, _s, _gN],
+  [_dIo, _id, _st, _gN],
   [0, 0, 0, [() => GroupProfileName, 0]]
 ];
 export var GetIamPortalLoginUrlInput$: StaticStructureSchema = [3, n0, _GIPLUI,
@@ -3052,7 +3101,7 @@ export var GetJobRunInput$: StaticStructureSchema = [3, n0, _GJRI,
 ];
 export var GetJobRunOutput$: StaticStructureSchema = [3, n0, _GJRO,
   0,
-  [_dIo, _id, _jI, _jT, _rM, _det, _s, _e, _cB, _cA, _sTt, _eTn],
+  [_dIo, _id, _jI, _jT, _rM, _det, _st, _e, _cB, _cA, _sTt, _eTn],
   [0, 0, 0, 0, 0, () => JobRunDetails$, 0, () => JobRunError$, 0, 4, 4, 4]
 ];
 export var GetLineageEventInput$: StaticStructureSchema = [3, n0, _GLEI,
@@ -3082,7 +3131,7 @@ export var GetListingInput$: StaticStructureSchema = [3, n0, _GLI,
 ];
 export var GetListingOutput$: StaticStructureSchema = [3, n0, _GLO,
   0,
-  [_dIo, _id, _lR, _cA, _uA, _cB, _uB, _ite, _n, _de, _s],
+  [_dIo, _id, _lR, _cA, _uA, _cB, _uB, _ite, _n, _de, _st],
   [0, 0, 0, 4, 4, 0, 0, [() => ListingItem$, 0], 0, [() => Description, 0], 0], 3
 ];
 export var GetMetadataGenerationRunInput$: StaticStructureSchema = [3, n0, _GMGRI,
@@ -3092,7 +3141,7 @@ export var GetMetadataGenerationRunInput$: StaticStructureSchema = [3, n0, _GMGR
 ];
 export var GetMetadataGenerationRunOutput$: StaticStructureSchema = [3, n0, _GMGRO,
   0,
-  [_dIo, _id, _oPI, _tar, _s, _ty, _typ, _cA, _cB, _tS],
+  [_dIo, _id, _oPI, _tar, _st, _ty, _typ, _cA, _cB, _tS],
   [0, 0, 0, () => MetadataGenerationRunTarget$, 0, 0, 64 | 0, 4, 0, () => MetadataGenerationRunTypeStats], 3
 ];
 export var GetProjectInput$: StaticStructureSchema = [3, n0, _GPI,
@@ -3112,7 +3161,7 @@ export var GetProjectProfileInput$: StaticStructureSchema = [3, n0, _GPPI,
 ];
 export var GetProjectProfileOutput$: StaticStructureSchema = [3, n0, _GPPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _s, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
+  [_dIo, _id, _n, _cB, _de, _st, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
   [0, 0, [() => ProjectProfileName, 0], 0, [() => Description, 0], 0, () => ProjectResourceTagParameters, 2, [() => Description, 0], [() => EnvironmentConfigurationsList, 0], 5, 5, 0], 4
 ];
 export var GetRuleInput$: StaticStructureSchema = [3, n0, _GRI,
@@ -3132,7 +3181,7 @@ export var GetSubscriptionGrantInput$: StaticStructureSchema = [3, n0, _GSGI,
 ];
 export var GetSubscriptionGrantOutput$: StaticStructureSchema = [3, n0, _GSGO,
   0,
-  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _s, _uB, _eInvi, _as, _sI],
+  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _st, _uB, _eInvi, _as, _sI],
   [0, 0, 0, 4, 4, 0, () => GrantedEntity$, 0, 0, 0, () => SubscribedAssets, 0], 8
 ];
 export var GetSubscriptionInput$: StaticStructureSchema = [3, n0, _GSI,
@@ -3142,7 +3191,7 @@ export var GetSubscriptionInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetSubscriptionOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
+  [_id, _cB, _dIo, _st, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
   [0, 0, 0, 0, 4, 4, [() => SubscribedPrincipal$, 0], [() => SubscribedListing$, 0], 0, 0, 2], 8
 ];
 export var GetSubscriptionRequestDetailsInput$: StaticStructureSchema = [3, n0, _GSRDI,
@@ -3152,7 +3201,7 @@ export var GetSubscriptionRequestDetailsInput$: StaticStructureSchema = [3, n0, 
 ];
 export var GetSubscriptionRequestDetailsOutput$: StaticStructureSchema = [3, n0, _GSRDO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataForms, 0]], 9
 ];
 export var GetSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _GSTI,
@@ -3182,12 +3231,12 @@ export var GetUserProfileInput$: StaticStructureSchema = [3, n0, _GUPI,
 ];
 export var GetUserProfileOutput$: StaticStructureSchema = [3, n0, _GUPO,
   0,
-  [_dIo, _id, _ty, _s, _det],
+  [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
 ];
 export var GlossaryItem$: StaticStructureSchema = [3, n0, _GI,
   0,
-  [_dIo, _id, _n, _oPI, _s, _de, _uR, _cA, _cB, _uA, _uB, _aA],
+  [_dIo, _id, _n, _oPI, _st, _de, _uR, _cA, _cB, _uA, _uB, _aA],
   [0, 0, [() => GlossaryName, 0], 0, 0, [() => GlossaryDescription, 0], 64 | 0, 4, 0, 4, 0, () => GlossaryItemAdditionalAttributes$], 5
 ];
 export var GlossaryItemAdditionalAttributes$: StaticStructureSchema = [3, n0, _GIAA,
@@ -3202,7 +3251,7 @@ export var GlossaryTermEnforcementDetail$: StaticStructureSchema = [3, n0, _GTED
 ];
 export var GlossaryTermItem$: StaticStructureSchema = [3, n0, _GTI,
   0,
-  [_dIo, _gIlo, _id, _n, _s, _sD, _uR, _lDo, _tRe, _cA, _cB, _uA, _uB, _aA],
+  [_dIo, _gIlo, _id, _n, _st, _sD, _uR, _lDo, _tRe, _cA, _cB, _uA, _uB, _aA],
   [0, 0, 0, [() => GlossaryTermName, 0], 0, [() => ShortDescription, 0], 64 | 0, [() => LongDescription, 0], () => TermRelations$, 4, 0, 4, 0, () => GlossaryTermItemAdditionalAttributes$], 5
 ];
 export var GlossaryTermItemAdditionalAttributes$: StaticStructureSchema = [3, n0, _GTIAA,
@@ -3212,7 +3261,7 @@ export var GlossaryTermItemAdditionalAttributes$: StaticStructureSchema = [3, n0
 ];
 export var GlueConnection$: StaticStructureSchema = [3, n0, _GC,
   0,
-  [_n, _de, _cTo, _mC, _cPo, _sPp, _aPt, _pPy, _pCR, _cTr, _lUT, _lUBa, _s, _sRt, _lCVT, _aCut, _cSV, _cCE],
+  [_n, _de, _cTo, _mC, _cPo, _sPp, _aPt, _pPy, _pCR, _cTr, _lUT, _lUBa, _st, _sRt, _lCVT, _aCut, _cSV, _cCE],
   [0, 0, 0, 64 | 0, 128 | 0, 128 | 0, 128 | 0, 128 | 0, () => PhysicalConnectionRequirements$, 4, 4, 0, 0, 0, 4, [() => AuthenticationConfiguration$, 0], 1, 64 | 0]
 ];
 export var GlueConnectionInput$: StaticStructureSchema = [3, n0, _GCIl,
@@ -3237,7 +3286,7 @@ export var GluePropertiesInput$: StaticStructureSchema = [3, n0, _GPIl,
 ];
 export var GluePropertiesOutput$: StaticStructureSchema = [3, n0, _GPOl,
   0,
-  [_s, _eM],
+  [_st, _eM],
   [0, 0]
 ];
 export var GluePropertiesPatch$: StaticStructureSchema = [3, n0, _GPP,
@@ -3277,7 +3326,7 @@ export var GroupDetails$: StaticStructureSchema = [3, n0, _GDr,
 ];
 export var GroupProfileSummary$: StaticStructureSchema = [3, n0, _GPS,
   0,
-  [_dIo, _id, _s, _gN],
+  [_dIo, _id, _st, _gN],
   [0, 0, 0, [() => GroupProfileName, 0]]
 ];
 export var HyperPodPropertiesInput$: StaticStructureSchema = [3, n0, _HPPI,
@@ -3320,12 +3369,6 @@ export var InExpression$: StaticStructureSchema = [3, n0, _IE,
   [_cN, _va],
   [0, 64 | 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IsNotNullExpression$: StaticStructureSchema = [3, n0, _INNE,
   0,
   [_cN],
@@ -3343,7 +3386,7 @@ export var JobRunError$: StaticStructureSchema = [3, n0, _JRE,
 ];
 export var JobRunSummary$: StaticStructureSchema = [3, n0, _JRS,
   0,
-  [_dIo, _jI, _jT, _rIu, _rM, _s, _e, _cB, _cA, _sTt, _eTn],
+  [_dIo, _jI, _jT, _rIu, _rM, _st, _e, _cB, _cA, _sTt, _eTn],
   [0, 0, 0, 0, 0, 0, () => JobRunError$, 0, 4, 4, 4]
 ];
 export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
@@ -3428,8 +3471,8 @@ export var ListAccountsInAccountPoolOutput$: StaticStructureSchema = [3, n0, _LA
 ];
 export var ListAssetFiltersInput$: StaticStructureSchema = [3, n0, _LAFI,
   0,
-  [_dI, _aIs, _s, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
+  [_dI, _aIs, _st, _nT, _mRa],
+  [[0, 1], [0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListAssetFiltersOutput$: StaticStructureSchema = [3, n0, _LAFO,
   0,
@@ -3468,8 +3511,8 @@ export var ListDataProductRevisionsOutput$: StaticStructureSchema = [3, n0, _LDP
 ];
 export var ListDataSourceRunActivitiesInput$: StaticStructureSchema = [3, n0, _LDSRAI,
   0,
-  [_dI, _i, _s, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
+  [_dI, _i, _st, _nT, _mRa],
+  [[0, 1], [0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListDataSourceRunActivitiesOutput$: StaticStructureSchema = [3, n0, _LDSRAO,
   0,
@@ -3478,8 +3521,8 @@ export var ListDataSourceRunActivitiesOutput$: StaticStructureSchema = [3, n0, _
 ];
 export var ListDataSourceRunsInput$: StaticStructureSchema = [3, n0, _LDSRI,
   0,
-  [_dI, _dSIa, _s, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
+  [_dI, _dSIa, _st, _nT, _mRa],
+  [[0, 1], [0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListDataSourceRunsOutput$: StaticStructureSchema = [3, n0, _LDSRO,
   0,
@@ -3488,8 +3531,8 @@ export var ListDataSourceRunsOutput$: StaticStructureSchema = [3, n0, _LDSRO,
 ];
 export var ListDataSourcesInput$: StaticStructureSchema = [3, n0, _LDSI,
   0,
-  [_dI, _pIr, _eInv, _cIo, _ty, _s, _n, _nT, _mRa],
-  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _eInv }], [0, { [_hQ]: _cIo }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _s }], [() => Name, { [_hQ]: _n }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
+  [_dI, _pIr, _eInv, _cIo, _ty, _st, _n, _nT, _mRa],
+  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _eInv }], [0, { [_hQ]: _cIo }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _st }], [() => Name, { [_hQ]: _n }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListDataSourcesOutput$: StaticStructureSchema = [3, n0, _LDSO,
   0,
@@ -3498,8 +3541,8 @@ export var ListDataSourcesOutput$: StaticStructureSchema = [3, n0, _LDSO,
 ];
 export var ListDomainsInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
-  [_s, _mRa, _nT],
-  [[0, { [_hQ]: _s }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_st, _mRa, _nT],
+  [[0, { [_hQ]: _st }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListDomainsOutput$: StaticStructureSchema = [3, n0, _LDO,
   0,
@@ -3568,8 +3611,8 @@ export var ListEnvironmentProfilesOutput$: StaticStructureSchema = [3, n0, _LEPO
 ];
 export var ListEnvironmentsInput$: StaticStructureSchema = [3, n0, _LEI,
   0,
-  [_dI, _pIr, _aAI, _s, _aAR, _ePI, _eBI, _pro, _n, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _aAI }], [0, { [_hQ]: _s }], [0, { [_hQ]: _aAR }], [0, { [_hQ]: _ePI }], [0, { [_hQ]: _eBI }], [0, { [_hQ]: _pro }], [0, { [_hQ]: _n }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+  [_dI, _pIr, _aAI, _st, _aAR, _ePI, _eBI, _pro, _n, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _pIr }], [0, { [_hQ]: _aAI }], [0, { [_hQ]: _st }], [0, { [_hQ]: _aAR }], [0, { [_hQ]: _ePI }], [0, { [_hQ]: _eBI }], [0, { [_hQ]: _pro }], [0, { [_hQ]: _n }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListEnvironmentsOutput$: StaticStructureSchema = [3, n0, _LEO,
   0,
@@ -3598,8 +3641,8 @@ export var ListingSummaryItem$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var ListJobRunsInput$: StaticStructureSchema = [3, n0, _LJRI,
   0,
-  [_dI, _jIo, _s, _sO, _nT, _mRa],
-  [[0, 1], [0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _sO }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
+  [_dI, _jIo, _st, _sO, _nT, _mRa],
+  [[0, 1], [0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _sO }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 2
 ];
 export var ListJobRunsOutput$: StaticStructureSchema = [3, n0, _LJRO,
   0,
@@ -3628,8 +3671,8 @@ export var ListLineageNodeHistoryOutput$: StaticStructureSchema = [3, n0, _LLNHO
 ];
 export var ListMetadataGenerationRunsInput$: StaticStructureSchema = [3, n0, _LMGRI,
   0,
-  [_dI, _s, _ty, _nT, _mRa, _tIa],
-  [[0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _tIa }]], 1
+  [_dI, _st, _ty, _nT, _mRa, _tIa],
+  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _ty }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _tIa }]], 1
 ];
 export var ListMetadataGenerationRunsOutput$: StaticStructureSchema = [3, n0, _LMGRO,
   0,
@@ -3708,8 +3751,8 @@ export var ListSubscriptionGrantsOutput$: StaticStructureSchema = [3, n0, _LSGO,
 ];
 export var ListSubscriptionRequestsInput$: StaticStructureSchema = [3, n0, _LSRI,
   0,
-  [_dI, _s, _sLI, _oPI, _oIPA, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+  [_dI, _st, _sLI, _oPI, _oIPA, _aPI, _oUI, _oGI, _sB, _sO, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _st }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListSubscriptionRequestsOutput$: StaticStructureSchema = [3, n0, _LSRO,
   0,
@@ -3718,8 +3761,8 @@ export var ListSubscriptionRequestsOutput$: StaticStructureSchema = [3, n0, _LSR
 ];
 export var ListSubscriptionsInput$: StaticStructureSchema = [3, n0, _LSIi,
   0,
-  [_dI, _sRIu, _s, _sLI, _oPI, _oIPA, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
-  [[0, 1], [0, { [_hQ]: _sRIu }], [0, { [_hQ]: _s }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+  [_dI, _sRIu, _st, _sLI, _oPI, _oIPA, _oUI, _oGI, _aPI, _sB, _sO, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sRIu }], [0, { [_hQ]: _st }], [0, { [_hQ]: _sLI }], [0, { [_hQ]: _oPI }], [0, { [_hQ]: _oIPA }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _oGI }], [0, { [_hQ]: _aPI }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListSubscriptionsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
@@ -3783,7 +3826,7 @@ export var MetadataFormSummary$: StaticStructureSchema = [3, n0, _MFS,
 ];
 export var MetadataGenerationRunItem$: StaticStructureSchema = [3, n0, _MGRI,
   0,
-  [_dIo, _id, _oPI, _tar, _s, _ty, _typ, _cA, _cB],
+  [_dIo, _id, _oPI, _tar, _st, _ty, _typ, _cA, _cB],
   [0, 0, 0, () => MetadataGenerationRunTarget$, 0, 0, 64 | 0, 4, 0], 3
 ];
 export var MetadataGenerationRunTarget$: StaticStructureSchema = [3, n0, _MGRT,
@@ -3793,7 +3836,7 @@ export var MetadataGenerationRunTarget$: StaticStructureSchema = [3, n0, _MGRT,
 ];
 export var MetadataGenerationRunTypeStat$: StaticStructureSchema = [3, n0, _MGRTS,
   0,
-  [_ty, _s, _eM],
+  [_ty, _st, _eM],
   [0, 0, 0], 2
 ];
 export var MlflowPropertiesInput$: StaticStructureSchema = [3, n0, _MPI,
@@ -3823,7 +3866,7 @@ export var NotEqualToExpression$: StaticStructureSchema = [3, n0, _NETE,
 ];
 export var NotificationOutput$: StaticStructureSchema = [3, n0, _NO,
   0,
-  [_i, _dI, _ty, _top, _tit, _m, _aLc, _cTre, _lUTa, _s, _met],
+  [_i, _dI, _ty, _top, _tit, _m, _aLc, _cTre, _lUTa, _st, _met],
   [0, 0, 0, () => Topic$, [() => Title, 0], [() => Message, 0], [() => ActionLink, 0], 4, 4, 0, 128 | 0], 9
 ];
 export var NotificationResource$: StaticStructureSchema = [3, n0, _NR,
@@ -3893,7 +3936,7 @@ export var PhysicalConnectionRequirements$: StaticStructureSchema = [3, n0, _PCR
 ];
 export var PhysicalEndpoint$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_aL, _gCN, _gC, _eTIP, _h, _po, _prot, _st],
+  [_aL, _gCN, _gC, _eTIP, _h, _po, _prot, _sta],
   [() => AwsLocation$, 0, [() => GlueConnection$, 0], 2, 0, 1, 0, 0]
 ];
 export var PolicyGrantMember$: StaticStructureSchema = [3, n0, _PGM,
@@ -3943,7 +3986,7 @@ export var ProjectPolicyGrantPrincipal$: StaticStructureSchema = [3, n0, _PPGP,
 ];
 export var ProjectProfileSummary$: StaticStructureSchema = [3, n0, _PPS,
   0,
-  [_dIo, _id, _n, _cB, _de, _s, _cA, _lUA, _dUI],
+  [_dIo, _id, _n, _cB, _de, _st, _cA, _lUA, _dUI],
   [0, 0, [() => ProjectProfileName, 0], 0, [() => Description, 0], 0, 5, 5, 0], 4
 ];
 export var ProjectsForRule$: StaticStructureSchema = [3, n0, _PFR,
@@ -4008,7 +4051,7 @@ export var RedshiftPropertiesInput$: StaticStructureSchema = [3, n0, _RPI,
 ];
 export var RedshiftPropertiesOutput$: StaticStructureSchema = [3, n0, _RPO,
   0,
-  [_sto, _cr, _iPS, _jIU, _jU, _rTD, _lSin, _s, _dNa],
+  [_sto, _cr, _iPS, _jIU, _jU, _rTD, _lSin, _st, _dNa],
   [() => RedshiftStorageProperties$, [() => RedshiftCredentials$, 0], 2, 0, 0, 0, () => RedshiftLineageSyncConfigurationOutput$, 0, 0]
 ];
 export var RedshiftPropertiesPatch$: StaticStructureSchema = [3, n0, _RPP,
@@ -4063,7 +4106,7 @@ export var RejectSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _RSR
 ];
 export var RejectSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _RSRO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataForms, 0]], 9
 ];
 export var RelationalFilterConfiguration$: StaticStructureSchema = [3, n0, _RFC,
@@ -4096,12 +4139,6 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
   [_v, _ty, _pro, _n],
   [0, 0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   0,
   [_k, _v, _so],
@@ -4119,7 +4156,7 @@ export var RevokeSubscriptionInput$: StaticStructureSchema = [3, n0, _RSI,
 ];
 export var RevokeSubscriptionOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
+  [_id, _cB, _dIo, _st, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
   [0, 0, 0, 0, 4, 4, [() => SubscribedPrincipal$, 0], [() => SubscribedListing$, 0], 0, 0, 2], 8
 ];
 export var RowFilterConfiguration$: StaticStructureSchema = [3, n0, _RFCo,
@@ -4149,7 +4186,7 @@ export var S3PropertiesInput$: StaticStructureSchema = [3, n0, _SPI,
 ];
 export var S3PropertiesOutput$: StaticStructureSchema = [3, n0, _SPO,
   0,
-  [_sU, _sAGLI, _s, _eM],
+  [_sU, _sAGLI, _st, _eM],
   [0, 0, 0, 0], 1
 ];
 export var S3PropertiesPatch$: StaticStructureSchema = [3, n0, _SPP,
@@ -4234,15 +4271,9 @@ export var SearchUserProfilesOutput$: StaticStructureSchema = [3, n0, _SUPO,
 ];
 export var SelfGrantStatusDetail$: StaticStructureSchema = [3, n0, _SGSD,
   0,
-  [_dNa, _s, _sN, _fC],
+  [_dNa, _st, _sN, _fC],
   [0, 0, 0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SingleSignOn$: StaticStructureSchema = [3, n0, _SSO,
   0,
   [_ty, _uAs, _iIA],
@@ -4290,7 +4321,7 @@ export var StartDataSourceRunInput$: StaticStructureSchema = [3, n0, _SDSRI,
 ];
 export var StartDataSourceRunOutput$: StaticStructureSchema = [3, n0, _SDSRO,
   0,
-  [_dIo, _dSI, _id, _pI, _s, _ty, _cA, _uA, _dSCS, _rSFA, _eM, _sAt, _sAto],
+  [_dIo, _dSI, _id, _pI, _st, _ty, _cA, _uA, _dSCS, _rSFA, _eM, _sAt, _sAto],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, () => RunStatisticsForAssets$, () => DataSourceErrorMessage$, 5, 5], 8
 ];
 export var StartMetadataGenerationRunInput$: StaticStructureSchema = [3, n0, _SMGRI,
@@ -4300,12 +4331,12 @@ export var StartMetadataGenerationRunInput$: StaticStructureSchema = [3, n0, _SM
 ];
 export var StartMetadataGenerationRunOutput$: StaticStructureSchema = [3, n0, _SMGRO,
   0,
-  [_dIo, _id, _s, _ty, _typ, _cA, _cB, _oPI],
+  [_dIo, _id, _st, _ty, _typ, _cA, _cB, _oPI],
   [0, 0, 0, 0, 64 | 0, 4, 0, 0], 2
 ];
 export var SubscribedAsset$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_aI, _aRs, _s, _tN, _fC, _gTra, _fTa, _aSs, _pe],
+  [_aI, _aRs, _st, _tN, _fC, _gTra, _fTa, _aSs, _pe],
   [0, 0, 0, 0, () => FailureCause$, 4, 4, () => AssetScope$, () => Permissions$], 3
 ];
 export var SubscribedAssetListing$: StaticStructureSchema = [3, n0, _SAL,
@@ -4370,17 +4401,17 @@ export var SubscribedUserInput$: StaticStructureSchema = [3, n0, _SUI,
 ];
 export var SubscriptionGrantSummary$: StaticStructureSchema = [3, n0, _SGS,
   0,
-  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _s, _uB, _eInvi, _as, _sI],
+  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _st, _uB, _eInvi, _as, _sI],
   [0, 0, 0, 4, 4, 0, () => GrantedEntity$, 0, 0, 0, () => SubscribedAssets, 0], 8
 ];
 export var SubscriptionRequestSummary$: StaticStructureSchema = [3, n0, _SRS,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mFS],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mFS],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataFormsSummary, 0]], 9
 ];
 export var SubscriptionSummary$: StaticStructureSchema = [3, n0, _SSu,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
+  [_id, _cB, _dIo, _st, _cA, _uA, _sPu, _sLu, _uB, _sRI, _rP],
   [0, 0, 0, 0, 4, 4, [() => SubscribedPrincipal$, 0], [() => SubscribedListing$, 0], 0, 0, 2], 8
 ];
 export var SubscriptionTargetForm$: StaticStructureSchema = [3, n0, _STF,
@@ -4413,12 +4444,6 @@ export var TextMatchItem$: StaticStructureSchema = [3, n0, _TMI,
   [_a, _te, _mO],
   [0, 0, () => MatchOffsets]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeSeriesDataPointFormInput$: StaticStructureSchema = [3, n0, _TSDPFI,
   0,
   [_fN, _tI, _ti, _tR, _cont],
@@ -4439,12 +4464,6 @@ export var Topic$: StaticStructureSchema = [3, n0, _To,
   [_sub, _res, _ro],
   [0, () => NotificationResource$, 0], 3
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var Unit$: StaticStructureSchema = [3, n0, _U,
   0,
   [],
@@ -4477,7 +4496,7 @@ export var UpdateAssetFilterInput$: StaticStructureSchema = [3, n0, _UAFI,
 ];
 export var UpdateAssetFilterOutput$: StaticStructureSchema = [3, n0, _UAFO,
   0,
-  [_id, _dIo, _aI, _n, _con, _de, _s, _cA, _eM, _eCN, _eRF],
+  [_id, _dIo, _aI, _n, _con, _de, _st, _cA, _eM, _eCN, _eRF],
   [0, 0, 0, [() => FilterName, 0], () => AssetFilterConfiguration$, [() => Description, 0], 0, 4, 0, 64 | 0, 0], 5
 ];
 export var UpdateConnectionInput$: StaticStructureSchema = [3, n0, _UCI,
@@ -4497,7 +4516,7 @@ export var UpdateDataSourceInput$: StaticStructureSchema = [3, n0, _UDSI,
 ];
 export var UpdateDataSourceOutput$: StaticStructureSchema = [3, n0, _UDSO,
   0,
-  [_id, _n, _dIo, _pI, _s, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
+  [_id, _n, _dIo, _pI, _st, _ty, _de, _eInvi, _cI, _con, _re, _eS, _pOI, _aFO, _sch, _lRS, _lRA, _lREM, _eM, _cA, _uA, _sGS, _rPORF],
   [0, [() => Name, 0], 0, 0, 0, 0, [() => Description, 0], 0, 0, () => DataSourceConfigurationOutput$, () => RecommendationConfiguration$, 0, 2, [() => FormOutputList, 0], [() => ScheduleConfiguration$, 0], 0, 5, () => DataSourceErrorMessage$, () => DataSourceErrorMessage$, 5, 5, () => SelfGrantStatusOutput$, 2], 4
 ];
 export var UpdateDomainInput$: StaticStructureSchema = [3, n0, _UDI,
@@ -4547,7 +4566,7 @@ export var UpdateEnvironmentInput$: StaticStructureSchema = [3, n0, _UEI,
 ];
 export var UpdateEnvironmentOutput$: StaticStructureSchema = [3, n0, _UEO,
   0,
-  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _s, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
+  [_pI, _dIo, _cB, _n, _pro, _id, _cA, _uA, _de, _ePIn, _aAI, _aAR, _pR, _st, _eA, _gT, _uP, _lD, _pP, _dP, _eBIn, _eCI],
   [0, 0, 0, [() => EnvironmentName, 0], 0, 0, 5, 5, [() => Description, 0], 0, 0, 0, () => ResourceList, 0, () => EnvironmentActionList, 64 | 0, [() => CustomParameterList, 0], () => Deployment$, () => ProvisioningProperties$, () => DeploymentProperties$, 0, [() => EnvironmentConfigurationId, 0]], 5
 ];
 export var UpdateEnvironmentProfileInput$: StaticStructureSchema = [3, n0, _UEPI,
@@ -4562,32 +4581,32 @@ export var UpdateEnvironmentProfileOutput$: StaticStructureSchema = [3, n0, _UEP
 ];
 export var UpdateGlossaryInput$: StaticStructureSchema = [3, n0, _UGI,
   0,
-  [_dI, _i, _n, _de, _s, _cT],
+  [_dI, _i, _n, _de, _st, _cT],
   [[0, 1], [0, 1], [() => GlossaryName, 0], [() => GlossaryDescription, 0], 0, [0, 4]], 2
 ];
 export var UpdateGlossaryOutput$: StaticStructureSchema = [3, n0, _UGO,
   0,
-  [_dIo, _id, _n, _oPI, _de, _s, _uR],
+  [_dIo, _id, _n, _oPI, _de, _st, _uR],
   [0, 0, [() => GlossaryName, 0], 0, [() => GlossaryDescription, 0], 0, 64 | 0], 4
 ];
 export var UpdateGlossaryTermInput$: StaticStructureSchema = [3, n0, _UGTI,
   0,
-  [_dI, _i, _gIl, _n, _sD, _lDo, _tRe, _s],
+  [_dI, _i, _gIl, _n, _sD, _lDo, _tRe, _st],
   [[0, 1], [0, 1], 0, [() => GlossaryTermName, 0], [() => ShortDescription, 0], [() => LongDescription, 0], () => TermRelations$, 0], 2
 ];
 export var UpdateGlossaryTermOutput$: StaticStructureSchema = [3, n0, _UGTO,
   0,
-  [_id, _dIo, _gIlo, _n, _s, _sD, _lDo, _tRe, _uR],
+  [_id, _dIo, _gIlo, _n, _st, _sD, _lDo, _tRe, _uR],
   [0, 0, 0, [() => GlossaryTermName, 0], 0, [() => ShortDescription, 0], [() => LongDescription, 0], () => TermRelations$, 64 | 0], 5
 ];
 export var UpdateGroupProfileInput$: StaticStructureSchema = [3, n0, _UGPI,
   0,
-  [_dI, _gIr, _s],
+  [_dI, _gIr, _st],
   [[0, 1], [0, 1], 0], 3
 ];
 export var UpdateGroupProfileOutput$: StaticStructureSchema = [3, n0, _UGPO,
   0,
-  [_dIo, _id, _s, _gN],
+  [_dIo, _id, _st, _gN],
   [0, 0, 0, [() => GroupProfileName, 0]]
 ];
 export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
@@ -4602,12 +4621,12 @@ export var UpdateProjectOutput$: StaticStructureSchema = [3, n0, _UPO,
 ];
 export var UpdateProjectProfileInput$: StaticStructureSchema = [3, n0, _UPPI,
   0,
-  [_dI, _i, _n, _de, _s, _pRT, _aCPRT, _pRTD, _eC, _dUIo],
+  [_dI, _i, _n, _de, _st, _pRT, _aCPRT, _pRTD, _eC, _dUIo],
   [[0, 1], [0, 1], [() => ProjectProfileName, 0], [() => Description, 0], 0, () => ProjectResourceTagParameters, 2, [() => Description, 0], [() => EnvironmentConfigurationsList, 0], 0], 2
 ];
 export var UpdateProjectProfileOutput$: StaticStructureSchema = [3, n0, _UPPO,
   0,
-  [_dIo, _id, _n, _cB, _de, _s, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
+  [_dIo, _id, _n, _cB, _de, _st, _pRT, _aCPRT, _pRTD, _eC, _cA, _lUA, _dUI],
   [0, 0, [() => ProjectProfileName, 0], 0, [() => Description, 0], 0, () => ProjectResourceTagParameters, 2, [() => Description, 0], [() => EnvironmentConfigurationsList, 0], 5, 5, 0], 4
 ];
 export var UpdateRootDomainUnitOwnerInput$: StaticStructureSchema = [3, n0, _URDUOI,
@@ -4632,12 +4651,12 @@ export var UpdateRuleOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateSubscriptionGrantStatusInput$: StaticStructureSchema = [3, n0, _USGSI,
   0,
-  [_dI, _i, _aIs, _s, _fC, _tN],
+  [_dI, _i, _aIs, _st, _fC, _tN],
   [[0, 1], [0, 1], [0, 1], 0, () => FailureCause$, 0], 4
 ];
 export var UpdateSubscriptionGrantStatusOutput$: StaticStructureSchema = [3, n0, _USGSO,
   0,
-  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _s, _uB, _eInvi, _as, _sI],
+  [_id, _cB, _dIo, _cA, _uA, _sTIu, _gE, _st, _uB, _eInvi, _as, _sI],
   [0, 0, 0, 4, 4, 0, () => GrantedEntity$, 0, 0, 0, () => SubscribedAssets, 0], 8
 ];
 export var UpdateSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _USRI,
@@ -4647,7 +4666,7 @@ export var UpdateSubscriptionRequestInput$: StaticStructureSchema = [3, n0, _USR
 ];
 export var UpdateSubscriptionRequestOutput$: StaticStructureSchema = [3, n0, _USRO,
   0,
-  [_id, _cB, _dIo, _s, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
+  [_id, _cB, _dIo, _st, _cA, _uA, _rR, _sP, _sL, _uB, _rI, _dC, _eSI, _mF],
   [0, 0, 0, 0, 4, 4, [() => RequestReason, 0], [() => SubscribedPrincipals, 0], [() => SubscribedListings, 0], 0, 0, [() => DecisionComment, 0], 0, [() => MetadataForms, 0]], 9
 ];
 export var UpdateSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _USTI,
@@ -4662,12 +4681,12 @@ export var UpdateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _UST
 ];
 export var UpdateUserProfileInput$: StaticStructureSchema = [3, n0, _UUPI,
   0,
-  [_dI, _uI, _s, _ty],
+  [_dI, _uI, _st, _ty],
   [[0, 1], [0, 1], 0, 0], 3
 ];
 export var UpdateUserProfileOutput$: StaticStructureSchema = [3, n0, _UUPO,
   0,
-  [_dIo, _id, _ty, _s, _det],
+  [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
 ];
 export var UseAssetTypePolicyGrantDetail$: StaticStructureSchema = [3, n0, _UATPGD,
@@ -4687,18 +4706,10 @@ export var UsernamePassword$: StaticStructureSchema = [3, n0, _UP,
 ];
 export var UserProfileSummary$: StaticStructureSchema = [3, n0, _UPS,
   0,
-  [_dIo, _id, _ty, _s, _det],
+  [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var DataZoneServiceException$: StaticErrorSchema = [-3, _sm, "DataZoneServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataZoneServiceException$, DataZoneServiceException);
 var AcceptChoices: StaticListSchema = [1, n0, _ACc,
   0, [() => AcceptChoice$,
     0]
@@ -5196,7 +5207,7 @@ export var MemberDetails$: StaticUnionSchema = [4, n0, _MD,
 ];
 export var Model$: StaticUnionSchema = [4, n0, _Mo,
   8,
-  [_smi],
+  [_sm],
   [0]
 ];
 export var OwnerProperties$: StaticUnionSchema = [4, n0, _OP,

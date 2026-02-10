@@ -74,10 +74,10 @@ const _rAe = "resourceArn";
 const _rI = "resourceId";
 const _rID = "retentionInDays";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.aiops";
 const _sC = "serviceCode";
 const _sRA = "sourceRoleArn";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.aiops";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tKB = "tagKeyBoundaries";
@@ -108,19 +108,68 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var SensitiveStringWithLengthLimits: StaticSimpleSchema = [0, n0, _SSWLL, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var AIOpsServiceException$: StaticErrorSchema = [-3, _s, "AIOpsServiceException", 0, [], []];
+_s_registry.registerError(AIOpsServiceException$, AIOpsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveStringWithLengthLimits: StaticSimpleSchema = [0, n0, _SSWLL, 8, 0];
 export var CreateInvestigationGroupInput$: StaticStructureSchema = [3, n0, _CIGI,
   0,
   [_n, _rA, _eC, _rID, _t, _tKB, _cNC, _iCTEHE, _cAC],
@@ -156,12 +205,6 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   [_ty, _kKI],
   [0, 0]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetInvestigationGroupPolicyRequest$: StaticStructureSchema = [3, n0, _GIGPR,
   0,
   [_i],
@@ -182,12 +225,6 @@ export var GetInvestigationGroupResponse$: StaticStructureSchema = [3, n0, _GIGR
   [_cB, _cA, _lMB, _lMA, _n, _a, _rA, _eC, _rID, _cNC, _tKB, _iCTEHE, _cAC],
   [0, 1, 0, 1, 0, 0, 0, () => EncryptionConfiguration$, 1, [2, n0, _CNC, 0, 0, 64 | 0], 64 | 0, 2, () => CrossAccountConfigurations]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListInvestigationGroupsInput$: StaticStructureSchema = [3, n0, _LIGI,
   0,
   [_nT, _mR],
@@ -223,18 +260,6 @@ export var PutInvestigationGroupPolicyResponse$: StaticStructureSchema = [3, n0,
   [_iGA],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
@@ -245,12 +270,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -271,15 +290,7 @@ export var UpdateInvestigationGroupRequest$: StaticStructureSchema = [3, n0, _UI
   [_i, _rA, _eC, _tKB, _cNC, _iCTEHE, _cAC],
   [[0, 1], 0, () => EncryptionConfiguration$, 64 | 0, [2, n0, _CNC, 0, 0, 64 | 0], 2, () => CrossAccountConfigurations], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var AIOpsServiceException$: StaticErrorSchema = [-3, _sm, "AIOpsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AIOpsServiceException$, AIOpsServiceException);
 var ChatConfigurationArns = 64 | 0;
 var CrossAccountConfigurations: StaticListSchema = [1, n0, _CACr,
   0, () => CrossAccountConfiguration$

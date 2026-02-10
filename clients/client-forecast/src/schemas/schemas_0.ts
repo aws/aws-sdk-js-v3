@@ -440,6 +440,55 @@ import {
 import { ForecastServiceException } from "../models/ForecastServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ForecastServiceException$: StaticErrorSchema = [-3, _s, "ForecastServiceException", 0, [], []];
+_s_registry.registerError(ForecastServiceException$, ForecastServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
@@ -952,24 +1001,6 @@ export var IntegerParameterRange$: StaticStructureSchema = [3, n0, _IPR,
   [_N, _MV, _MVi, _ST],
   [0, 1, 1, 0], 3
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListDatasetGroupsRequest$: StaticStructureSchema = [3, n0, _LDGR,
   0,
   [_NT, _MR],
@@ -1195,24 +1226,6 @@ export var ReferencePredictorSummary$: StaticStructureSchema = [3, n0, _RPS,
   [_Ar, _Sta],
   [0, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResumeResourceRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_RA],
@@ -1344,8 +1357,6 @@ export var WindowSummary$: StaticStructureSchema = [3, n0, _WS,
   [4, 4, 1, 0, () => Metrics$]
 ];
 var __Unit = "unit" as const;
-export var ForecastServiceException$: StaticErrorSchema = [-3, _s, "ForecastServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ForecastServiceException$, ForecastServiceException);
 var AdditionalDatasets: StaticListSchema = [1, n0, _ADd,
   0, () => AdditionalDataset$
 ];

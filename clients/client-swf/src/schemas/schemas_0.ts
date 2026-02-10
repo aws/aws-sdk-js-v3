@@ -208,7 +208,7 @@ const _aTFEA = "activityTaskFailedEventAttributes";
 const _aTSEA = "activityTaskScheduledEventAttributes";
 const _aTSEAc = "activityTaskStartedEventAttributes";
 const _aTTOEA = "activityTaskTimedOutEventAttributes";
-const _c = "control";
+const _c = "client";
 const _cANWEDA = "continueAsNewWorkflowExecutionDecisionAttributes";
 const _cANWEFEA = "continueAsNewWorkflowExecutionFailedEventAttributes";
 const _cD = "creationDate";
@@ -232,8 +232,8 @@ const _cWESEA = "childWorkflowExecutionStartedEventAttributes";
 const _cWETEA = "childWorkflowExecutionTerminatedEventAttributes";
 const _cWETOEA = "childWorkflowExecutionTimedOutEventAttributes";
 const _ca = "cause";
-const _cl = "client";
-const _co = "configuration";
+const _co = "control";
+const _con = "configuration";
 const _cou = "count";
 const _d = "details";
 const _dCP = "defaultChildPolicy";
@@ -257,7 +257,7 @@ const _dTTOEA = "decisionTaskTimedOutEventAttributes";
 const _de = "description";
 const _dec = "decisions";
 const _do = "domain";
-const _e = "events";
+const _e = "error";
 const _eC = "executionContext";
 const _eCx = "executionConfiguration";
 const _eF = "executionFilter";
@@ -272,7 +272,7 @@ const _eTv = "eventType";
 const _eWE = "externalWorkflowExecution";
 const _eWECREA = "externalWorkflowExecutionCancelRequestedEventAttributes";
 const _eWESEA = "externalWorkflowExecutionSignaledEventAttributes";
-const _er = "error";
+const _ev = "events";
 const _ex = "execution";
 const _fWEDA = "failWorkflowExecutionDecisionAttributes";
 const _fWEFEA = "failWorkflowExecutionFailedEventAttributes";
@@ -324,7 +324,7 @@ const _rMFEA = "recordMarkerFailedEventAttributes";
 const _rO = "reverseOrder";
 const _rS = "registrationStatus";
 const _re = "reason";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.swf";
 const _sAPSE = "startAtPreviousStartedEvent";
 const _sATDA = "scheduleActivityTaskDecisionAttributes";
 const _sATFEA = "scheduleActivityTaskFailedEventAttributes";
@@ -348,7 +348,7 @@ const _sTF = "startTimeFilter";
 const _sTFEA = "startTimerFailedEventAttributes";
 const _sTFT = "startToFireTimeout";
 const _sTST = "scheduleToStartTimeout";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.swf";
+const _st = "status";
 const _t = "tags";
 const _tCEA = "timerCanceledEventAttributes";
 const _tF = "typeFilter";
@@ -406,6 +406,85 @@ import {
 import { SWFServiceException } from "../models/SWFServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SWFServiceException$: StaticErrorSchema = [-3, _s, "SWFServiceException", 0, [], []];
+_s_registry.registerError(SWFServiceException$, SWFServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DefaultUndefinedFault$: StaticErrorSchema = [-3, n0, _DUF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DefaultUndefinedFault$, DefaultUndefinedFault);
+export var DomainAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DAEF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DomainAlreadyExistsFault$, DomainAlreadyExistsFault);
+export var DomainDeprecatedFault$: StaticErrorSchema = [-3, n0, _DDF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DomainDeprecatedFault$, DomainDeprecatedFault);
+export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededFault$, LimitExceededFault);
+export var OperationNotPermittedFault$: StaticErrorSchema = [-3, n0, _ONPF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationNotPermittedFault$, OperationNotPermittedFault);
+export var TooManyTagsFault$: StaticErrorSchema = [-3, n0, _TMTF,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsFault$, TooManyTagsFault);
+export var TypeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _TAEF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TypeAlreadyExistsFault$, TypeAlreadyExistsFault);
+export var TypeDeprecatedFault$: StaticErrorSchema = [-3, n0, _TDF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TypeDeprecatedFault$, TypeDeprecatedFault);
+export var TypeNotDeprecatedFault$: StaticErrorSchema = [-3, n0, _TNDF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TypeNotDeprecatedFault$, TypeNotDeprecatedFault);
+export var UnknownResourceFault$: StaticErrorSchema = [-3, n0, _URF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnknownResourceFault$, UnknownResourceFault);
+export var WorkflowExecutionAlreadyStartedFault$: StaticErrorSchema = [-3, n0, _WEASF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WorkflowExecutionAlreadyStartedFault$, WorkflowExecutionAlreadyStartedFault);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActivityTask$: StaticStructureSchema = [3, n0, _AT,
   0,
   [_tT, _aI, _sEI, _wE, _aT, _i],
@@ -433,7 +512,7 @@ export var ActivityTaskFailedEventAttributes$: StaticStructureSchema = [3, n0, _
 ];
 export var ActivityTaskScheduledEventAttributes$: StaticStructureSchema = [3, n0, _ATSEA,
   0,
-  [_aT, _aI, _tL, _dTCEI, _i, _c, _sTST, _sTCT, _sTCTt, _tP, _hT],
+  [_aT, _aI, _tL, _dTCEI, _i, _co, _sTST, _sTCT, _sTCTt, _tP, _hT],
   [() => ActivityType$, 0, () => TaskList$, 1, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var ActivityTaskStartedEventAttributes$: StaticStructureSchema = [3, n0, _ATSEAc,
@@ -463,12 +542,12 @@ export var ActivityTypeConfiguration$: StaticStructureSchema = [3, n0, _ATC,
 ];
 export var ActivityTypeDetail$: StaticStructureSchema = [3, n0, _ATD,
   0,
-  [_tI, _co],
+  [_tI, _con],
   [() => ActivityTypeInfo$, () => ActivityTypeConfiguration$], 2
 ];
 export var ActivityTypeInfo$: StaticStructureSchema = [3, n0, _ATI,
   0,
-  [_aT, _s, _cD, _de, _dD],
+  [_aT, _st, _cD, _de, _dD],
   [() => ActivityType$, 0, 4, 0, 4], 3
 ];
 export var ActivityTypeInfos$: StaticStructureSchema = [3, n0, _ATIc,
@@ -528,7 +607,7 @@ export var ChildWorkflowExecutionTimedOutEventAttributes$: StaticStructureSchema
 ];
 export var CloseStatusFilter$: StaticStructureSchema = [3, n0, _CSF,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var CompleteWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _CWEDAo,
@@ -578,7 +657,7 @@ export var Decision$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DecisionTask$: StaticStructureSchema = [3, n0, _DT,
   0,
-  [_tT, _sEI, _wE, _wT, _e, _nPT, _pSEI],
+  [_tT, _sEI, _wE, _wT, _ev, _nPT, _pSEI],
   [0, 1, () => WorkflowExecution$, () => WorkflowType$, () => HistoryEventList, 0, 1], 5
 ];
 export var DecisionTaskCompletedEventAttributes$: StaticStructureSchema = [3, n0, _DTCEA,
@@ -601,12 +680,6 @@ export var DecisionTaskTimedOutEventAttributes$: StaticStructureSchema = [3, n0,
   [_tTi, _sEIc, _sEI],
   [0, 1, 1], 3
 ];
-export var DefaultUndefinedFault$: StaticErrorSchema = [-3, n0, _DUF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DefaultUndefinedFault$, DefaultUndefinedFault);
 export var DeleteActivityTypeInput$: StaticStructureSchema = [3, n0, _DATI,
   0,
   [_do, _aT],
@@ -652,31 +725,19 @@ export var DescribeWorkflowTypeInput$: StaticStructureSchema = [3, n0, _DWTIes,
   [_do, _wT],
   [0, () => WorkflowType$], 2
 ];
-export var DomainAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _DAEF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DomainAlreadyExistsFault$, DomainAlreadyExistsFault);
 export var DomainConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_wERPID],
   [0], 1
 ];
-export var DomainDeprecatedFault$: StaticErrorSchema = [-3, n0, _DDF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DomainDeprecatedFault$, DomainDeprecatedFault);
 export var DomainDetail$: StaticStructureSchema = [3, n0, _DD,
   0,
-  [_dI, _co],
+  [_dI, _con],
   [() => DomainInfo$, () => DomainConfiguration$], 2
 ];
 export var DomainInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_n, _s, _de, _a],
+  [_n, _st, _de, _a],
   [0, 0, 0, 0], 2
 ];
 export var DomainInfos$: StaticStructureSchema = [3, n0, _DIo,
@@ -716,7 +777,7 @@ export var GetWorkflowExecutionHistoryInput$: StaticStructureSchema = [3, n0, _G
 ];
 export var History$: StaticStructureSchema = [3, n0, _H,
   0,
-  [_e, _nPT],
+  [_ev, _nPT],
   [() => HistoryEventList, 0], 1
 ];
 export var HistoryEvent$: StaticStructureSchema = [3, n0, _HE,
@@ -736,7 +797,7 @@ export var LambdaFunctionFailedEventAttributes$: StaticStructureSchema = [3, n0,
 ];
 export var LambdaFunctionScheduledEventAttributes$: StaticStructureSchema = [3, n0, _LFSEA,
   0,
-  [_id_, _n, _dTCEI, _c, _i, _sTCTt],
+  [_id_, _n, _dTCEI, _co, _i, _sTCTt],
   [0, 0, 1, 0, 0, 0], 3
 ];
 export var LambdaFunctionStartedEventAttributes$: StaticStructureSchema = [3, n0, _LFSEAa,
@@ -749,12 +810,6 @@ export var LambdaFunctionTimedOutEventAttributes$: StaticStructureSchema = [3, n
   [_sEIc, _sEI, _tTi],
   [1, 1, 0], 2
 ];
-export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededFault$, LimitExceededFault);
 export var ListActivityTypesInput$: StaticStructureSchema = [3, n0, _LATI,
   0,
   [_do, _rS, _n, _nPT, _mPS, _rO],
@@ -795,12 +850,6 @@ export var MarkerRecordedEventAttributes$: StaticStructureSchema = [3, n0, _MREA
   [_mN, _dTCEI, _d],
   [0, 1, 0], 2
 ];
-export var OperationNotPermittedFault$: StaticErrorSchema = [-3, n0, _ONPF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedFault$, OperationNotPermittedFault);
 export var PendingTaskCount$: StaticStructureSchema = [3, n0, _PTC,
   0,
   [_cou, _tr],
@@ -858,17 +907,17 @@ export var RequestCancelActivityTaskFailedEventAttributes$: StaticStructureSchem
 ];
 export var RequestCancelExternalWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _RCEWEDA,
   0,
-  [_wI, _rI, _c],
+  [_wI, _rI, _co],
   [0, 0, 0], 1
 ];
 export var RequestCancelExternalWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [3, n0, _RCEWEFEA,
   0,
-  [_wI, _ca, _iEI, _dTCEI, _rI, _c],
+  [_wI, _ca, _iEI, _dTCEI, _rI, _co],
   [0, 0, 1, 1, 0, 0], 4
 ];
 export var RequestCancelExternalWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [3, n0, _RCEWEIEA,
   0,
-  [_wI, _dTCEI, _rI, _c],
+  [_wI, _dTCEI, _rI, _co],
   [0, 1, 0, 0], 2
 ];
 export var RequestCancelWorkflowExecutionInput$: StaticStructureSchema = [3, n0, _RCWEI,
@@ -908,7 +957,7 @@ export var Run$: StaticStructureSchema = [3, n0, _R,
 ];
 export var ScheduleActivityTaskDecisionAttributes$: StaticStructureSchema = [3, n0, _SATDA,
   0,
-  [_aT, _aI, _c, _i, _sTCT, _tL, _tP, _sTST, _sTCTt, _hT],
+  [_aT, _aI, _co, _i, _sTCT, _tL, _tP, _sTST, _sTCTt, _hT],
   [() => ActivityType$, 0, 0, 0, 0, () => TaskList$, 0, 0, 0, 0], 2
 ];
 export var ScheduleActivityTaskFailedEventAttributes$: StaticStructureSchema = [3, n0, _SATFEA,
@@ -918,7 +967,7 @@ export var ScheduleActivityTaskFailedEventAttributes$: StaticStructureSchema = [
 ];
 export var ScheduleLambdaFunctionDecisionAttributes$: StaticStructureSchema = [3, n0, _SLFDA,
   0,
-  [_id_, _n, _c, _i, _sTCTt],
+  [_id_, _n, _co, _i, _sTCTt],
   [0, 0, 0, 0, 0], 2
 ];
 export var ScheduleLambdaFunctionFailedEventAttributes$: StaticStructureSchema = [3, n0, _SLFFEA,
@@ -928,17 +977,17 @@ export var ScheduleLambdaFunctionFailedEventAttributes$: StaticStructureSchema =
 ];
 export var SignalExternalWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _SEWEDA,
   0,
-  [_wI, _sN, _rI, _i, _c],
+  [_wI, _sN, _rI, _i, _co],
   [0, 0, 0, 0, 0], 2
 ];
 export var SignalExternalWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [3, n0, _SEWEFEA,
   0,
-  [_wI, _ca, _iEI, _dTCEI, _rI, _c],
+  [_wI, _ca, _iEI, _dTCEI, _rI, _co],
   [0, 0, 1, 1, 0, 0], 4
 ];
 export var SignalExternalWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [3, n0, _SEWEIEA,
   0,
-  [_wI, _sN, _dTCEI, _rI, _i, _c],
+  [_wI, _sN, _dTCEI, _rI, _i, _co],
   [0, 0, 1, 0, 0, 0], 3
 ];
 export var SignalWorkflowExecutionInput$: StaticStructureSchema = [3, n0, _SWEI,
@@ -948,17 +997,17 @@ export var SignalWorkflowExecutionInput$: StaticStructureSchema = [3, n0, _SWEI,
 ];
 export var StartChildWorkflowExecutionDecisionAttributes$: StaticStructureSchema = [3, n0, _SCWEDA,
   0,
-  [_wT, _wI, _c, _i, _eSTCT, _tL, _tP, _tSTCT, _cP, _tLa, _lR],
+  [_wT, _wI, _co, _i, _eSTCT, _tL, _tP, _tSTCT, _cP, _tLa, _lR],
   [() => WorkflowType$, 0, 0, 0, 0, () => TaskList$, 0, 0, 0, 64 | 0, 0], 2
 ];
 export var StartChildWorkflowExecutionFailedEventAttributes$: StaticStructureSchema = [3, n0, _SCWEFEA,
   0,
-  [_wT, _ca, _wI, _iEI, _dTCEI, _c],
+  [_wT, _ca, _wI, _iEI, _dTCEI, _co],
   [() => WorkflowType$, 0, 0, 1, 1, 0], 5
 ];
 export var StartChildWorkflowExecutionInitiatedEventAttributes$: StaticStructureSchema = [3, n0, _SCWEIEA,
   0,
-  [_wI, _wT, _tL, _dTCEI, _cP, _c, _i, _eSTCT, _tP, _tSTCT, _tLa, _lR],
+  [_wI, _wT, _tL, _dTCEI, _cP, _co, _i, _eSTCT, _tP, _tSTCT, _tLa, _lR],
   [0, () => WorkflowType$, () => TaskList$, 1, 0, 0, 0, 0, 0, 0, 64 | 0, 0], 5
 ];
 export var StartLambdaFunctionFailedEventAttributes$: StaticStructureSchema = [3, n0, _SLFFEAt,
@@ -968,7 +1017,7 @@ export var StartLambdaFunctionFailedEventAttributes$: StaticStructureSchema = [3
 ];
 export var StartTimerDecisionAttributes$: StaticStructureSchema = [3, n0, _STDA,
   0,
-  [_tIi, _sTFT, _c],
+  [_tIi, _sTFT, _co],
   [0, 0, 0], 2
 ];
 export var StartTimerFailedEventAttributes$: StaticStructureSchema = [3, n0, _STFEA,
@@ -1013,33 +1062,9 @@ export var TimerFiredEventAttributes$: StaticStructureSchema = [3, n0, _TFEA,
 ];
 export var TimerStartedEventAttributes$: StaticStructureSchema = [3, n0, _TSEA,
   0,
-  [_tIi, _sTFT, _dTCEI, _c],
+  [_tIi, _sTFT, _dTCEI, _co],
   [0, 0, 1, 0], 3
 ];
-export var TooManyTagsFault$: StaticErrorSchema = [-3, n0, _TMTF,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsFault$, TooManyTagsFault);
-export var TypeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _TAEF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TypeAlreadyExistsFault$, TypeAlreadyExistsFault);
-export var TypeDeprecatedFault$: StaticErrorSchema = [-3, n0, _TDF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TypeDeprecatedFault$, TypeDeprecatedFault);
-export var TypeNotDeprecatedFault$: StaticErrorSchema = [-3, n0, _TNDF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TypeNotDeprecatedFault$, TypeNotDeprecatedFault);
 export var UndeprecateActivityTypeInput$: StaticStructureSchema = [3, n0, _UATI,
   0,
   [_do, _aT],
@@ -1055,12 +1080,6 @@ export var UndeprecateWorkflowTypeInput$: StaticStructureSchema = [3, n0, _UWTI,
   [_do, _wT],
   [0, () => WorkflowType$], 2
 ];
-export var UnknownResourceFault$: StaticErrorSchema = [-3, n0, _URF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnknownResourceFault$, UnknownResourceFault);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -1071,12 +1090,6 @@ export var WorkflowExecution$: StaticStructureSchema = [3, n0, _WE,
   [_wI, _rI],
   [0, 0], 2
 ];
-export var WorkflowExecutionAlreadyStartedFault$: StaticErrorSchema = [-3, n0, _WEASF,
-  { [_er]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WorkflowExecutionAlreadyStartedFault$, WorkflowExecutionAlreadyStartedFault);
 export var WorkflowExecutionCanceledEventAttributes$: StaticStructureSchema = [3, n0, _WECEA,
   0,
   [_dTCEI, _d],
@@ -1169,7 +1182,7 @@ export var WorkflowTypeConfiguration$: StaticStructureSchema = [3, n0, _WTC,
 ];
 export var WorkflowTypeDetail$: StaticStructureSchema = [3, n0, _WTD,
   0,
-  [_tI, _co],
+  [_tI, _con],
   [() => WorkflowTypeInfo$, () => WorkflowTypeConfiguration$], 2
 ];
 export var WorkflowTypeFilter$: StaticStructureSchema = [3, n0, _WTF,
@@ -1179,7 +1192,7 @@ export var WorkflowTypeFilter$: StaticStructureSchema = [3, n0, _WTF,
 ];
 export var WorkflowTypeInfo$: StaticStructureSchema = [3, n0, _WTI,
   0,
-  [_wT, _s, _cD, _de, _dD],
+  [_wT, _st, _cD, _de, _dD],
   [() => WorkflowType$, 0, 4, 0, 4], 3
 ];
 export var WorkflowTypeInfos$: StaticStructureSchema = [3, n0, _WTIo,
@@ -1188,8 +1201,6 @@ export var WorkflowTypeInfos$: StaticStructureSchema = [3, n0, _WTIo,
   [() => WorkflowTypeInfoList, 0], 1
 ];
 var __Unit = "unit" as const;
-export var SWFServiceException$: StaticErrorSchema = [-3, _sm, "SWFServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SWFServiceException$, SWFServiceException);
 var ActivityTypeInfoList: StaticListSchema = [1, n0, _ATIL,
   0, () => ActivityTypeInfo$
 ];

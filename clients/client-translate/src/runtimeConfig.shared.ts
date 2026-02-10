@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTranslateHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TranslateClientConfig } from "./TranslateClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TranslateClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.translate",
+      errorTypeRegistries,
       version: "2017-07-01",
       serviceTarget: "AWSShineFrontendService_20170701",
     },

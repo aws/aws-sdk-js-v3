@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultConnectHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ConnectClientConfig } from "./ConnectClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ConnectClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.connect",
+      errorTypeRegistries,
       version: "2017-08-08",
       serviceTarget: "AmazonConnectService",
     },

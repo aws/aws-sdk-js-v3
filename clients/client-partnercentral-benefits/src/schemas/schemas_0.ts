@@ -49,8 +49,8 @@ const _CCr = "CreditCodes";
 const _CCu = "CurrencyCode";
 const _CD = "ConsumableDetails";
 const _CDr = "CreditDetails";
-const _CE = "ContactEmail";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEo = "ContactEmail";
 const _CFN = "ContactFirstName";
 const _CLN = "ContactLastName";
 const _CP = "ContactPhone";
@@ -125,17 +125,17 @@ const _P = "Programs";
 const _PC = "PartnerContacts";
 const _Ph = "Phone";
 const _QC = "QuotaCode";
-const _R = "Revision";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RAe = "RemainingAmount";
 const _RBA = "RecallBenefitApplication";
 const _RBAI = "RecallBenefitApplicationInput";
 const _RBAO = "RecallBenefitApplicationOutput";
-const _RI = "ResourceIdentifier";
-const _RIe = "ResourceId";
+const _RI = "ResourceId";
+const _RIe = "ResourceIdentifier";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
-const _Re = "Reason";
+const _Re = "Revision";
 const _S = "Status";
 const _SA = "StartsAt";
 const _SBA = "SubmitBenefitApplication";
@@ -170,8 +170,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralbenefits";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralbenefits";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.partnercentralbenefits";
@@ -200,16 +200,65 @@ import {
 import { PartnerCentralBenefitsServiceException } from "../models/PartnerCentralBenefitsServiceException";
 
 /* eslint no-var: 0 */
-var ContactEmail: StaticSimpleSchema = [0, n0, _CE, 8, 0];
-var ContactFirstName: StaticSimpleSchema = [0, n0, _CFN, 8, 0];
-var ContactLastName: StaticSimpleSchema = [0, n0, _CLN, 8, 0];
-var ContactPhone: StaticSimpleSchema = [0, n0, _CP, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var PartnerCentralBenefitsServiceException$: StaticErrorSchema = [-3, _s, "PartnerCentralBenefitsServiceException", 0, [], []];
+_s_registry.registerError(PartnerCentralBenefitsServiceException$, PartnerCentralBenefitsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _QC],
+  [0, 0, 0, 0], 4
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ContactEmail: StaticSimpleSchema = [0, n0, _CEo, 8, 0];
+var ContactFirstName: StaticSimpleSchema = [0, n0, _CFN, 8, 0];
+var ContactLastName: StaticSimpleSchema = [0, n0, _CLN, 8, 0];
+var ContactPhone: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 export var AccessDetails$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_D],
@@ -217,7 +266,7 @@ export var AccessDetails$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AmendBenefitApplicationInput$: StaticStructureSchema = [3, n0, _ABAI,
   0,
-  [_C, _CT, _R, _I, _AR, _A],
+  [_C, _CT, _Re, _I, _AR, _A],
   [0, 0, 0, 0, 0, () => AmendmentList], 6
 ];
 export var AmendBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _ABAO,
@@ -237,12 +286,12 @@ export var AssociateBenefitApplicationResourceInput$: StaticStructureSchema = [3
 ];
 export var AssociateBenefitApplicationResourceOutput$: StaticStructureSchema = [3, n0, _ABARO,
   0,
-  [_Id, _Ar, _R],
+  [_Id, _Ar, _Re],
   [0, 0, 0]
 ];
 export var AssociatedResource$: StaticStructureSchema = [3, n0, _ARs,
   0,
-  [_RT, _RI, _RA],
+  [_RT, _RIe, _RA],
   [0, 0, 0]
 ];
 export var BenefitAllocationSummary$: StaticStructureSchema = [3, n0, _BAS,
@@ -262,7 +311,7 @@ export var BenefitSummary$: StaticStructureSchema = [3, n0, _BS,
 ];
 export var CancelBenefitApplicationInput$: StaticStructureSchema = [3, n0, _CBAI,
   0,
-  [_C, _CT, _I, _Re],
+  [_C, _CT, _I, _R],
   [0, 0, 0, 0], 3
 ];
 export var CancelBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _CBAO,
@@ -270,12 +319,6 @@ export var CancelBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _CBA
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsumableDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_AA, _RAe, _UAt, _ID],
@@ -293,7 +336,7 @@ export var CreateBenefitApplicationInput$: StaticStructureSchema = [3, n0, _CBAI
 ];
 export var CreateBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _CBAOr,
   0,
-  [_Id, _Ar, _R],
+  [_Id, _Ar, _Re],
   [0, 0, 0]
 ];
 export var CreditCode$: StaticStructureSchema = [3, n0, _CC,
@@ -313,7 +356,7 @@ export var DisassociateBenefitApplicationResourceInput$: StaticStructureSchema =
 ];
 export var DisassociateBenefitApplicationResourceOutput$: StaticStructureSchema = [3, n0, _DBARO,
   0,
-  [_Id, _Ar, _R],
+  [_Id, _Ar, _Re],
   [0, 0, 0]
 ];
 export var DisbursementDetails$: StaticStructureSchema = [3, n0, _DD,
@@ -348,7 +391,7 @@ export var GetBenefitApplicationInput$: StaticStructureSchema = [3, n0, _GBAIe,
 ];
 export var GetBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _GBAOe,
   0,
-  [_Id, _Ar, _C, _BI, _N, _D, _FT, _BAD, _P, _S, _St, _SR, _SRC, _SRCt, _CA, _UA, _R, _ARss, _PC, _FD],
+  [_Id, _Ar, _C, _BI, _N, _D, _FT, _BAD, _P, _S, _St, _SR, _SRC, _SRCt, _CA, _UA, _Re, _ARss, _PC, _FD],
   [0, 0, 0, 0, 0, 0, 64 | 0, 15, 64 | 0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, [() => Contacts, 0], () => FileDetails]
 ];
 export var GetBenefitInput$: StaticStructureSchema = [3, n0, _GBI,
@@ -361,12 +404,6 @@ export var GetBenefitOutput$: StaticStructureSchema = [3, n0, _GBO,
   [_Id, _C, _Ar, _N, _D, _P, _FT, _BRS, _S],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 15, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IssuanceDetail$: StaticStructureSchema = [3, n0, _IDs,
   0,
   [_II, _IAss, _IA],
@@ -419,7 +456,7 @@ export var MonetaryValue$: StaticStructureSchema = [3, n0, _MV,
 ];
 export var RecallBenefitApplicationInput$: StaticStructureSchema = [3, n0, _RBAI,
   0,
-  [_C, _I, _Re, _CT],
+  [_C, _I, _R, _CT],
   [0, 0, 0, 0], 3
 ];
 export var RecallBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _RBAO,
@@ -427,18 +464,6 @@ export var RecallBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _RBA
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RIe, _RT, _QC],
-  [0, 0, 0, 0], 4
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SubmitBenefitApplicationInput$: StaticStructureSchema = [3, n0, _SBAI,
   0,
   [_C, _I],
@@ -464,12 +489,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -482,27 +501,19 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateBenefitApplicationInput$: StaticStructureSchema = [3, n0, _UBAI,
   0,
-  [_C, _CT, _I, _R, _N, _D, _BAD, _PC, _FD],
+  [_C, _CT, _I, _Re, _N, _D, _BAD, _PC, _FD],
   [0, 0, 0, 0, 0, 0, 15, [() => Contacts, 0], () => FileInputDetails], 4
 ];
 export var UpdateBenefitApplicationOutput$: StaticStructureSchema = [3, n0, _UBAO,
   0,
-  [_Id, _Ar, _R],
+  [_Id, _Ar, _Re],
   [0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Re, _FL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M, _Code],
   [0, 0, 0], 2
 ];
-export var PartnerCentralBenefitsServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralBenefitsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PartnerCentralBenefitsServiceException$, PartnerCentralBenefitsServiceException);
 var AmendmentList: StaticListSchema = [1, n0, _AL,
   0, () => Amendment$
 ];

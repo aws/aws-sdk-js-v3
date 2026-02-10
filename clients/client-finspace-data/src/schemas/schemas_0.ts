@@ -207,7 +207,7 @@ const _pGe = "permissionGroups";
 const _pKC = "primaryKeyColumns";
 const _pN = "phoneNumber";
 const _r = "reason";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.finspacedata";
 const _sAK = "secretAccessKey";
 const _sB = "s3Bucket";
 const _sC = "statusCode";
@@ -221,7 +221,7 @@ const _sPa = "s3Path";
 const _sT = "sessionToken";
 const _sU = "s3Uri";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.finspacedata";
+const _st = "status";
 const _t = "type";
 const _tP = "temporaryPassword";
 const _tSC = "tabularSchemaConfig";
@@ -254,6 +254,61 @@ import {
 import { FinspaceDataServiceException } from "../models/FinspaceDataServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var FinspaceDataServiceException$: StaticErrorSchema = [-3, _s, "FinspaceDataServiceException", 0, [], []];
+_s_registry.registerError(FinspaceDataServiceException$, FinspaceDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [],
+  []
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var FirstName: StaticSimpleSchema = [0, n0, _FN, 8, 0];
 var LastName: StaticSimpleSchema = [0, n0, _LN, 8, 0];
@@ -262,12 +317,6 @@ var PermissionGroupDescription: StaticSimpleSchema = [0, n0, _PGD, 8, 0];
 var PermissionGroupName: StaticSimpleSchema = [0, n0, _PGN, 8, 0];
 var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssociateUserToPermissionGroupRequest$: StaticStructureSchema = [3, n0, _AUTPGR,
   0,
   [_pGI, _uI, _cT],
@@ -290,7 +339,7 @@ export var ChangesetErrorInfo$: StaticStructureSchema = [3, n0, _CEI,
 ];
 export var ChangesetSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _s, _eI, _aUT, _aFT, _uCI, _uBCI],
+  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _st, _eI, _aUT, _aFT, _uCI, _uBCI],
   [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0]
 ];
 export var ColumnDefinition$: StaticStructureSchema = [3, n0, _CD,
@@ -298,12 +347,6 @@ export var ColumnDefinition$: StaticStructureSchema = [3, n0, _CD,
   [_dT, _cN, _cD],
   [0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _r],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChangesetRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_dI, _cTh, _sP, _fP, _cT],
@@ -381,7 +424,7 @@ export var DataViewErrorInfo$: StaticStructureSchema = [3, n0, _DVEI,
 ];
 export var DataViewSummary$: StaticStructureSchema = [3, n0, _DVS,
   0,
-  [_dVI, _dVA, _dI, _aOT, _pC, _sCo, _s, _eI, _dTPe, _aU, _cTr, _lMT],
+  [_dVI, _dVA, _dI, _aOT, _pC, _sCo, _st, _eI, _dTPe, _aU, _cTr, _lMT],
   [0, 0, 0, 1, 64 | 0, 64 | 0, 0, () => DataViewErrorInfo$, () => DataViewDestinationTypeParams$, 2, 1, 1]
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
@@ -441,7 +484,7 @@ export var GetChangesetRequest$: StaticStructureSchema = [3, n0, _GCR,
 ];
 export var GetChangesetResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _s, _eI, _aUT, _aFT, _uCI, _uBCI],
+  [_cI, _cA, _dI, _cTh, _sP, _fP, _cTr, _st, _eI, _aUT, _aFT, _uCI, _uBCI],
   [0, 0, 0, 0, 128 | 0, 128 | 0, 1, 0, () => ChangesetErrorInfo$, 1, 1, 0, 0]
 ];
 export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
@@ -451,7 +494,7 @@ export var GetDatasetRequest$: StaticStructureSchema = [3, n0, _GDR,
 ];
 export var GetDatasetResponse$: StaticStructureSchema = [3, n0, _GDRe,
   0,
-  [_dI, _dA, _dTa, _k, _dD, _cTr, _lMT, _sD, _a, _s],
+  [_dI, _dA, _dTa, _k, _dD, _cTr, _lMT, _sD, _a, _st],
   [0, 0, 0, 0, 0, 1, 1, () => SchemaUnion$, 0, 0]
 ];
 export var GetDataViewRequest$: StaticStructureSchema = [3, n0, _GDVR,
@@ -461,7 +504,7 @@ export var GetDataViewRequest$: StaticStructureSchema = [3, n0, _GDVR,
 ];
 export var GetDataViewResponse$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
-  [_aU, _pC, _dI, _aOT, _eI, _lMT, _cTr, _sCo, _dVI, _dVA, _dTP, _s],
+  [_aU, _pC, _dI, _aOT, _eI, _lMT, _cTr, _sCo, _dVI, _dVA, _dTP, _st],
   [2, 64 | 0, 0, 1, () => DataViewErrorInfo$, 1, 1, 64 | 0, 0, 0, () => DataViewDestinationTypeParams$, 0]
 ];
 export var GetExternalDataViewAccessDetailsRequest$: StaticStructureSchema = [3, n0, _GEDVADR,
@@ -501,7 +544,7 @@ export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
 ];
 export var GetUserResponse$: StaticStructureSchema = [3, n0, _GURe,
   0,
-  [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
+  [_uI, _st, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
   [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1]
 ];
 export var GetWorkingLocationRequest$: StaticStructureSchema = [3, n0, _GWLR,
@@ -514,18 +557,6 @@ export var GetWorkingLocationResponse$: StaticStructureSchema = [3, n0, _GWLRe,
   [_sU, _sPa, _sB],
   [0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListChangesetsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_dI, _mR, _nT],
@@ -621,12 +652,6 @@ export var ResetUserPasswordResponse$: StaticStructureSchema = [3, n0, _RUPRe,
   [_uI, _tP],
   [0, [() => Password, 0]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _r],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePermission$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_p],
@@ -647,12 +672,6 @@ export var SchemaUnion$: StaticStructureSchema = [3, n0, _SU,
   [_tSC],
   [() => SchemaDefinition$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateChangesetRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_dI, _cI, _sP, _fP, _cT],
@@ -695,22 +714,14 @@ export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
 ];
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
-  [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
+  [_uI, _st, _fN, _lN, _eA, _t, _aA, _aAPA, _cTr, _lET, _lDT, _lMT, _lLT],
   [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 1, 1, 1, 1, 1]
 ];
 export var UserByPermissionGroup$: StaticStructureSchema = [3, n0, _UBPG,
   0,
-  [_uI, _s, _fN, _lN, _eA, _t, _aA, _aAPA, _mS],
+  [_uI, _st, _fN, _lN, _eA, _t, _aA, _aAPA, _mS],
   [0, 0, [() => FirstName, 0], [() => LastName, 0], [() => Email, 0], 0, 0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var FinspaceDataServiceException$: StaticErrorSchema = [-3, _sm, "FinspaceDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(FinspaceDataServiceException$, FinspaceDataServiceException);
 var ApplicationPermissionList = 64 | 0;
 var ChangesetList: StaticListSchema = [1, n0, _CL,
   0, () => ChangesetSummary$

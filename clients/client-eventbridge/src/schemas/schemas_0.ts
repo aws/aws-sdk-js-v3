@@ -196,9 +196,9 @@ const _HVS = "HeaderValueSensitive";
 const _I = "Ids";
 const _ICP = "InvocationConnectivityParameters";
 const _ID = "IncludeDetail";
-const _IE = "InvocationEndpoint";
+const _IE = "InternalException";
 const _IEPE = "InvalidEventPatternException";
-const _IEn = "InternalException";
+const _IEn = "InvocationEndpoint";
 const _IHP = "InvocationHttpParameters";
 const _IP = "InputPath";
 const _IPM = "InputPathsMap";
@@ -440,8 +440,8 @@ const _e = "error";
 const _ex = "expression";
 const _f = "field";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.eventbridge";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.eventbridge";
+const _se = "server";
 const _t = "type";
 const _w = "weight";
 const n0 = "com.amazonaws.eventbridge";
@@ -475,18 +475,103 @@ import {
 import { EventBridgeServiceException } from "../models/EventBridgeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EventBridgeServiceException$: StaticErrorSchema = [-3, _s, "EventBridgeServiceException", 0, [], []];
+_s_registry.registerError(EventBridgeServiceException$, EventBridgeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var IllegalStatusException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IllegalStatusException$, IllegalStatusException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidEventPatternException$: StaticErrorSchema = [-3, n0, _IEPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEventPatternException$, InvalidEventPatternException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ManagedRuleException$: StaticErrorSchema = [-3, n0, _MRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ManagedRuleException$, ManagedRuleException);
+export var OperationDisabledException$: StaticErrorSchema = [-3, n0, _ODE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationDisabledException$, OperationDisabledException);
+export var PolicyLengthExceededException$: StaticErrorSchema = [-3, n0, _PLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PolicyLengthExceededException$, PolicyLengthExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AuthHeaderParametersSensitive: StaticSimpleSchema = [0, n0, _AHPS, 8, 0];
 var GraphQLOperation: StaticSimpleSchema = [0, n0, _GQLO, 8, 0];
 var HeaderValueSensitive: StaticSimpleSchema = [0, n0, _HVS, 8, 0];
 var QueryStringValueSensitive: StaticSimpleSchema = [0, n0, _QSVS, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var Sql: StaticSimpleSchema = [0, n0, _S, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActivateEventSourceRequest$: StaticStructureSchema = [3, n0, _AESR,
   0,
   [_N],
@@ -494,7 +579,7 @@ export var ActivateEventSourceRequest$: StaticStructureSchema = [3, n0, _AESR,
 ];
 export var ApiDestination$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_ADA, _N, _ADS, _CA, _IE, _HM, _IRLPS, _CT, _LMT],
+  [_ADA, _N, _ADS, _CA, _IEn, _HM, _IRLPS, _CT, _LMT],
   [0, 0, 0, 0, 0, 0, 1, 4, 4]
 ];
 export var AppSyncParameters$: StaticStructureSchema = [3, n0, _ASP,
@@ -542,12 +627,6 @@ export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI,
   [_cP, _w, _b],
   [0, 1, 1], 1
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var Condition$: StaticStructureSchema = [3, n0, _C,
   0,
   [_T, _K, _V],
@@ -615,7 +694,7 @@ export var ConnectivityResourceParameters$: StaticStructureSchema = [3, n0, _CRP
 ];
 export var CreateApiDestinationRequest$: StaticStructureSchema = [3, n0, _CADR,
   0,
-  [_N, _CA, _IE, _HM, _D, _IRLPS],
+  [_N, _CA, _IEn, _HM, _D, _IRLPS],
   [0, 0, 0, 0, 0, 1], 4
 ];
 export var CreateApiDestinationResponse$: StaticStructureSchema = [3, n0, _CADRr,
@@ -780,7 +859,7 @@ export var DescribeApiDestinationRequest$: StaticStructureSchema = [3, n0, _DADR
 ];
 export var DescribeApiDestinationResponse$: StaticStructureSchema = [3, n0, _DADResc,
   0,
-  [_ADA, _N, _D, _ADS, _CA, _IE, _HM, _IRLPS, _CT, _LMT],
+  [_ADA, _N, _D, _ADS, _CA, _IEn, _HM, _IRLPS, _CT, _LMT],
   [0, 0, 0, 0, 0, 0, 0, 1, 4, 4]
 ];
 export var DescribeArchiveRequest$: StaticStructureSchema = [3, n0, _DARes,
@@ -918,46 +997,16 @@ export var HttpParameters$: StaticStructureSchema = [3, n0, _HPt,
   [_PPV, _HP, _QSP],
   [64 | 0, 128 | 0, 128 | 0]
 ];
-export var IllegalStatusException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IllegalStatusException$, IllegalStatusException);
 export var InputTransformer$: StaticStructureSchema = [3, n0, _IT,
   0,
   [_ITn, _IPM],
   [0, 128 | 0], 1
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IEn,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InvalidEventPatternException$: StaticErrorSchema = [-3, n0, _IEPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEventPatternException$, InvalidEventPatternException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var KinesisParameters$: StaticStructureSchema = [3, n0, _KP,
   0,
   [_PKP],
   [0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListApiDestinationsRequest$: StaticStructureSchema = [3, n0, _LADR,
   0,
   [_NP, _CA, _NT, _L],
@@ -1093,23 +1142,11 @@ export var LogConfig$: StaticStructureSchema = [3, n0, _LC,
   [_ID, _Le],
   [0, 0]
 ];
-export var ManagedRuleException$: StaticErrorSchema = [-3, n0, _MRE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ManagedRuleException$, ManagedRuleException);
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_aC],
   [() => AwsVpcConfiguration$]
 ];
-export var OperationDisabledException$: StaticErrorSchema = [-3, n0, _ODE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationDisabledException$, OperationDisabledException);
 export var PartnerEventSource$: StaticStructureSchema = [3, n0, _PESa,
   0,
   [_Ar, _N],
@@ -1130,12 +1167,6 @@ export var PlacementStrategy$: StaticStructureSchema = [3, n0, _PS,
   [_t, _f],
   [0, 0]
 ];
-export var PolicyLengthExceededException$: StaticErrorSchema = [-3, n0, _PLEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyLengthExceededException$, PolicyLengthExceededException);
 export var Primary$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_HC],
@@ -1251,18 +1282,6 @@ export var ReplicationConfig$: StaticStructureSchema = [3, n0, _RCe,
   [_St],
   [0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryPolicy$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_MRA, _MEAIS],
@@ -1348,12 +1367,6 @@ export var TestEventPatternResponse$: StaticStructureSchema = [3, n0, _TEPRe,
   [_Res],
   [2]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -1366,7 +1379,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateApiDestinationRequest$: StaticStructureSchema = [3, n0, _UADR,
   0,
-  [_N, _D, _CA, _IE, _HM, _IRLPS],
+  [_N, _D, _CA, _IEn, _HM, _IRLPS],
   [0, 0, 0, 0, 0, 1], 1
 ];
 export var UpdateApiDestinationResponse$: StaticStructureSchema = [3, n0, _UADRp,
@@ -1440,8 +1453,6 @@ export var UpdateEventBusResponse$: StaticStructureSchema = [3, n0, _UEBRp,
   [0, 0, 0, 0, () => DeadLetterConfig$, () => LogConfig$]
 ];
 var __Unit = "unit" as const;
-export var EventBridgeServiceException$: StaticErrorSchema = [-3, _sm, "EventBridgeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EventBridgeServiceException$, EventBridgeServiceException);
 var ApiDestinationResponseList: StaticListSchema = [1, n0, _ADRL,
   0, () => ApiDestination$
 ];

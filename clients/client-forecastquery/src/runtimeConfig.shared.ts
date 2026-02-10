@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultForecastqueryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { ForecastqueryClientConfig } from "./ForecastqueryClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ForecastqueryClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.forecastquery",
+      errorTypeRegistries,
       version: "2018-06-26",
       serviceTarget: "AmazonForecastRuntime",
     },

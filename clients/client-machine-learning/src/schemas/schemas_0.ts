@@ -212,8 +212,8 @@ const _m = "message";
 const _pL = "predictedLabel";
 const _pS = "predictedScores";
 const _pV = "predictedValue";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
+const _se = "server";
 const n0 = "com.amazonaws.machinelearning";
 
 // smithy-typescript generated code
@@ -240,6 +240,67 @@ import {
 import { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MachineLearningServiceException$: StaticErrorSchema = [-3, _s, "MachineLearningServiceException", 0, [], []];
+_s_registry.registerError(MachineLearningServiceException$, MachineLearningServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 1]
+];
+n0_registry.registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _co],
+  [0, 1]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 1]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagException$, InvalidTagException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 417 },
+  [_m, _co],
+  [0, 1]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PredictorNotMountedException$: StaticErrorSchema = [-3, n0, _PNME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PredictorNotMountedException$, PredictorNotMountedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co],
+  [0, 1]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagLimitExceededException$, TagLimitExceededException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var RDSDatabasePassword: StaticSimpleSchema = [0, n0, _RDSDP, 8, 0];
 var RedshiftDatabasePassword: StaticSimpleSchema = [0, n0, _RDP, 8, 0];
 export var AddTagsInput$: StaticStructureSchema = [3, n0, _ATI,
@@ -487,36 +548,6 @@ export var GetMLModelOutput$: StaticStructureSchema = [3, n0, _GMLMO,
   [_MLMI, _TDSI, _CBIU, _CA, _LUA, _N, _S, _SIB, _EIn, _TP, _IDLS, _MLMT, _ST, _STLUA, _LU, _M, _CT, _FA, _SA, _R, _Sc],
   [0, 0, 0, 4, 4, 0, 0, 1, () => RealtimeEndpointInfo$, 128 | 0, 0, 0, 1, 4, 0, 0, 1, 4, 4, 0, 0]
 ];
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _co],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 417 },
-  [_m, _co],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var MLModel$: StaticStructureSchema = [3, n0, _MLM,
   0,
   [_MLMI, _TDSI, _CBIU, _CA, _LUA, _N, _S, _SIB, _EIn, _TP, _IDLS, _A, _MLMT, _ST, _STLUA, _M, _CT, _FA, _SA],
@@ -537,12 +568,6 @@ export var Prediction$: StaticStructureSchema = [3, n0, _Pre,
   [_pL, _pV, _pS, _d],
   [0, 1, 128 | 1, 128 | 0]
 ];
-export var PredictorNotMountedException$: StaticErrorSchema = [-3, n0, _PNME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PredictorNotMountedException$, PredictorNotMountedException);
 export var PredictOutput$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_Pre],
@@ -593,12 +618,6 @@ export var RedshiftMetadata$: StaticStructureSchema = [3, n0, _RM,
   [_RD, _DUN, _SSQ],
   [() => RedshiftDatabase$, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _co],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DataSpec$: StaticStructureSchema = [3, n0, _SDS,
   0,
   [_DLS, _DR, _DSat, _DSLS],
@@ -609,12 +628,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _Va],
   [0, 0]
 ];
-export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
 export var UpdateBatchPredictionInput$: StaticStructureSchema = [3, n0, _UBPI,
   0,
   [_BPI, _BPN],
@@ -655,8 +668,6 @@ export var UpdateMLModelOutput$: StaticStructureSchema = [3, n0, _UMLMO,
   [_MLMI],
   [0]
 ];
-export var MachineLearningServiceException$: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MachineLearningServiceException$, MachineLearningServiceException);
 var BatchPredictions: StaticListSchema = [1, n0, _BPa,
   0, () => BatchPrediction$
 ];

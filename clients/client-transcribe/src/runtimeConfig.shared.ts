@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTranscribeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TranscribeClientConfig } from "./TranscribeClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TranscribeClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.transcribe",
+      errorTypeRegistries,
       version: "2017-10-26",
       serviceTarget: "Transcribe",
     },

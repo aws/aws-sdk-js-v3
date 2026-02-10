@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBudgetsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BudgetsClientConfig } from "./BudgetsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BudgetsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.budgets",
+      errorTypeRegistries,
       version: "2016-10-20",
       serviceTarget: "AWSBudgetServiceGateway",
     },

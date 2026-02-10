@@ -71,7 +71,7 @@ const _oI = "oldImage";
 const _pK = "partitionKeys";
 const _pSI = "parentShardIds";
 const _rM = "rowMetadata";
-const _s = "shards";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.keyspacesstreams";
 const _sA = "streamArn";
 const _sC = "staticCells";
 const _sF = "shardFilter";
@@ -87,7 +87,7 @@ const _sT = "setT";
 const _sTm = "smallintT";
 const _sVT = "streamViewType";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.keyspacesstreams";
+const _sh = "shards";
 const _st = "streams";
 const _t = "type";
 const _tN = "tableName";
@@ -127,12 +127,49 @@ import {
 import { KeyspacesStreamsServiceException } from "../models/KeyspacesStreamsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KeyspacesStreamsServiceException$: StaticErrorSchema = [-3, _s, "KeyspacesStreamsServiceException", 0, [], []];
+_s_registry.registerError(KeyspacesStreamsServiceException$, KeyspacesStreamsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`AccessDeniedException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _eC],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_sI, _mR],
@@ -160,15 +197,9 @@ export var GetStreamInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetStreamOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_sA, _sL, _sS, _sVT, _cRDT, _kN, _tN, _s, _nT],
+  [_sA, _sL, _sS, _sVT, _cRDT, _kN, _tN, _sh, _nT],
   [0, 0, 0, 0, 4, 0, 0, () => ShardDescriptionList, 0], 7
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KeyspacesCell$: StaticStructureSchema = [3, n0, _KC,
   0,
   [_v, _me],
@@ -204,12 +235,6 @@ export var _Record$: StaticStructureSchema = [3, n0, _R,
   [_eV, _cA, _o, _pK, _cK, _nI, _oI, _sN],
   [0, 4, 0, () => KeyspacesKeysMap, () => KeyspacesKeysMap, () => KeyspacesRow$, () => KeyspacesRow$, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_sSN, _eSN],
@@ -230,20 +255,6 @@ export var _Stream$: StaticStructureSchema = [3, n0, _St,
   [_sA, _kN, _tN, _sL],
   [0, 0, 0, 0], 4
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m, _eC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var KeyspacesStreamsServiceException$: StaticErrorSchema = [-3, _sm, "KeyspacesStreamsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KeyspacesStreamsServiceException$, KeyspacesStreamsServiceException);
 var KeyspacesCellList: StaticListSchema = [1, n0, _KCL,
   0, () => KeyspacesCell$
 ];

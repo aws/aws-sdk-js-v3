@@ -144,8 +144,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanagerusersubscriptions";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanagerusersubscriptions";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.licensemanagerusersubscriptions";
 
@@ -174,12 +174,61 @@ import {
 } from "../models/LicenseManagerUserSubscriptionsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LicenseManagerUserSubscriptionsServiceException$: StaticErrorSchema = [-3, _s, "LicenseManagerUserSubscriptionsServiceException", 0, [], []];
+_s_registry.registerError(LicenseManagerUserSubscriptionsServiceException$, LicenseManagerUserSubscriptionsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActiveDirectoryIdentityProvider$: StaticStructureSchema = [3, n0, _ADIP,
   0,
   [_DI, _ADS, _ADT, _ISAD],
@@ -200,12 +249,6 @@ export var AssociateUserResponse$: StaticStructureSchema = [3, n0, _AURs,
   [_IUS],
   [() => InstanceUserSummary$], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateLicenseServerEndpointRequest$: StaticStructureSchema = [3, n0, _CLSER,
   0,
   [_IPA, _LSS, _T],
@@ -271,12 +314,6 @@ export var InstanceUserSummary$: StaticStructureSchema = [3, n0, _IUS,
   [_U, _II, _IP, _St, _IUA, _SM, _D, _AD, _DD],
   [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LicenseServer$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_PS, _HS, _IA, _IAp],
@@ -372,12 +409,6 @@ export var RegisterIdentityProviderResponse$: StaticStructureSchema = [3, n0, _R
   [_IPS],
   [() => IdentityProviderSummary$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SecretsManagerCredentialsProvider$: StaticStructureSchema = [3, n0, _SMCP,
   0,
   [_SI],
@@ -388,12 +419,6 @@ export var ServerEndpoint$: StaticStructureSchema = [3, n0, _SE,
   [_E],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Settings$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_S, _SGI],
@@ -429,12 +454,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -460,14 +479,6 @@ export var UpdateSettings$: StaticStructureSchema = [3, n0, _US,
   [_AS, _RS, _SGI],
   [64 | 0, 64 | 0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var LicenseManagerUserSubscriptionsServiceException$: StaticErrorSchema = [-3, _sm, "LicenseManagerUserSubscriptionsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LicenseManagerUserSubscriptionsServiceException$, LicenseManagerUserSubscriptionsServiceException);
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
 ];

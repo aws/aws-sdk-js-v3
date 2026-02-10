@@ -121,9 +121,9 @@ const _PRTI = "PathResourceToId";
 const _PT = "ProxyType";
 const _PU = "ProxyUrl";
 const _QC = "QuotaCode";
-const _RA = "ResourceArn";
+const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
-const _RA_ = "Retry-After";
+const _RAe = "ResourceArn";
 const _RI = "ResourceId";
 const _RIe = "ResourceIdentifier";
 const _RIo = "RouteId";
@@ -177,8 +177,8 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubrefactorspaces";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubrefactorspaces";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.migrationhubrefactorspaces";
 
@@ -205,12 +205,67 @@ import {
 import { MigrationHubRefactorSpacesServiceException } from "../models/MigrationHubRefactorSpacesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MigrationHubRefactorSpacesServiceException$: StaticErrorSchema = [-3, _s, "MigrationHubRefactorSpacesServiceException", 0, [], []];
+_s_registry.registerError(MigrationHubRefactorSpacesServiceException$, MigrationHubRefactorSpacesServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _SC, _QC],
+  [0, 0, 0, 0, 0], 4
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _QC, _SC, _RAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApiGatewayProxyConfig$: StaticStructureSchema = [3, n0, _AGPC,
   0,
   [_PU, _AGI, _VLI, _NA, _NN, _ET, _SN],
@@ -231,12 +286,6 @@ export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   [_N, _A, _OAI, _CBAI, _AI, _EI, _VI, _PT, _AGP, _S, _T, _E, _LUT, _CT],
   [0, 0, 0, 0, 0, 0, 0, 0, () => ApiGatewayProxySummary$, 0, [() => TagMap, 0], () => ErrorResponse$, 4, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_N, _EIn, _VI, _PT, _AGP, _T, _CTl],
@@ -397,18 +446,6 @@ export var GetServiceResponse$: StaticStructureSchema = [3, n0, _GSRe,
   [_SIe, _N, _A, _OAI, _CBAI, _D, _EI, _AI, _VI, _ET, _UE, _LE, _S, _T, _E, _LUT, _CT],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => UrlEndpointConfig$, () => LambdaEndpointConfig$, 0, [() => TagMap, 0], () => ErrorResponse$, 4, 4]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
 export var LambdaEndpointConfig$: StaticStructureSchema = [3, n0, _LEC,
   0,
   [_A],
@@ -476,7 +513,7 @@ export var ListServicesResponse$: StaticStructureSchema = [3, n0, _LSRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RA],
+  [_RAe],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -486,7 +523,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
-  [_RA, _P],
+  [_RAe, _P],
   [0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
@@ -494,23 +531,11 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RouteSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_RIo, _A, _OAI, _CBAI, _RTo, _SIe, _AI, _EI, _SP, _Me, _ICP, _PRTI, _S, _T, _E, _LUT, _CT, _ASP],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 2, 128 | 0, 0, [() => TagMap, 0], () => ErrorResponse$, 4, 4, 2]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _SC, _QC],
-  [0, 0, 0, 0, 0], 4
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SIe, _N, _A, _OAI, _CBAI, _D, _EI, _AI, _VI, _ET, _UE, _LE, _S, _T, _E, _LUT, _CT],
@@ -518,7 +543,7 @@ export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _T],
+  [_RAe, _T],
   [[0, 1], [() => TagMap, 0]], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -526,15 +551,9 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _QC, _SC, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RA, _TK],
+  [_RAe, _TK],
   [[0, 1], [() => TagKeys, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -572,14 +591,6 @@ export var UrlEndpointSummary$: StaticStructureSchema = [3, n0, _UES,
   [_U, _HU],
   [0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var MigrationHubRefactorSpacesServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubRefactorSpacesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MigrationHubRefactorSpacesServiceException$, MigrationHubRefactorSpacesServiceException);
 var ApplicationSummaries: StaticListSchema = [1, n0, _ASp,
   0, [() => ApplicationSummary$,
     0]

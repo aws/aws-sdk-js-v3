@@ -479,8 +479,8 @@ const _lORAP = "__listOfResourceAccessPolicy";
 const _lOS = "__listOfSubscription";
 const _lOVI = "__listOfVersionInformation";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.greengrass";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.greengrass";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.greengrass";
@@ -499,6 +499,31 @@ import { BadRequestException, InternalServerErrorException } from "../models/err
 import { GreengrassServiceException } from "../models/GreengrassServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GreengrassServiceException$: StaticErrorSchema = [-3, _s, "GreengrassServiceException", 0, [], []];
+_s_registry.registerError(GreengrassServiceException$, GreengrassServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_ED, _M],
+  [() => ErrorDetails, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_ED, _M],
+  [() => ErrorDetails, 0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateRoleToGroupRequest$: StaticStructureSchema = [3, n0, _ARTGR,
   0,
   [_GI, _RA],
@@ -519,12 +544,6 @@ export var AssociateServiceRoleToAccountResponse$: StaticStructureSchema = [3, n
   [_AA],
   [0]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_ED, _M],
-  [() => ErrorDetails, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BulkDeployment$: StaticStructureSchema = [3, n0, _BD,
   0,
   [_BDA, _BDI, _CA],
@@ -1180,12 +1199,6 @@ export var GroupVersion$: StaticStructureSchema = [3, n0, _GV,
   [_CDVA, _CDVAo, _DDVA, _FDVA, _LDVA, _RDVA, _SDVA],
   [0, 0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_ED, _M],
-  [() => ErrorDetails, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListBulkDeploymentDetailedReportsRequest$: StaticStructureSchema = [3, n0, _LBDDRR,
   0,
   [_BDI, _MR, _NT],
@@ -1637,8 +1650,6 @@ export var VersionInformation$: StaticStructureSchema = [3, n0, _VI,
   [0, 0, 0, 0]
 ];
 var __Unit = "unit" as const;
-export var GreengrassServiceException$: StaticErrorSchema = [-3, _sm, "GreengrassServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GreengrassServiceException$, GreengrassServiceException);
 var __listOf__string = 64 | 0;
 var __listOfConnectivityInfo: StaticListSchema = [1, n0, _lOCI,
   0, () => ConnectivityInfo$

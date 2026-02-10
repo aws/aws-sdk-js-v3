@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultControlTowerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ControlTowerClientConfig } from "./ControlTowerClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ControlTowerClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.controltower",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "AWSControlTowerApis",
     },

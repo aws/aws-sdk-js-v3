@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudHSMHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudHSMClientConfig } from "./CloudHSMClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudHSMClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudhsm",
+      errorTypeRegistries,
       version: "2014-05-30",
       serviceTarget: "CloudHsmFrontendService",
     },

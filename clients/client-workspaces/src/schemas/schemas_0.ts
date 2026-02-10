@@ -726,6 +726,157 @@ import {
 import { WorkSpacesServiceException } from "../models/WorkSpacesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WorkSpacesServiceException$: StaticErrorSchema = [-3, _s, "WorkSpacesServiceException", 0, [], []];
+_s_registry.registerError(WorkSpacesServiceException$, WorkSpacesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ApplicationNotSupportedException$: StaticErrorSchema = [-3, n0, _ANSE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(ApplicationNotSupportedException$, ApplicationNotSupportedException);
+export var ComputeNotCompatibleException$: StaticErrorSchema = [-3, n0, _CNCE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(ComputeNotCompatibleException$, ComputeNotCompatibleException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var IncompatibleApplicationsException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(IncompatibleApplicationsException$, IncompatibleApplicationsException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
+export var InvalidParameterValuesException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValuesException$, InvalidParameterValuesException);
+export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidResourceStateException$, InvalidResourceStateException);
+export var OperatingSystemNotCompatibleException$: StaticErrorSchema = [-3, n0, _OSNCE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(OperatingSystemNotCompatibleException$, OperatingSystemNotCompatibleException);
+export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationInProgressException$, OperationInProgressException);
+export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
+  { [_e]: _c },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(OperationNotSupportedException$, OperationNotSupportedException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceAssociatedException$: StaticErrorSchema = [-3, n0, _RAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAssociatedException$, ResourceAssociatedException);
+export var ResourceCreationFailedException$: StaticErrorSchema = [-3, n0, _RCFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceCreationFailedException$, ResourceCreationFailedException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c },
+  [_m, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var UnsupportedNetworkConfigurationException$: StaticErrorSchema = [-3, n0, _UNCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedNetworkConfigurationException$, UnsupportedNetworkConfigurationException);
+export var UnsupportedWorkspaceConfigurationException$: StaticErrorSchema = [-3, n0, _UWCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedWorkspaceConfigurationException$, UnsupportedWorkspaceConfigurationException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+export var WorkspacesDefaultRoleNotFoundException$: StaticErrorSchema = [-3, n0, _WDRNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WorkspacesDefaultRoleNotFoundException$, WorkspacesDefaultRoleNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptAccountLinkInvitationRequest$: StaticStructureSchema = [3, n0, _AALIR,
   0,
   [_LI, _CT],
@@ -736,12 +887,6 @@ export var AcceptAccountLinkInvitationResult$: StaticStructureSchema = [3, n0, _
   [_AL],
   [() => AccountLink$]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessEndpoint$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_AET, _VEI],
@@ -767,12 +912,6 @@ export var ActiveDirectoryConfig$: StaticStructureSchema = [3, n0, _ADC,
   [_DN, _SASA],
   [0, 0], 2
 ];
-export var ApplicationNotSupportedException$: StaticErrorSchema = [-3, n0, _ANSE,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ApplicationNotSupportedException$, ApplicationNotSupportedException);
 export var ApplicationResourceAssociation$: StaticStructureSchema = [3, n0, _ARA,
   0,
   [_AI, _ARI, _ART, _C, _LUT, _S, _SR],
@@ -863,23 +1002,11 @@ export var ClientPropertiesResult$: StaticStructureSchema = [3, n0, _CPR,
   [_RI, _CP],
   [0, () => ClientProperties$]
 ];
-export var ComputeNotCompatibleException$: StaticErrorSchema = [-3, n0, _CNCE,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ComputeNotCompatibleException$, ComputeNotCompatibleException);
 export var ComputeType$: StaticStructureSchema = [3, n0, _CTo,
   0,
   [_N],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectClientAddIn$: StaticStructureSchema = [3, n0, _CCAI,
   0,
   [_AII, _RI, _N, _URL],
@@ -1510,36 +1637,6 @@ export var ImportWorkspaceImageResult$: StaticStructureSchema = [3, n0, _IWIRm,
   [_II],
   [0]
 ];
-export var IncompatibleApplicationsException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(IncompatibleApplicationsException$, IncompatibleApplicationsException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
-export var InvalidParameterValuesException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValuesException$, InvalidParameterValuesException);
-export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResourceStateException);
 export var IosClientBrandingAttributes$: StaticStructureSchema = [3, n0, _ICBA,
   0,
   [_LU, _LUo, _LUog, _SE, _SL, _FPL, _LM],
@@ -1715,24 +1812,6 @@ export var OperatingSystem$: StaticStructureSchema = [3, n0, _OS,
   [_Ty],
   [0]
 ];
-export var OperatingSystemNotCompatibleException$: StaticErrorSchema = [-3, n0, _OSNCE,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(OperatingSystemNotCompatibleException$, OperatingSystemNotCompatibleException);
-export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationInProgressException$, OperationInProgressException);
-export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
-  { [_e]: _c },
-  [_m, _r],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(OperationNotSupportedException$, OperationNotSupportedException);
 export var PendingCreateStandbyWorkspacesRequest$: StaticStructureSchema = [3, n0, _PCSWR,
   0,
   [_UN, _DI, _S, _WI],
@@ -1793,48 +1872,6 @@ export var RelatedWorkspaceProperties$: StaticStructureSchema = [3, n0, _RWP,
   [_WI, _Reg, _S, _Ty],
   [0, 0, 0, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceAssociatedException$: StaticErrorSchema = [-3, n0, _RAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAssociatedException$, ResourceAssociatedException);
-export var ResourceCreationFailedException$: StaticErrorSchema = [-3, n0, _RCFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceCreationFailedException$, ResourceCreationFailedException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c },
-  [_m, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var RestoreWorkspaceRequest$: StaticStructureSchema = [3, n0, _RWRes,
   0,
   [_WI],
@@ -1990,18 +2027,6 @@ export var TimeoutSettings$: StaticStructureSchema = [3, n0, _TS,
   [_DTIS, _IDTIS, _MUDIS],
   [1, 1, 1]
 ];
-export var UnsupportedNetworkConfigurationException$: StaticErrorSchema = [-3, n0, _UNCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedNetworkConfigurationException$, UnsupportedNetworkConfigurationException);
-export var UnsupportedWorkspaceConfigurationException$: StaticErrorSchema = [-3, n0, _UWCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedWorkspaceConfigurationException$, UnsupportedWorkspaceConfigurationException);
 export var UpdateConnectClientAddInRequest$: StaticStructureSchema = [3, n0, _UCCAIR,
   0,
   [_AII, _RI, _N, _URL],
@@ -2077,12 +2102,6 @@ export var UserStorage$: StaticStructureSchema = [3, n0, _US,
   [_Ca],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Workspace$: StaticStructureSchema = [3, n0, _Wo,
   0,
   [_WI, _DI, _UN, _IAp, _IApv, _S, _BI, _SIu, _EM, _EC, _CN, _VEK, _UVEE, _RVEE, _WN, _WPor, _MSo, _RWel, _DRS, _SWP],
@@ -2143,12 +2162,6 @@ export var WorkspaceResourceAssociation$: StaticStructureSchema = [3, n0, _WRA,
   [_ARI, _ART, _C, _LUT, _S, _SR, _WI],
   [0, 0, 4, 4, 0, () => AssociationStateReason$, 0]
 ];
-export var WorkspacesDefaultRoleNotFoundException$: StaticErrorSchema = [-3, n0, _WDRNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WorkspacesDefaultRoleNotFoundException$, WorkspacesDefaultRoleNotFoundException);
 export var WorkspacesIpGroup$: StaticStructureSchema = [3, n0, _WIG,
   0,
   [_gI, _gN, _gD, _uR],
@@ -2169,8 +2182,6 @@ export var WorkspacesPoolSession$: StaticStructureSchema = [3, n0, _WPS,
   [_SIe, _PI, _UI, _AT, _CSon, _IIn, _ET, _NAC, _ST],
   [0, 0, 0, 0, 0, 0, 4, () => NetworkAccessConfiguration$, 4], 3
 ];
-export var WorkSpacesServiceException$: StaticErrorSchema = [-3, _s, "WorkSpacesServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(WorkSpacesServiceException$, WorkSpacesServiceException);
 var AccessEndpointList: StaticListSchema = [1, n0, _AEL,
   0, () => AccessEndpoint$
 ];

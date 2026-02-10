@@ -78,8 +78,8 @@ const _CDAr = "CreateDataAccessor";
 const _CDS = "CreateDataSource";
 const _CDSR = "CreateDataSourceRequest";
 const _CDSRr = "CreateDataSourceResponse";
-const _CE = "ConfigurationEvent";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEo = "ConfigurationEvent";
 const _CFS = "CopyFromSource";
 const _CI = "ChatInput";
 const _CIR = "CreateIndexRequest";
@@ -738,7 +738,7 @@ const _qAC = "qAppsConfiguration";
 const _qACM = "qAppsControlMode";
 const _qSC = "quickSightConfiguration";
 const _qT = "queryText";
-const _r = "required";
+const _r = "reason";
 const _rA = "roleArn";
 const _rARN = "resourceARN";
 const _rAe = "retrieverArn";
@@ -753,11 +753,11 @@ const _rM = "responseMap";
 const _rS = "responseScope";
 const _rT = "resourceType";
 const _rTu = "ruleType";
-const _re = "retrievers";
-const _rea = "reason";
-const _ret = "retriever";
+const _re = "required";
+const _ret = "retrievers";
+const _retr = "retriever";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.qbusiness";
 const _sA = "secretArn";
 const _sAc = "scoreAttributes";
 const _sAe = "secretsArn";
@@ -794,13 +794,13 @@ const _sTM = "startTimeMilliseconds";
 const _sU = "serverUrl";
 const _sV = "stringValue";
 const _s_ = "s3";
-const _se = "search";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.qbusiness";
+const _se = "server";
+const _sea = "search";
 const _sn = "snippet";
 const _sp = "sparse";
-const _st = "statement";
-const _sta = "state";
+const _st = "status";
+const _sta = "statement";
+const _stat = "state";
 const _str = "streaming";
 const _su = "subtitle";
 const _sub = "subscriptions";
@@ -880,6 +880,79 @@ import {
 import { QBusinessServiceException } from "../models/QBusinessServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var QBusinessServiceException$: StaticErrorSchema = [-3, _s, "QBusinessServiceException", 0, [], []];
+_s_registry.registerError(QBusinessServiceException$, QBusinessServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ExternalResourceException$: StaticErrorSchema = [-3, n0, _ERE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ExternalResourceException$, ExternalResourceException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var LicenseNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(LicenseNotFoundException$, LicenseNotFoundException);
+export var MediaTooLargeException$: StaticErrorSchema = [-3, n0, _MTLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(MediaTooLargeException$, MediaTooLargeException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionFields], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var DataAccessorName: StaticSimpleSchema = [0, n0, _DAN, 8, 0];
 var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
 var Payload: StaticSimpleSchema = [0, n0, _P, 8, 0];
@@ -893,12 +966,6 @@ export var AccessControl$: StaticStructureSchema = [3, n0, _ACc,
   [_p, _mR],
   [() => Principals, 0], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionConfiguration$: StaticStructureSchema = [3, n0, _ACct,
   0,
   [_a, _fC],
@@ -936,7 +1003,7 @@ export var ActionReviewEvent$: StaticStructureSchema = [3, n0, _ARE,
 ];
 export var ActionReviewPayloadField$: StaticStructureSchema = [3, n0, _ARPF,
   0,
-  [_dN, _dO, _dD, _t, _v, _aV, _aF, _aIJS, _r],
+  [_dN, _dO, _dD, _t, _v, _aV, _aF, _aIJS, _re],
   [0, 1, 0, 0, 15, () => ActionReviewPayloadFieldAllowedValues, 0, 15, 2]
 ];
 export var ActionReviewPayloadFieldAllowedValue$: StaticStructureSchema = [3, n0, _ARPFAV,
@@ -951,7 +1018,7 @@ export var ActionSummary$: StaticStructureSchema = [3, n0, _AS,
 ];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_dN, _aIp, _cA, _uA, _s, _iT, _qSC],
+  [_dN, _aIp, _cA, _uA, _st, _iT, _qSC],
   [0, 0, 4, 4, 0, 0, () => QuickSightConfiguration$]
 ];
 export var AppliedAttachmentsConfiguration$: StaticStructureSchema = [3, n0, _AAC,
@@ -986,12 +1053,12 @@ export var AssociatePermissionRequest$: StaticStructureSchema = [3, n0, _APR,
 ];
 export var AssociatePermissionResponse$: StaticStructureSchema = [3, n0, _APRs,
   0,
-  [_st],
+  [_sta],
   [0]
 ];
 export var Attachment$: StaticStructureSchema = [3, n0, _At,
   0,
-  [_aIt, _cI, _n, _cF, _fT, _fS, _md, _cA, _s, _e],
+  [_aIt, _cI, _n, _cF, _fT, _fS, _md, _cA, _st, _e],
   [0, 0, 0, () => CopyFromSource$, 0, 1, 0, 4, 0, () => ErrorDetail$]
 ];
 export var AttachmentInput$: StaticStructureSchema = [3, n0, _AI,
@@ -1006,7 +1073,7 @@ export var AttachmentInputEvent$: StaticStructureSchema = [3, n0, _AIE,
 ];
 export var AttachmentOutput$: StaticStructureSchema = [3, n0, _AO,
   0,
-  [_n, _s, _e, _aIt, _cI],
+  [_n, _st, _e, _aIt, _cI],
   [0, 0, () => ErrorDetail$, 0, 0]
 ];
 export var AttachmentsConfiguration$: StaticStructureSchema = [3, n0, _ACt,
@@ -1116,12 +1183,12 @@ export var ChatOutput$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var ChatResponseConfiguration$: StaticStructureSchema = [3, n0, _CRC,
   0,
-  [_cRCI, _cRCA, _dN, _s, _rCS, _cA, _uA],
+  [_cRCI, _cRCA, _dN, _st, _rCS, _cA, _uA],
   [0, 0, 0, 0, 0, 4, 4], 4
 ];
 export var ChatResponseConfigurationDetail$: StaticStructureSchema = [3, n0, _CRCD,
   0,
-  [_rC, _rCS, _s, _e, _uA],
+  [_rC, _rCS, _st, _e, _uA],
   [() => ResponseConfigurations, 0, 0, () => ErrorDetail$, 4]
 ];
 export var ChatSyncInput$: StaticStructureSchema = [3, n0, _CSI,
@@ -1144,17 +1211,11 @@ export var CheckDocumentAccessResponse$: StaticStructureSchema = [3, n0, _CDARh,
   [_uG, _uAs, _hA, _dA],
   [() => AssociatedGroups, () => AssociatedUsers, 2, () => DocumentAcl$]
 ];
-export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CE,
+export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CEo,
   0,
   [_cM, _cMCh, _aFt],
   [0, () => ChatModeConfiguration$, () => AttributeFilter$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBlockerRule$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_sMO],
@@ -1317,12 +1378,12 @@ export var DataAccessorIdcTrustedTokenIssuerConfiguration$: StaticStructureSchem
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_dN, _dSI, _t, _cA, _uA, _s],
+  [_dN, _dSI, _t, _cA, _uA, _st],
   [0, 0, 0, 4, 4, 0]
 ];
 export var DataSourceSyncJob$: StaticStructureSchema = [3, n0, _DSSJ,
   0,
-  [_eIx, _sT, _eTn, _s, _e, _dSEC, _me],
+  [_eIx, _sT, _eTn, _st, _e, _dSEC, _me],
   [0, 4, 4, 0, () => ErrorDetail$, 0, () => DataSourceSyncJobMetrics$]
 ];
 export var DataSourceSyncJobMetrics$: StaticStructureSchema = [3, n0, _DSSJM,
@@ -1527,7 +1588,7 @@ export var DocumentAttributeCondition$: StaticStructureSchema = [3, n0, _DACo,
 ];
 export var DocumentAttributeConfiguration$: StaticStructureSchema = [3, n0, _DACoc,
   0,
-  [_n, _t, _se],
+  [_n, _t, _sea],
   [0, 0, 0]
 ];
 export var DocumentAttributeTarget$: StaticStructureSchema = [3, n0, _DAT,
@@ -1537,7 +1598,7 @@ export var DocumentAttributeTarget$: StaticStructureSchema = [3, n0, _DAT,
 ];
 export var DocumentDetails$: StaticStructureSchema = [3, n0, _DDo,
   0,
-  [_dI, _s, _e, _cA, _uA],
+  [_dI, _st, _e, _cA, _uA],
   [0, 0, () => ErrorDetail$, 4, 4]
 ];
 export var DocumentEnrichmentConfiguration$: StaticStructureSchema = [3, n0, _DEC,
@@ -1565,12 +1626,6 @@ export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   [_eM, _eCr],
   [0, 0]
 ];
-export var ExternalResourceException$: StaticErrorSchema = [-3, n0, _ERE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ExternalResourceException$, ExternalResourceException);
 export var FailedAttachmentEvent$: StaticStructureSchema = [3, n0, _FAE,
   0,
   [_cI, _uMI, _sMI, _at],
@@ -1588,7 +1643,7 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_dN, _aIp, _aA, _iT, _iIPA, _iCAA, _rA, _s, _d, _eC, _cA, _uA, _e, _aCt, _qAC, _pC, _aSC, _cIFOIDC, _qSC],
+  [_dN, _aIp, _aA, _iT, _iIPA, _iCAA, _rA, _st, _d, _eC, _cA, _uA, _e, _aCt, _qAC, _pC, _aSC, _cIFOIDC, _qSC],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, [() => EncryptionConfiguration$, 0], 4, 4, () => ErrorDetail$, () => AppliedAttachmentsConfiguration$, () => QAppsConfiguration$, () => PersonalizationConfiguration$, () => AutoSubscriptionConfiguration$, 64 | 0, () => QuickSightConfiguration$]
 ];
 export var GetChatControlsConfigurationRequest$: StaticStructureSchema = [3, n0, _GCCCR,
@@ -1628,7 +1683,7 @@ export var GetDataSourceRequest$: StaticStructureSchema = [3, n0, _GDSR,
 ];
 export var GetDataSourceResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
-  [_aIp, _iI, _dSI, _dSA, _dN, _t, _conf, _vC, _cA, _uA, _d, _s, _sS, _rA, _e, _dEC, _mEC],
+  [_aIp, _iI, _dSI, _dSA, _dN, _t, _conf, _vC, _cA, _uA, _d, _st, _sS, _rA, _e, _dEC, _mEC],
   [0, 0, 0, 0, 0, 0, 15, () => DataSourceVpcConfiguration$, 4, 4, 0, 0, 0, 0, () => ErrorDetail$, () => DocumentEnrichmentConfiguration$, () => MediaExtractionConfiguration$]
 ];
 export var GetDocumentContentRequest$: StaticStructureSchema = [3, n0, _GDCR,
@@ -1648,7 +1703,7 @@ export var GetGroupRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGroupResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_s, _sH],
+  [_st, _sH],
   [() => GroupStatusDetail$, () => GroupStatusDetails]
 ];
 export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
@@ -1658,7 +1713,7 @@ export var GetIndexRequest$: StaticStructureSchema = [3, n0, _GIR,
 ];
 export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
-  [_aIp, _iI, _dN, _iA, _s, _t, _d, _cA, _uA, _cC, _dAC, _e, _iSn],
+  [_aIp, _iI, _dN, _iA, _st, _t, _d, _cA, _uA, _cC, _dAC, _e, _iSn],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => IndexCapacityConfiguration$, () => DocumentAttributeConfigurations, () => ErrorDetail$, () => IndexStatistics$]
 ];
 export var GetMediaRequest$: StaticStructureSchema = [3, n0, _GMR,
@@ -1678,7 +1733,7 @@ export var GetPluginRequest$: StaticStructureSchema = [3, n0, _GPR,
 ];
 export var GetPluginResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_aIp, _pI, _dN, _t, _sU, _aCu, _cPC, _bS, _pA, _sta, _cA, _uA],
+  [_aIp, _pI, _dN, _t, _sU, _aCu, _cPC, _bS, _pA, _stat, _cA, _uA],
   [0, 0, 0, 0, 0, () => PluginAuthConfiguration$, [() => CustomPluginConfiguration$, 0], 0, 0, 0, 4, 4]
 ];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPRet,
@@ -1698,7 +1753,7 @@ export var GetRetrieverRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRetrieverResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_aIp, _rIe, _rAe, _t, _s, _dN, _conf, _rA, _cA, _uA],
+  [_aIp, _rIe, _rAe, _t, _st, _dN, _conf, _rA, _cA, _uA],
   [0, 0, 0, 0, 0, 0, () => RetrieverConfiguration$, 0, 4, 4]
 ];
 export var GetUserRequest$: StaticStructureSchema = [3, n0, _GUR,
@@ -1718,7 +1773,7 @@ export var GetWebExperienceRequest$: StaticStructureSchema = [3, n0, _GWER,
 ];
 export var GetWebExperienceResponse$: StaticStructureSchema = [3, n0, _GWERe,
   0,
-  [_aIp, _wEI, _wEA, _dE, _s, _cA, _uA, _ti, _su, _wM, _sPCM, _o, _rA, _iPC, _aCut, _e, _bEC, _cCu],
+  [_aIp, _wEI, _wEA, _dE, _st, _cA, _uA, _ti, _su, _wM, _sPCM, _o, _rA, _iPC, _aCut, _e, _bEC, _cCu],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 64 | 0, 0, () => IdentityProviderConfiguration$, () => WebExperienceAuthConfiguration$, () => ErrorDetail$, () => BrowserExtensionConfiguration$, () => CustomizationConfiguration$]
 ];
 export var GroupMembers$: StaticStructureSchema = [3, n0, _GM,
@@ -1728,7 +1783,7 @@ export var GroupMembers$: StaticStructureSchema = [3, n0, _GM,
 ];
 export var GroupStatusDetail$: StaticStructureSchema = [3, n0, _GSD,
   0,
-  [_s, _lUA, _eD],
+  [_st, _lUA, _eD],
   [0, 4, () => ErrorDetail$]
 ];
 export var GroupSummary$: StaticStructureSchema = [3, n0, _GS,
@@ -1763,7 +1818,7 @@ export var ImageSourceDetails$: StaticStructureSchema = [3, n0, _ISD,
 ];
 export var Index$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_dN, _iI, _cA, _uA, _s],
+  [_dN, _iI, _cA, _uA, _st],
   [0, 0, 4, 4, 0]
 ];
 export var IndexCapacityConfiguration$: StaticStructureSchema = [3, n0, _ICC,
@@ -1786,23 +1841,11 @@ export var InstructionCollection$: StaticStructureSchema = [3, n0, _IC,
   [_rL, _tA, _pe, _oSu, _id, _to, _cIu, _ex],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KendraIndexConfiguration$: StaticStructureSchema = [3, n0, _KIC,
   0,
   [_iI],
   [0], 1
 ];
-export var LicenseNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(LicenseNotFoundException$, LicenseNotFoundException);
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_nT, _mRa],
@@ -1960,7 +2003,7 @@ export var ListRetrieversRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRetrieversResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_re, _nT],
+  [_ret, _nT],
   [() => Retrievers, 0]
 ];
 export var ListSubscriptionsRequest$: StaticStructureSchema = [3, n0, _LSR,
@@ -1998,12 +2041,6 @@ export var MediaExtractionConfiguration$: StaticStructureSchema = [3, n0, _MEC,
   [_iEC, _aEC, _vEC],
   [() => ImageExtractionConfiguration$, () => AudioExtractionConfiguration$, () => VideoExtractionConfiguration$]
 ];
-export var MediaTooLargeException$: StaticErrorSchema = [-3, n0, _MTLE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(MediaTooLargeException$, MediaTooLargeException);
 export var MemberGroup$: StaticStructureSchema = [3, n0, _MG,
   0,
   [_gN, _t],
@@ -2021,7 +2058,7 @@ export var Message$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MessageUsefulnessFeedback$: StaticStructureSchema = [3, n0, _MUF,
   0,
-  [_us, _sAub, _rea, _com],
+  [_us, _sAub, _r, _com],
   [0, 4, 0, 0], 2
 ];
 export var MetadataEvent$: StaticStructureSchema = [3, n0, _ME,
@@ -2071,7 +2108,7 @@ export var PersonalizationConfiguration$: StaticStructureSchema = [3, n0, _PCe,
 ];
 export var Plugin$: StaticStructureSchema = [3, n0, _Pl,
   0,
-  [_pI, _dN, _t, _sU, _sta, _bS, _cA, _uA],
+  [_pI, _dN, _t, _sU, _stat, _bS, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 4, 4]
 ];
 export var PluginConfiguration$: StaticStructureSchema = [3, n0, _PCl,
@@ -2124,12 +2161,6 @@ export var RelevantContent$: StaticStructureSchema = [3, n0, _RC,
   [_cont, _dI, _dT, _dU, _dAoc, _sAc],
   [0, 0, 0, 0, () => DocumentAttributes, () => ScoreAttributes$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   0,
   [_iCns],
@@ -2137,7 +2168,7 @@ export var ResponseConfiguration$: StaticStructureSchema = [3, n0, _RCe,
 ];
 export var Retriever$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_aIp, _rIe, _t, _s, _dN],
+  [_aIp, _rIe, _t, _st, _dN],
   [0, 0, 0, 0, 0]
 ];
 export var RetrieverContentSource$: StaticStructureSchema = [3, n0, _RCS,
@@ -2180,12 +2211,6 @@ export var SearchRelevantContentResponse$: StaticStructureSchema = [3, n0, _SRCR
   [_rCe, _nT],
   [() => RelevantContentList, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnippetExcerpt$: StaticStructureSchema = [3, n0, _SE,
   0,
   [_te],
@@ -2271,12 +2296,6 @@ export var TextSegment$: StaticStructureSchema = [3, n0, _TS,
   [_bOe, _eO, _sE, _mI, _mMT, _sD],
   [1, 1, () => SnippetExcerpt$, 0, 0, () => SourceDetails$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_n, _ru, _d, _eCM],
@@ -2354,7 +2373,7 @@ export var UpdateIndexResponse$: StaticStructureSchema = [3, n0, _UIRp,
 ];
 export var UpdatePluginRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_aIp, _pI, _dN, _sta, _sU, _cPC, _aCu],
+  [_aIp, _pI, _dN, _stat, _sU, _cPC, _aCu],
   [[0, 1], [0, 1], 0, 0, 0, [() => CustomPluginConfiguration$, 0], () => PluginAuthConfiguration$], 2
 ];
 export var UpdatePluginResponse$: StaticStructureSchema = [3, n0, _UPRp,
@@ -2412,12 +2431,6 @@ export var UsersAndGroups$: StaticStructureSchema = [3, n0, _UAG,
   [_uIs, _uG],
   [64 | 0, 64 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rea, _f],
-  [0, 0, () => ValidationExceptionFields], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -2435,12 +2448,10 @@ export var VideoSourceDetails$: StaticStructureSchema = [3, n0, _VSD,
 ];
 export var WebExperience$: StaticStructureSchema = [3, n0, _WE,
   0,
-  [_wEI, _cA, _uA, _dE, _s],
+  [_wEI, _cA, _uA, _dE, _st],
   [0, 4, 4, 0, 0]
 ];
 var __Unit = "unit" as const;
-export var QBusinessServiceException$: StaticErrorSchema = [-3, _sm, "QBusinessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QBusinessServiceException$, QBusinessServiceException);
 var AccessControls: StaticListSchema = [1, n0, _ACcc,
   0, () => AccessControl$
 ];
@@ -2638,7 +2649,7 @@ export var ChatOutputStream$: StaticUnionSchema = [4, n0, _COS,
 ];
 export var ContentSource$: StaticUnionSchema = [4, n0, _CSo,
   0,
-  [_ret],
+  [_retr],
   [() => RetrieverContentSource$]
 ];
 export var CopyFromSource$: StaticUnionSchema = [4, n0, _CFS,

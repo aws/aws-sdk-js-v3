@@ -457,7 +457,7 @@ const _rP = "repositoryProvider";
 const _rR = "resolvedReason";
 const _rV = "recommendedVersion";
 const _re = "repositories";
-const _s = "sensitive";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.proton";
 const _sA = "startedAt";
 const _sB = "sortBy";
 const _sCS = "supportedComponentSources";
@@ -479,11 +479,11 @@ const _sTe = "serviceTemplate";
 const _sTy = "syncType";
 const _s_ = "s3";
 const _sc = "schema";
-const _se = "services";
-const _ser = "service";
-const _serv = "server";
+const _se = "server";
+const _sen = "sensitive";
+const _ser = "services";
+const _serv = "service";
 const _sh = "sha";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.proton";
 const _so = "source";
 const _sp = "spec";
 const _st = "status";
@@ -537,14 +537,69 @@ import {
 import { ProtonServiceException } from "../models/ProtonServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ProtonServiceException$: StaticErrorSchema = [-3, _s, "ProtonServiceException", 0, [], []];
+_s_registry.registerError(ProtonServiceException$, ProtonServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DisplayName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
 var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
-var SpecContents: StaticSimpleSchema = [0, n0, _SC, { [_mT]: _a, [_s]: 1 }, 0];
+var SpecContents: StaticSimpleSchema = [0, n0, _SC, { [_mT]: _a, [_sen]: 1 }, 0];
 var StatusMessage: StaticSimpleSchema = [0, n0, _SM, 8, 0];
-var TemplateFileContents: StaticSimpleSchema = [0, n0, _TFC, { [_mT]: _a, [_s]: 1 }, 0];
-var TemplateManifestContents: StaticSimpleSchema = [0, n0, _TMC, { [_mT]: _a, [_s]: 1 }, 0];
-var TemplateSchema: StaticSimpleSchema = [0, n0, _TS, { [_mT]: _a, [_s]: 1 }, 0];
+var TemplateFileContents: StaticSimpleSchema = [0, n0, _TFC, { [_mT]: _a, [_sen]: 1 }, 0];
+var TemplateManifestContents: StaticSimpleSchema = [0, n0, _TMC, { [_mT]: _a, [_sen]: 1 }, 0];
+var TemplateSchema: StaticSimpleSchema = [0, n0, _TS, { [_mT]: _a, [_sen]: 1 }, 0];
 export var AcceptEnvironmentAccountConnectionInput$: StaticStructureSchema = [3, n0, _AEACI,
   0,
   [_i],
@@ -555,12 +610,6 @@ export var AcceptEnvironmentAccountConnectionOutput$: StaticStructureSchema = [3
   [_eAC],
   [() => EnvironmentAccountConnection$], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_pSRA, _pPR, _pCRA],
@@ -631,15 +680,9 @@ export var ComponentSummary$: StaticStructureSchema = [3, n0, _CSo,
   [_n, _ar, _eN, _cA, _lMA, _dS, _sN, _sIN, _lDAA, _lDSA, _dSM, _lADI, _lSDI],
   [0, 0, 0, 4, 4, 0, 0, 0, 4, 4, [() => StatusMessage, 0], 0, 0], 6
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CountsSummary$: StaticStructureSchema = [3, n0, _CSou,
   0,
-  [_com, _env, _eT, _sIe, _se, _sT, _pi],
+  [_com, _env, _eT, _sIe, _ser, _sT, _pi],
   [() => ResourceCountsSummary$, () => ResourceCountsSummary$, () => ResourceCountsSummary$, () => ResourceCountsSummary$, () => ResourceCountsSummary$, () => ResourceCountsSummary$, () => ResourceCountsSummary$]
 ];
 export var CreateComponentInput$: StaticStructureSchema = [3, n0, _CCI,
@@ -719,7 +762,7 @@ export var CreateServiceInstanceOutput$: StaticStructureSchema = [3, n0, _CSIO,
 ];
 export var CreateServiceOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
-  [_ser],
+  [_serv],
   [[() => Service$, 0]], 1
 ];
 export var CreateServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _CSSCI,
@@ -839,7 +882,7 @@ export var DeleteServiceInput$: StaticStructureSchema = [3, n0, _DSI,
 ];
 export var DeleteServiceOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
-  [_ser],
+  [_serv],
   [[() => Service$, 0]]
 ];
 export var DeleteServiceSyncConfigInput$: StaticStructureSchema = [3, n0, _DSSCI,
@@ -1069,7 +1112,7 @@ export var GetServiceInstanceSyncStatusOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_ser],
+  [_serv],
   [[() => Service$, 0]]
 ];
 export var GetServiceSyncBlockerSummaryInput$: StaticStructureSchema = [3, n0, _GSSBSI,
@@ -1132,12 +1175,6 @@ export var GetTemplateSyncStatusOutput$: StaticStructureSchema = [3, n0, _GTSSO,
   [_lS, _lSS, _dSe],
   [() => ResourceSyncAttempt$, () => ResourceSyncAttempt$, () => Revision$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _serv, [_hE]: 500 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListComponentOutputsInput$: StaticStructureSchema = [3, n0, _LCOI,
   0,
   [_cN, _nT, _dI],
@@ -1320,7 +1357,7 @@ export var ListServicesInput$: StaticStructureSchema = [3, n0, _LSI,
 ];
 export var ListServicesOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_se, _nT],
+  [_ser, _nT],
   [[() => ServiceSummaryList, 0], 0], 1
 ];
 export var ListServiceTemplatesInput$: StaticStructureSchema = [3, n0, _LSTI,
@@ -1423,12 +1460,6 @@ export var ResourceCountsSummary$: StaticStructureSchema = [3, n0, _RCS,
   [_to, _fa, _uTD, _bM, _bMe],
   [1, 1, 1, 1, 1], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSyncAttempt$: StaticStructureSchema = [3, n0, _RSAe,
   0,
   [_iR, _tR, _ta, _sA, _st, _ev],
@@ -1479,12 +1510,6 @@ export var ServicePipelineState$: StaticStructureSchema = [3, n0, _SPS,
   [_tN, _tMV, _tMVe, _sp],
   [0, 0, 0, [() => SpecContents, 0]], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_n, _ar, _tN, _cA, _lMA, _st, _d, _sM],
@@ -1550,12 +1575,6 @@ export var TemplateSyncConfig$: StaticStructureSchema = [3, n0, _TSC,
   [_tN, _tT, _rP, _rN, _b, _su],
   [0, 0, 0, 0, 0, 0], 5
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAes, _tK],
@@ -1643,7 +1662,7 @@ export var UpdateServiceInstanceOutput$: StaticStructureSchema = [3, n0, _USIO,
 ];
 export var UpdateServiceOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
-  [_ser],
+  [_serv],
   [[() => Service$, 0]], 1
 ];
 export var UpdateServicePipelineInput$: StaticStructureSchema = [3, n0, _USPI,
@@ -1706,14 +1725,6 @@ export var UpdateTemplateSyncConfigOutput$: StaticStructureSchema = [3, n0, _UTS
   [_tSC],
   [() => TemplateSyncConfig$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ProtonServiceException$: StaticErrorSchema = [-3, _sm, "ProtonServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ProtonServiceException$, ProtonServiceException);
 var CompatibleEnvironmentTemplateInputList: StaticListSchema = [1, n0, _CETIL,
   0, () => CompatibleEnvironmentTemplateInput$
 ];

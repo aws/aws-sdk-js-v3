@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import type { ApplicationCostProfilerClientConfig } from "./ApplicationCostProfilerClient";
 import { defaultApplicationCostProfilerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ApplicationCostProfilerClientConfig) =>
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.applicationcostprofiler",
+      errorTypeRegistries,
       version: "2020-09-10",
       serviceTarget: "AWSApplicationCostProfiler",
     },

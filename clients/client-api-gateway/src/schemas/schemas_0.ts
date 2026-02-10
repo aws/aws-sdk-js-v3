@@ -431,14 +431,14 @@ const _dR = "defaultResponse";
 const _dTE = "dataTraceEnabled";
 const _dV = "documentationVersion";
 const _dVe = "defaultValue";
-const _e = "enabled";
+const _e = "error";
 const _eAM = "endpointAccessMode";
 const _eC = "endpointConfiguration";
 const _eD = "expirationDate";
 const _eDn = "endDate";
 const _eT = "exportType";
 const _em = "embed";
-const _er = "error";
+const _en = "enabled";
 const _f = "format";
 const _fN = "friendlyName";
 const _fOW = "failOnWarnings";
@@ -537,7 +537,7 @@ const _rTM = "responseTransferMode";
 const _rTe = "responseTemplates";
 const _rTeq = "requestTemplates";
 const _rVI = "requestValidatorId";
-const _s = "stage";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.apigateway";
 const _sC = "statusCode";
 const _sD = "stageDescription";
 const _sDt = "startDate";
@@ -551,8 +551,8 @@ const _sV = "stageVariables";
 const _sVO = "stageVariableOverrides";
 const _sc = "schema";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.apigateway";
-const _st = "status";
+const _st = "stage";
+const _sta = "status";
 const _t = "tags";
 const _tA = "targetArns";
 const _tBL = "throttlingBurstLimit";
@@ -606,6 +606,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var APIGatewayServiceException$: StaticErrorSchema = [-3, _s, "APIGatewayServiceException", 0, [], []];
+_s_registry.registerError(APIGatewayServiceException$, APIGatewayServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_rAS, _m],
+  [[0, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_rAS, _m],
+  [[0, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_rAS, _m],
+  [[0, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessLogSettings$: StaticStructureSchema = [3, n0, _ALS,
   0,
   [_f, _dA],
@@ -618,7 +673,7 @@ export var Account$: StaticStructureSchema = [3, n0, _A,
 ];
 export var ApiKey$: StaticStructureSchema = [3, n0, _AK,
   0,
-  [_i, _v, _n, _cI, _d, _e, _cD, _lUD, _sK, _t],
+  [_i, _v, _n, _cI, _d, _en, _cD, _lUD, _sK, _t],
   [0, 0, 0, 0, 0, 2, 4, 4, 64 | 0, 128 | 0]
 ];
 export var ApiKeyIds$: StaticStructureSchema = [3, n0, _AKI,
@@ -633,7 +688,7 @@ export var ApiKeys$: StaticStructureSchema = [3, n0, _AKp,
 ];
 export var ApiStage$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _s, _th],
+  [_aI, _st, _th],
   [0, 0, () => MapOfApiStageThrottleSettings]
 ];
 export var Authorizer$: StaticStructureSchema = [3, n0, _Au,
@@ -646,15 +701,9 @@ export var Authorizers$: StaticStructureSchema = [3, n0, _Aut,
   [_it, _p],
   [[() => ListOfAuthorizer, { [_jN]: _ite }], [0, { [_hQ]: _p }]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_er]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BasePathMapping$: StaticStructureSchema = [3, n0, _BPM,
   0,
-  [_bP, _rAI, _s],
+  [_bP, _rAI, _st],
   [0, 0, 0]
 ];
 export var BasePathMappings$: StaticStructureSchema = [3, n0, _BPMa,
@@ -677,15 +726,9 @@ export var ClientCertificates$: StaticStructureSchema = [3, n0, _CCl,
   [_it, _p],
   [[() => ListOfClientCertificate, { [_jN]: _ite }], [0, { [_hQ]: _p }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_er]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApiKeyRequest$: StaticStructureSchema = [3, n0, _CAKR,
   0,
-  [_n, _d, _e, _gDI, _v, _sK, _cI, _t],
+  [_n, _d, _en, _gDI, _v, _sK, _cI, _t],
   [0, 0, 2, 2, 0, () => ListOfStageKeys, 0, 128 | 0]
 ];
 export var CreateAuthorizerRequest$: StaticStructureSchema = [3, n0, _CAR,
@@ -695,7 +738,7 @@ export var CreateAuthorizerRequest$: StaticStructureSchema = [3, n0, _CAR,
 ];
 export var CreateBasePathMappingRequest$: StaticStructureSchema = [3, n0, _CBPMR,
   0,
-  [_dN, _rAI, _dNI, _bP, _s],
+  [_dN, _rAI, _dNI, _bP, _st],
   [[0, 1], 0, [0, { [_hQ]: _dNI }], 0, 0], 2
 ];
 export var CreateDeploymentRequest$: StaticStructureSchema = [3, n0, _CDR,
@@ -1233,12 +1276,6 @@ export var IntegrationResponse$: StaticStructureSchema = [3, n0, _IR,
   [_sC, _sPe, _rP, _rTe, _cH],
   [0, 0, 128 | 0, 128 | 0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_er]: _c, [_hE]: 429 },
-  [_rAS, _m],
-  [[0, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var Method$: StaticStructureSchema = [3, n0, _M,
   0,
   [_hM, _aTu, _aIu, _aKR, _rVI, _oN, _rPe, _rMe, _mR, _mI, _aSu],
@@ -1279,12 +1316,6 @@ export var MutualTlsAuthenticationInput$: StaticStructureSchema = [3, n0, _MTAI,
   [_tU, _tV],
   [0, 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PatchOperation$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_o, _pa, _v, _fr],
@@ -1380,12 +1411,6 @@ export var SdkTypes$: StaticStructureSchema = [3, n0, _STd,
   [_it],
   [[() => ListOfSdkType, { [_jN]: _ite }]]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_er]: _se, [_hE]: 503 },
-  [_rAS, _m],
-  [[0, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var Stage$: StaticStructureSchema = [3, n0, _S,
   0,
   [_dI, _cCI, _sN, _d, _cCE, _cCS, _cCSa, _mS, _va, _dV, _aLS, _cS, _tE, _wAA, _t, _cD, _lUD],
@@ -1433,7 +1458,7 @@ export var TestInvokeMethodRequest$: StaticStructureSchema = [3, n0, _TIMR,
 ];
 export var TestInvokeMethodResponse$: StaticStructureSchema = [3, n0, _TIMRe,
   0,
-  [_st, _b, _h, _mVH, _lo, _la],
+  [_sta, _b, _h, _mVH, _lo, _la],
   [1, 0, 128 | 0, [2, n0, _MOSTL, 0, 0, 64 | 0], 0, 1]
 ];
 export var ThrottleSettings$: StaticStructureSchema = [3, n0, _TS,
@@ -1446,18 +1471,6 @@ export var TlsConfig$: StaticStructureSchema = [3, n0, _TC,
   [_iSV],
   [2]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_er]: _c, [_hE]: 429 },
-  [_rAS, _m],
-  [[0, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_er]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -1600,7 +1613,7 @@ export var UsagePlans$: StaticStructureSchema = [3, n0, _UPs,
 ];
 export var VpcLink$: StaticStructureSchema = [3, n0, _VL,
   0,
-  [_i, _n, _d, _tA, _st, _sM, _t],
+  [_i, _n, _d, _tA, _sta, _sM, _t],
   [0, 0, 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var VpcLinks$: StaticStructureSchema = [3, n0, _VLp,
@@ -1609,8 +1622,6 @@ export var VpcLinks$: StaticStructureSchema = [3, n0, _VLp,
   [[() => ListOfVpcLink, { [_jN]: _ite }], [0, { [_hQ]: _p }]]
 ];
 var __Unit = "unit" as const;
-export var APIGatewayServiceException$: StaticErrorSchema = [-3, _sm, "APIGatewayServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(APIGatewayServiceException$, APIGatewayServiceException);
 var ListOfApiKey: StaticListSchema = [1, n0, _LOAK,
   0, () => ApiKey$
 ];

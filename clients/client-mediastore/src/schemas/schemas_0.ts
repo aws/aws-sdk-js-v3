@@ -104,8 +104,8 @@ const _URO = "UntagResourceOutput";
 const _V = "Value";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediastore";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediastore";
+const _se = "server";
 const n0 = "com.amazonaws.mediastore";
 
 // smithy-typescript generated code
@@ -123,29 +123,60 @@ import {
 import { MediaStoreServiceException } from "../models/MediaStoreServiceException";
 
 /* eslint no-var: 0 */
-export var Container$: StaticStructureSchema = [3, n0, _C,
-  0,
-  [_E, _CT, _ARN, _N, _S, _ALE],
-  [0, 4, 0, 0, 0, 2]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var MediaStoreServiceException$: StaticErrorSchema = [-3, _s, "MediaStoreServiceException", 0, [], []];
+_s_registry.registerError(MediaStoreServiceException$, MediaStoreServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ContainerInUseException$: StaticErrorSchema = [-3, n0, _CIUE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ContainerInUseException$, ContainerInUseException);
+n0_registry.registerError(ContainerInUseException$, ContainerInUseException);
 export var ContainerNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ContainerNotFoundException$, ContainerNotFoundException);
+n0_registry.registerError(ContainerNotFoundException$, ContainerNotFoundException);
 export var CorsPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _CPNFE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(CorsPolicyNotFoundException$, CorsPolicyNotFoundException);
+n0_registry.registerError(CorsPolicyNotFoundException$, CorsPolicyNotFoundException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicyNotFoundException$, PolicyNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var Container$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_E, _CT, _ARN, _N, _S, _ALE],
+  [0, 4, 0, 0, 0, 2]
+];
 export var CorsRule$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_AO, _AH, _AM, _MAS, _EH],
@@ -261,18 +292,6 @@ export var GetMetricPolicyOutput$: StaticStructureSchema = [3, n0, _GMPO,
   [_MP],
   [() => MetricPolicy$], 1
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListContainersInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_NT, _MR],
@@ -303,12 +322,6 @@ export var MetricPolicyRule$: StaticStructureSchema = [3, n0, _MPRe,
   [_OG, _OGN],
   [0, 0], 2
 ];
-export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
 export var PutContainerPolicyInput$: StaticStructureSchema = [3, n0, _PCPI,
   0,
   [_CN, _P],
@@ -394,8 +407,6 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   [],
   []
 ];
-export var MediaStoreServiceException$: StaticErrorSchema = [-3, _sm, "MediaStoreServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaStoreServiceException$, MediaStoreServiceException);
 var AllowedHeaders = 64 | 0;
 var AllowedMethods = 64 | 0;
 var AllowedOrigins = 64 | 0;

@@ -296,8 +296,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.transcribe";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.transcribe";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.transcribe";
 
@@ -323,18 +323,55 @@ import {
 import { TranscribeServiceException } from "../models/TranscribeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var TranscribeServiceException$: StaticErrorSchema = [-3, _s, "TranscribeServiceException", 0, [], []];
+_s_registry.registerError(TranscribeServiceException$, TranscribeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Pronouns: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AbsoluteTimeRange$: StaticStructureSchema = [3, n0, _ATR,
   0,
   [_ST, _ET, _F, _L],
   [1, 1, 1, 1]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CallAnalyticsJob$: StaticStructureSchema = [3, n0, _CAJ,
   0,
   [_CAJN, _CAJS, _CAJD, _LC, _MSRH, _MF, _Me, _T, _ST, _CT, _CTo, _FR, _DARA, _ILS, _S, _CD, _Ta],
@@ -375,12 +412,6 @@ export var ClinicalNoteGenerationSettings$: StaticStructureSchema = [3, n0, _CNG
   [_NT],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentRedaction$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_RT, _RO, _PET],
@@ -586,12 +617,6 @@ export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   [_SU, _DARA, _TDSU],
   [0, 0, 0], 2
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var InterruptionFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_Th, _PR, _ATR, _RTR, _N],
@@ -617,12 +642,6 @@ export var LanguageModel$: StaticStructureSchema = [3, n0, _LM,
   [_MN, _CTr, _LMT, _LC, _BMN, _MS, _UA, _FR, _IDC],
   [0, 4, 4, 0, 0, 0, 2, 0, () => InputDataConfig$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListCallAnalyticsCategoriesRequest$: StaticStructureSchema = [3, n0, _LCACR,
   0,
   [_NTe, _MR],
@@ -793,12 +812,6 @@ export var NonTalkTimeFilter$: StaticStructureSchema = [3, n0, _NTTF,
   [_Th, _ATR, _RTR, _N],
   [1, () => AbsoluteTimeRange$, () => RelativeTimeRange$, 2]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var RelativeTimeRange$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_SP, _EP, _F, _L],
@@ -970,8 +983,6 @@ export var VocabularyInfo$: StaticStructureSchema = [3, n0, _VI,
   [0, 0, 4, 0]
 ];
 var __Unit = "unit" as const;
-export var TranscribeServiceException$: StaticErrorSchema = [-3, _sm, "TranscribeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TranscribeServiceException$, TranscribeServiceException);
 var CallAnalyticsJobSummaries: StaticListSchema = [1, n0, _CAJSall,
   0, () => CallAnalyticsJobSummary$
 ];

@@ -1152,10 +1152,10 @@ const _VCE = "VersionConflictException";
 const _VDC = "VpcDestinationConfiguration";
 const _VDP = "VpcDestinationProperties";
 const _VDS = "VpcDestinationSummary";
-const _VE = "ValidationError";
+const _VE = "ValidationException";
 const _VEAI = "ViolationEventAdditionalInfo";
 const _VEOR = "ViolationEventOccurrenceRange";
-const _VEa = "ValidationException";
+const _VEa = "ValidationError";
 const _VEal = "ValidationErrors";
 const _VEi = "ViolationEvent";
 const _VEio = "ViolationEvents";
@@ -1258,7 +1258,7 @@ const _be = "behaviors";
 const _bef = "before";
 const _bu = "buckets";
 const _buc = "bucket";
-const _c = "comment";
+const _c = "client";
 const _cA = "cloudwatchAlarm";
 const _cAa = "cannedAcl";
 const _cAe = "certificateArn";
@@ -1322,13 +1322,13 @@ const _cV = "customerVersion";
 const _ca = "cardinality";
 const _ce = "certificates";
 const _ci = "cidrs";
-const _cl = "client";
-const _co = "configuration";
+const _co = "comment";
 const _cod = "code";
 const _com = "commands";
-const _con = "content";
+const _con = "configuration";
 const _conn = "connected";
 const _conne = "connectivity";
+const _cont = "content";
 const _cou = "count";
 const _cr = "criteria";
 const _d = "description";
@@ -1385,7 +1385,7 @@ const _dep = "deprecated";
 const _des = "destination";
 const _di = "dimensions";
 const _do = "document";
-const _e = "elasticsearch";
+const _e = "error";
 const _eA = "endpointAddress";
 const _eAr = "errorAction";
 const _eB = "enableBatching";
@@ -1417,10 +1417,10 @@ const _eTn = "encryptionType";
 const _eTnd = "endpointType";
 const _eTv = "eventType";
 const _eV = "expectedVersion";
+const _el = "elasticsearch";
 const _en = "enabled";
 const _end = "endpoint";
 const _env = "environments";
-const _er = "error";
 const _ex = "expiration";
 const _exa = "example";
 const _exe = "execution";
@@ -1533,7 +1533,7 @@ const _lVV = "lastViolationValue";
 const _la = "latitude";
 const _lo = "location";
 const _lon = "longitude";
-const _m = "merge";
+const _m = "message";
 const _mA = "metricArn";
 const _mB = "maxBuckets";
 const _mBOM = "maxBatchOpenMs";
@@ -1568,7 +1568,7 @@ const _mW = "maintenanceWindows";
 const _ma = "max";
 const _mar = "marker";
 const _max = "maximum";
-const _me = "message";
+const _me = "merge";
 const _met = "metric";
 const _mi = "min";
 const _min = "minimum";
@@ -1683,7 +1683,7 @@ const _qU = "queueUrl";
 const _qV = "queryVersion";
 const _qo = "qos";
 const _r = "republish";
-const _rA = "roleArn";
+const _rA = "resourceArn";
 const _rAA = "roleAliasArn";
 const _rAC = "removeAuthorizerConfig";
 const _rAD = "roleAliasDescription";
@@ -1691,10 +1691,10 @@ const _rAFL = "roleArnForLogging";
 const _rAIS = "refreshAfterInSeconds";
 const _rAR = "removeAutoRegistration";
 const _rAe = "retryAttempt";
-const _rAes = "resourceArn";
-const _rAeso = "resourceArns";
-const _rAo = "roleAlias";
-const _rAol = "roleAliases";
+const _rAes = "resourceArns";
+const _rAo = "roleArn";
+const _rAol = "roleAlias";
+const _rAole = "roleAliases";
 const _rAu = "ruleArn";
 const _rC = "reasonCode";
 const _rCe = "registrationConfig";
@@ -1705,9 +1705,9 @@ const _rDe = "reasonDescription";
 const _rDej = "rejectDate";
 const _rFNC = "reasonForNonCompliance";
 const _rFNCC = "reasonForNonComplianceCode";
-const _rI = "resourceIdentifier";
+const _rI = "resourceId";
 const _rIC = "rateIncreaseCriteria";
-const _rIe = "resourceId";
+const _rIe = "resourceIdentifier";
 const _rKF = "rangeKeyField";
 const _rKT = "rangeKeyType";
 const _rKV = "rangeKeyValue";
@@ -1728,7 +1728,7 @@ const _reg = "regex";
 const _res = "result";
 const _ru = "rule";
 const _rul = "rules";
-const _s = "sns";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iot";
 const _sA = "suppressAlerts";
 const _sAA = "setAsActive";
 const _sAAc = "scheduledAuditArn";
@@ -1798,13 +1798,13 @@ const _s_ = "s3";
 const _sa = "salesforce";
 const _sb = "sbom";
 const _sc = "schema";
-const _se = "severity";
+const _se = "server";
 const _sep = "separator";
-const _ser = "server";
+const _sev = "severity";
 const _sh = "shadow";
 const _si = "signature";
 const _sig = "sigv4";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iot";
+const _sn = "sns";
 const _sq = "sqs";
 const _sql = "sql";
 const _st = "status";
@@ -2001,6 +2001,217 @@ import {
 import { IoTServiceException } from "../models/IoTServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTServiceException$: StaticErrorSchema = [-3, _s, "IoTServiceException", 0, [], []];
+_s_registry.registerError(IoTServiceException$, IoTServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CertificateConflictException$: StaticErrorSchema = [-3, n0, _CCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CertificateConflictException$, CertificateConflictException);
+export var CertificateStateException$: StaticErrorSchema = [-3, n0, _CSE,
+  { [_e]: _c, [_hE]: 406 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CertificateStateException$, CertificateStateException);
+export var CertificateValidationException$: StaticErrorSchema = [-3, n0, _CVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CertificateValidationException$, CertificateValidationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ConflictingResourceUpdateException$: StaticErrorSchema = [-3, n0, _CRUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictingResourceUpdateException$, ConflictingResourceUpdateException);
+export var DeleteConflictException$: StaticErrorSchema = [-3, n0, _DCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeleteConflictException$, DeleteConflictException);
+export var IndexNotReadyException$: StaticErrorSchema = [-3, n0, _INRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IndexNotReadyException$, IndexNotReadyException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidAggregationException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAggregationException$, InvalidAggregationException);
+export var InvalidQueryException$: StaticErrorSchema = [-3, n0, _IQE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidQueryException$, InvalidQueryException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidResponseException$: StaticErrorSchema = [-3, n0, _IREn,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidResponseException$, InvalidResponseException);
+export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedPolicyException$: StaticErrorSchema = [-3, n0, _MPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyException$, MalformedPolicyException);
+export var NotConfiguredException$: StaticErrorSchema = [-3, n0, _NCE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotConfiguredException$, NotConfiguredException);
+export var RegistrationCodeValidationException$: StaticErrorSchema = [-3, n0, _RCVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RegistrationCodeValidationException$, RegistrationCodeValidationException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rA],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceRegistrationFailureException$: StaticErrorSchema = [-3, n0, _RRFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceRegistrationFailureException$, ResourceRegistrationFailureException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SqlParseException$: StaticErrorSchema = [-3, n0, _SPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SqlParseException$, SqlParseException);
+export var TaskAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TaskAlreadyExistsException$, TaskAlreadyExistsException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TransferAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _TACE,
+  { [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TransferAlreadyCompletedException$, TransferAlreadyCompletedException);
+export var TransferConflictException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TransferConflictException$, TransferConflictException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+export var VersionConflictException$: StaticErrorSchema = [-3, n0, _VCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(VersionConflictException$, VersionConflictException);
+export var VersionsLimitExceededException$: StaticErrorSchema = [-3, n0, _VLEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(VersionsLimitExceededException$, VersionsLimitExceededException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ConnectivityApiThingName: StaticSimpleSchema = [0, n0, _CATN, 8, 0];
 var PackageVersionRecipe: StaticSimpleSchema = [0, n0, _PVR, 8, 0];
 var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
@@ -2022,7 +2233,7 @@ export var AcceptCertificateTransferRequest$: StaticStructureSchema = [3, n0, _A
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_dDB, _dDBy, _l, _s, _sq, _k, _r, _s_, _f, _cM, _cA, _cLl, _e, _sa, _iA, _iE, _iSW, _sF, _t, _h, _ka, _oS, _lo],
+  [_dDB, _dDBy, _l, _sn, _sq, _k, _r, _s_, _f, _cM, _cA, _cLl, _el, _sa, _iA, _iE, _iSW, _sF, _t, _h, _ka, _oS, _lo],
   [() => DynamoDBAction$, () => DynamoDBv2Action$, () => LambdaAction$, () => SnsAction$, () => SqsAction$, () => KinesisAction$, () => RepublishAction$, () => S3Action$, () => FirehoseAction$, () => CloudwatchMetricAction$, () => CloudwatchAlarmAction$, () => CloudwatchLogsAction$, () => ElasticsearchAction$, () => SalesforceAction$, () => IotAnalyticsAction$, () => IotEventsAction$, () => IotSiteWiseAction$, () => StepFunctionsAction$, () => TimestreamAction$, () => HttpAction$, () => KafkaAction$, () => OpenSearchAction$, () => LocationAction$]
 ];
 export var ActiveViolation$: StaticStructureSchema = [3, n0, _AV,
@@ -2062,7 +2273,7 @@ export var AggregationType$: StaticStructureSchema = [3, n0, _AT,
 ];
 export var AlertTarget$: StaticStructureSchema = [3, n0, _ATl,
   0,
-  [_aTA, _rA],
+  [_aTA, _rAo],
   [0, 0], 2
 ];
 export var Allowed$: StaticStructureSchema = [3, n0, _Al,
@@ -2092,7 +2303,7 @@ export var AssociateSbomWithPackageVersionResponse$: StaticStructureSchema = [3,
 ];
 export var AssociateTargetsWithJobRequest$: StaticStructureSchema = [3, n0, _ATWJR,
   0,
-  [_ta, _jI, _c, _nI],
+  [_ta, _jI, _co, _nI],
   [64 | 0, [0, 1], 0, [0, { [_hQ]: _nI }]], 2
 ];
 export var AssociateTargetsWithJobResponse$: StaticStructureSchema = [3, n0, _ATWJRs,
@@ -2132,27 +2343,27 @@ export var AttachThingPrincipalResponse$: StaticStructureSchema = [3, n0, _ATPRt
 ];
 export var AttributePayload$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_at, _m],
+  [_at, _me],
   [128 | 0, 2]
 ];
 export var AuditCheckConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
-  [_en, _co],
+  [_en, _con],
   [2, 128 | 0]
 ];
 export var AuditCheckDetails$: StaticStructureSchema = [3, n0, _ACD,
   0,
-  [_cRS, _cC, _tRC, _nCRC, _sNCRC, _eC, _me],
+  [_cRS, _cC, _tRC, _nCRC, _sNCRC, _eC, _m],
   [0, 2, 1, 1, 1, 0, 0]
 ];
 export var AuditFinding$: StaticStructureSchema = [3, n0, _AF,
   0,
-  [_fI, _tI, _cN, _tST, _fTi, _se, _nCR, _rR, _rFNC, _rFNCC, _iS],
+  [_fI, _tI, _cN, _tST, _fTi, _sev, _nCR, _rR, _rFNC, _rFNCC, _iS],
   [0, 0, 0, 4, 4, 0, () => NonCompliantResource$, () => RelatedResources, 0, 0, 2]
 ];
 export var AuditMitigationActionExecutionMetadata$: StaticStructureSchema = [3, n0, _AMAEM,
   0,
-  [_tI, _fI, _aN, _aI, _st, _sT, _eT, _eC, _me],
+  [_tI, _fI, _aN, _aI, _st, _sT, _eT, _eC, _m],
   [0, 0, 0, 0, 0, 4, 4, 0, 0]
 ];
 export var AuditMitigationActionsTaskMetadata$: StaticStructureSchema = [3, n0, _AMATM,
@@ -2167,12 +2378,12 @@ export var AuditMitigationActionsTaskTarget$: StaticStructureSchema = [3, n0, _A
 ];
 export var AuditNotificationTarget$: StaticStructureSchema = [3, n0, _ANT,
   0,
-  [_tAa, _rA, _en],
+  [_tAa, _rAo, _en],
   [0, 0, 2]
 ];
 export var AuditSuppression$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_cN, _rI, _eD, _sI, _d],
+  [_cN, _rIe, _eD, _sI, _d],
   [0, () => ResourceIdentifier$, 4, 2, 0], 2
 ];
 export var AuditTaskMetadata$: StaticStructureSchema = [3, n0, _ATM,
@@ -2337,7 +2548,7 @@ export var CancelJobExecutionRequest$: StaticStructureSchema = [3, n0, _CJER,
 ];
 export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   0,
-  [_jI, _rC, _c, _fo],
+  [_jI, _rC, _co, _fo],
   [[0, 1], 0, 0, [2, { [_hQ]: _fo }]], 1
 ];
 export var CancelJobResponse$: StaticStructureSchema = [3, n0, _CJRa,
@@ -2350,12 +2561,6 @@ export var Certificate$: StaticStructureSchema = [3, n0, _C,
   [_cAe, _cI, _st, _cMe, _cD],
   [0, 0, 0, 0, 4]
 ];
-export var CertificateConflictException$: StaticErrorSchema = [-3, n0, _CCE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CertificateConflictException$, CertificateConflictException);
 export var CertificateDescription$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_cAe, _cI, _cCI, _st, _cP, _oB, _pOB, _cD, _lMD, _cV, _tD, _gI, _val, _cMe],
@@ -2366,18 +2571,6 @@ export var CertificateProviderSummary$: StaticStructureSchema = [3, n0, _CPS,
   [_cPN, _cPA],
   [0, 0]
 ];
-export var CertificateStateException$: StaticErrorSchema = [-3, n0, _CSE,
-  { [_er]: _cl, [_hE]: 406 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CertificateStateException$, CertificateStateException);
-export var CertificateValidationException$: StaticErrorSchema = [-3, n0, _CVE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CertificateValidationException$, CertificateValidationException);
 export var CertificateValidity$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_nB, _nA],
@@ -2400,17 +2593,17 @@ export var ClientCertificateConfig$: StaticStructureSchema = [3, n0, _CCC,
 ];
 export var CloudwatchAlarmAction$: StaticStructureSchema = [3, n0, _CAA,
   0,
-  [_rA, _aNl, _sR, _sV],
+  [_rAo, _aNl, _sR, _sV],
   [0, 0, 0, 0], 4
 ];
 export var CloudwatchLogsAction$: StaticStructureSchema = [3, n0, _CLA,
   0,
-  [_rA, _lGN, _bM],
+  [_rAo, _lGN, _bM],
   [0, 0, 2], 2
 ];
 export var CloudwatchMetricAction$: StaticStructureSchema = [3, n0, _CMA,
   0,
-  [_rA, _mN, _mNe, _mV, _mU, _mT],
+  [_rAo, _mN, _mNe, _mV, _mU, _mT],
   [0, 0, 0, 0, 0, 0], 5
 ];
 export var CodeSigning$: StaticStructureSchema = [3, n0, _CS,
@@ -2465,7 +2658,7 @@ export var CommandParameterValueNumberRange$: StaticStructureSchema = [3, n0, _C
 ];
 export var CommandPayload$: StaticStructureSchema = [3, n0, _CPo,
   0,
-  [_con, _cTo],
+  [_cont, _cTo],
   [21, 0]
 ];
 export var CommandPreprocessor$: StaticStructureSchema = [3, n0, _CPom,
@@ -2498,21 +2691,9 @@ export var ConfirmTopicRuleDestinationResponse$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me, _rIe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ConflictingResourceUpdateException$: StaticErrorSchema = [-3, n0, _CRUE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictingResourceUpdateException$, ConflictingResourceUpdateException);
 export var CreateAuditSuppressionRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
-  [_cN, _rI, _eD, _sI, _d, _cRT],
+  [_cN, _rIe, _eD, _sI, _d, _cRT],
   [0, () => ResourceIdentifier$, 4, 2, 0, [0, 4]], 2
 ];
 export var CreateAuditSuppressionResponse$: StaticStructureSchema = [3, n0, _CASRr,
@@ -2562,7 +2743,7 @@ export var CreateCertificateProviderResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateCommandRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_cIo, _na, _dN, _d, _pa, _pT, _pre, _mP, _rA, _tag],
+  [_cIo, _na, _dN, _d, _pa, _pT, _pre, _mP, _rAo, _tag],
   [[0, 1], 0, 0, 0, () => CommandPayload$, 0, () => CommandPreprocessor$, () => CommandParameterList, 0, () => TagList], 1
 ];
 export var CreateCommandResponse$: StaticStructureSchema = [3, n0, _CCRr,
@@ -2652,7 +2833,7 @@ export var CreateKeysAndCertificateResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateMitigationActionRequest$: StaticStructureSchema = [3, n0, _CMAR,
   0,
-  [_aN, _rA, _aPc, _tag],
+  [_aN, _rAo, _aPc, _tag],
   [[0, 1], 0, () => MitigationActionParams$, () => TagList], 3
 ];
 export var CreateMitigationActionResponse$: StaticStructureSchema = [3, n0, _CMARr,
@@ -2662,7 +2843,7 @@ export var CreateMitigationActionResponse$: StaticStructureSchema = [3, n0, _CMA
 ];
 export var CreateOTAUpdateRequest$: StaticStructureSchema = [3, n0, _COTAUR,
   0,
-  [_oUI, _ta, _fi, _rA, _d, _pro, _tSa, _aJERC, _aJPUC, _aJAC, _aJTC, _aPd, _tag],
+  [_oUI, _ta, _fi, _rAo, _d, _pro, _tSa, _aJERC, _aJPUC, _aJAC, _aJTC, _aPd, _tag],
   [[0, 1], 64 | 0, () => OTAUpdateFiles, 0, 0, 64 | 0, 0, () => AwsJobExecutionsRolloutConfig$, () => AwsJobPresignedUrlConfig$, () => AwsJobAbortConfig$, () => AwsJobTimeoutConfig$, 128 | 0, () => TagList], 4
 ];
 export var CreateOTAUpdateResponse$: StaticStructureSchema = [3, n0, _COTAURr,
@@ -2742,12 +2923,12 @@ export var CreateProvisioningTemplateVersionResponse$: StaticStructureSchema = [
 ];
 export var CreateRoleAliasRequest$: StaticStructureSchema = [3, n0, _CRAR,
   0,
-  [_rAo, _rA, _cDS, _tag],
+  [_rAol, _rAo, _cDS, _tag],
   [[0, 1], 0, 1, () => TagList], 2
 ];
 export var CreateRoleAliasResponse$: StaticStructureSchema = [3, n0, _CRARr,
   0,
-  [_rAo, _rAA],
+  [_rAol, _rAA],
   [0, 0]
 ];
 export var CreateScheduledAuditRequest$: StaticStructureSchema = [3, n0, _CSAR,
@@ -2772,7 +2953,7 @@ export var CreateSecurityProfileResponse$: StaticStructureSchema = [3, n0, _CSPR
 ];
 export var CreateStreamRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sIt, _fi, _rA, _d, _tag],
+  [_sIt, _fi, _rAo, _d, _tag],
   [[0, 1], () => StreamFiles, 0, 0, () => TagList], 3
 ];
 export var CreateStreamResponse$: StaticStructureSchema = [3, n0, _CSRr,
@@ -2842,7 +3023,7 @@ export var DeleteAccountAuditConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var DeleteAuditSuppressionRequest$: StaticStructureSchema = [3, n0, _DASR,
   0,
-  [_cN, _rI],
+  [_cN, _rIe],
   [0, () => ResourceIdentifier$], 2
 ];
 export var DeleteAuditSuppressionResponse$: StaticStructureSchema = [3, n0, _DASRe,
@@ -2915,12 +3096,6 @@ export var DeleteCommandResponse$: StaticStructureSchema = [3, n0, _DCRel,
   [_sCt],
   [[1, 32]]
 ];
-export var DeleteConflictException$: StaticErrorSchema = [-3, n0, _DCE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeleteConflictException$, DeleteConflictException);
 export var DeleteCustomMetricRequest$: StaticStructureSchema = [3, n0, _DCMR,
   0,
   [_mNe],
@@ -3063,7 +3238,7 @@ export var DeleteRegistrationCodeResponse$: StaticStructureSchema = [3, n0, _DRC
 ];
 export var DeleteRoleAliasRequest$: StaticStructureSchema = [3, n0, _DRAR,
   0,
-  [_rAo],
+  [_rAol],
   [[0, 1]], 1
 ];
 export var DeleteRoleAliasResponse$: StaticStructureSchema = [3, n0, _DRARe,
@@ -3173,7 +3348,7 @@ export var DescribeAccountAuditConfigurationRequest$: StaticStructureSchema = [3
 ];
 export var DescribeAccountAuditConfigurationResponse$: StaticStructureSchema = [3, n0, _DAACResc,
   0,
-  [_rA, _aNTC, _aCC],
+  [_rAo, _aNTC, _aCC],
   [0, () => AuditNotificationTargetConfigurations, () => AuditCheckConfigurations]
 ];
 export var DescribeAuditFindingRequest$: StaticStructureSchema = [3, n0, _DAFR,
@@ -3198,12 +3373,12 @@ export var DescribeAuditMitigationActionsTaskResponse$: StaticStructureSchema = 
 ];
 export var DescribeAuditSuppressionRequest$: StaticStructureSchema = [3, n0, _DASRes,
   0,
-  [_cN, _rI],
+  [_cN, _rIe],
   [0, () => ResourceIdentifier$], 2
 ];
 export var DescribeAuditSuppressionResponse$: StaticStructureSchema = [3, n0, _DASResc,
   0,
-  [_cN, _rI, _eD, _sI, _d],
+  [_cN, _rIe, _eD, _sI, _d],
   [0, () => ResourceIdentifier$, 4, 2, 0]
 ];
 export var DescribeAuditTaskRequest$: StaticStructureSchema = [3, n0, _DATR,
@@ -3413,7 +3588,7 @@ export var DescribeMitigationActionRequest$: StaticStructureSchema = [3, n0, _DM
 ];
 export var DescribeMitigationActionResponse$: StaticStructureSchema = [3, n0, _DMAResc,
   0,
-  [_aN, _aT, _aAc, _aI, _rA, _aPc, _cD, _lMD],
+  [_aN, _aT, _aAc, _aI, _rAo, _aPc, _cD, _lMD],
   [0, 0, 0, 0, 0, () => MitigationActionParams$, 4, 4]
 ];
 export var DescribeProvisioningTemplateRequest$: StaticStructureSchema = [3, n0, _DPTRes,
@@ -3438,7 +3613,7 @@ export var DescribeProvisioningTemplateVersionResponse$: StaticStructureSchema =
 ];
 export var DescribeRoleAliasRequest$: StaticStructureSchema = [3, n0, _DRARes,
   0,
-  [_rAo],
+  [_rAol],
   [[0, 1]], 1
 ];
 export var DescribeRoleAliasResponse$: StaticStructureSchema = [3, n0, _DRAResc,
@@ -3493,7 +3668,7 @@ export var DescribeThingRegistrationTaskRequest$: StaticStructureSchema = [3, n0
 ];
 export var DescribeThingRegistrationTaskResponse$: StaticStructureSchema = [3, n0, _DTRTRe,
   0,
-  [_tI, _cD, _lMD, _tB, _iFB, _iFK, _rA, _st, _me, _sCu, _fC, _pP],
+  [_tI, _cD, _lMD, _tB, _iFB, _iFK, _rAo, _st, _m, _sCu, _fC, _pP],
   [0, 4, 4, 0, 0, 0, 0, 0, 0, 1, 1, 1]
 ];
 export var DescribeThingRequest$: StaticStructureSchema = [3, n0, _DTRes,
@@ -3553,7 +3728,7 @@ export var DetachThingPrincipalResponse$: StaticStructureSchema = [3, n0, _DTPRe
 ];
 export var DetectMitigationActionExecution$: StaticStructureSchema = [3, n0, _DMAE,
   0,
-  [_tI, _vI, _aN, _tN, _eSD, _eED, _st, _eC, _me],
+  [_tI, _vI, _aN, _tN, _eSD, _eED, _st, _eC, _m],
   [0, 0, 0, 0, 4, 4, 0, 0, 0]
 ];
 export var DetectMitigationActionsTaskStatistics$: StaticStructureSchema = [3, n0, _DMATS,
@@ -3598,12 +3773,12 @@ export var DomainConfigurationSummary$: StaticStructureSchema = [3, n0, _DCS,
 ];
 export var DynamoDBAction$: StaticStructureSchema = [3, n0, _DDBA,
   0,
-  [_tNab, _rA, _hKF, _hKV, _ope, _hKT, _rKF, _rKV, _rKT, _pF],
+  [_tNab, _rAo, _hKF, _hKV, _ope, _hKT, _rKF, _rKV, _rKT, _pF],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var DynamoDBv2Action$: StaticStructureSchema = [3, n0, _DDBAy,
   0,
-  [_rA, _pI],
+  [_rAo, _pI],
   [0, () => PutItemInput$], 2
 ];
 export var EffectivePolicy$: StaticStructureSchema = [3, n0, _EP,
@@ -3613,7 +3788,7 @@ export var EffectivePolicy$: StaticStructureSchema = [3, n0, _EP,
 ];
 export var ElasticsearchAction$: StaticStructureSchema = [3, n0, _EA,
   0,
-  [_rA, _end, _i, _ty, _id],
+  [_rAo, _end, _i, _ty, _id],
   [0, 0, 0, 0, 0], 5
 ];
 export var EnableIoTLoggingParams$: StaticStructureSchema = [3, n0, _EITLP,
@@ -3628,7 +3803,7 @@ export var EnableTopicRuleRequest$: StaticStructureSchema = [3, n0, _ETRR,
 ];
 export var ErrorInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
-  [_cod, _me],
+  [_cod, _m],
   [0, 0]
 ];
 export var ExplicitDeny$: StaticStructureSchema = [3, n0, _ED,
@@ -3653,7 +3828,7 @@ export var FileLocation$: StaticStructureSchema = [3, n0, _FL,
 ];
 export var FirehoseAction$: StaticStructureSchema = [3, n0, _FA,
   0,
-  [_rA, _dSN, _sep, _bM],
+  [_rAo, _dSN, _sep, _bM],
   [0, 0, 0, 2], 2
 ];
 export var FleetMetricNameAndArn$: StaticStructureSchema = [3, n0, _FMNAA,
@@ -3713,7 +3888,7 @@ export var GetCommandRequest$: StaticStructureSchema = [3, n0, _GCRet,
 ];
 export var GetCommandResponse$: StaticStructureSchema = [3, n0, _GCReto,
   0,
-  [_cIo, _cAo, _na, _dN, _d, _mP, _pa, _pT, _pre, _rA, _cAr, _lUA, _dep, _pD],
+  [_cIo, _cAo, _na, _dN, _d, _mP, _pa, _pT, _pre, _rAo, _cAr, _lUA, _dep, _pD],
   [0, 0, 0, 0, 0, () => CommandParameterList, () => CommandPayload$, 0, () => CommandPreprocessor$, 0, 4, 4, 2, 2]
 ];
 export var GetEffectivePoliciesRequest$: StaticStructureSchema = [3, n0, _GEPR,
@@ -3753,7 +3928,7 @@ export var GetLoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GLOR,
 ];
 export var GetLoggingOptionsResponse$: StaticStructureSchema = [3, n0, _GLORe,
   0,
-  [_rA, _lL],
+  [_rAo, _lL],
   [0, 0]
 ];
 export var GetOTAUpdateRequest$: StaticStructureSchema = [3, n0, _GOTAUR,
@@ -3883,7 +4058,7 @@ export var GetV2LoggingOptionsRequest$: StaticStructureSchema = [3, n0, _GVLOR,
 ];
 export var GetV2LoggingOptionsResponse$: StaticStructureSchema = [3, n0, _GVLORe,
   0,
-  [_rA, _dLL, _dAL, _eCv],
+  [_rAo, _dLL, _dAL, _eCv],
   [0, 0, 2, () => LogEventConfigurations]
 ];
 export var GroupNameAndArn$: StaticStructureSchema = [3, n0, _GNAA,
@@ -3936,73 +4111,19 @@ export var IndexingFilter$: StaticStructureSchema = [3, n0, _IF,
   [_nSN, _gL],
   [64 | 0, () => GeoLocationsFilter]
 ];
-export var IndexNotReadyException$: StaticErrorSchema = [-3, n0, _INRE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IndexNotReadyException$, IndexNotReadyException);
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_er]: _ser, [_hE]: 500 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_er]: _ser, [_hE]: 500 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _ser, [_hE]: 500 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidAggregationException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAggregationException$, InvalidAggregationException);
-export var InvalidQueryException$: StaticErrorSchema = [-3, n0, _IQE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidQueryException$, InvalidQueryException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidResponseException$: StaticErrorSchema = [-3, n0, _IREn,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResponseException$, InvalidResponseException);
-export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
 export var IotAnalyticsAction$: StaticStructureSchema = [3, n0, _IAA,
   0,
-  [_cAh, _cNh, _bM, _rA],
+  [_cAh, _cNh, _bM, _rAo],
   [0, 0, 2, 0]
 ];
 export var IotEventsAction$: StaticStructureSchema = [3, n0, _IEA,
   0,
-  [_iNn, _rA, _mI, _bM],
+  [_iNn, _rAo, _mI, _bM],
   [0, 0, 0, 2], 2
 ];
 export var IotSiteWiseAction$: StaticStructureSchema = [3, n0, _ISWA,
   0,
-  [_pAPVE, _rA],
+  [_pAPVE, _rAo],
   [() => PutAssetPropertyValueEntryList, 0], 2
 ];
 export var IssuerCertificateIdentifier$: StaticStructureSchema = [3, n0, _ICI,
@@ -4012,7 +4133,7 @@ export var IssuerCertificateIdentifier$: StaticStructureSchema = [3, n0, _ICI,
 ];
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_jA, _jI, _tSa, _st, _fCo, _rC, _c, _ta, _d, _pUC, _jERC, _aCb, _cAr, _lUA, _cAom, _jPD, _tCi, _nI, _jTA, _jERCo, _dP, _iC, _sC, _sJR, _dPV],
+  [_jA, _jI, _tSa, _st, _fCo, _rC, _co, _ta, _d, _pUC, _jERC, _aCb, _cAr, _lUA, _cAom, _jPD, _tCi, _nI, _jTA, _jERCo, _dP, _iC, _sC, _sJR, _dPV],
   [0, 0, 0, 0, 2, 0, 0, 64 | 0, 0, () => PresignedUrlConfig$, () => JobExecutionsRolloutConfig$, () => AbortConfig$, 4, 4, 4, () => JobProcessDetails$, () => TimeoutConfig$, 0, 0, () => JobExecutionsRetryConfig$, 128 | 0, 2, () => SchedulingConfig$, () => ScheduledJobRolloutList, 64 | 0]
 ];
 export var JobExecution$: StaticStructureSchema = [3, n0, _JE,
@@ -4082,7 +4203,7 @@ export var KeyPair$: StaticStructureSchema = [3, n0, _KP,
 ];
 export var KinesisAction$: StaticStructureSchema = [3, n0, _KAi,
   0,
-  [_rA, _sN, _pK],
+  [_rAo, _sN, _pK],
   [0, 0, 0], 2
 ];
 export var LambdaAction$: StaticStructureSchema = [3, n0, _LA,
@@ -4090,12 +4211,6 @@ export var LambdaAction$: StaticStructureSchema = [3, n0, _LA,
   [_fA],
   [0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_er]: _cl, [_hE]: 410 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListActiveViolationsRequest$: StaticStructureSchema = [3, n0, _LAVR,
   0,
   [_tN, _sPN, _bCT, _lSA, _vS, _nT, _mR],
@@ -4118,7 +4233,7 @@ export var ListAttachedPoliciesResponse$: StaticStructureSchema = [3, n0, _LAPRi
 ];
 export var ListAuditFindingsRequest$: StaticStructureSchema = [3, n0, _LAFR,
   0,
-  [_tI, _cN, _rI, _mR, _nT, _sT, _eT, _lSF],
+  [_tI, _cN, _rIe, _mR, _nT, _sT, _eT, _lSF],
   [0, 0, () => ResourceIdentifier$, 1, 0, 4, 4, 2]
 ];
 export var ListAuditFindingsResponse$: StaticStructureSchema = [3, n0, _LAFRi,
@@ -4148,7 +4263,7 @@ export var ListAuditMitigationActionsTasksResponse$: StaticStructureSchema = [3,
 ];
 export var ListAuditSuppressionsRequest$: StaticStructureSchema = [3, n0, _LASR,
   0,
-  [_cN, _rI, _aO, _nT, _mR],
+  [_cN, _rIe, _aO, _nT, _mR],
   [0, () => ResourceIdentifier$, 2, 0, 1]
 ];
 export var ListAuditSuppressionsResponse$: StaticStructureSchema = [3, n0, _LASRi,
@@ -4523,7 +4638,7 @@ export var ListRoleAliasesRequest$: StaticStructureSchema = [3, n0, _LRAR,
 ];
 export var ListRoleAliasesResponse$: StaticStructureSchema = [3, n0, _LRARi,
   0,
-  [_rAol, _nM],
+  [_rAole, _nM],
   [64 | 0, 0]
 ];
 export var ListSbomValidationResultsRequest$: StaticStructureSchema = [3, n0, _LSVRR,
@@ -4578,8 +4693,8 @@ export var ListStreamsResponse$: StaticStructureSchema = [3, n0, _LSRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_rAes, _nT],
-  [[0, { [_hQ]: _rAes }], [0, { [_hQ]: _nT }]], 1
+  [_rA, _nT],
+  [[0, { [_hQ]: _rA }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -4748,7 +4863,7 @@ export var ListViolationEventsResponse$: StaticStructureSchema = [3, n0, _LVERi,
 ];
 export var LocationAction$: StaticStructureSchema = [3, n0, _LAo,
   0,
-  [_rA, _tNr, _dI, _la, _lon, _ti],
+  [_rAo, _tNr, _dI, _la, _lon, _ti],
   [0, 0, 0, 0, 0, () => LocationTimestamp$], 5
 ];
 export var LocationTimestamp$: StaticStructureSchema = [3, n0, _LT,
@@ -4763,7 +4878,7 @@ export var LogEventConfiguration$: StaticStructureSchema = [3, n0, _LEC,
 ];
 export var LoggingOptionsPayload$: StaticStructureSchema = [3, n0, _LOP,
   0,
-  [_rA, _lL],
+  [_rAo, _lL],
   [0, 0], 1
 ];
 export var LogTarget$: StaticStructureSchema = [3, n0, _LTo,
@@ -4786,12 +4901,6 @@ export var MaintenanceWindow$: StaticStructureSchema = [3, n0, _MW,
   [_sT, _dIM],
   [0, 1], 2
 ];
-export var MalformedPolicyException$: StaticErrorSchema = [-3, n0, _MPE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyException$, MalformedPolicyException);
 export var ManagedJobTemplateSummary$: StaticStructureSchema = [3, n0, _MJTS,
   0,
   [_tAem, _tNe, _d, _env, _tV],
@@ -4809,7 +4918,7 @@ export var MetricDimension$: StaticStructureSchema = [3, n0, _MDe,
 ];
 export var MetricsExportConfig$: StaticStructureSchema = [3, n0, _MEC,
   0,
-  [_mTq, _rA],
+  [_mTq, _rAo],
   [0, 0], 2
 ];
 export var MetricToRetain$: StaticStructureSchema = [3, n0, _MTR,
@@ -4824,7 +4933,7 @@ export var MetricValue$: StaticStructureSchema = [3, n0, _MV,
 ];
 export var MitigationAction$: StaticStructureSchema = [3, n0, _MA,
   0,
-  [_n, _id, _rA, _aPc],
+  [_n, _id, _rAo, _aPc],
   [0, 0, 0, () => MitigationActionParams$]
 ];
 export var MitigationActionIdentifier$: StaticStructureSchema = [3, n0, _MAI,
@@ -4854,18 +4963,12 @@ export var MqttHeaders$: StaticStructureSchema = [3, n0, _MH,
 ];
 export var NonCompliantResource$: StaticStructureSchema = [3, n0, _NCR,
   0,
-  [_rTes, _rI, _aId],
+  [_rTes, _rIe, _aId],
   [0, () => ResourceIdentifier$, 128 | 0]
 ];
-export var NotConfiguredException$: StaticErrorSchema = [-3, n0, _NCE,
-  { [_er]: _cl, [_hE]: 404 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotConfiguredException$, NotConfiguredException);
 export var OpenSearchAction$: StaticStructureSchema = [3, n0, _OSA,
   0,
-  [_rA, _end, _i, _ty, _id],
+  [_rAo, _end, _i, _ty, _id],
   [0, 0, 0, 0, 0], 5
 ];
 export var OTAUpdateFile$: StaticStructureSchema = [3, n0, _OTAUF,
@@ -4925,7 +5028,7 @@ export var PolicyVersionIdentifier$: StaticStructureSchema = [3, n0, _PVI,
 ];
 export var PresignedUrlConfig$: StaticStructureSchema = [3, n0, _PUC,
   0,
-  [_rA, _eIS],
+  [_rAo, _eIS],
   [0, 1]
 ];
 export var PrincipalThingObject$: StaticStructureSchema = [3, n0, _PTO,
@@ -5020,18 +5123,12 @@ export var RegisterThingRequest$: StaticStructureSchema = [3, n0, _RTR,
 ];
 export var RegisterThingResponse$: StaticStructureSchema = [3, n0, _RTRe,
   0,
-  [_cP, _rAeso],
+  [_cP, _rAes],
   [0, 128 | 0]
 ];
-export var RegistrationCodeValidationException$: StaticErrorSchema = [-3, n0, _RCVE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RegistrationCodeValidationException$, RegistrationCodeValidationException);
 export var RegistrationConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_tB, _rA, _tNe],
+  [_tB, _rAo, _tNe],
   [0, 0, 0]
 ];
 export var RejectCertificateTransferRequest$: StaticStructureSchema = [3, n0, _RCTR,
@@ -5041,7 +5138,7 @@ export var RejectCertificateTransferRequest$: StaticStructureSchema = [3, n0, _R
 ];
 export var RelatedResource$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_rTes, _rI, _aId],
+  [_rTes, _rIe, _aId],
   [0, () => ResourceIdentifier$, 128 | 0]
 ];
 export var RemoveThingFromBillingGroupRequest$: StaticStructureSchema = [3, n0, _RTFBGR,
@@ -5076,32 +5173,14 @@ export var ReplaceTopicRuleRequest$: StaticStructureSchema = [3, n0, _RTRR,
 ];
 export var RepublishAction$: StaticStructureSchema = [3, n0, _RA,
   0,
-  [_rA, _to, _qo, _he],
+  [_rAo, _to, _qo, _he],
   [0, 0, 1, () => MqttHeaders$], 2
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me, _rIe, _rAes],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
 export var ResourceIdentifier$: StaticStructureSchema = [3, n0, _RI,
   0,
   [_dCIe, _cCI, _cIPI, _cIl, _pVIo, _ac, _iRA, _rAA, _iCI, _dCAe],
   [0, 0, 0, 0, () => PolicyVersionIdentifier$, 0, 0, 0, () => IssuerCertificateIdentifier$, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _cl, [_hE]: 404 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceRegistrationFailureException$: StaticErrorSchema = [-3, n0, _RRFE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceRegistrationFailureException$, ResourceRegistrationFailureException);
 export var RetryCriteria$: StaticStructureSchema = [3, n0, _RCe,
   0,
   [_fT, _nOR],
@@ -5109,12 +5188,12 @@ export var RetryCriteria$: StaticStructureSchema = [3, n0, _RCe,
 ];
 export var RoleAliasDescription$: StaticStructureSchema = [3, n0, _RAD,
   0,
-  [_rAo, _rAA, _rA, _ow, _cDS, _cD, _lMD],
+  [_rAol, _rAA, _rAo, _ow, _cDS, _cD, _lMD],
   [0, 0, 0, 0, 1, 4, 4]
 ];
 export var S3Action$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_rA, _bNu, _ke, _cAa],
+  [_rAo, _bNu, _ke, _cAa],
   [0, 0, 0, 0], 3
 ];
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
@@ -5192,18 +5271,6 @@ export var ServerCertificateSummary$: StaticStructureSchema = [3, n0, _SCS,
   [_sCAe, _sCS, _sCSD],
   [0, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_er]: _cl, [_hE]: 402 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_er]: _ser, [_hE]: 503 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetDefaultAuthorizerRequest$: StaticStructureSchema = [3, n0, _SDAR,
   0,
   [_aNu],
@@ -5231,7 +5298,7 @@ export var SetV2LoggingLevelRequest$: StaticStructureSchema = [3, n0, _SVLLR,
 ];
 export var SetV2LoggingOptionsRequest$: StaticStructureSchema = [3, n0, _SVLOR,
   0,
-  [_rA, _dLL, _dAL, _eCv],
+  [_rAo, _dLL, _dAL, _eCv],
   [0, 0, 2, () => LogEventConfigurations]
 ];
 export var SigningProfileParameter$: StaticStructureSchema = [3, n0, _SPP,
@@ -5241,23 +5308,17 @@ export var SigningProfileParameter$: StaticStructureSchema = [3, n0, _SPP,
 ];
 export var SigV4Authorization$: StaticStructureSchema = [3, n0, _SVA,
   0,
-  [_sRi, _sNe, _rA],
+  [_sRi, _sNe, _rAo],
   [0, 0, 0], 3
 ];
 export var SnsAction$: StaticStructureSchema = [3, n0, _SAn,
   0,
-  [_tAa, _rA, _mF],
+  [_tAa, _rAo, _mF],
   [0, 0, 0], 2
 ];
-export var SqlParseException$: StaticErrorSchema = [-3, n0, _SPE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SqlParseException$, SqlParseException);
 export var SqsAction$: StaticStructureSchema = [3, n0, _SAq,
   0,
-  [_rA, _qU, _uB],
+  [_rAo, _qU, _uB],
   [0, 0, 2], 2
 ];
 export var StartAuditMitigationActionsTaskRequest$: StaticStructureSchema = [3, n0, _SAMATR,
@@ -5297,7 +5358,7 @@ export var StartSigningJobParameter$: StaticStructureSchema = [3, n0, _SSJP,
 ];
 export var StartThingRegistrationTaskRequest$: StaticStructureSchema = [3, n0, _STRTR,
   0,
-  [_tB, _iFB, _iFK, _rA],
+  [_tB, _iFB, _iFK, _rAo],
   [0, 0, 0, 0], 4
 ];
 export var StartThingRegistrationTaskResponse$: StaticStructureSchema = [3, n0, _STRTRt,
@@ -5322,7 +5383,7 @@ export var StatusReason$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var StepFunctionsAction$: StaticStructureSchema = [3, n0, _SFA,
   0,
-  [_sMN, _rA, _eNP],
+  [_sMN, _rAo, _eNP],
   [0, 0, 0], 2
 ];
 export var StopThingRegistrationTaskRequest$: StaticStructureSchema = [3, n0, _STRTRto,
@@ -5347,7 +5408,7 @@ export var StreamFile$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var StreamInfo$: StaticStructureSchema = [3, n0, _SI,
   0,
-  [_sIt, _sAtr, _sVtr, _d, _fi, _cAr, _lUA, _rA],
+  [_sIt, _sAtr, _sVtr, _d, _fi, _cAr, _lUA, _rAo],
   [0, 0, 1, 0, () => StreamFiles, 4, 4, 0]
 ];
 export var StreamSummary$: StaticStructureSchema = [3, n0, _SS,
@@ -5362,7 +5423,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rAes, _tag],
+  [_rA, _tag],
   [0, () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -5370,12 +5431,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TaskAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TaskAlreadyExistsException$, TaskAlreadyExistsException);
 export var TaskStatistics$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tCot, _iPC, _wFDCC, _cCo, _nCC, _fCa, _cCan],
@@ -5471,12 +5526,6 @@ export var ThingTypeProperties$: StaticStructureSchema = [3, n0, _TTP,
   [_tTD, _sAe, _mCq],
   [0, 64 | 0, () => Mqtt5Configuration$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_af, _bef],
@@ -5489,7 +5538,7 @@ export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TCi,
 ];
 export var TimestreamAction$: StaticStructureSchema = [3, n0, _TAi,
   0,
-  [_rA, _dNa, _tNab, _di, _ti],
+  [_rAo, _dNa, _tNab, _di, _ti],
   [0, 0, 0, () => TimestreamDimensionList, () => TimestreamTimestamp$], 4
 ];
 export var TimestreamDimension$: StaticStructureSchema = [3, n0, _TDi,
@@ -5542,12 +5591,6 @@ export var TopicRulePayload$: StaticStructureSchema = [3, n0, _TRP,
   [_sql, _act, _d, _rD, _aISV, _eAr],
   [0, () => ActionList, 0, 2, 0, () => Action$], 2
 ];
-export var TransferAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _TACE,
-  { [_er]: _cl, [_hE]: 410 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransferAlreadyCompletedException$, TransferAlreadyCompletedException);
 export var TransferCertificateRequest$: StaticStructureSchema = [3, n0, _TCR,
   0,
   [_cI, _tAA, _tM],
@@ -5558,26 +5601,14 @@ export var TransferCertificateResponse$: StaticStructureSchema = [3, n0, _TCRr,
   [_tCA],
   [0]
 ];
-export var TransferConflictException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransferConflictException$, TransferConflictException);
 export var TransferData$: StaticStructureSchema = [3, n0, _TDr,
   0,
   [_tM, _rRe, _tDr, _aDcc, _rDej],
   [0, 0, 4, 4, 4]
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_er]: _cl, [_hE]: 401 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rAes, _tK],
+  [_rA, _tK],
   [0, 64 | 0], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -5587,7 +5618,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAccountAuditConfigurationRequest$: StaticStructureSchema = [3, n0, _UAACR,
   0,
-  [_rA, _aNTC, _aCC],
+  [_rAo, _aNTC, _aCC],
   [0, () => AuditNotificationTargetConfigurations, () => AuditCheckConfigurations]
 ];
 export var UpdateAccountAuditConfigurationResponse$: StaticStructureSchema = [3, n0, _UAACRp,
@@ -5597,7 +5628,7 @@ export var UpdateAccountAuditConfigurationResponse$: StaticStructureSchema = [3,
 ];
 export var UpdateAuditSuppressionRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
-  [_cN, _rI, _eD, _sI, _d],
+  [_cN, _rIe, _eD, _sI, _d],
   [0, () => ResourceIdentifier$, 4, 2, 0], 2
 ];
 export var UpdateAuditSuppressionResponse$: StaticStructureSchema = [3, n0, _UASRp,
@@ -5747,7 +5778,7 @@ export var UpdateJobRequest$: StaticStructureSchema = [3, n0, _UJR,
 ];
 export var UpdateMitigationActionRequest$: StaticStructureSchema = [3, n0, _UMAR,
   0,
-  [_aN, _rA, _aPc],
+  [_aN, _rAo, _aPc],
   [[0, 1], 0, () => MitigationActionParams$], 1
 ];
 export var UpdateMitigationActionResponse$: StaticStructureSchema = [3, n0, _UMARp,
@@ -5797,12 +5828,12 @@ export var UpdateProvisioningTemplateResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateRoleAliasRequest$: StaticStructureSchema = [3, n0, _URAR,
   0,
-  [_rAo, _rA, _cDS],
+  [_rAol, _rAo, _cDS],
   [[0, 1], 0, 1], 1
 ];
 export var UpdateRoleAliasResponse$: StaticStructureSchema = [3, n0, _URARp,
   0,
-  [_rAo, _rAA],
+  [_rAol, _rAA],
   [0, 0]
 ];
 export var UpdateScheduledAuditRequest$: StaticStructureSchema = [3, n0, _USAR,
@@ -5827,7 +5858,7 @@ export var UpdateSecurityProfileResponse$: StaticStructureSchema = [3, n0, _USPR
 ];
 export var UpdateStreamRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sIt, _d, _fi, _rA],
+  [_sIt, _d, _fi, _rAo],
   [[0, 1], 0, () => StreamFiles, 0], 1
 ];
 export var UpdateStreamResponse$: StaticStructureSchema = [3, n0, _USRp,
@@ -5900,32 +5931,14 @@ export var ValidateSecurityProfileBehaviorsResponse$: StaticStructureSchema = [3
   [_vali, _vEa],
   [2, () => ValidationErrors]
 ];
-export var ValidationError$: StaticStructureSchema = [3, n0, _VE,
+export var ValidationError$: StaticStructureSchema = [3, n0, _VEa,
   0,
   [_eMr],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_er]: _cl, [_hE]: 400 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var VersionConflictException$: StaticErrorSchema = [-3, n0, _VCE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(VersionConflictException$, VersionConflictException);
-export var VersionsLimitExceededException$: StaticErrorSchema = [-3, n0, _VLEE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(VersionsLimitExceededException$, VersionsLimitExceededException);
 export var VersionUpdateByJobsConfig$: StaticStructureSchema = [3, n0, _VUBJC,
   0,
-  [_en, _rA],
+  [_en, _rAo],
   [2, 0]
 ];
 export var ViolationEvent$: StaticStructureSchema = [3, n0, _VEi,
@@ -5945,22 +5958,20 @@ export var ViolationEventOccurrenceRange$: StaticStructureSchema = [3, n0, _VEOR
 ];
 export var VpcDestinationConfiguration$: StaticStructureSchema = [3, n0, _VDC,
   0,
-  [_sIu, _vIp, _rA, _sG],
+  [_sIu, _vIp, _rAo, _sG],
   [64 | 0, 0, 0, 64 | 0], 3
 ];
 export var VpcDestinationProperties$: StaticStructureSchema = [3, n0, _VDP,
   0,
-  [_sIu, _sG, _vIp, _rA],
+  [_sIu, _sG, _vIp, _rAo],
   [64 | 0, 64 | 0, 0, 0]
 ];
 export var VpcDestinationSummary$: StaticStructureSchema = [3, n0, _VDS,
   0,
-  [_sIu, _sG, _vIp, _rA],
+  [_sIu, _sG, _vIp, _rAo],
   [64 | 0, 64 | 0, 0, 0]
 ];
 var __Unit = "unit" as const;
-export var IoTServiceException$: StaticErrorSchema = [-3, _sm, "IoTServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTServiceException$, IoTServiceException);
 var AbortCriteriaList: StaticListSchema = [1, n0, _ACL,
   0, () => AbortCriteria$
 ];

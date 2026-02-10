@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWAFRegionalHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WAFRegionalClientConfig } from "./WAFRegionalClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WAFRegionalClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.wafregional",
+      errorTypeRegistries,
       xmlNamespace: "http://waf.amazonaws.com/doc/2015-08-24/",
       version: "2016-11-28",
       serviceTarget: "AWSWAF_Regional_20161128",

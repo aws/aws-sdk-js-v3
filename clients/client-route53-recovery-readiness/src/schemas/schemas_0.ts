@@ -214,8 +214,8 @@ const _rTec = "recommendationText";
 const _re = "recommendations";
 const _rea = "readiness";
 const _ru = "rules";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.route53recoveryreadiness";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53recoveryreadiness";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tR = "targetResource";
@@ -242,23 +242,60 @@ import {
 import { Route53RecoveryReadinessServiceException } from "../models/Route53RecoveryReadinessServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Route53RecoveryReadinessServiceException$: StaticErrorSchema = [-3, _s, "Route53RecoveryReadinessServiceException", 0, [], []];
+_s_registry.registerError(Route53RecoveryReadinessServiceException$, Route53RecoveryReadinessServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [[0, { [_jN]: _m }]]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var CellOutput$: StaticStructureSchema = [3, n0, _CO,
-  0,
-  [_CA, _CN, _C, _PRS, _T],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [64 | 0, { [_jN]: _pRS }], [128 | 0, { [_jN]: _t }]], 4
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [[0, { [_jN]: _m }]]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var CellOutput$: StaticStructureSchema = [3, n0, _CO,
+  0,
+  [_CA, _CN, _C, _PRS, _T],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [64 | 0, { [_jN]: _ce }], [64 | 0, { [_jN]: _pRS }], [128 | 0, { [_jN]: _t }]], 4
+];
 export var CreateCellRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_CN, _C, _T],
@@ -434,12 +471,6 @@ export var GetResourceSetResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   [_RSA, _RSN, _RST, _R, _T],
   [[0, { [_jN]: _rSA }], [0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCellsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_MR, _NT],
@@ -555,12 +586,6 @@ export var Resource$: StaticStructureSchema = [3, n0, _Res,
   [_CI, _DTR, _RSea, _RA],
   [[0, { [_jN]: _cI }], [() => DNSTargetResource$, { [_jN]: _dTR }], [64 | 0, { [_jN]: _rSea }], [0, { [_jN]: _rA }]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_LCT, _Rea, _CI, _RA],
@@ -591,12 +616,6 @@ export var TargetResource$: StaticStructureSchema = [3, n0, _TR,
   [_NLBR, _RRe],
   [[() => NLBResource$, { [_jN]: _nLBR }], [() => R53ResourceRecord$, { [_jN]: _rR }]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -642,15 +661,7 @@ export var UpdateResourceSetResponse$: StaticStructureSchema = [3, n0, _URSRp,
   [_RSA, _RSN, _RST, _R, _T],
   [[0, { [_jN]: _rSA }], [0, { [_jN]: _rSN }], [0, { [_jN]: _rST }], [() => __listOfResource, { [_jN]: _r }], [128 | 0, { [_jN]: _t }]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var Route53RecoveryReadinessServiceException$: StaticErrorSchema = [-3, _sm, "Route53RecoveryReadinessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Route53RecoveryReadinessServiceException$, Route53RecoveryReadinessServiceException);
 var __listOf__string = 64 | 0;
 var __listOfCellOutput: StaticListSchema = [1, n0, _lOCO,
   0, [() => CellOutput$,

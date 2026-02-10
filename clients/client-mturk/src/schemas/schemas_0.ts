@@ -276,8 +276,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mturk";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mturk";
+const _se = "server";
 const n0 = "com.amazonaws.mturk";
 
 // smithy-typescript generated code
@@ -288,6 +288,31 @@ import { RequestError, ServiceFault } from "../models/errors";
 import { MTurkServiceException } from "../models/MTurkServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MTurkServiceException$: StaticErrorSchema = [-3, _s, "MTurkServiceException", 0, [], []];
+_s_registry.registerError(MTurkServiceException$, MTurkServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var RequestError$: StaticErrorSchema = [-3, n0, _RE,
+  { [_aQE]: [`RequestError`, 400], [_e]: _c, [_hE]: 400 },
+  [_M, _TEC],
+  [0, 0]
+];
+n0_registry.registerError(RequestError$, RequestError);
+export var ServiceFault$: StaticErrorSchema = [-3, n0, _SF,
+  { [_aQE]: [`ServiceFault`, 500], [_e]: _se, [_hE]: 500 },
+  [_M, _TEC],
+  [0, 0]
+];
+n0_registry.registerError(ServiceFault$, ServiceFault);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptQualificationRequestRequest$: StaticStructureSchema = [3, n0, _AQRR,
   0,
   [_QRI, _IV],
@@ -673,12 +698,6 @@ export var RejectQualificationRequestResponse$: StaticStructureSchema = [3, n0, 
   [],
   []
 ];
-export var RequestError$: StaticErrorSchema = [-3, n0, _RE,
-  { [_aQE]: [`RequestError`, 400], [_e]: _c, [_hE]: 400 },
-  [_M, _TEC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(RequestError$, RequestError);
 export var ReviewActionDetail$: StaticStructureSchema = [3, n0, _RAD,
   0,
   [_AIc, _AN, _TI, _TT, _S, _CTo, _Res, _EC],
@@ -719,12 +738,6 @@ export var SendTestEventNotificationResponse$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var ServiceFault$: StaticErrorSchema = [-3, n0, _SF,
-  { [_aQE]: [`ServiceFault`, 500], [_e]: _s, [_hE]: 500 },
-  [_M, _TEC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceFault$, ServiceFault);
 export var UpdateExpirationForHITRequest$: StaticStructureSchema = [3, n0, _UEFHITR,
   0,
   [_HITI, _EA],
@@ -780,8 +793,6 @@ export var WorkerBlock$: StaticStructureSchema = [3, n0, _WBo,
   [_WI, _R],
   [0, 0]
 ];
-export var MTurkServiceException$: StaticErrorSchema = [-3, _sm, "MTurkServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MTurkServiceException$, MTurkServiceException);
 var AssignmentList: StaticListSchema = [1, n0, _AL,
   0, () => Assignment$
 ];

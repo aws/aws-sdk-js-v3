@@ -81,17 +81,17 @@ const _VVL = "VcfVersionList";
 const _aI = "allocationId";
 const _aIs = "associationId";
 const _aZ = "availabilityZone";
-const _c = "checks";
+const _c = "client";
 const _cA = "createdAt";
 const _cB = "cloudBuilder";
 const _cI = "connectivityInfo";
 const _cT = "clientToken";
+const _ch = "checks";
 const _ci = "cidr";
-const _cl = "client";
 const _cr = "credentials";
 const _dEV = "defaultEsxVersion";
 const _dHI = "dedicatedHostId";
-const _e = "environment";
+const _e = "error";
 const _eA = "environmentArn";
 const _eAi = "eipAssociations";
 const _eH = "environmentHosts";
@@ -108,7 +108,7 @@ const _eVn = "environmentVlans";
 const _eVs = "esxVersions";
 const _eVx = "expansionVlan1";
 const _eVxp = "expansionVlan2";
-const _er = "error";
+const _en = "environment";
 const _fL = "fieldList";
 const _fN = "functionName";
 const _h = "host";
@@ -148,13 +148,13 @@ const _nU = "nsxUplink";
 const _ns = "nsx";
 const _pGI = "placementGroupId";
 const _pRSP = "privateRouteServerPeerings";
-const _r = "result";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _re = "reason";
-const _s = "server";
+const _re = "result";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.evs";
 const _sA = "secretArn";
 const _sASG = "serviceAccessSecurityGroups";
 const _sASI = "serviceAccessSubnetId";
@@ -164,7 +164,7 @@ const _sI = "siteId";
 const _sIu = "subnetId";
 const _sK = "solutionKey";
 const _sM = "sddcManager";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.evs";
+const _se = "server";
 const _st = "state";
 const _sta = "status";
 const _t = "type";
@@ -210,6 +210,61 @@ import {
 import { EvsServiceException } from "../models/EvsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EvsServiceException$: StaticErrorSchema = [-3, _s, "EvsServiceException", 0, [], []];
+_s_registry.registerError(EvsServiceException$, EvsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TagPolicyException$, TagPolicyException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateEipToVlanRequest$: StaticStructureSchema = [3, n0, _AETVR,
   0,
   [_eI, _vN, _aI, _cT],
@@ -222,7 +277,7 @@ export var AssociateEipToVlanResponse$: StaticStructureSchema = [3, n0, _AETVRs,
 ];
 export var Check$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_t, _r, _iS],
+  [_t, _re, _iS],
   [0, 0, 4]
 ];
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
@@ -247,7 +302,7 @@ export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
 ];
 export var CreateEnvironmentResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
-  [_e],
+  [_en],
   [() => Environment$]
 ];
 export var DeleteEnvironmentHostRequest$: StaticStructureSchema = [3, n0, _DEHR,
@@ -267,7 +322,7 @@ export var DeleteEnvironmentRequest$: StaticStructureSchema = [3, n0, _DER,
 ];
 export var DeleteEnvironmentResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_e],
+  [_en],
   [() => Environment$]
 ];
 export var DisassociateEipFromVlanRequest$: StaticStructureSchema = [3, n0, _DEFVR,
@@ -287,7 +342,7 @@ export var EipAssociation$: StaticStructureSchema = [3, n0, _EA,
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_eI, _eSn, _sD, _cA, _mA, _eA, _eN, _vI, _sASI, _vV, _tA, _lI, _sI, _eSnv, _c, _cI, _vH, _kKI, _sASG, _cr],
+  [_eI, _eSn, _sD, _cA, _mA, _eA, _eN, _vI, _sASI, _vV, _tA, _lI, _sI, _eSnv, _ch, _cI, _vH, _kKI, _sASG, _cr],
   [0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 2, () => LicenseInfoList, 0, 0, () => ChecksList, () => ConnectivityInfo$, () => VcfHostnames$, 0, () => ServiceAccessSecurityGroups$, () => SecretList]
 ];
 export var EnvironmentSummary$: StaticStructureSchema = [3, n0, _ES,
@@ -302,7 +357,7 @@ export var GetEnvironmentRequest$: StaticStructureSchema = [3, n0, _GER,
 ];
 export var GetEnvironmentResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_e],
+  [_en],
   [() => Environment$]
 ];
 export var GetVersionsRequest$: StaticStructureSchema = [3, n0, _GVR,
@@ -340,12 +395,6 @@ export var InstanceTypeEsxVersionsInfo$: StaticStructureSchema = [3, n0, _ITEVI,
   [_iT, _eVs],
   [0, 64 | 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LicenseInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_sK, _vK],
@@ -396,12 +445,6 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   [_nII],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _cl, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Secret$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sA],
@@ -412,18 +455,6 @@ export var ServiceAccessSecurityGroups$: StaticStructureSchema = [3, n0, _SASG,
   [_sG],
   [64 | 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_er]: _cl, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
@@ -434,18 +465,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_er]: _cl, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -456,12 +475,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -482,8 +495,6 @@ export var Vlan$: StaticStructureSchema = [3, n0, _V,
   [_vIl, _ci, _aZ, _fN, _sIu, _cA, _mA, _vSl, _sD, _eAi, _iP, _nAI],
   [1, 0, 0, 0, 0, 4, 4, 0, 0, () => EipAssociationList, 2, 0]
 ];
-export var EvsServiceException$: StaticErrorSchema = [-3, _sm, "EvsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EvsServiceException$, EvsServiceException);
 var ChecksList: StaticListSchema = [1, n0, _CL,
   0, () => Check$
 ];

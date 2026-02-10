@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeCommitHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeCommitClientConfig } from "./CodeCommitClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeCommitClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codecommit",
+      errorTypeRegistries,
       xmlNamespace: "http://codecommit.amazonaws.com/doc/2015-04-13",
       version: "2015-04-13",
       serviceTarget: "CodeCommit_20150413",

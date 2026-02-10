@@ -25,9 +25,9 @@ const _ES = "ExecutionStatus";
 const _ESx = "ExportStatus";
 const _Ex = "Executions";
 const _Exp = "Exports";
-const _F = "Frequency";
-const _Fi = "Fields";
+const _F = "Fields";
 const _Fo = "Format";
+const _Fr = "Frequency";
 const _GE = "GetExecution";
 const _GER = "GetExecutionRequest";
 const _GERe = "GetExecutionResponse";
@@ -66,15 +66,15 @@ const _RA = "ResourceArn";
 const _RC = "RefreshCadence";
 const _RI = "ResourceId";
 const _RNFE = "ResourceNotFoundException";
-const _RT = "ResourceTags";
+const _RT = "ResourceType";
 const _RTK = "ResourceTagKeys";
 const _RTL = "ResourceTagList";
-const _RTe = "ResourceType";
+const _RTe = "ResourceTags";
 const _RTes = "ResourceTag";
 const _S = "Schema";
 const _SB = "S3Bucket";
-const _SC = "StatusCode";
-const _SCe = "ServiceCode";
+const _SC = "ServiceCode";
+const _SCt = "StatusCode";
 const _SD = "S3Destination";
 const _SOC = "S3OutputConfigurations";
 const _SP = "S3Prefix";
@@ -108,8 +108,8 @@ const _VV = "ValidValues";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bcmdataexports";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bcmdataexports";
+const _se = "server";
 const n0 = "com.amazonaws.bcmdataexports";
 
 // smithy-typescript generated code
@@ -132,6 +132,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BCMDataExportsServiceException$: StaticErrorSchema = [-3, _s, "BCMDataExportsServiceException", 0, [], []];
+_s_registry.registerError(BCMDataExportsServiceException$, BCMDataExportsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _QC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _QC, _SC],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Column$: StaticStructureSchema = [3, n0, _C,
   0,
   [_N, _T, _D],
@@ -139,7 +182,7 @@ export var Column$: StaticStructureSchema = [3, n0, _C,
 ];
 export var CreateExportRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_E, _RT],
+  [_E, _RTe],
   [() => Export$, () => ResourceTagList], 1
 ];
 export var CreateExportResponse$: StaticStructureSchema = [3, n0, _CERr,
@@ -174,7 +217,7 @@ export var ExecutionReference$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var ExecutionStatus$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_SC, _SR, _CA, _CAo, _LUA],
+  [_SCt, _SR, _CA, _CAo, _LUA],
   [0, 0, 5, 5, 5]
 ];
 export var Export$: StaticStructureSchema = [3, n0, _E,
@@ -189,7 +232,7 @@ export var ExportReference$: StaticStructureSchema = [3, n0, _ERx,
 ];
 export var ExportStatus$: StaticStructureSchema = [3, n0, _ESx,
   0,
-  [_SC, _SR, _CA, _LUA, _LRA],
+  [_SCt, _SR, _CA, _LUA, _LRA],
   [0, 0, 5, 5, 5]
 ];
 export var GetExecutionRequest$: StaticStructureSchema = [3, n0, _GER,
@@ -222,12 +265,6 @@ export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   [_TN, _D, _TP, _S],
   [0, 0, 128 | 0, () => ColumnList]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListExecutionsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_EA, _MR, _NT],
@@ -265,20 +302,14 @@ export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_RT, _NT],
+  [_RTe, _NT],
   [() => ResourceTagList, 0]
 ];
 export var RefreshCadence$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_F],
+  [_Fr],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RTe],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   0,
   [_K, _V],
@@ -294,12 +325,6 @@ export var S3OutputConfigurations$: StaticStructureSchema = [3, n0, _SOC,
   [_OT, _Fo, _Co, _O],
   [0, 0, 0, 0], 4
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _QC, _SCe, _RI, _RTe],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Table$: StaticStructureSchema = [3, n0, _Tab,
   0,
   [_TN, _D, _TP],
@@ -312,7 +337,7 @@ export var TablePropertyDescription$: StaticStructureSchema = [3, n0, _TPD,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _RT],
+  [_RA, _RTe],
   [0, () => ResourceTagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -320,12 +345,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _QC, _SCe],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _RTK],
@@ -346,19 +365,11 @@ export var UpdateExportResponse$: StaticStructureSchema = [3, n0, _UERp,
   [_EA],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R, _Fi],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
   [0, 0], 2
 ];
-export var BCMDataExportsServiceException$: StaticErrorSchema = [-3, _sm, "BCMDataExportsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BCMDataExportsServiceException$, BCMDataExportsServiceException);
 var ColumnList: StaticListSchema = [1, n0, _CL,
   0, () => Column$
 ];

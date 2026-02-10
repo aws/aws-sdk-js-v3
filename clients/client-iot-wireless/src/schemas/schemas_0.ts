@@ -847,10 +847,10 @@ const _nT = "nextToken";
 const _pT = "partnerType";
 const _rA = "resourceArn";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotwireless";
 const _sPI = "serviceProfileId";
 const _sT = "serviceType";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotwireless";
+const _se = "server";
 const _st = "status";
 const _tDT = "taskDefinitionType";
 const _tK = "tagKeys";
@@ -880,6 +880,61 @@ import {
 import { IoTWirelessServiceException } from "../models/IoTWirelessServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTWirelessServiceException$: StaticErrorSchema = [-3, _s, "IoTWirelessServiceException", 0, [], []];
+_s_registry.registerError(IoTWirelessServiceException$, IoTWirelessServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApplicationServerPublicKey: StaticSimpleSchema = [0, n0, _ASPK, 8, 0];
 var AppServerPrivateKey: StaticSimpleSchema = [0, n0, _ASPKp, 8, 0];
 var Fingerprint: StaticSimpleSchema = [0, n0, _F, 8, 0];
@@ -893,12 +948,6 @@ export var AbpV1_1$: StaticStructureSchema = [3, n0, _A,
   [_DA, _SK, _FCS],
   [0, () => SessionKeysAbpV1_1$, 1]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Accuracy$: StaticStructureSchema = [3, n0, _Ac,
   0,
   [_HA, _VA],
@@ -1019,12 +1068,6 @@ export var CertificateList$: StaticStructureSchema = [3, n0, _CL,
   [_SA, _V],
   [0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionStatusEventConfiguration$: StaticStructureSchema = [3, n0, _CSEC,
   0,
   [_LRWAN, _WGIET],
@@ -1720,12 +1763,6 @@ export var ImportedWirelessDevice$: StaticStructureSchema = [3, n0, _IWD,
   [_S],
   [() => ImportedSidewalkDevice$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Ip$: StaticStructureSchema = [3, n0, _Ip,
   0,
   [_IA],
@@ -2181,12 +2218,6 @@ export var ResetResourceLogLevelResponse$: StaticStructureSchema = [3, n0, _RRLL
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SemtechGnssConfiguration$: StaticStructureSchema = [3, n0, _SGC,
   0,
   [_St, _Fe],
@@ -2442,18 +2473,6 @@ export var TestWirelessDeviceResponse$: StaticStructureSchema = [3, n0, _TWDRe,
   [_Re],
   [0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TraceContent$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_WDFI, _LL, _MFI],
@@ -2634,12 +2653,6 @@ export var UpdateWirelessGatewayTaskEntry$: StaticStructureSchema = [3, n0, _UWG
   [_I, _LRWAN, _Ar],
   [0, () => LoRaWANUpdateGatewayTaskEntry$, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WcdmaLocalId$: StaticStructureSchema = [3, n0, _WLI,
   0,
   [_Uar, _Ps],
@@ -2700,8 +2713,6 @@ export var WirelessMetadata$: StaticStructureSchema = [3, n0, _WM,
   [_LRWAN, _S],
   [() => LoRaWANSendDataToDevice$, () => SidewalkSendDataToDevice$]
 ];
-export var IoTWirelessServiceException$: StaticErrorSchema = [-3, _sm, "IoTWirelessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTWirelessServiceException$, IoTWirelessServiceException);
 var Applications: StaticListSchema = [1, n0, _Ap,
   0, () => ApplicationConfig$
 ];

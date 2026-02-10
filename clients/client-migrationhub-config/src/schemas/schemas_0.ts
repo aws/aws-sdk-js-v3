@@ -34,8 +34,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubconfig";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubconfig";
+const _se = "server";
 const n0 = "com.amazonaws.migrationhubconfig";
 
 // smithy-typescript generated code
@@ -53,12 +53,55 @@ import {
 import { MigrationHubConfigServiceException } from "../models/MigrationHubConfigServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MigrationHubConfigServiceException$: StaticErrorSchema = [-3, _s, "MigrationHubConfigServiceException", 0, [], []];
+_s_registry.registerError(MigrationHubConfigServiceException$, MigrationHubConfigServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var DryRunOperation$: StaticErrorSchema = [-3, n0, _DRO,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DryRunOperation$, DryRunOperation);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateHomeRegionControlRequest$: StaticStructureSchema = [3, n0, _CHRCR,
   0,
   [_HR, _T, _DR],
@@ -89,12 +132,6 @@ export var DescribeHomeRegionControlsResult$: StaticStructureSchema = [3, n0, _D
   [_HRCo, _NT],
   [() => HomeRegionControls, 0]
 ];
-export var DryRunOperation$: StaticErrorSchema = [-3, n0, _DRO,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DryRunOperation$, DryRunOperation);
 export var GetHomeRegionRequest$: StaticStructureSchema = [3, n0, _GHRR,
   0,
   [],
@@ -110,37 +147,11 @@ export var HomeRegionControl$: StaticStructureSchema = [3, n0, _HRC,
   [_CI, _HR, _T, _RT],
   [0, 0, () => Target$, 4]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var Target$: StaticStructureSchema = [3, n0, _T,
   0,
   [_Ty, _I],
   [0, 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var MigrationHubConfigServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubConfigServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MigrationHubConfigServiceException$, MigrationHubConfigServiceException);
 var HomeRegionControls: StaticListSchema = [1, n0, _HRCo,
   0, () => HomeRegionControl$
 ];

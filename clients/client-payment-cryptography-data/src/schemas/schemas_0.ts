@@ -289,8 +289,8 @@ const _h = "http";
 const _hE = "httpError";
 const _m = "message";
 const _p = "path";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.paymentcryptographydata";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.paymentcryptographydata";
+const _se = "server";
 const n0 = "com.amazonaws.paymentcryptographydata";
 
 // smithy-typescript generated code
@@ -315,6 +315,55 @@ import {
 import { PaymentCryptographyDataServiceException } from "../models/PaymentCryptographyDataServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PaymentCryptographyDataServiceException$: StaticErrorSchema = [-3, _s, "PaymentCryptographyDataServiceException", 0, [], []];
+_s_registry.registerError(PaymentCryptographyDataServiceException$, PaymentCryptographyDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_RI],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m, _fL],
+  [0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+export var VerificationFailedException$: StaticErrorSchema = [-3, n0, _VFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_R, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(VerificationFailedException$, VerificationFailedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApplicationCryptogramType: StaticSimpleSchema = [0, n0, _ACT, 8, 0];
 var As2805RandomKeyMaterial: StaticSimpleSchema = [0, n0, _ARKM, 8, 0];
 var AuthRequestCryptogramType: StaticSimpleSchema = [0, n0, _ARCT, 8, 0];
@@ -345,12 +394,6 @@ var TrackDataType: StaticSimpleSchema = [0, n0, _TDT, 8, 0];
 var TransactionDataType: StaticSimpleSchema = [0, n0, _TDTr, 8, 0];
 var ValidationDataType: StaticSimpleSchema = [0, n0, _VDT, 8, 0];
 var VerificationValueType: StaticSimpleSchema = [0, n0, _VVT, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AmexAttributes$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_MKDM, _PAN, _PSN, _ATC, _ARKI, _CPA],
@@ -556,12 +599,6 @@ export var IncomingDiffieHellmanTr31KeyBlock$: StaticStructureSchema = [3, n0, _
   [_PKI, _CAPKI, _PKC, _DKA, _KDF, _KDHA, _DD, _WKB],
   [0, 0, 0, 0, 0, 0, () => DiffieHellmanDerivationData$, [() => Tr31WrappedKeyBlock, 0]], 8
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KekValidationRequest$: StaticStructureSchema = [3, n0, _KVR,
   0,
   [_DKA],
@@ -602,12 +639,6 @@ export var ReEncryptDataOutput$: StaticStructureSchema = [3, n0, _REDO,
   [_KA, _KCV, _CT],
   [0, 0, [() => CipherTextType, 0]], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_RI],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SessionKeyAmex$: StaticStructureSchema = [3, n0, _SKA,
   0,
   [_PAN, _PSN],
@@ -638,12 +669,6 @@ export var SymmetricEncryptionAttributes$: StaticStructureSchema = [3, n0, _SEA,
   [_Mo, _IV, _PT],
   [0, [() => InitializationVectorType, 0], 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TranslateKeyMaterialInput$: StaticStructureSchema = [3, n0, _TKMI,
   0,
   [_IKM, _OKM, _KCVA],
@@ -679,23 +704,11 @@ export var TranslationPinDataIsoFormat1$: StaticStructureSchema = [3, n0, _TPDIF
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m, _fL],
-  [0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_p, _m],
   [0, 0], 2
 ];
-export var VerificationFailedException$: StaticErrorSchema = [-3, n0, _VFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_R, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(VerificationFailedException$, VerificationFailedException);
 export var VerifyAuthRequestCryptogramInput$: StaticStructureSchema = [3, n0, _VARCI,
   0,
   [_KI, _TDr, _ARCu, _MKDM, _SKDA, _ARA],
@@ -771,8 +784,6 @@ export var WrappedWorkingKey$: StaticStructureSchema = [3, n0, _WWK,
   [_WKM, _KCV, _WKMF],
   [[() => KeyMaterial, 0], 0, 0], 3
 ];
-export var PaymentCryptographyDataServiceException$: StaticErrorSchema = [-3, _sm, "PaymentCryptographyDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PaymentCryptographyDataServiceException$, PaymentCryptographyDataServiceException);
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];

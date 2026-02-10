@@ -138,6 +138,91 @@ import {
 import { STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
+_s_registry.registerError(STSServiceException$, STSServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
+  { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
+export var ExpiredTradeInTokenException$: StaticErrorSchema = [-3, n0, _ETITE,
+  { [_aQE]: [`ExpiredTradeInTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredTradeInTokenException$, ExpiredTradeInTokenException);
+export var IDPCommunicationErrorException$: StaticErrorSchema = [-3, n0, _IDPCEE,
+  { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
+export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
+  { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
+export var InvalidAuthorizationMessageException$: StaticErrorSchema = [-3, n0, _IAME,
+  { [_aQE]: [`InvalidAuthorizationMessageException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAuthorizationMessageException$, InvalidAuthorizationMessageException);
+export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
+  { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
+export var JWTPayloadSizeExceededException$: StaticErrorSchema = [-3, n0, _JWTPSEE,
+  { [_aQE]: [`JWTPayloadSizeExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(JWTPayloadSizeExceededException$, JWTPayloadSizeExceededException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var OutboundWebIdentityFederationDisabledException$: StaticErrorSchema = [-3, n0, _OWIFDE,
+  { [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OutboundWebIdentityFederationDisabledException$, OutboundWebIdentityFederationDisabledException);
+export var PackedPolicyTooLargeException$: StaticErrorSchema = [-3, n0, _PPTLE,
+  { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
+export var RegionDisabledException$: StaticErrorSchema = [-3, n0, _RDE,
+  { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RegionDisabledException$, RegionDisabledException);
+export var SessionDurationEscalationException$: StaticErrorSchema = [-3, n0, _SDEE,
+  { [_aQE]: [`SessionDurationEscalationException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SessionDurationEscalationException$, SessionDurationEscalationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 var SAMLAssertionType: StaticSimpleSchema = [0, n0, _SAMLAT, 8, 0];
@@ -203,18 +288,6 @@ export var DecodeAuthorizationMessageResponse$: StaticStructureSchema = [3, n0, 
   [_DM],
   [0]
 ];
-export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
-  { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredTokenException$, ExpiredTokenException);
-export var ExpiredTradeInTokenException$: StaticErrorSchema = [-3, n0, _ETITE,
-  { [_aQE]: [`ExpiredTradeInTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredTradeInTokenException$, ExpiredTradeInTokenException);
 export var FederatedUser$: StaticStructureSchema = [3, n0, _FU,
   0,
   [_FUI, _A],
@@ -280,54 +353,6 @@ export var GetWebIdentityTokenResponse$: StaticStructureSchema = [3, n0, _GWITRe
   [_WIT, _E],
   [[() => webIdentityTokenType, 0], 4]
 ];
-export var IDPCommunicationErrorException$: StaticErrorSchema = [-3, n0, _IDPCEE,
-  { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
-export var IDPRejectedClaimException$: StaticErrorSchema = [-3, n0, _IDPRCE,
-  { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
-export var InvalidAuthorizationMessageException$: StaticErrorSchema = [-3, n0, _IAME,
-  { [_aQE]: [`InvalidAuthorizationMessageException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAuthorizationMessageException$, InvalidAuthorizationMessageException);
-export var InvalidIdentityTokenException$: StaticErrorSchema = [-3, n0, _IITE,
-  { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
-export var JWTPayloadSizeExceededException$: StaticErrorSchema = [-3, n0, _JWTPSEE,
-  { [_aQE]: [`JWTPayloadSizeExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(JWTPayloadSizeExceededException$, JWTPayloadSizeExceededException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var OutboundWebIdentityFederationDisabledException$: StaticErrorSchema = [-3, n0, _OWIFDE,
-  { [_aQE]: [`OutboundWebIdentityFederationDisabledException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OutboundWebIdentityFederationDisabledException$, OutboundWebIdentityFederationDisabledException);
-export var PackedPolicyTooLargeException$: StaticErrorSchema = [-3, n0, _PPTLE,
-  { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
 export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT,
   0,
   [_a],
@@ -338,25 +363,11 @@ export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr,
   [_PAro, _CA],
   [0, 0]
 ];
-export var RegionDisabledException$: StaticErrorSchema = [-3, n0, _RDE,
-  { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RegionDisabledException$, RegionDisabledException);
-export var SessionDurationEscalationException$: StaticErrorSchema = [-3, n0, _SDEE,
-  { [_aQE]: [`SessionDurationEscalationException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SessionDurationEscalationException$, SessionDurationEscalationException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
   [0, 0], 2
 ];
-export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(STSServiceException$, STSServiceException);
 var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT,
   0, () => PolicyDescriptorType$
 ];

@@ -338,7 +338,7 @@ const _Pr = "Protocols";
 const _Pro = "Profile";
 const _Prof = "Profiles";
 const _Prov = "Provisioned";
-const _R = "Role";
+const _R = "Resource";
 const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
 const _RCA = "ResourceConfigurationArn";
@@ -348,8 +348,8 @@ const _RFP = "RetrieveFilePaths";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
 const _Re = "Results";
-const _Res = "Resource";
-const _Resp = "Response";
+const _Res = "Response";
+const _Ro = "Role";
 const _S = "Status";
 const _SA = "SigningAlgorithm";
 const _SAM = "SftpAuthenticationMethods";
@@ -521,8 +521,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.transfer";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.transfer";
+const _se = "server";
 const n0 = "com.amazonaws.transfer";
 
 // smithy-typescript generated code
@@ -550,6 +550,73 @@ import {
 import { TransferServiceException } from "../models/TransferServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var TransferServiceException$: StaticErrorSchema = [-3, _s, "TransferServiceException", 0, [], []];
+_s_registry.registerError(TransferServiceException$, TransferServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServiceError$, InternalServiceError);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _R, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _R, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_aQE]: [`ServiceUnavailable`, 503], [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_RAS],
+  [[0, { [_hH]: _RA }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CertificateBodyType: StaticSimpleSchema = [0, n0, _CBT, 8, 0];
 var CertificateChainType: StaticSimpleSchema = [0, n0, _CCT, 8, 0];
 var CustomHttpHeaderKeyType: StaticSimpleSchema = [0, n0, _CHHKT, 8, 0];
@@ -560,12 +627,6 @@ var PrivateKeyType: StaticSimpleSchema = [0, n0, _PKT, 8, 0];
 var UserPassword: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 var WebAppFaviconFile: StaticSimpleSchema = [0, n0, _WAFF, 8, 21];
 var WebAppLogoFile: StaticSimpleSchema = [0, n0, _WALF, 8, 21];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var As2AsyncMdnConnectorConfig$: StaticStructureSchema = [3, n0, _AAMCC,
   0,
   [_U, _SI],
@@ -576,12 +637,6 @@ export var As2ConnectorConfig$: StaticStructureSchema = [3, n0, _ACC,
   [_LPI, _PPI, _MS, _C, _EA, _SA, _MSA, _MR, _BASI, _PCT, _AMC],
   [0, 0, [() => MessageSubject, 0], 0, 0, 0, 0, 0, 0, 0, () => As2AsyncMdnConnectorConfig$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorFileTransferResult$: StaticStructureSchema = [3, n0, _CFTR,
   0,
   [_FP, _SC, _FC, _FM],
@@ -599,7 +654,7 @@ export var CopyStepDetails$: StaticStructureSchema = [3, n0, _CSD,
 ];
 export var CreateAccessRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_R, _SIe, _EI, _HD, _HDT, _HDM, _P, _PP],
+  [_Ro, _SIe, _EI, _HD, _HDT, _HDM, _P, _PP],
   [0, 0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$], 3
 ];
 export var CreateAccessResponse$: StaticStructureSchema = [3, n0, _CARr,
@@ -649,7 +704,7 @@ export var CreateServerResponse$: StaticStructureSchema = [3, n0, _CSRr,
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_R, _SIe, _UN, _HD, _HDT, _HDM, _P, _PP, _SPKB, _T],
+  [_Ro, _SIe, _UN, _HD, _HDT, _HDM, _P, _PP, _SPKB, _T],
   [0, 0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0, () => Tags], 3
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
@@ -804,7 +859,7 @@ export var DescribeConnectorResponse$: StaticStructureSchema = [3, n0, _DCRescri
 ];
 export var DescribedAccess$: StaticStructureSchema = [3, n0, _DA,
   0,
-  [_HD, _HDM, _HDT, _P, _PP, _R, _EI],
+  [_HD, _HDM, _HDT, _P, _PP, _Ro, _EI],
   [0, () => HomeDirectoryMappings, 0, 0, () => PosixProfile$, 0, 0]
 ];
 export var DescribedAgreement$: StaticStructureSchema = [3, n0, _DAe,
@@ -839,7 +894,7 @@ export var DescribedHostKey$: StaticStructureSchema = [3, n0, _DHK,
 ];
 export var DescribedIdentityCenterConfig$: StaticStructureSchema = [3, n0, _DICC,
   0,
-  [_AA, _IA, _R],
+  [_AA, _IA, _Ro],
   [0, 0, 0]
 ];
 export var DescribedProfile$: StaticStructureSchema = [3, n0, _DP,
@@ -859,7 +914,7 @@ export var DescribedServer$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var DescribedUser$: StaticStructureSchema = [3, n0, _DU,
   0,
-  [_Ar, _HD, _HDM, _HDT, _P, _PP, _R, _SPK, _T, _UN],
+  [_Ar, _HD, _HDM, _HDT, _P, _PP, _Ro, _SPK, _T, _UN],
   [0, 0, () => HomeDirectoryMappings, 0, 0, () => PosixProfile$, 0, () => SshPublicKeys, () => Tags, 0], 1
 ];
 export var DescribedWebApp$: StaticStructureSchema = [3, n0, _DWA,
@@ -1009,7 +1064,7 @@ export var HomeDirectoryMapEntry$: StaticStructureSchema = [3, n0, _HDME,
 ];
 export var IdentityCenterConfig$: StaticStructureSchema = [3, n0, _ICC,
   0,
-  [_IA, _R],
+  [_IA, _Ro],
   [0, 0]
 ];
 export var IdentityProviderDetails$: StaticStructureSchema = [3, n0, _IPD,
@@ -1052,24 +1107,6 @@ export var InputFileLocation$: StaticStructureSchema = [3, n0, _IFLn,
   [_SFLi, _EFL],
   [() => S3InputFileLocation$, () => EfsFileLocation$]
 ];
-export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAccessesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_SIe, _MRa, _NT],
@@ -1112,7 +1149,7 @@ export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRist,
 ];
 export var ListedAccess$: StaticStructureSchema = [3, n0, _LA,
   0,
-  [_HD, _HDT, _R, _EI],
+  [_HD, _HDT, _Ro, _EI],
   [0, 0, 0, 0]
 ];
 export var ListedAgreement$: StaticStructureSchema = [3, n0, _LAi,
@@ -1152,7 +1189,7 @@ export var ListedServer$: StaticStructureSchema = [3, n0, _LS,
 ];
 export var ListedUser$: StaticStructureSchema = [3, n0, _LU,
   0,
-  [_Ar, _HD, _HDT, _R, _SPKC, _UN],
+  [_Ar, _HD, _HDT, _Ro, _SPKC, _UN],
   [0, 0, 0, 0, 1, 0], 1
 ];
 export var ListedWebApp$: StaticStructureSchema = [3, n0, _LWA,
@@ -1280,18 +1317,6 @@ export var ProtocolDetails$: StaticStructureSchema = [3, n0, _PD,
   [_PIa, _TSRM, _SSOe, _AT],
   [0, 0, 0, 64 | 0]
 ];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _Res, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _Res, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3FileLocation$: StaticStructureSchema = [3, n0, _SFLi,
   0,
   [_B, _K, _VIe, _Et],
@@ -1327,12 +1352,6 @@ export var ServiceMetadata$: StaticStructureSchema = [3, n0, _SM,
   [_UD],
   [() => UserDetails$], 1
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_aQE]: [`ServiceUnavailable`, 503], [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SftpConnectorConfig$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_USI, _THK, _MCC],
@@ -1430,15 +1449,9 @@ export var TestIdentityProviderRequest$: StaticStructureSchema = [3, n0, _TIPR,
 ];
 export var TestIdentityProviderResponse$: StaticStructureSchema = [3, n0, _TIPRe,
   0,
-  [_SC, _U, _Resp, _M],
+  [_SC, _U, _Res, _M],
   [1, 0, 0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_RAS],
-  [[0, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_Ar, _TK],
@@ -1446,7 +1459,7 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateAccessRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_SIe, _EI, _HD, _HDT, _HDM, _P, _PP, _R],
+  [_SIe, _EI, _HD, _HDT, _HDM, _P, _PP, _Ro],
   [0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0], 2
 ];
 export var UpdateAccessResponse$: StaticStructureSchema = [3, n0, _UARp,
@@ -1521,7 +1534,7 @@ export var UpdateServerResponse$: StaticStructureSchema = [3, n0, _USRp,
 ];
 export var UpdateUserRequest$: StaticStructureSchema = [3, n0, _UUR,
   0,
-  [_SIe, _UN, _HD, _HDT, _HDM, _P, _PP, _R],
+  [_SIe, _UN, _HD, _HDT, _HDM, _P, _PP, _Ro],
   [0, 0, 0, 0, () => HomeDirectoryMappings, 0, () => PosixProfile$, 0], 2
 ];
 export var UpdateUserResponse$: StaticStructureSchema = [3, n0, _UURp,
@@ -1541,7 +1554,7 @@ export var UpdateWebAppCustomizationResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateWebAppIdentityCenterConfig$: StaticStructureSchema = [3, n0, _UWAICC,
   0,
-  [_R],
+  [_Ro],
   [0]
 ];
 export var UpdateWebAppRequest$: StaticStructureSchema = [3, n0, _UWAR,
@@ -1585,8 +1598,6 @@ export var WorkflowStep$: StaticStructureSchema = [3, n0, _WS,
   [0, () => CopyStepDetails$, () => CustomStepDetails$, () => DeleteStepDetails$, () => TagStepDetails$, () => DecryptStepDetails$]
 ];
 var __Unit = "unit" as const;
-export var TransferServiceException$: StaticErrorSchema = [-3, _sm, "TransferServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TransferServiceException$, TransferServiceException);
 var AddressAllocationIds = 64 | 0;
 var As2AsyncMdnServerIds = 64 | 0;
 var As2Transports = 64 | 0;

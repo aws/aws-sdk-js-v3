@@ -308,8 +308,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointemail";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointemail";
+const _se = "server";
 const n0 = "com.amazonaws.pinpointemail";
 
 // smithy-typescript generated code
@@ -337,24 +337,79 @@ import {
 import { PinpointEmailServiceException } from "../models/PinpointEmailServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PinpointEmailServiceException$: StaticErrorSchema = [-3, _s, "PinpointEmailServiceException", 0, [], []];
+_s_registry.registerError(PinpointEmailServiceException$, PinpointEmailServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccountSuspendedException$, AccountSuspendedException);
+n0_registry.registerError(AccountSuspendedException$, AccountSuspendedException);
 export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MailFromDomainNotVerifiedException$, MailFromDomainNotVerifiedException);
+export var MessageRejected$: StaticErrorSchema = [-3, n0, _MR,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MessageRejected$, MessageRejected);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var SendingPausedException$: StaticErrorSchema = [-3, n0, _SPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SendingPausedException$, SendingPausedException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BlacklistEntry$: StaticStructureSchema = [3, n0, _BE,
   0,
   [_RN, _LT, _D],
@@ -375,12 +430,6 @@ export var CloudWatchDimensionConfiguration$: StaticStructureSchema = [3, n0, _C
   [_DN, _DVS, _DDV],
   [0, 0, 0], 3
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var Content$: StaticStructureSchema = [3, n0, _C,
   0,
   [_Da, _Ch],
@@ -666,12 +715,6 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   [_IRA, _DSA],
   [0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
   [_NT, _PS],
@@ -737,34 +780,16 @@ export var MailFromAttributes$: StaticStructureSchema = [3, n0, _MFA,
   [_MFD, _MFDS, _BOMF],
   [0, 0, 0], 3
 ];
-export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException$, MailFromDomainNotVerifiedException);
 export var Message$: StaticStructureSchema = [3, n0, _M,
   0,
   [_S, _B],
   [() => Content$, () => Body$], 2
 ];
-export var MessageRejected$: StaticErrorSchema = [-3, n0, _MR,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MessageRejected$, MessageRejected);
 export var MessageTag$: StaticStructureSchema = [3, n0, _MT,
   0,
   [_N, _V],
   [0, 0], 2
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OverallVolume$: StaticStructureSchema = [3, n0, _OV,
   0,
   [_VS, _RRP, _DIP],
@@ -925,12 +950,6 @@ export var SendingOptions$: StaticStructureSchema = [3, n0, _SO,
   [_SEe],
   [2]
 ];
-export var SendingPausedException$: StaticErrorSchema = [-3, n0, _SPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SendingPausedException$, SendingPausedException);
 export var SendQuota$: StaticStructureSchema = [3, n0, _SQ,
   0,
   [_MHS, _MSR, _SLH],
@@ -961,12 +980,6 @@ export var Template$: StaticStructureSchema = [3, n0, _Te,
   [_TAe, _TD],
   [0, 0]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_CRD],
@@ -997,8 +1010,6 @@ export var VolumeStatistics$: StaticStructureSchema = [3, n0, _VS,
   [_IRC, _SRC, _PI, _PSr],
   [1, 1, 1, 1]
 ];
-export var PinpointEmailServiceException$: StaticErrorSchema = [-3, _sm, "PinpointEmailServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PinpointEmailServiceException$, PinpointEmailServiceException);
 var BlacklistEntries: StaticListSchema = [1, n0, _BEl,
   0, () => BlacklistEntry$
 ];

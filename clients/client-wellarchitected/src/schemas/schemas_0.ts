@@ -103,9 +103,9 @@ const _E = "Environment";
 const _EL = "ExportLens";
 const _ELI = "ExportLensInput";
 const _ELO = "ExportLensOutput";
-const _F = "Format";
+const _F = "Fields";
 const _FR = "FlaggedResources";
-const _Fi = "Fields";
+const _Fo = "Format";
 const _GA = "GetAnswer";
 const _GAI = "GetAnswerInput";
 const _GAO = "GetAnswerOutput";
@@ -321,9 +321,9 @@ const _Pi = "Pillars";
 const _Pr = "Profile";
 const _Pro = "Profiles";
 const _Q = "Questions";
-const _QC = "QuestionChoices";
-const _QCu = "QuestionCounts";
-const _QCuo = "QuotaCode";
+const _QC = "QuotaCode";
+const _QCu = "QuestionChoices";
+const _QCue = "QuestionCounts";
 const _QD = "QuestionDescription";
 const _QDu = "QuestionDifferences";
 const _QDue = "QuestionDifference";
@@ -333,7 +333,7 @@ const _QMu = "QuestionMetrics";
 const _QP = "QuestionPriority";
 const _QT = "QuestionTitle";
 const _QTu = "QuestionType";
-const _R = "Risk";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RAe = "RecordedAt";
 const _RC = "RiskCounts";
@@ -353,12 +353,12 @@ const _RTPRSe = "ReviewTemplatePillarReviewSummaries";
 const _RTS = "ReviewTemplateSummary";
 const _RTe = "ReviewTemplate";
 const _RTev = "ReviewTemplates";
-const _Re = "Reason";
+const _Ri = "Risk";
 const _S = "Subdomain";
 const _SB = "SharedBy";
-const _SC = "SelectedChoices";
+const _SC = "ServiceCode";
 const _SCI = "SelectedChoiceIds";
-const _SCe = "ServiceCode";
+const _SCe = "SelectedChoices";
 const _SI = "ShareId";
 const _SIA = "ShareInvitationAction";
 const _SII = "ShareInvitationId";
@@ -460,8 +460,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _iT = "idempotencyToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.wellarchitected";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.wellarchitected";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.wellarchitected";
 
@@ -487,12 +487,61 @@ import {
 import { WellArchitectedServiceException } from "../models/WellArchitectedServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WellArchitectedServiceException$: StaticErrorSchema = [-3, _s, "WellArchitectedServiceException", 0, [], []];
+_s_registry.registerError(WellArchitectedServiceException$, WellArchitectedServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _QC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _QC, _SC],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountJiraConfigurationInput$: StaticStructureSchema = [3, n0, _AJCI,
   0,
   [_IMS, _IMT, _JPK, _IS],
@@ -510,12 +559,12 @@ export var AdditionalResources$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var Answer$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_QI, _PI, _QT, _QD, _IPU, _HRU, _HRDT, _Ch, _SC, _CA, _IA, _R, _N, _Re, _JC],
+  [_QI, _PI, _QT, _QD, _IPU, _HRU, _HRDT, _Ch, _SCe, _CA, _IA, _Ri, _N, _R, _JC],
   [0, 0, 0, 0, 0, 0, 0, () => Choices, 64 | 0, () => ChoiceAnswers, 2, 0, 0, 0, () => JiraConfiguration$]
 ];
 export var AnswerSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_QI, _PI, _QT, _Ch, _SC, _CAS, _IA, _R, _Re, _QTu, _JC],
+  [_QI, _PI, _QT, _Ch, _SCe, _CAS, _IA, _Ri, _R, _QTu, _JC],
   [0, 0, 0, () => Choices, 64 | 0, () => ChoiceAnswerSummaries, 2, 0, 0, 0, () => JiraConfiguration$]
 ];
 export var AssociateLensesInput$: StaticStructureSchema = [3, n0, _ALI,
@@ -535,7 +584,7 @@ export var BestPractice$: StaticStructureSchema = [3, n0, _BP,
 ];
 export var CheckDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_I, _Na, _D, _P, _LAe, _PI, _QI, _CI, _St, _AI, _FR, _Re, _UA],
+  [_I, _Na, _D, _P, _LAe, _PI, _QI, _CI, _St, _AI, _FR, _R, _UA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 4]
 ];
 export var CheckSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -550,12 +599,12 @@ export var Choice$: StaticStructureSchema = [3, n0, _Cho,
 ];
 export var ChoiceAnswer$: StaticStructureSchema = [3, n0, _CAh,
   0,
-  [_CI, _St, _Re, _N],
+  [_CI, _St, _R, _N],
   [0, 0, 0, 0]
 ];
 export var ChoiceAnswerSummary$: StaticStructureSchema = [3, n0, _CASh,
   0,
-  [_CI, _St, _Re],
+  [_CI, _St, _R],
   [0, 0, 0]
 ];
 export var ChoiceContent$: StaticStructureSchema = [3, n0, _CC,
@@ -570,15 +619,9 @@ export var ChoiceImprovementPlan$: StaticStructureSchema = [3, n0, _CIP,
 ];
 export var ChoiceUpdate$: StaticStructureSchema = [3, n0, _CU,
   0,
-  [_St, _Re, _N],
+  [_St, _R, _N],
   [0, 0, 0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsolidatedReportMetric$: StaticStructureSchema = [3, n0, _CRM,
   0,
   [_MT, _RC, _WI, _WN, _WA, _UA, _L, _LAC],
@@ -746,8 +789,8 @@ export var GetAnswerOutput$: StaticStructureSchema = [3, n0, _GAO,
 ];
 export var GetConsolidatedReportInput$: StaticStructureSchema = [3, n0, _GCRI,
   0,
-  [_F, _ISR, _NT, _MR],
-  [[0, { [_hQ]: _F }], [2, { [_hQ]: _ISR }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
+  [_Fo, _ISR, _NT, _MR],
+  [[0, { [_hQ]: _Fo }], [2, { [_hQ]: _ISR }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]], 1
 ];
 export var GetConsolidatedReportOutput$: StaticStructureSchema = [3, n0, _GCRO,
   0,
@@ -881,15 +924,9 @@ export var ImportLensOutput$: StaticStructureSchema = [3, n0, _ILO,
 ];
 export var ImprovementSummary$: StaticStructureSchema = [3, n0, _ISm,
   0,
-  [_QI, _PI, _QT, _R, _IPU, _IPm, _JC],
+  [_QI, _PI, _QT, _Ri, _IPU, _IPm, _JC],
   [0, 0, 0, 0, 0, () => ChoiceImprovementPlans, () => JiraConfiguration$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JiraConfiguration$: StaticStructureSchema = [3, n0, _JC,
   0,
   [_JIU, _LST],
@@ -1177,7 +1214,7 @@ export var ProfileNotificationSummary$: StaticStructureSchema = [3, n0, _PNS,
 ];
 export var ProfileQuestion$: StaticStructureSchema = [3, n0, _PQr,
   0,
-  [_QI, _QT, _QD, _QC, _SCI, _MSC, _MSCa],
+  [_QI, _QT, _QD, _QCu, _SCI, _MSC, _MSCa],
   [0, 0, 0, () => ProfileQuestionChoices, 64 | 0, 1, 1]
 ];
 export var ProfileQuestionUpdate$: StaticStructureSchema = [3, n0, _PQU,
@@ -1207,7 +1244,7 @@ export var ProfileTemplateChoice$: StaticStructureSchema = [3, n0, _PTC,
 ];
 export var ProfileTemplateQuestion$: StaticStructureSchema = [3, n0, _PTQ,
   0,
-  [_QI, _QT, _QD, _QC, _MSC, _MSCa],
+  [_QI, _QT, _QD, _QCu, _MSC, _MSCa],
   [0, 0, 0, () => ProfileTemplateQuestionChoices, 1, 1]
 ];
 export var QuestionDifference$: StaticStructureSchema = [3, n0, _QDue,
@@ -1217,38 +1254,32 @@ export var QuestionDifference$: StaticStructureSchema = [3, n0, _QDue,
 ];
 export var QuestionMetric$: StaticStructureSchema = [3, n0, _QM,
   0,
-  [_QI, _R, _BPe],
+  [_QI, _Ri, _BPe],
   [0, 0, () => BestPractices]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ReviewTemplate$: StaticStructureSchema = [3, n0, _RTe,
   0,
-  [_D, _L, _N, _QCu, _O, _UA, _TA, _TN, _Ta, _US, _SII],
+  [_D, _L, _N, _QCue, _O, _UA, _TA, _TN, _Ta, _US, _SII],
   [0, 64 | 0, 0, 128 | 1, 0, 4, 0, 0, 128 | 0, 0, 0]
 ];
 export var ReviewTemplateAnswer$: StaticStructureSchema = [3, n0, _RTAe,
   0,
-  [_QI, _PI, _QT, _QD, _IPU, _HRU, _HRDT, _Ch, _SC, _CA, _IA, _ASns, _N, _Re],
+  [_QI, _PI, _QT, _QD, _IPU, _HRU, _HRDT, _Ch, _SCe, _CA, _IA, _ASns, _N, _R],
   [0, 0, 0, 0, 0, 0, 0, () => Choices, 64 | 0, () => ChoiceAnswers, 2, 0, 0, 0]
 ];
 export var ReviewTemplateAnswerSummary$: StaticStructureSchema = [3, n0, _RTAS,
   0,
-  [_QI, _PI, _QT, _Ch, _SC, _CAS, _IA, _ASns, _Re, _QTu],
+  [_QI, _PI, _QT, _Ch, _SCe, _CAS, _IA, _ASns, _R, _QTu],
   [0, 0, 0, () => Choices, 64 | 0, () => ChoiceAnswerSummaries, 2, 0, 0, 0]
 ];
 export var ReviewTemplateLensReview$: StaticStructureSchema = [3, n0, _RTLR,
   0,
-  [_LAen, _LAe, _LV, _LN, _LS, _PRS, _UA, _N, _QCu, _NT],
+  [_LAen, _LAe, _LV, _LN, _LS, _PRS, _UA, _N, _QCue, _NT],
   [0, 0, 0, 0, 0, () => ReviewTemplatePillarReviewSummaries, 4, 0, 128 | 1, 0]
 ];
 export var ReviewTemplatePillarReviewSummary$: StaticStructureSchema = [3, n0, _RTPRS,
   0,
-  [_PI, _PNi, _N, _QCu],
+  [_PI, _PNi, _N, _QCue],
   [0, 0, 0, 128 | 1]
 ];
 export var ReviewTemplateSummary$: StaticStructureSchema = [3, n0, _RTS,
@@ -1261,12 +1292,6 @@ export var SelectedPillar$: StaticStructureSchema = [3, n0, _SPe,
   [_PI, _SQI],
   [0, 64 | 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _QCuo, _SCe, _RI, _RT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ShareInvitation$: StaticStructureSchema = [3, n0, _SIh,
   0,
   [_SII, _SRT, _WI, _LAen, _LAe, _PAr, _TA],
@@ -1292,12 +1317,6 @@ export var TemplateShareSummary$: StaticStructureSchema = [3, n0, _TSSe,
   [_SI, _SW, _St, _SM],
   [0, 0, 0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _QCuo, _SCe],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_WA, _TK],
@@ -1310,7 +1329,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateAnswerInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_WI, _LAen, _QI, _SC, _CUh, _N, _IA, _Re],
+  [_WI, _LAen, _QI, _SCe, _CUh, _N, _IA, _R],
   [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0], 3
 ];
 export var UpdateAnswerOutput$: StaticStructureSchema = [3, n0, _UAO,
@@ -1350,7 +1369,7 @@ export var UpdateProfileOutput$: StaticStructureSchema = [3, n0, _UPO,
 ];
 export var UpdateReviewTemplateAnswerInput$: StaticStructureSchema = [3, n0, _URTAI,
   0,
-  [_TA, _LAen, _QI, _SC, _CUh, _N, _IA, _Re],
+  [_TA, _LAen, _QI, _SCe, _CUh, _N, _IA, _R],
   [[0, 1], [0, 1], [0, 1], 64 | 0, () => ChoiceUpdates, 0, 2, 0], 3
 ];
 export var UpdateReviewTemplateAnswerOutput$: StaticStructureSchema = [3, n0, _URTAO,
@@ -1423,12 +1442,6 @@ export var UpgradeReviewTemplateLensReviewInput$: StaticStructureSchema = [3, n0
   [_TA, _LAen, _CRT],
   [[0, 1], [0, 1], 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Re, _Fi],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
@@ -1480,8 +1493,6 @@ export var WorkloadSummary$: StaticStructureSchema = [3, n0, _WSo,
   [0, 0, 0, 0, 4, 64 | 0, 128 | 1, 0, () => WorkloadProfiles, 128 | 1]
 ];
 var __Unit = "unit" as const;
-export var WellArchitectedServiceException$: StaticErrorSchema = [-3, _sm, "WellArchitectedServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WellArchitectedServiceException$, WellArchitectedServiceException);
 var AdditionalResourcesList: StaticListSchema = [1, n0, _ARL,
   0, () => AdditionalResources$
 ];

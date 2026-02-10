@@ -222,8 +222,8 @@ const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
 const _nTe = "networkType";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.managedblockchain";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.managedblockchain";
+const _se = "server";
 const _st = "status";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.managedblockchain";
@@ -254,13 +254,80 @@ import {
 import { ManagedBlockchainServiceException } from "../models/ManagedBlockchainServiceException";
 
 /* eslint no-var: 0 */
-var PasswordString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ManagedBlockchainServiceException$: StaticErrorSchema = [-3, _s, "ManagedBlockchainServiceException", 0, [], []];
+_s_registry.registerError(ManagedBlockchainServiceException$, ManagedBlockchainServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var IllegalActionException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IllegalActionException$, IllegalActionException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [],
+  []
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [],
+  []
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var PasswordString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
 export var Accessor$: StaticStructureSchema = [3, n0, _A,
   0,
   [_I, _T, _BT, _S, _CD, _Ar, _Ta, _NT],
@@ -406,24 +473,6 @@ export var GetProposalOutput$: StaticStructureSchema = [3, n0, _GPO,
   [_P],
   [() => Proposal$]
 ];
-export var IllegalActionException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IllegalActionException$, IllegalActionException);
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var Invitation$: StaticStructureSchema = [3, n0, _In,
   0,
   [_II, _CD, _ED, _S, _NS, _Ar],
@@ -674,30 +723,6 @@ export var RemoveAction$: StaticStructureSchema = [3, n0, _RAe,
   [_MI],
   [0], 1
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotReadyException$, ResourceNotReadyException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
@@ -708,18 +733,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -770,8 +783,6 @@ export var VotingPolicy$: StaticStructureSchema = [3, n0, _VP,
   [_ATP],
   [() => ApprovalThresholdPolicy$]
 ];
-export var ManagedBlockchainServiceException$: StaticErrorSchema = [-3, _sm, "ManagedBlockchainServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ManagedBlockchainServiceException$, ManagedBlockchainServiceException);
 var AccessorSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => AccessorSummary$
 ];

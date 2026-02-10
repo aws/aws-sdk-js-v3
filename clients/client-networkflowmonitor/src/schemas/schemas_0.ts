@@ -165,7 +165,7 @@ const _rTA = "resourcesToAdd";
 const _rTD = "resourcesToDelete";
 const _rVA = "remoteVpcArn";
 const _rVI = "remoteVpcId";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.networkflowmonitor";
 const _sA = "scopeArn";
 const _sI = "scopeId";
 const _sIn = "snatIp";
@@ -173,7 +173,7 @@ const _sN = "serviceName";
 const _sT = "startTime";
 const _sc = "scopes";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.networkflowmonitor";
+const _st = "status";
 const _t = "tags";
 const _tC = "topContributors";
 const _tCr = "traversedConstructs";
@@ -213,18 +213,61 @@ import {
 import { NetworkFlowMonitorServiceException } from "../models/NetworkFlowMonitorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var NetworkFlowMonitorServiceException$: StaticErrorSchema = [-3, _s, "NetworkFlowMonitorServiceException", 0, [], []];
+_s_registry.registerError(NetworkFlowMonitorServiceException$, NetworkFlowMonitorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_mN, _lR, _sA, _rR, _cT, _t],
@@ -242,7 +285,7 @@ export var CreateScopeInput$: StaticStructureSchema = [3, n0, _CSI,
 ];
 export var CreateScopeOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
-  [_sI, _s, _sA, _t],
+  [_sI, _st, _sA, _t],
   [0, 0, 0, 128 | 0], 3
 ];
 export var DeleteMonitorInput$: StaticStructureSchema = [3, n0, _DMI,
@@ -312,7 +355,7 @@ export var GetQueryStatusMonitorTopContributorsInput$: StaticStructureSchema = [
 ];
 export var GetQueryStatusMonitorTopContributorsOutput$: StaticStructureSchema = [3, n0, _GQSMTCO,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var GetQueryStatusWorkloadInsightsTopContributorsDataInput$: StaticStructureSchema = [3, n0, _GQSWITCDI,
@@ -322,7 +365,7 @@ export var GetQueryStatusWorkloadInsightsTopContributorsDataInput$: StaticStruct
 ];
 export var GetQueryStatusWorkloadInsightsTopContributorsDataOutput$: StaticStructureSchema = [3, n0, _GQSWITCDO,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var GetQueryStatusWorkloadInsightsTopContributorsInput$: StaticStructureSchema = [3, n0, _GQSWITCI,
@@ -332,7 +375,7 @@ export var GetQueryStatusWorkloadInsightsTopContributorsInput$: StaticStructureS
 ];
 export var GetQueryStatusWorkloadInsightsTopContributorsOutput$: StaticStructureSchema = [3, n0, _GQSWITCO,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var GetScopeInput$: StaticStructureSchema = [3, n0, _GSI,
@@ -342,15 +385,9 @@ export var GetScopeInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetScopeOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_sI, _s, _sA, _ta, _t],
+  [_sI, _st, _sA, _ta, _t],
   [0, 0, 0, () => TargetResourceList, 128 | 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KubernetesMetadata$: StaticStructureSchema = [3, n0, _KM,
   0,
   [_lSN, _lPN, _lPNo, _rSN, _rPN, _rPNe],
@@ -406,23 +443,11 @@ export var MonitorTopContributorsRow$: StaticStructureSchema = [3, n0, _MTCR,
   [_lI, _sIn, _lII, _lVI, _lRo, _lA, _lSI, _tP, _dC, _rVI, _rRe, _rAe, _rSI, _rII, _rI, _dI, _v, _tCr, _kM, _lIA, _lSA, _lVA, _rIA, _rSA, _rVA],
   [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, () => TraversedConstructsList, () => KubernetesMetadata$, 0, 0, 0, 0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScopeSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sI, _s, _sA],
+  [_sI, _st, _sA],
   [0, 0, 0], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartQueryMonitorTopContributorsInput$: StaticStructureSchema = [3, n0, _SQMTCI,
   0,
   [_mN, _sT, _eT, _mNe, _dC, _l],
@@ -503,12 +528,6 @@ export var TargetResource$: StaticStructureSchema = [3, n0, _TR,
   [_tIa, _r],
   [() => TargetIdentifier$, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TraversedComponent$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_cI, _cTo, _cAo, _sN],
@@ -541,15 +560,9 @@ export var UpdateScopeInput$: StaticStructureSchema = [3, n0, _USI,
 ];
 export var UpdateScopeOutput$: StaticStructureSchema = [3, n0, _USO,
   0,
-  [_sI, _s, _sA, _t],
+  [_sI, _st, _sA, _t],
   [0, 0, 0, 128 | 0], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkloadInsightsTopContributorsDataPoint$: StaticStructureSchema = [3, n0, _WITCDP,
   0,
   [_ti, _va, _la],
@@ -560,8 +573,6 @@ export var WorkloadInsightsTopContributorsRow$: StaticStructureSchema = [3, n0, 
   [_aI, _lSI, _lA, _lVI, _lRo, _rIe, _v, _lSA, _lVA],
   [0, 0, 0, 0, 0, 0, 1, 0, 0]
 ];
-export var NetworkFlowMonitorServiceException$: StaticErrorSchema = [-3, _sm, "NetworkFlowMonitorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NetworkFlowMonitorServiceException$, NetworkFlowMonitorServiceException);
 var MonitorList: StaticListSchema = [1, n0, _ML,
   0, () => MonitorSummary$
 ];

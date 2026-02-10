@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WeatherClientConfig } from "./WeatherClient";
 
 /**
@@ -54,6 +55,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "example.weather",
+      errorTypeRegistries,
       version: "2006-03-01",
       serviceTarget: "Weather",
     },

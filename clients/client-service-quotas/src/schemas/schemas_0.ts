@@ -178,8 +178,8 @@ const _V = "Value";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.servicequotas";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.servicequotas";
+const _se = "server";
 const n0 = "com.amazonaws.servicequotas";
 
 // smithy-typescript generated code
@@ -214,12 +214,121 @@ import {
 import { ServiceQuotasServiceException } from "../models/ServiceQuotasServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ServiceQuotasServiceException$: StaticErrorSchema = [-3, _s, "ServiceQuotasServiceException", 0, [], []];
+_s_registry.registerError(ServiceQuotasServiceException$, ServiceQuotasServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AWSServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _AWSSANEE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AWSServiceAccessNotEnabledException$, AWSServiceAccessNotEnabledException);
+export var DependencyAccessDeniedException$: StaticErrorSchema = [-3, n0, _DADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DependencyAccessDeniedException$, DependencyAccessDeniedException);
+export var IllegalArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IllegalArgumentException$, IllegalArgumentException);
+export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
+export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
+  { [_e]: _c, [_hE]: 405 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidResourceStateException$, InvalidResourceStateException);
+export var NoAvailableOrganizationException$: StaticErrorSchema = [-3, n0, _NAOE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoAvailableOrganizationException$, NoAvailableOrganizationException);
+export var NoSuchResourceException$: StaticErrorSchema = [-3, n0, _NSRE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoSuchResourceException$, NoSuchResourceException);
+export var OrganizationNotInAllFeaturesModeException$: StaticErrorSchema = [-3, n0, _ONIAFME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OrganizationNotInAllFeaturesModeException$, OrganizationNotInAllFeaturesModeException);
+export var QuotaExceededException$: StaticErrorSchema = [-3, n0, _QEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(QuotaExceededException$, QuotaExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceException$, ServiceException);
+export var ServiceQuotaTemplateNotInUseException$: StaticErrorSchema = [-3, n0, _SQTNIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaTemplateNotInUseException$, ServiceQuotaTemplateNotInUseException);
+export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TagPolicyViolationException$, TagPolicyViolationException);
+export var TemplatesNotAvailableInRegionException$: StaticErrorSchema = [-3, n0, _TNAIRE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TemplatesNotAvailableInRegionException$, TemplatesNotAvailableInRegionException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateServiceQuotaTemplateRequest$: StaticStructureSchema = [3, n0, _ASQTR,
   0,
   [],
@@ -230,12 +339,6 @@ export var AssociateServiceQuotaTemplateResponse$: StaticStructureSchema = [3, n
   [],
   []
 ];
-export var AWSServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _AWSSANEE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AWSServiceAccessNotEnabledException$, AWSServiceAccessNotEnabledException);
 export var CreateSupportCaseRequest$: StaticStructureSchema = [3, n0, _CSCR,
   0,
   [_RI],
@@ -256,12 +359,6 @@ export var DeleteServiceQuotaIncreaseRequestFromTemplateResponse$: StaticStructu
   [],
   []
 ];
-export var DependencyAccessDeniedException$: StaticErrorSchema = [-3, n0, _DADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyAccessDeniedException$, DependencyAccessDeniedException);
 export var DisassociateServiceQuotaTemplateRequest$: StaticStructureSchema = [3, n0, _DSQTR,
   0,
   [],
@@ -347,24 +444,6 @@ export var GetServiceQuotaResponse$: StaticStructureSchema = [3, n0, _GSQRe,
   [_Q],
   [() => ServiceQuota$]
 ];
-export var IllegalArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IllegalArgumentException$, IllegalArgumentException);
-export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
-export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
-  { [_e]: _c, [_hE]: 405 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResourceStateException);
 export var ListAWSDefaultServiceQuotasRequest$: StaticStructureSchema = [3, n0, _LAWSDSQR,
   0,
   [_SC, _NT, _MR],
@@ -440,24 +519,6 @@ export var MetricInfo$: StaticStructureSchema = [3, n0, _MI,
   [_MN, _MNe, _MD, _MSR],
   [0, 0, 128 | 0, 0]
 ];
-export var NoAvailableOrganizationException$: StaticErrorSchema = [-3, n0, _NAOE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoAvailableOrganizationException$, NoAvailableOrganizationException);
-export var NoSuchResourceException$: StaticErrorSchema = [-3, n0, _NSRE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchResourceException$, NoSuchResourceException);
-export var OrganizationNotInAllFeaturesModeException$: StaticErrorSchema = [-3, n0, _ONIAFME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationNotInAllFeaturesModeException$, OrganizationNotInAllFeaturesModeException);
 export var PutServiceQuotaIncreaseRequestIntoTemplateRequest$: StaticStructureSchema = [3, n0, _PSQIRITR,
   0,
   [_QC, _SC, _AR, _DV],
@@ -473,12 +534,6 @@ export var QuotaContextInfo$: StaticStructureSchema = [3, n0, _QCI,
   [_CS, _CST, _CI],
   [0, 0, 0]
 ];
-export var QuotaExceededException$: StaticErrorSchema = [-3, n0, _QEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QuotaExceededException$, QuotaExceededException);
 export var QuotaInfo$: StaticStructureSchema = [3, n0, _QI,
   0,
   [_QC, _QN],
@@ -509,18 +564,6 @@ export var RequestServiceQuotaIncreaseResponse$: StaticStructureSchema = [3, n0,
   [_RQ],
   [() => RequestedServiceQuotaChange$]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
 export var ServiceInfo$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_SC, _SN],
@@ -536,12 +579,6 @@ export var ServiceQuotaIncreaseRequestInTemplate$: StaticStructureSchema = [3, n
   [_SC, _SN, _QC, _QN, _DV, _AR, _Un, _GQ],
   [0, 0, 0, 0, 1, 0, 0, 2]
 ];
-export var ServiceQuotaTemplateNotInUseException$: StaticErrorSchema = [-3, n0, _SQTNIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaTemplateNotInUseException$, ServiceQuotaTemplateNotInUseException);
 export var StartAutoManagementRequest$: StaticStructureSchema = [3, n0, _SAMR,
   0,
   [_OIL, _OIT, _NA, _EL],
@@ -577,12 +614,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
-export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagPolicyViolationException$, TagPolicyViolationException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
@@ -593,24 +624,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TemplatesNotAvailableInRegionException$: StaticErrorSchema = [-3, n0, _TNAIRE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TemplatesNotAvailableInRegionException$, TemplatesNotAvailableInRegionException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -631,8 +644,6 @@ export var UpdateAutoManagementResponse$: StaticStructureSchema = [3, n0, _UAMRp
   [],
   []
 ];
-export var ServiceQuotasServiceException$: StaticErrorSchema = [-3, _sm, "ServiceQuotasServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ServiceQuotasServiceException$, ServiceQuotasServiceException);
 var ExcludedQuotaList = 64 | 0;
 var InputTagKeys = 64 | 0;
 var InputTags: StaticListSchema = [1, n0, _IT,

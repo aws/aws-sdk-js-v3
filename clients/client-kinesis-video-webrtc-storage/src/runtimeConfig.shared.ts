@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultKinesisVideoWebRTCStorageHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { KinesisVideoWebRTCStorageClientConfig } from "./KinesisVideoWebRTCStorageClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: KinesisVideoWebRTCStorageClientConfig) 
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.kinesisvideowebrtcstorage",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "AWSAcuityRoutingServiceLambda",
     },

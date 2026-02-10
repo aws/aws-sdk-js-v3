@@ -123,12 +123,12 @@ const _le = "length";
 const _n = "name";
 const _nu = "nullable";
 const _p = "precision";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.redshiftdata";
 const _sN = "schemaName";
 const _sV = "stringValue";
 const _sc = "scale";
 const _sch = "schema";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.redshiftdata";
+const _se = "server";
 const _t = "type";
 const _tN = "tableName";
 const _tNy = "typeName";
@@ -159,24 +159,73 @@ import {
 import { RedshiftDataServiceException } from "../models/RedshiftDataServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RedshiftDataServiceException$: StaticErrorSchema = [-3, _s, "RedshiftDataServiceException", 0, [], []];
+_s_registry.registerError(RedshiftDataServiceException$, RedshiftDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ActiveSessionsExceededException$: StaticErrorSchema = [-3, n0, _ASEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ActiveSessionsExceededException$, ActiveSessionsExceededException);
+n0_registry.registerError(ActiveSessionsExceededException$, ActiveSessionsExceededException);
 export var ActiveStatementsExceededException$: StaticErrorSchema = [-3, n0, _ASEEc,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ActiveStatementsExceededException$, ActiveStatementsExceededException);
+n0_registry.registerError(ActiveStatementsExceededException$, ActiveStatementsExceededException);
 export var BatchExecuteStatementException$: StaticErrorSchema = [-3, n0, _BESE,
-  { [_e]: _s, [_hE]: 500 },
+  { [_e]: _se, [_hE]: 500 },
   [_M, _SI],
   [0, 0], 2
 ];
-TypeRegistry.for(n0).registerError(BatchExecuteStatementException$, BatchExecuteStatementException);
+n0_registry.registerError(BatchExecuteStatementException$, BatchExecuteStatementException);
+export var DatabaseConnectionException$: StaticErrorSchema = [-3, n0, _DCE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(DatabaseConnectionException$, DatabaseConnectionException);
+export var ExecuteStatementException$: StaticErrorSchema = [-3, n0, _ESE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _SI],
+  [0, 0], 2
+];
+n0_registry.registerError(ExecuteStatementException$, ExecuteStatementException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(QueryTimeoutException$, QueryTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI],
+  [0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BatchExecuteStatementInput$: StaticStructureSchema = [3, n0, _BESI,
   0,
   [_S, _CI, _SA, _DU, _D, _WE, _SN, _WN, _CT, _RF, _SKAS, _SIe],
@@ -202,12 +251,6 @@ export var ColumnMetadata$: StaticStructureSchema = [3, n0, _CM,
   [_iCS, _iC, _iS, _l, _n, _nu, _p, _sc, _sN, _tN, _tNy, _le, _cD],
   [2, 2, 2, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0]
 ];
-export var DatabaseConnectionException$: StaticErrorSchema = [-3, n0, _DCE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(DatabaseConnectionException$, DatabaseConnectionException);
 export var DescribeStatementRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_I],
@@ -228,12 +271,6 @@ export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRe,
   [_TN, _CL, _NT],
   [0, () => ColumnList, 0]
 ];
-export var ExecuteStatementException$: StaticErrorSchema = [-3, n0, _ESE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _SI],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ExecuteStatementException$, ExecuteStatementException);
 export var ExecuteStatementInput$: StaticStructureSchema = [3, n0, _ESI,
   0,
   [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
@@ -264,12 +301,6 @@ export var GetStatementResultV2Response$: StaticStructureSchema = [3, n0, _GSRVR
   [_R, _CM, _TNR, _RF, _NT],
   [() => FormattedSqlRecords, () => ColumnMetadataList, 1, 0, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDatabasesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_D, _CI, _SA, _DU, _NT, _MR, _WN],
@@ -310,18 +341,6 @@ export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   [_Ta, _NT],
   [() => TableList, 0]
 ];
-export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueryTimeoutException$, QueryTimeoutException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SqlParameter$: StaticStructureSchema = [3, n0, _SPq,
   0,
   [_n, _v],
@@ -342,14 +361,6 @@ export var TableMember$: StaticStructureSchema = [3, n0, _TM,
   [_n, _t, _sch],
   [0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var RedshiftDataServiceException$: StaticErrorSchema = [-3, _sm, "RedshiftDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RedshiftDataServiceException$, RedshiftDataServiceException);
 var ColumnList: StaticListSchema = [1, n0, _CL,
   0, () => ColumnMetadata$
 ];

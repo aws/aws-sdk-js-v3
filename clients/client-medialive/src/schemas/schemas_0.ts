@@ -1680,7 +1680,7 @@ const _del = "deletes";
 const _des = "destinations";
 const _desc = "description";
 const _du = "duration";
-const _e = "extension";
+const _e = "error";
 const _eA = "entitlementArn";
 const _eAI = "ebpAudioInterval";
 const _eAS = "eac3AtmosSettings";
@@ -1719,8 +1719,8 @@ const _eTn = "encryptionType";
 const _eTv = "eventTargets";
 const _eb = "ebif";
 const _en = "end";
-const _er = "error";
 const _es = "esam";
+const _ex = "extension";
 const _f = "failed";
 const _fA = "fixedAfd";
 const _fAe = "featureActivations";
@@ -2211,7 +2211,7 @@ const _rese = "reservation";
 const _ret = "retries";
 const _ro = "routes";
 const _rol = "role";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.medialive";
 const _sA = "spatialAq";
 const _sACN = "sourceAncillaryChannelNumber";
 const _sAS = "scheduleActionSettings";
@@ -2343,15 +2343,15 @@ const _set = "settings";
 const _sh = "sharpness";
 const _si = "sid";
 const _sl = "slices";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.medialive";
 const _so = "sources";
 const _sof = "softness";
 const _sou = "source";
 const _sp = "spec";
-const _st = "state";
-const _sta = "statistic";
+const _st = "streaming";
+const _sta = "state";
 const _star = "start";
-const _stat = "status";
+const _stat = "statistic";
+const _statu = "status";
 const _str = "strength";
 const _su = "successful";
 const _sy = "syntax";
@@ -2467,7 +2467,74 @@ import {
 import { MediaLiveServiceException } from "../models/MediaLiveServiceException";
 
 /* eslint no-var: 0 */
-var InputDeviceThumbnail: StaticSimpleSchema = [0, n0, _IDT, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var MediaLiveServiceException$: StaticErrorSchema = [-3, _s, "MediaLiveServiceException", 0, [], []];
+_s_registry.registerError(MediaLiveServiceException$, MediaLiveServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
+  { [_e]: _se, [_hE]: 502 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadGatewayException$, BadGatewayException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GatewayTimeoutException$: StaticErrorSchema = [-3, n0, _GTE,
+  { [_e]: _se, [_hE]: 504 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(GatewayTimeoutException$, GatewayTimeoutException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_M, _VE],
+  [[0, { [_jN]: _m }], [() => __listOfValidationError, { [_jN]: _vE }]]
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var InputDeviceThumbnail: StaticSimpleSchema = [0, n0, _IDT, { [_st]: 1 }, 42];
 export var AacSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_B, _CM, _IT, _P, _RCM, _RF, _SR, _S, _VQ],
@@ -2526,7 +2593,7 @@ export var ArchiveGroupSettings$: StaticStructureSchema = [3, n0, _AGS,
 export var ArchiveOutputSettings$: StaticStructureSchema = [3, n0, _AOS,
   0,
   [_CS, _E, _NM],
-  [[() => ArchiveContainerSettings$, { [_jN]: _cS }], [0, { [_jN]: _e }], [0, { [_jN]: _nM }]], 1
+  [[() => ArchiveContainerSettings$, { [_jN]: _cS }], [0, { [_jN]: _ex }], [0, { [_jN]: _nM }]], 1
 ];
 export var ArchiveS3Settings$: StaticStructureSchema = [3, n0, _ASSr,
   0,
@@ -2636,7 +2703,7 @@ export var Av1Settings$: StaticStructureSchema = [3, n0, _ASv,
 export var AvailBlanking$: StaticStructureSchema = [3, n0, _AB,
   0,
   [_ABI, _St],
-  [[() => InputLocation$, { [_jN]: _aBI }], [0, { [_jN]: _st }]]
+  [[() => InputLocation$, { [_jN]: _aBI }], [0, { [_jN]: _sta }]]
 ];
 export var AvailConfiguration$: StaticStructureSchema = [3, n0, _ACv,
   0,
@@ -2648,18 +2715,6 @@ export var AvailSettings$: StaticStructureSchema = [3, n0, _ASva,
   [_Es, _SSI, _STSA],
   [[() => Esam$, { [_jN]: _es }], [() => Scte35SpliceInsert$, { [_jN]: _sSI }], [() => Scte35TimeSignalApos$, { [_jN]: _sTSA }]]
 ];
-export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
-  { [_er]: _se, [_hE]: 502 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(BadGatewayException$, BadGatewayException);
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BandwidthReductionFilterSettings$: StaticStructureSchema = [3, n0, _BRFS,
   0,
   [_PFS, _Str],
@@ -2723,7 +2778,7 @@ export var BatchStopResponse$: StaticStructureSchema = [3, n0, _BSRatc,
 export var BatchSuccessfulResultModel$: StaticStructureSchema = [3, n0, _BSRM,
   0,
   [_Ar, _I, _St],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [0, { [_jN]: _sta }]]
 ];
 export var BatchUpdateScheduleRequest$: StaticStructureSchema = [3, n0, _BUSR,
   0,
@@ -2738,7 +2793,7 @@ export var BatchUpdateScheduleResponse$: StaticStructureSchema = [3, n0, _BUSRa,
 export var BlackoutSlate$: StaticStructureSchema = [3, n0, _BSl,
   0,
   [_BSI, _NEB, _NEBI, _NI, _St],
-  [[() => InputLocation$, { [_jN]: _bSI }], [0, { [_jN]: _nEB }], [() => InputLocation$, { [_jN]: _nEBI }], [0, { [_jN]: _nI }], [0, { [_jN]: _st }]]
+  [[() => InputLocation$, { [_jN]: _bSI }], [0, { [_jN]: _nEB }], [() => InputLocation$, { [_jN]: _nEBI }], [0, { [_jN]: _nI }], [0, { [_jN]: _sta }]]
 ];
 export var BurnInDestinationSettings$: StaticStructureSchema = [3, n0, _BIDS,
   0,
@@ -2793,12 +2848,12 @@ export var CdiInputSpecification$: StaticStructureSchema = [3, n0, _CIS,
 export var Channel$: StaticStructureSchema = [3, n0, _Ch,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var ChannelAlert$: StaticStructureSchema = [3, n0, _CAh,
   0,
   [_ATl, _CT, _I, _M, _PI, _STe, _St],
-  [[0, { [_jN]: _aTl }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _pI }], [5, { [_jN]: _sTe }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _aTl }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _pI }], [5, { [_jN]: _sTe }], [0, { [_jN]: _sta }]]
 ];
 export var ChannelEgressEndpoint$: StaticStructureSchema = [3, n0, _CEE,
   0,
@@ -2818,7 +2873,7 @@ export var ChannelEngineVersionResponse$: StaticStructureSchema = [3, n0, _CEVRh
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CSh,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _I, _IA, _IS, _LL, _Ma, _N, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _UCEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => __listOfChannelEngineVersionResponse, { [_jN]: _uCEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => __listOfChannelEngineVersionResponse, { [_jN]: _uCEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var ClaimDeviceRequest$: StaticStructureSchema = [3, n0, _CDRl,
   0,
@@ -2838,12 +2893,12 @@ export var CloudWatchAlarmTemplateGroupSummary$: StaticStructureSchema = [3, n0,
 export var CloudWatchAlarmTemplateSummary$: StaticStructureSchema = [3, n0, _CWATS,
   0,
   [_Ar, _CO, _CAr, _EP, _GI, _I, _MN, _N, _Pe, _Sta, _TRT, _Th, _TMD, _DTA, _Desc, _MA, _Ta],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [5, { [_jN]: _mA }], [128 | 0, { [_jN]: _ta }]], 13
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [5, { [_jN]: _mA }], [128 | 0, { [_jN]: _ta }]], 13
 ];
 export var ClusterAlert$: StaticStructureSchema = [3, n0, _CAl,
   0,
   [_ATl, _CIha, _CT, _I, _M, _NIo, _STe, _St],
-  [[0, { [_jN]: _aTl }], [0, { [_jN]: _cIha }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _nIo }], [5, { [_jN]: _sTe }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _aTl }], [0, { [_jN]: _cIha }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _nIo }], [5, { [_jN]: _sTe }], [0, { [_jN]: _sta }]]
 ];
 export var ClusterNetworkSettings$: StaticStructureSchema = [3, n0, _CNS,
   0,
@@ -2890,12 +2945,6 @@ export var ColorSpacePassthroughSettings$: StaticStructureSchema = [3, n0, _CSPS
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_er]: _c, [_hE]: 409 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, _CCPGR,
   0,
   [_CI, _N, _No, _RIe, _Ta],
@@ -2904,7 +2953,7 @@ export var CreateChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 export var CreateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _CCPGRr,
   0,
   [_Ar, _Cha, _CI, _I, _N, _No, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
@@ -2929,12 +2978,12 @@ export var CreateCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = 
 export var CreateCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [3, n0, _CCWATR,
   0,
   [_CO, _EP, _GIr, _MN, _N, _Pe, _Sta, _TRT, _Th, _TMD, _DTA, _Desc, _Ta, _RIe],
-  [[0, { [_jN]: _cO }], [1, { [_jN]: _eP }], [0, { [_jN]: _gIr }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [128 | 0, { [_jN]: _ta }], [0, { [_iTd]: 1, [_jN]: _rIe }]], 10
+  [[0, { [_jN]: _cO }], [1, { [_jN]: _eP }], [0, { [_jN]: _gIr }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [128 | 0, { [_jN]: _ta }], [0, { [_iTd]: 1, [_jN]: _rIe }]], 10
 ];
 export var CreateCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [3, n0, _CCWATRr,
   0,
   [_Ar, _CO, _CAr, _DTA, _Desc, _EP, _GI, _I, _MN, _MA, _N, _Pe, _Sta, _Ta, _TRT, _Th, _TMD],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRre,
   0,
@@ -2944,7 +2993,7 @@ export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRre,
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
   [_Ar, _CIh, _CTl, _I, _IRA, _N, _NS, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _sta }]]
 ];
 export var CreateEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _CEBRTGR,
   0,
@@ -3014,7 +3063,7 @@ export var CreateNetworkRequest$: StaticStructureSchema = [3, n0, _CNR,
 export var CreateNetworkResponse$: StaticStructureSchema = [3, n0, _CNRr,
   0,
   [_Ar, _ACI, _I, _IPp, _N, _Ro, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _sta }]]
 ];
 export var CreateNodeRegistrationScriptRequest$: StaticStructureSchema = [3, n0, _CNRSR,
   0,
@@ -3034,7 +3083,7 @@ export var CreateNodeRequest$: StaticStructureSchema = [3, n0, _CNRre,
 export var CreateNodeResponse$: StaticStructureSchema = [3, n0, _CNRrea,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var CreatePartnerInputRequest$: StaticStructureSchema = [3, n0, _CPIR,
   0,
@@ -3064,7 +3113,7 @@ export var CreateSignalMapRequest$: StaticStructureSchema = [3, n0, _CSMR,
 export var CreateSignalMapResponse$: StaticStructureSchema = [3, n0, _CSMRr,
   0,
   [_Ar, _CWATGIl, _CAr, _Desc, _DEPA, _EM, _EBRTGIv, _FMRM, _I, _LDA, _LSMD, _MRM, _MA, _MCPD, _MD, _N, _Stat, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var CreateTagsRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
@@ -3079,7 +3128,7 @@ export var DeleteChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 export var DeleteChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _DCPGRe,
   0,
   [_Ar, _Cha, _CI, _I, _N, _No, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
@@ -3089,7 +3138,7 @@ export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
 export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var DeleteCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [3, n0, _DCWATGR,
   0,
@@ -3109,7 +3158,7 @@ export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCRel,
 export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRele,
   0,
   [_Ar, _CIh, _CTl, _I, _IRA, _N, _NS, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _sta }]]
 ];
 export var DeleteEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _DEBRTGR,
   0,
@@ -3159,7 +3208,7 @@ export var DeleteMultiplexRequest$: StaticStructureSchema = [3, n0, _DMR,
 export var DeleteMultiplexResponse$: StaticStructureSchema = [3, n0, _DMRe,
   0,
   [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var DeleteNetworkRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
@@ -3169,7 +3218,7 @@ export var DeleteNetworkRequest$: StaticStructureSchema = [3, n0, _DNR,
 export var DeleteNetworkResponse$: StaticStructureSchema = [3, n0, _DNRe,
   0,
   [_Ar, _ACI, _I, _IPp, _N, _Ro, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _sta }]]
 ];
 export var DeleteNodeRequest$: StaticStructureSchema = [3, n0, _DNRel,
   0,
@@ -3179,7 +3228,7 @@ export var DeleteNodeRequest$: StaticStructureSchema = [3, n0, _DNRel,
 export var DeleteNodeResponse$: StaticStructureSchema = [3, n0, _DNRele,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var DeleteReservationRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
@@ -3189,7 +3238,7 @@ export var DeleteReservationRequest$: StaticStructureSchema = [3, n0, _DRR,
 export var DeleteReservationResponse$: StaticStructureSchema = [3, n0, _DRRe,
   0,
   [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DeleteScheduleRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
@@ -3244,12 +3293,12 @@ export var DescribeChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0
 export var DescribeChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _DCPGResc,
   0,
   [_Ar, _Cha, _CI, _I, _N, _No, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeChannelPlacementGroupSummary$: StaticStructureSchema = [3, n0, _DCPGS,
   0,
   [_Ar, _Cha, _CI, _I, _N, _No, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -3259,7 +3308,7 @@ export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
 export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr,
   0,
@@ -3269,12 +3318,12 @@ export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr,
 export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCRescri,
   0,
   [_Ar, _CIh, _CTl, _I, _IRA, _N, _NS, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeClusterSummary$: StaticStructureSchema = [3, n0, _DCS,
   0,
   [_Ar, _CIh, _CTl, _I, _IRA, _N, _NS, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _iRA }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeFollowerChannelSettings$: StaticStructureSchema = [3, n0, _DFCS,
   0,
@@ -3309,7 +3358,7 @@ export var DescribeInputRequest$: StaticStructureSchema = [3, n0, _DIRes,
 export var DescribeInputResponse$: StaticStructureSchema = [3, n0, _DIResc,
   0,
   [_Ar, _ACt, _Des, _I, _IC, _ID, _IPI, _IST, _MCF, _N, _RA, _SGe, _So, _St, _Ta, _Ty, _SSr, _INL, _MSu, _SRGS, _SSd, _RSo],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCt }], [() => __listOfInputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [0, { [_jN]: _iC }], [() => __listOfInputDeviceSettings, { [_jN]: _iD }], [64 | 0, { [_jN]: _iPI }], [0, { [_jN]: _iST }], [() => __listOfMediaConnectFlow, { [_jN]: _mCF }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sGe }], [() => __listOfInputSource, { [_jN]: _so }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _ty }], [() => SrtSettings$, { [_jN]: _sSr }], [0, { [_jN]: _iNL }], [() => MulticastSettings$, { [_jN]: _mSu }], [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }], [64 | 0, { [_jN]: _sSd }], [() => RouterInputSettings$, { [_jN]: _rSo }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCt }], [() => __listOfInputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [0, { [_jN]: _iC }], [() => __listOfInputDeviceSettings, { [_jN]: _iD }], [64 | 0, { [_jN]: _iPI }], [0, { [_jN]: _iST }], [() => __listOfMediaConnectFlow, { [_jN]: _mCF }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sGe }], [() => __listOfInputSource, { [_jN]: _so }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _ty }], [() => SrtSettings$, { [_jN]: _sSr }], [0, { [_jN]: _iNL }], [() => MulticastSettings$, { [_jN]: _mSu }], [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }], [64 | 0, { [_jN]: _sSd }], [() => RouterInputSettings$, { [_jN]: _rSo }]]
 ];
 export var DescribeInputSecurityGroupRequest$: StaticStructureSchema = [3, n0, _DISGRes,
   0,
@@ -3319,7 +3368,7 @@ export var DescribeInputSecurityGroupRequest$: StaticStructureSchema = [3, n0, _
 export var DescribeInputSecurityGroupResponse$: StaticStructureSchema = [3, n0, _DISGResc,
   0,
   [_Ar, _I, _Inp, _St, _Ta, _WR, _Cha],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
 ];
 export var DescribeLinkedChannelSettings$: StaticStructureSchema = [3, n0, _DLCS,
   0,
@@ -3344,7 +3393,7 @@ export var DescribeMultiplexRequest$: StaticStructureSchema = [3, n0, _DMRes,
 export var DescribeMultiplexResponse$: StaticStructureSchema = [3, n0, _DMResc,
   0,
   [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var DescribeNetworkRequest$: StaticStructureSchema = [3, n0, _DNRes,
   0,
@@ -3354,12 +3403,12 @@ export var DescribeNetworkRequest$: StaticStructureSchema = [3, n0, _DNRes,
 export var DescribeNetworkResponse$: StaticStructureSchema = [3, n0, _DNResc,
   0,
   [_Ar, _ACI, _I, _IPp, _N, _Ro, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeNetworkSummary$: StaticStructureSchema = [3, n0, _DNS,
   0,
   [_Ar, _ACI, _I, _IPp, _N, _Ro, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeNodeRequest$: StaticStructureSchema = [3, n0, _DNRescr,
   0,
@@ -3369,12 +3418,12 @@ export var DescribeNodeRequest$: StaticStructureSchema = [3, n0, _DNRescr,
 export var DescribeNodeResponse$: StaticStructureSchema = [3, n0, _DNRescri,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var DescribeNodeSummary$: StaticStructureSchema = [3, n0, _DNSe,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _MIIa, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _mIIa }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _mIIa }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var DescribeOfferingRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
@@ -3399,7 +3448,7 @@ export var DescribeReservationRequest$: StaticStructureSchema = [3, n0, _DRRes,
 export var DescribeReservationResponse$: StaticStructureSchema = [3, n0, _DRResc,
   0,
   [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var DescribeScheduleRequest$: StaticStructureSchema = [3, n0, _DSRes,
   0,
@@ -3566,12 +3615,6 @@ export var FollowModeScheduleActionStartSettings$: StaticStructureSchema = [3, n
   [_FPo, _RAN],
   [[0, { [_jN]: _fPo }], [0, { [_jN]: _rAN }]], 2
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_er]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var FrameCaptureCdnSettings$: StaticStructureSchema = [3, n0, _FCCS,
   0,
   [_FCSS],
@@ -3602,12 +3645,6 @@ export var FrameCaptureSettings$: StaticStructureSchema = [3, n0, _FCSr,
   [_CIa, _CIU, _TBS],
   [[1, { [_jN]: _cIa }], [0, { [_jN]: _cIU }], [() => TimecodeBurninSettings$, { [_jN]: _tBS }]]
 ];
-export var GatewayTimeoutException$: StaticErrorSchema = [-3, n0, _GTE,
-  { [_er]: _se, [_hE]: 504 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(GatewayTimeoutException$, GatewayTimeoutException);
 export var GetCloudWatchAlarmTemplateGroupRequest$: StaticStructureSchema = [3, n0, _GCWATGR,
   0,
   [_Id],
@@ -3626,7 +3663,7 @@ export var GetCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [3, n0, _
 export var GetCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [3, n0, _GCWATRe,
   0,
   [_Ar, _CO, _CAr, _DTA, _Desc, _EP, _GI, _I, _MN, _MA, _N, _Pe, _Sta, _Ta, _TRT, _Th, _TMD],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
 ];
 export var GetEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _GEBRTGR,
   0,
@@ -3656,7 +3693,7 @@ export var GetSignalMapRequest$: StaticStructureSchema = [3, n0, _GSMR,
 export var GetSignalMapResponse$: StaticStructureSchema = [3, n0, _GSMRe,
   0,
   [_Ar, _CWATGIl, _CAr, _Desc, _DEPA, _EM, _EBRTGIv, _FMRM, _I, _LDA, _LSMD, _MRM, _MA, _MCPD, _MD, _N, _Stat, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var GlobalConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
@@ -3781,7 +3818,7 @@ export var ImmediateModeScheduleActionStartSettings$: StaticStructureSchema = [3
 export var Input$: StaticStructureSchema = [3, n0, _In,
   0,
   [_Ar, _ACt, _Des, _I, _IC, _ID, _IPI, _IST, _MCF, _N, _RA, _SGe, _So, _St, _Ta, _Ty, _SSr, _INL, _MSu, _SRGS, _SSd, _RSo],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCt }], [() => __listOfInputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [0, { [_jN]: _iC }], [() => __listOfInputDeviceSettings, { [_jN]: _iD }], [64 | 0, { [_jN]: _iPI }], [0, { [_jN]: _iST }], [() => __listOfMediaConnectFlow, { [_jN]: _mCF }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sGe }], [() => __listOfInputSource, { [_jN]: _so }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _ty }], [() => SrtSettings$, { [_jN]: _sSr }], [0, { [_jN]: _iNL }], [() => MulticastSettings$, { [_jN]: _mSu }], [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }], [64 | 0, { [_jN]: _sSd }], [() => RouterInputSettings$, { [_jN]: _rSo }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCt }], [() => __listOfInputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [0, { [_jN]: _iC }], [() => __listOfInputDeviceSettings, { [_jN]: _iD }], [64 | 0, { [_jN]: _iPI }], [0, { [_jN]: _iST }], [() => __listOfMediaConnectFlow, { [_jN]: _mCF }], [0, { [_jN]: _n }], [0, { [_jN]: _rA }], [64 | 0, { [_jN]: _sGe }], [() => __listOfInputSource, { [_jN]: _so }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _ty }], [() => SrtSettings$, { [_jN]: _sSr }], [0, { [_jN]: _iNL }], [() => MulticastSettings$, { [_jN]: _mSu }], [() => Smpte2110ReceiverGroupSettings$, { [_jN]: _sRGS }], [64 | 0, { [_jN]: _sSd }], [() => RouterInputSettings$, { [_jN]: _rSo }]]
 ];
 export var InputAttachment$: StaticStructureSchema = [3, n0, _IAnp,
   0,
@@ -3906,7 +3943,7 @@ export var InputSdpLocation$: StaticStructureSchema = [3, n0, _ISL,
 export var InputSecurityGroup$: StaticStructureSchema = [3, n0, _ISGn,
   0,
   [_Ar, _I, _Inp, _St, _Ta, _WR, _Cha],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => __listOfInputWhitelistRule, { [_jN]: _wR }], [64 | 0, { [_jN]: _ch }]]
 ];
 export var InputSettings$: StaticStructureSchema = [3, n0, _ISn,
   0,
@@ -3963,12 +4000,6 @@ export var InterfaceMappingUpdateRequest$: StaticStructureSchema = [3, n0, _IMUR
   [_LINo, _NI],
   [[0, { [_jN]: _lINo }], [0, { [_jN]: _nI }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_er]: _se, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var IpPool$: StaticStructureSchema = [3, n0, _IPpo,
   0,
   [_Ci],
@@ -4312,7 +4343,7 @@ export var MediaResourceNeighbor$: StaticStructureSchema = [3, n0, _MRN,
 export var MonitorDeployment$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_Stat, _DUe, _EM],
-  [[0, { [_jN]: _stat }], [0, { [_jN]: _dUe }], [0, { [_jN]: _eM }]], 1
+  [[0, { [_jN]: _statu }], [0, { [_jN]: _dUe }], [0, { [_jN]: _eM }]], 1
 ];
 export var MotionGraphicsActivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _MGASAS,
   0,
@@ -4397,12 +4428,12 @@ export var MulticastSourceUpdateRequest$: StaticStructureSchema = [3, n0, _MSURu
 export var Multiplex$: StaticStructureSchema = [3, n0, _Mu,
   0,
   [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var MultiplexAlert$: StaticStructureSchema = [3, n0, _MAu,
   0,
   [_ATl, _CT, _I, _M, _PI, _STe, _St],
-  [[0, { [_jN]: _aTl }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _pI }], [5, { [_jN]: _sTe }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _aTl }], [5, { [_jN]: _cT }], [0, { [_jN]: _i }], [0, { [_jN]: _m }], [0, { [_jN]: _pI }], [5, { [_jN]: _sTe }], [0, { [_jN]: _sta }]]
 ];
 export var MultiplexContainerSettings$: StaticStructureSchema = [3, n0, _MCSu,
   0,
@@ -4487,7 +4518,7 @@ export var MultiplexStatmuxVideoSettings$: StaticStructureSchema = [3, n0, _MSVS
 export var MultiplexSummary$: StaticStructureSchema = [3, n0, _MSulti,
   0,
   [_Ar, _AZ, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [0, { [_jN]: _i }], [() => MultiplexSettingsSummary$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [0, { [_jN]: _i }], [() => MultiplexSettingsSummary$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var MultiplexVideoSettings$: StaticStructureSchema = [3, n0, _MVS,
   0,
@@ -4529,12 +4560,6 @@ export var NodeInterfaceMappingCreateRequest$: StaticStructureSchema = [3, n0, _
   [_LINo, _NIMe, _PIN],
   [[0, { [_jN]: _lINo }], [0, { [_jN]: _nIMe }], [0, { [_jN]: _pIN }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Offering$: StaticStructureSchema = [3, n0, _Of,
   0,
   [_Ar, _CCu, _Du, _DU, _FP, _OD, _OI, _OT, _Reg, _RSes, _UP],
@@ -4668,7 +4693,7 @@ export var RenewalSettings$: StaticStructureSchema = [3, n0, _RSen,
 export var Reservation$: StaticStructureSchema = [3, n0, _Rese,
   0,
   [_Ar, _Co, _CCu, _Du, _DU, _En, _FP, _N, _OD, _OI, _OT, _Reg, _RSen, _RIes, _RSes, _Star, _St, _Ta, _UP],
-  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
+  [[0, { [_jN]: _ar }], [1, { [_jN]: _cou }], [0, { [_jN]: _cCu }], [1, { [_jN]: _du }], [0, { [_jN]: _dU }], [0, { [_jN]: _en }], [1, { [_jN]: _fP }], [0, { [_jN]: _n }], [0, { [_jN]: _oD }], [0, { [_jN]: _oI }], [0, { [_jN]: _oT }], [0, { [_jN]: _reg }], [() => RenewalSettings$, { [_jN]: _rSen }], [0, { [_jN]: _rIes }], [() => ReservationResourceSpecification$, { [_jN]: _rSes }], [0, { [_jN]: _star }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [1, { [_jN]: _uP }]]
 ];
 export var ReservationResourceSpecification$: StaticStructureSchema = [3, n0, _RRS,
   0,
@@ -4683,7 +4708,7 @@ export var RestartChannelPipelinesRequest$: StaticStructureSchema = [3, n0, _RCP
 export var RestartChannelPipelinesResponse$: StaticStructureSchema = [3, n0, _RCPRe,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _MSa, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _mSa }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _mSa }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var Route$: StaticStructureSchema = [3, n0, _Rou,
   0,
@@ -4823,7 +4848,7 @@ export var Scte35TimeSignalScheduleActionSettings$: StaticStructureSchema = [3, 
 export var SdiSource$: StaticStructureSchema = [3, n0, _SSdi,
   0,
   [_Ar, _I, _Inp, _Mo, _N, _St, _Ty],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _mo }], [0, { [_jN]: _n }], [0, { [_jN]: _st }], [0, { [_jN]: _ty }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _mo }], [0, { [_jN]: _n }], [0, { [_jN]: _sta }], [0, { [_jN]: _ty }]]
 ];
 export var SdiSourceMapping$: StaticStructureSchema = [3, n0, _SSMd,
   0,
@@ -4838,12 +4863,12 @@ export var SdiSourceMappingUpdateRequest$: StaticStructureSchema = [3, n0, _SSMU
 export var SdiSourceSummary$: StaticStructureSchema = [3, n0, _SSSd,
   0,
   [_Ar, _I, _Inp, _Mo, _N, _St, _Ty],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _mo }], [0, { [_jN]: _n }], [0, { [_jN]: _st }], [0, { [_jN]: _ty }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _i }], [64 | 0, { [_jN]: _inp }], [0, { [_jN]: _mo }], [0, { [_jN]: _n }], [0, { [_jN]: _sta }], [0, { [_jN]: _ty }]]
 ];
 export var SignalMapSummary$: StaticStructureSchema = [3, n0, _SMS,
   0,
   [_Ar, _CAr, _I, _MDS, _N, _Stat, _Desc, _MA, _Ta],
-  [[0, { [_jN]: _ar }], [5, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _mDS }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [0, { [_jN]: _desc }], [5, { [_jN]: _mA }], [128 | 0, { [_jN]: _ta }]], 6
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _mDS }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [0, { [_jN]: _desc }], [5, { [_jN]: _mA }], [128 | 0, { [_jN]: _ta }]], 6
 ];
 export var Smpte2110ReceiverGroup$: StaticStructureSchema = [3, n0, _SRG,
   0,
@@ -4948,7 +4973,7 @@ export var StartChannelRequest$: StaticStructureSchema = [3, n0, _SCR,
 export var StartChannelResponse$: StaticStructureSchema = [3, n0, _SCRt,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var StartDeleteMonitorDeploymentRequest$: StaticStructureSchema = [3, n0, _SDMDR,
   0,
@@ -4958,7 +4983,7 @@ export var StartDeleteMonitorDeploymentRequest$: StaticStructureSchema = [3, n0,
 export var StartDeleteMonitorDeploymentResponse$: StaticStructureSchema = [3, n0, _SDMDRt,
   0,
   [_Ar, _CWATGIl, _CAr, _Desc, _DEPA, _EM, _EBRTGIv, _FMRM, _I, _LDA, _LSMD, _MRM, _MA, _MCPD, _MD, _N, _Stat, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StartInputDeviceMaintenanceWindowRequest$: StaticStructureSchema = [3, n0, _SIDMWR,
   0,
@@ -4988,7 +5013,7 @@ export var StartMonitorDeploymentRequest$: StaticStructureSchema = [3, n0, _SMDR
 export var StartMonitorDeploymentResponse$: StaticStructureSchema = [3, n0, _SMDRt,
   0,
   [_Ar, _CWATGIl, _CAr, _Desc, _DEPA, _EM, _EBRTGIv, _FMRM, _I, _LDA, _LSMD, _MRM, _MA, _MCPD, _MD, _N, _Stat, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StartMultiplexRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
@@ -4998,7 +5023,7 @@ export var StartMultiplexRequest$: StaticStructureSchema = [3, n0, _SMR,
 export var StartMultiplexResponse$: StaticStructureSchema = [3, n0, _SMRt,
   0,
   [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StartTimecode$: StaticStructureSchema = [3, n0, _STt,
   0,
@@ -5013,7 +5038,7 @@ export var StartUpdateSignalMapRequest$: StaticStructureSchema = [3, n0, _SUSMR,
 export var StartUpdateSignalMapResponse$: StaticStructureSchema = [3, n0, _SUSMRt,
   0,
   [_Ar, _CWATGIl, _CAr, _Desc, _DEPA, _EM, _EBRTGIv, _FMRM, _I, _LDA, _LSMD, _MRM, _MA, _MCPD, _MD, _N, _Stat, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cWATGIl }], [5, { [_jN]: _cAr }], [0, { [_jN]: _desc }], [0, { [_jN]: _dEPA }], [0, { [_jN]: _eM }], [64 | 0, { [_jN]: _eBRTGIv }], [() => FailedMediaResourceMap, { [_jN]: _fMRM }], [0, { [_jN]: _i }], [5, { [_jN]: _lDA }], [() => SuccessfulMonitorDeployment$, { [_jN]: _lSMD }], [() => MediaResourceMap, { [_jN]: _mRM }], [5, { [_jN]: _mA }], [2, { [_jN]: _mCPD }], [() => MonitorDeployment$, { [_jN]: _mD }], [0, { [_jN]: _n }], [0, { [_jN]: _statu }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StaticImageActivateScheduleActionSettings$: StaticStructureSchema = [3, n0, _SIASAS,
   0,
@@ -5048,7 +5073,7 @@ export var StopChannelRequest$: StaticStructureSchema = [3, n0, _SCRto,
 export var StopChannelResponse$: StaticStructureSchema = [3, n0, _SCRtop,
   0,
   [_Ar, _CIS, _CCh, _Des, _EE, _ESn, _I, _IA, _IS, _LL, _Ma, _N, _PDi, _PRC, _RA, _St, _Ta, _V, _ASn, _CEV, _LCS, _CSG],
-  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
+  [[0, { [_jN]: _ar }], [() => CdiInputSpecification$, { [_jN]: _cIS }], [0, { [_jN]: _cCh }], [() => __listOfOutputDestination, { [_jN]: _des }], [() => __listOfChannelEgressEndpoint, { [_jN]: _eE }], [() => EncoderSettings$, { [_jN]: _eSn }], [0, { [_jN]: _i }], [() => __listOfInputAttachment, { [_jN]: _iA }], [() => InputSpecification$, { [_jN]: _iS }], [0, { [_jN]: _lL }], [() => MaintenanceStatus$, { [_jN]: _ma }], [0, { [_jN]: _n }], [() => __listOfPipelineDetail, { [_jN]: _pDi }], [1, { [_jN]: _pRC }], [0, { [_jN]: _rA }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [() => VpcOutputSettingsDescription$, { [_jN]: _v }], [() => DescribeAnywhereSettings$, { [_jN]: _aSn }], [() => ChannelEngineVersionResponse$, { [_jN]: _cEV }], [() => DescribeLinkedChannelSettings$, { [_jN]: _lCS }], [64 | 0, { [_jN]: _cSG }]]
 ];
 export var StopInputDeviceRequest$: StaticStructureSchema = [3, n0, _SIDRto,
   0,
@@ -5068,7 +5093,7 @@ export var StopMultiplexRequest$: StaticStructureSchema = [3, n0, _SMRto,
 export var StopMultiplexResponse$: StaticStructureSchema = [3, n0, _SMRtop,
   0,
   [_Ar, _AZ, _Des, _I, _MSul, _N, _PRC, _PC, _St, _Ta],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _st }], [128 | 0, { [_jN]: _ta }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aZ }], [() => __listOfMultiplexOutputDestination, { [_jN]: _des }], [0, { [_jN]: _i }], [() => MultiplexSettings$, { [_jN]: _mSul }], [0, { [_jN]: _n }], [1, { [_jN]: _pRC }], [1, { [_jN]: _pC }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }]]
 ];
 export var StopTimecode$: StaticStructureSchema = [3, n0, _STto,
   0,
@@ -5078,7 +5103,7 @@ export var StopTimecode$: StaticStructureSchema = [3, n0, _STto,
 export var SuccessfulMonitorDeployment$: StaticStructureSchema = [3, n0, _SMD,
   0,
   [_DUe, _Stat],
-  [[0, { [_jN]: _dUe }], [0, { [_jN]: _stat }]], 2
+  [[0, { [_jN]: _dUe }], [0, { [_jN]: _statu }]], 2
 ];
 export var TeletextDestinationSettings$: StaticStructureSchema = [3, n0, _TDS,
   0,
@@ -5103,7 +5128,7 @@ export var Thumbnail$: StaticStructureSchema = [3, n0, _Thu,
 export var ThumbnailConfiguration$: StaticStructureSchema = [3, n0, _TCh,
   0,
   [_St],
-  [[0, { [_jN]: _st }]], 1
+  [[0, { [_jN]: _sta }]], 1
 ];
 export var ThumbnailDetail$: StaticStructureSchema = [3, n0, _TDh,
   0,
@@ -5125,12 +5150,6 @@ export var TimedMetadataScheduleActionSettings$: StaticStructureSchema = [3, n0,
   [_Id_],
   [[0, { [_jN]: _id }]], 1
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_er]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var TransferInputDeviceRequest$: StaticStructureSchema = [3, n0, _TIDR,
   0,
   [_IDI, _TCI, _TR, _TM],
@@ -5166,12 +5185,6 @@ export var UdpOutputSettings$: StaticStructureSchema = [3, n0, _UOS,
   [_CS, _De, _BMuf, _FOS],
   [[() => UdpContainerSettings$, { [_jN]: _cS }], [() => OutputLocationRef$, { [_jN]: _de }], [1, { [_jN]: _bMuf }], [() => FecOutputSettings$, { [_jN]: _fOS }]], 2
 ];
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_er]: _c, [_hE]: 422 },
-  [_M, _VE],
-  [[0, { [_jN]: _m }], [() => __listOfValidationError, { [_jN]: _vE }]]
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UpdateAccountConfigurationRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
   [_ACc],
@@ -5200,7 +5213,7 @@ export var UpdateChannelPlacementGroupRequest$: StaticStructureSchema = [3, n0, 
 export var UpdateChannelPlacementGroupResponse$: StaticStructureSchema = [3, n0, _UCPGRp,
   0,
   [_Ar, _Cha, _CI, _I, _N, _No, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _ch }], [0, { [_jN]: _cI }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _no }], [0, { [_jN]: _sta }]]
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
@@ -5225,12 +5238,12 @@ export var UpdateCloudWatchAlarmTemplateGroupResponse$: StaticStructureSchema = 
 export var UpdateCloudWatchAlarmTemplateRequest$: StaticStructureSchema = [3, n0, _UCWATR,
   0,
   [_Id, _CO, _DTA, _Desc, _EP, _GIr, _MN, _N, _Pe, _Sta, _TRT, _Th, _TMD],
-  [[0, 1], [0, { [_jN]: _cO }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gIr }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]], 1
+  [[0, 1], [0, { [_jN]: _cO }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gIr }], [0, { [_jN]: _mN }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]], 1
 ];
 export var UpdateCloudWatchAlarmTemplateResponse$: StaticStructureSchema = [3, n0, _UCWATRp,
   0,
   [_Ar, _CO, _CAr, _DTA, _Desc, _EP, _GI, _I, _MN, _MA, _N, _Pe, _Sta, _Ta, _TRT, _Th, _TMD],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _sta }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _cO }], [5, { [_jN]: _cAr }], [1, { [_jN]: _dTA }], [0, { [_jN]: _desc }], [1, { [_jN]: _eP }], [0, { [_jN]: _gI }], [0, { [_jN]: _i }], [0, { [_jN]: _mN }], [5, { [_jN]: _mA }], [0, { [_jN]: _n }], [1, { [_jN]: _pe }], [0, { [_jN]: _stat }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _tRT }], [1, { [_jN]: _th }], [0, { [_jN]: _tMD }]]
 ];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
@@ -5240,7 +5253,7 @@ export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCRpd,
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,
   [_Ar, _CIh, _CTl, _I, _N, _NS, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cIh }], [0, { [_jN]: _cTl }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [() => ClusterNetworkSettings$, { [_jN]: _nS }], [0, { [_jN]: _sta }]]
 ];
 export var UpdateEventBridgeRuleTemplateGroupRequest$: StaticStructureSchema = [3, n0, _UEBRTGR,
   0,
@@ -5320,7 +5333,7 @@ export var UpdateNetworkRequest$: StaticStructureSchema = [3, n0, _UNR,
 export var UpdateNetworkResponse$: StaticStructureSchema = [3, n0, _UNRp,
   0,
   [_Ar, _ACI, _I, _IPp, _N, _Ro, _St],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _st }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _aCI }], [0, { [_jN]: _i }], [() => __listOfIpPool, { [_jN]: _iPp }], [0, { [_jN]: _n }], [() => __listOfRoute, { [_jN]: _ro }], [0, { [_jN]: _sta }]]
 ];
 export var UpdateNodeRequest$: StaticStructureSchema = [3, n0, _UNRpd,
   0,
@@ -5330,17 +5343,17 @@ export var UpdateNodeRequest$: StaticStructureSchema = [3, n0, _UNRpd,
 export var UpdateNodeResponse$: StaticStructureSchema = [3, n0, _UNRpda,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var UpdateNodeStateRequest$: StaticStructureSchema = [3, n0, _UNSR,
   0,
   [_CI, _NIo, _St],
-  [[0, 1], [0, 1], [0, { [_jN]: _st }]], 2
+  [[0, 1], [0, 1], [0, { [_jN]: _sta }]], 2
 ];
 export var UpdateNodeStateResponse$: StaticStructureSchema = [3, n0, _UNSRp,
   0,
   [_Ar, _CPG, _CI, _CSon, _I, _IAn, _N, _NIM, _Rol, _St, _SSM],
-  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _st }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
+  [[0, { [_jN]: _ar }], [64 | 0, { [_jN]: _cPG }], [0, { [_jN]: _cI }], [0, { [_jN]: _cSon }], [0, { [_jN]: _i }], [0, { [_jN]: _iAn }], [0, { [_jN]: _n }], [() => __listOfNodeInterfaceMapping, { [_jN]: _nIM }], [0, { [_jN]: _rol }], [0, { [_jN]: _sta }], [() => SdiSourceMappings, { [_jN]: _sSM }]]
 ];
 export var UpdateReservationRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -5428,8 +5441,6 @@ export var WebvttDestinationSettings$: StaticStructureSchema = [3, n0, _WDS,
   [[0, { [_jN]: _sCt }]]
 ];
 var __Unit = "unit" as const;
-export var MediaLiveServiceException$: StaticErrorSchema = [-3, _sm, "MediaLiveServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaLiveServiceException$, MediaLiveServiceException);
 var __listOf__integer = 64 | 1;
 var __listOf__string = 64 | 0;
 var __listOf__stringMin7Max11PatternAws097 = 64 | 0;

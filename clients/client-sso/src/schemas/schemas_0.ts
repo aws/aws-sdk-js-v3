@@ -69,6 +69,43 @@ import {
 import { SSOServiceException } from "../models/SSOServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SSOServiceException$: StaticErrorSchema = [-3, _s, "SSOServiceException", 0, [], []];
+_s_registry.registerError(SSOServiceException$, SSOServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessTokenType: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 var SecretAccessKeyType: StaticSimpleSchema = [0, n0, _SAKT, 8, 0];
 var SessionTokenType: StaticSimpleSchema = [0, n0, _STT, 8, 0];
@@ -87,12 +124,6 @@ export var GetRoleCredentialsResponse$: StaticStructureSchema = [3, n0, _GRCRe,
   [_rC],
   [[() => RoleCredentials$, 0]]
 ];
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAccountRolesRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_aT, _aI, _nT, _mR],
@@ -118,12 +149,6 @@ export var LogoutRequest$: StaticStructureSchema = [3, n0, _LR,
   [_aT],
   [[() => AccessTokenType, { [_hH]: _xasbt }]], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoleCredentials$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_aKI, _sAK, _sT, _ex],
@@ -134,21 +159,7 @@ export var RoleInfo$: StaticStructureSchema = [3, n0, _RI,
   [_rN, _aI],
   [0, 0]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 var __Unit = "unit" as const;
-export var SSOServiceException$: StaticErrorSchema = [-3, _s, "SSOServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SSOServiceException$, SSOServiceException);
 var AccountListType: StaticListSchema = [1, n0, _ALT,
   0, () => AccountInfo$
 ];

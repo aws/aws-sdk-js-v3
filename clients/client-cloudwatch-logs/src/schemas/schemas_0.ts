@@ -780,7 +780,7 @@ const _rSe = "responseStream";
 const _rT = "resourceType";
 const _rTe = "resourceTypes";
 const _rTen = "renameTo";
-const _s = "scope";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudwatchlogs";
 const _sB = "storedBytes";
 const _sC = "selectionCriteria";
 const _sCO = "startCharOffset";
@@ -818,9 +818,9 @@ const _sU = "suppressedUntil";
 const _sUe = "sessionUpdate";
 const _sUu = "suppressionUnit";
 const _sa = "sampled";
-const _se = "service";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudwatchlogs";
+const _sc = "scope";
+const _se = "server";
+const _ser = "service";
 const _so = "source";
 const _sou = "sources";
 const _st = "state";
@@ -900,15 +900,148 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudWatchLogsServiceException$: StaticErrorSchema = [-3, _s, "CloudWatchLogsServiceException", 0, [], []];
+_s_registry.registerError(CloudWatchLogsServiceException$, CloudWatchLogsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DataAlreadyAcceptedException$: StaticErrorSchema = [-3, n0, _DAAE,
+  { [_e]: _c },
+  [_eST, _m],
+  [0, 0]
+];
+n0_registry.registerError(DataAlreadyAcceptedException$, DataAlreadyAcceptedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InternalStreamingException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalStreamingException$, InternalStreamingException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidSequenceTokenException$: StaticErrorSchema = [-3, n0, _ISTE,
+  { [_e]: _c },
+  [_eST, _m],
+  [0, 0]
+];
+n0_registry.registerError(InvalidSequenceTokenException$, InvalidSequenceTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedQueryException$: StaticErrorSchema = [-3, n0, _MQE,
+  { [_e]: _c },
+  [_qCE, _m],
+  [() => QueryCompileError$, 0]
+];
+n0_registry.registerError(MalformedQueryException$, MalformedQueryException);
+export var OperationAbortedException$: StaticErrorSchema = [-3, n0, _OAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationAbortedException$, OperationAbortedException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SessionStreamingException$: StaticErrorSchema = [-3, n0, _SSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SessionStreamingException$, SessionStreamingException);
+export var SessionTimeoutException$: StaticErrorSchema = [-3, n0, _STE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SessionTimeoutException$, SessionTimeoutException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnrecognizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnrecognizedClientException$, UnrecognizedClientException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountPolicy$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_pN, _pD, _lUT, _pT, _s, _sC, _aI],
+  [_pN, _pD, _lUT, _pT, _sc, _sC, _aI],
   [0, 0, 1, 0, 0, 0, 0]
 ];
 export var AddKeyEntry$: StaticStructureSchema = [3, n0, _AKE,
@@ -968,7 +1101,7 @@ export var CancelImportTaskResponse$: StaticStructureSchema = [3, n0, _CITRa,
 ];
 export var ConfigurationTemplate$: StaticStructureSchema = [3, n0, _CT,
   0,
-  [_se, _lT, _rT, _dDT, _dDCV, _aF, _aOF, _aAFAVLDFR, _aFD, _aSPF],
+  [_ser, _lT, _rT, _dDT, _dDCV, _aF, _aOF, _aAFAVLDFR, _aFD, _aSPF],
   [0, 0, 0, 0, () => ConfigurationTemplateDeliveryConfigValues$, () => AllowedFields, 64 | 0, 0, 64 | 0, 64 | 0]
 ];
 export var ConfigurationTemplateDeliveryConfigValues$: StaticStructureSchema = [3, n0, _CTDCV,
@@ -976,12 +1109,6 @@ export var ConfigurationTemplateDeliveryConfigValues$: StaticStructureSchema = [
   [_rF, _fD, _sDC],
   [64 | 0, 0, () => S3DeliveryConfiguration$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CopyValue$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_en],
@@ -1057,12 +1184,6 @@ export var CSV$: StaticStructureSchema = [3, n0, _CSV,
   [_qC, _del, _co, _so],
   [0, 0, 64 | 0, 0]
 ];
-export var DataAlreadyAcceptedException$: StaticErrorSchema = [-3, n0, _DAAE,
-  { [_e]: _c },
-  [_eST, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DataAlreadyAcceptedException$, DataAlreadyAcceptedException);
 export var DataSource$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_n, _ty],
@@ -1215,7 +1336,7 @@ export var DeliveryDestinationConfiguration$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeliverySource$: StaticStructureSchema = [3, n0, _DSe,
   0,
-  [_n, _ar, _rAe, _se, _lT, _ta],
+  [_n, _ar, _rAe, _ser, _lT, _ta],
   [0, 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var DescribeAccountPoliciesRequest$: StaticStructureSchema = [3, n0, _DAPRe,
@@ -1230,7 +1351,7 @@ export var DescribeAccountPoliciesResponse$: StaticStructureSchema = [3, n0, _DA
 ];
 export var DescribeConfigurationTemplatesRequest$: StaticStructureSchema = [3, n0, _DCTR,
   0,
-  [_se, _lTo, _rTe, _dDTe, _nT, _li],
+  [_ser, _lTo, _rTe, _dDTe, _nT, _li],
   [0, 64 | 0, 64 | 0, 64 | 0, 0, 1]
 ];
 export var DescribeConfigurationTemplatesResponse$: StaticStructureSchema = [3, n0, _DCTRe,
@@ -1673,42 +1794,6 @@ export var IntegrationSummary$: StaticStructureSchema = [3, n0, _ISn,
   [_iN, _iTn, _iSn],
   [0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InternalStreamingException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalStreamingException$, InternalStreamingException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidSequenceTokenException$: StaticErrorSchema = [-3, n0, _ISTE,
-  { [_e]: _c },
-  [_eST, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidSequenceTokenException$, InvalidSequenceTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAggregateLogGroupSummariesRequest$: StaticStructureSchema = [3, n0, _LALGSR,
   0,
   [_gB, _aIc, _iLA, _lGCo, _lGNPo, _dSa, _nT, _li],
@@ -1874,12 +1959,6 @@ export var LowerCaseString$: StaticStructureSchema = [3, n0, _LCS,
   [_wK],
   [64 | 0], 1
 ];
-export var MalformedQueryException$: StaticErrorSchema = [-3, n0, _MQE,
-  { [_e]: _c },
-  [_qCE, _m],
-  [() => QueryCompileError$, 0]
-];
-TypeRegistry.for(n0).registerError(MalformedQueryException$, MalformedQueryException);
 export var MetricFilter$: StaticStructureSchema = [3, n0, _MF,
   0,
   [_fN, _fP, _mT, _cT, _lGN, _aOTL, _fSC, _eSFD],
@@ -1960,12 +2039,6 @@ export var OpenSearchWorkspace$: StaticStructureSchema = [3, n0, _OSW,
   [_wI, _sta],
   [0, () => OpenSearchResourceStatus$]
 ];
-export var OperationAbortedException$: StaticErrorSchema = [-3, n0, _OAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationAbortedException$, OperationAbortedException);
 export var OutputLogEvent$: StaticStructureSchema = [3, n0, _OLE,
   0,
   [_tim, _m, _iT],
@@ -2028,7 +2101,7 @@ export var Processor$: StaticStructureSchema = [3, n0, _Pr,
 ];
 export var PutAccountPolicyRequest$: StaticStructureSchema = [3, n0, _PAPR,
   0,
-  [_pN, _pD, _pT, _s, _sC],
+  [_pN, _pD, _pT, _sc, _sC],
   [0, 0, 0, 0, 0], 3
 ];
 export var PutAccountPolicyResponse$: StaticStructureSchema = [3, n0, _PAPRu,
@@ -2216,18 +2289,6 @@ export var RenameKeys$: StaticStructureSchema = [3, n0, _RK,
   [_en],
   [() => RenameKeyEntries], 1
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_pN, _pD, _lUT, _pSo, _rA, _rIev],
@@ -2268,30 +2329,6 @@ export var SearchedLogStream$: StaticStructureSchema = [3, n0, _SLS,
   [_lSN, _sCe],
   [0, 2]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _ser },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
-export var SessionStreamingException$: StaticErrorSchema = [-3, n0, _SSE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SessionStreamingException$, SessionStreamingException);
-export var SessionTimeoutException$: StaticErrorSchema = [-3, n0, _STE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SessionTimeoutException$, SessionTimeoutException);
 export var SplitString$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_en],
@@ -2382,18 +2419,6 @@ export var TestTransformerResponse$: StaticStructureSchema = [3, n0, _TTRe,
   [_tL],
   [() => TransformedLogs]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TransformedLogRecord$: StaticStructureSchema = [3, n0, _TLR,
   0,
   [_eN, _eMv, _tEM],
@@ -2419,12 +2444,6 @@ export var TypeConverterEntry$: StaticStructureSchema = [3, n0, _TCE,
   [_k, _ty],
   [0, 0], 2
 ];
-export var UnrecognizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnrecognizedClientException$, UnrecognizedClientException);
 export var UntagLogGroupRequest$: StaticStructureSchema = [3, n0, _ULGR,
   0,
   [_lGN, _ta],
@@ -2470,15 +2489,7 @@ export var UpperCaseString$: StaticStructureSchema = [3, n0, _UCS,
   [_wK],
   [64 | 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var CloudWatchLogsServiceException$: StaticErrorSchema = [-3, _sm, "CloudWatchLogsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudWatchLogsServiceException$, CloudWatchLogsServiceException);
 var AccountIds = 64 | 0;
 var AccountPolicies: StaticListSchema = [1, n0, _APc,
   0, () => AccountPolicy$

@@ -365,7 +365,7 @@ const _Pl = "Place";
 const _Po = "Position";
 const _Poi = "Point";
 const _Pol = "Polygon";
-const _R = "Radius";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RBB = "RouteBBox";
 const _RBBe = "ResultBBox";
@@ -378,8 +378,8 @@ const _RNFE = "ResourceNotFoundException";
 const _RP = "RefererPattern";
 const _RPL = "RefererPatternList";
 const _RT = "ReceivedTime";
+const _Ra = "Radius";
 const _Re = "Restrictions";
-const _Rea = "Reason";
 const _Reg = "Region";
 const _Rel = "Relevance";
 const _Res = "Results";
@@ -504,8 +504,8 @@ const _l = "language";
 const _m = "message";
 const _n = "name";
 const _r = "reason";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.location";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.location";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.location";
 
@@ -532,6 +532,61 @@ import {
 import { LocationServiceException } from "../models/LocationServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LocationServiceException$: StaticErrorSchema = [-3, _s, "LocationServiceException", 0, [], []];
+_s_registry.registerError(LocationServiceException$, LocationServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 var Base64EncodedGeobuf: StaticSimpleSchema = [0, n0, _BEG, 8, 21];
 var CountryCode3: StaticSimpleSchema = [0, n0, _CC, 8, 0];
@@ -545,12 +600,6 @@ var SensitiveDouble: StaticSimpleSchema = [0, n0, _SD, 8, 1];
 var SensitiveInteger: StaticSimpleSchema = [0, n0, _SI, 8, 1];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var Timestamp: StaticSimpleSchema = [0, n0, _T, 8, 5];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AndroidApp$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_P, _CF],
@@ -733,15 +782,9 @@ export var CellSignals$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var Circle$: StaticStructureSchema = [3, n0, _Ci,
   8,
-  [_Ce, _R],
+  [_Ce, _Ra],
   [[() => Position, 0], [() => SensitiveDouble, 0]], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGeofenceCollectionRequest$: StaticStructureSchema = [3, n0, _CGCR,
   0,
   [_CN, _PP, _PPDS, _De, _Ta, _KKI],
@@ -1062,12 +1105,6 @@ export var InferredState$: StaticStructureSchema = [3, n0, _IS,
   [_PD, _Po, _A, _DD],
   [2, [() => Position, 0], [() => PositionalAccuracy$, 0], 1], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Leg$: StaticStructureSchema = [3, n0, _Le,
   0,
   [_SP, _EP, _D, _DSu, _Ste, _G],
@@ -1268,12 +1305,6 @@ export var PutGeofenceResponse$: StaticStructureSchema = [3, n0, _PGRu,
   [_GI, _CT, _UT],
   [0, [() => Timestamp, 0], [() => Timestamp, 0]], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RouteMatrixEntry$: StaticStructureSchema = [3, n0, _RME,
   0,
   [_D, _DSu, _E],
@@ -1344,12 +1375,6 @@ export var SearchPlaceIndexForTextSummary$: StaticStructureSchema = [3, n0, _SPI
   [_Te, _DS, _BP, _FBB, _FC, _MR, _RBBe, _La, _FCi],
   [[() => SensitiveString, 0], 0, [() => Position, 0], [() => BoundingBox, 0], [() => CountryCodeList, 0], 1, [() => BoundingBox, 0], 0, [() => FilterPlaceCategoryList, 0]], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Step$: StaticStructureSchema = [3, n0, _Step,
   0,
   [_SP, _EP, _D, _DSu, _GO],
@@ -1365,12 +1390,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeZone$: StaticStructureSchema = [3, n0, _TZ,
   0,
   [_Na, _O],
@@ -1461,12 +1480,6 @@ export var UpdateTrackerResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [_TN, _TA, _UT],
   [0, 0, [() => Timestamp, 0]], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
@@ -1487,8 +1500,6 @@ export var WiFiAccessPoint$: StaticStructureSchema = [3, n0, _WFAPi,
   [_MAa, _Rss],
   [0, 1], 2
 ];
-export var LocationServiceException$: StaticErrorSchema = [-3, _sm, "LocationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LocationServiceException$, LocationServiceException);
 var AndroidAppList: StaticListSchema = [1, n0, _AAL,
   0, () => AndroidApp$
 ];

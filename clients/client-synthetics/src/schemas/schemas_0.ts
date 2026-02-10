@@ -208,8 +208,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.synthetics";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.synthetics";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.synthetics";
 
@@ -239,12 +239,85 @@ import {
 import { SyntheticsServiceException } from "../models/SyntheticsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SyntheticsServiceException$: StaticErrorSchema = [-3, _s, "SyntheticsServiceException", 0, [], []];
+_s_registry.registerError(SyntheticsServiceException$, SyntheticsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RequestEntityTooLargeException$, RequestEntityTooLargeException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ArtifactConfigInput$: StaticStructureSchema = [3, n0, _ACI,
   0,
   [_SE],
@@ -265,12 +338,6 @@ export var AssociateResourceResponse$: StaticStructureSchema = [3, n0, _ARRs,
   [],
   []
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BaseScreenshot$: StaticStructureSchema = [3, n0, _BS,
   0,
   [_SN, _IC],
@@ -351,12 +418,6 @@ export var CanaryTimeline$: StaticStructureSchema = [3, n0, _CT,
   [_Cr, _LM, _LS, _LSa],
   [4, 4, 4, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCanaryRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_N, _Co, _ASL, _ERA, _S, _RV, _RC, _SRPID, _FRPID, _VC, _RTRT, _PRC, _BCr, _Ta, _AC],
@@ -492,18 +553,6 @@ export var GroupSummary$: StaticStructureSchema = [3, n0, _GS,
   [_I, _N, _A],
   [0, 0, 0]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssociatedGroupsRequest$: StaticStructureSchema = [3, n0, _LAGR,
   0,
   [_RA, _NT, _MR],
@@ -544,24 +593,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta],
   [128 | 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
-export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestEntityTooLargeException$, RequestEntityTooLargeException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryConfigInput$: StaticStructureSchema = [3, n0, _RCI,
   0,
   [_MRa],
@@ -582,12 +613,6 @@ export var S3EncryptionConfig$: StaticStructureSchema = [3, n0, _SEC,
   [_EM, _KKA],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartCanaryDryRunRequest$: StaticStructureSchema = [3, n0, _SCDRR,
   0,
   [_N, _Co, _RV, _RC, _VC, _ERA, _SRPID, _FRPID, _VR, _ASL, _AC, _PRC, _BCr, _VRi],
@@ -628,12 +653,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -654,12 +673,6 @@ export var UpdateCanaryResponse$: StaticStructureSchema = [3, n0, _UCRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VisualReferenceInput$: StaticStructureSchema = [3, n0, _VRI,
   0,
   [_BCRI, _BSa, _BT],
@@ -680,8 +693,6 @@ export var VpcConfigOutput$: StaticStructureSchema = [3, n0, _VCO,
   [_VI, _SI, _SGI, _IAFDS],
   [0, 64 | 0, 64 | 0, 2]
 ];
-export var SyntheticsServiceException$: StaticErrorSchema = [-3, _sm, "SyntheticsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SyntheticsServiceException$, SyntheticsServiceException);
 var BaseScreenshotIgnoreCoordinates = 64 | 0;
 var BaseScreenshots: StaticListSchema = [1, n0, _BSa,
   0, () => BaseScreenshot$

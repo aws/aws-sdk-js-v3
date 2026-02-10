@@ -1,6 +1,5 @@
 import { collectBody, RpcProtocol } from "@smithy/core/protocols";
-import type { TypeRegistry } from "@smithy/core/schema";
-import { deref, NormalizedSchema } from "@smithy/core/schema";
+import { deref, ErrorSchema, NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   Codec,
   DocumentSchema,
@@ -12,6 +11,7 @@ import type {
   OperationSchema,
   ResponseMetadata,
   SerdeFunctions,
+  StaticErrorSchema,
   TimestampDateTimeSchema,
 } from "@smithy/types";
 
@@ -23,10 +23,6 @@ import { QueryShapeSerializer } from "./QueryShapeSerializer";
  * @public
  */
 export class AwsQueryProtocol extends RpcProtocol {
-  /**
-   * @override
-   */
-  protected declare compositeErrorRegistry: TypeRegistry;
   protected serializer: QueryShapeSerializer;
   protected deserializer: XmlShapeDeserializer;
   private readonly mixin = new ProtocolLib();
@@ -36,12 +32,10 @@ export class AwsQueryProtocol extends RpcProtocol {
       defaultNamespace: string;
       xmlNamespace: string;
       version: string;
-      errorTypeRegistries?: TypeRegistry[];
     }
   ) {
     super({
       defaultNamespace: options.defaultNamespace,
-      errorTypeRegistries: options.errorTypeRegistries,
     });
     const settings = {
       timestampFormat: {
@@ -171,7 +165,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {

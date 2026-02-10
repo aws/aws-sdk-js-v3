@@ -179,7 +179,7 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LVS = "ListVodSources";
 const _LVSR = "ListVodSourcesRequest";
 const _LVSRi = "ListVodSourcesResponse";
-const _M = "Mode";
+const _M = "Message";
 const _MBTS = "MinBufferTimeSeconds";
 const _MDS = "MaxDurationSeconds";
 const _MEP = "ManifestEndpointPrefix";
@@ -192,8 +192,8 @@ const _MT = "MessageType";
 const _MTDS = "MaxTimeDelaySeconds";
 const _MUPS = "MinUpdatePeriodSeconds";
 const _MWS = "ManifestWindowSeconds";
-const _Me = "Message";
-const _Met = "Method";
+const _Me = "Method";
+const _Mo = "Mode";
 const _N = "Name";
 const _NT = "NextToken";
 const _O = "Operator";
@@ -363,6 +363,25 @@ import { BadRequestException } from "../models/errors";
 import { MediaTailorServiceException } from "../models/MediaTailorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaTailorServiceException$: StaticErrorSchema = [-3, _s, "MediaTailorServiceException", 0, [], []];
+_s_registry.registerError(MediaTailorServiceException$, MediaTailorServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_AT, _SMATC],
@@ -420,15 +439,9 @@ export var AvailMatchingCriteria$: StaticStructureSchema = [3, n0, _AMC,
 ];
 export var AvailSuppression$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_M, _V, _FP],
+  [_Mo, _V, _FP],
   [0, 0, 0]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Bumper$: StaticStructureSchema = [3, n0, _B,
   0,
   [_EU, _SU],
@@ -741,7 +754,7 @@ export var HttpPackageConfiguration$: StaticStructureSchema = [3, n0, _HPCt,
 ];
 export var HttpRequest$: StaticStructureSchema = [3, n0, _HR,
   0,
-  [_Met, _Bo, _H, _CRo],
+  [_Me, _Bo, _H, _CRo],
   [0, 0, 128 | 0, 0]
 ];
 export var KeyValuePair$: StaticStructureSchema = [3, n0, _KVP,
@@ -1090,8 +1103,6 @@ export var VodSource$: StaticStructureSchema = [3, n0, _VS,
   [0, () => HttpPackageConfigurations, 0, 0, 7, 7, [128 | 0, { [_jN]: _t }]], 4
 ];
 var __Unit = "unit" as const;
-export var MediaTailorServiceException$: StaticErrorSchema = [-3, _s, "MediaTailorServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(MediaTailorServiceException$, MediaTailorServiceException);
 var __adsInteractionExcludeEventTypesList = 64 | 0;
 var __adsInteractionPublishOptInEventTypesList = 64 | 0;
 var __listOf__string = 64 | 0;

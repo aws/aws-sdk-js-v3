@@ -291,7 +291,7 @@ const _rU = "replicationUser";
 const _re = "region";
 const _rea = "reason";
 const _rev = "revisions";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mq";
 const _sAP = "serviceAccountPassword";
 const _sAU = "serviceAccountUsername";
 const _sDM = "supportedDeploymentModes";
@@ -299,7 +299,7 @@ const _sEV = "supportedEngineVersions";
 const _sG = "securityGroups";
 const _sI = "subnetIds";
 const _sT = "storageType";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mq";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tOD = "timeOfDay";
@@ -335,6 +335,55 @@ import {
 import { MqServiceException } from "../models/MqServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MqServiceException$: StaticErrorSchema = [-3, _s, "MqServiceException", 0, [], []];
+_s_registry.registerError(MqServiceException$, MqServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_EA, _M],
+  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActionRequired$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_ARC, _ARI],
@@ -345,12 +394,6 @@ export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   [_N],
   [[0, { [_jN]: _n }]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BrokerEngineType$: StaticStructureSchema = [3, n0, _BET,
   0,
   [_ET, _EV],
@@ -391,12 +434,6 @@ export var Configurations$: StaticStructureSchema = [3, n0, _Con,
   [_Cu, _H, _P],
   [[() => ConfigurationId$, { [_jN]: _cu }], [() => __listOfConfigurationId, { [_jN]: _h }], [() => ConfigurationId$, { [_jN]: _p }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBrokerRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_BN, _DM, _ET, _HIT, _PA, _AS, _AMVU, _Co, _CRI, _EO, _EVn, _LSM, _L, _MWST, _SG, _ST, _SI, _T, _U, _DRM, _DRPBA],
@@ -547,18 +584,6 @@ export var EngineVersion$: StaticStructureSchema = [3, n0, _EVn,
   [_N],
   [[0, { [_jN]: _n }]]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var LdapServerMetadataInput$: StaticStructureSchema = [3, n0, _LSMI,
   0,
   [_Ho, _RB, _RSM, _SAP, _SAU, _UB, _USM, _RN, _RSS, _URN, _USS],
@@ -629,12 +654,6 @@ export var LogsSummary$: StaticStructureSchema = [3, n0, _LS,
   [_Ge, _GLG, _Au, _ALG, _P],
   [[2, { [_jN]: _ge }], [0, { [_jN]: _gLG }], [2, { [_jN]: _au }], [0, { [_jN]: _aLG }], [() => PendingLogs$, { [_jN]: _p }]], 2
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PendingLogs$: StaticStructureSchema = [3, n0, _PL,
   0,
   [_Au, _Ge],
@@ -665,12 +684,6 @@ export var SanitizationWarning$: StaticStructureSchema = [3, n0, _SW,
   [_Rea, _AN, _EN],
   [[0, { [_jN]: _rea }], [0, { [_jN]: _aN }], [0, { [_jN]: _eN }]], 1
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_EA, _M],
-  [[0, { [_jN]: _eA }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UpdateBrokerRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
   [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _SG, _DRM],
@@ -722,8 +735,6 @@ export var WeeklyStartTime$: StaticStructureSchema = [3, n0, _WST,
   [[0, { [_jN]: _dOW }], [0, { [_jN]: _tOD }], [0, { [_jN]: _tZ }]], 2
 ];
 var __Unit = "unit" as const;
-export var MqServiceException$: StaticErrorSchema = [-3, _sm, "MqServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MqServiceException$, MqServiceException);
 var __listOf__string = 64 | 0;
 var __listOfActionRequired: StaticListSchema = [1, n0, _lOAR,
   0, [() => ActionRequired$,

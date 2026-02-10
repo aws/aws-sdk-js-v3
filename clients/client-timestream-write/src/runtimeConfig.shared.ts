@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTimestreamWriteHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TimestreamWriteClientConfig } from "./TimestreamWriteClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TimestreamWriteClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.timestreamwrite",
+      errorTypeRegistries,
       version: "2018-11-01",
       serviceTarget: "Timestream_20181101",
     },

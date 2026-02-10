@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDeviceFarmHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DeviceFarmClientConfig } from "./DeviceFarmClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DeviceFarmClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.devicefarm",
+      errorTypeRegistries,
       xmlNamespace: "http://devicefarm.amazonaws.com/doc/2015-06-23/",
       version: "2015-06-23",
       serviceTarget: "DeviceFarm_20150623",

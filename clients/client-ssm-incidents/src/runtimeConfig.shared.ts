@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSMIncidentsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSMIncidentsClientConfig } from "./SSMIncidentsClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSMIncidentsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssmincidents",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "SSMIncidents",
     },

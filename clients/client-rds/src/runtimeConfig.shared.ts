@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRDSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { RDSClientConfig } from "./RDSClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: RDSClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.rds",
+      errorTypeRegistries,
       xmlNamespace: "http://rds.amazonaws.com/doc/2014-10-31/",
       version: "2014-10-31",
       serviceTarget: "AmazonRDSv19",

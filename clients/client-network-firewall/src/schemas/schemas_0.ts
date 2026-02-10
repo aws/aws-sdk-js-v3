@@ -590,8 +590,8 @@ const _VIp = "VpcIds";
 const _VN = "VendorName";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.networkfirewall";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.networkfirewall";
+const _se = "server";
 const n0 = "com.amazonaws.networkfirewall";
 
 // smithy-typescript generated code
@@ -621,6 +621,91 @@ import {
 import { NetworkFirewallServiceException } from "../models/NetworkFirewallServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var NetworkFirewallServiceException$: StaticErrorSchema = [-3, _s, "NetworkFirewallServiceException", 0, [], []];
+_s_registry.registerError(NetworkFirewallServiceException$, NetworkFirewallServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
+export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidTokenException$, InvalidTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var LogDestinationPermissionException$: StaticErrorSchema = [-3, n0, _LDPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LogDestinationPermissionException$, LogDestinationPermissionException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceOwnerCheckException$: StaticErrorSchema = [-3, n0, _ROCE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceOwnerCheckException$, ResourceOwnerCheckException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptNetworkFirewallTransitGatewayAttachmentRequest$: StaticStructureSchema = [3, n0, _ANFTGAR,
   0,
   [_TGAI],
@@ -1216,42 +1301,6 @@ export var Hits$: StaticStructureSchema = [3, n0, _H,
   [_Co],
   [1]
 ];
-export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidResourcePolicyException$: StaticErrorSchema = [-3, n0, _IRPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourcePolicyException$, InvalidResourcePolicyException);
-export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException);
 export var IPSet$: StaticStructureSchema = [3, n0, _IPS,
   0,
   [_Def],
@@ -1267,12 +1316,6 @@ export var IPSetReference$: StaticStructureSchema = [3, n0, _IPSRe,
   [_RAe],
   [0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAnalysisReportsRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_FN, _FAi, _NT, _MR],
@@ -1408,12 +1451,6 @@ export var LogDestinationConfig$: StaticStructureSchema = [3, n0, _LDC,
   [_LT, _LDT, _LD],
   [0, 0, 128 | 0], 3
 ];
-export var LogDestinationPermissionException$: StaticErrorSchema = [-3, n0, _LDPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LogDestinationPermissionException$, LogDestinationPermissionException);
 export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LDCo],
@@ -1549,18 +1586,6 @@ export var RejectNetworkFirewallTransitGatewayAttachmentResponse$: StaticStructu
   [_TGAI, _TGAS],
   [0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceOwnerCheckException$: StaticErrorSchema = [-3, n0, _ROCE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceOwnerCheckException$, ResourceOwnerCheckException);
 export var RuleDefinition$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_MA, _Act],
@@ -1736,12 +1761,6 @@ export var TCPFlagField$: StaticStructureSchema = [3, n0, _TCPFF,
   [_Fla, _Ma],
   [64 | 0, 64 | 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TlsCertificateData$: StaticStructureSchema = [3, n0, _TCD,
   0,
   [_CAe, _CS, _S, _SMt],
@@ -1782,12 +1801,6 @@ export var UniqueSources$: StaticStructureSchema = [3, n0, _US,
   [_Co],
   [1]
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1973,8 +1986,6 @@ export var VpcEndpointAssociationStatus$: StaticStructureSchema = [3, n0, _VEAS,
   [_S, _ASS],
   [0, () => AssociationSyncState], 1
 ];
-export var NetworkFirewallServiceException$: StaticErrorSchema = [-3, _sm, "NetworkFirewallServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NetworkFirewallServiceException$, NetworkFirewallServiceException);
 var Addresses: StaticListSchema = [1, n0, _Ad,
   0, () => Address$
 ];

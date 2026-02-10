@@ -243,17 +243,156 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AccessLog$: StaticStructureSchema = [3, n0, _AL,
-  0,
-  [_E, _SBN, _EI, _SBP],
-  [2, 0, 1, 0], 1
-];
+const _s_registry = TypeRegistry.for(_s);
+export var ElasticLoadBalancingServiceException$: StaticErrorSchema = [-3, _s, "ElasticLoadBalancingServiceException", 0, [], []];
+_s_registry.registerError(ElasticLoadBalancingServiceException$, ElasticLoadBalancingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessPointNotFoundException$: StaticErrorSchema = [-3, n0, _APNFE,
   { [_aQE]: [`LoadBalancerNotFound`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessPointNotFoundException$, AccessPointNotFoundException);
+n0_registry.registerError(AccessPointNotFoundException$, AccessPointNotFoundException);
+export var CertificateNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
+  { [_aQE]: [`CertificateNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CertificateNotFoundException$, CertificateNotFoundException);
+export var DependencyThrottleException$: StaticErrorSchema = [-3, n0, _DTE,
+  { [_aQE]: [`DependencyThrottle`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DependencyThrottleException$, DependencyThrottleException);
+export var DuplicateAccessPointNameException$: StaticErrorSchema = [-3, n0, _DAPNE,
+  { [_aQE]: [`DuplicateLoadBalancerName`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateAccessPointNameException$, DuplicateAccessPointNameException);
+export var DuplicateListenerException$: StaticErrorSchema = [-3, n0, _DLE,
+  { [_aQE]: [`DuplicateListener`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateListenerException$, DuplicateListenerException);
+export var DuplicatePolicyNameException$: StaticErrorSchema = [-3, n0, _DPNE,
+  { [_aQE]: [`DuplicatePolicyName`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicatePolicyNameException$, DuplicatePolicyNameException);
+export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
+  { [_aQE]: [`DuplicateTagKeys`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
+export var InvalidConfigurationRequestException$: StaticErrorSchema = [-3, n0, _ICRE,
+  { [_aQE]: [`InvalidConfigurationRequest`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidConfigurationRequestException$, InvalidConfigurationRequestException);
+export var InvalidEndPointException$: StaticErrorSchema = [-3, n0, _IEPE,
+  { [_aQE]: [`InvalidInstance`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidEndPointException$, InvalidEndPointException);
+export var InvalidSchemeException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InvalidScheme`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSchemeException$, InvalidSchemeException);
+export var InvalidSecurityGroupException$: StaticErrorSchema = [-3, n0, _ISGE,
+  { [_aQE]: [`InvalidSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSecurityGroupException$, InvalidSecurityGroupException);
+export var InvalidSubnetException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSubnetException$, InvalidSubnetException);
+export var ListenerNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
+  { [_aQE]: [`ListenerNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ListenerNotFoundException$, ListenerNotFoundException);
+export var LoadBalancerAttributeNotFoundException$: StaticErrorSchema = [-3, n0, _LBANFE,
+  { [_aQE]: [`LoadBalancerAttributeNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LoadBalancerAttributeNotFoundException$, LoadBalancerAttributeNotFoundException);
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_aQE]: [`PolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicyNotFoundException$, PolicyNotFoundException);
+export var PolicyTypeNotFoundException$: StaticErrorSchema = [-3, n0, _PTNFE,
+  { [_aQE]: [`PolicyTypeNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicyTypeNotFoundException$, PolicyTypeNotFoundException);
+export var SubnetNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_aQE]: [`SubnetNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SubnetNotFoundException$, SubnetNotFoundException);
+export var TooManyAccessPointsException$: StaticErrorSchema = [-3, n0, _TMAPE,
+  { [_aQE]: [`TooManyLoadBalancers`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyAccessPointsException$, TooManyAccessPointsException);
+export var TooManyPoliciesException$: StaticErrorSchema = [-3, n0, _TMPE,
+  { [_aQE]: [`TooManyPolicies`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyPoliciesException$, TooManyPoliciesException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_aQE]: [`TooManyTags`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnsupportedProtocolException$: StaticErrorSchema = [-3, n0, _UPE,
+  { [_aQE]: [`UnsupportedProtocol`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedProtocolException$, UnsupportedProtocolException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AccessLog$: StaticStructureSchema = [3, n0, _AL,
+  0,
+  [_E, _SBN, _EI, _SBP],
+  [2, 0, 1, 0], 1
+];
 export var AddAvailabilityZonesInput$: StaticStructureSchema = [3, n0, _AAZI,
   0,
   [_LBN, _AZ],
@@ -309,12 +448,6 @@ export var BackendServerDescription$: StaticStructureSchema = [3, n0, _BSD,
   [_IP, _PNo],
   [1, 64 | 0]
 ];
-export var CertificateNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
-  { [_aQE]: [`CertificateNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CertificateNotFoundException$, CertificateNotFoundException);
 export var ConfigureHealthCheckInput$: StaticStructureSchema = [3, n0, _CHCI,
   0,
   [_LBN, _HC],
@@ -420,12 +553,6 @@ export var DeleteLoadBalancerPolicyOutput$: StaticStructureSchema = [3, n0, _DLB
   [],
   []
 ];
-export var DependencyThrottleException$: StaticErrorSchema = [-3, n0, _DTE,
-  { [_aQE]: [`DependencyThrottle`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyThrottleException$, DependencyThrottleException);
 export var DeregisterEndPointsInput$: StaticStructureSchema = [3, n0, _DEPI,
   0,
   [_LBN, _I],
@@ -516,30 +643,6 @@ export var DetachLoadBalancerFromSubnetsOutput$: StaticStructureSchema = [3, n0,
   [_S],
   [64 | 0]
 ];
-export var DuplicateAccessPointNameException$: StaticErrorSchema = [-3, n0, _DAPNE,
-  { [_aQE]: [`DuplicateLoadBalancerName`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateAccessPointNameException$, DuplicateAccessPointNameException);
-export var DuplicateListenerException$: StaticErrorSchema = [-3, n0, _DLE,
-  { [_aQE]: [`DuplicateListener`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateListenerException$, DuplicateListenerException);
-export var DuplicatePolicyNameException$: StaticErrorSchema = [-3, n0, _DPNE,
-  { [_aQE]: [`DuplicatePolicyName`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicatePolicyNameException$, DuplicatePolicyNameException);
-export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
-  { [_aQE]: [`DuplicateTagKeys`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_Ta, _In, _Ti, _UT, _HT],
@@ -555,36 +658,6 @@ export var InstanceState$: StaticStructureSchema = [3, n0, _ISn,
   [_II, _St, _RC, _D],
   [0, 0, 0, 0]
 ];
-export var InvalidConfigurationRequestException$: StaticErrorSchema = [-3, n0, _ICRE,
-  { [_aQE]: [`InvalidConfigurationRequest`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidConfigurationRequestException$, InvalidConfigurationRequestException);
-export var InvalidEndPointException$: StaticErrorSchema = [-3, n0, _IEPE,
-  { [_aQE]: [`InvalidInstance`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEndPointException$, InvalidEndPointException);
-export var InvalidSchemeException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InvalidScheme`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSchemeException$, InvalidSchemeException);
-export var InvalidSecurityGroupException$: StaticErrorSchema = [-3, n0, _ISGE,
-  { [_aQE]: [`InvalidSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSecurityGroupException$, InvalidSecurityGroupException);
-export var InvalidSubnetException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSubnetException$, InvalidSubnetException);
 export var LBCookieStickinessPolicy$: StaticStructureSchema = [3, n0, _LBCSP,
   0,
   [_PN, _CEP],
@@ -605,18 +678,6 @@ export var ListenerDescription$: StaticStructureSchema = [3, n0, _LD,
   [_Lis, _PNo],
   [() => Listener$, 64 | 0]
 ];
-export var ListenerNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
-  { [_aQE]: [`ListenerNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ListenerNotFoundException$, ListenerNotFoundException);
-export var LoadBalancerAttributeNotFoundException$: StaticErrorSchema = [-3, n0, _LBANFE,
-  { [_aQE]: [`LoadBalancerAttributeNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LoadBalancerAttributeNotFoundException$, LoadBalancerAttributeNotFoundException);
 export var LoadBalancerAttributes$: StaticStructureSchema = [3, n0, _LBA,
   0,
   [_CZLB, _AL, _CD, _CS, _AAd],
@@ -637,12 +698,6 @@ export var ModifyLoadBalancerAttributesOutput$: StaticStructureSchema = [3, n0, 
   [_LBN, _LBA],
   [0, () => LoadBalancerAttributes$]
 ];
-export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
-  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
 export var Policies$: StaticStructureSchema = [3, n0, _Po,
   0,
   [_ACSPp, _LBCSPo, _OP],
@@ -668,23 +723,11 @@ export var PolicyDescription$: StaticStructureSchema = [3, n0, _PDo,
   [_PN, _PTN, _PADo],
   [0, 0, () => PolicyAttributeDescriptions]
 ];
-export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_aQE]: [`PolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
 export var PolicyTypeDescription$: StaticStructureSchema = [3, n0, _PTDo,
   0,
   [_PTN, _D, _PATDo],
   [0, 0, () => PolicyAttributeTypeDescriptions]
 ];
-export var PolicyTypeNotFoundException$: StaticErrorSchema = [-3, n0, _PTNFE,
-  { [_aQE]: [`PolicyTypeNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyTypeNotFoundException$, PolicyTypeNotFoundException);
 export var RegisterEndPointsInput$: StaticStructureSchema = [3, n0, _REPI,
   0,
   [_LBN, _I],
@@ -750,12 +793,6 @@ export var SourceSecurityGroup$: StaticStructureSchema = [3, n0, _SSG,
   [_OA, _GN],
   [0, 0]
 ];
-export var SubnetNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_aQE]: [`SubnetNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubnetNotFoundException$, SubnetNotFoundException);
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
@@ -771,32 +808,6 @@ export var TagKeyOnly$: StaticStructureSchema = [3, n0, _TKO,
   [_K],
   [0]
 ];
-export var TooManyAccessPointsException$: StaticErrorSchema = [-3, n0, _TMAPE,
-  { [_aQE]: [`TooManyLoadBalancers`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyAccessPointsException$, TooManyAccessPointsException);
-export var TooManyPoliciesException$: StaticErrorSchema = [-3, n0, _TMPE,
-  { [_aQE]: [`TooManyPolicies`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyPoliciesException$, TooManyPoliciesException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_aQE]: [`TooManyTags`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var UnsupportedProtocolException$: StaticErrorSchema = [-3, n0, _UPE,
-  { [_aQE]: [`UnsupportedProtocol`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedProtocolException$, UnsupportedProtocolException);
-export var ElasticLoadBalancingServiceException$: StaticErrorSchema = [-3, _s, "ElasticLoadBalancingServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ElasticLoadBalancingServiceException$, ElasticLoadBalancingServiceException);
 var AdditionalAttributes: StaticListSchema = [1, n0, _AAd,
   0, () => AdditionalAttribute$
 ];

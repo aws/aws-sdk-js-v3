@@ -359,7 +359,7 @@ const _CDo = "ConvergenceDetected";
 const _CDon = "ContentDigest";
 const _CDr = "CreateDate";
 const _CDre = "CreateDomain";
-const _CE = "ContainerEntrypoint";
+const _CE = "ConflictException";
 const _CEAIC = "CodeEditorAppImageConfig";
 const _CEAS = "CodeEditorAppSettings";
 const _CEC = "ClarifyExplainerConfig";
@@ -383,7 +383,7 @@ const _CESl = "ClusterEventSummaries";
 const _CET = "CompilationEndTime";
 const _CEV = "ContainerEnvironmentVariables";
 const _CEVC = "ClusterEbsVolumeConfig";
-const _CEo = "ConflictException";
+const _CEo = "ContainerEntrypoint";
 const _CEr = "CreateEndpoint";
 const _CEre = "CreateExperiment";
 const _CEu = "CustomerEni";
@@ -2039,7 +2039,7 @@ const _Lam = "Lambda";
 const _Las = "Last";
 const _Li = "Line";
 const _Lin = "Lineage";
-const _M = "Mode";
+const _M = "Message";
 const _MA = "ModelArn";
 const _MAA = "MonitoringAlertActions";
 const _MAC = "ModelAccessConfig";
@@ -2314,13 +2314,13 @@ const _MVod = "ModelVariants";
 const _MWS = "MaintenanceWindowStart";
 const _MWTIS = "MaxWaitTimeInSeconds";
 const _Ma = "Max";
-const _Me = "Message";
-const _Met = "Metrics";
+const _Me = "Metrics";
+const _Met = "Metric";
 const _Meta = "Metadata";
-const _Metr = "Metric";
 const _Mi = "Min";
-const _Mo = "Models";
-const _Mod = "Model";
+const _Mo = "Mode";
+const _Mod = "Models";
+const _Mode = "Model";
 const _N = "Name";
 const _NAR = "NodeAdditionResult";
 const _NARL = "NodeAdditionResultList";
@@ -3457,6 +3457,43 @@ import { ConflictException, ResourceInUse, ResourceLimitExceeded, ResourceNotFou
 import { SageMakerServiceException } from "../models/SageMakerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerServiceException$: StaticErrorSchema = [-3, _s, "SageMakerServiceException", 0, [], []];
+_s_registry.registerError(SageMakerServiceException$, SageMakerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceInUse$: StaticErrorSchema = [-3, n0, _RIU,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUse$, ResourceInUse);
+export var ResourceLimitExceeded$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceLimitExceeded$, ResourceLimitExceeded);
+export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFound$, ResourceNotFound);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ClientSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 var HumanLoopActivationConditions: StaticSimpleSchema = [0, n0, _HLAC, { [_mT]: _a }, 0];
 var ModelCardContent: StaticSimpleSchema = [0, n0, _MCC, 8, 0];
@@ -3537,7 +3574,7 @@ export var AlarmDetails$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AlgorithmSpecification$: StaticStructureSchema = [3, n0, _ASl,
   0,
-  [_TIM, _TI, _ANlg, _MD, _ESMMTS, _CE, _CA, _TIC],
+  [_TIM, _TI, _ANlg, _MD, _ESMMTS, _CEo, _CA, _TIC],
   [0, 0, 0, () => MetricDefinitionList, 2, 64 | 0, 64 | 0, () => TrainingImageConfig$], 1
 ];
 export var AlgorithmStatusDetails$: StaticStructureSchema = [3, n0, _ASD,
@@ -3592,7 +3629,7 @@ export var AppLifecycleManagement$: StaticStructureSchema = [3, n0, _ALM,
 ];
 export var AppSpecification$: StaticStructureSchema = [3, n0, _ASp,
   0,
-  [_IU, _CE, _CA],
+  [_IU, _CEo, _CA],
   [0, 64 | 0, 64 | 0], 1
 ];
 export var ArtifactSource$: StaticStructureSchema = [3, n0, _ASr,
@@ -3732,7 +3769,7 @@ export var AutoMLJobCompletionCriteria$: StaticStructureSchema = [3, n0, _AMLJCC
 ];
 export var AutoMLJobConfig$: StaticStructureSchema = [3, n0, _AMLJCu,
   0,
-  [_CCo, _SC, _CGC, _DSC, _M],
+  [_CCo, _SC, _CGC, _DSC, _Mo],
   [() => AutoMLJobCompletionCriteria$, () => AutoMLSecurityConfig$, () => AutoMLCandidateGenerationConfig$, () => AutoMLDataSplitConfig$, 0]
 ];
 export var AutoMLJobObjective$: StaticStructureSchema = [3, n0, _AMLJO,
@@ -3787,7 +3824,7 @@ export var AutoRollbackConfig$: StaticStructureSchema = [3, n0, _ARC,
 ];
 export var Autotune$: StaticStructureSchema = [3, n0, _Au,
   0,
-  [_M],
+  [_Mo],
   [0], 1
 ];
 export var AvailableUpgrade$: StaticStructureSchema = [3, n0, _AUv,
@@ -3802,7 +3839,7 @@ export var BaseModel$: StaticStructureSchema = [3, n0, _BM,
 ];
 export var BatchAddClusterNodesError$: StaticStructureSchema = [3, n0, _BACNE,
   0,
-  [_IGN, _EC, _FC, _Me],
+  [_IGN, _EC, _FC, _M],
   [0, 0, 1, 0], 3
 ];
 export var BatchAddClusterNodesRequest$: StaticStructureSchema = [3, n0, _BACNR,
@@ -3822,12 +3859,12 @@ export var BatchDataCaptureConfig$: StaticStructureSchema = [3, n0, _BDCC,
 ];
 export var BatchDeleteClusterNodeLogicalIdsError$: StaticStructureSchema = [3, n0, _BDCNLIE,
   0,
-  [_Cod, _Me, _NLI],
+  [_Cod, _M, _NLI],
   [0, 0, 0], 3
 ];
 export var BatchDeleteClusterNodesError$: StaticStructureSchema = [3, n0, _BDCNE,
   0,
-  [_Cod, _Me, _NI],
+  [_Cod, _M, _NI],
   [0, 0, 0], 3
 ];
 export var BatchDeleteClusterNodesRequest$: StaticStructureSchema = [3, n0, _BDCNR,
@@ -3862,12 +3899,12 @@ export var BatchDescribeModelPackageSummary$: StaticStructureSchema = [3, n0, _B
 ];
 export var BatchRebootClusterNodeLogicalIdsError$: StaticStructureSchema = [3, n0, _BRCNLIE,
   0,
-  [_NLI, _EC, _Me],
+  [_NLI, _EC, _M],
   [0, 0, 0], 3
 ];
 export var BatchRebootClusterNodesError$: StaticStructureSchema = [3, n0, _BRCNE,
   0,
-  [_NI, _EC, _Me],
+  [_NI, _EC, _M],
   [0, 0, 0], 3
 ];
 export var BatchRebootClusterNodesRequest$: StaticStructureSchema = [3, n0, _BRCNR,
@@ -3882,12 +3919,12 @@ export var BatchRebootClusterNodesResponse$: StaticStructureSchema = [3, n0, _BR
 ];
 export var BatchReplaceClusterNodeLogicalIdsError$: StaticStructureSchema = [3, n0, _BRCNLIEa,
   0,
-  [_NLI, _EC, _Me],
+  [_NLI, _EC, _M],
   [0, 0, 0], 3
 ];
 export var BatchReplaceClusterNodesError$: StaticStructureSchema = [3, n0, _BRCNEa,
   0,
-  [_NI, _EC, _Me],
+  [_NI, _EC, _M],
   [0, 0, 0], 3
 ];
 export var BatchReplaceClusterNodesRequest$: StaticStructureSchema = [3, n0, _BRCNRat,
@@ -4092,12 +4129,12 @@ export var ClarifyTextConfig$: StaticStructureSchema = [3, n0, _CTC,
 ];
 export var ClusterAutoScalingConfig$: StaticStructureSchema = [3, n0, _CASC,
   0,
-  [_M, _ASTu],
+  [_Mo, _ASTu],
   [0, 0], 1
 ];
 export var ClusterAutoScalingConfigOutput$: StaticStructureSchema = [3, n0, _CASCO,
   0,
-  [_M, _St, _ASTu, _FM],
+  [_Mo, _St, _ASTu, _FM],
   [0, 0, 0, 0], 2
 ];
 export var ClusterCapacityRequirements$: StaticStructureSchema = [3, n0, _CCR,
@@ -4137,7 +4174,7 @@ export var ClusterInstancePlacement$: StaticStructureSchema = [3, n0, _CIP,
 ];
 export var ClusterInstanceStatusDetails$: StaticStructureSchema = [3, n0, _CISD,
   0,
-  [_St, _Me],
+  [_St, _M],
   [0, 0], 1
 ];
 export var ClusterKubernetesConfig$: StaticStructureSchema = [3, n0, _CKC,
@@ -4222,7 +4259,7 @@ export var ClusterSummary$: StaticStructureSchema = [3, n0, _CSl,
 ];
 export var ClusterTieredStorageConfig$: StaticStructureSchema = [3, n0, _CTSC,
   0,
-  [_M, _IMAP],
+  [_Mo, _IMAP],
   [0, 1], 1
 ];
 export var CodeEditorAppImageConfig$: StaticStructureSchema = [3, n0, _CEAIC,
@@ -4290,20 +4327,14 @@ export var ConditionStepMetadata$: StaticStructureSchema = [3, n0, _CSMo,
   [_O],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContainerConfig$: StaticStructureSchema = [3, n0, _CCon,
   0,
-  [_CA, _CE, _CEV],
+  [_CA, _CEo, _CEV],
   [64 | 0, 64 | 0, 128 | 0]
 ];
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CH, _I, _ICm, _M, _MDU, _MDS, _AMDSd, _E, _MPN, _ISN, _MMC],
+  [_CH, _I, _ICm, _Mo, _MDU, _MDS, _AMDSd, _E, _MPN, _ISN, _MMC],
   [0, 0, () => ImageConfig$, 0, 0, () => ModelDataSource$, () => AdditionalModelDataSources, 128 | 0, 0, 0, () => MultiModelConfig$]
 ];
 export var ContextSource$: StaticStructureSchema = [3, n0, _CSo,
@@ -5038,7 +5069,7 @@ export var DataProcessing$: StaticStructureSchema = [3, n0, _DP,
 ];
 export var DataQualityAppSpecification$: StaticStructureSchema = [3, n0, _DQAS,
   0,
-  [_IU, _CE, _CA, _RPSU, _PAPSU, _E],
+  [_IU, _CEo, _CA, _RPSU, _PAPSU, _E],
   [0, 64 | 0, 64 | 0, 0, 0, 128 | 0], 1
 ];
 export var DataQualityBaselineConfig$: StaticStructureSchema = [3, n0, _DQBC,
@@ -5703,7 +5734,7 @@ export var DescribeDeviceRequest$: StaticStructureSchema = [3, n0, _DDRes,
 ];
 export var DescribeDeviceResponse$: StaticStructureSchema = [3, n0, _DDResc,
   0,
-  [_DNe, _DFN, _RTeg, _DAe, _D, _ITN, _LHa, _Mo, _MMa, _NT, _AV],
+  [_DNe, _DFN, _RTeg, _DAe, _D, _ITN, _LHa, _Mod, _MMa, _NT, _AV],
   [0, 0, 4, 0, 0, 0, 4, () => EdgeModels, 1, 0, 0], 3
 ];
 export var DescribeDomainRequest$: StaticStructureSchema = [3, n0, _DDRescr,
@@ -6183,7 +6214,7 @@ export var DescribeTrialComponentRequest$: StaticStructureSchema = [3, n0, _DTCR
 ];
 export var DescribeTrialComponentResponse$: StaticStructureSchema = [3, n0, _DTCResc,
   0,
-  [_TCN, _TCA, _DNi, _S, _St, _STt, _ETn, _CT, _CB, _LMT, _LMB, _P, _IAn, _OA, _MP, _Met, _LGA, _So],
+  [_TCN, _TCA, _DNi, _S, _St, _STt, _ETn, _CT, _CB, _LMT, _LMB, _P, _IAn, _OA, _MP, _Me, _LGA, _So],
   [0, 0, 0, () => TrialComponentSource$, () => TrialComponentStatus$, 4, 4, 4, () => UserContext$, 4, () => UserContext$, () => TrialComponentParameters, () => TrialComponentArtifacts, () => TrialComponentArtifacts, () => MetadataProperties$, () => TrialComponentMetricSummaries, 0, () => TrialComponentSources]
 ];
 export var DescribeTrialRequest$: StaticStructureSchema = [3, n0, _DTRes,
@@ -6268,7 +6299,7 @@ export var DeviceStats$: StaticStructureSchema = [3, n0, _DSev,
 ];
 export var DeviceSummary$: StaticStructureSchema = [3, n0, _DSevi,
   0,
-  [_DNe, _DAe, _D, _DFN, _ITN, _RTeg, _LHa, _Mo, _AV],
+  [_DNe, _DAe, _D, _DFN, _ITN, _RTeg, _LHa, _Mod, _AV],
   [0, 0, 0, 0, 0, 4, 4, () => EdgeModelSummaries, 0], 2
 ];
 export var DirectDeploySettings$: StaticStructureSchema = [3, n0, _DDS,
@@ -6493,7 +6524,7 @@ export var EndpointOutputConfiguration$: StaticStructureSchema = [3, n0, _EOCn,
 ];
 export var EndpointPerformance$: StaticStructureSchema = [3, n0, _EPn,
   0,
-  [_Met, _EInd],
+  [_Me, _EInd],
   [() => InferenceMetrics$, () => EndpointInfo$], 2
 ];
 export var EndpointStepMetadata$: StaticStructureSchema = [3, n0, _ESM,
@@ -6703,7 +6734,7 @@ export var GetScalingConfigurationRecommendationRequest$: StaticStructureSchema 
 ];
 export var GetScalingConfigurationRecommendationResponse$: StaticStructureSchema = [3, n0, _GSCRRe,
   0,
-  [_IRJN, _RIe, _EN, _TCUPC, _SPO, _Metr, _DSCy],
+  [_IRJN, _RIe, _EN, _TCUPC, _SPO, _Met, _DSCy],
   [0, 0, 0, 1, () => ScalingPolicyObjective$, () => ScalingPolicyMetric$, () => DynamicScalingConfiguration$]
 ];
 export var GetSearchSuggestionsRequest$: StaticStructureSchema = [3, n0, _GSSR,
@@ -6993,7 +7024,7 @@ export var InferenceComponentSummary$: StaticStructureSchema = [3, n0, _ICSnf,
 ];
 export var InferenceExecutionConfig$: StaticStructureSchema = [3, n0, _IEC,
   0,
-  [_M],
+  [_Mo],
   [0], 1
 ];
 export var InferenceExperimentDataStorageConfig$: StaticStructureSchema = [3, n0, _IEDSC,
@@ -7023,7 +7054,7 @@ export var InferenceMetrics$: StaticStructureSchema = [3, n0, _IMn,
 ];
 export var InferenceRecommendation$: StaticStructureSchema = [3, n0, _IRnf,
   0,
-  [_ECnd, _MCode, _RIe, _Met, _IET, _IST],
+  [_ECnd, _MCode, _RIe, _Me, _IET, _IST],
   [() => EndpointOutputConfiguration$, () => ModelConfiguration$, 0, () => RecommendationMetrics$, 4, 4], 2
 ];
 export var InferenceRecommendationsJob$: StaticStructureSchema = [3, n0, _IRJ,
@@ -7753,7 +7784,7 @@ export var ListModelsInput$: StaticStructureSchema = [3, n0, _LMI,
 ];
 export var ListModelsOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
-  [_Mo, _NT],
+  [_Mod, _NT],
   [() => ModelSummaryList, 0], 1
 ];
 export var ListMonitoringAlertHistoryRequest$: StaticStructureSchema = [3, n0, _LMAHR,
@@ -8121,7 +8152,7 @@ export var MlflowDetails$: StaticStructureSchema = [3, n0, _MDl,
   [_MEI, _MRI],
   [0, 0]
 ];
-export var Model$: StaticStructureSchema = [3, n0, _Mod,
+export var Model$: StaticStructureSchema = [3, n0, _Mode,
   0,
   [_MNo, _PC, _Co, _IEC, _ERA, _VC, _CT, _MA, _ENI, _Ta, _DR],
   [0, () => ContainerDefinition$, () => ContainerDefinitionList, () => InferenceExecutionConfig$, 0, () => VpcConfig$, 4, 0, 2, () => TagList, () => DeploymentRecommendation$]
@@ -8213,7 +8244,7 @@ export var ModelDashboardIndicatorAction$: StaticStructureSchema = [3, n0, _MDIA
 ];
 export var ModelDashboardModel$: StaticStructureSchema = [3, n0, _MDM,
   0,
-  [_Mod, _End, _LBTJ, _MSon, _MCod],
+  [_Mode, _End, _LBTJ, _MSon, _MCod],
   [() => Model$, () => ModelDashboardEndpoints, () => TransformJob$, () => ModelDashboardMonitoringSchedules, () => ModelDashboardModelCard$]
 ];
 export var ModelDashboardModelCard$: StaticStructureSchema = [3, n0, _MDMC,
@@ -8298,7 +8329,7 @@ export var ModelMetadataSearchExpression$: StaticStructureSchema = [3, n0, _MMSE
 ];
 export var ModelMetadataSummary$: StaticStructureSchema = [3, n0, _MMSo,
   0,
-  [_Do, _Fr, _Tas, _Mod, _FV],
+  [_Do, _Fr, _Tas, _Mode, _FV],
   [0, 0, 0, 0, 0], 5
 ];
 export var ModelMetrics$: StaticStructureSchema = [3, n0, _MM,
@@ -8373,7 +8404,7 @@ export var ModelQuality$: StaticStructureSchema = [3, n0, _MQ,
 ];
 export var ModelQualityAppSpecification$: StaticStructureSchema = [3, n0, _MQAS,
   0,
-  [_IU, _CE, _CA, _RPSU, _PAPSU, _PT, _E],
+  [_IU, _CEo, _CA, _RPSU, _PAPSU, _PT, _E],
   [0, 64 | 0, 64 | 0, 0, 0, 0, 128 | 0], 1
 ];
 export var ModelQualityBaselineConfig$: StaticStructureSchema = [3, n0, _MQBC,
@@ -8448,7 +8479,7 @@ export var MonitoringAlertSummary$: StaticStructureSchema = [3, n0, _MASon,
 ];
 export var MonitoringAppSpecification$: StaticStructureSchema = [3, n0, _MASoni,
   0,
-  [_IU, _CE, _CA, _RPSU, _PAPSU],
+  [_IU, _CEo, _CA, _RPSU, _PAPSU],
   [0, 64 | 0, 64 | 0, 0, 0], 1
 ];
 export var MonitoringBaselineConfig$: StaticStructureSchema = [3, n0, _MBC,
@@ -8798,7 +8829,7 @@ export var PipelineExecutionStep$: StaticStructureSchema = [3, n0, _PESipe,
 ];
 export var PipelineExecutionStepMetadata$: StaticStructureSchema = [3, n0, _PESM,
   0,
-  [_TJ, _PJ, _TJr, _TJu, _Mod, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fa, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfe, _Lin],
+  [_TJ, _PJ, _TJr, _TJu, _Mode, _RMe, _Cond, _Cal, _Lam, _EMR, _QC, _CCla, _Fa, _AMLJ, _En, _ECndpo, _BCM, _BCMD, _BPMT, _BMI, _ICnfe, _Lin],
   [() => TrainingJobStepMetadata$, () => ProcessingJobStepMetadata$, () => TransformJobStepMetadata$, () => TuningJobStepMetaData$, () => ModelStepMetadata$, () => RegisterModelStepMetadata$, () => ConditionStepMetadata$, () => CallbackStepMetadata$, () => LambdaStepMetadata$, () => EMRStepMetadata$, () => QualityCheckStepMetadata$, () => ClarifyCheckStepMetadata$, () => FailStepMetadata$, () => AutoMLJobStepMetadata$, () => EndpointStepMetadata$, () => EndpointConfigStepMetadata$, () => BedrockCustomModelMetadata$, () => BedrockCustomModelDeploymentMetadata$, () => BedrockProvisionedModelThroughputMetadata$, () => BedrockModelImportMetadata$, () => InferenceComponentMetadata$, () => LineageMetadata$]
 ];
 export var PipelineExecutionSummary$: StaticStructureSchema = [3, n0, _PESipel,
@@ -9058,7 +9089,7 @@ export var RecommendationJobContainerConfig$: StaticStructureSchema = [3, n0, _R
 ];
 export var RecommendationJobInferenceBenchmark$: StaticStructureSchema = [3, n0, _RJIB,
   0,
-  [_MCode, _Met, _EMn, _ECnd, _FR, _IET, _IST],
+  [_MCode, _Me, _EMn, _ECnd, _FR, _IET, _IST],
   [() => ModelConfiguration$, () => RecommendationMetrics$, () => InferenceMetrics$, () => EndpointOutputConfiguration$, 0, 4, 4], 1
 ];
 export var RecommendationJobInputConfig$: StaticStructureSchema = [3, n0, _RJIC,
@@ -9128,7 +9159,7 @@ export var RenderableTask$: StaticStructureSchema = [3, n0, _RTen,
 ];
 export var RenderingError$: StaticStructureSchema = [3, n0, _RE,
   0,
-  [_Cod, _Me],
+  [_Cod, _M],
   [0, 0], 2
 ];
 export var RenderUiTemplateRequest$: StaticStructureSchema = [3, n0, _RUTR,
@@ -9176,29 +9207,11 @@ export var ResourceConfigForUpdate$: StaticStructureSchema = [3, n0, _RCFU,
   [_KAPIS],
   [1], 1
 ];
-export var ResourceInUse$: StaticErrorSchema = [-3, n0, _RIU,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUse$, ResourceInUse);
-export var ResourceLimitExceeded$: StaticErrorSchema = [-3, n0, _RLE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceeded$, ResourceLimitExceeded);
 export var ResourceLimits$: StaticStructureSchema = [3, n0, _RL,
   0,
   [_MPTJ, _MNOTJ, _MRIS],
   [1, 1, 1], 1
 ];
-export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
 export var ResourceSharingConfig$: StaticStructureSchema = [3, n0, _RSC,
   0,
   [_Str, _BL, _ABL],
@@ -9326,7 +9339,7 @@ export var SearchExpression$: StaticStructureSchema = [3, n0, _SEe,
 ];
 export var SearchRecord$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_TJ, _Exp, _Tr, _TCr, _En, _MPod, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mod],
+  [_TJ, _Exp, _Tr, _TCr, _En, _MPod, _MPG, _Pi, _PE, _PVi, _FG, _FMe, _Proj, _HPTJ, _MCod, _Mode],
   [() => TrainingJob$, () => Experiment$, () => Trial$, () => TrialComponent$, () => Endpoint$, [() => ModelPackage$, 0], () => ModelPackageGroup$, () => Pipeline$, () => PipelineExecution$, () => PipelineVersion$, () => FeatureGroup$, () => FeatureMetadata$, () => Project$, () => HyperParameterTuningJobSearchEntity$, [() => ModelCard$, 0], () => ModelDashboardModel$]
 ];
 export var SearchRequest$: StaticStructureSchema = [3, n0, _SRea,
@@ -9681,7 +9694,7 @@ export var SuggestionQuery$: StaticStructureSchema = [3, n0, _SQ,
 ];
 export var TabularJobConfig$: StaticStructureSchema = [3, n0, _TJC,
   0,
-  [_TAN, _CGC, _CCo, _FSSU, _M, _GCDO, _PT, _SWAN],
+  [_TAN, _CGC, _CCo, _FSSU, _Mo, _GCDO, _PT, _SWAN],
   [0, () => CandidateGenerationConfig$, () => AutoMLJobCompletionCriteria$, 0, 0, 2, 0, 0], 1
 ];
 export var TabularResolvedAttributes$: StaticStructureSchema = [3, n0, _TRA,
@@ -9901,7 +9914,7 @@ export var Trial$: StaticStructureSchema = [3, n0, _Tr,
 ];
 export var TrialComponent$: StaticStructureSchema = [3, n0, _TCr,
   0,
-  [_TCN, _DNi, _TCA, _S, _St, _STt, _ETn, _CT, _CB, _LMT, _LMB, _P, _IAn, _OA, _Met, _MP, _SDo, _LGA, _Ta, _Paren, _RNu],
+  [_TCN, _DNi, _TCA, _S, _St, _STt, _ETn, _CT, _CB, _LMT, _LMB, _P, _IAn, _OA, _Me, _MP, _SDo, _LGA, _Ta, _Paren, _RNu],
   [0, 0, 0, () => TrialComponentSource$, () => TrialComponentStatus$, 4, 4, 4, () => UserContext$, 4, () => UserContext$, () => TrialComponentParameters, () => TrialComponentArtifacts, () => TrialComponentArtifacts, () => TrialComponentMetricSummaries, () => MetadataProperties$, () => TrialComponentSourceDetail$, 0, () => TagList, () => Parents, 0]
 ];
 export var TrialComponentArtifact$: StaticStructureSchema = [3, n0, _TCAr,
@@ -9931,7 +9944,7 @@ export var TrialComponentSourceDetail$: StaticStructureSchema = [3, n0, _TCSD,
 ];
 export var TrialComponentStatus$: StaticStructureSchema = [3, n0, _TCSri,
   0,
-  [_PSri, _Me],
+  [_PSri, _M],
   [0, 0]
 ];
 export var TrialComponentSummary$: StaticStructureSchema = [3, n0, _TCSria,
@@ -10530,8 +10543,6 @@ export var Workteam$: StaticStructureSchema = [3, n0, _Wo,
   [0, () => MemberDefinitions, 0, 0, 0, 64 | 0, 0, 4, 4, () => NotificationConfiguration$, () => WorkerAccessConfiguration$], 4
 ];
 var __Unit = "unit" as const;
-export var SageMakerServiceException$: StaticErrorSchema = [-3, _s, "SageMakerServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SageMakerServiceException$, SageMakerServiceException);
 var AbsoluteBorrowLimitResourceList: StaticListSchema = [1, n0, _ABLRL,
   0, () => ComputeQuotaResourceConfig$
 ];

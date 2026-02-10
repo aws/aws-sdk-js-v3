@@ -279,7 +279,7 @@ const _rTAN = "runTimeAnalyzerName";
 const _rTAS = "runTimeAssessmentStatus";
 const _rTS = "registeredTimeStamp";
 const _re = "repository";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubstrategy";
 const _sB = "s3Bucket";
 const _sC = "serverCriteria";
 const _sCAN = "sourceCodeAnalyzerName";
@@ -307,12 +307,12 @@ const _sS = "serverStrategies";
 const _sT = "startTime";
 const _sTe = "serverType";
 const _sV = "sourceVersion";
-const _se = "severity";
+const _se = "server";
 const _ser = "servers";
-const _serv = "server";
+const _sev = "severity";
 const _sk = "s3key";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhubstrategy";
-const _so = "sort";
+const _so = "source";
+const _sor = "sort";
 const _st = "status";
 const _str = "strategy";
 const _su = "success";
@@ -360,16 +360,77 @@ import {
 import { MigrationHubStrategyServiceException } from "../models/MigrationHubStrategyServiceException";
 
 /* eslint no-var: 0 */
-var SecretsManagerKey: StaticSimpleSchema = [0, n0, _SMK, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var MigrationHubStrategyServiceException$: StaticErrorSchema = [-3, _s, "MigrationHubStrategyServiceException", 0, [], []];
+_s_registry.registerError(MigrationHubStrategyServiceException$, MigrationHubStrategyServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependencyException$, DependencyException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceLinkedRoleLockClientException$: StaticErrorSchema = [-3, n0, _SLRLCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceLinkedRoleLockClientException$, ServiceLinkedRoleLockClientException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SecretsManagerKey: StaticSimpleSchema = [0, n0, _SMK, 8, 0];
 export var AnalyzableServerSummary$: StaticStructureSchema = [3, n0, _ASS,
   0,
-  [_h, _iA, _s, _vI],
+  [_h, _iA, _so, _vI],
   [0, 0, 0, 0]
 ];
 export var AntipatternReportResult$: StaticStructureSchema = [3, n0, _ARR,
@@ -379,7 +440,7 @@ export var AntipatternReportResult$: StaticStructureSchema = [3, n0, _ARR,
 ];
 export var AntipatternSeveritySummary$: StaticStructureSchema = [3, n0, _ASSn,
   0,
-  [_se, _co],
+  [_sev, _co],
   [0, 1]
 ];
 export var ApplicationComponentDetail$: StaticStructureSchema = [3, n0, _ACD,
@@ -447,12 +508,6 @@ export var ConfigurationSummary$: StaticStructureSchema = [3, n0, _CS,
   [_vBRIL, _iABRIL, _vCIL, _pIL, _rSCASI],
   [() => VcenterBasedRemoteInfoList, () => IPAddressBasedRemoteInfoList, () => VersionControlInfoList, () => PipelineInfoList, () => RemoteSourceCodeAnalysisServerInfo$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DatabaseConfigDetail$: StaticStructureSchema = [3, n0, _DCD,
   0,
   [_sN],
@@ -468,12 +523,6 @@ export var DataCollectionDetails$: StaticStructureSchema = [3, n0, _DCDa,
   [_st, _ser, _f, _su, _iPn, _sT, _cT, _sM],
   [0, 1, 1, 1, 1, 4, 4, 0]
 ];
-export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
-  { [_e]: _serv, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
 export var GetApplicationComponentDetailsRequest$: StaticStructureSchema = [3, n0, _GACDR,
   0,
   [_aCI],
@@ -594,12 +643,6 @@ export var ImportFileTaskInformation$: StaticStructureSchema = [3, n0, _IFTI,
   [_i, _st, _sT, _iSB, _iSK, _sRSB, _sRSK, _cT, _nORS, _nORF, _iN],
   [0, 0, 4, 0, 0, 0, 0, 4, 1, 1, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _serv, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IPAddressBasedRemoteInfo$: StaticStructureSchema = [3, n0, _IPABRI,
   0,
   [_iACTS, _aTu, _oT],
@@ -607,7 +650,7 @@ export var IPAddressBasedRemoteInfo$: StaticStructureSchema = [3, n0, _IPABRI,
 ];
 export var ListAnalyzableServersRequest$: StaticStructureSchema = [3, n0, _LASR,
   0,
-  [_so, _nT, _mR],
+  [_sor, _nT, _mR],
   [0, 0, 1]
 ];
 export var ListAnalyzableServersResponse$: StaticStructureSchema = [3, n0, _LASRi,
@@ -617,7 +660,7 @@ export var ListAnalyzableServersResponse$: StaticStructureSchema = [3, n0, _LASR
 ];
 export var ListApplicationComponentsRequest$: StaticStructureSchema = [3, n0, _LACR,
   0,
-  [_aCC, _fV, _so, _gIF, _nT, _mR],
+  [_aCC, _fV, _sor, _gIF, _nT, _mR],
   [0, 0, 0, () => GroupIds, 0, 1]
 ];
 export var ListApplicationComponentsResponse$: StaticStructureSchema = [3, n0, _LACRi,
@@ -647,7 +690,7 @@ export var ListImportFileTaskResponse$: StaticStructureSchema = [3, n0, _LIFTRi,
 ];
 export var ListServersRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
-  [_sC, _fV, _so, _gIF, _nT, _mR],
+  [_sC, _fV, _sor, _gIF, _nT, _mR],
   [0, 0, 0, () => GroupIds, 0, 1]
 ];
 export var ListServersResponse$: StaticStructureSchema = [3, n0, _LSRi,
@@ -710,12 +753,6 @@ export var RemoteSourceCodeAnalysisServerInfo$: StaticStructureSchema = [3, n0, 
   [_rSCASCT],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Result$: StaticStructureSchema = [3, n0, _R,
   0,
   [_aTn, _aS, _sM, _aRRL],
@@ -756,18 +793,6 @@ export var ServerSummary$: StaticStructureSchema = [3, n0, _SSe,
   [_SOT, _co],
   [0, 1]
 ];
-export var ServiceLinkedRoleLockClientException$: StaticErrorSchema = [-3, n0, _SLRLCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceLinkedRoleLockClientException$, ServiceLinkedRoleLockClientException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceCode$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_vC, _sV, _l, _pN],
@@ -833,12 +858,6 @@ export var SystemInfo$: StaticStructureSchema = [3, n0, _SI,
   [_oI, _fST, _nIL, _cA],
   [() => OSInfo$, 0, () => NetworkInfoList, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransformationTool$: StaticStructureSchema = [3, n0, _TT,
   0,
   [_n, _d, _tTIL],
@@ -864,12 +883,6 @@ export var UpdateServerConfigResponse$: StaticStructureSchema = [3, n0, _USCRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VcenterBasedRemoteInfo$: StaticStructureSchema = [3, n0, _VBRI,
   0,
   [_vCTS, _oT],
@@ -880,8 +893,6 @@ export var VersionControlInfo$: StaticStructureSchema = [3, n0, _VCI,
   [_vCT, _vCCTS],
   [0, 0]
 ];
-export var MigrationHubStrategyServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubStrategyServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MigrationHubStrategyServiceException$, MigrationHubStrategyServiceException);
 var AnalyzableServerSummaryList: StaticListSchema = [1, n0, _ASSL,
   0, () => AnalyzableServerSummary$
 ];

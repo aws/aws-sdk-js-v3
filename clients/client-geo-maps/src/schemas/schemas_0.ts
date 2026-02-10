@@ -50,9 +50,9 @@ const _PLS = "PositionListString";
 const _POI = "PointsOfInterests";
 const _PS = "PositionString";
 const _PV = "PoliticalView";
-const _R = "Radius";
+const _R = "Reason";
 const _RNFE = "ResourceNotFoundException";
-const _Re = "Reason";
+const _Ra = "Radius";
 const _S = "Style";
 const _SBU = "ScaleBarUnit";
 const _SF = "SensitiveFloat";
@@ -99,11 +99,11 @@ const _n = "name";
 const _p = "padding";
 const _po = "pois";
 const _pv = "political-view";
-const _r = "radius";
-const _re = "reason";
-const _s = "style";
+const _r = "reason";
+const _ra = "radius";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.geomaps";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.geomaps";
+const _st = "style";
 const _su = "scale-unit";
 const _t = "terrain";
 const _tm = "travel-modes";
@@ -133,6 +133,49 @@ import {
 import { GeoMapsServiceException } from "../models/GeoMapsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GeoMapsServiceException$: StaticErrorSchema = [-3, _s, "GeoMapsServiceException", 0, [], []];
+_s_registry.registerError(GeoMapsServiceException$, GeoMapsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 var CompactOverlay: StaticSimpleSchema = [0, n0, _CO, 8, 0];
 var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
@@ -143,12 +186,6 @@ var PositionString: StaticSimpleSchema = [0, n0, _PS, 8, 0];
 var SensitiveFloat: StaticSimpleSchema = [0, n0, _SF, 8, 1];
 var SensitiveInteger: StaticSimpleSchema = [0, n0, _SI, 8, 1];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var GetGlyphsRequest$: StaticStructureSchema = [3, n0, _GGR,
   0,
   [_FS, _FUR],
@@ -171,8 +208,8 @@ export var GetSpritesResponse$: StaticStructureSchema = [3, n0, _GSRe,
 ];
 export var GetStaticMapRequest$: StaticStructureSchema = [3, n0, _GSMR,
   0,
-  [_H, _FN, _W, _BB, _BP, _C, _CS, _CO, _CL, _GJO, _K, _LS, _L, _P, _PV, _POI, _R, _SBU, _S, _Z],
-  [[() => SensitiveInteger, { [_hQ]: _h }], [0, 1], [() => SensitiveInteger, { [_hQ]: _w }], [() => PositionListString, { [_hQ]: _bb }], [() => PositionListString, { [_hQ]: _bp }], [() => PositionString, { [_hQ]: _ce }], [0, { [_hQ]: _cs }], [() => CompactOverlay, { [_hQ]: _co }], [2, { [_hQ]: _cl }], [() => GeoJsonOverlay, { [_hQ]: _go }], [() => ApiKey, { [_hQ]: _k }], [0, { [_hQ]: _ls }], [0, { [_hQ]: _l }], [() => SensitiveInteger, { [_hQ]: _p }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _po }], [() => DistanceMeters, { [_hQ]: _r }], [0, { [_hQ]: _su }], [0, { [_hQ]: _s }], [() => SensitiveFloat, { [_hQ]: _z }]], 3
+  [_H, _FN, _W, _BB, _BP, _C, _CS, _CO, _CL, _GJO, _K, _LS, _L, _P, _PV, _POI, _Ra, _SBU, _S, _Z],
+  [[() => SensitiveInteger, { [_hQ]: _h }], [0, 1], [() => SensitiveInteger, { [_hQ]: _w }], [() => PositionListString, { [_hQ]: _bb }], [() => PositionListString, { [_hQ]: _bp }], [() => PositionString, { [_hQ]: _ce }], [0, { [_hQ]: _cs }], [() => CompactOverlay, { [_hQ]: _co }], [2, { [_hQ]: _cl }], [() => GeoJsonOverlay, { [_hQ]: _go }], [() => ApiKey, { [_hQ]: _k }], [0, { [_hQ]: _ls }], [0, { [_hQ]: _l }], [() => SensitiveInteger, { [_hQ]: _p }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _po }], [() => DistanceMeters, { [_hQ]: _ra }], [0, { [_hQ]: _su }], [0, { [_hQ]: _st }], [() => SensitiveFloat, { [_hQ]: _z }]], 3
 ];
 export var GetStaticMapResponse$: StaticStructureSchema = [3, n0, _GSMRe,
   0,
@@ -199,37 +236,11 @@ export var GetTileResponse$: StaticStructureSchema = [3, n0, _GTRe,
   [_PB, _B, _CT, _CCa, _ET],
   [[0, { [_hH]: _xagpb }], [21, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _CC_ }], [0, { [_hH]: _ET }]], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Re, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _re }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
   [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
-export var GeoMapsServiceException$: StaticErrorSchema = [-3, _sm, "GeoMapsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GeoMapsServiceException$, GeoMapsServiceException);
 var TileAdditionalFeatureList = 64 | 0;
 var TravelModeList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,

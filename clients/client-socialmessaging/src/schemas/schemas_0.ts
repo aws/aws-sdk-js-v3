@@ -169,7 +169,7 @@ const _qR = "qualityRating";
 const _rA = "resourceArn";
 const _rAo = "roleArn";
 const _rS = "registrationStatus";
-const _s = "success";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.socialmessaging";
 const _sA = "supportedApps";
 const _sC = "signupCallback";
 const _sCR = "signupCallbackResult";
@@ -178,7 +178,7 @@ const _sF = "setupFinalization";
 const _sSF = "sourceS3File";
 const _sSPU = "sourceS3PresignedUrl";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.socialmessaging";
+const _su = "success";
 const _t = "template";
 const _tB = "templateBody";
 const _tBEP = "templateBodyExampleParams";
@@ -235,21 +235,76 @@ import {
 import { SocialMessagingServiceException } from "../models/SocialMessagingServiceException";
 
 /* eslint no-var: 0 */
-var AssociateInProgressToken: StaticSimpleSchema = [0, n0, _AIPT, 8, 0];
-var TwoFactorPin: StaticSimpleSchema = [0, n0, _TFP, 8, 0];
-var WhatsAppMessageBlob: StaticSimpleSchema = [0, n0, _WAMB, 8, 21];
+const _s_registry = TypeRegistry.for(_s);
+export var SocialMessagingServiceException$: StaticErrorSchema = [-3, _s, "SocialMessagingServiceException", 0, [], []];
+_s_registry.registerError(SocialMessagingServiceException$, SocialMessagingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedByMetaException$: StaticErrorSchema = [-3, n0, _ADBME,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedByMetaException$, AccessDeniedByMetaException);
+n0_registry.registerError(AccessDeniedByMetaException$, AccessDeniedByMetaException);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
+  { [_e]: _se, [_hE]: 502 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependencyException$, DependencyException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidParametersException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParametersException$, InvalidParametersException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottledRequestException$: StaticErrorSchema = [-3, n0, _TRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottledRequestException$, ThrottledRequestException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var AssociateInProgressToken: StaticSimpleSchema = [0, n0, _AIPT, 8, 0];
+var TwoFactorPin: StaticSimpleSchema = [0, n0, _TFP, 8, 0];
+var WhatsAppMessageBlob: StaticSimpleSchema = [0, n0, _WAMB, 8, 21];
 export var AssociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _AWABAI,
   0,
   [_sC, _sF],
@@ -297,7 +352,7 @@ export var DeleteWhatsAppMessageMediaInput$: StaticStructureSchema = [3, n0, _DW
 ];
 export var DeleteWhatsAppMessageMediaOutput$: StaticStructureSchema = [3, n0, _DWAMMO,
   0,
-  [_s],
+  [_su],
   [2]
 ];
 export var DeleteWhatsAppMessageTemplateInput$: StaticStructureSchema = [3, n0, _DWAMTI,
@@ -310,12 +365,6 @@ export var DeleteWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
-  { [_e]: _se, [_hE]: 502 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
 export var DisassociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _DWABAI,
   0,
   [_i],
@@ -366,18 +415,6 @@ export var GetWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0, _G
   [_t],
   [0]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidParametersException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParametersException$, InvalidParametersException);
 export var LibraryTemplateBodyInputs$: StaticStructureSchema = [3, n0, _LTBI,
   0,
   [_aCN, _aLML, _aSR, _aTPL, _cEM],
@@ -393,12 +430,6 @@ export var LibraryTemplateButtonList$: StaticStructureSchema = [3, n0, _LTBL,
   [_ty, _te, _pN, _u, _oT, _zTTA, _sA],
   [0, 0, 0, 0, 0, 2, [1, n0, _SA, 0, 128 | 0]]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var LinkedWhatsAppBusinessAccount$: StaticStructureSchema = [3, n0, _LWABA,
   0,
   [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh],
@@ -484,12 +515,6 @@ export var PutWhatsAppBusinessAccountEventDestinationsOutput$: StaticStructureSc
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3File$: StaticStructureSchema = [3, n0, _SF,
   8,
   [_bN, _k],
@@ -530,12 +555,6 @@ export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tN, _mTI, _tS, _tQS, _tL, _tC],
   [0, 0, 0, 0, 0, 0]
 ];
-export var ThrottledRequestException$: StaticErrorSchema = [-3, n0, _TRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottledRequestException$, ThrottledRequestException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -556,12 +575,6 @@ export var UpdateWhatsAppMessageTemplateOutput$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WabaPhoneNumberSetupFinalization$: StaticStructureSchema = [3, n0, _WPNSF,
   0,
   [_i, _tFP, _dLR, _ta],
@@ -602,8 +615,6 @@ export var WhatsAppSignupCallbackResult$: StaticStructureSchema = [3, n0, _WASCR
   [_aIPT, _lAWIS],
   [[() => AssociateInProgressToken, 0], () => LinkedAccountWithIncompleteSetup]
 ];
-export var SocialMessagingServiceException$: StaticErrorSchema = [-3, _sm, "SocialMessagingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SocialMessagingServiceException$, SocialMessagingServiceException);
 var LinkedWhatsAppBusinessAccountSummaryList: StaticListSchema = [1, n0, _LWABASL,
   0, () => LinkedWhatsAppBusinessAccountSummary$
 ];

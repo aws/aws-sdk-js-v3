@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDrsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DrsClientConfig } from "./DrsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DrsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.drs",
+      errorTypeRegistries,
       version: "2020-02-26",
       serviceTarget: "ElasticDisasterRecoveryService",
     },

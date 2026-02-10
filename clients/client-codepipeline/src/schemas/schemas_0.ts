@@ -55,8 +55,8 @@ const _C = "Condition";
 const _CCAT = "CreateCustomActionType";
 const _CCATI = "CreateCustomActionTypeInput";
 const _CCATO = "CreateCustomActionTypeOutput";
-const _CE = "ConditionExecution";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEo = "ConditionExecution";
 const _CL = "ConditionList";
 const _CME = "ConcurrentModificationException";
 const _CNOE = "ConditionNotOverridableException";
@@ -353,7 +353,7 @@ const _bECS = "beforeEntryConditionState";
 const _bN = "bucketName";
 const _bl = "blockers";
 const _bu = "bucket";
-const _c = "configuration";
+const _c = "client";
 const _cI = "changeIdentifier";
 const _cIl = "clientId";
 const _cP = "configurationProperties";
@@ -365,9 +365,9 @@ const _cTo = "continuationToken";
 const _cTon = "conditionType";
 const _cU = "configurationUrl";
 const _ca = "category";
-const _cl = "client";
-const _co = "commands";
+const _co = "configuration";
 const _cod = "code";
+const _com = "commands";
 const _con = "conditions";
 const _cont = "context";
 const _cr = "created";
@@ -513,7 +513,7 @@ const _rea = "reason";
 const _res = "result";
 const _rev = "revision";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codepipeline";
 const _sAK = "secretAccessKey";
 const _sAN = "sourceActionName";
 const _sCI = "ssmCommandId";
@@ -530,9 +530,9 @@ const _sTt = "stopTrigger";
 const _se = "secret";
 const _set = "settings";
 const _sl = "s3location";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codepipeline";
-const _st = "stage";
-const _sta = "stages";
+const _st = "status";
+const _sta = "stage";
+const _stag = "stages";
 const _su = "summary";
 const _t = "type";
 const _tA = "targetAction";
@@ -621,6 +621,265 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CodePipelineServiceException$: StaticErrorSchema = [-3, _s, "CodePipelineServiceException", 0, [], []];
+_s_registry.registerError(CodePipelineServiceException$, CodePipelineServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ActionExecutionNotFoundException$: StaticErrorSchema = [-3, n0, _AENFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ActionExecutionNotFoundException$, ActionExecutionNotFoundException);
+export var ActionNotFoundException$: StaticErrorSchema = [-3, n0, _ANFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ActionNotFoundException$, ActionNotFoundException);
+export var ActionTypeNotFoundException$: StaticErrorSchema = [-3, n0, _ATNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ActionTypeNotFoundException$, ActionTypeNotFoundException);
+export var ApprovalAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _AACE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApprovalAlreadyCompletedException$, ApprovalAlreadyCompletedException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConcurrentPipelineExecutionsLimitExceededException$: StaticErrorSchema = [-3, n0, _CPELEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentPipelineExecutionsLimitExceededException$, ConcurrentPipelineExecutionsLimitExceededException);
+export var ConditionNotOverridableException$: StaticErrorSchema = [-3, n0, _CNOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConditionNotOverridableException$, ConditionNotOverridableException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DuplicatedStopRequestException$: StaticErrorSchema = [-3, n0, _DSRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicatedStopRequestException$, DuplicatedStopRequestException);
+export var InvalidActionDeclarationException$: StaticErrorSchema = [-3, n0, _IADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidActionDeclarationException$, InvalidActionDeclarationException);
+export var InvalidApprovalTokenException$: StaticErrorSchema = [-3, n0, _IATE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidApprovalTokenException$, InvalidApprovalTokenException);
+export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArnException$, InvalidArnException);
+export var InvalidBlockerDeclarationException$: StaticErrorSchema = [-3, n0, _IBDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidBlockerDeclarationException$, InvalidBlockerDeclarationException);
+export var InvalidClientTokenException$: StaticErrorSchema = [-3, n0, _ICTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClientTokenException$, InvalidClientTokenException);
+export var InvalidJobException$: StaticErrorSchema = [-3, n0, _IJE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidJobException$, InvalidJobException);
+export var InvalidJobStateException$: StaticErrorSchema = [-3, n0, _IJSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidJobStateException$, InvalidJobStateException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidNonceException$: StaticErrorSchema = [-3, n0, _INE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNonceException$, InvalidNonceException);
+export var InvalidStageDeclarationException$: StaticErrorSchema = [-3, n0, _ISDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidStageDeclarationException$, InvalidStageDeclarationException);
+export var InvalidStructureException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidStructureException$, InvalidStructureException);
+export var InvalidTagsException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagsException$, InvalidTagsException);
+export var InvalidWebhookAuthenticationParametersException$: StaticErrorSchema = [-3, n0, _IWAPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidWebhookAuthenticationParametersException$, InvalidWebhookAuthenticationParametersException);
+export var InvalidWebhookFilterPatternException$: StaticErrorSchema = [-3, n0, _IWFPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidWebhookFilterPatternException$, InvalidWebhookFilterPatternException);
+export var JobNotFoundException$: StaticErrorSchema = [-3, n0, _JNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(JobNotFoundException$, JobNotFoundException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotLatestPipelineExecutionException$: StaticErrorSchema = [-3, n0, _NLPEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotLatestPipelineExecutionException$, NotLatestPipelineExecutionException);
+export var OutputVariablesSizeExceededException$: StaticErrorSchema = [-3, n0, _OVSEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OutputVariablesSizeExceededException$, OutputVariablesSizeExceededException);
+export var PipelineExecutionNotFoundException$: StaticErrorSchema = [-3, n0, _PENFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineExecutionNotFoundException$, PipelineExecutionNotFoundException);
+export var PipelineExecutionNotStoppableException$: StaticErrorSchema = [-3, n0, _PENSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineExecutionNotStoppableException$, PipelineExecutionNotStoppableException);
+export var PipelineExecutionOutdatedException$: StaticErrorSchema = [-3, n0, _PEOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineExecutionOutdatedException$, PipelineExecutionOutdatedException);
+export var PipelineNameInUseException$: StaticErrorSchema = [-3, n0, _PNIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineNameInUseException$, PipelineNameInUseException);
+export var PipelineNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineNotFoundException$, PipelineNotFoundException);
+export var PipelineVersionNotFoundException$: StaticErrorSchema = [-3, n0, _PVNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineVersionNotFoundException$, PipelineVersionNotFoundException);
+export var RequestFailedException$: StaticErrorSchema = [-3, n0, _RFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestFailedException$, RequestFailedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var StageNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(StageNotFoundException$, StageNotFoundException);
+export var StageNotRetryableException$: StaticErrorSchema = [-3, n0, _SNRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(StageNotRetryableException$, StageNotRetryableException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnableToRollbackStageException$: StaticErrorSchema = [-3, n0, _UTRSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnableToRollbackStageException$, UnableToRollbackStageException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+export var WebhookNotFoundException$: StaticErrorSchema = [-3, n0, _WNFE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(WebhookNotFoundException$, WebhookNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
@@ -631,7 +890,7 @@ export var AcknowledgeJobInput$: StaticStructureSchema = [3, n0, _AJI,
 ];
 export var AcknowledgeJobOutput$: StaticStructureSchema = [3, n0, _AJO,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var AcknowledgeThirdPartyJobInput$: StaticStructureSchema = [3, n0, _ATPJI,
@@ -641,12 +900,12 @@ export var AcknowledgeThirdPartyJobInput$: StaticStructureSchema = [3, n0, _ATPJ
 ];
 export var AcknowledgeThirdPartyJobOutput$: StaticStructureSchema = [3, n0, _ATPJO,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var ActionConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_c],
+  [_co],
   [128 | 0]
 ];
 export var ActionConfigurationProperty$: StaticStructureSchema = [3, n0, _ACP,
@@ -661,17 +920,17 @@ export var ActionContext$: StaticStructureSchema = [3, n0, _ACc,
 ];
 export var ActionDeclaration$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_na, _aTI, _rO, _c, _co, _oA, _iA, _oV, _rA, _re, _nam, _tIM, _eV],
+  [_na, _aTI, _rO, _co, _com, _oA, _iA, _oV, _rA, _re, _nam, _tIM, _eV],
   [0, () => ActionTypeId$, 1, 128 | 0, 64 | 0, () => OutputArtifactList, () => InputArtifactList, 64 | 0, 0, 0, 0, 1, () => EnvironmentVariableList], 2
 ];
 export var ActionExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_aEI, _s, _su, _lSC, _to, _lUB, _eEI, _eEU, _pC, _eD, _lSARN],
+  [_aEI, _st, _su, _lSC, _to, _lUB, _eEI, _eEU, _pC, _eD, _lSARN],
   [0, 0, 0, 4, 0, 0, 0, 0, 1, () => ErrorDetails$, 0]
 ];
 export var ActionExecutionDetail$: StaticStructureSchema = [3, n0, _AED,
   0,
-  [_pEI, _aEI, _pV, _sN, _aN, _sT, _lUT, _uB, _s, _i, _o],
+  [_pEI, _aEI, _pV, _sN, _aN, _sT, _lUT, _uB, _st, _i, _o],
   [0, 0, 1, 0, 0, 4, 4, 0, 0, () => ActionExecutionInput$, () => ActionExecutionOutput$]
 ];
 export var ActionExecutionFilter$: StaticStructureSchema = [3, n0, _AEF,
@@ -681,15 +940,9 @@ export var ActionExecutionFilter$: StaticStructureSchema = [3, n0, _AEF,
 ];
 export var ActionExecutionInput$: StaticStructureSchema = [3, n0, _AEI,
   0,
-  [_aTI, _c, _rC, _rA, _re, _iA, _nam],
+  [_aTI, _co, _rC, _rA, _re, _iA, _nam],
   [() => ActionTypeId$, 128 | 0, 128 | 0, 0, 0, () => ArtifactDetailList, 0]
 ];
-export var ActionExecutionNotFoundException$: StaticErrorSchema = [-3, n0, _AENFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ActionExecutionNotFoundException$, ActionExecutionNotFoundException);
 export var ActionExecutionOutput$: StaticStructureSchema = [3, n0, _AEO,
   0,
   [_oA, _eR, _oV],
@@ -700,12 +953,6 @@ export var ActionExecutionResult$: StaticStructureSchema = [3, n0, _AER,
   [_eEI, _eES, _eEU, _eD, _lSARN],
   [0, 0, 0, () => ErrorDetails$, 0]
 ];
-export var ActionNotFoundException$: StaticErrorSchema = [-3, n0, _ANFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ActionNotFoundException$, ActionNotFoundException);
 export var ActionRevision$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_rI, _rCI, _cr],
@@ -733,7 +980,7 @@ export var ActionTypeDeclaration$: StaticStructureSchema = [3, n0, _ATD,
 ];
 export var ActionTypeExecutor$: StaticStructureSchema = [3, n0, _ATE,
   0,
-  [_c, _t, _pST, _jT],
+  [_co, _t, _pST, _jT],
   [() => ExecutorConfiguration$, 0, 0, 1], 2
 ];
 export var ActionTypeId$: StaticStructureSchema = [3, n0, _ATI,
@@ -746,12 +993,6 @@ export var ActionTypeIdentifier$: StaticStructureSchema = [3, n0, _ATIc,
   [_ca, _ow, _pro, _v],
   [0, 0, 0, 0], 4
 ];
-export var ActionTypeNotFoundException$: StaticErrorSchema = [-3, n0, _ATNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ActionTypeNotFoundException$, ActionTypeNotFoundException);
 export var ActionTypePermissions$: StaticStructureSchema = [3, n0, _ATP,
   0,
   [_aA],
@@ -772,15 +1013,9 @@ export var ActionTypeUrls$: StaticStructureSchema = [3, n0, _ATU,
   [_cU, _eUT, _eUTx, _rUT],
   [0, 0, 0, 0]
 ];
-export var ApprovalAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _AACE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApprovalAlreadyCompletedException$, ApprovalAlreadyCompletedException);
 export var ApprovalResult$: StaticStructureSchema = [3, n0, _ARp,
   0,
-  [_su, _s],
+  [_su, _st],
   [0, 0], 2
 ];
 export var Artifact$: StaticStructureSchema = [3, n0, _A,
@@ -828,45 +1063,21 @@ export var BlockerDeclaration$: StaticStructureSchema = [3, n0, _BD,
   [_na, _t],
   [0, 0], 2
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConcurrentPipelineExecutionsLimitExceededException$: StaticErrorSchema = [-3, n0, _CPELEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentPipelineExecutionsLimitExceededException$, ConcurrentPipelineExecutionsLimitExceededException);
 export var Condition$: StaticStructureSchema = [3, n0, _C,
   0,
   [_res, _ru],
   [0, () => RuleDeclarationList]
 ];
-export var ConditionExecution$: StaticStructureSchema = [3, n0, _CE,
+export var ConditionExecution$: StaticStructureSchema = [3, n0, _CEo,
   0,
-  [_s, _su, _lSC],
+  [_st, _su, _lSC],
   [0, 0, 4]
 ];
-export var ConditionNotOverridableException$: StaticErrorSchema = [-3, n0, _CNOE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConditionNotOverridableException$, ConditionNotOverridableException);
 export var ConditionState$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_lE, _rSu],
   [() => ConditionExecution$, () => RuleStateList]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _cl, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCustomActionTypeInput$: StaticStructureSchema = [3, n0, _CCATI,
   0,
   [_ca, _pro, _v, _iAD, _oAD, _set, _cP, _ta],
@@ -914,12 +1125,12 @@ export var DeleteWebhookOutput$: StaticStructureSchema = [3, n0, _DWO,
 ];
 export var DeployActionExecutionTarget$: StaticStructureSchema = [3, n0, _DAET,
   0,
-  [_tI, _tT, _s, _sT, _eT, _ev],
+  [_tI, _tT, _st, _sT, _eT, _ev],
   [0, 0, 0, 4, 4, () => DeployTargetEventList]
 ];
 export var DeployTargetEvent$: StaticStructureSchema = [3, n0, _DTE,
   0,
-  [_na, _s, _sT, _eT, _cont],
+  [_na, _st, _sT, _eT, _cont],
   [0, 0, 4, 4, () => DeployTargetEventContext$]
 ];
 export var DeployTargetEventContext$: StaticStructureSchema = [3, n0, _DTEC,
@@ -942,12 +1153,6 @@ export var DisableStageTransitionInput$: StaticStructureSchema = [3, n0, _DSTI,
   [_pN, _sN, _tTr, _rea],
   [0, 0, 0, 0], 4
 ];
-export var DuplicatedStopRequestException$: StaticErrorSchema = [-3, n0, _DSRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicatedStopRequestException$, DuplicatedStopRequestException);
 export var EnableStageTransitionInput$: StaticStructureSchema = [3, n0, _ESTI,
   0,
   [_pN, _sN, _tTr],
@@ -1088,90 +1293,6 @@ export var InputArtifact$: StaticStructureSchema = [3, n0, _IA,
   [_na],
   [0], 1
 ];
-export var InvalidActionDeclarationException$: StaticErrorSchema = [-3, n0, _IADE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidActionDeclarationException$, InvalidActionDeclarationException);
-export var InvalidApprovalTokenException$: StaticErrorSchema = [-3, n0, _IATE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidApprovalTokenException$, InvalidApprovalTokenException);
-export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArnException$, InvalidArnException);
-export var InvalidBlockerDeclarationException$: StaticErrorSchema = [-3, n0, _IBDE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidBlockerDeclarationException$, InvalidBlockerDeclarationException);
-export var InvalidClientTokenException$: StaticErrorSchema = [-3, n0, _ICTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClientTokenException$, InvalidClientTokenException);
-export var InvalidJobException$: StaticErrorSchema = [-3, n0, _IJE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidJobException$, InvalidJobException);
-export var InvalidJobStateException$: StaticErrorSchema = [-3, n0, _IJSE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidJobStateException$, InvalidJobStateException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidNonceException$: StaticErrorSchema = [-3, n0, _INE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNonceException$, InvalidNonceException);
-export var InvalidStageDeclarationException$: StaticErrorSchema = [-3, n0, _ISDE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStageDeclarationException$, InvalidStageDeclarationException);
-export var InvalidStructureException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStructureException$, InvalidStructureException);
-export var InvalidTagsException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagsException$, InvalidTagsException);
-export var InvalidWebhookAuthenticationParametersException$: StaticErrorSchema = [-3, n0, _IWAPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidWebhookAuthenticationParametersException$, InvalidWebhookAuthenticationParametersException);
-export var InvalidWebhookFilterPatternException$: StaticErrorSchema = [-3, n0, _IWFPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidWebhookFilterPatternException$, InvalidWebhookFilterPatternException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
   [_id, _da, _n, _aI],
@@ -1187,12 +1308,6 @@ export var JobDetails$: StaticStructureSchema = [3, n0, _JDo,
   [_id, _da, _aI],
   [0, [() => JobData$, 0], 0]
 ];
-export var JobNotFoundException$: StaticErrorSchema = [-3, n0, _JNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(JobNotFoundException$, JobNotFoundException);
 export var JobWorkerExecutorConfiguration$: StaticStructureSchema = [3, n0, _JWEC,
   0,
   [_pA, _pSP],
@@ -1208,12 +1323,6 @@ export var LatestInPipelineExecutionFilter$: StaticStructureSchema = [3, n0, _LI
   [_pEI, _sTR],
   [0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListActionExecutionsInput$: StaticStructureSchema = [3, n0, _LAEI,
   0,
   [_pN, _f, _mR, _nT],
@@ -1309,23 +1418,11 @@ export var ListWebhooksOutput$: StaticStructureSchema = [3, n0, _LWO,
   [_w, _NT],
   [() => WebhookList, 0]
 ];
-export var NotLatestPipelineExecutionException$: StaticErrorSchema = [-3, n0, _NLPEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotLatestPipelineExecutionException$, NotLatestPipelineExecutionException);
 export var OutputArtifact$: StaticStructureSchema = [3, n0, _OA,
   0,
   [_na, _fil],
   [0, 64 | 0], 1
 ];
-export var OutputVariablesSizeExceededException$: StaticErrorSchema = [-3, n0, _OVSEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OutputVariablesSizeExceededException$, OutputVariablesSizeExceededException);
 export var OverrideStageConditionInput$: StaticStructureSchema = [3, n0, _OSCI,
   0,
   [_pN, _sN, _pEI, _cTon],
@@ -1333,17 +1430,17 @@ export var OverrideStageConditionInput$: StaticStructureSchema = [3, n0, _OSCI,
 ];
 export var PipelineContext$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_pN, _st, _ac, _pAi, _pEI],
+  [_pN, _sta, _ac, _pAi, _pEI],
   [0, () => StageContext$, () => ActionContext$, 0, 0]
 ];
 export var PipelineDeclaration$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_na, _rA, _sta, _aS, _aSr, _v, _eMx, _pT, _var, _tr],
+  [_na, _rA, _stag, _aS, _aSr, _v, _eMx, _pT, _var, _tr],
   [0, 0, () => PipelineStageDeclarationList, () => ArtifactStore$, () => ArtifactStoreMap, 1, 0, 0, () => PipelineVariableDeclarationList, () => PipelineTriggerDeclarationList], 3
 ];
 export var PipelineExecution$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_pN, _pV, _pEI, _s, _sSt, _aR, _var, _tri, _eMx, _eTx, _rM],
+  [_pN, _pV, _pEI, _st, _sSt, _aR, _var, _tri, _eMx, _eTx, _rM],
   [0, 1, 0, 0, 0, () => ArtifactRevisionList, () => ResolvedPipelineVariableList, () => ExecutionTrigger$, 0, 0, () => PipelineRollbackMetadata$]
 ];
 export var PipelineExecutionFilter$: StaticStructureSchema = [3, n0, _PEF,
@@ -1351,27 +1448,9 @@ export var PipelineExecutionFilter$: StaticStructureSchema = [3, n0, _PEF,
   [_sIS],
   [() => SucceededInStageFilter$]
 ];
-export var PipelineExecutionNotFoundException$: StaticErrorSchema = [-3, n0, _PENFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineExecutionNotFoundException$, PipelineExecutionNotFoundException);
-export var PipelineExecutionNotStoppableException$: StaticErrorSchema = [-3, n0, _PENSE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineExecutionNotStoppableException$, PipelineExecutionNotStoppableException);
-export var PipelineExecutionOutdatedException$: StaticErrorSchema = [-3, n0, _PEOE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineExecutionOutdatedException$, PipelineExecutionOutdatedException);
 export var PipelineExecutionSummary$: StaticStructureSchema = [3, n0, _PES,
   0,
-  [_pEI, _s, _sSt, _sT, _lUT, _sR, _tri, _sTt, _eMx, _eTx, _rM],
+  [_pEI, _st, _sSt, _sT, _lUT, _sR, _tri, _sTt, _eMx, _eTx, _rM],
   [0, 0, 0, 4, 4, () => SourceRevisionList, () => ExecutionTrigger$, () => StopExecutionTrigger$, 0, 0, () => PipelineRollbackMetadata$]
 ];
 export var PipelineMetadata$: StaticStructureSchema = [3, n0, _PM,
@@ -1379,18 +1458,6 @@ export var PipelineMetadata$: StaticStructureSchema = [3, n0, _PM,
   [_pAi, _cr, _up, _pDA],
   [0, 4, 4, 4]
 ];
-export var PipelineNameInUseException$: StaticErrorSchema = [-3, n0, _PNIUE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineNameInUseException$, PipelineNameInUseException);
-export var PipelineNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineNotFoundException$, PipelineNotFoundException);
 export var PipelineRollbackMetadata$: StaticStructureSchema = [3, n0, _PRM,
   0,
   [_rTPEI],
@@ -1416,12 +1483,6 @@ export var PipelineVariableDeclaration$: StaticStructureSchema = [3, n0, _PVD,
   [_na, _dV, _d],
   [0, 0, 0], 1
 ];
-export var PipelineVersionNotFoundException$: StaticErrorSchema = [-3, n0, _PVNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineVersionNotFoundException$, PipelineVersionNotFoundException);
 export var PollForJobsInput$: StaticStructureSchema = [3, n0, _PFJI,
   0,
   [_aTI, _mBS, _qP],
@@ -1502,23 +1563,11 @@ export var RegisterWebhookWithThirdPartyOutput$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var RequestFailedException$: StaticErrorSchema = [-3, n0, _RFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestFailedException$, RequestFailedException);
 export var ResolvedPipelineVariable$: StaticStructureSchema = [3, n0, _RPV,
   0,
   [_na, _rV],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_rMe],
@@ -1556,17 +1605,17 @@ export var RuleConfigurationProperty$: StaticStructureSchema = [3, n0, _RCP,
 ];
 export var RuleDeclaration$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_na, _rTI, _c, _co, _iA, _rA, _re, _tIM],
+  [_na, _rTI, _co, _com, _iA, _rA, _re, _tIM],
   [0, () => RuleTypeId$, 128 | 0, 64 | 0, () => InputArtifactList, 0, 0, 1], 2
 ];
 export var RuleExecution$: StaticStructureSchema = [3, n0, _RE,
   0,
-  [_rEI, _s, _su, _lSC, _to, _lUB, _eEI, _eEU, _eD],
+  [_rEI, _st, _su, _lSC, _to, _lUB, _eEI, _eEU, _eD],
   [0, 0, 0, 4, 0, 0, 0, 0, () => ErrorDetails$]
 ];
 export var RuleExecutionDetail$: StaticStructureSchema = [3, n0, _RED,
   0,
-  [_pEI, _rEI, _pV, _sN, _rN, _sT, _lUT, _uB, _s, _i, _o],
+  [_pEI, _rEI, _pV, _sN, _rN, _sT, _lUT, _uB, _st, _i, _o],
   [0, 0, 1, 0, 0, 4, 4, 0, 0, () => RuleExecutionInput$, () => RuleExecutionOutput$]
 ];
 export var RuleExecutionFilter$: StaticStructureSchema = [3, n0, _REF,
@@ -1576,7 +1625,7 @@ export var RuleExecutionFilter$: StaticStructureSchema = [3, n0, _REF,
 ];
 export var RuleExecutionInput$: StaticStructureSchema = [3, n0, _REI,
   0,
-  [_rTI, _c, _rC, _rA, _re, _iA],
+  [_rTI, _co, _rC, _rA, _re, _iA],
   [() => RuleTypeId$, 128 | 0, 128 | 0, 0, 0, () => ArtifactDetailList]
 ];
 export var RuleExecutionOutput$: StaticStructureSchema = [3, n0, _REO,
@@ -1636,7 +1685,7 @@ export var SourceRevisionOverride$: StaticStructureSchema = [3, n0, _SRO,
 ];
 export var StageConditionsExecution$: StaticStructureSchema = [3, n0, _SCE,
   0,
-  [_s, _su],
+  [_st, _su],
   [0, 0]
 ];
 export var StageConditionState$: StaticStructureSchema = [3, n0, _SCS,
@@ -1656,21 +1705,9 @@ export var StageDeclaration$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var StageExecution$: StaticStructureSchema = [3, n0, _SE,
   0,
-  [_pEI, _s, _t],
+  [_pEI, _st, _t],
   [0, 0, 0], 2
 ];
-export var StageNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StageNotFoundException$, StageNotFoundException);
-export var StageNotRetryableException$: StaticErrorSchema = [-3, n0, _SNRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StageNotRetryableException$, StageNotRetryableException);
 export var StageState$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sN, _iE, _iEn, _iTS, _aSc, _lE, _bECS, _oSCS, _oFCS, _rSM],
@@ -1746,23 +1783,11 @@ export var ThirdPartyJobDetails$: StaticStructureSchema = [3, n0, _TPJDh,
   [_id, _da, _n],
   [0, [() => ThirdPartyJobData$, 0], 0]
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TransitionState$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_en, _lCB, _lCA, _dR],
   [2, 0, 4, 0]
 ];
-export var UnableToRollbackStageException$: StaticErrorSchema = [-3, n0, _UTRSE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnableToRollbackStageException$, UnableToRollbackStageException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
@@ -1788,12 +1813,6 @@ export var UpdatePipelineOutput$: StaticStructureSchema = [3, n0, _UPO,
   [_pi],
   [() => PipelineDeclaration$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WebhookAuthConfiguration$: StaticStructureSchema = [3, n0, _WAC,
   0,
   [_AIPR, _STe],
@@ -1809,15 +1828,7 @@ export var WebhookFilterRule$: StaticStructureSchema = [3, n0, _WFR,
   [_jP, _mE],
   [0, 0], 1
 ];
-export var WebhookNotFoundException$: StaticErrorSchema = [-3, n0, _WNFE,
-  { [_e]: _cl },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(WebhookNotFoundException$, WebhookNotFoundException);
 var __Unit = "unit" as const;
-export var CodePipelineServiceException$: StaticErrorSchema = [-3, _sm, "CodePipelineServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodePipelineServiceException$, CodePipelineServiceException);
 var ActionConfigurationPropertyList: StaticListSchema = [1, n0, _ACPL,
   0, () => ActionConfigurationProperty$
 ];

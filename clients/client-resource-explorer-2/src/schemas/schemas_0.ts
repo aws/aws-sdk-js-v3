@@ -180,7 +180,7 @@ const _URO = "UntagResourceOutput";
 const _UV = "UpdateView";
 const _UVI = "UpdateViewInput";
 const _UVO = "UpdateViewOutput";
-const _V = "Views";
+const _V = "Value";
 const _VA = "ViewArn";
 const _VAi = "ViewArns";
 const _VE = "ValidationException";
@@ -190,17 +190,17 @@ const _VI = "ValidationIssue";
 const _VL = "ViewList";
 const _VN = "ViewName";
 const _VS = "ViewStatus";
-const _Va = "Value";
 const _Ve = "Version";
-const _Vi = "View";
+const _Vi = "Views";
+const _Vie = "View";
 const _c = "client";
 const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.resourceexplorer2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resourceexplorer2";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.resourceexplorer2";
 
@@ -228,13 +228,68 @@ import {
 import { ResourceExplorer2ServiceException } from "../models/ResourceExplorer2ServiceException";
 
 /* eslint no-var: 0 */
-var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ResourceExplorer2ServiceException$: StaticErrorSchema = [-3, _s, "ResourceExplorer2ServiceException", 0, [], []];
+_s_registry.registerError(ResourceExplorer2ServiceException$, ResourceExplorer2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _N, _V],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _FL],
+  [0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var QueryString: StaticSimpleSchema = [0, n0, _QS, 8, 0];
 export var AssociateDefaultViewInput$: StaticStructureSchema = [3, n0, _ADVI,
   0,
   [_VA],
@@ -257,15 +312,9 @@ export var BatchGetViewInput$: StaticStructureSchema = [3, n0, _BGVI,
 ];
 export var BatchGetViewOutput$: StaticStructureSchema = [3, n0, _BGVO,
   0,
-  [_V, _E],
+  [_Vi, _E],
   [[() => ViewList, 0], () => BatchGetViewErrors]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIndexInput$: StaticStructureSchema = [3, n0, _CII,
   0,
   [_CT, _T],
@@ -293,7 +342,7 @@ export var CreateViewInput$: StaticStructureSchema = [3, n0, _CVI,
 ];
 export var CreateViewOutput$: StaticStructureSchema = [3, n0, _CVO,
   0,
-  [_Vi],
+  [_Vie],
   [[() => View$, 0]]
 ];
 export var DeleteIndexInput$: StaticStructureSchema = [3, n0, _DII,
@@ -378,7 +427,7 @@ export var GetServiceViewInput$: StaticStructureSchema = [3, n0, _GSVI,
 ];
 export var GetServiceViewOutput$: StaticStructureSchema = [3, n0, _GSVO,
   0,
-  [_Vi],
+  [_Vie],
   [[() => ServiceView$, 0]], 1
 ];
 export var GetViewInput$: StaticStructureSchema = [3, n0, _GVI,
@@ -388,7 +437,7 @@ export var GetViewInput$: StaticStructureSchema = [3, n0, _GVI,
 ];
 export var GetViewOutput$: StaticStructureSchema = [3, n0, _GVO,
   0,
-  [_Vi, _T],
+  [_Vie, _T],
   [[() => View$, 0], [() => TagMap, 0]]
 ];
 export var IncludedProperty$: StaticStructureSchema = [3, n0, _IPn,
@@ -406,12 +455,6 @@ export var IndexStatus$: StaticStructureSchema = [3, n0, _IS,
   [_St, _I, _ED],
   [0, () => Index$, () => ErrorDetails$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListIndexesForMembersInput$: StaticStructureSchema = [3, n0, _LIFMI,
   0,
   [_AIL, _MR, _NT],
@@ -509,7 +552,7 @@ export var ListViewsInput$: StaticStructureSchema = [3, n0, _LVI,
 ];
 export var ListViewsOutput$: StaticStructureSchema = [3, n0, _LVO,
   0,
-  [_V, _NT],
+  [_Vi, _NT],
   [64 | 0, 0]
 ];
 export var ManagedView$: StaticStructureSchema = [3, n0, _MV,
@@ -529,7 +572,7 @@ export var OrgConfiguration$: StaticStructureSchema = [3, n0, _OC,
 ];
 export var RegionStatus$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_Re, _I, _Vi],
+  [_Re, _I, _Vie],
   [0, () => IndexStatus$, [() => ViewStatus$, 0]]
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Reso,
@@ -542,12 +585,6 @@ export var ResourceCount$: StaticStructureSchema = [3, n0, _RC,
   [_TR, _Co],
   [1, 2]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceProperty$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_N, _LRA, _D],
@@ -568,12 +605,6 @@ export var SearchOutput$: StaticStructureSchema = [3, n0, _SO,
   [_Res, _NT, _VA, _Cou],
   [() => ResourceList, 0, 0, () => ResourceCount$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _N, _Va],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceView$: StaticStructureSchema = [3, n0, _SVe,
   0,
   [_SVA, _SVN, _F, _IP, _SAFSt, _ST],
@@ -599,18 +630,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -638,33 +657,25 @@ export var UpdateViewInput$: StaticStructureSchema = [3, n0, _UVI,
 ];
 export var UpdateViewOutput$: StaticStructureSchema = [3, n0, _UVO,
   0,
-  [_Vi],
+  [_Vie],
   [[() => View$, 0]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _FL],
-  [0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _VI],
   [0, 0], 2
 ];
-export var View$: StaticStructureSchema = [3, n0, _Vi,
+export var View$: StaticStructureSchema = [3, n0, _Vie,
   0,
   [_VA, _VN, _O, _LUA, _Sc, _IP, _F],
   [0, 0, 0, 5, 0, () => IncludedPropertyList, [() => SearchFilter$, 0]]
 ];
 export var ViewStatus$: StaticStructureSchema = [3, n0, _VS,
   0,
-  [_St, _Vi, _ED],
+  [_St, _Vie, _ED],
   [0, [() => View$, 0], () => ErrorDetails$]
 ];
 var __Unit = "unit" as const;
-export var ResourceExplorer2ServiceException$: StaticErrorSchema = [-3, _sm, "ResourceExplorer2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ResourceExplorer2ServiceException$, ResourceExplorer2ServiceException);
 var AccountIdList = 64 | 0;
 var BatchGetViewErrors: StaticListSchema = [1, n0, _BGVEa,
   0, () => BatchGetViewError$

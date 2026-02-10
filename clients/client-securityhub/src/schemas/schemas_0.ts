@@ -1107,11 +1107,11 @@ const _CDonne = "ConnectionDirection";
 const _CDont = "ContainerDetails";
 const _CDr = "CreationDate";
 const _CDre = "CreateDate";
-const _CE = "CachingEnabled";
+const _CE = "ConflictException";
 const _CECA = "CustomEndpointCertificateArn";
 const _CEE = "CustomEndpointEnabled";
 const _CEP = "CookieExpirationPeriod";
-const _CEo = "ConflictException";
+const _CEa = "CachingEnabled";
 const _CEu = "CustomEndpoint";
 const _CEus = "CustomEndpoints";
 const _CF = "CompositeFilter";
@@ -1939,10 +1939,10 @@ const _IDV = "IsDefaultVersion";
 const _ID_ = "ID";
 const _IDm = "ImageDigest";
 const _IDs = "IsDefault";
-const _IE = "IsEncrypted";
+const _IE = "InternalException";
 const _IED = "IncludeExecutionData";
 const _IEDT = "InaccessibleEncryptionDateTime";
-const _IEn = "InternalException";
+const _IEs = "IsEncrypted";
 const _IF = "IpFilters";
 const _IFE = "ImportFindingsError";
 const _IFEL = "ImportFindingsErrorList";
@@ -3157,11 +3157,11 @@ const _TCr = "TracingConfiguration";
 const _TD = "TaskData";
 const _TDA = "TaskDefinitionArn";
 const _TDa = "TaskDefinition";
-const _TE = "TracingEnabled";
+const _TE = "ThrottlingException";
 const _TEA = "TargetEndpointArn";
 const _TEP = "TransitEncryptionPort";
-const _TEh = "ThrottlingException";
-const _TEr = "TransitEncryption";
+const _TEr = "TracingEnabled";
+const _TEra = "TransitEncryption";
 const _TF = "TotalFindings";
 const _TFc = "TcpFlags";
 const _TGA = "TargetGroupArn";
@@ -3335,10 +3335,10 @@ const _VCi = "VisibilityConfig";
 const _VCp = "VpcConfig";
 const _VCpc = "VpcConfiguration";
 const _VD = "ValidationDomain";
-const _VE = "ValidationEmails";
+const _VE = "ValidationException";
 const _VEA = "VulnerabilitiesExploitAvailable";
 const _VES = "VpnEcmpSupport";
-const _VEa = "ValidationException";
+const _VEa = "ValidationEmails";
 const _VF = "VolumesFrom";
 const _VFA = "VulnerabilitiesFixAvailable";
 const _VFa = "ValueFrom";
@@ -3417,8 +3417,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.securityhub";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.securityhub";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.securityhub";
 
@@ -3451,6 +3451,97 @@ import {
 import { SecurityHubServiceException } from "../models/SecurityHubServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SecurityHubServiceException$: StaticErrorSchema = [-3, _s, "SecurityHubServiceException", 0, [], []];
+_s_registry.registerError(SecurityHubServiceException$, SecurityHubServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidAccessException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InvalidAccessException$, InvalidAccessException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptAdministratorInvitationRequest$: StaticStructureSchema = [3, n0, _AAIR,
   0,
   [_AI, _II],
@@ -3471,12 +3562,6 @@ export var AcceptInvitationResponse$: StaticStructureSchema = [3, n0, _AIRc,
   [],
   []
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_AIc, _E],
@@ -3674,7 +3759,7 @@ export var AwsApiGatewayEndpointConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var AwsApiGatewayMethodSettings$: StaticStructureSchema = [3, n0, _AAGMS,
   0,
-  [_ME, _LL, _DTE, _TBL, _TRL, _CE, _CTIS, _CDE, _RAFCC, _UCCHS, _HM, _RPe],
+  [_ME, _LL, _DTE, _TBL, _TRL, _CEa, _CTIS, _CDE, _RAFCC, _UCCHS, _HM, _RPe],
   [2, 0, 2, 1, 1, 2, 1, 2, 2, 0, 0, 0]
 ];
 export var AwsApiGatewayRestApiDetails$: StaticStructureSchema = [3, n0, _AAGRAD,
@@ -3684,7 +3769,7 @@ export var AwsApiGatewayRestApiDetails$: StaticStructureSchema = [3, n0, _AAGRAD
 ];
 export var AwsApiGatewayStageDetails$: StaticStructureSchema = [3, n0, _AAGSD,
   0,
-  [_DI, _CCI, _SNt, _D, _CCE, _CCS, _CCSa, _MSe, _Va, _DV, _ALS, _CSa, _TE, _CD, _LUD, _WAA],
+  [_DI, _CCI, _SNt, _D, _CCE, _CCS, _CCSa, _MSe, _Va, _DV, _ALS, _CSa, _TEr, _CD, _LUD, _WAA],
   [0, 0, 0, 0, 2, 0, 0, () => AwsApiGatewayMethodSettingsList, 128 | 0, 0, () => AwsApiGatewayAccessLogSettings$, () => AwsApiGatewayCanarySettings$, 2, 0, 0, 0]
 ];
 export var AwsApiGatewayV2ApiDetails$: StaticStructureSchema = [3, n0, _AAGVAD,
@@ -3869,7 +3954,7 @@ export var AwsBackupRecoveryPointCreatedByDetails$: StaticStructureSchema = [3, 
 ];
 export var AwsBackupRecoveryPointDetails$: StaticStructureSchema = [3, n0, _ABRPD,
   0,
-  [_BSIB, _BVA, _BVN, _CL, _CDo, _CB, _CDr, _EKA, _IRA, _IE, _LRT, _Li, _RPA, _RAe, _RT, _SBVA, _St, _SM, _SC],
+  [_BSIB, _BVA, _BVN, _CL, _CDo, _CB, _CDr, _EKA, _IRA, _IEs, _LRT, _Li, _RPA, _RAe, _RT, _SBVA, _St, _SM, _SC],
   [1, 0, 0, () => AwsBackupRecoveryPointCalculatedLifecycleDetails$, 0, () => AwsBackupRecoveryPointCreatedByDetails$, 0, 0, 0, 2, 0, () => AwsBackupRecoveryPointLifecycleDetails$, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var AwsBackupRecoveryPointLifecycleDetails$: StaticStructureSchema = [3, n0, _ABRPLD,
@@ -3884,7 +3969,7 @@ export var AwsCertificateManagerCertificateDetails$: StaticStructureSchema = [3,
 ];
 export var AwsCertificateManagerCertificateDomainValidationOption$: StaticStructureSchema = [3, n0, _ACMCDVO,
   0,
-  [_DNo, _RRe, _VD, _VE, _VM, _VSa],
+  [_DNo, _RRe, _VD, _VEa, _VM, _VSa],
   [0, () => AwsCertificateManagerCertificateResourceRecord$, 0, 64 | 0, 0, 0]
 ];
 export var AwsCertificateManagerCertificateExtendedKeyUsage$: StaticStructureSchema = [3, n0, _ACMCEKU,
@@ -4819,7 +4904,7 @@ export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigD
 ];
 export var AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails$: StaticStructureSchema = [3, n0, _AETDVEVCD,
   0,
-  [_ACu, _FI, _RD, _TEr, _TEP],
+  [_ACu, _FI, _RD, _TEra, _TEP],
   [() => AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails$, 0, 0, 0, 1]
 ];
 export var AwsEcsTaskDefinitionVolumesHostDetails$: StaticStructureSchema = [3, n0, _AETDVHD,
@@ -6302,12 +6387,6 @@ export var ConfigurationPolicySummary$: StaticStructureSchema = [3, n0, _CPSo,
   [_Ar, _I, _N, _D, _UA, _SEe],
   [0, 0, 0, 0, 5, 2]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CSon,
   0,
   [_CIo, _N, _PSr, _CA, _CAon, _D],
@@ -7133,30 +7212,6 @@ export var IntegerListConfigurationOptions$: StaticStructureSchema = [3, n0, _IL
   [_DVe, _Mi, _Max, _MIa],
   [64 | 1, 1, 1, 1]
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IEn,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidAccessException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidAccessException$, InvalidAccessException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
   [_AIc, _II, _IAnv, _MSemb],
@@ -7207,12 +7262,6 @@ export var KeywordFilter$: StaticStructureSchema = [3, n0, _KF,
   [_Val],
   [0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAggregatorsV2Request$: StaticStructureSchema = [3, n0, _LAVR,
   0,
   [_NTe, _MRa],
@@ -7588,12 +7637,6 @@ export var Resource$: StaticStructureSchema = [3, n0, _Reso,
   [_T, _I, _Par, _Reg, _RReso, _Tags, _DCat, _Deta, _ANp, _AAp],
   [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0], 2
 ];
-export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
   0,
   [_AASASG, _ACBP, _ACFD, _AEI, _AENI, _AESG, _AEV, _AEVw, _AEE, _AESw, _AENA, _AELB, _AEBE, _AED, _ASB, _ASAPAB, _ASOw, _ASMS, _AIAK, _AIU, _AIP, _AAGVS, _AAGVA, _ADDT, _AAGS, _AAGRA, _ACTT, _ASPC, _ACMC, _ARCw, _AELBw, _AIG, _AIRw, _AKK, _ALF, _ALLV, _ARDI, _AST, _ASQ, _AWWA, _ARDS, _ARDCS, _ARDC, _AECw, _AECws, _AETDw, _Conta, _Ot, _ARES, _AESws, _AASLC, _AEVC, _AECI, _AOSSD, _AEVES, _AXEC, _AWRBR, _AWRRBR, _AER, _AECwsk, _ANFFP, _ANFF, _ANFRG, _ARDSGw, _AKSw, _AETG, _AEAP, _ACFS, _ACWA, _AEVPC, _AWRRG, _AWRR, _AWRWA, _AWR, _AWRG, _AET, _ABBV, _ABBP, _ABRP, _AELT, _ASMNI, _AWWAw, _AWRGw, _AERT, _AAMB, _AASGQA, _AESR, _AGDD, _ASFSM, _AAWG, _AEEw, _ADEw, _AEEws, _ADRT, _ADRI, _ARHZ, _AMC, _ASAP, _AECVE, _CRod],
@@ -7609,18 +7652,6 @@ export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
   [_GBF, _Filt],
   [0, () => ResourcesFilters$], 1
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
   [_RI, _AIc, _Reg, _RDCTD, _RCeso, _RGe, _RCesou, _RT, _RNes, _RCTD, _FSi, _RTe],
@@ -7861,12 +7892,6 @@ export var ServiceNowUpdateConfiguration$: StaticStructureSchema = [3, n0, _SNUC
   [_SAec],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Severity$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_Produ, _Lab, _Norm, _Orig],
@@ -8022,12 +8047,6 @@ export var ThreatIntelIndicator$: StaticStructureSchema = [3, n0, _TIIh,
   [_T, _Val, _Cat, _LOA, _So, _SU],
   [0, 0, 0, 0, 0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrendsMetricsResult$: StaticStructureSchema = [3, n0, _TMR,
   0,
   [_Times, _TV],
@@ -8203,12 +8222,6 @@ export var UserAccount$: StaticStructureSchema = [3, n0, _UAs,
   [_Ui, _N],
   [0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VolumeMount$: StaticStructureSchema = [3, n0, _VMol,
   0,
   [_N, _MPou],
@@ -8269,8 +8282,6 @@ export var WorkflowUpdate$: StaticStructureSchema = [3, n0, _WU,
   [_St],
   [0]
 ];
-export var SecurityHubServiceException$: StaticErrorSchema = [-3, _sm, "SecurityHubServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SecurityHubServiceException$, SecurityHubServiceException);
 var AccountDetailsList: StaticListSchema = [1, n0, _ADL,
   0, () => AccountDetails$
 ];

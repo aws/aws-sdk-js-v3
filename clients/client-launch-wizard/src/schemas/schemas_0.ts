@@ -70,10 +70,10 @@ const _WDPDSL = "WorkloadDeploymentPatternDataSummaryList";
 const _WDS = "WorkloadDataSummary";
 const _WDSL = "WorkloadDataSummaryList";
 const _aV = "allowedValues";
-const _c = "comparator";
+const _c = "client";
 const _cA = "createdAt";
-const _cl = "client";
-const _co = "conditionals";
+const _co = "comparator";
+const _con = "conditionals";
 const _d = "description";
 const _dA = "deletedAt";
 const _dAe = "deploymentArn";
@@ -105,11 +105,11 @@ const _pN = "patternName";
 const _r = "required";
 const _rA = "resourceArn";
 const _rG = "resourceGroup";
-const _s = "specifications";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.launchwizard";
 const _sM = "statusMessage";
 const _sR = "statusReason";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.launchwizard";
+const _sp = "specifications";
 const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
@@ -143,9 +143,46 @@ import {
 import { LaunchWizardServiceException } from "../models/LaunchWizardServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LaunchWizardServiceException$: StaticErrorSchema = [-3, _s, "LaunchWizardServiceException", 0, [], []];
+_s_registry.registerError(LaunchWizardServiceException$, LaunchWizardServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceLimitException$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceLimitException$, ResourceLimitException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDI,
   0,
-  [_wN, _dPN, _n, _s, _dR, _t],
+  [_wN, _dPN, _n, _sp, _dR, _t],
   [0, 0, 0, [() => DeploymentSpecifications, 0], 2, 128 | 0], 4
 ];
 export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
@@ -165,12 +202,12 @@ export var DeleteDeploymentOutput$: StaticStructureSchema = [3, n0, _DDO,
 ];
 export var DeploymentConditionalField$: StaticStructureSchema = [3, n0, _DCF,
   0,
-  [_n, _v, _c],
+  [_n, _v, _co],
   [0, 0, 0]
 ];
 export var DeploymentData$: StaticStructureSchema = [3, n0, _DD,
   0,
-  [_n, _i, _wN, _pN, _st, _cA, _mA, _s, _rG, _dA, _t, _dAe],
+  [_n, _i, _wN, _pN, _st, _cA, _mA, _sp, _rG, _dA, _t, _dAe],
   [0, 0, 0, 0, 0, 4, 4, [() => DeploymentSpecifications, 0], 0, 4, 128 | 0, 0]
 ];
 export var DeploymentDataSummary$: StaticStructureSchema = [3, n0, _DDS,
@@ -200,7 +237,7 @@ export var DeploymentPatternVersionFilter$: StaticStructureSchema = [3, n0, _DPV
 ];
 export var DeploymentSpecificationsField$: StaticStructureSchema = [3, n0, _DSF,
   0,
-  [_n, _d, _aV, _r, _co],
+  [_n, _d, _aV, _r, _con],
   [0, 0, 64 | 0, 0, () => SpecificationsConditionalData]
 ];
 export var GetDeploymentInput$: StaticStructureSchema = [3, n0, _GDI,
@@ -243,12 +280,6 @@ export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
   [_w],
   [() => WorkloadData$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDeploymentEventsInput$: StaticStructureSchema = [3, n0, _LDEI,
   0,
   [_dI, _mR, _nT],
@@ -309,18 +340,6 @@ export var ListWorkloadsOutput$: StaticStructureSchema = [3, n0, _LWO,
   [_wo, _nT],
   [() => WorkloadDataSummaryList, 0]
 ];
-export var ResourceLimitException$: StaticErrorSchema = [-3, n0, _RLE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitException$, ResourceLimitException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -343,7 +362,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateDeploymentInput$: StaticStructureSchema = [3, n0, _UDI,
   0,
-  [_dI, _s, _wVN, _dPVN, _dR, _fo],
+  [_dI, _sp, _wVN, _dPVN, _dR, _fo],
   [0, [() => DeploymentSpecifications, 0], 0, 0, 2, 2], 2
 ];
 export var UpdateDeploymentOutput$: StaticStructureSchema = [3, n0, _UDO,
@@ -351,12 +370,6 @@ export var UpdateDeploymentOutput$: StaticStructureSchema = [3, n0, _UDO,
   [_de],
   [() => DeploymentDataSummary$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkloadData$: StaticStructureSchema = [3, n0, _WD,
   0,
   [_wN, _dN, _st, _d, _dU, _iU, _sM],
@@ -369,7 +382,7 @@ export var WorkloadDataSummary$: StaticStructureSchema = [3, n0, _WDS,
 ];
 export var WorkloadDeploymentPatternData$: StaticStructureSchema = [3, n0, _WDPD,
   0,
-  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM, _s],
+  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM, _sp],
   [0, 0, 0, 0, 0, 0, 0, 0, () => DeploymentSpecificationsData]
 ];
 export var WorkloadDeploymentPatternDataSummary$: StaticStructureSchema = [3, n0, _WDPDS,
@@ -377,8 +390,6 @@ export var WorkloadDeploymentPatternDataSummary$: StaticStructureSchema = [3, n0
   [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var LaunchWizardServiceException$: StaticErrorSchema = [-3, _sm, "LaunchWizardServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LaunchWizardServiceException$, LaunchWizardServiceException);
 var AllowedValues = 64 | 0;
 var DeploymentDataSummaryList: StaticListSchema = [1, n0, _DDSL,
   0, () => DeploymentDataSummary$

@@ -310,7 +310,7 @@ const _rOLOU = "removeOverrideLinkOutUri";
 const _rS = "relevanceScore";
 const _rSK = "removeShortcutKey";
 const _re = "results";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.wisdom";
 const _sA = "sessionArn";
 const _sC = "sourceConfiguration";
 const _sE = "searchExpression";
@@ -319,8 +319,8 @@ const _sK = "shortcutKey";
 const _sS = "sessionSummaries";
 const _sSEC = "serverSideEncryptionConfiguration";
 const _se = "session";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.wisdom";
 const _so = "source";
+const _st = "status";
 const _t = "tags";
 const _tIA = "topicIntegrationArn";
 const _tK = "tagKeys";
@@ -362,6 +362,67 @@ import {
 import { WisdomServiceException } from "../models/WisdomServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WisdomServiceException$: StaticErrorSchema = [-3, _s, "WisdomServiceException", 0, [], []];
+_s_registry.registerError(WisdomServiceException$, WisdomServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PreconditionFailedException$, PreconditionFailedException);
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Channel: StaticSimpleSchema = [0, n0, _C, 8, 0];
 var GroupingCriteria: StaticSimpleSchema = [0, n0, _GC, 8, 0];
 var GroupingValue: StaticSimpleSchema = [0, n0, _GV, 8, 0];
@@ -369,12 +430,6 @@ var QueryText: StaticSimpleSchema = [0, n0, _QT, 8, 0];
 var QuickResponseContent: StaticSimpleSchema = [0, n0, _QRC, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AppIntegrationsConfiguration$: StaticStructureSchema = [3, n0, _AIC,
   0,
   [_aIA, _oF],
@@ -392,7 +447,7 @@ export var AssistantAssociationSummary$: StaticStructureSchema = [3, n0, _AAS,
 ];
 export var AssistantData$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_aI, _aA, _n, _ty, _s, _d, _t, _sSEC, _iC],
+  [_aI, _aA, _n, _ty, _st, _d, _t, _sSEC, _iC],
   [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$], 5
 ];
 export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _AICs,
@@ -402,15 +457,9 @@ export var AssistantIntegrationConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var AssistantSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _aA, _n, _ty, _s, _d, _t, _sSEC, _iC],
+  [_aI, _aA, _n, _ty, _st, _d, _t, _sSEC, _iC],
   [0, 0, 0, 0, 0, 0, 128 | 0, () => ServerSideEncryptionConfiguration$, () => AssistantIntegrationConfiguration$], 5
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_iI],
@@ -418,7 +467,7 @@ export var ConnectConfiguration$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ContentData$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _u, _uE, _t, _lOU],
+  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _u, _uE, _t, _lOU],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, [() => Url, 0], 7, 128 | 0, 0], 12
 ];
 export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
@@ -428,7 +477,7 @@ export var ContentReference$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var ContentSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _s, _me, _t],
+  [_cA, _cI, _kBA, _kBI, _n, _rI, _ti, _cT, _st, _me, _t],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 10
 ];
 export var CreateAssistantAssociationRequest$: StaticStructureSchema = [3, n0, _CAAR,
@@ -673,12 +722,12 @@ export var Highlight$: StaticStructureSchema = [3, n0, _H,
 ];
 export var ImportJobData$: StaticStructureSchema = [3, n0, _IJD,
   0,
-  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _u, _uE, _cTr, _lMT, _fRR, _me, _eSC],
+  [_iJI, _kBI, _uI, _kBA, _iJT, _st, _u, _uE, _cTr, _lMT, _fRR, _me, _eSC],
   [0, 0, 0, 0, 0, 0, [() => Url, 0], 7, 7, 7, [() => Url, 0], 128 | 0, () => ExternalSourceConfiguration$], 10
 ];
 export var ImportJobSummary$: StaticStructureSchema = [3, n0, _IJS,
   0,
-  [_iJI, _kBI, _uI, _kBA, _iJT, _s, _cTr, _lMT, _me, _eSC],
+  [_iJI, _kBI, _uI, _kBA, _iJT, _st, _cTr, _lMT, _me, _eSC],
   [0, 0, 0, 0, 0, 0, 7, 7, 128 | 0, () => ExternalSourceConfiguration$], 8
 ];
 export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
@@ -688,12 +737,12 @@ export var KnowledgeBaseAssociationData$: StaticStructureSchema = [3, n0, _KBAD,
 ];
 export var KnowledgeBaseData$: StaticStructureSchema = [3, n0, _KBD,
   0,
-  [_kBI, _kBA, _n, _kBT, _s, _lCMT, _sC, _rC, _sSEC, _d, _t],
+  [_kBI, _kBA, _n, _kBT, _st, _lCMT, _sC, _rC, _sSEC, _d, _t],
   [0, 0, 0, 0, 0, 7, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 5
 ];
 export var KnowledgeBaseSummary$: StaticStructureSchema = [3, n0, _KBS,
   0,
-  [_kBI, _kBA, _n, _kBT, _s, _sC, _rC, _sSEC, _d, _t],
+  [_kBI, _kBA, _n, _kBT, _st, _sC, _rC, _sSEC, _d, _t],
   [0, 0, 0, 0, 0, () => SourceConfiguration$, () => RenderingConfiguration$, () => ServerSideEncryptionConfiguration$, 0, 128 | 0], 5
 ];
 export var ListAssistantAssociationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
@@ -781,12 +830,6 @@ export var NotifyRecommendationsReceivedResponse$: StaticStructureSchema = [3, n
   [_rIec, _er],
   [64 | 0, () => NotifyRecommendationsReceivedErrorList]
 ];
-export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
-  { [_e]: _c, [_hE]: 412 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
 export var QueryAssistantRequest$: StaticStructureSchema = [3, n0, _QAR,
   0,
   [_aI, _qT, _nT, _mR],
@@ -809,7 +852,7 @@ export var QuickResponseContents$: StaticStructureSchema = [3, n0, _QRCu,
 ];
 export var QuickResponseData$: StaticStructureSchema = [3, n0, _QRD,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _l, _t],
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _cont, _d, _gC, _sK, _lMB, _iA, _ch, _l, _t],
   [0, 0, 0, 0, 0, 0, 0, 7, 7, [() => QuickResponseContents$, 0], 0, [() => GroupingConfiguration$, 0], 0, 0, 2, [() => Channels, 0], 0, 128 | 0], 9
 ];
 export var QuickResponseFilterField$: StaticStructureSchema = [3, n0, _QRFF,
@@ -834,12 +877,12 @@ export var QuickResponseSearchExpression$: StaticStructureSchema = [3, n0, _QRSE
 ];
 export var QuickResponseSearchResultData$: StaticStructureSchema = [3, n0, _QRSRD,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _l, _aNI, _aIt, _t],
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cont, _cTr, _lMT, _iA, _d, _gC, _sK, _lMB, _ch, _l, _aNI, _aIt, _t],
   [0, 0, 0, 0, 0, 0, 0, [() => QuickResponseContents$, 0], 7, 7, 2, 0, [() => GroupingConfiguration$, 0], 0, 0, [() => Channels, 0], 0, [() => ContactAttributeKeys, 0], [() => ContactAttributeKeys, 0], 128 | 0], 11
 ];
 export var QuickResponseSummary$: StaticStructureSchema = [3, n0, _QRS,
   0,
-  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _s, _cTr, _lMT, _d, _lMB, _iA, _ch, _t],
+  [_qRA, _qRI, _kBA, _kBI, _n, _cT, _st, _cTr, _lMT, _d, _lMB, _iA, _ch, _t],
   [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0, 2, [() => Channels, 0], 128 | 0], 9
 ];
 export var RecommendationData$: StaticStructureSchema = [3, n0, _RD,
@@ -867,18 +910,6 @@ export var RenderingConfiguration$: StaticStructureSchema = [3, n0, _RC,
   [_tU],
   [0]
 ];
-export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _c, [_hE]: 408 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResultData$: StaticStructureSchema = [3, n0, _RDe,
   0,
   [_rIes, _do, _rS],
@@ -924,12 +955,6 @@ export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _
   [_kKI],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionData$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_sA, _sI, _n, _d, _t, _iC],
@@ -975,12 +1000,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -1021,14 +1040,6 @@ export var UpdateQuickResponseResponse$: StaticStructureSchema = [3, n0, _UQRRp,
   [_qR],
   [[() => QuickResponseData$, 0]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var WisdomServiceException$: StaticErrorSchema = [-3, _sm, "WisdomServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WisdomServiceException$, WisdomServiceException);
 var AssistantAssociationSummaryList: StaticListSchema = [1, n0, _AASL,
   0, () => AssistantAssociationSummary$
 ];

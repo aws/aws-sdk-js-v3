@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultElasticBeanstalkHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ElasticBeanstalkClientConfig } from "./ElasticBeanstalkClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ElasticBeanstalkClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.elasticbeanstalk",
+      errorTypeRegistries,
       xmlNamespace: "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
       version: "2010-12-01",
       serviceTarget: "AWSElasticBeanstalkService",

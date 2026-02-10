@@ -770,7 +770,7 @@ const _mr = "max-results";
 const _n = "name";
 const _nt = "next-token";
 const _rA = "resourceArn";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.customerprofiles";
 const _sJ = "stringifiedJson";
 const _sST = "sensitiveString0To1000";
 const _sSTe = "sensitiveString0To255";
@@ -781,7 +781,7 @@ const _sSTensit = "sensitiveString1To255";
 const _sSTensiti = "sensitiveString1To4000";
 const _sSTensitiv = "sensitiveString1To50000";
 const _sT = "sensitiveText";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.customerprofiles";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tmc = "training-metrics-count";
@@ -809,6 +809,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CustomerProfilesServiceException$: StaticErrorSchema = [-3, _s, "CustomerProfilesServiceException", 0, [], []];
+_s_registry.registerError(CustomerProfilesServiceException$, CustomerProfilesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Gender: StaticSimpleSchema = [0, n0, _G, 8, 0];
 var PartyType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
 var ProfileType: StaticSimpleSchema = [0, n0, _PTr, 8, 0];
@@ -823,12 +866,6 @@ var sensitiveString1To50000: StaticSimpleSchema = [0, n0, _sSTensitiv, 8, 0];
 var sensitiveText: StaticSimpleSchema = [0, n0, _sT, 8, 0];
 var Statistic: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var stringifiedJson: StaticSimpleSchema = [0, n0, _sJ, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AdditionalSearchKey$: StaticStructureSchema = [3, n0, _ASK,
   0,
   [_KN, _V],
@@ -904,12 +941,6 @@ export var AutoMerging$: StaticStructureSchema = [3, n0, _AM,
   [_En, _Con, _CR, _MACSFM],
   [2, () => Consolidation$, () => ConflictResolution$, 1], 1
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Batch$: StaticStructureSchema = [3, n0, _Ba,
   0,
   [_ST, _ET],
@@ -1685,12 +1716,6 @@ export var IntegrationConfig$: StaticStructureSchema = [3, n0, _IC,
   [_AI],
   [[() => AppflowIntegration$, 0]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobSchedule$: StaticStructureSchema = [3, n0, _JSo,
   0,
   [_DOTW, _Ti],
@@ -2171,12 +2196,6 @@ export var RecommenderUpdate$: StaticStructureSchema = [3, n0, _RU,
   [_RC, _Sta, _CA, _LUA, _FR],
   [() => RecommenderConfig$, 0, 4, 4, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResultsSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_UR, _CRr, _FRa],
@@ -2322,12 +2341,6 @@ export var Threshold$: StaticStructureSchema = [3, n0, _Th,
   [_Va, _Op],
   [0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_Ti, _Me],
@@ -2448,8 +2461,6 @@ export var ZendeskSourceProperties$: StaticStructureSchema = [3, n0, _ZSP,
   [_Ob],
   [0], 1
 ];
-export var CustomerProfilesServiceException$: StaticErrorSchema = [-3, _sm, "CustomerProfilesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CustomerProfilesServiceException$, CustomerProfilesServiceException);
 var additionalSearchKeysList: StaticListSchema = [1, n0, _aSKL,
   0, () => AdditionalSearchKey$
 ];

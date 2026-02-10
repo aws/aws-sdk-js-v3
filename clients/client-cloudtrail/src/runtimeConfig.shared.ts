@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudTrailHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudTrailClientConfig } from "./CloudTrailClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudTrailClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudtrail",
+      errorTypeRegistries,
       xmlNamespace: "http://cloudtrail.amazonaws.com/doc/2013-11-01/",
       version: "2013-11-01",
       serviceTarget: "CloudTrail_20131101",

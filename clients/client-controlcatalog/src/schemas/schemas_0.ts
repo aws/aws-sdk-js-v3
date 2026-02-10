@@ -96,8 +96,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.controlcatalog";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.controlcatalog";
+const _se = "server";
 const n0 = "com.amazonaws.controlcatalog";
 
 // smithy-typescript generated code
@@ -120,12 +120,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ControlCatalogServiceException$: StaticErrorSchema = [-3, _s, "ControlCatalogServiceException", 0, [], []];
+_s_registry.registerError(ControlCatalogServiceException$, ControlCatalogServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociatedDomainSummary$: StaticStructureSchema = [3, n0, _ADS,
   0,
   [_A, _N],
@@ -216,12 +253,6 @@ export var ImplementationSummary$: StaticStructureSchema = [3, n0, _IS,
   [_T, _Id],
   [0, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCommonControlsRequest$: StaticStructureSchema = [3, n0, _LCCR,
   0,
   [_MR, _NT, _CCF],
@@ -297,26 +328,6 @@ export var RelatedControlMappingDetails$: StaticStructureSchema = [3, n0, _RCMD,
   [_RT, _CA],
   [0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ControlCatalogServiceException$: StaticErrorSchema = [-3, _sm, "ControlCatalogServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ControlCatalogServiceException$, ControlCatalogServiceException);
 var CommonControlArnFilterList = 64 | 0;
 var CommonControlSummaryList: StaticListSchema = [1, n0, _CCSL,
   0, () => CommonControlSummary$

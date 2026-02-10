@@ -1093,7 +1093,7 @@ const _reg = "regions";
 const _req = "request";
 const _res = "resource";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lightsail";
 const _sA = "signatureAlgorithm";
 const _sAC = "supportedAppCategories";
 const _sAK = "secretAccessKey";
@@ -1131,15 +1131,15 @@ const _sSN = "sourceSnapshotName";
 const _sT = "startTime";
 const _sTOD = "snapshotTimeOfDay";
 const _sc = "scale";
-const _se = "sessions";
+const _se = "server";
 const _ser = "service";
 const _seri = "serial";
-const _serv = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lightsail";
-const _st = "statistic";
-const _sta = "state";
+const _ses = "sessions";
+const _st = "status";
+const _sta = "statistic";
 const _star = "start";
-const _stat = "statistics";
+const _stat = "state";
+const _stati = "statistics";
 const _su = "subject";
 const _sum = "sum";
 const _t = "tip";
@@ -1204,19 +1204,74 @@ import {
 import { LightsailServiceException } from "../models/LightsailServiceException";
 
 /* eslint no-var: 0 */
-var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
-var IAMAccessKeyId: StaticSimpleSchema = [0, n0, _IAMAKI, 8, 0];
-var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
-var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var LightsailServiceException$: StaticErrorSchema = [-3, _s, "LightsailServiceException", 0, [], []];
+_s_registry.registerError(LightsailServiceException$, LightsailServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_co, _d, _m, _t],
   [0, 0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AccountSetupInProgressException$: StaticErrorSchema = [-3, n0, _ASIPE,
+  { [_e]: _c, [_hE]: 428 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(AccountSetupInProgressException$, AccountSetupInProgressException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var OperationFailureException$: StaticErrorSchema = [-3, n0, _OFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(OperationFailureException$, OperationFailureException);
+export var RegionSetupInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
+  { [_e]: _c, [_hE]: 428 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(RegionSetupInProgressException$, RegionSetupInProgressException);
+export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _se, [_hE]: 500 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceException$, ServiceException);
+export var UnauthenticatedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_co, _d, _m, _t],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(UnauthenticatedException$, UnauthenticatedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
+var IAMAccessKeyId: StaticSimpleSchema = [0, n0, _IAMAKI, 8, 0];
+var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccessKey$: StaticStructureSchema = [3, n0, _AK,
   0,
-  [_aKI, _sAK, _s, _cA, _lU],
+  [_aKI, _sAK, _st, _cA, _lU],
   [[() => IAMAccessKeyId, 0], 0, 0, 4, () => AccessKeyLastUsed$]
 ];
 export var AccessKeyLastUsed$: StaticStructureSchema = [3, n0, _AKLU,
@@ -1231,18 +1286,12 @@ export var AccessRules$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var AccountLevelBpaSync$: StaticStructureSchema = [3, n0, _ALBS,
   0,
-  [_s, _lSA, _m, _bIL],
+  [_st, _lSA, _m, _bIL],
   [0, 4, 0, 2]
 ];
-export var AccountSetupInProgressException$: StaticErrorSchema = [-3, n0, _ASIPE,
-  { [_e]: _c, [_hE]: 428 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(AccountSetupInProgressException$, AccountSetupInProgressException);
 export var AddOn$: StaticStructureSchema = [3, n0, _AO,
   0,
-  [_n, _s, _sTOD, _nSTOD, _th, _du],
+  [_n, _st, _sTOD, _nSTOD, _th, _du],
   [0, 0, 0, 0, 0, 0]
 ];
 export var AddOnRequest$: StaticStructureSchema = [3, n0, _AOR,
@@ -1252,7 +1301,7 @@ export var AddOnRequest$: StaticStructureSchema = [3, n0, _AOR,
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_n, _a, _cA, _l, _rT, _sC, _mRI, _cO, _eP, _p, _th, _dTA, _tMD, _st, _mN, _sta, _u, _cP, _nT, _nE],
+  [_n, _a, _cA, _l, _rT, _sC, _mRI, _cO, _eP, _p, _th, _dTA, _tMD, _sta, _mN, _stat, _u, _cP, _nT, _nE],
   [0, 0, 4, () => ResourceLocation$, 0, 0, () => MonitoredResourceInfo$, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 2]
 ];
 export var AllocateStaticIpRequest$: StaticStructureSchema = [3, n0, _ASIR,
@@ -1327,12 +1376,12 @@ export var AutoSnapshotAddOnRequest$: StaticStructureSchema = [3, n0, _ASAOR,
 ];
 export var AutoSnapshotDetails$: StaticStructureSchema = [3, n0, _ASD,
   0,
-  [_da, _cA, _s, _fAD],
+  [_da, _cA, _st, _fAD],
   [0, 4, 0, () => AttachedDiskList]
 ];
 export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   0,
-  [_zN, _sta],
+  [_zN, _stat],
   [0, 0]
 ];
 export var Blueprint$: StaticStructureSchema = [3, n0, _B,
@@ -1342,7 +1391,7 @@ export var Blueprint$: StaticStructureSchema = [3, n0, _B,
 ];
 export var Bucket$: StaticStructureSchema = [3, n0, _Bu,
   0,
-  [_rT, _aR, _a, _bIu, _cA, _ur, _l, _n, _sC, _ta, _oV, _aTUB, _rAA, _rRA, _sta, _aLC, _cor],
+  [_rT, _aR, _a, _bIu, _cA, _ur, _l, _n, _sC, _ta, _oV, _aTUB, _rAA, _rRA, _stat, _aLC, _cor],
   [0, () => AccessRules$, 0, 0, 4, 0, () => ResourceLocation$, 0, 0, () => TagList, 0, 2, 64 | 0, () => AccessReceiverList, () => BucketState$, () => BucketAccessLogConfig$, () => BucketCorsConfig$]
 ];
 export var BucketAccessLogConfig$: StaticStructureSchema = [3, n0, _BALC,
@@ -1392,7 +1441,7 @@ export var CacheSettings$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var Certificate$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_a, _n, _dNo, _s, _sNe, _sAN, _dVR, _rFR, _iURC, _kA, _cA, _iAs, _iCA, _nB, _nA, _eTR, _rS, _rA, _rR, _ta, _sC],
+  [_a, _n, _dNo, _st, _sNe, _sAN, _dVR, _rFR, _iURC, _kA, _cA, _iAs, _iCA, _nB, _nA, _eTR, _rS, _rA, _rR, _ta, _sC],
   [0, 0, 0, 0, 0, 64 | 0, () => DomainValidationRecordList, 0, 1, 0, 4, 4, 0, 4, 4, 0, () => RenewalSummary$, 4, 0, () => TagList, 0]
 ];
 export var CertificateSummary$: StaticStructureSchema = [3, n0, _CSe,
@@ -1412,7 +1461,7 @@ export var CloseInstancePublicPortsResult$: StaticStructureSchema = [3, n0, _CIP
 ];
 export var CloudFormationStackRecord$: StaticStructureSchema = [3, n0, _CFSR,
   0,
-  [_n, _a, _cA, _l, _rT, _sta, _sI, _dI],
+  [_n, _a, _cA, _l, _rT, _stat, _sI, _dI],
   [0, 0, 4, () => ResourceLocation$, 0, 0, () => CloudFormationStackRecordSourceInfoList, () => DestinationInfo$]
 ];
 export var CloudFormationStackRecordSourceInfo$: StaticStructureSchema = [3, n0, _CFSRSI,
@@ -1422,7 +1471,7 @@ export var CloudFormationStackRecordSourceInfo$: StaticStructureSchema = [3, n0,
 ];
 export var ContactMethod$: StaticStructureSchema = [3, n0, _CM,
   0,
-  [_cE, _s, _pro, _n, _a, _cA, _l, _rT, _sC],
+  [_cE, _st, _pro, _n, _a, _cA, _l, _rT, _sC],
   [0, 0, 0, 0, 0, 4, () => ResourceLocation$, 0, 0]
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Co,
@@ -1437,12 +1486,12 @@ export var ContainerImage$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var ContainerService$: StaticStructureSchema = [3, n0, _CSo,
   0,
-  [_cSN, _a, _cA, _l, _rT, _ta, _po, _pIo, _sta, _sD, _sc, _cDu, _nD, _iD, _pA, _pDN, _pDNu, _ur, _pRA],
+  [_cSN, _a, _cA, _l, _rT, _ta, _po, _pIo, _stat, _sD, _sc, _cDu, _nD, _iD, _pA, _pDN, _pDNu, _ur, _pRA],
   [0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => ContainerServiceStateDetail$, 1, () => ContainerServiceDeployment$, () => ContainerServiceDeployment$, 2, 0, 0, [2, n0, _CSPD, 0, 0, 64 | 0], 0, () => PrivateRegistryAccess$]
 ];
 export var ContainerServiceDeployment$: StaticStructureSchema = [3, n0, _CSD,
   0,
-  [_v, _sta, _con, _pE, _cA],
+  [_v, _stat, _con, _pE, _cA],
   [1, 0, () => ContainerMap, () => ContainerServiceEndpoint$, 4]
 ];
 export var ContainerServiceDeploymentRequest$: StaticStructureSchema = [3, n0, _CSDR,
@@ -1662,7 +1711,7 @@ export var CreateGUISessionAccessDetailsRequest$: StaticStructureSchema = [3, n0
 ];
 export var CreateGUISessionAccessDetailsResult$: StaticStructureSchema = [3, n0, _CGUISADRr,
   0,
-  [_rN, _s, _pC, _fR, _se],
+  [_rN, _st, _pC, _fR, _ses],
   [0, 0, 1, 0, [() => Sessions, 0]]
 ];
 export var CreateInstancesFromSnapshotRequest$: StaticStructureSchema = [3, n0, _CIFSR,
@@ -2022,7 +2071,7 @@ export var DisableAddOnResult$: StaticStructureSchema = [3, n0, _DAORi,
 ];
 export var Disk$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _aOd, _sIG, _iSD, _io, _pa, _sta, _aT, _iAst, _aS, _gIU, _aMS],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _aOd, _sIG, _iSD, _io, _pa, _stat, _aT, _iAst, _aS, _gIU, _aMS],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, () => AddOnList, 1, 2, 1, 0, 0, 0, 2, 0, 1, 0]
 ];
 export var DiskInfo$: StaticStructureSchema = [3, n0, _DIi,
@@ -2037,7 +2086,7 @@ export var DiskMap$: StaticStructureSchema = [3, n0, _DM,
 ];
 export var DiskSnapshot$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _sIG, _sta, _prog, _fDN, _fDA, _fIN, _fIA, _iFAS],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _sIG, _stat, _prog, _fDN, _fDA, _fIN, _fIA, _iFAS],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 1, 0, 0, 0, 0, 0, 0, 2]
 ];
 export var DiskSnapshotInfo$: StaticStructureSchema = [3, n0, _DSI,
@@ -2102,7 +2151,7 @@ export var EstimateByTime$: StaticStructureSchema = [3, n0, _EBT,
 ];
 export var ExportSnapshotRecord$: StaticStructureSchema = [3, n0, _ESR,
   0,
-  [_n, _a, _cA, _l, _rT, _sta, _sI, _dI],
+  [_n, _a, _cA, _l, _rT, _stat, _sI, _dI],
   [0, 0, 4, () => ResourceLocation$, 0, 0, () => ExportSnapshotRecordSourceInfo$, () => DestinationInfo$]
 ];
 export var ExportSnapshotRecordSourceInfo$: StaticStructureSchema = [3, n0, _ESRSI,
@@ -2182,7 +2231,7 @@ export var GetBucketBundlesResult$: StaticStructureSchema = [3, n0, _GBBRe,
 ];
 export var GetBucketMetricDataRequest$: StaticStructureSchema = [3, n0, _GBMDR,
   0,
-  [_bN, _mN, _sT, _eT, _p, _stat, _u],
+  [_bN, _mN, _sT, _eT, _p, _stati, _u],
   [0, 0, 4, 4, 1, 64 | 0, 0], 7
 ];
 export var GetBucketMetricDataResult$: StaticStructureSchema = [3, n0, _GBMDRe,
@@ -2282,8 +2331,8 @@ export var GetContainerServiceDeploymentsResult$: StaticStructureSchema = [3, n0
 ];
 export var GetContainerServiceMetricDataRequest$: StaticStructureSchema = [3, n0, _GCSMDR,
   0,
-  [_sN, _mN, _sT, _eT, _p, _stat],
-  [[0, 1], [0, { [_hQ]: _mN }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eT }], [1, { [_hQ]: _p }], [64 | 0, { [_hQ]: _stat }]], 6
+  [_sN, _mN, _sT, _eT, _p, _stati],
+  [[0, 1], [0, { [_hQ]: _mN }], [4, { [_hQ]: _sT }], [4, { [_hQ]: _eT }], [1, { [_hQ]: _p }], [64 | 0, { [_hQ]: _stati }]], 6
 ];
 export var GetContainerServiceMetricDataResult$: StaticStructureSchema = [3, n0, _GCSMDRe,
   0,
@@ -2372,12 +2421,12 @@ export var GetDistributionLatestCacheResetRequest$: StaticStructureSchema = [3, 
 ];
 export var GetDistributionLatestCacheResetResult$: StaticStructureSchema = [3, n0, _GDLCRRe,
   0,
-  [_s, _cT],
+  [_st, _cT],
   [0, 4]
 ];
 export var GetDistributionMetricDataRequest$: StaticStructureSchema = [3, n0, _GDMDR,
   0,
-  [_dN, _mN, _sT, _eT, _p, _u, _stat],
+  [_dN, _mN, _sT, _eT, _p, _u, _stati],
   [0, 0, 4, 4, 1, 0, 64 | 0], 7
 ];
 export var GetDistributionMetricDataResult$: StaticStructureSchema = [3, n0, _GDMDRe,
@@ -2437,7 +2486,7 @@ export var GetInstanceAccessDetailsResult$: StaticStructureSchema = [3, n0, _GIA
 ];
 export var GetInstanceMetricDataRequest$: StaticStructureSchema = [3, n0, _GIMDR,
   0,
-  [_iN, _mN, _p, _sT, _eT, _u, _stat],
+  [_iN, _mN, _p, _sT, _eT, _u, _stati],
   [0, 0, 1, 4, 4, 0, 64 | 0], 7
 ];
 export var GetInstanceMetricDataResult$: StaticStructureSchema = [3, n0, _GIMDRe,
@@ -2502,7 +2551,7 @@ export var GetInstanceStateRequest$: StaticStructureSchema = [3, n0, _GISRetns,
 ];
 export var GetInstanceStateResult$: StaticStructureSchema = [3, n0, _GISRetnst,
   0,
-  [_sta],
+  [_stat],
   [() => InstanceState$]
 ];
 export var GetKeyPairRequest$: StaticStructureSchema = [3, n0, _GKPR,
@@ -2527,7 +2576,7 @@ export var GetKeyPairsResult$: StaticStructureSchema = [3, n0, _GKPRete,
 ];
 export var GetLoadBalancerMetricDataRequest$: StaticStructureSchema = [3, n0, _GLBMDR,
   0,
-  [_lBN, _mN, _p, _sT, _eT, _u, _stat],
+  [_lBN, _mN, _p, _sT, _eT, _u, _stati],
   [0, 0, 1, 4, 4, 0, 64 | 0], 7
 ];
 export var GetLoadBalancerMetricDataResult$: StaticStructureSchema = [3, n0, _GLBMDRe,
@@ -2677,7 +2726,7 @@ export var GetRelationalDatabaseMasterUserPasswordResult$: StaticStructureSchema
 ];
 export var GetRelationalDatabaseMetricDataRequest$: StaticStructureSchema = [3, n0, _GRDMDR,
   0,
-  [_rDN, _mN, _p, _sT, _eT, _u, _stat],
+  [_rDN, _mN, _p, _sT, _eT, _u, _stati],
   [0, 0, 1, 4, 4, 0, 64 | 0], 7
 ];
 export var GetRelationalDatabaseMetricDataResult$: StaticStructureSchema = [3, n0, _GRDMDRe,
@@ -2792,7 +2841,7 @@ export var InputOrigin$: StaticStructureSchema = [3, n0, _IO,
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _bI, _bNl, _bIu, _aOd, _iSIs, _pIA, _pIAu, _iAp, _iAT, _h, _ne, _sta, _us, _sKN, _mO],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _bI, _bNl, _bIu, _aOd, _iSIs, _pIA, _pIAu, _iAp, _iAT, _h, _ne, _stat, _us, _sKN, _mO],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => AddOnList, 2, 0, 0, 64 | 0, 0, () => InstanceHardware$, () => InstanceNetworking$, () => InstanceState$, 0, 0, () => InstanceMetadataOptions$]
 ];
 export var InstanceAccessDetails$: StaticStructureSchema = [3, n0, _IAD,
@@ -2817,7 +2866,7 @@ export var InstanceHealthSummary$: StaticStructureSchema = [3, n0, _IHS,
 ];
 export var InstanceMetadataOptions$: StaticStructureSchema = [3, n0, _IMO,
   0,
-  [_sta, _hTt, _hEt, _hPRHL, _hPI],
+  [_stat, _hTt, _hEt, _hPRHL, _hPI],
   [0, 0, 0, 1, 0]
 ];
 export var InstanceNetworking$: StaticStructureSchema = [3, n0, _IN,
@@ -2832,12 +2881,12 @@ export var InstancePortInfo$: StaticStructureSchema = [3, n0, _IPI,
 ];
 export var InstancePortState$: StaticStructureSchema = [3, n0, _IPS,
   0,
-  [_fPr, _tPo, _pro, _sta, _ci, _iCp, _cLA],
+  [_fPr, _tPo, _pro, _stat, _ci, _iCp, _cLA],
   [1, 1, 0, 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var InstanceSnapshot$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _sta, _prog, _fAD, _fIN, _fIA, _fBI, _fBIr, _iFAS, _sIG],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _stat, _prog, _fAD, _fIN, _fIA, _fBI, _fBIr, _iFAS, _sIG],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, () => DiskList, 0, 0, 0, 0, 2, 1]
 ];
 export var InstanceSnapshotInfo$: StaticStructureSchema = [3, n0, _ISI,
@@ -2850,12 +2899,6 @@ export var InstanceState$: StaticStructureSchema = [3, n0, _ISn,
   [_co, _n],
   [1, 0]
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var IsVpcPeeredRequest$: StaticStructureSchema = [3, n0, _IVPR,
   0,
   [],
@@ -2873,17 +2916,17 @@ export var KeyPair$: StaticStructureSchema = [3, n0, _KP,
 ];
 export var LightsailDistribution$: StaticStructureSchema = [3, n0, _LD,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _aDN, _s, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV],
+  [_n, _a, _sC, _cA, _l, _rT, _aDN, _st, _iE, _dNo, _bIu, _cN, _or, _oPDNS, _dCB, _cBS, _cB, _aTUB, _iAT, _ta, _vMTPV],
   [0, 0, 0, 4, () => ResourceLocation$, 0, 64 | 0, 0, 2, 0, 0, 0, () => Origin$, 0, () => CacheBehavior$, () => CacheSettings$, () => CacheBehaviorList, 2, 0, () => TagList, 0]
 ];
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LB,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _dNn, _sta, _pro, _pPu, _hCP, _iP, _iHS, _tCS, _cOo, _iAT, _hRE, _tPN],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _dNn, _stat, _pro, _pPu, _hCP, _iP, _iHS, _tCS, _cOo, _iAT, _hRE, _tPN],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, 64 | 1, 0, 1, () => InstanceHealthSummaryList, () => LoadBalancerTlsCertificateSummaryList, 128 | 0, 0, 2, 0]
 ];
 export var LoadBalancerTlsCertificate$: StaticStructureSchema = [3, n0, _LBTC,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _lBN, _iAst, _s, _dNo, _dVR, _fR, _iAs, _is, _kA, _nA, _nB, _rS, _rR, _rA, _seri, _sA, _su, _sAN],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _lBN, _iAst, _st, _dNo, _dVR, _fR, _iAs, _is, _kA, _nA, _nB, _rS, _rR, _rA, _seri, _sA, _su, _sAN],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 2, 0, 0, () => LoadBalancerTlsCertificateDomainValidationRecordList, 0, 4, 0, 0, 4, 4, () => LoadBalancerTlsCertificateRenewalSummary$, 0, 4, 0, 0, 0, 64 | 0]
 ];
 export var LoadBalancerTlsCertificateDnsRecordCreationState$: StaticStructureSchema = [3, n0, _LBTCDRCS,
@@ -2941,12 +2984,6 @@ export var NameServersUpdateState$: StaticStructureSchema = [3, n0, _NSUS,
   [_co, _m],
   [0, 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OpenInstancePublicPortsRequest$: StaticStructureSchema = [3, n0, _OIPPR,
   0,
   [_pI, _iN],
@@ -2959,15 +2996,9 @@ export var OpenInstancePublicPortsResult$: StaticStructureSchema = [3, n0, _OIPP
 ];
 export var Operation$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_i, _rN, _rT, _cA, _l, _iTs, _oD, _oT, _s, _sCA, _eC, _eD],
+  [_i, _rN, _rT, _cA, _l, _iTs, _oD, _oT, _st, _sCA, _eC, _eD],
   [0, 0, 0, 4, () => ResourceLocation$, 2, 0, 0, 0, 4, 0, 0]
 ];
-export var OperationFailureException$: StaticErrorSchema = [-3, n0, _OFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(OperationFailureException$, OperationFailureException);
 export var Origin$: StaticStructureSchema = [3, n0, _Or,
   0,
   [_n, _rT, _rNe, _pP, _rTes],
@@ -3068,12 +3099,6 @@ export var Region$: StaticStructureSchema = [3, n0, _R,
   [_cCo, _de, _dNis, _n, _aZv, _rDAZ],
   [0, 0, 0, 0, () => AvailabilityZoneList, () => AvailabilityZoneList]
 ];
-export var RegionSetupInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
-  { [_e]: _c, [_hE]: 428 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(RegionSetupInProgressException$, RegionSetupInProgressException);
 export var RegisterContainerImageRequest$: StaticStructureSchema = [3, n0, _RCIR,
   0,
   [_sN, _la, _di],
@@ -3091,7 +3116,7 @@ export var RegisteredDomainDelegationInfo$: StaticStructureSchema = [3, n0, _RDD
 ];
 export var RelationalDatabase$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _rDBIe, _rDBI, _mDN, _h, _sta, _sAZ, _bRE, _pMV, _eng, _eV, _lRT, _mU, _pAS, _pBW, _pMW, _pAu, _mE, _pMA, _cCI],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _rDBIe, _rDBI, _mDN, _h, _stat, _sAZ, _bRE, _pMV, _eng, _eV, _lRT, _mU, _pAS, _pBW, _pMW, _pAu, _mE, _pMA, _cCI],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 0, () => RelationalDatabaseHardware$, 0, 0, 2, () => PendingModifiedRelationalDatabaseValues$, 0, 0, 4, 0, 0, 0, 0, 2, () => RelationalDatabaseEndpoint$, () => PendingMaintenanceActionList, 0]
 ];
 export var RelationalDatabaseBlueprint$: StaticStructureSchema = [3, n0, _RDB,
@@ -3126,7 +3151,7 @@ export var RelationalDatabaseParameter$: StaticStructureSchema = [3, n0, _RDP,
 ];
 export var RelationalDatabaseSnapshot$: StaticStructureSchema = [3, n0, _RDS,
   0,
-  [_n, _a, _sC, _cA, _l, _rT, _ta, _eng, _eV, _sIG, _sta, _fRDN, _fRDA, _fRDBI, _fRDBIr],
+  [_n, _a, _sC, _cA, _l, _rT, _ta, _eng, _eV, _sIG, _stat, _fRDN, _fRDA, _fRDBI, _fRDBIr],
   [0, 0, 0, 4, () => ResourceLocation$, 0, () => TagList, 0, 0, 1, 0, 0, 0, 0, 0]
 ];
 export var ReleaseStaticIpRequest$: StaticStructureSchema = [3, n0, _RSIR,
@@ -3151,7 +3176,7 @@ export var ResetDistributionCacheRequest$: StaticStructureSchema = [3, n0, _RDCR
 ];
 export var ResetDistributionCacheResult$: StaticStructureSchema = [3, n0, _RDCRe,
   0,
-  [_s, _cT, _op],
+  [_st, _cT, _op],
   [0, 4, () => Operation$]
 ];
 export var ResourceBudgetEstimate$: StaticStructureSchema = [3, n0, _RBE,
@@ -3184,12 +3209,6 @@ export var SendContactMethodVerificationResult$: StaticStructureSchema = [3, n0,
   [_o],
   [() => OperationList]
 ];
-export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_e]: _serv, [_hE]: 500 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
 export var Session$: StaticStructureSchema = [3, n0, _S,
   0,
   [_n, _ur, _iPsr],
@@ -3217,12 +3236,12 @@ export var SetResourceAccessForBucketResult$: StaticStructureSchema = [3, n0, _S
 ];
 export var SetupExecutionDetails$: StaticStructureSchema = [3, n0, _SED,
   0,
-  [_com, _dTa, _n, _s, _sE, _sO, _v],
+  [_com, _dTa, _n, _st, _sE, _sO, _v],
   [0, 4, 0, 0, 0, 0, 0]
 ];
 export var SetupHistory$: StaticStructureSchema = [3, n0, _SH,
   0,
-  [_oI, _req, _res, _eDx, _s],
+  [_oI, _req, _res, _eDx, _st],
   [0, () => SetupRequest$, () => SetupHistoryResource$, () => SetupExecutionDetailsList, 0]
 ];
 export var SetupHistoryResource$: StaticStructureSchema = [3, n0, _SHR,
@@ -3332,8 +3351,8 @@ export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TestAlarmRequest$: StaticStructureSchema = [3, n0, _TAR,
   0,
-  [_aN, _sta],
-  [[0, 1], [0, { [_hQ]: _sta }]], 2
+  [_aN, _stat],
+  [[0, 1], [0, { [_hQ]: _stat }]], 2
 ];
 export var TestAlarmResult$: StaticStructureSchema = [3, n0, _TARe,
   0,
@@ -3345,12 +3364,6 @@ export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   [_star, _end],
   [4, 4]
 ];
-export var UnauthenticatedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_co, _d, _m, _t],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthenticatedException$, UnauthenticatedException);
 export var UnpeerVpcRequest$: StaticStructureSchema = [3, n0, _UVR,
   0,
   [],
@@ -3471,8 +3484,6 @@ export var UpdateRelationalDatabaseResult$: StaticStructureSchema = [3, n0, _URD
   [_o],
   [() => OperationList]
 ];
-export var LightsailServiceException$: StaticErrorSchema = [-3, _sm, "LightsailServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LightsailServiceException$, LightsailServiceException);
 var AccessKeyList: StaticListSchema = [1, n0, _AKL,
   0, [() => AccessKey$,
     0]

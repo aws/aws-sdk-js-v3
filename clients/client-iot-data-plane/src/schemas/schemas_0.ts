@@ -62,9 +62,9 @@ const _r = "results";
 const _rT = "retainedTopics";
 const _rTe = "responseTopic";
 const _re = "retain";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotdataplane";
 const _sN = "shadowName";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotdataplane";
+const _se = "server";
 const _t = "topic";
 const _tN = "thingName";
 const _ti = "timestamp";
@@ -100,13 +100,86 @@ import {
 import { IoTDataPlaneServiceException } from "../models/IoTDataPlaneServiceException";
 
 /* eslint no-var: 0 */
-var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var IoTDataPlaneServiceException$: StaticErrorSchema = [-3, _s, "IoTDataPlaneServiceException", 0, [], []];
+_s_registry.registerError(IoTDataPlaneServiceException$, IoTDataPlaneServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
+  { [_e]: _c, [_hE]: 405 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestEntityTooLargeException$, RequestEntityTooLargeException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var UnsupportedDocumentEncodingException$: StaticErrorSchema = [-3, n0, _UDEE,
+  { [_e]: _c, [_hE]: 415 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedDocumentEncodingException$, UnsupportedDocumentEncodingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a }, 0];
 export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_cI, _cS, _pWM],
@@ -122,12 +195,6 @@ export var DeleteThingShadowResponse$: StaticStructureSchema = [3, n0, _DTSRe,
   [_p],
   [[21, 16]], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetRetainedMessageRequest$: StaticStructureSchema = [3, n0, _GRMR,
   0,
   [_t],
@@ -148,18 +215,6 @@ export var GetThingShadowResponse$: StaticStructureSchema = [3, n0, _GTSRe,
   [_p],
   [[21, 16]]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListNamedShadowsForThingRequest$: StaticStructureSchema = [3, n0, _LNSFTR,
   0,
   [_tN, _nT, _pS],
@@ -180,58 +235,16 @@ export var ListRetainedMessagesResponse$: StaticStructureSchema = [3, n0, _LRMRi
   [_rT, _nT],
   [() => RetainedMessageList, 0]
 ];
-export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
-  { [_e]: _c, [_hE]: 405 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
 export var PublishRequest$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_t, _q, _re, _p, _uP, _pFI, _cT, _rTe, _cD, _mE],
   [[0, 1], [1, { [_hQ]: _q }], [2, { [_hQ]: _re }], [21, 16], [() => SynthesizedJsonUserProperties, { [_hH]: _xamup }], [0, { [_hH]: _xampfi }], [0, { [_hQ]: _cT }], [0, { [_hQ]: _rTe }], [0, { [_hH]: _xamcd }], [1, { [_hQ]: _mE }]], 1
 ];
-export var RequestEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestEntityTooLargeException$, RequestEntityTooLargeException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetainedMessageSummary$: StaticStructureSchema = [3, n0, _RMS,
   0,
   [_t, _pSa, _q, _lMT],
   [0, 1, 1, 1]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnsupportedDocumentEncodingException$: StaticErrorSchema = [-3, n0, _UDEE,
-  { [_e]: _c, [_hE]: 415 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedDocumentEncodingException$, UnsupportedDocumentEncodingException);
 export var UpdateThingShadowRequest$: StaticStructureSchema = [3, n0, _UTSR,
   0,
   [_tN, _p, _sN],
@@ -243,8 +256,6 @@ export var UpdateThingShadowResponse$: StaticStructureSchema = [3, n0, _UTSRp,
   [[21, 16]]
 ];
 var __Unit = "unit" as const;
-export var IoTDataPlaneServiceException$: StaticErrorSchema = [-3, _sm, "IoTDataPlaneServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTDataPlaneServiceException$, IoTDataPlaneServiceException);
 var NamedShadowList = 64 | 0;
 var RetainedMessageList: StaticListSchema = [1, n0, _RML,
   0, () => RetainedMessageSummary$

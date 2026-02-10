@@ -66,15 +66,15 @@ const _DTRFOI = "DeleteTelemetryRuleForOrganizationInput";
 const _DTRI = "DeleteTelemetryRuleInput";
 const _Da = "Data";
 const _De = "Description";
-const _E = "Equals";
+const _E = "Errors";
 const _ECRS = "EncryptionConflictResolutionStrategy";
 const _ELBLBLP = "ELBLoadBalancerLoggingParameters";
 const _ELGS = "EncryptedLogGroupStrategy";
 const _ES = "EncryptionStrategy";
 const _EW = "EndsWith";
 const _En = "Encryption";
+const _Eq = "Equals";
 const _Er = "Error";
-const _Err = "Errors";
 const _F = "Field";
 const _FD = "FieldDelimiter";
 const _FM = "FieldMap";
@@ -165,10 +165,10 @@ const _Pi = "Pipeline";
 const _QC = "QuotaCode";
 const _QS = "QueryString";
 const _R = "Region";
-const _RA = "RuleArn";
+const _RA = "Retry-After";
 const _RARN = "ResourceARN";
-const _RA_ = "Retry-After";
 const _RAo = "RoleArn";
+const _RAu = "RuleArn";
 const _RF = "RedactedFields";
 const _RH = "RuleHealth";
 const _RI = "ResourceId";
@@ -251,8 +251,8 @@ const _UTRFOI = "UpdateTelemetryRuleForOrganizationInput";
 const _UTRFOO = "UpdateTelemetryRuleForOrganizationOutput";
 const _UTRI = "UpdateTelemetryRuleInput";
 const _UTRO = "UpdateTelemetryRuleOutput";
-const _VE = "ValidationError";
-const _VEa = "ValidationException";
+const _VE = "ValidationException";
+const _VEa = "ValidationError";
 const _VEal = "ValidationErrors";
 const _VPCFLP = "VPCFlowLogParameters";
 const _VTPC = "ValidateTelemetryPipelineConfiguration";
@@ -266,8 +266,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _rAS = "retryAfterSeconds";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.observabilityadmin";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.observabilityadmin";
+const _se = "server";
 const _xaE = "x-amzn-ErrorType";
 const n0 = "com.amazonaws.observabilityadmin";
 
@@ -294,12 +294,67 @@ import {
 import { ObservabilityAdminServiceException } from "../models/ObservabilityAdminServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ObservabilityAdminServiceException$: StaticErrorSchema = [-3, _s, "ObservabilityAdminServiceException", 0, [], []];
+_s_registry.registerError(ObservabilityAdminServiceException$, ObservabilityAdminServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _aET, _rAS],
+  [0, [0, { [_hH]: _xaE }], [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _SC, _QC, _aET],
+  [0, 0, 0, 0, 0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _E],
+  [0, () => ValidationErrors]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActionCondition$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_A],
@@ -312,7 +367,7 @@ export var AdvancedEventSelector$: StaticStructureSchema = [3, n0, _AES,
 ];
 export var AdvancedFieldSelector$: StaticStructureSchema = [3, n0, _AFS,
   0,
-  [_F, _E, _SW, _EW, _NE, _NSW, _NEW],
+  [_F, _Eq, _SW, _EW, _NE, _NSW, _NEW],
   [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0], 1
 ];
 export var CentralizationRule$: StaticStructureSchema = [3, n0, _CR,
@@ -332,7 +387,7 @@ export var CentralizationRuleSource$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
   0,
-  [_RN, _RA, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _DAI, _DR],
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _DAI, _DR],
   [0, 0, 0, 1, 0, 1, 0, 0, 0, 0]
 ];
 export var CloudtrailParameters$: StaticStructureSchema = [3, n0, _CP,
@@ -350,12 +405,6 @@ export var ConfigurationSummary$: StaticStructureSchema = [3, n0, _CS,
   [_So, _DS, _P, _PC, _Si],
   [() => Sources, () => DataSources, 64 | 0, 1, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCentralizationRuleForOrganizationInput$: StaticStructureSchema = [3, n0, _CCRFOI,
   0,
   [_RN, _Ru, _T],
@@ -363,7 +412,7 @@ export var CreateCentralizationRuleForOrganizationInput$: StaticStructureSchema 
 ];
 export var CreateCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _CCRFOO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var CreateS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _CSTII,
@@ -393,7 +442,7 @@ export var CreateTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3,
 ];
 export var CreateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _CTRFOO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var CreateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _CTRI,
@@ -403,7 +452,7 @@ export var CreateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _CTRI,
 ];
 export var CreateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _CTRO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
@@ -473,7 +522,7 @@ export var GetCentralizationRuleForOrganizationInput$: StaticStructureSchema = [
 ];
 export var GetCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GCRFOO,
   0,
-  [_RN, _RA, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _CR],
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _CR],
   [0, 0, 0, 1, 0, 1, 0, 0, () => CentralizationRule$]
 ];
 export var GetS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _GSTII,
@@ -518,7 +567,7 @@ export var GetTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3, n0
 ];
 export var GetTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GTRFOO,
   0,
-  [_RN, _RA, _CTS, _LUTS, _TR],
+  [_RN, _RAu, _CTS, _LUTS, _TR],
   [0, 0, 1, 1, () => TelemetryRule$]
 ];
 export var GetTelemetryRuleInput$: StaticStructureSchema = [3, n0, _GTRI,
@@ -528,7 +577,7 @@ export var GetTelemetryRuleInput$: StaticStructureSchema = [3, n0, _GTRI,
 ];
 export var GetTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _GTRO,
   0,
-  [_RN, _RA, _CTS, _LUTS, _TR],
+  [_RN, _RAu, _CTS, _LUTS, _TR],
   [0, 0, 1, 1, () => TelemetryRule$]
 ];
 export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
@@ -536,18 +585,6 @@ export var IntegrationSummary$: StaticStructureSchema = [3, n0, _IS,
   [_Ar, _St],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _aET, _rAS],
-  [0, [0, { [_hH]: _xaE }], [1, { [_hH]: _RA_ }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var LabelNameCondition$: StaticStructureSchema = [3, n0, _LNC,
   0,
   [_LN],
@@ -668,18 +705,6 @@ export var _Record$: StaticStructureSchema = [3, n0, _Rec,
   [_Da, _Ty],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _SC, _QC, _aET],
-  [0, 0, 0, 0, 0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SingleHeader$: StaticStructureSchema = [3, n0, _SH,
   0,
   [_N],
@@ -747,7 +772,7 @@ export var TelemetryRule$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
   0,
-  [_RN, _RA, _CTS, _LUTS, _RT, _TT, _TST],
+  [_RN, _RAu, _CTS, _LUTS, _RT, _TT, _TST],
   [0, 0, 1, 1, 0, 0, 64 | 0]
 ];
 export var TestTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _TTPI,
@@ -760,12 +785,6 @@ export var TestTelemetryPipelineOutput$: StaticStructureSchema = [3, n0, _TTPO,
   [_Res],
   [() => PipelineOutputs]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARN, _TK],
@@ -778,7 +797,7 @@ export var UpdateCentralizationRuleForOrganizationInput$: StaticStructureSchema 
 ];
 export var UpdateCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _UCRFOO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var UpdateTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _UTPI,
@@ -798,7 +817,7 @@ export var UpdateTelemetryRuleForOrganizationInput$: StaticStructureSchema = [3,
 ];
 export var UpdateTelemetryRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _UTRFOO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var UpdateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _UTRI,
@@ -808,7 +827,7 @@ export var UpdateTelemetryRuleInput$: StaticStructureSchema = [3, n0, _UTRI,
 ];
 export var UpdateTelemetryRuleOutput$: StaticStructureSchema = [3, n0, _UTRO,
   0,
-  [_RA],
+  [_RAu],
   [0]
 ];
 export var ValidateTelemetryPipelineConfigurationInput$: StaticStructureSchema = [3, n0, _VTPCI,
@@ -818,20 +837,14 @@ export var ValidateTelemetryPipelineConfigurationInput$: StaticStructureSchema =
 ];
 export var ValidateTelemetryPipelineConfigurationOutput$: StaticStructureSchema = [3, n0, _VTPCO,
   0,
-  [_Err],
+  [_E],
   [() => ValidationErrors]
 ];
-export var ValidationError$: StaticStructureSchema = [3, n0, _VE,
+export var ValidationError$: StaticStructureSchema = [3, n0, _VEa,
   0,
   [_M, _Rea, _FM],
   [0, 0, 128 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Err],
-  [0, () => ValidationErrors]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VPCFlowLogParameters$: StaticStructureSchema = [3, n0, _VPCFLP,
   0,
   [_LFo, _TTr, _MAI],
@@ -843,8 +856,6 @@ export var WAFLoggingParameters$: StaticStructureSchema = [3, n0, _WAFLP,
   [() => RedactedFields, () => LoggingFilter$, 0]
 ];
 var __Unit = "unit" as const;
-export var ObservabilityAdminServiceException$: StaticErrorSchema = [-3, _sm, "ObservabilityAdminServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ObservabilityAdminServiceException$, ObservabilityAdminServiceException);
 var AccountIdentifiers = 64 | 0;
 var AdvancedEventSelectors: StaticListSchema = [1, n0, _AESd,
   0, () => AdvancedEventSelector$

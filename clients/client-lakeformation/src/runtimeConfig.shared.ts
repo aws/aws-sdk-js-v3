@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultLakeFormationHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { LakeFormationClientConfig } from "./LakeFormationClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: LakeFormationClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.lakeformation",
+      errorTypeRegistries,
       version: "2017-03-31",
       serviceTarget: "AWSLakeFormation",
     },

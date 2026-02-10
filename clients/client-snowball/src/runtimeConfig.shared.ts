@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSnowballHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SnowballClientConfig } from "./SnowballClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SnowballClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.snowball",
+      errorTypeRegistries,
       version: "2016-06-30",
       serviceTarget: "AWSIESnowballJobManagementService",
     },

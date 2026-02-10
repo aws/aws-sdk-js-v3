@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultServiceCatalogAppRegistryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ServiceCatalogAppRegistryClientConfig } from "./ServiceCatalogAppRegistryClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ServiceCatalogAppRegistryClientConfig) 
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.servicecatalogappregistry",
+      errorTypeRegistries,
       version: "2020-06-24",
       serviceTarget: "AWS242AppRegistry",
     },

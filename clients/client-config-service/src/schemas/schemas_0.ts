@@ -67,10 +67,10 @@ const _CBS = "CreatedByService";
 const _CC = "CappedCount";
 const _CCC = "ComplianceContributorCount";
 const _CCPC = "CompliantConformancePackCount";
-const _CE = "CapExceeded";
+const _CE = "ConflictException";
 const _CEDI = "ConfigExportDeliveryInfo";
 const _CERP = "ConcurrentExecutionRatePercentage";
-const _CEo = "ConflictException";
+const _CEa = "CapExceeded";
 const _CI = "ConfigurationItem";
 const _CIL = "ConfigurationItemList";
 const _CPA = "ConformancePackArn";
@@ -714,7 +714,7 @@ const _aR = "awsRegion";
 const _aS = "allSupported";
 const _aZ = "availabilityZone";
 const _bCI = "baseConfigurationItems";
-const _c = "configuration";
+const _c = "client";
 const _cHDI = "configHistoryDeliveryInfo";
 const _cI = "configurationItems";
 const _cICT = "configurationItemCaptureTime";
@@ -727,8 +727,8 @@ const _cSDIo = "configStreamDeliveryInfo";
 const _cSDP = "configSnapshotDeliveryProperties";
 const _cSI = "configurationStateId";
 const _cSIo = "configSnapshotId";
-const _cl = "client";
-const _co = "count";
+const _co = "configuration";
+const _cou = "count";
 const _d = "description";
 const _dCN = "deliveryChannelName";
 const _dF = "deliveryFrequency";
@@ -860,6 +860,355 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ConfigServiceServiceException$: StaticErrorSchema = [-3, _s, "ConfigServiceServiceException", 0, [], []];
+_s_registry.registerError(ConfigServiceServiceException$, ConfigServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _CPTVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConformancePackTemplateValidationException$, ConformancePackTemplateValidationException);
+export var IdempotentParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IdempotentParameterMismatch$, IdempotentParameterMismatch);
+export var InsufficientDeliveryPolicyException$: StaticErrorSchema = [-3, n0, _IDPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientDeliveryPolicyException$, InsufficientDeliveryPolicyException);
+export var InsufficientPermissionsException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientPermissionsException$, InsufficientPermissionsException);
+export var InvalidConfigurationRecorderNameException$: StaticErrorSchema = [-3, n0, _ICRNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidConfigurationRecorderNameException$, InvalidConfigurationRecorderNameException);
+export var InvalidDeliveryChannelNameException$: StaticErrorSchema = [-3, n0, _IDCNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeliveryChannelNameException$, InvalidDeliveryChannelNameException);
+export var InvalidExpressionException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidExpressionException$, InvalidExpressionException);
+export var InvalidLimitException$: StaticErrorSchema = [-3, n0, _ILE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLimitException$, InvalidLimitException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRecordingGroupException$: StaticErrorSchema = [-3, n0, _IRGE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRecordingGroupException$, InvalidRecordingGroupException);
+export var InvalidResultTokenException$: StaticErrorSchema = [-3, n0, _IRTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidResultTokenException$, InvalidResultTokenException);
+export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRoleException$, InvalidRoleException);
+export var InvalidS3KeyPrefixException$: StaticErrorSchema = [-3, n0, _ISKPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3KeyPrefixException$, InvalidS3KeyPrefixException);
+export var InvalidS3KmsKeyArnException$: StaticErrorSchema = [-3, n0, _ISKKAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3KmsKeyArnException$, InvalidS3KmsKeyArnException);
+export var InvalidSNSTopicARNException$: StaticErrorSchema = [-3, n0, _ISNSTARNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSNSTopicARNException$, InvalidSNSTopicARNException);
+export var InvalidTimeRangeException$: StaticErrorSchema = [-3, n0, _ITRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTimeRangeException$, InvalidTimeRangeException);
+export var LastDeliveryChannelDeleteFailedException$: StaticErrorSchema = [-3, n0, _LDCDFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LastDeliveryChannelDeleteFailedException$, LastDeliveryChannelDeleteFailedException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MaxActiveResourcesExceededException$: StaticErrorSchema = [-3, n0, _MAREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxActiveResourcesExceededException$, MaxActiveResourcesExceededException);
+export var MaxNumberOfConfigRulesExceededException$: StaticErrorSchema = [-3, n0, _MNOCREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfConfigRulesExceededException$, MaxNumberOfConfigRulesExceededException);
+export var MaxNumberOfConfigurationRecordersExceededException$: StaticErrorSchema = [-3, n0, _MNOCREEa,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfConfigurationRecordersExceededException$, MaxNumberOfConfigurationRecordersExceededException);
+export var MaxNumberOfConformancePacksExceededException$: StaticErrorSchema = [-3, n0, _MNOCPEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfConformancePacksExceededException$, MaxNumberOfConformancePacksExceededException);
+export var MaxNumberOfDeliveryChannelsExceededException$: StaticErrorSchema = [-3, n0, _MNODCEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfDeliveryChannelsExceededException$, MaxNumberOfDeliveryChannelsExceededException);
+export var MaxNumberOfOrganizationConfigRulesExceededException$: StaticErrorSchema = [-3, n0, _MNOOCREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfOrganizationConfigRulesExceededException$, MaxNumberOfOrganizationConfigRulesExceededException);
+export var MaxNumberOfOrganizationConformancePacksExceededException$: StaticErrorSchema = [-3, n0, _MNOOCPEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfOrganizationConformancePacksExceededException$, MaxNumberOfOrganizationConformancePacksExceededException);
+export var MaxNumberOfRetentionConfigurationsExceededException$: StaticErrorSchema = [-3, n0, _MNORCEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfRetentionConfigurationsExceededException$, MaxNumberOfRetentionConfigurationsExceededException);
+export var NoAvailableConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NACRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoAvailableConfigurationRecorderException$, NoAvailableConfigurationRecorderException);
+export var NoAvailableDeliveryChannelException$: StaticErrorSchema = [-3, n0, _NADCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoAvailableDeliveryChannelException$, NoAvailableDeliveryChannelException);
+export var NoAvailableOrganizationException$: StaticErrorSchema = [-3, n0, _NAOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoAvailableOrganizationException$, NoAvailableOrganizationException);
+export var NoRunningConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NRCRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoRunningConfigurationRecorderException$, NoRunningConfigurationRecorderException);
+export var NoSuchBucketException$: StaticErrorSchema = [-3, n0, _NSBE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchBucketException$, NoSuchBucketException);
+export var NoSuchConfigRuleException$: StaticErrorSchema = [-3, n0, _NSCRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchConfigRuleException$, NoSuchConfigRuleException);
+export var NoSuchConfigRuleInConformancePackException$: StaticErrorSchema = [-3, n0, _NSCRICPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchConfigRuleInConformancePackException$, NoSuchConfigRuleInConformancePackException);
+export var NoSuchConfigurationAggregatorException$: StaticErrorSchema = [-3, n0, _NSCAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchConfigurationAggregatorException$, NoSuchConfigurationAggregatorException);
+export var NoSuchConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NSCREo,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchConfigurationRecorderException$, NoSuchConfigurationRecorderException);
+export var NoSuchConformancePackException$: StaticErrorSchema = [-3, n0, _NSCPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchConformancePackException$, NoSuchConformancePackException);
+export var NoSuchDeliveryChannelException$: StaticErrorSchema = [-3, n0, _NSDCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchDeliveryChannelException$, NoSuchDeliveryChannelException);
+export var NoSuchOrganizationConfigRuleException$: StaticErrorSchema = [-3, n0, _NSOCRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchOrganizationConfigRuleException$, NoSuchOrganizationConfigRuleException);
+export var NoSuchOrganizationConformancePackException$: StaticErrorSchema = [-3, n0, _NSOCPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchOrganizationConformancePackException$, NoSuchOrganizationConformancePackException);
+export var NoSuchRemediationConfigurationException$: StaticErrorSchema = [-3, n0, _NSRCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchRemediationConfigurationException$, NoSuchRemediationConfigurationException);
+export var NoSuchRemediationExceptionException$: StaticErrorSchema = [-3, n0, _NSREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchRemediationExceptionException$, NoSuchRemediationExceptionException);
+export var NoSuchRetentionConfigurationException$: StaticErrorSchema = [-3, n0, _NSRCEo,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchRetentionConfigurationException$, NoSuchRetentionConfigurationException);
+export var OrganizationAccessDeniedException$: StaticErrorSchema = [-3, n0, _OADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OrganizationAccessDeniedException$, OrganizationAccessDeniedException);
+export var OrganizationAllFeaturesNotEnabledException$: StaticErrorSchema = [-3, n0, _OAFNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OrganizationAllFeaturesNotEnabledException$, OrganizationAllFeaturesNotEnabledException);
+export var OrganizationConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _OCPTVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OrganizationConformancePackTemplateValidationException$, OrganizationConformancePackTemplateValidationException);
+export var OversizedConfigurationItemException$: StaticErrorSchema = [-3, n0, _OCIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OversizedConfigurationItemException$, OversizedConfigurationItemException);
+export var RemediationInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RemediationInProgressException$, RemediationInProgressException);
+export var ResourceConcurrentModificationException$: StaticErrorSchema = [-3, n0, _RCME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceConcurrentModificationException$, ResourceConcurrentModificationException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotDiscoveredException$: StaticErrorSchema = [-3, n0, _RNDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotDiscoveredException$, ResourceNotDiscoveredException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnmodifiableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnmodifiableEntityException$, UnmodifiableEntityException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountAggregationSource$: StaticStructureSchema = [3, n0, _AAS,
   0,
   [_AI, _AAR, _AR],
@@ -952,7 +1301,7 @@ export var AssociateResourceTypesResponse$: StaticStructureSchema = [3, n0, _ART
 ];
 export var BaseConfigurationItem$: StaticStructureSchema = [3, n0, _BCI,
   0,
-  [_v, _aI, _cICT, _cIS, _cSI, _a, _rT, _rI, _rN, _aR, _aZ, _rCT, _c, _sC, _rF, _cIDT],
+  [_v, _aI, _cICT, _cIS, _cSI, _a, _rT, _rI, _rN, _aR, _aZ, _rCT, _co, _sC, _rF, _cIDT],
   [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 128 | 0, 0, 4]
 ];
 export var BatchGetAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _BGARCR,
@@ -992,7 +1341,7 @@ export var ComplianceByResource$: StaticStructureSchema = [3, n0, _CBR,
 ];
 export var ComplianceContributorCount$: StaticStructureSchema = [3, n0, _CCC,
   0,
-  [_CC, _CE],
+  [_CC, _CEa],
   [1, 2]
 ];
 export var ComplianceSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -1047,7 +1396,7 @@ export var ConfigurationAggregator$: StaticStructureSchema = [3, n0, _CA,
 ];
 export var ConfigurationItem$: StaticStructureSchema = [3, n0, _CI,
   0,
-  [_v, _aI, _cICT, _cIS, _cSI, _cIMDH, _a, _rT, _rI, _rN, _aR, _aZ, _rCT, _t, _rE, _r, _c, _sC, _rF, _cIDT],
+  [_v, _aI, _cICT, _cIS, _cSI, _cIMDH, _a, _rT, _rI, _rN, _aR, _aZ, _rCT, _t, _rE, _r, _co, _sC, _rF, _cIDT],
   [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 128 | 0, 64 | 0, () => RelationshipList, 0, 128 | 0, 0, 4]
 ];
 export var ConfigurationRecorder$: StaticStructureSchema = [3, n0, _CR,
@@ -1070,12 +1419,6 @@ export var ConfigurationRecorderSummary$: StaticStructureSchema = [3, n0, _CRSon
   [_a, _n, _rS, _sP],
   [0, 0, 0, 0], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConformancePackComplianceFilters$: StaticStructureSchema = [3, n0, _CPCF,
   0,
   [_CRNo, _CT],
@@ -1126,12 +1469,6 @@ export var ConformancePackStatusDetail$: StaticStructureSchema = [3, n0, _CPSD,
   [_CPN, _CPI, _CPA, _CPS, _SA, _LURT, _CPSR, _LUCT],
   [0, 0, 0, 0, 0, 4, 0, 4], 6
 ];
-export var ConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _CPTVE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConformancePackTemplateValidationException$, ConformancePackTemplateValidationException);
 export var CustomPolicyDetails$: StaticStructureSchema = [3, n0, _CPDu,
   0,
   [_PR, _PT, _EDLD],
@@ -1787,114 +2124,6 @@ export var GroupedResourceCount$: StaticStructureSchema = [3, n0, _GRCr,
   [_GN, _RCes],
   [0, 1], 2
 ];
-export var IdempotentParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatch$, IdempotentParameterMismatch);
-export var InsufficientDeliveryPolicyException$: StaticErrorSchema = [-3, n0, _IDPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientDeliveryPolicyException$, InsufficientDeliveryPolicyException);
-export var InsufficientPermissionsException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientPermissionsException$, InsufficientPermissionsException);
-export var InvalidConfigurationRecorderNameException$: StaticErrorSchema = [-3, n0, _ICRNE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidConfigurationRecorderNameException$, InvalidConfigurationRecorderNameException);
-export var InvalidDeliveryChannelNameException$: StaticErrorSchema = [-3, n0, _IDCNE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeliveryChannelNameException$, InvalidDeliveryChannelNameException);
-export var InvalidExpressionException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidExpressionException$, InvalidExpressionException);
-export var InvalidLimitException$: StaticErrorSchema = [-3, n0, _ILE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLimitException$, InvalidLimitException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
-export var InvalidRecordingGroupException$: StaticErrorSchema = [-3, n0, _IRGE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRecordingGroupException$, InvalidRecordingGroupException);
-export var InvalidResultTokenException$: StaticErrorSchema = [-3, n0, _IRTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResultTokenException$, InvalidResultTokenException);
-export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRoleException$, InvalidRoleException);
-export var InvalidS3KeyPrefixException$: StaticErrorSchema = [-3, n0, _ISKPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3KeyPrefixException$, InvalidS3KeyPrefixException);
-export var InvalidS3KmsKeyArnException$: StaticErrorSchema = [-3, n0, _ISKKAE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3KmsKeyArnException$, InvalidS3KmsKeyArnException);
-export var InvalidSNSTopicARNException$: StaticErrorSchema = [-3, n0, _ISNSTARNE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSNSTopicARNException$, InvalidSNSTopicARNException);
-export var InvalidTimeRangeException$: StaticErrorSchema = [-3, n0, _ITRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTimeRangeException$, InvalidTimeRangeException);
-export var LastDeliveryChannelDeleteFailedException$: StaticErrorSchema = [-3, n0, _LDCDFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LastDeliveryChannelDeleteFailedException$, LastDeliveryChannelDeleteFailedException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAggregateDiscoveredResourcesRequest$: StaticStructureSchema = [3, n0, _LADRR,
   0,
   [_CAN, _RT, _F, _L, _NT],
@@ -1965,172 +2194,16 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta, _NT],
   [() => TagList, 0]
 ];
-export var MaxActiveResourcesExceededException$: StaticErrorSchema = [-3, n0, _MAREE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxActiveResourcesExceededException$, MaxActiveResourcesExceededException);
-export var MaxNumberOfConfigRulesExceededException$: StaticErrorSchema = [-3, n0, _MNOCREE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfConfigRulesExceededException$, MaxNumberOfConfigRulesExceededException);
-export var MaxNumberOfConfigurationRecordersExceededException$: StaticErrorSchema = [-3, n0, _MNOCREEa,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfConfigurationRecordersExceededException$, MaxNumberOfConfigurationRecordersExceededException);
-export var MaxNumberOfConformancePacksExceededException$: StaticErrorSchema = [-3, n0, _MNOCPEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfConformancePacksExceededException$, MaxNumberOfConformancePacksExceededException);
-export var MaxNumberOfDeliveryChannelsExceededException$: StaticErrorSchema = [-3, n0, _MNODCEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfDeliveryChannelsExceededException$, MaxNumberOfDeliveryChannelsExceededException);
-export var MaxNumberOfOrganizationConfigRulesExceededException$: StaticErrorSchema = [-3, n0, _MNOOCREE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfOrganizationConfigRulesExceededException$, MaxNumberOfOrganizationConfigRulesExceededException);
-export var MaxNumberOfOrganizationConformancePacksExceededException$: StaticErrorSchema = [-3, n0, _MNOOCPEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfOrganizationConformancePacksExceededException$, MaxNumberOfOrganizationConformancePacksExceededException);
-export var MaxNumberOfRetentionConfigurationsExceededException$: StaticErrorSchema = [-3, n0, _MNORCEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxNumberOfRetentionConfigurationsExceededException$, MaxNumberOfRetentionConfigurationsExceededException);
 export var MemberAccountStatus$: StaticStructureSchema = [3, n0, _MAS,
   0,
   [_AIc, _CRN, _MARS, _ECr, _EMr, _LUT],
   [0, 0, 0, 0, 0, 4], 3
 ];
-export var NoAvailableConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NACRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoAvailableConfigurationRecorderException$, NoAvailableConfigurationRecorderException);
-export var NoAvailableDeliveryChannelException$: StaticErrorSchema = [-3, n0, _NADCE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoAvailableDeliveryChannelException$, NoAvailableDeliveryChannelException);
-export var NoAvailableOrganizationException$: StaticErrorSchema = [-3, n0, _NAOE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoAvailableOrganizationException$, NoAvailableOrganizationException);
-export var NoRunningConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NRCRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoRunningConfigurationRecorderException$, NoRunningConfigurationRecorderException);
-export var NoSuchBucketException$: StaticErrorSchema = [-3, n0, _NSBE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchBucketException$, NoSuchBucketException);
-export var NoSuchConfigRuleException$: StaticErrorSchema = [-3, n0, _NSCRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchConfigRuleException$, NoSuchConfigRuleException);
-export var NoSuchConfigRuleInConformancePackException$: StaticErrorSchema = [-3, n0, _NSCRICPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchConfigRuleInConformancePackException$, NoSuchConfigRuleInConformancePackException);
-export var NoSuchConfigurationAggregatorException$: StaticErrorSchema = [-3, n0, _NSCAE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchConfigurationAggregatorException$, NoSuchConfigurationAggregatorException);
-export var NoSuchConfigurationRecorderException$: StaticErrorSchema = [-3, n0, _NSCREo,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchConfigurationRecorderException$, NoSuchConfigurationRecorderException);
-export var NoSuchConformancePackException$: StaticErrorSchema = [-3, n0, _NSCPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchConformancePackException$, NoSuchConformancePackException);
-export var NoSuchDeliveryChannelException$: StaticErrorSchema = [-3, n0, _NSDCE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchDeliveryChannelException$, NoSuchDeliveryChannelException);
-export var NoSuchOrganizationConfigRuleException$: StaticErrorSchema = [-3, n0, _NSOCRE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchOrganizationConfigRuleException$, NoSuchOrganizationConfigRuleException);
-export var NoSuchOrganizationConformancePackException$: StaticErrorSchema = [-3, n0, _NSOCPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchOrganizationConformancePackException$, NoSuchOrganizationConformancePackException);
-export var NoSuchRemediationConfigurationException$: StaticErrorSchema = [-3, n0, _NSRCE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchRemediationConfigurationException$, NoSuchRemediationConfigurationException);
-export var NoSuchRemediationExceptionException$: StaticErrorSchema = [-3, n0, _NSREE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchRemediationExceptionException$, NoSuchRemediationExceptionException);
-export var NoSuchRetentionConfigurationException$: StaticErrorSchema = [-3, n0, _NSRCEo,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchRetentionConfigurationException$, NoSuchRetentionConfigurationException);
-export var OrganizationAccessDeniedException$: StaticErrorSchema = [-3, n0, _OADE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationAccessDeniedException$, OrganizationAccessDeniedException);
 export var OrganizationAggregationSource$: StaticStructureSchema = [3, n0, _OAS,
   0,
   [_RAo, _AR, _AAR],
   [0, 64 | 0, 2], 1
 ];
-export var OrganizationAllFeaturesNotEnabledException$: StaticErrorSchema = [-3, n0, _OAFNEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationAllFeaturesNotEnabledException$, OrganizationAllFeaturesNotEnabledException);
 export var OrganizationConfigRule$: StaticStructureSchema = [3, n0, _OCRr,
   0,
   [_OCRN, _OCRA, _OMRM, _OCRM, _EA, _LUT, _OCPRM],
@@ -2156,12 +2229,6 @@ export var OrganizationConformancePackStatus$: StaticStructureSchema = [3, n0, _
   [_OCPN, _St, _ECr, _EMr, _LUT],
   [0, 0, 0, 0, 4], 2
 ];
-export var OrganizationConformancePackTemplateValidationException$: StaticErrorSchema = [-3, n0, _OCPTVE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationConformancePackTemplateValidationException$, OrganizationConformancePackTemplateValidationException);
 export var OrganizationCustomPolicyRuleMetadata$: StaticStructureSchema = [3, n0, _OCPRM,
   0,
   [_PR, _PT, _D, _OCRTT, _IP, _MEF, _RTS, _RIS, _TKS, _TVS, _DLDA],
@@ -2187,12 +2254,6 @@ export var OrganizationResourceDetailedStatusFilters$: StaticStructureSchema = [
   [_AIc, _St],
   [0, 0]
 ];
-export var OversizedConfigurationItemException$: StaticErrorSchema = [-3, n0, _OCIE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OversizedConfigurationItemException$, OversizedConfigurationItemException);
 export var PendingAggregationRequest$: StaticStructureSchema = [3, n0, _PARe,
   0,
   [_RAI, _RAR],
@@ -2393,26 +2454,14 @@ export var RemediationExecutionStep$: StaticStructureSchema = [3, n0, _RESem,
   [_N, _Sta, _EMr, _STt, _STto],
   [0, 0, 0, 4, 4]
 ];
-export var RemediationInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RemediationInProgressException$, RemediationInProgressException);
 export var RemediationParameterValue$: StaticStructureSchema = [3, n0, _RPV,
   0,
   [_RV, _SV],
   [() => ResourceValue$, () => StaticValue$]
 ];
-export var ResourceConcurrentModificationException$: StaticErrorSchema = [-3, n0, _RCME,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceConcurrentModificationException$, ResourceConcurrentModificationException);
 export var ResourceCount$: StaticStructureSchema = [3, n0, _RCes,
   0,
-  [_rT, _co],
+  [_rT, _cou],
   [0, 1]
 ];
 export var ResourceCountFilters$: StaticStructureSchema = [3, n0, _RCF,
@@ -2445,29 +2494,11 @@ export var ResourceIdentifier$: StaticStructureSchema = [3, n0, _RIeso,
   [_rT, _rI, _rN, _rDT],
   [0, 0, 0, 4]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
 export var ResourceKey$: StaticStructureSchema = [3, n0, _RKe,
   0,
   [_rT, _rI],
   [0, 0], 2
 ];
-export var ResourceNotDiscoveredException$: StaticErrorSchema = [-3, n0, _RNDE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotDiscoveredException$, ResourceNotDiscoveredException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceValue$: StaticStructureSchema = [3, n0, _RV,
   0,
   [_V],
@@ -2598,32 +2629,12 @@ export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
   [_STt, _ETn],
   [4, 4]
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var UnmodifiableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnmodifiableEntityException$, UnmodifiableEntityException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
   [0, 64 | 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var ConfigServiceServiceException$: StaticErrorSchema = [-3, _s, "ConfigServiceServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ConfigServiceServiceException$, ConfigServiceServiceException);
 var AccountAggregationSourceAccountList = 64 | 0;
 var AccountAggregationSourceList: StaticListSchema = [1, n0, _AASL,
   0, () => AccountAggregationSource$

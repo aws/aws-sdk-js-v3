@@ -99,10 +99,10 @@ const _PUS = "ProgressUpdateStream";
 const _PUSN = "ProgressUpdateStreamName";
 const _PUSS = "ProgressUpdateStreamSummary";
 const _PUSSL = "ProgressUpdateStreamSummaryList";
-const _RA = "ResourceAttribute";
+const _RA = "Retry-After";
 const _RAL = "ResourceAttributeList";
 const _RAS = "RetryAfterSeconds";
-const _RA_ = "Retry-After";
+const _RAe = "ResourceAttribute";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Status";
@@ -122,8 +122,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhub";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.migrationhub";
+const _se = "server";
 const n0 = "com.amazonaws.migrationhub";
 
 // smithy-typescript generated code
@@ -145,12 +145,79 @@ import {
 import { MigrationHubServiceException } from "../models/MigrationHubServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MigrationHubServiceException$: StaticErrorSchema = [-3, _s, "MigrationHubServiceException", 0, [], []];
+_s_registry.registerError(MigrationHubServiceException$, MigrationHubServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var DryRunOperation$: StaticErrorSchema = [-3, n0, _DRO,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DryRunOperation$, DryRunOperation);
+export var HomeRegionNotSetException$: StaticErrorSchema = [-3, n0, _HRNSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(HomeRegionNotSetException$, HomeRegionNotSetException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var PolicyErrorException$: StaticErrorSchema = [-3, n0, _PEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicyErrorException$, PolicyErrorException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedOperation$: StaticErrorSchema = [-3, n0, _UO,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedOperation$, UnauthorizedOperation);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApplicationState$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_AI, _ASp, _LUT],
@@ -266,18 +333,6 @@ export var DiscoveredResource$: StaticStructureSchema = [3, n0, _DRi,
   [_CI, _D],
   [0, 0], 1
 ];
-export var DryRunOperation$: StaticErrorSchema = [-3, n0, _DRO,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DryRunOperation$, DryRunOperation);
-export var HomeRegionNotSetException$: StaticErrorSchema = [-3, n0, _HRNSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HomeRegionNotSetException$, HomeRegionNotSetException);
 export var ImportMigrationTaskRequest$: StaticStructureSchema = [3, n0, _IMTR,
   0,
   [_PUS, _MTN, _DR],
@@ -288,18 +343,6 @@ export var ImportMigrationTaskResult$: StaticStructureSchema = [3, n0, _IMTRm,
   [],
   []
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var ListApplicationStatesRequest$: StaticStructureSchema = [3, n0, _LASR,
   0,
   [_AIp, _NT, _MR],
@@ -405,12 +448,6 @@ export var NotifyMigrationTaskStateResult$: StaticStructureSchema = [3, n0, _NMT
   [],
   []
 ];
-export var PolicyErrorException$: StaticErrorSchema = [-3, n0, _PEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyErrorException$, PolicyErrorException);
 export var ProgressUpdateStreamSummary$: StaticStructureSchema = [3, n0, _PUSS,
   0,
   [_PUSN],
@@ -426,23 +463,11 @@ export var PutResourceAttributesResult$: StaticStructureSchema = [3, n0, _PRARu,
   [],
   []
 ];
-export var ResourceAttribute$: StaticStructureSchema = [3, n0, _RA,
+export var ResourceAttribute$: StaticStructureSchema = [3, n0, _RAe,
   0,
   [_Ty, _V],
   [0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SourceResource$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_N, _D, _SD],
@@ -453,20 +478,6 @@ export var Task$: StaticStructureSchema = [3, n0, _T,
   [_S, _SD, _PP],
   [0, 0, 1], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedOperation$: StaticErrorSchema = [-3, n0, _UO,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedOperation$, UnauthorizedOperation);
-export var MigrationHubServiceException$: StaticErrorSchema = [-3, _sm, "MigrationHubServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MigrationHubServiceException$, MigrationHubServiceException);
 var ApplicationIds = 64 | 0;
 var ApplicationStateList: StaticListSchema = [1, n0, _ASL,
   0, () => ApplicationState$

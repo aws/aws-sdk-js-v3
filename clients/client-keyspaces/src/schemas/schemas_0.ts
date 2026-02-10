@@ -160,7 +160,7 @@ const _rSep = "replicationStrategy";
 const _rT = "restoreTimestamp";
 const _rTARN = "restoredTableARN";
 const _rUPS = "readUnitsPerSecond";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.keyspaces";
 const _sC = "staticColumns";
 const _sD = "schemaDefinition";
 const _sIC = "scaleInCooldown";
@@ -169,7 +169,7 @@ const _sOC = "scaleOutCooldown";
 const _sP = "scalingPolicy";
 const _sTN = "sourceTableName";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.keyspaces";
+const _st = "status";
 const _t = "tags";
 const _tKN = "targetKeyspaceName";
 const _tM = "throughputMode";
@@ -207,12 +207,55 @@ import {
 import { KeyspacesServiceException } from "../models/KeyspacesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KeyspacesServiceException$: StaticErrorSchema = [-3, _s, "KeyspacesServiceException", 0, [], []];
+_s_registry.registerError(KeyspacesServiceException$, KeyspacesServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`AccessDeniedException`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m, _rA],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AutoScalingPolicy$: StaticStructureSchema = [3, n0, _ASP,
   0,
   [_tTSPC],
@@ -240,17 +283,17 @@ export var CapacitySpecificationSummary$: StaticStructureSchema = [3, n0, _CSS,
 ];
 export var CdcSpecification$: StaticStructureSchema = [3, n0, _CSd,
   0,
-  [_s, _vT, _t, _pT],
+  [_st, _vT, _t, _pT],
   [0, 0, () => TagList, 0], 1
 ];
 export var CdcSpecificationSummary$: StaticStructureSchema = [3, n0, _CSSd,
   0,
-  [_s, _vT],
+  [_st, _vT],
   [0, 0], 1
 ];
 export var ClientSideTimestamps$: StaticStructureSchema = [3, n0, _CST,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var ClusteringKey$: StaticStructureSchema = [3, n0, _CK,
@@ -268,12 +311,6 @@ export var Comment$: StaticStructureSchema = [3, n0, _C,
   [_m],
   [0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateKeyspaceRequest$: StaticStructureSchema = [3, n0, _CKR,
   0,
   [_kN, _t, _rS],
@@ -371,7 +408,7 @@ export var GetTableRequest$: StaticStructureSchema = [3, n0, _GTR,
 ];
 export var GetTableResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_kN, _tN, _rA, _cT, _s, _sD, _cS, _eS, _pITR, _tt, _dTTL, _co, _cST, _rSe, _lSA, _cSd, _wTS],
+  [_kN, _tN, _rA, _cT, _st, _sD, _cS, _eS, _pITR, _tt, _dTTL, _co, _cST, _rSe, _lSA, _cSd, _wTS],
   [0, 0, 0, 4, 0, () => SchemaDefinition$, () => CapacitySpecificationSummary$, () => EncryptionSpecification$, () => PointInTimeRecoverySummary$, () => TimeToLive$, 1, () => Comment$, () => ClientSideTimestamps$, () => ReplicaSpecificationSummaryList, 0, () => CdcSpecificationSummary$, () => WarmThroughputSpecificationSummary$], 3
 ];
 export var GetTypeRequest$: StaticStructureSchema = [3, n0, _GTRet,
@@ -381,15 +418,9 @@ export var GetTypeRequest$: StaticStructureSchema = [3, n0, _GTRet,
 ];
 export var GetTypeResponse$: StaticStructureSchema = [3, n0, _GTRety,
   0,
-  [_kN, _tNy, _kA, _fD, _lMT, _s, _dRT, _dPT, _mND],
+  [_kN, _tNy, _kA, _fD, _lMT, _st, _dRT, _dPT, _mND],
   [0, 0, 0, () => FieldList, 4, 0, 64 | 0, 64 | 0, 1], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KeyspaceSummary$: StaticStructureSchema = [3, n0, _KS,
   0,
   [_kN, _rA, _rSep, _rR],
@@ -442,12 +473,12 @@ export var PartitionKey$: StaticStructureSchema = [3, n0, _PK,
 ];
 export var PointInTimeRecovery$: StaticStructureSchema = [3, n0, _PITR,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var PointInTimeRecoverySummary$: StaticStructureSchema = [3, n0, _PITRS,
   0,
-  [_s, _eRT],
+  [_st, _eRT],
   [0, 4], 1
 ];
 export var ReplicaAutoScalingSpecification$: StaticStructureSchema = [3, n0, _RASS,
@@ -462,7 +493,7 @@ export var ReplicaSpecification$: StaticStructureSchema = [3, n0, _RS,
 ];
 export var ReplicaSpecificationSummary$: StaticStructureSchema = [3, n0, _RSS,
   0,
-  [_r, _s, _cS, _wTS],
+  [_r, _st, _cS, _wTS],
   [0, 0, () => CapacitySpecificationSummary$, () => WarmThroughputSpecificationSummary$]
 ];
 export var ReplicationGroupStatus$: StaticStructureSchema = [3, n0, _RGS,
@@ -475,12 +506,6 @@ export var ReplicationSpecification$: StaticStructureSchema = [3, n0, _RSe,
   [_rSep, _rL],
   [0, 64 | 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_m, _rA],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestoreTableRequest$: StaticStructureSchema = [3, n0, _RTR,
   0,
   [_sKN, _sTN, _tKN, _tTN, _rT, _cSO, _eSO, _pITRO, _tO, _aSS, _rSe],
@@ -496,12 +521,6 @@ export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
   [_aC, _pK, _cK, _sC],
   [() => ColumnDefinitionList, () => PartitionKeyList, () => ClusteringKeyList, () => StaticColumnList], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StaticColumn$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_n],
@@ -534,7 +553,7 @@ export var TargetTrackingScalingPolicyConfiguration$: StaticStructureSchema = [3
 ];
 export var TimeToLive$: StaticStructureSchema = [3, n0, _TTL,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -567,12 +586,6 @@ export var UpdateTableResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [_rA],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WarmThroughputSpecification$: StaticStructureSchema = [3, n0, _WTS,
   0,
   [_rUPS, _wUPS],
@@ -580,11 +593,9 @@ export var WarmThroughputSpecification$: StaticStructureSchema = [3, n0, _WTS,
 ];
 export var WarmThroughputSpecificationSummary$: StaticStructureSchema = [3, n0, _WTSS,
   0,
-  [_rUPS, _wUPS, _s],
+  [_rUPS, _wUPS, _st],
   [1, 1, 0], 3
 ];
-export var KeyspacesServiceException$: StaticErrorSchema = [-3, _sm, "KeyspacesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KeyspacesServiceException$, KeyspacesServiceException);
 var ClusteringKeyList: StaticListSchema = [1, n0, _CKL,
   0, () => ClusteringKey$
 ];

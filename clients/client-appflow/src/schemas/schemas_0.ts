@@ -512,7 +512,7 @@ const _rP = "recordsProcessed";
 const _rT = "refreshToken";
 const _rU = "redirectUri";
 const _re = "region";
-const _s = "scope";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appflow";
 const _sA = "startedAt";
 const _sAK = "secretAccessKey";
 const _sAV = "supportedApiVersions";
@@ -543,8 +543,8 @@ const _sTT = "supportedTriggerTypes";
 const _sV = "schemaVersion";
 const _sVu = "supportedValues";
 const _sWO = "supportedWriteOperations";
+const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appflow";
 const _st = "status";
 const _sta = "stage";
 const _t = "tasks";
@@ -600,6 +600,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppflowServiceException$: StaticErrorSchema = [-3, _s, "AppflowServiceException", 0, [], []];
+_s_registry.registerError(AppflowServiceException$, AppflowServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ConnectorAuthenticationException$: StaticErrorSchema = [-3, n0, _CAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConnectorAuthenticationException$, ConnectorAuthenticationException);
+export var ConnectorServerException$: StaticErrorSchema = [-3, n0, _CSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConnectorServerException$, ConnectorServerException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
@@ -611,12 +684,6 @@ var CredentialsMapValue: StaticSimpleSchema = [0, n0, _CMV, 8, 0];
 var JwtToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SecretKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AggregationConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_aT, _tFS],
@@ -672,18 +739,6 @@ export var CancelFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _CFERa
   [_iE],
   [64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ConnectorAuthenticationException$: StaticErrorSchema = [-3, n0, _CAE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConnectorAuthenticationException$, ConnectorAuthenticationException);
 export var ConnectorConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_cUAS, _cUAD, _sDC, _sSF, _iPLE, _iPLEUR, _sTT, _cM, _cT, _cL, _cD, _cO, _cN, _cV, _cA, _cMo, _aC, _cRS, _sAV, _sO, _sWO, _cPT, _cPC, _lURL, _rA, _rB, _sDTT, _sDTA],
@@ -746,15 +801,9 @@ export var ConnectorProvisioningConfig$: StaticStructureSchema = [3, n0, _CPCon,
 ];
 export var ConnectorRuntimeSetting$: StaticStructureSchema = [3, n0, _CRS,
   0,
-  [_k, _dT, _iR, _l, _d, _s, _cSVO],
+  [_k, _dT, _iR, _l, _d, _sc, _cSVO],
   [0, 0, 2, 0, 0, 0, 64 | 0]
 ];
-export var ConnectorServerException$: StaticErrorSchema = [-3, n0, _CSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConnectorServerException$, ConnectorServerException);
 export var CreateConnectorProfileRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
   [_cPN, _cT, _cMon, _cPCon, _kA, _cL, _cTl],
@@ -1070,12 +1119,6 @@ export var InforNexusSourceProperties$: StaticStructureSchema = [3, n0, _INSP,
   [_o],
   [0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LambdaConnectorProvisioningConfig$: StaticStructureSchema = [3, n0, _LCPC,
   0,
   [_lA],
@@ -1271,12 +1314,6 @@ export var ResetConnectorMetadataCacheResponse$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DestinationProperties$: StaticStructureSchema = [3, n0, _SDP,
   0,
   [_bN, _bP, _sOFC],
@@ -1387,12 +1424,6 @@ export var ServiceNowSourceProperties$: StaticStructureSchema = [3, n0, _SNSP,
   [_o],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SingularConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _SCPCi,
   0,
   [_aK],
@@ -1513,12 +1544,6 @@ export var Task$: StaticStructureSchema = [3, n0, _Ta,
   [_sF, _tTa, _cOo, _dF, _tPa],
   [64 | 0, 0, () => ConnectorOperator$, 0, 128 | 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrendmicroConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _TCPC,
   0,
   [_aSK],
@@ -1559,12 +1584,6 @@ export var UnregisterConnectorResponse$: StaticStructureSchema = [3, n0, _UCRn,
   [],
   []
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -1620,12 +1639,6 @@ export var UpsolverS3OutputFormatConfig$: StaticStructureSchema = [3, n0, _USOFC
   [_pC, _fTi, _aCg],
   [() => PrefixConfig$, 0, () => AggregationConfig$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VeevaConnectorProfileCredentials$: StaticStructureSchema = [3, n0, _VCPC,
   0,
   [_u, _p],
@@ -1671,8 +1684,6 @@ export var ZendeskSourceProperties$: StaticStructureSchema = [3, n0, _ZSP,
   [_o],
   [0], 1
 ];
-export var AppflowServiceException$: StaticErrorSchema = [-3, _sm, "AppflowServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppflowServiceException$, AppflowServiceException);
 var AuthCodeUrlList = 64 | 0;
 var AuthParameterList: StaticListSchema = [1, n0, _APL,
   0, () => AuthParameter$

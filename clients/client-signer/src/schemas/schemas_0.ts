@@ -151,7 +151,7 @@ const _rEF = "revocationEffectiveFrom";
 const _rI = "revisionId";
 const _rR = "revocationRecord";
 const _rS = "revocationSupported";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.signer";
 const _sC = "signingConfiguration";
 const _sEA = "signatureExpiresAt";
 const _sEAi = "signatureExpiresAfter";
@@ -168,7 +168,7 @@ const _sVP = "signatureValidityPeriod";
 const _s_ = "s3";
 const _se = "server";
 const _si = "signature";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.signer";
+const _so = "source";
 const _st = "status";
 const _sta = "statuses";
 const _t = "target";
@@ -204,12 +204,79 @@ import {
 import { SignerServiceException } from "../models/SignerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SignerServiceException$: StaticErrorSchema = [-3, _s, "SignerServiceException", 0, [], []];
+_s_registry.registerError(SignerServiceException$, SignerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _co],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddProfilePermissionRequest$: StaticStructureSchema = [3, n0, _APPR,
   0,
   [_pN, _a, _p, _sI, _pV, _rI],
@@ -220,23 +287,11 @@ export var AddProfilePermissionResponse$: StaticStructureSchema = [3, n0, _APPRd
   [_rI],
   [0]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CancelSigningProfileRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_pN],
   [[0, 1]], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DescribeSigningJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
   0,
   [_jI],
@@ -244,7 +299,7 @@ export var DescribeSigningJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
 ];
 export var DescribeSigningJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
-  [_jI, _s, _sM, _pI, _pDN, _pN, _pV, _o, _sP, _cA, _cAo, _sEA, _rB, _st, _sR, _rR, _sO, _jO, _jIo],
+  [_jI, _so, _sM, _pI, _pDN, _pN, _pV, _o, _sP, _cA, _cAo, _sEA, _rB, _st, _sR, _rR, _sO, _jO, _jIo],
   [0, () => Source$, () => SigningMaterial$, 0, 0, 0, 0, () => SigningPlatformOverrides$, 128 | 0, 4, 4, 4, 0, 0, 0, () => SigningJobRevocationRecord$, () => SignedObject$, 0, 0]
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _D,
@@ -292,12 +347,6 @@ export var HashAlgorithmOptions$: StaticStructureSchema = [3, n0, _HAO,
   [_aV, _dV],
   [64 | 0, 0], 2
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
 export var ListProfilePermissionsRequest$: StaticStructureSchema = [3, n0, _LPPR,
   0,
   [_pN, _nT],
@@ -348,12 +397,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_ta],
   [128 | 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Permission$: StaticStructureSchema = [3, n0, _P,
   0,
   [_a, _p, _sI, _pV],
@@ -379,12 +422,6 @@ export var RemoveProfilePermissionResponse$: StaticStructureSchema = [3, n0, _RP
   [_rI],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RevokeSignatureRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_jI, _r, _jO],
@@ -410,12 +447,6 @@ export var S3Source$: StaticStructureSchema = [3, n0, _SS,
   [_bN, _k, _v],
   [0, 0, 0], 3
 ];
-export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
 export var SignatureValidityPeriod$: StaticStructureSchema = [3, n0, _SVP,
   0,
   [_va, _ty],
@@ -443,7 +474,7 @@ export var SigningImageFormat$: StaticStructureSchema = [3, n0, _SIF,
 ];
 export var SigningJob$: StaticStructureSchema = [3, n0, _SJ,
   0,
-  [_jI, _s, _sO, _sM, _cA, _st, _iR, _pN, _pV, _pI, _pDN, _sEA, _jO, _jIo],
+  [_jI, _so, _sO, _sM, _cA, _st, _iR, _pN, _pV, _pI, _pDN, _sEA, _jO, _jIo],
   [0, () => Source$, () => SignedObject$, () => SigningMaterial$, 4, 0, 2, 0, 0, 0, 0, 4, 0, 0]
 ];
 export var SigningJobRevocationRecord$: StaticStructureSchema = [3, n0, _SJRR,
@@ -493,7 +524,7 @@ export var Source$: StaticStructureSchema = [3, n0, _S,
 ];
 export var StartSigningJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
-  [_s, _d, _pN, _cRT, _pO],
+  [_so, _d, _pN, _cRT, _pO],
   [() => Source$, () => Destination$, 0, [0, 4], 0], 3
 ];
 export var StartSigningJobResponse$: StaticStructureSchema = [3, n0, _SSJRt,
@@ -511,18 +542,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -533,15 +552,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var SignerServiceException$: StaticErrorSchema = [-3, _sm, "SignerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SignerServiceException$, SignerServiceException);
 var CertificateHashes = 64 | 0;
 var EncryptionAlgorithms = 64 | 0;
 var HashAlgorithms = 64 | 0;

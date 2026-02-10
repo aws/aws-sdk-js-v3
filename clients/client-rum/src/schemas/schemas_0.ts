@@ -28,8 +28,8 @@ const _C = "Created";
 const _CAM = "CreateAppMonitor";
 const _CAMR = "CreateAppMonitorRequest";
 const _CAMRr = "CreateAppMonitorResponse";
-const _CE = "CustomEvents";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEu = "CustomEvents";
 const _CL = "CwLog";
 const _CLE = "CwLogEnabled";
 const _CLG = "CwLogGroup";
@@ -173,10 +173,10 @@ const _qC = "quotaCode";
 const _rAS = "retryAfterSeconds";
 const _rN = "resourceName";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rum";
 const _sC = "serviceCode";
 const _sI = "sessionId";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rum";
+const _se = "server";
 const _t = "timestamp";
 const _tK = "tagKeys";
 const _ty = "type";
@@ -211,16 +211,89 @@ import {
 import { RUMServiceException } from "../models/RUMServiceException";
 
 /* eslint no-var: 0 */
-var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var RUMServiceException$: StaticErrorSchema = [-3, _s, "RUMServiceException", 0, [], []];
+_s_registry.registerError(RUMServiceException$, RUMServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rN, _rT],
+  [0, 0, 0], 2
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PolicyNotFoundException$, PolicyNotFoundException);
+export var PolicySizeLimitExceededException$: StaticErrorSchema = [-3, n0, _PSLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PolicySizeLimitExceededException$, PolicySizeLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rN, _rT],
+  [0, 0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
 export var AppMonitor$: StaticStructureSchema = [3, n0, _AM,
   0,
-  [_N, _D, _DL, _I, _C, _LM, _T, _S, _AMC, _DS, _CE, _DC, _P],
+  [_N, _D, _DL, _I, _C, _LM, _T, _S, _AMC, _DS, _CEu, _DC, _P],
   [0, 0, 64 | 0, 0, 0, 0, 128 | 0, 0, () => AppMonitorConfiguration$, () => DataStorage$, () => CustomEvents$, () => DeobfuscationConfiguration$, 0]
 ];
 export var AppMonitorConfiguration$: StaticStructureSchema = [3, n0, _AMC,
@@ -278,15 +351,9 @@ export var BatchGetRumMetricDefinitionsResponse$: StaticStructureSchema = [3, n0
   [_MDe, _NT],
   [() => MetricDefinitions, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rN, _rT],
-  [0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAppMonitorRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
-  [_N, _D, _DL, _T, _AMC, _CLE, _CE, _DC, _P],
+  [_N, _D, _DL, _T, _AMC, _CLE, _CEu, _DC, _P],
   [0, 0, 64 | 0, 128 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$, 0], 1
 ];
 export var CreateAppMonitorResponse$: StaticStructureSchema = [3, n0, _CAMRr,
@@ -294,7 +361,7 @@ export var CreateAppMonitorResponse$: StaticStructureSchema = [3, n0, _CAMRr,
   [_I],
   [0]
 ];
-export var CustomEvents$: StaticStructureSchema = [3, n0, _CE,
+export var CustomEvents$: StaticStructureSchema = [3, n0, _CEu,
   0,
   [_St],
   [0]
@@ -374,18 +441,6 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_PD, _PRI],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
 export var JavaScriptSourceMaps$: StaticStructureSchema = [3, n0, _JSSM,
   0,
   [_St, _SU],
@@ -421,12 +476,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_RAe, _T],
   [0, 128 | 0], 2
 ];
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
 export var MetricDefinition$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_MDI, _N, _VK, _UL, _DK, _EPv, _Na],
@@ -442,18 +491,6 @@ export var MetricDestinationSummary$: StaticStructureSchema = [3, n0, _MDS,
   [_De, _DA, _IRA],
   [0, 0, 0]
 ];
-export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
-export var PolicySizeLimitExceededException$: StaticErrorSchema = [-3, n0, _PSLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PolicySizeLimitExceededException$, PolicySizeLimitExceededException);
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_N, _PD, _PRI],
@@ -489,23 +526,11 @@ export var QueryFilter$: StaticStructureSchema = [3, n0, _QF,
   [_N, _V],
   [0, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rN, _rT],
-  [0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RumEvent$: StaticStructureSchema = [3, n0, _REu,
   0,
   [_i, _t, _ty, _de, _me],
   [0, 4, 0, [() => JsonValue, 0], [() => JsonValue, 0]], 4
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RAe, _T],
@@ -516,12 +541,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_Af, _B],
@@ -539,7 +558,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAppMonitorRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
-  [_N, _D, _DL, _AMC, _CLE, _CE, _DC],
+  [_N, _D, _DL, _AMC, _CLE, _CEu, _DC],
   [[0, 1], 0, 64 | 0, () => AppMonitorConfiguration$, 2, () => CustomEvents$, () => DeobfuscationConfiguration$], 1
 ];
 export var UpdateAppMonitorResponse$: StaticStructureSchema = [3, n0, _UAMRp,
@@ -562,14 +581,6 @@ export var UserDetails$: StaticStructureSchema = [3, n0, _UD,
   [_uI, _sI],
   [0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var RUMServiceException$: StaticErrorSchema = [-3, _sm, "RUMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RUMServiceException$, RUMServiceException);
 var AppMonitorDomainList = 64 | 0;
 var AppMonitorSummaryList: StaticListSchema = [1, n0, _AMSL,
   0, () => AppMonitorSummary$

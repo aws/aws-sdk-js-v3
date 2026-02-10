@@ -91,14 +91,14 @@ const _CO = "ComparisonOperator";
 const _COo = "ConditionalOperator";
 const _COs = "CsvOptions";
 const _CPIM = "CachePeriodInMinutes";
-const _CR = "ConsistentRead";
+const _CR = "CancellationReasons";
 const _CRA = "CreateReplicaAction";
 const _CRGMA = "CreateReplicationGroupMemberAction";
 const _CRL = "CancellationReasonList";
 const _CRSRA = "ConfirmRemoveSelfResourceAccess";
 const _CRT = "ClientRequestToken";
 const _CRa = "CancellationReason";
-const _CRan = "CancellationReasons";
+const _CRo = "ConsistentRead";
 const _CT = "ClientToken";
 const _CTI = "CreateTableInput";
 const _CTO = "CreateTableOutput";
@@ -649,8 +649,8 @@ const _hH = "httpHeader";
 const _m = "message";
 const _r = "reason";
 const _re = "resource";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.dynamodb";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.dynamodb";
+const _se = "server";
 const _tR = "throttlingReasons";
 const _xacrsra = "x-amz-confirm-remove-self-resource-access";
 const n0 = "com.amazonaws.dynamodb";
@@ -706,6 +706,229 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DynamoDBServiceException$: StaticErrorSchema = [-3, _s, "DynamoDBServiceException", 0, [], []];
+_s_registry.registerError(DynamoDBServiceException$, DynamoDBServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BackupInUseException$: StaticErrorSchema = [-3, n0, _BIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BackupInUseException$, BackupInUseException);
+export var BackupNotFoundException$: StaticErrorSchema = [-3, n0, _BNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BackupNotFoundException$, BackupNotFoundException);
+export var ConditionalCheckFailedException$: StaticErrorSchema = [-3, n0, _CCFE,
+  { [_e]: _c },
+  [_m, _I],
+  [0, () => AttributeMap]
+];
+n0_registry.registerError(ConditionalCheckFailedException$, ConditionalCheckFailedException);
+export var ContinuousBackupsUnavailableException$: StaticErrorSchema = [-3, n0, _CBUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ContinuousBackupsUnavailableException$, ContinuousBackupsUnavailableException);
+export var DuplicateItemException$: StaticErrorSchema = [-3, n0, _DIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateItemException$, DuplicateItemException);
+export var ExportConflictException$: StaticErrorSchema = [-3, n0, _ECE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExportConflictException$, ExportConflictException);
+export var ExportNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExportNotFoundException$, ExportNotFoundException);
+export var GlobalTableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _GTAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GlobalTableAlreadyExistsException$, GlobalTableAlreadyExistsException);
+export var GlobalTableNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GlobalTableNotFoundException$, GlobalTableNotFoundException);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var ImportConflictException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ImportConflictException$, ImportConflictException);
+export var ImportNotFoundException$: StaticErrorSchema = [-3, n0, _INFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ImportNotFoundException$, ImportNotFoundException);
+export var IndexNotFoundException$: StaticErrorSchema = [-3, n0, _INFEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IndexNotFoundException$, IndexNotFoundException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c, [_hE]: 421 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidEndpointException$, InvalidEndpointException);
+export var InvalidExportTimeException$: StaticErrorSchema = [-3, n0, _IETE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidExportTimeException$, InvalidExportTimeException);
+export var InvalidRestoreTimeException$: StaticErrorSchema = [-3, n0, _IRTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRestoreTimeException$, InvalidRestoreTimeException);
+export var ItemCollectionSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _ICSLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ItemCollectionSizeLimitExceededException$, ItemCollectionSizeLimitExceededException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PointInTimeRecoveryUnavailableException$: StaticErrorSchema = [-3, n0, _PITRUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PointInTimeRecoveryUnavailableException$, PointInTimeRecoveryUnavailableException);
+export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PolicyNotFoundException$, PolicyNotFoundException);
+export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_m, _TR],
+  [0, () => ThrottlingReasonList]
+];
+n0_registry.registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
+export var ReplicaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicaAlreadyExistsException$, ReplicaAlreadyExistsException);
+export var ReplicaNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicaNotFoundException$, ReplicaNotFoundException);
+export var ReplicatedWriteConflictException$: StaticErrorSchema = [-3, n0, _RWCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicatedWriteConflictException$, ReplicatedWriteConflictException);
+export var RequestLimitExceeded$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c },
+  [_m, _TR],
+  [0, () => ThrottlingReasonList]
+];
+n0_registry.registerError(RequestLimitExceeded$, RequestLimitExceeded);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEe,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TableAlreadyExistsException$, TableAlreadyExistsException);
+export var TableInUseException$: StaticErrorSchema = [-3, n0, _TIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TableInUseException$, TableInUseException);
+export var TableNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TableNotFoundException$, TableNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _tR],
+  [0, () => ThrottlingReasonList]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TransactionCanceledException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c },
+  [_M, _CR],
+  [0, () => CancellationReasonList]
+];
+n0_registry.registerError(TransactionCanceledException$, TransactionCanceledException);
+export var TransactionConflictException$: StaticErrorSchema = [-3, n0, _TCEr,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TransactionConflictException$, TransactionConflictException);
+export var TransactionInProgressException$: StaticErrorSchema = [-3, n0, _TIPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TransactionInProgressException$, TransactionInProgressException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ArchivalSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_ADT, _AR, _ABA],
@@ -761,18 +984,6 @@ export var BackupDetails$: StaticStructureSchema = [3, n0, _BDa,
   [_BA, _BN, _BS, _BT, _BCDT, _BSB, _BEDT],
   [0, 0, 0, 0, 4, 1, 4], 5
 ];
-export var BackupInUseException$: StaticErrorSchema = [-3, n0, _BIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BackupInUseException$, BackupInUseException);
-export var BackupNotFoundException$: StaticErrorSchema = [-3, n0, _BNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BackupNotFoundException$, BackupNotFoundException);
 export var BackupSummary$: StaticStructureSchema = [3, n0, _BSa,
   0,
   [_TN, _TI, _TA, _BA, _BN, _BCDT, _BEDT, _BS, _BT, _BSB],
@@ -805,7 +1016,7 @@ export var BatchStatementError$: StaticStructureSchema = [3, n0, _BSE,
 ];
 export var BatchStatementRequest$: StaticStructureSchema = [3, n0, _BSR,
   0,
-  [_St, _P, _CR, _RVOCCF],
+  [_St, _P, _CRo, _RVOCCF],
   [0, () => PreparedStatementParameters, 2, 0], 1
 ];
 export var BatchStatementResponse$: StaticStructureSchema = [3, n0, _BSRa,
@@ -843,12 +1054,6 @@ export var Condition$: StaticStructureSchema = [3, n0, _Co,
   [_CO, _AVL],
   [0, () => AttributeValueList], 1
 ];
-export var ConditionalCheckFailedException$: StaticErrorSchema = [-3, n0, _CCFE,
-  { [_e]: _c },
-  [_m, _I],
-  [0, () => AttributeMap]
-];
-TypeRegistry.for(n0).registerError(ConditionalCheckFailedException$, ConditionalCheckFailedException);
 export var ConditionCheck$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_K, _TN, _CE, _EAN, _EAV, _RVOCCF],
@@ -864,12 +1069,6 @@ export var ContinuousBackupsDescription$: StaticStructureSchema = [3, n0, _CBD,
   [_CBS, _PITRD],
   [0, () => PointInTimeRecoveryDescription$], 1
 ];
-export var ContinuousBackupsUnavailableException$: StaticErrorSchema = [-3, n0, _CBUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ContinuousBackupsUnavailableException$, ContinuousBackupsUnavailableException);
 export var ContributorInsightsSummary$: StaticStructureSchema = [3, n0, _CIS,
   0,
   [_TN, _IN, _CISo, _CIM],
@@ -1130,12 +1329,6 @@ export var DescribeTimeToLiveOutput$: StaticStructureSchema = [3, n0, _DTTLO,
   [_TTLD],
   [() => TimeToLiveDescription$]
 ];
-export var DuplicateItemException$: StaticErrorSchema = [-3, n0, _DIE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateItemException$, DuplicateItemException);
 export var EnableKinesisStreamingConfiguration$: StaticStructureSchema = [3, n0, _EKSC,
   0,
   [_ACDTP],
@@ -1148,7 +1341,7 @@ export var Endpoint$: StaticStructureSchema = [3, n0, _End,
 ];
 export var ExecuteStatementInput$: StaticStructureSchema = [3, n0, _ESI,
   0,
-  [_St, _P, _CR, _NT, _RCC, _L, _RVOCCF],
+  [_St, _P, _CRo, _NT, _RCC, _L, _RVOCCF],
   [0, () => PreparedStatementParameters, 2, 0, 0, 1, 0], 1
 ];
 export var ExecuteStatementOutput$: StaticStructureSchema = [3, n0, _ESO,
@@ -1171,23 +1364,11 @@ export var ExpectedAttributeValue$: StaticStructureSchema = [3, n0, _EAVx,
   [_V, _Exi, _CO, _AVL],
   [() => AttributeValue$, 2, 0, () => AttributeValueList]
 ];
-export var ExportConflictException$: StaticErrorSchema = [-3, n0, _ECE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExportConflictException$, ExportConflictException);
 export var ExportDescription$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EA, _ES, _ST, _ET, _EM, _TA, _TI, _ETx, _CT, _SB, _SBO, _SPr, _SSA, _SSKKI, _FC, _FM, _EF, _BSBi, _IC, _ETxp, _IES],
   [0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, () => IncrementalExportSpecification$]
 ];
-export var ExportNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExportNotFoundException$, ExportNotFoundException);
 export var ExportSummary$: StaticStructureSchema = [3, n0, _ESx,
   0,
   [_EA, _ES, _ETxp],
@@ -1215,7 +1396,7 @@ export var Get$: StaticStructureSchema = [3, n0, _G,
 ];
 export var GetItemInput$: StaticStructureSchema = [3, n0, _GII,
   0,
-  [_TN, _K, _ATG, _CR, _RCC, _PE, _EAN],
+  [_TN, _K, _ATG, _CRo, _RCC, _PE, _EAN],
   [0, () => Key, 64 | 0, 2, 0, 0, 128 | 0], 2
 ];
 export var GetItemOutput$: StaticStructureSchema = [3, n0, _GIO,
@@ -1268,12 +1449,6 @@ export var GlobalTable$: StaticStructureSchema = [3, n0, _GT,
   [_GTN, _RG],
   [0, () => ReplicaList]
 ];
-export var GlobalTableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _GTAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GlobalTableAlreadyExistsException$, GlobalTableAlreadyExistsException);
 export var GlobalTableDescription$: StaticStructureSchema = [3, n0, _GTD,
   0,
   [_RG, _GTA, _CDT, _GTS, _GTN],
@@ -1284,12 +1459,6 @@ export var GlobalTableGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema
   [_IN, _PWCU, _PWCASSU],
   [0, 1, () => AutoScalingSettingsUpdate$], 1
 ];
-export var GlobalTableNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GlobalTableNotFoundException$, GlobalTableNotFoundException);
 export var GlobalTableWitnessDescription$: StaticStructureSchema = [3, n0, _GTWD,
   0,
   [_RN, _WS],
@@ -1300,24 +1469,6 @@ export var GlobalTableWitnessGroupUpdate$: StaticStructureSchema = [3, n0, _GTWG
   [_Cr, _De],
   [() => CreateGlobalTableWitnessGroupMemberAction$, () => DeleteGlobalTableWitnessGroupMemberAction$]
 ];
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
-export var ImportConflictException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ImportConflictException$, ImportConflictException);
-export var ImportNotFoundException$: StaticErrorSchema = [-3, n0, _INFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ImportNotFoundException$, ImportNotFoundException);
 export var ImportSummary$: StaticStructureSchema = [3, n0, _ISm,
   0,
   [_IA, _ISmp, _TA, _SBS, _CWLGA, _IF, _ST, _ET],
@@ -1343,52 +1494,16 @@ export var IncrementalExportSpecification$: StaticStructureSchema = [3, n0, _IES
   [_EFT, _ETT, _EVT],
   [4, 4, 0]
 ];
-export var IndexNotFoundException$: StaticErrorSchema = [-3, n0, _INFEn,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IndexNotFoundException$, IndexNotFoundException);
 export var InputFormatOptions$: StaticStructureSchema = [3, n0, _IFO,
   0,
   [_Cs],
   [() => CsvOptions$]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidEndpointException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _c, [_hE]: 421 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEndpointException$, InvalidEndpointException);
-export var InvalidExportTimeException$: StaticErrorSchema = [-3, n0, _IETE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidExportTimeException$, InvalidExportTimeException);
-export var InvalidRestoreTimeException$: StaticErrorSchema = [-3, n0, _IRTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRestoreTimeException$, InvalidRestoreTimeException);
 export var ItemCollectionMetrics$: StaticStructureSchema = [3, n0, _ICM,
   0,
   [_ICK, _SERGB],
   [() => ItemCollectionKeyAttributeMap, 64 | 1]
 ];
-export var ItemCollectionSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _ICSLEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ItemCollectionSizeLimitExceededException$, ItemCollectionSizeLimitExceededException);
 export var ItemResponse$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_I],
@@ -1396,7 +1511,7 @@ export var ItemResponse$: StaticStructureSchema = [3, n0, _IR,
 ];
 export var KeysAndAttributes$: StaticStructureSchema = [3, n0, _KAA,
   0,
-  [_Ke, _ATG, _CR, _PE, _EAN],
+  [_Ke, _ATG, _CRo, _PE, _EAN],
   [() => KeyList, 64 | 0, 2, 0, 128 | 0], 1
 ];
 export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
@@ -1419,12 +1534,6 @@ export var KinesisStreamingDestinationOutput$: StaticStructureSchema = [3, n0, _
   [_TN, _SA, _DS, _EKSC],
   [0, 0, 0, () => EnableKinesisStreamingConfiguration$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListBackupsInput$: StaticStructureSchema = [3, n0, _LBI,
   0,
   [_TN, _L, _TRLB, _TRUB, _ESBA, _BT],
@@ -1535,18 +1644,6 @@ export var PointInTimeRecoverySpecification$: StaticStructureSchema = [3, n0, _P
   [_PITRE, _RPID],
   [2, 1], 1
 ];
-export var PointInTimeRecoveryUnavailableException$: StaticErrorSchema = [-3, n0, _PITRUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PointInTimeRecoveryUnavailableException$, PointInTimeRecoveryUnavailableException);
-export var PolicyNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyNotFoundException$, PolicyNotFoundException);
 export var Projection$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_PTr, _NKA],
@@ -1562,12 +1659,6 @@ export var ProvisionedThroughputDescription$: StaticStructureSchema = [3, n0, _P
   [_LIDT, _LDDT, _NODT, _RCU, _WCU],
   [4, 4, 1, 1, 1]
 ];
-export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
-  { [_e]: _c },
-  [_m, _TR],
-  [0, () => ThrottlingReasonList]
-];
-TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
 export var ProvisionedThroughputOverride$: StaticStructureSchema = [3, n0, _PTO,
   0,
   [_RCU],
@@ -1605,7 +1696,7 @@ export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO,
 ];
 export var QueryInput$: StaticStructureSchema = [3, n0, _QI,
   0,
-  [_TN, _IN, _Se, _ATG, _L, _CR, _KC, _QF, _COo, _SIF, _ESK, _RCC, _PE, _FEi, _KCE, _EAN, _EAV],
+  [_TN, _IN, _Se, _ATG, _L, _CRo, _KC, _QF, _COo, _SIF, _ESK, _RCC, _PE, _FEi, _KCE, _EAN, _EAV],
   [0, 0, 0, 64 | 0, 1, 2, () => KeyConditions, () => FilterConditionMap, 0, 2, () => Key, 0, 0, 0, 0, 128 | 0, () => ExpressionAttributeValueMap], 1
 ];
 export var QueryOutput$: StaticStructureSchema = [3, n0, _QO,
@@ -1618,12 +1709,6 @@ export var Replica$: StaticStructureSchema = [3, n0, _Re,
   [_RN],
   [0]
 ];
-export var ReplicaAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReplicaAlreadyExistsException$, ReplicaAlreadyExistsException);
 export var ReplicaAutoScalingDescription$: StaticStructureSchema = [3, n0, _RASD,
   0,
   [_RN, _GSI, _RPRCASS, _RPWCASS, _RSe],
@@ -1669,12 +1754,6 @@ export var ReplicaGlobalSecondaryIndexSettingsUpdate$: StaticStructureSchema = [
   [_IN, _PRCU, _PRCASSU],
   [0, 1, () => AutoScalingSettingsUpdate$], 1
 ];
-export var ReplicaNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReplicaNotFoundException$, ReplicaNotFoundException);
 export var ReplicaSettingsDescription$: StaticStructureSchema = [3, n0, _RSDe,
   0,
   [_RN, _RSe, _RBMS, _RPRCU, _RPRCASS, _RPWCU, _RPWCASS, _RGSIS, _RTCS],
@@ -1685,12 +1764,6 @@ export var ReplicaSettingsUpdate$: StaticStructureSchema = [3, n0, _RSU,
   [_RN, _RPRCU, _RPRCASSU, _RGSISU, _RTC],
   [0, 1, () => AutoScalingSettingsUpdate$, () => ReplicaGlobalSecondaryIndexSettingsUpdateList, 0], 1
 ];
-export var ReplicatedWriteConflictException$: StaticErrorSchema = [-3, n0, _RWCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReplicatedWriteConflictException$, ReplicatedWriteConflictException);
 export var ReplicationGroupUpdate$: StaticStructureSchema = [3, n0, _RGU,
   0,
   [_Cr, _U, _De],
@@ -1701,24 +1774,6 @@ export var ReplicaUpdate$: StaticStructureSchema = [3, n0, _RU,
   [_Cr, _De],
   [() => CreateReplicaAction$, () => DeleteReplicaAction$]
 ];
-export var RequestLimitExceeded$: StaticErrorSchema = [-3, n0, _RLE,
-  { [_e]: _c },
-  [_m, _TR],
-  [0, () => ThrottlingReasonList]
-];
-TypeRegistry.for(n0).registerError(RequestLimitExceeded$, RequestLimitExceeded);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEe,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestoreSummary$: StaticStructureSchema = [3, n0, _RSes,
   0,
   [_RDT, _RIP, _SBA, _STA],
@@ -1751,7 +1806,7 @@ export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS,
 ];
 export var ScanInput$: StaticStructureSchema = [3, n0, _SI,
   0,
-  [_TN, _IN, _ATG, _L, _Se, _SF, _COo, _ESK, _RCC, _TSo, _Seg, _PE, _FEi, _EAN, _EAV, _CR],
+  [_TN, _IN, _ATG, _L, _Se, _SF, _COo, _ESK, _RCC, _TSo, _Seg, _PE, _FEi, _EAN, _EAV, _CRo],
   [0, 0, 64 | 0, 1, 0, () => FilterConditionMap, 0, () => Key, 0, 1, 1, 0, 0, 128 | 0, () => ExpressionAttributeValueMap, 2], 1
 ];
 export var ScanOutput$: StaticStructureSchema = [3, n0, _SO,
@@ -1784,12 +1839,6 @@ export var StreamSpecification$: StaticStructureSchema = [3, n0, _SS,
   [_SE, _SVT],
   [2, 0], 1
 ];
-export var TableAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TableAlreadyExistsException$, TableAlreadyExistsException);
 export var TableAutoScalingDescription$: StaticStructureSchema = [3, n0, _TASD,
   0,
   [_TN, _TSa, _Rep],
@@ -1810,18 +1859,6 @@ export var TableDescription$: StaticStructureSchema = [3, n0, _TD,
   [_ADt, _TN, _KS, _TSa, _CDT, _PT, _TSB, _IC, _TA, _TI, _BMS, _LSI, _GSI, _SS, _LSL, _LSA, _GTV, _Rep, _GTW, _GTSRM, _RSes, _SSED, _AS, _TCS, _DPE, _ODT, _WT, _MRC],
   [() => AttributeDefinitions, 0, () => KeySchema, 0, 4, () => ProvisionedThroughputDescription$, 1, 1, 0, 0, () => BillingModeSummary$, () => LocalSecondaryIndexDescriptionList, () => GlobalSecondaryIndexDescriptionList, () => StreamSpecification$, 0, 0, 0, () => ReplicaDescriptionList, () => GlobalTableWitnessDescriptionList, 0, () => RestoreSummary$, () => SSEDescription$, () => ArchivalSummary$, () => TableClassSummary$, 2, () => OnDemandThroughput$, () => TableWarmThroughputDescription$, 0]
 ];
-export var TableInUseException$: StaticErrorSchema = [-3, n0, _TIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TableInUseException$, TableInUseException);
-export var TableNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TableNotFoundException$, TableNotFoundException);
 export var TableWarmThroughputDescription$: StaticStructureSchema = [3, n0, _TWTD,
   0,
   [_RUPS, _WUPS, _Sta],
@@ -1837,12 +1874,6 @@ export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   [_RA, _Ta],
   [0, () => TagList], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
-  [_m, _tR],
-  [0, () => ThrottlingReasonList]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ThrottlingReason$: StaticStructureSchema = [3, n0, _TRh,
   0,
   [_r, _re],
@@ -1873,24 +1904,6 @@ export var TransactGetItemsOutput$: StaticStructureSchema = [3, n0, _TGIO,
   [_CC, _R],
   [() => ConsumedCapacityMultiple, () => ItemResponseList]
 ];
-export var TransactionCanceledException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c },
-  [_M, _CRan],
-  [0, () => CancellationReasonList]
-];
-TypeRegistry.for(n0).registerError(TransactionCanceledException$, TransactionCanceledException);
-export var TransactionConflictException$: StaticErrorSchema = [-3, n0, _TCEr,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransactionConflictException$, TransactionConflictException);
-export var TransactionInProgressException$: StaticErrorSchema = [-3, n0, _TIPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransactionInProgressException$, TransactionInProgressException);
 export var TransactWriteItem$: StaticStructureSchema = [3, n0, _TWI,
   0,
   [_CCo, _Pu, _De, _U],
@@ -2032,8 +2045,6 @@ export var WriteRequest$: StaticStructureSchema = [3, n0, _WR,
   [() => PutRequest$, () => DeleteRequest$]
 ];
 var __Unit = "unit" as const;
-export var DynamoDBServiceException$: StaticErrorSchema = [-3, _sm, "DynamoDBServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DynamoDBServiceException$, DynamoDBServiceException);
 var AttributeDefinitions: StaticListSchema = [1, n0, _ADt,
   0, () => AttributeDefinition$
 ];

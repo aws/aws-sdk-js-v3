@@ -398,7 +398,7 @@ const _rU = "reportUrl";
 const _rV = "relationshipValue";
 const _re = "relationship";
 const _ro = "rows";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iottwinmaker";
 const _sC = "s3Configuration";
 const _sCk = "skippedCount";
 const _sCu = "succeededCount";
@@ -417,9 +417,9 @@ const _sTo = "sourceType";
 const _sV = "stringValue";
 const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iottwinmaker";
 const _so = "sources";
-const _st = "state";
+const _st = "status";
+const _sta = "state";
 const _t = "type";
 const _tC = "tabularConditions";
 const _tCN = "targetComponentName";
@@ -469,12 +469,85 @@ import {
 import { IoTTwinMakerServiceException } from "../models/IoTTwinMakerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTTwinMakerServiceException$: StaticErrorSchema = [-3, _s, "IoTTwinMakerServiceException", 0, [], []];
+_s_registry.registerError(IoTTwinMakerServiceException$, IoTTwinMakerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ConnectorFailureException$: StaticErrorSchema = [-3, n0, _CFE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConnectorFailureException$, ConnectorFailureException);
+export var ConnectorTimeoutException$: StaticErrorSchema = [-3, n0, _CTE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConnectorTimeoutException$, ConnectorTimeoutException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(QueryTimeoutException$, QueryTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BatchPutPropertyError$: StaticStructureSchema = [3, n0, _BPPE,
   0,
   [_eC, _eM, _en],
@@ -507,7 +580,7 @@ export var CancelMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CancelMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _CMTJRa,
   0,
-  [_mTJI, _a, _uDT, _s, _p],
+  [_mTJI, _a, _uDT, _st, _p],
   [0, 0, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$], 4
 ];
 export var ColumnDescription$: StaticStructureSchema = [3, n0, _CD,
@@ -532,17 +605,17 @@ export var ComponentRequest$: StaticStructureSchema = [3, n0, _CR,
 ];
 export var ComponentResponse$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_cN, _d, _cTI, _s, _dI, _pr, _pG, _sS, _aAPR, _cC, _aACCR],
+  [_cN, _d, _cTI, _st, _dI, _pr, _pG, _sS, _aAPR, _cC, _aACCR],
   [0, 0, 0, () => Status$, 0, () => PropertyResponses, () => ComponentPropertyGroupResponses, 0, 2, () => CompositeComponentResponse, 2]
 ];
 export var ComponentSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cN, _cTI, _s, _dI, _d, _pG, _sS, _cP],
+  [_cN, _cTI, _st, _dI, _d, _pG, _sS, _cP],
   [0, 0, () => Status$, 0, 0, () => ComponentPropertyGroupResponses, 0, 0], 3
 ];
 export var ComponentTypeSummary$: StaticStructureSchema = [3, n0, _CTS,
   0,
-  [_a, _cTI, _cDT, _uDT, _d, _s, _cTN],
+  [_a, _cTI, _cDT, _uDT, _d, _st, _cTN],
   [0, 0, 4, 4, 0, () => Status$, 0], 4
 ];
 export var ComponentUpdateRequest$: StaticStructureSchema = [3, n0, _CUR,
@@ -570,24 +643,6 @@ export var CompositeComponentUpdateRequest$: StaticStructureSchema = [3, n0, _CC
   [_uT, _d, _pU, _pGU],
   [0, 0, () => PropertyRequests, () => ComponentPropertyGroupRequests]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ConnectorFailureException$: StaticErrorSchema = [-3, n0, _CFE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConnectorFailureException$, ConnectorFailureException);
-export var ConnectorTimeoutException$: StaticErrorSchema = [-3, n0, _CTE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConnectorTimeoutException$, ConnectorTimeoutException);
 export var CreateComponentTypeRequest$: StaticStructureSchema = [3, n0, _CCTRr,
   0,
   [_wI, _cTI, _iS, _d, _pD, _eF, _f, _ta, _pG, _cTN, _cCT],
@@ -595,7 +650,7 @@ export var CreateComponentTypeRequest$: StaticStructureSchema = [3, n0, _CCTRr,
 ];
 export var CreateComponentTypeResponse$: StaticStructureSchema = [3, n0, _CCTRre,
   0,
-  [_a, _cDT, _st],
+  [_a, _cDT, _sta],
   [0, 4, 0], 3
 ];
 export var CreateEntityRequest$: StaticStructureSchema = [3, n0, _CER,
@@ -605,7 +660,7 @@ export var CreateEntityRequest$: StaticStructureSchema = [3, n0, _CER,
 ];
 export var CreateEntityResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
-  [_eI, _a, _cDT, _st],
+  [_eI, _a, _cDT, _sta],
   [0, 0, 4, 0], 4
 ];
 export var CreateMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _CMTJRr,
@@ -615,7 +670,7 @@ export var CreateMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _CMTJRre,
   0,
-  [_mTJI, _a, _cDT, _s],
+  [_mTJI, _a, _cDT, _st],
   [0, 0, 4, () => MetadataTransferJobStatus$], 4
 ];
 export var CreateSceneRequest$: StaticStructureSchema = [3, n0, _CSR,
@@ -635,7 +690,7 @@ export var CreateSyncJobRequest$: StaticStructureSchema = [3, n0, _CSJR,
 ];
 export var CreateSyncJobResponse$: StaticStructureSchema = [3, n0, _CSJRr,
   0,
-  [_a, _cDT, _st],
+  [_a, _cDT, _sta],
   [0, 4, 0], 3
 ];
 export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
@@ -670,7 +725,7 @@ export var DeleteComponentTypeRequest$: StaticStructureSchema = [3, n0, _DCTR,
 ];
 export var DeleteComponentTypeResponse$: StaticStructureSchema = [3, n0, _DCTRe,
   0,
-  [_st],
+  [_sta],
   [0], 1
 ];
 export var DeleteEntityRequest$: StaticStructureSchema = [3, n0, _DER,
@@ -680,7 +735,7 @@ export var DeleteEntityRequest$: StaticStructureSchema = [3, n0, _DER,
 ];
 export var DeleteEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_st],
+  [_sta],
   [0], 1
 ];
 export var DeleteSceneRequest$: StaticStructureSchema = [3, n0, _DSR,
@@ -700,7 +755,7 @@ export var DeleteSyncJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
 ];
 export var DeleteSyncJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
-  [_st],
+  [_sta],
   [0], 1
 ];
 export var DeleteWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWR,
@@ -725,7 +780,7 @@ export var EntityPropertyReference$: StaticStructureSchema = [3, n0, _EPR,
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_eI, _eN, _a, _s, _cDT, _uDT, _pEI, _d, _hCE],
+  [_eI, _eN, _a, _st, _cDT, _uDT, _pEI, _d, _hCE],
   [0, 0, 0, () => Status$, 4, 4, 0, 0, 2], 6
 ];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
@@ -780,7 +835,7 @@ export var GetComponentTypeRequest$: StaticStructureSchema = [3, n0, _GCTR,
 ];
 export var GetComponentTypeResponse$: StaticStructureSchema = [3, n0, _GCTRe,
   0,
-  [_wI, _cTI, _cDT, _uDT, _a, _iS, _d, _pD, _eF, _f, _iAs, _iSI, _s, _pG, _sS, _cTN, _cCT],
+  [_wI, _cTI, _cDT, _uDT, _a, _iS, _d, _pD, _eF, _f, _iAs, _iSI, _st, _pG, _sS, _cTN, _cCT],
   [0, 0, 4, 4, 0, 2, 0, () => PropertyDefinitionsResponse, 64 | 0, () => FunctionsResponse, 2, 2, () => Status$, () => PropertyGroupsResponse, 0, 0, () => CompositeComponentTypesResponse], 5
 ];
 export var GetEntityRequest$: StaticStructureSchema = [3, n0, _GER,
@@ -790,7 +845,7 @@ export var GetEntityRequest$: StaticStructureSchema = [3, n0, _GER,
 ];
 export var GetEntityResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_eI, _eN, _a, _s, _wI, _pEI, _hCE, _cDT, _uDT, _d, _co, _sS, _aACR],
+  [_eI, _eN, _a, _st, _wI, _pEI, _hCE, _cDT, _uDT, _d, _co, _sS, _aACR],
   [0, 0, 0, () => Status$, 0, 0, 2, 4, 4, 0, () => ComponentsMap, 0, 2], 9
 ];
 export var GetMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _GMTJR,
@@ -800,7 +855,7 @@ export var GetMetadataTransferJobRequest$: StaticStructureSchema = [3, n0, _GMTJ
 ];
 export var GetMetadataTransferJobResponse$: StaticStructureSchema = [3, n0, _GMTJRe,
   0,
-  [_mTJI, _a, _so, _de, _mTJR, _cDT, _uDT, _s, _d, _rU, _p],
+  [_mTJI, _a, _so, _de, _mTJR, _cDT, _uDT, _st, _d, _rU, _p],
   [0, 0, () => SourceConfigurations, () => DestinationConfiguration$, 0, 4, 4, () => MetadataTransferJobStatus$, 0, 0, () => MetadataTransferJobProgress$], 8
 ];
 export var GetPricingPlanRequest$: StaticStructureSchema = [3, n0, _GPPR,
@@ -850,7 +905,7 @@ export var GetSyncJobRequest$: StaticStructureSchema = [3, n0, _GSJR,
 ];
 export var GetSyncJobResponse$: StaticStructureSchema = [3, n0, _GSJRe,
   0,
-  [_a, _wI, _sS, _sR, _s, _cDT, _uDT],
+  [_a, _wI, _sS, _sR, _st, _cDT, _uDT],
   [0, 0, 0, 0, () => SyncJobStatus$, 4, 4], 7
 ];
 export var GetWorkspaceRequest$: StaticStructureSchema = [3, n0, _GWR,
@@ -863,12 +918,6 @@ export var GetWorkspaceResponse$: StaticStructureSchema = [3, n0, _GWRe,
   [_wI, _a, _cDT, _uDT, _d, _lS, _sL, _r],
   [0, 0, 4, 4, 0, 64 | 0, 0, 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InterpolationParameters$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_iT, _iIS],
@@ -1001,12 +1050,12 @@ export var MetadataTransferJobProgress$: StaticStructureSchema = [3, n0, _MTJP,
 ];
 export var MetadataTransferJobStatus$: StaticStructureSchema = [3, n0, _MTJS,
   0,
-  [_st, _e, _qP],
+  [_sta, _e, _qP],
   [0, () => ErrorDetails$, 1]
 ];
 export var MetadataTransferJobSummary$: StaticStructureSchema = [3, n0, _MTJSe,
   0,
-  [_mTJI, _a, _cDT, _uDT, _s, _p],
+  [_mTJI, _a, _cDT, _uDT, _st, _p],
   [0, 0, 4, 4, () => MetadataTransferJobStatus$, () => MetadataTransferJobProgress$], 5
 ];
 export var OrderBy$: StaticStructureSchema = [3, n0, _OB,
@@ -1084,12 +1133,6 @@ export var PropertyValueHistory$: StaticStructureSchema = [3, n0, _PVH,
   [_ePR, _va],
   [() => EntityPropertyReference$, () => Values], 1
 ];
-export var QueryTimeoutException$: StaticErrorSchema = [-3, n0, _QTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueryTimeoutException$, QueryTimeoutException);
 export var Relationship$: StaticStructureSchema = [3, n0, _R,
   0,
   [_tCTI, _rT],
@@ -1100,12 +1143,6 @@ export var RelationshipValue$: StaticStructureSchema = [3, n0, _RV,
   [_tEI, _tCN],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Row$: StaticStructureSchema = [3, n0, _Ro,
   0,
   [_rD],
@@ -1131,12 +1168,6 @@ export var SceneSummary$: StaticStructureSchema = [3, n0, _SS,
   [_sI, _cL, _a, _cDT, _uDT, _d],
   [0, 0, 0, 4, 4, 0], 5
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_t, _sC, _iSWC, _iTMC],
@@ -1144,27 +1175,27 @@ export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var Status$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_st, _e],
+  [_sta, _e],
   [0, () => ErrorDetails$]
 ];
 export var SyncJobStatus$: StaticStructureSchema = [3, n0, _SJS,
   0,
-  [_st, _e],
+  [_sta, _e],
   [0, () => ErrorDetails$]
 ];
 export var SyncJobSummary$: StaticStructureSchema = [3, n0, _SJSy,
   0,
-  [_a, _wI, _sS, _s, _cDT, _uDT],
+  [_a, _wI, _sS, _st, _cDT, _uDT],
   [0, 0, 0, () => SyncJobStatus$, 4, 4]
 ];
 export var SyncResourceStatus$: StaticStructureSchema = [3, n0, _SRS,
   0,
-  [_st, _e],
+  [_sta, _e],
   [0, () => ErrorDetails$]
 ];
 export var SyncResourceSummary$: StaticStructureSchema = [3, n0, _SRSy,
   0,
-  [_rTe, _eIx, _rI, _s, _uDT],
+  [_rTe, _eIx, _rI, _st, _uDT],
   [0, 0, 0, () => SyncResourceStatus$, 4]
 ];
 export var TabularConditions$: StaticStructureSchema = [3, n0, _TC,
@@ -1182,18 +1213,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
@@ -1211,7 +1230,7 @@ export var UpdateComponentTypeRequest$: StaticStructureSchema = [3, n0, _UCTR,
 ];
 export var UpdateComponentTypeResponse$: StaticStructureSchema = [3, n0, _UCTRp,
   0,
-  [_wI, _a, _cTI, _st],
+  [_wI, _a, _cTI, _sta],
   [0, 0, 0, 0], 4
 ];
 export var UpdateEntityRequest$: StaticStructureSchema = [3, n0, _UER,
@@ -1221,7 +1240,7 @@ export var UpdateEntityRequest$: StaticStructureSchema = [3, n0, _UER,
 ];
 export var UpdateEntityResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
-  [_uDT, _st],
+  [_uDT, _sta],
   [4, 0], 2
 ];
 export var UpdatePricingPlanRequest$: StaticStructureSchema = [3, n0, _UPPR,
@@ -1254,19 +1273,11 @@ export var UpdateWorkspaceResponse$: StaticStructureSchema = [3, n0, _UWRp,
   [_uDT],
   [4], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   0,
   [_wI, _a, _cDT, _uDT, _d, _lS],
   [0, 0, 4, 4, 0, 64 | 0], 4
 ];
-export var IoTTwinMakerServiceException$: StaticErrorSchema = [-3, _sm, "IoTTwinMakerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTTwinMakerServiceException$, IoTTwinMakerServiceException);
 var ColumnDescriptions: StaticListSchema = [1, n0, _CDo,
   0, () => ColumnDescription$
 ];
@@ -1453,12 +1464,12 @@ export var ListEntitiesFilter$: StaticUnionSchema = [4, n0, _LEFi,
 ];
 export var ListMetadataTransferJobsFilter$: StaticUnionSchema = [4, n0, _LMTJFi,
   0,
-  [_wI, _st],
+  [_wI, _sta],
   [0, 0]
 ];
 export var SyncResourceFilter$: StaticUnionSchema = [4, n0, _SRFy,
   0,
-  [_st, _rTe, _rI, _eIx],
+  [_sta, _rTe, _rI, _eIx],
   [0, 0, 0, 0]
 ];
 export var BatchPutPropertyValues$: StaticOperationSchema = [9, n0, _BPPV,

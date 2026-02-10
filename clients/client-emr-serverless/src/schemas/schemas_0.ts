@@ -115,7 +115,7 @@ const _app = "applications";
 const _ar = "architecture";
 const _at = "attempt";
 const _bRU = "billedResourceUtilization";
-const _c = "classification";
+const _c = "client";
 const _cA = "createdAt";
 const _cAA = "createdAtAfter";
 const _cAB = "createdAtBefore";
@@ -123,13 +123,13 @@ const _cB = "createdBy";
 const _cO = "configurationOverrides";
 const _cT = "clientToken";
 const _cWLC = "cloudWatchLoggingConfiguration";
-const _cl = "client";
+const _cl = "classification";
 const _co = "configurations";
 const _cp = "cpu";
 const _d = "disk";
 const _dEC = "diskEncryptionConfiguration";
 const _dT = "diskType";
-const _e = "enabled";
+const _e = "error";
 const _eA = "endedAt";
 const _eC = "encryptionContext";
 const _eIP = "executionIamPolicy";
@@ -139,7 +139,7 @@ const _ePA = "entryPointArguments";
 const _eR = "executionRole";
 const _eRA = "executionRoleArn";
 const _eTM = "executionTimeoutMinutes";
-const _er = "error";
+const _en = "enabled";
 const _h = "hive";
 const _hE = "httpError";
 const _hQ = "httpQuery";
@@ -194,7 +194,7 @@ const _rID = "resolvedImageDigest";
 const _rL = "releaseLabel";
 const _rP = "retryPolicy";
 const _rWU = "remoteWriteUrl";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.emrserverless";
 const _sA = "startedAt";
 const _sC = "schedulerConfiguration";
 const _sD = "stateDetails";
@@ -207,8 +207,8 @@ const _sMC = "s3MonitoringConfiguration";
 const _sS = "sparkSubmit";
 const _sSP = "sparkSubmitParameters";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.emrserverless";
-const _st = "states";
+const _st = "state";
+const _sta = "states";
 const _t = "type";
 const _tEDS = "totalExecutionDurationSeconds";
 const _tK = "tagKeys";
@@ -245,6 +245,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EMRServerlessServiceException$: StaticErrorSchema = [-3, _s, "EMRServerlessServiceException", 0, [], []];
+_s_registry.registerError(EMRServerlessServiceException$, EMRServerlessServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var EntryPointArgument: StaticSimpleSchema = [0, n0, _EPA, 8, 0];
 var EntryPointPath: StaticSimpleSchema = [0, n0, _EPP, 8, 0];
 var HiveCliParameters: StaticSimpleSchema = [0, n0, _HCP, 8, 0];
@@ -253,22 +296,22 @@ var Query: StaticSimpleSchema = [0, n0, _Q, 8, 0];
 var SparkSubmitParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _a, _rL, _t, _s, _cA, _uA, _n, _sD, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
+  [_aI, _a, _rL, _t, _st, _cA, _uA, _n, _sD, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, () => InitialCapacityConfigMap, () => MaximumAllowedResources$, 128 | 0, () => AutoStartConfig$, () => AutoStopConfig$, () => NetworkConfiguration$, 0, () => ImageConfiguration$, () => WorkerTypeSpecificationMap, [() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$, () => InteractiveConfiguration$, () => SchedulerConfiguration$, () => IdentityCenterConfiguration$, () => JobLevelCostAllocationConfiguration$], 7
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_i, _a, _rL, _t, _s, _cA, _uA, _n, _sD, _ar],
+  [_i, _a, _rL, _t, _st, _cA, _uA, _n, _sD, _ar],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0], 7
 ];
 export var AutoStartConfig$: StaticStructureSchema = [3, n0, _ASC,
   0,
-  [_e],
+  [_en],
   [2]
 ];
 export var AutoStopConfig$: StaticStructureSchema = [3, n0, _ASCu,
   0,
-  [_e, _iTM],
+  [_en, _iTM],
   [2, 1]
 ];
 export var CancelJobRunRequest$: StaticStructureSchema = [3, n0, _CJRR,
@@ -283,12 +326,12 @@ export var CancelJobRunResponse$: StaticStructureSchema = [3, n0, _CJRRa,
 ];
 export var CloudWatchLoggingConfiguration$: StaticStructureSchema = [3, n0, _CWLC,
   0,
-  [_e, _lGN, _lSNP, _eKA, _lT],
+  [_en, _lGN, _lSNP, _eKA, _lT],
   [2, 0, 0, 0, [2, n0, _LTM, 0, 0, 64 | 0]], 1
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_c, _p, _co],
+  [_cl, _p, _co],
   [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]], 1
 ];
 export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
@@ -296,12 +339,6 @@ export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
   [_aC, _mCo, _dEC],
   [[() => ConfigurationList, 0], () => MonitoringConfiguration$, () => DiskEncryptionConfiguration$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_rL, _t, _n, _cT, _iC, _mC, _ta, _aSC, _aSCu, _nC, _ar, _iCm, _wTS, _rC, _mCo, _dEC, _iCn, _sC, _iCC, _jLCAC],
@@ -392,25 +429,19 @@ export var InteractiveConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   [_sE, _lEE],
   [2, 2]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobLevelCostAllocationConfiguration$: StaticStructureSchema = [3, n0, _JLCAC,
   0,
-  [_e],
+  [_en],
   [2]
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _s, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM],
+  [_aI, _jRI, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _jD, _n, _eIP, _cO, _ta, _tRU, _nC, _tEDS, _eTM, _bRU, _mo, _rP, _at, _aCA, _aUA, _sA, _eA, _qDM],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, [() => JobDriver$, 0], 0, () => JobRunExecutionIamPolicy$, [() => ConfigurationOverrides$, 0], 128 | 0, () => TotalResourceUtilization$, () => NetworkConfiguration$, 1, 1, () => ResourceUtilization$, 0, () => RetryPolicy$, 1, 4, 4, 4, 4, 1], 11
 ];
 export var JobRunAttemptSummary$: StaticStructureSchema = [3, n0, _JRAS,
   0,
-  [_aI, _i, _a, _cB, _jCA, _cA, _uA, _eR, _s, _sD, _rL, _n, _mo, _t, _at],
+  [_aI, _i, _a, _cB, _jCA, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at],
   [0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1], 11
 ];
 export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
@@ -420,13 +451,13 @@ export var JobRunExecutionIamPolicy$: StaticStructureSchema = [3, n0, _JREIP,
 ];
 export var JobRunSummary$: StaticStructureSchema = [3, n0, _JRS,
   0,
-  [_aI, _i, _a, _cB, _cA, _uA, _eR, _s, _sD, _rL, _n, _mo, _t, _at, _aCA, _aUA],
+  [_aI, _i, _a, _cB, _cA, _uA, _eR, _st, _sD, _rL, _n, _mo, _t, _at, _aCA, _aUA],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 1, 4, 4], 10
 ];
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_nT, _mR, _st],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _st }]]
+  [_nT, _mR, _sta],
+  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [64 | 0, { [_hQ]: _sta }]]
 ];
 export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -445,8 +476,8 @@ export var ListJobRunAttemptsResponse$: StaticStructureSchema = [3, n0, _LJRARi,
 ];
 export var ListJobRunsRequest$: StaticStructureSchema = [3, n0, _LJRR,
   0,
-  [_aI, _nT, _mR, _cAA, _cAB, _st, _mo],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _cAA }], [4, { [_hQ]: _cAB }], [64 | 0, { [_hQ]: _st }], [0, { [_hQ]: _mo }]], 1
+  [_aI, _nT, _mR, _cAA, _cAB, _sta, _mo],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [4, { [_hQ]: _cAA }], [4, { [_hQ]: _cAB }], [64 | 0, { [_hQ]: _sta }], [0, { [_hQ]: _mo }]], 1
 ];
 export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi,
   0,
@@ -465,7 +496,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ManagedPersistenceMonitoringConfiguration$: StaticStructureSchema = [3, n0, _MPMC,
   0,
-  [_e, _eKA],
+  [_en, _eKA],
   [2, 0]
 ];
 export var MaximumAllowedResources$: StaticStructureSchema = [3, n0, _MAR,
@@ -488,12 +519,6 @@ export var PrometheusMonitoringConfiguration$: StaticStructureSchema = [3, n0, _
   [_rWU],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _cl, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceUtilization$: StaticStructureSchema = [3, n0, _RU,
   0,
   [_vCPUH, _mGBH, _sGBH],
@@ -514,12 +539,6 @@ export var SchedulerConfiguration$: StaticStructureSchema = [3, n0, _SC,
   [_qTM, _mCR],
   [1, 1]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_er]: _cl, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SparkSubmit$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_eP, _ePA, _sSP],
@@ -590,12 +609,6 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   [_ap],
   [[() => Application$, 0]], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkerResourceConfig$: StaticStructureSchema = [3, n0, _WRC,
   0,
   [_cp, _me, _d, _dT],
@@ -611,8 +624,6 @@ export var WorkerTypeSpecificationInput$: StaticStructureSchema = [3, n0, _WTSI,
   [_iCm],
   [() => ImageConfigurationInput$]
 ];
-export var EMRServerlessServiceException$: StaticErrorSchema = [-3, _sm, "EMRServerlessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EMRServerlessServiceException$, EMRServerlessServiceException);
 var ApplicationList: StaticListSchema = [1, n0, _AL,
   0, () => ApplicationSummary$
 ];

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultXRayHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { XRayClientConfig } from "./XRayClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: XRayClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.xray",
+      errorTypeRegistries,
       version: "2016-04-12",
       serviceTarget: "AWSXRay",
     },

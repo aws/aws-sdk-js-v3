@@ -85,8 +85,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pcaconnectorscep";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pcaconnectorscep";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.pcaconnectorscep";
 
@@ -115,19 +115,68 @@ import {
 import { PcaConnectorScepServiceException } from "../models/PcaConnectorScepServiceException";
 
 /* eslint no-var: 0 */
-var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var PcaConnectorScepServiceException$: StaticErrorSchema = [-3, _s, "PcaConnectorScepServiceException", 0, [], []];
+_s_registry.registerError(PcaConnectorScepServiceException$, PcaConnectorScepServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RT, _SC, _QC],
+  [0, 0, 0, 0], 4
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Challenge$: StaticStructureSchema = [3, n0, _C,
   0,
   [_A, _CA, _CAr, _UA, _P],
@@ -143,12 +192,6 @@ export var ChallengeMetadataSummary$: StaticStructureSchema = [3, n0, _CMS,
   [_A, _CA, _CAr, _UA],
   [0, 0, 4, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connector$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_A, _CAA, _T, _MDM, _OIC, _S, _SR, _E, _CAr, _UA],
@@ -219,12 +262,6 @@ export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
   [_Co],
   [() => Connector$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IntuneConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_AAI, _D],
@@ -265,43 +302,17 @@ export var OpenIdConfiguration$: StaticStructureSchema = [3, n0, _OIC,
   [_I, _Su, _Au],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RT, _SC, _QC],
-  [0, 0, 0, 0], 4
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _Ta],
   [[0, 1], 128 | 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var PcaConnectorScepServiceException$: StaticErrorSchema = [-3, _sm, "PcaConnectorScepServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PcaConnectorScepServiceException$, PcaConnectorScepServiceException);
 var ChallengeMetadataList: StaticListSchema = [1, n0, _CML,
   0, () => ChallengeMetadataSummary$
 ];

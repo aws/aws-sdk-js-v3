@@ -191,12 +191,31 @@ import { EC2ProtocolServiceException } from "../models/EC2ProtocolServiceExcepti
 import { ComplexError, InvalidGreeting } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EC2ProtocolServiceException$: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
+_s_registry.registerError(EC2ProtocolServiceException$, EC2ProtocolServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],
   [0, () => ComplexNestedErrorData$]
 ];
-TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
+n0_registry.registerError(ComplexError$, ComplexError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGreeting$, InvalidGreeting);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
   0,
   [_F],
@@ -237,12 +256,6 @@ export var IgnoresWrappingXmlNameOutput$: StaticStructureSchema = [3, n0, _IWXNO
   [_f],
   [0]
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
 export var NestedStructuresInput$: StaticStructureSchema = [3, n0, _NSI,
   0,
   [_N],
@@ -357,8 +370,6 @@ export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
   [0]
 ];
 var __Unit = "unit" as const;
-export var EC2ProtocolServiceException$: StaticErrorSchema = [-3, _s, "EC2ProtocolServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(EC2ProtocolServiceException$, EC2ProtocolServiceException);
 var ListWithMemberNamespace: StaticListSchema = [1, n0, _LWMN,
   { [_xNm]: [_, _hl] }, [0,
     { [_xNm]: [_, _hm] }]

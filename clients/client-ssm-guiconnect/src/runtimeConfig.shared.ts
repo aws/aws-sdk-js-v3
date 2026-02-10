@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSMGuiConnectHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSMGuiConnectClientConfig } from "./SSMGuiConnectClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSMGuiConnectClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssmguiconnect",
+      errorTypeRegistries,
       version: "2021-05-01",
       serviceTarget: "SSMGuiConnect",
     },

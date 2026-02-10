@@ -74,10 +74,10 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _pT = "pageToken";
-const _s = "sensitive";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ebs";
 const _sBI = "startingBlockIndex";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ebs";
+const _sen = "sensitive";
 const _st = "streaming";
 const _xaC = "x-amz-ChangedBlocksCount";
 const _xaCA = "x-amz-Checksum-Algorithm";
@@ -110,14 +110,69 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_s]: 1, [_st]: 1 }, 42];
-var KmsKeyArn: StaticSimpleSchema = [0, n0, _KKA, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var EBSServiceException$: StaticErrorSchema = [-3, _s, "EBSServiceException", 0, [], []];
+_s_registry.registerError(EBSServiceException$, EBSServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_R, _M],
   [0, 0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConcurrentLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentLimitExceededException$, ConcurrentLimitExceededException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var RequestThrottledException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(RequestThrottledException$, RequestThrottledException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var BlockData: StaticSimpleSchema = [0, n0, _BD, { [_sen]: 1, [_st]: 1 }, 42];
+var KmsKeyArn: StaticSimpleSchema = [0, n0, _KKA, 8, 0];
 export var Block$: StaticStructureSchema = [3, n0, _B,
   0,
   [_BI, _BT],
@@ -138,18 +193,6 @@ export var CompleteSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRo,
   [_S],
   [0]
 ];
-export var ConcurrentLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentLimitExceededException$, ConcurrentLimitExceededException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var GetSnapshotBlockRequest$: StaticStructureSchema = [3, n0, _GSBR,
   0,
   [_SI, _BI, _BT],
@@ -160,12 +203,6 @@ export var GetSnapshotBlockResponse$: StaticStructureSchema = [3, n0, _GSBRe,
   [_DL, _BD, _C, _CA],
   [[1, { [_hH]: _xaDL }], [() => BlockData, 16], [0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChangedBlocksRequest$: StaticStructureSchema = [3, n0, _LCBR,
   0,
   [_SSI, _FSI, _NT, _MR, _SBI],
@@ -196,24 +233,6 @@ export var PutSnapshotBlockResponse$: StaticStructureSchema = [3, n0, _PSBRu,
   [_C, _CA],
   [[0, { [_hH]: _xaC_ }], [0, { [_hH]: _xaCA }]]
 ];
-export var RequestThrottledException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(RequestThrottledException$, RequestThrottledException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartSnapshotRequest$: StaticStructureSchema = [3, n0, _SSR,
   0,
   [_VS, _PSI, _T, _D, _CT, _E, _KKA, _Ti],
@@ -229,14 +248,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var EBSServiceException$: StaticErrorSchema = [-3, _sm, "EBSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EBSServiceException$, EBSServiceException);
 var Blocks: StaticListSchema = [1, n0, _Bl,
   8, () => Block$
 ];

@@ -130,8 +130,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _iT = "idempotencyToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.scheduler";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.scheduler";
+const _se = "server";
 const _t = "type";
 const _w = "weight";
 const n0 = "com.amazonaws.scheduler";
@@ -157,6 +157,55 @@ import {
 import { SchedulerServiceException } from "../models/SchedulerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SchedulerServiceException$: StaticErrorSchema = [-3, _s, "SchedulerServiceException", 0, [], []];
+_s_registry.registerError(SchedulerServiceException$, SchedulerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AwsVpcConfiguration$: StaticStructureSchema = [3, n0, _AVC,
   0,
   [_S, _SG, _API],
@@ -167,12 +216,6 @@ export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI,
   [_cP, _w, _b],
   [0, 1, 1], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateScheduleGroupInput$: StaticStructureSchema = [3, n0, _CSGI,
   0,
   [_N, _T, _CT],
@@ -253,12 +296,6 @@ export var GetScheduleOutput$: StaticStructureSchema = [3, n0, _GSO,
   [_A, _GN, _N, _SE, _SD, _ED, _D, _SET, _St, _CD, _LMD, _KKA, _Ta, _FTW, _AAC],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, 4, 4, 0, () => Target$, () => FlexibleTimeWindow$, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KinesisParameters$: StaticStructureSchema = [3, n0, _KP,
   0,
   [_PK],
@@ -309,12 +346,6 @@ export var PlacementStrategy$: StaticStructureSchema = [3, n0, _PS,
   [_t, _f],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryPolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_MEAIS, _MRA],
@@ -340,12 +371,6 @@ export var ScheduleSummary$: StaticStructureSchema = [3, n0, _SS,
   [_A, _N, _GN, _St, _CD, _LMD, _Ta],
   [0, 0, 0, 0, 4, 4, () => TargetSummary$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SqsParameters$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_MGI],
@@ -376,12 +401,6 @@ export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   [_A],
   [0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
@@ -402,14 +421,6 @@ export var UpdateScheduleOutput$: StaticStructureSchema = [3, n0, _USO,
   [_SA],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SchedulerServiceException$: StaticErrorSchema = [-3, _sm, "SchedulerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SchedulerServiceException$, SchedulerServiceException);
 var CapacityProviderStrategy: StaticListSchema = [1, n0, _CPS,
   0, () => CapacityProviderStrategyItem$
 ];

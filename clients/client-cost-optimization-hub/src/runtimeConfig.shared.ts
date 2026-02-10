@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCostOptimizationHubHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CostOptimizationHubClientConfig } from "./CostOptimizationHubClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CostOptimizationHubClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.costoptimizationhub",
+      errorTypeRegistries,
       version: "2022-07-26",
       serviceTarget: "CostOptimizationHubService",
     },

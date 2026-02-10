@@ -39,9 +39,9 @@ const _CCu = "CustomContent";
 const _CD = "CreateDomain";
 const _CDR = "CreateDomainRequest";
 const _CDRr = "CreateDomainResponse";
-const _CE = "CustomEntity";
+const _CE = "ConflictException";
 const _CEID = "CaseEventIncludedData";
-const _CEo = "ConflictException";
+const _CEu = "CustomEntity";
 const _CF = "CommentFilter";
 const _CFF = "CustomFieldsFilter";
 const _CFFL = "CustomFieldsFilterList";
@@ -356,12 +356,12 @@ const _rID = "relatedItemData";
 const _rII = "relatedItemId";
 const _rIT = "relatedItemType";
 const _rIe = "relatedItems";
-const _rT = "ruleType";
-const _rTe = "resourceType";
+const _rT = "resourceType";
+const _rTu = "ruleType";
 const _re = "required";
 const _ru = "rule";
 const _rul = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcases";
 const _sC = "slaConfiguration";
 const _sIC = "slaInputConfiguration";
 const _sO = "sortOrder";
@@ -371,9 +371,9 @@ const _sV = "stringValue";
 const _se = "server";
 const _sec = "sections";
 const _sl = "sla";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.connectcases";
 const _so = "sorts";
 const _sp = "sparse";
+const _st = "status";
 const _t = "type";
 const _tA = "templateArn";
 const _tC = "totalCount";
@@ -421,14 +421,63 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var CustomEntity: StaticSimpleSchema = [0, n0, _CE, 8, 0];
-var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ConnectCasesServiceException$: StaticErrorSchema = [-3, _s, "ConnectCasesServiceException", 0, [], []];
+_s_registry.registerError(ConnectCasesServiceException$, ConnectCasesServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var CustomEntity: StaticSimpleSchema = [0, n0, _CEu, 8, 0];
+var SlaName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_eI, _t, _pT, _f, _rIT, _pB],
@@ -501,7 +550,7 @@ export var CaseRuleIdentifier$: StaticStructureSchema = [3, n0, _CRI,
 ];
 export var CaseRuleSummary$: StaticStructureSchema = [3, n0, _CRS,
   0,
-  [_cRI, _n, _cRA, _rT, _d],
+  [_cRI, _n, _cRA, _rTu, _d],
   [0, 0, 0, 0, 0], 4
 ];
 export var CaseSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -519,12 +568,6 @@ export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectCaseContent$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_cI],
@@ -617,7 +660,7 @@ export var CreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _CRIRr,
 ];
 export var CreateTemplateRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_dI, _n, _d, _lC, _rF, _s, _rul, _tPC],
+  [_dI, _n, _d, _lC, _rF, _st, _rul, _tPC],
   [[0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 2
 ];
 export var CreateTemplateResponse$: StaticStructureSchema = [3, n0, _CTRr,
@@ -857,7 +900,7 @@ export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
 ];
 export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_tI, _tA, _n, _s, _d, _lC, _rF, _ta, _de, _cTr, _lMT, _rul, _tPC],
+  [_tI, _tA, _n, _st, _d, _lC, _rF, _ta, _de, _cTr, _lMT, _rul, _tPC],
   [0, 0, 0, 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, [() => Tags, 0], 2, 5, 5, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 4
 ];
 export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
@@ -865,12 +908,6 @@ export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
   [_dV, _con],
   [2, () => BooleanConditionList], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_dL],
@@ -958,8 +995,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTemplatesRequest$: StaticStructureSchema = [3, n0, _LTR,
   0,
-  [_dI, _mR, _nT, _s],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _s }]], 1
+  [_dI, _mR, _nT, _st],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _st }]], 1
 ];
 export var ListTemplatesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   0,
@@ -996,12 +1033,6 @@ export var RequiredField$: StaticStructureSchema = [3, n0, _RF,
   [_fI],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rTe],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchAllRelatedItemsRequest$: StaticStructureSchema = [3, n0, _SARIR,
   0,
   [_dI, _mR, _nT, _fi, _so],
@@ -1052,15 +1083,9 @@ export var SearchRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SRI
   [_rII, _t, _aT, _co, _ta, _pB],
   [0, 0, 5, [() => RelatedItemContent$, 0], [() => Tags, 0], [() => UserUnion$, 0]], 4
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SlaConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_n, _t, _s, _tT, _fI, _tFV, _cTo],
+  [_n, _t, _st, _tT, _fI, _tFV, _cTo],
   [[() => SlaName, 0], 0, 0, 5, 0, () => SlaFieldValueUnionList, 5], 4
 ];
 export var SlaContent$: StaticStructureSchema = [3, n0, _SCl,
@@ -1070,7 +1095,7 @@ export var SlaContent$: StaticStructureSchema = [3, n0, _SCl,
 ];
 export var SlaFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
-  [_n, _s],
+  [_n, _st],
   [[() => SlaName, 0], 0]
 ];
 export var SlaInputConfiguration$: StaticStructureSchema = [3, n0, _SIC,
@@ -1085,7 +1110,7 @@ export var Sort$: StaticStructureSchema = [3, n0, _S,
 ];
 export var TagPropagationConfiguration$: StaticStructureSchema = [3, n0, _TPC,
   0,
-  [_rTe, _tM],
+  [_rT, _tM],
   [0, 128 | 0], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -1105,7 +1130,7 @@ export var TemplateRule$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _tA, _n, _s, _tPC],
+  [_tI, _tA, _n, _st, _tPC],
   [0, 0, 0, 0, () => TagPropagationConfigurationList], 4
 ];
 export var TextAttributes$: StaticStructureSchema = [3, n0, _TA,
@@ -1113,12 +1138,6 @@ export var TextAttributes$: StaticStructureSchema = [3, n0, _TA,
   [_iM],
   [2], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_ar, _tK],
@@ -1166,7 +1185,7 @@ export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
 ];
 export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_dI, _tI, _n, _d, _lC, _rF, _s, _rul, _tPC],
+  [_dI, _tI, _n, _d, _lC, _rF, _st, _rul, _tPC],
   [[0, 1], [0, 1], 0, 0, () => LayoutConfiguration$, () => RequiredFieldList, 0, () => TemplateCaseRuleList, () => TagPropagationConfigurationList], 2
 ];
 export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
@@ -1174,15 +1193,7 @@ export var UpdateTemplateResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var ConnectCasesServiceException$: StaticErrorSchema = [-3, _sm, "ConnectCasesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ConnectCasesServiceException$, ConnectCasesServiceException);
 var AuditEventFieldList: StaticListSchema = [1, n0, _AEFL,
   { [_sp]: 1 }, () => AuditEventField$
 ];

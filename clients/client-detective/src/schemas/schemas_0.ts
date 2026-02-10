@@ -136,14 +136,14 @@ const _NUAD = "NewUserAgentDetail";
 const _P = "Procedure";
 const _POGU = "PercentOfGraphUtilization";
 const _POGUUT = "PercentOfGraphUtilizationUpdatedTime";
-const _R = "Reason";
+const _R = "Resources";
 const _RA = "ResourceArn";
 const _RFD = "RelatedFindingDetail";
 const _RFGD = "RelatedFindingGroupDetail";
 const _RI = "RejectInvitation";
 const _RIR = "RejectInvitationRequest";
 const _RNFE = "ResourceNotFoundException";
-const _Re = "Resources";
+const _Re = "Reason";
 const _S = "Severity";
 const _SC = "SortCriteria";
 const _SEC = "SubErrorCode";
@@ -203,8 +203,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.detective";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.detective";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.detective";
 
@@ -231,6 +231,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DetectiveServiceException$: StaticErrorSchema = [-3, _s, "DetectiveServiceException", 0, [], []];
+_s_registry.registerError(DetectiveServiceException$, DetectiveServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _EC, _ECR, _SEC, _SECR],
+  [0, 0, 0, 0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _R],
+  [0, 64 | 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _EC, _ECR],
+  [0, 0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var EmailMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
 export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
@@ -238,12 +293,6 @@ export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
   [_GA],
   [0], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _EC, _ECR, _SEC, _SECR],
-  [0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AI, _EA],
@@ -274,12 +323,6 @@ export var BatchGetMembershipDatasourcesResponse$: StaticStructureSchema = [3, n
   [_MDe, _UG],
   [() => MembershipDatasourcesList, () => UnprocessedGraphList]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGraphRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_T],
@@ -357,7 +400,7 @@ export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var FlaggedIpAddressDetail$: StaticStructureSchema = [3, n0, _FIAD,
   0,
-  [_IA, _R],
+  [_IA, _Re],
   [0, 0]
 ];
 export var GetInvestigationRequest$: StaticStructureSchema = [3, n0, _GIR,
@@ -400,12 +443,6 @@ export var IndicatorDetail$: StaticStructureSchema = [3, n0, _ID,
   [_TTPOD, _ITD, _FIAD, _NGD, _NAD, _NUAD, _RFD, _RFGD],
   [() => TTPsObservedDetail$, () => ImpossibleTravelDetail$, () => FlaggedIpAddressDetail$, () => NewGeolocationDetail$, () => NewAsoDetail$, () => NewUserAgentDetail$, () => RelatedFindingDetail$, () => RelatedFindingGroupDetail$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvestigationDetail$: StaticStructureSchema = [3, n0, _IDn,
   0,
   [_II, _S, _St, _Sta, _CT, _EAn, _ET],
@@ -531,18 +568,6 @@ export var RelatedFindingGroupDetail$: StaticStructureSchema = [3, n0, _RFGD,
   [_Id],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _Re],
-  [0, 64 | 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_F, _SO],
@@ -583,12 +608,6 @@ export var TimestampForCollection$: StaticStructureSchema = [3, n0, _TFC,
   [_Ti],
   [5]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var TTPsObservedDetail$: StaticStructureSchema = [3, n0, _TTPOD,
   0,
   [_Ta, _Te, _P, _IA, _APIN, _APISC, _APIFC],
@@ -596,12 +615,12 @@ export var TTPsObservedDetail$: StaticStructureSchema = [3, n0, _TTPOD,
 ];
 export var UnprocessedAccount$: StaticStructureSchema = [3, n0, _UAn,
   0,
-  [_AI, _R],
+  [_AI, _Re],
   [0, 0]
 ];
 export var UnprocessedGraph$: StaticStructureSchema = [3, n0, _UGn,
   0,
-  [_GA, _R],
+  [_GA, _Re],
   [0, 0]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -629,15 +648,7 @@ export var UpdateOrganizationConfigurationRequest$: StaticStructureSchema = [3, 
   [_GA, _AE],
   [0, 2], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _EC, _ECR],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var DetectiveServiceException$: StaticErrorSchema = [-3, _sm, "DetectiveServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DetectiveServiceException$, DetectiveServiceException);
 var AccountIdExtendedList = 64 | 0;
 var AccountIdList = 64 | 0;
 var AccountList: StaticListSchema = [1, n0, _AL,

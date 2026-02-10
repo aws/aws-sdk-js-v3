@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultS3ControlHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { S3ControlClientConfig } from "./S3ControlClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
     protocol: config?.protocol ?? AwsRestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.s3control",
+      errorTypeRegistries,
       xmlNamespace: "http://awss3control.amazonaws.com/doc/2018-08-20/",
       version: "2018-08-20",
       serviceTarget: "AWSS3ControlServiceV20180820",

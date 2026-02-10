@@ -147,12 +147,12 @@ const _LVIC = "ListVpcIngressConnections";
 const _LVICF = "ListVpcIngressConnectionsFilter";
 const _LVICR = "ListVpcIngressConnectionsRequest";
 const _LVICRi = "ListVpcIngressConnectionsResponse";
-const _M = "Memory";
+const _M = "Message";
 const _MC = "MaxConcurrency";
 const _MR = "MaxResults";
 const _MS = "MinSize";
 const _MSa = "MaxSize";
-const _Me = "Message";
+const _Me = "Memory";
 const _N = "Name";
 const _NC = "NetworkConfiguration";
 const _NT = "NextToken";
@@ -253,8 +253,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.apprunner";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.apprunner";
+const _se = "server";
 const n0 = "com.amazonaws.apprunner";
 
 // smithy-typescript generated code
@@ -278,6 +278,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppRunnerServiceException$: StaticErrorSchema = [-3, _s, "AppRunnerServiceException", 0, [], []];
+_s_registry.registerError(AppRunnerServiceException$, AppRunnerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_aQE]: [`InternalServiceError`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_aQE]: [`InvalidRequest`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InvalidState`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotfound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_aQE]: [`ServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var BuildCommand: StaticSimpleSchema = [0, n0, _BC, 8, 0];
 var RuntimeEnvironmentSecretsName: StaticSimpleSchema = [0, n0, _RESN, 8, 0];
 var RuntimeEnvironmentSecretsValue: StaticSimpleSchema = [0, n0, _RESV, 8, 0];
@@ -571,27 +614,9 @@ export var IngressVpcConfiguration$: StaticStructureSchema = [3, n0, _IVC,
 ];
 export var InstanceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_Cp, _M, _IRA],
+  [_Cp, _Me, _IRA],
   [0, 0, 0]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_aQE]: [`InternalServiceError`, 500], [_e]: _s, [_hE]: 500 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_aQE]: [`InvalidRequest`, 400], [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InvalidState`, 400], [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var ListAutoScalingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LASCR,
   0,
   [_ASCN, _LO, _MR, _NT],
@@ -717,12 +742,6 @@ export var PauseServiceResponse$: StaticStructureSchema = [3, n0, _PSRa,
   [_Se, _OI],
   [[() => Service$, 0], 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotfound`, 400], [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResumeServiceRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_SA],
@@ -743,12 +762,6 @@ export var ServiceObservabilityConfiguration$: StaticStructureSchema = [3, n0, _
   [_OE, _OCA],
   [2, 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_aQE]: [`ServiceQuotaExceeded`, 402], [_e]: _c, [_hE]: 402 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SN, _SI, _SA, _SU, _CAr, _UA, _S],
@@ -854,8 +867,6 @@ export var VpcIngressConnectionSummary$: StaticStructureSchema = [3, n0, _VICS,
   [_VICA, _SA],
   [0, 0]
 ];
-export var AppRunnerServiceException$: StaticErrorSchema = [-3, _sm, "AppRunnerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppRunnerServiceException$, AppRunnerServiceException);
 var AutoScalingConfigurationSummaryList: StaticListSchema = [1, n0, _ASCSL,
   0, () => AutoScalingConfigurationSummary$
 ];

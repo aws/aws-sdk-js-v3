@@ -25,10 +25,10 @@ const _jN = "jsonName";
 const _m = "message";
 const _rT = "refreshToken";
 const _rU = "redirectUri";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.signin";
 const _sAK = "secretAccessKey";
 const _sT = "sessionToken";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.signin";
+const _se = "server";
 const _tI = "tokenInput";
 const _tO = "tokenOutput";
 const _tT = "tokenType";
@@ -52,13 +52,44 @@ import {
 import { SigninServiceException } from "../models/SigninServiceException";
 
 /* eslint no-var: 0 */
-var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SigninServiceException$: StaticErrorSchema = [-3, _s, "SigninServiceException", 0, [], []];
+_s_registry.registerError(SigninServiceException$, SigninServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_e, _m],
   [0, 0], 2
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var TooManyRequestsError$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(TooManyRequestsError$, TooManyRequestsError);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_e, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var RefreshToken: StaticSimpleSchema = [0, n0, _RT, 8, 0];
 export var AccessToken$: StaticStructureSchema = [3, n0, _AT,
   8,
   [_aKI, _sAK, _sT],
@@ -84,26 +115,6 @@ export var CreateOAuth2TokenResponseBody$: StaticStructureSchema = [3, n0, _COAT
   [_aT, _tT, _eI, _rT, _iT],
   [[() => AccessToken$, { [_jN]: _aT }], [0, { [_jN]: _tT }], [1, { [_jN]: _eI }], [() => RefreshToken, { [_jN]: _rT }], [0, { [_jN]: _iT }]], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_e, _m],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var TooManyRequestsError$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_e, _m],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsError$, TooManyRequestsError);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_e, _m],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SigninServiceException$: StaticErrorSchema = [-3, _sm, "SigninServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SigninServiceException$, SigninServiceException);
 export var CreateOAuth2Token$: StaticOperationSchema = [9, n0, _COAT,
   { [_h]: ["POST", "/v1/token", 200] }, () => CreateOAuth2TokenRequest$, () => CreateOAuth2TokenResponse$
 ];

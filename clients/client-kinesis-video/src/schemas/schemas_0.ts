@@ -242,25 +242,110 @@ import {
 import { KinesisVideoServiceException } from "../models/KinesisVideoServiceException";
 
 /* eslint no-var: 0 */
-var MediaUriSecretArn: StaticSimpleSchema = [0, n0, _MUSA, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var KinesisVideoServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
+_s_registry.registerError(KinesisVideoServiceException$, KinesisVideoServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 401 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountChannelLimitExceededException$: StaticErrorSchema = [-3, n0, _ACLEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccountChannelLimitExceededException$, AccountChannelLimitExceededException);
+n0_registry.registerError(AccountChannelLimitExceededException$, AccountChannelLimitExceededException);
 export var AccountStreamLimitExceededException$: StaticErrorSchema = [-3, n0, _ASLEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccountStreamLimitExceededException$, AccountStreamLimitExceededException);
+n0_registry.registerError(AccountStreamLimitExceededException$, AccountStreamLimitExceededException);
+export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ClientLimitExceededException$, ClientLimitExceededException);
+export var DeviceStreamLimitExceededException$: StaticErrorSchema = [-3, n0, _DSLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DeviceStreamLimitExceededException$, DeviceStreamLimitExceededException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidDeviceException$: StaticErrorSchema = [-3, n0, _IDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidDeviceException$, InvalidDeviceException);
+export var InvalidResourceFormatException$: StaticErrorSchema = [-3, n0, _IRFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidResourceFormatException$, InvalidResourceFormatException);
+export var NoDataRetentionException$: StaticErrorSchema = [-3, n0, _NDRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoDataRetentionException$, NoDataRetentionException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var StreamEdgeConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _SECNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StreamEdgeConfigurationNotFoundException$, StreamEdgeConfigurationNotFoundException);
+export var TagsPerResourceExceededLimitException$: StaticErrorSchema = [-3, n0, _TPRELE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TagsPerResourceExceededLimitException$, TagsPerResourceExceededLimitException);
+export var VersionMismatchException$: StaticErrorSchema = [-3, n0, _VME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(VersionMismatchException$, VersionMismatchException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var MediaUriSecretArn: StaticSimpleSchema = [0, n0, _MUSA, 8, 0];
 export var ChannelInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_CN, _CARN, _CT, _CS, _CTr, _SMC, _V],
@@ -271,12 +356,6 @@ export var ChannelNameCondition$: StaticStructureSchema = [3, n0, _CNC,
   [_CO, _CV],
   [0, 0]
 ];
-export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExceededException);
 export var CreateSignalingChannelInput$: StaticStructureSchema = [3, n0, _CSCI,
   0,
   [_CN, _CT, _SMC, _T],
@@ -412,12 +491,6 @@ export var DescribeStreamStorageConfigurationOutput$: StaticStructureSchema = [3
   [_SN, _SARN, _SSC],
   [0, 0, () => StreamStorageConfiguration$]
 ];
-export var DeviceStreamLimitExceededException$: StaticErrorSchema = [-3, n0, _DSLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeviceStreamLimitExceededException$, DeviceStreamLimitExceededException);
 export var EdgeAgentStatus$: StaticStructureSchema = [3, n0, _EAS,
   0,
   [_LRS, _LUS],
@@ -458,24 +531,6 @@ export var ImageGenerationDestinationConfig$: StaticStructureSchema = [3, n0, _I
   [_U, _DR],
   [0, 0], 2
 ];
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var InvalidDeviceException$: StaticErrorSchema = [-3, n0, _IDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeviceException$, InvalidDeviceException);
-export var InvalidResourceFormatException$: StaticErrorSchema = [-3, n0, _IRFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceFormatException$, InvalidResourceFormatException);
 export var LastRecorderStatus$: StaticStructureSchema = [3, n0, _LRS,
   0,
   [_JSD, _LCT, _LUT, _RS],
@@ -561,18 +616,6 @@ export var MediaStorageConfiguration$: StaticStructureSchema = [3, n0, _MSC,
   [_S, _SARN],
   [0, 0], 1
 ];
-export var NoDataRetentionException$: StaticErrorSchema = [-3, n0, _NDRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoDataRetentionException$, NoDataRetentionException);
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_S, _DCe],
@@ -593,18 +636,6 @@ export var ResourceEndpointListItem$: StaticStructureSchema = [3, n0, _RELI,
   [_P, _RE],
   [0, 0]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScheduleConfig$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_SE, _DIS],
@@ -630,12 +661,6 @@ export var StartEdgeConfigurationUpdateOutput$: StaticStructureSchema = [3, n0, 
   [_SN, _SARN, _CTr, _LUT, _SS, _FSD, _EC],
   [0, 0, 4, 4, 0, 0, [() => EdgeConfig$, 0]]
 ];
-export var StreamEdgeConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _SECNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StreamEdgeConfigurationNotFoundException$, StreamEdgeConfigurationNotFoundException);
 export var StreamInfo$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_DN, _SN, _SARN, _MT, _KKI, _V, _S, _CTr, _DRIH],
@@ -666,12 +691,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var TagsPerResourceExceededLimitException$: StaticErrorSchema = [-3, n0, _TPRELE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagsPerResourceExceededLimitException$, TagsPerResourceExceededLimitException);
 export var TagStreamInput$: StaticStructureSchema = [3, n0, _TSI,
   0,
   [_T, _SARN, _SN],
@@ -777,14 +796,6 @@ export var UploaderConfig$: StaticStructureSchema = [3, n0, _UC,
   [_SC],
   [() => ScheduleConfig$], 1
 ];
-export var VersionMismatchException$: StaticErrorSchema = [-3, n0, _VME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(VersionMismatchException$, VersionMismatchException);
-export var KinesisVideoServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(KinesisVideoServiceException$, KinesisVideoServiceException);
 var ChannelInfoList: StaticListSchema = [1, n0, _CIL,
   0, () => ChannelInfo$
 ];

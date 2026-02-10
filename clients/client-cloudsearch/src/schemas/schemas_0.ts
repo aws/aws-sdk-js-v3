@@ -187,8 +187,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudsearch";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudsearch";
+const _se = "server";
 const n0 = "com.amazonaws.cloudsearch";
 
 // smithy-typescript generated code
@@ -214,6 +214,67 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudSearchServiceException$: StaticErrorSchema = [-3, _s, "CloudSearchServiceException", 0, [], []];
+_s_registry.registerError(CloudSearchServiceException$, CloudSearchServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
+  { [_e]: _c },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(BaseException$, BaseException);
+export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
+  { [_aQE]: [`DisabledAction`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(DisabledOperationException$, DisabledOperationException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_aQE]: [`InternalException`, 500], [_e]: _se, [_hE]: 500 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_aQE]: [`InvalidType`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(InvalidTypeException$, InvalidTypeException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_aQE]: [`ResourceAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFound`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessPoliciesStatus$: StaticStructureSchema = [3, n0, _APS,
   0,
   [_O, _S],
@@ -239,12 +300,6 @@ export var AvailabilityOptionsStatus$: StaticStructureSchema = [3, n0, _AOS,
   [_O, _S],
   [2, () => OptionStatus$], 2
 ];
-export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
-  { [_e]: _c },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BaseException$, BaseException);
 export var BuildSuggestersRequest$: StaticStructureSchema = [3, n0, _BSR,
   0,
   [_DN],
@@ -455,12 +510,6 @@ export var DescribeSuggestersResponse$: StaticStructureSchema = [3, n0, _DSResc,
   [_Sug],
   [() => SuggesterStatusList], 1
 ];
-export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
-  { [_aQE]: [`DisabledAction`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperationException);
 export var DocumentSuggesterOptions$: StaticStructureSchema = [3, n0, _DSO,
   0,
   [_SFo, _FM, _SEor],
@@ -526,34 +575,16 @@ export var IntArrayOptions$: StaticStructureSchema = [3, n0, _IAO,
   [_DV, _SF, _FE, _SE, _RE],
   [1, 0, 2, 2, 2]
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_aQE]: [`InternalException`, 500], [_e]: _s, [_hE]: 500 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
 export var IntOptions$: StaticStructureSchema = [3, n0, _IO,
   0,
   [_DV, _SFo, _FE, _SE, _RE, _SEo],
   [1, 0, 2, 2, 2, 2]
 ];
-export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_aQE]: [`InvalidType`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidTypeException$, InvalidTypeException);
 export var LatLonOptions$: StaticStructureSchema = [3, n0, _LLO,
   0,
   [_DV, _SFo, _FE, _SE, _RE, _SEo],
   [0, 0, 2, 2, 2, 2]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var Limits$: StaticStructureSchema = [3, n0, _L,
   0,
   [_MRC, _MPC],
@@ -579,18 +610,6 @@ export var OptionStatus$: StaticStructureSchema = [3, n0, _OS,
   [_CD, _UD, _Sta, _UV, _PD],
   [4, 4, 0, 1, 2], 3
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_aQE]: [`ResourceAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFound`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScalingParameters$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_DIT, _DRC, _DPC],
@@ -666,15 +685,7 @@ export var UpdateServiceAccessPoliciesResponse$: StaticStructureSchema = [3, n0,
   [_AP],
   [() => AccessPoliciesStatus$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_C, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var CloudSearchServiceException$: StaticErrorSchema = [-3, _sm, "CloudSearchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudSearchServiceException$, CloudSearchServiceException);
 var AnalysisSchemeStatusList: StaticListSchema = [1, n0, _ASSL,
   0, () => AnalysisSchemeStatus$
 ];

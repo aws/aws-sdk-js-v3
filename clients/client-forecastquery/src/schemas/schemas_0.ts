@@ -48,6 +48,49 @@ import {
 import { ForecastqueryServiceException } from "../models/ForecastqueryServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ForecastqueryServiceException$: StaticErrorSchema = [-3, _s, "ForecastqueryServiceException", 0, [], []];
+_s_registry.registerError(ForecastqueryServiceException$, ForecastqueryServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DataPoint$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_T, _V],
@@ -58,24 +101,6 @@ export var Forecast$: StaticStructureSchema = [3, n0, _F,
   [_P],
   [() => Predictions]
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var QueryForecastRequest$: StaticStructureSchema = [3, n0, _QFR,
   0,
   [_FA, _Fi, _SD, _ED, _NT],
@@ -96,20 +121,6 @@ export var QueryWhatIfForecastResponse$: StaticStructureSchema = [3, n0, _QWIFRu
   [_F],
   [() => Forecast$]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ForecastqueryServiceException$: StaticErrorSchema = [-3, _s, "ForecastqueryServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ForecastqueryServiceException$, ForecastqueryServiceException);
 var TimeSeries: StaticListSchema = [1, n0, _TS,
   0, () => DataPoint$
 ];

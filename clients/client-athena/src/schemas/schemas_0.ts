@@ -359,7 +359,7 @@ const _QSPNu = "QueryStagePlanNodes";
 const _QSu = "QueryStatement";
 const _QSue = "QueryStage";
 const _QSuer = "QueryStages";
-const _R = "Retryable";
+const _R = "Reason";
 const _RAC = "RemoveAclConfiguration";
 const _RARN = "ResourceARN";
 const _RBSCPQ = "RemoveBytesScannedCutoffPerQuery";
@@ -385,8 +385,8 @@ const _RSU = "ResultS3Uri";
 const _RSe = "RemoteSources";
 const _RT = "ResultType";
 const _RTe = "RequestTime";
-const _Re = "Result";
-const _Rea = "Reason";
+const _Re = "Retryable";
+const _Res = "Result";
 const _Ro = "Rows";
 const _Row = "Row";
 const _S = "State";
@@ -506,8 +506,8 @@ const _WGo = "WorkGroups";
 const _c = "client";
 const _dL = "datumList";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.athena";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.athena";
+const _se = "server";
 const n0 = "com.amazonaws.athena";
 
 // smithy-typescript generated code
@@ -531,6 +531,55 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AthenaServiceException$: StaticErrorSchema = [-3, _s, "AthenaServiceException", 0, [], []];
+_s_registry.registerError(AthenaServiceException$, AthenaServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_AEC, _M],
+  [0, 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var MetadataException$: StaticErrorSchema = [-3, n0, _ME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(MetadataException$, MetadataException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SessionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SessionAlreadyExistsException$, SessionAlreadyExistsException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AclConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_SAO],
@@ -543,7 +592,7 @@ export var ApplicationDPUSizes$: StaticStructureSchema = [3, n0, _ADPUS,
 ];
 export var AthenaError$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_EC, _ET, _R, _EM],
+  [_EC, _ET, _Re, _EM],
   [1, 1, 2, 0]
 ];
 export var BatchGetNamedQueryInput$: StaticStructureSchema = [3, n0, _BGNQI,
@@ -858,7 +907,7 @@ export var GetCalculationExecutionRequest$: StaticStructureSchema = [3, n0, _GCE
 ];
 export var GetCalculationExecutionResponse$: StaticStructureSchema = [3, n0, _GCERe,
   0,
-  [_CEI, _SI, _D, _WD, _St, _Sta, _Re],
+  [_CEI, _SI, _D, _WD, _St, _Sta, _Res],
   [0, 0, 0, 0, () => CalculationStatus$, () => CalculationStatistics$, () => CalculationResult$]
 ];
 export var GetCalculationExecutionStatusRequest$: StaticStructureSchema = [3, n0, _GCESR,
@@ -1046,18 +1095,6 @@ export var ImportNotebookOutput$: StaticStructureSchema = [3, n0, _INO,
   [_NI],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_AEC, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListApplicationDPUSizesInput$: StaticStructureSchema = [3, n0, _LADPUSI,
   0,
   [_MR, _NT],
@@ -1238,12 +1275,6 @@ export var ManagedQueryResultsEncryptionConfiguration$: StaticStructureSchema = 
   [_KK],
   [0], 1
 ];
-export var MetadataException$: StaticErrorSchema = [-3, n0, _ME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MetadataException$, MetadataException);
 export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_CWLC, _MLC, _SLC],
@@ -1334,12 +1365,6 @@ export var QueryStagePlanNode$: StaticStructureSchema = [3, n0, _QSPN,
   [_N, _I, _Ch, _RSe],
   [0, 0, () => QueryStagePlanNodes, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResultConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_OL, _ECn, _EBO, _AC],
@@ -1385,12 +1410,6 @@ export var S3LoggingConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   [_E, _KK, _LL],
   [2, 0, 0], 1
 ];
-export var SessionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _SAEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SessionAlreadyExistsException$, SessionAlreadyExistsException);
 export var SessionConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_ER, _WD, _ITS, _SITIM, _ECn],
@@ -1491,12 +1510,6 @@ export var TerminateSessionResponse$: StaticStructureSchema = [3, n0, _TSRe,
   [_S],
   [0]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c },
-  [_M, _Rea],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UnprocessedNamedQueryId$: StaticStructureSchema = [3, n0, _UNQIn,
   0,
   [_NQIa, _ECr, _EM],
@@ -1612,8 +1625,6 @@ export var WorkGroupSummary$: StaticStructureSchema = [3, n0, _WGS,
   [_N, _S, _D, _CT, _EV, _ICAA],
   [0, 0, 0, 4, () => EngineVersion$, 0]
 ];
-export var AthenaServiceException$: StaticErrorSchema = [-3, _sm, "AthenaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AthenaServiceException$, AthenaServiceException);
 var ApplicationDPUSizesList: StaticListSchema = [1, n0, _ADPUSL,
   0, () => ApplicationDPUSizes$
 ];

@@ -470,6 +470,133 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ElasticBeanstalkSyntheticServiceException$: StaticErrorSchema = [-3, _s, "ElasticBeanstalkSyntheticServiceException", 0, [], []];
+_s_registry.registerError(ElasticBeanstalkSyntheticServiceException$, ElasticBeanstalkSyntheticServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CodeBuildNotInServiceRegionException$: StaticErrorSchema = [-3, n0, _CBNISRE,
+  { [_aQE]: [`CodeBuildNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CodeBuildNotInServiceRegionException$, CodeBuildNotInServiceRegionException);
+export var ElasticBeanstalkServiceException$: StaticErrorSchema = [-3, n0, _EBSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ElasticBeanstalkServiceException$, ElasticBeanstalkServiceException);
+export var InsufficientPrivilegesException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_aQE]: [`InsufficientPrivilegesException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientPrivilegesException$, InsufficientPrivilegesException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_aQE]: [`InvalidRequestException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ManagedActionInvalidStateException$: StaticErrorSchema = [-3, n0, _MAISE,
+  { [_aQE]: [`ManagedActionInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ManagedActionInvalidStateException$, ManagedActionInvalidStateException);
+export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
+  { [_aQE]: [`OperationInProgressFailure`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationInProgressException$, OperationInProgressException);
+export var PlatformVersionStillReferencedException$: StaticErrorSchema = [-3, n0, _PVSRE,
+  { [_aQE]: [`PlatformVersionStillReferencedException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PlatformVersionStillReferencedException$, PlatformVersionStillReferencedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceTypeNotSupportedException$: StaticErrorSchema = [-3, n0, _RTNSE,
+  { [_aQE]: [`ResourceTypeNotSupportedException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceTypeNotSupportedException$, ResourceTypeNotSupportedException);
+export var S3LocationNotInServiceRegionException$: StaticErrorSchema = [-3, n0, _SLNISRE,
+  { [_aQE]: [`S3LocationNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(S3LocationNotInServiceRegionException$, S3LocationNotInServiceRegionException);
+export var S3SubscriptionRequiredException$: StaticErrorSchema = [-3, n0, _SSRE,
+  { [_aQE]: [`S3SubscriptionRequiredException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(S3SubscriptionRequiredException$, S3SubscriptionRequiredException);
+export var SourceBundleDeletionException$: StaticErrorSchema = [-3, n0, _SBDE,
+  { [_aQE]: [`SourceBundleDeletionFailure`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SourceBundleDeletionException$, SourceBundleDeletionException);
+export var TooManyApplicationsException$: StaticErrorSchema = [-3, n0, _TMAE,
+  { [_aQE]: [`TooManyApplicationsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyApplicationsException$, TooManyApplicationsException);
+export var TooManyApplicationVersionsException$: StaticErrorSchema = [-3, n0, _TMAVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyApplicationVersionsException$, TooManyApplicationVersionsException);
+export var TooManyBucketsException$: StaticErrorSchema = [-3, n0, _TMBE,
+  { [_aQE]: [`TooManyBucketsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyBucketsException$, TooManyBucketsException);
+export var TooManyConfigurationTemplatesException$: StaticErrorSchema = [-3, n0, _TMCTE,
+  { [_aQE]: [`TooManyConfigurationTemplatesException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyConfigurationTemplatesException$, TooManyConfigurationTemplatesException);
+export var TooManyEnvironmentsException$: StaticErrorSchema = [-3, n0, _TMEE,
+  { [_aQE]: [`TooManyEnvironmentsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyEnvironmentsException$, TooManyEnvironmentsException);
+export var TooManyPlatformsException$: StaticErrorSchema = [-3, n0, _TMPE,
+  { [_aQE]: [`TooManyPlatformsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyPlatformsException$, TooManyPlatformsException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_aQE]: [`TooManyTagsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AbortEnvironmentUpdateMessage$: StaticStructureSchema = [3, n0, _AEUM,
   0,
   [_EI, _EN],
@@ -565,12 +692,6 @@ export var CheckDNSAvailabilityResultMessage$: StaticStructureSchema = [3, n0, _
   [_Av, _FQCNAME],
   [2, 0]
 ];
-export var CodeBuildNotInServiceRegionException$: StaticErrorSchema = [-3, n0, _CBNISRE,
-  { [_aQE]: [`CodeBuildNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CodeBuildNotInServiceRegionException$, CodeBuildNotInServiceRegionException);
 export var ComposeEnvironmentsMessage$: StaticStructureSchema = [3, n0, _CEM,
   0,
   [_AN, _GN, _VLe],
@@ -781,12 +902,6 @@ export var DisassociateEnvironmentOperationsRoleMessage$: StaticStructureSchema 
   [_EN],
   [0], 1
 ];
-export var ElasticBeanstalkServiceException$: StaticErrorSchema = [-3, n0, _EBSE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ElasticBeanstalkServiceException$, ElasticBeanstalkServiceException);
 export var EnvironmentDescription$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EN, _EI, _AN, _VL, _SSN, _PA, _TN, _D, _EURL, _CNAME, _DC, _DU, _S, _AOIP, _H, _HS, _Re, _Ti, _EL, _EA, _OR],
@@ -847,18 +962,6 @@ export var InstanceHealthSummary$: StaticStructureSchema = [3, n0, _IHS,
   [_ND, _Un, _Pe, _Ok, _Inf, _W, _Deg, _Sev],
   [1, 1, 1, 1, 1, 1, 1, 1]
 ];
-export var InsufficientPrivilegesException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_aQE]: [`InsufficientPrivilegesException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientPrivilegesException$, InsufficientPrivilegesException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_aQE]: [`InvalidRequestException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var Latency$: StaticStructureSchema = [3, n0, _L,
   0,
   [_P_, _P__, _P___, _P____, _P_____, _P______, _P_______, _P________],
@@ -929,12 +1032,6 @@ export var ManagedActionHistoryItem$: StaticStructureSchema = [3, n0, _MAHIa,
   [_AI, _AT, _ADc, _FT, _S, _FD, _ETx, _FTi],
   [0, 0, 0, 0, 0, 0, 4, 4]
 ];
-export var ManagedActionInvalidStateException$: StaticErrorSchema = [-3, n0, _MAISE,
-  { [_aQE]: [`ManagedActionInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ManagedActionInvalidStateException$, ManagedActionInvalidStateException);
 export var MaxAgeRule$: StaticStructureSchema = [3, n0, _MAR,
   0,
   [_En, _MAID, _DSFS],
@@ -945,12 +1042,6 @@ export var MaxCountRule$: StaticStructureSchema = [3, n0, _MCR,
   [_En, _MC, _DSFS],
   [2, 1, 2], 1
 ];
-export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
-  { [_aQE]: [`OperationInProgressFailure`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationInProgressException$, OperationInProgressException);
 export var OptionRestrictionRegex$: StaticStructureSchema = [3, n0, _ORR,
   0,
   [_Pa, _La],
@@ -991,12 +1082,6 @@ export var PlatformSummary$: StaticStructureSchema = [3, n0, _PS,
   [_PA, _PO, _PSl, _PC, _OSN, _OSV, _STL, _SAL, _PLS, _PV, _PBN, _PBLS],
   [0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0]
 ];
-export var PlatformVersionStillReferencedException$: StaticErrorSchema = [-3, n0, _PVSRE,
-  { [_aQE]: [`PlatformVersionStillReferencedException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PlatformVersionStillReferencedException$, PlatformVersionStillReferencedException);
 export var Queue$: StaticStructureSchema = [3, n0, _Qu,
   0,
   [_N, _URL],
@@ -1012,12 +1097,6 @@ export var RequestEnvironmentInfoMessage$: StaticStructureSchema = [3, n0, _REIM
   [_IT, _EI, _EN],
   [0, 0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceQuota$: StaticStructureSchema = [3, n0, _RQe,
   0,
   [_Max],
@@ -1033,12 +1112,6 @@ export var ResourceTagsDescriptionMessage$: StaticStructureSchema = [3, n0, _RTD
   [_RAe, _RT],
   [0, () => TagList]
 ];
-export var ResourceTypeNotSupportedException$: StaticErrorSchema = [-3, n0, _RTNSE,
-  { [_aQE]: [`ResourceTypeNotSupportedException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceTypeNotSupportedException$, ResourceTypeNotSupportedException);
 export var RestartAppServerMessage$: StaticStructureSchema = [3, n0, _RASM,
   0,
   [_EI, _EN],
@@ -1059,18 +1132,6 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   [_SBu, _SK],
   [0, 0]
 ];
-export var S3LocationNotInServiceRegionException$: StaticErrorSchema = [-3, n0, _SLNISRE,
-  { [_aQE]: [`S3LocationNotInServiceRegionException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(S3LocationNotInServiceRegionException$, S3LocationNotInServiceRegionException);
-export var S3SubscriptionRequiredException$: StaticErrorSchema = [-3, n0, _SSRE,
-  { [_aQE]: [`S3SubscriptionRequiredException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(S3SubscriptionRequiredException$, S3SubscriptionRequiredException);
 export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
   0,
   [_At, _Op, _Val],
@@ -1091,12 +1152,6 @@ export var SourceBuildInformation$: StaticStructureSchema = [3, n0, _SBI,
   [_STo, _SRo, _SLo],
   [0, 0, 0], 3
 ];
-export var SourceBundleDeletionException$: StaticErrorSchema = [-3, n0, _SBDE,
-  { [_aQE]: [`SourceBundleDeletionFailure`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SourceBundleDeletionException$, SourceBundleDeletionException);
 export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_AN, _TN],
@@ -1127,48 +1182,6 @@ export var TerminateEnvironmentMessage$: StaticStructureSchema = [3, n0, _TEM,
   [_EI, _EN, _TR, _FTo],
   [0, 0, 2, 2]
 ];
-export var TooManyApplicationsException$: StaticErrorSchema = [-3, n0, _TMAE,
-  { [_aQE]: [`TooManyApplicationsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyApplicationsException$, TooManyApplicationsException);
-export var TooManyApplicationVersionsException$: StaticErrorSchema = [-3, n0, _TMAVE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyApplicationVersionsException$, TooManyApplicationVersionsException);
-export var TooManyBucketsException$: StaticErrorSchema = [-3, n0, _TMBE,
-  { [_aQE]: [`TooManyBucketsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyBucketsException$, TooManyBucketsException);
-export var TooManyConfigurationTemplatesException$: StaticErrorSchema = [-3, n0, _TMCTE,
-  { [_aQE]: [`TooManyConfigurationTemplatesException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyConfigurationTemplatesException$, TooManyConfigurationTemplatesException);
-export var TooManyEnvironmentsException$: StaticErrorSchema = [-3, n0, _TMEE,
-  { [_aQE]: [`TooManyEnvironmentsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyEnvironmentsException$, TooManyEnvironmentsException);
-export var TooManyPlatformsException$: StaticErrorSchema = [-3, n0, _TMPE,
-  { [_aQE]: [`TooManyPlatformsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyPlatformsException$, TooManyPlatformsException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_aQE]: [`TooManyTagsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var Trigger$: StaticStructureSchema = [3, n0, _Tri,
   0,
   [_N],
@@ -1215,8 +1228,6 @@ export var ValidationMessage$: StaticStructureSchema = [3, n0, _VM,
   [0, 0, 0, 0]
 ];
 var __Unit = "unit" as const;
-export var ElasticBeanstalkSyntheticServiceException$: StaticErrorSchema = [-3, _s, "ElasticBeanstalkSyntheticServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ElasticBeanstalkSyntheticServiceException$, ElasticBeanstalkSyntheticServiceException);
 var ApplicationDescriptionList: StaticListSchema = [1, n0, _ADL,
   0, () => ApplicationDescription$
 ];

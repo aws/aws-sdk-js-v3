@@ -300,8 +300,8 @@ const _TFH = "TimestampFormatHeaders";
 const _TFHIO = "TimestampFormatHeadersIO";
 const _TGNINP = "TestGetNoInputNoPayload";
 const _TGNP = "TestGetNoPayload";
-const _TL = "TimestampList";
-const _TLo = "TopLevel";
+const _TL = "TopLevel";
+const _TLi = "TimestampList";
 const _TNPIO = "TestNoPayloadInputOutput";
 const _TPB = "TextPlainBlob";
 const _TPBIO = "TestPayloadBlobInputOutput";
@@ -519,7 +519,7 @@ const _lV = "longValue";
 const _lVi = "listValue";
 const _la = "label";
 const _lo = "long";
-const _m = "member";
+const _m = "message";
 const _mDT = "memberDateTime";
 const _mES = "memberEpochSeconds";
 const _mHD = "memberHttpDate";
@@ -527,7 +527,7 @@ const _mS = "maybeSet";
 const _mSL = "myStructureList";
 const _mT = "mediaType";
 const _mV = "mapValue";
-const _me = "message";
+const _me = "member";
 const _n = "nested";
 const _nSL = "nestedStringList";
 const _nV = "nullValue";
@@ -568,7 +568,7 @@ const _rC = "responseCode";
 const _rL = "requiresLength";
 const _rM = "recursiveMember";
 const _rSV = "renamedStructureValue";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.aws.protocoltests.restjson";
 const _sBM = "sparseBooleanMap";
 const _sH = "shortHeader";
 const _sHp = "specificHeader";
@@ -596,11 +596,11 @@ const _sa = "salutation";
 const _se = "server";
 const _sh = "short";
 const _si = "singleton";
-const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.restjson";
 const _sp = "sparse";
-const _st = "stream";
-const _str = "string";
+const _st = "streaming";
+const _str = "stream";
 const _str_ = "str";
+const _stri = "string";
 const _t = "text/plain";
 const _tBV = "trueBooleanValue";
 const _tC = "testConfig";
@@ -649,17 +649,60 @@ import { ComplexError, ErrorEvent, FooError, InvalidGreeting, ServiceUnavailable
 import { RestJsonProtocolServiceException } from "../models/RestJsonProtocolServiceException";
 
 /* eslint no-var: 0 */
-var FiniteStreamingBlob: StaticSimpleSchema = [0, n0, _FSB, { [_rL]: 1, [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var RestJsonProtocolServiceException$: StaticErrorSchema = [-3, _s, "RestJsonProtocolServiceException", 0, [], []];
+_s_registry.registerError(RestJsonProtocolServiceException$, RestJsonProtocolServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 403 },
+  [_H, _TL, _N],
+  [[0, { [_hH]: _XH }], 0, [() => ComplexNestedErrorData$, 0]]
+];
+n0_registry.registerError(ComplexError$, ComplexError);
+export var ErrorEvent$: StaticErrorSchema = [-3, n0, _EE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ErrorEvent$, ErrorEvent);
+export var FooError$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _se, [_hE]: 500 },
+  [],
+  []
+];
+n0_registry.registerError(FooError$, FooError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGreeting$, InvalidGreeting);
+export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableError$, ServiceUnavailableError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var FiniteStreamingBlob: StaticSimpleSchema = [0, n0, _FSB, { [_rL]: 1, [_st]: 1 }, 42];
 var JsonHeaderString: StaticSimpleSchema = [0, n0, _JHS, { [_mT]: _a }, 0];
 var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
-var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
-var StreamingTextPlainBlob: StaticSimpleSchema = [0, n0, _STPB, { [_mT]: _t, [_s]: 1 }, 42];
+var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_st]: 1 }, 42];
+var StreamingTextPlainBlob: StaticSimpleSchema = [0, n0, _STPB, { [_mT]: _t, [_st]: 1 }, 42];
 var JpegBlob: StaticSimpleSchema = [0, n1, _JB, { [_mT]: _i }, 21];
 var TextPlainBlob: StaticSimpleSchema = [0, n1, _TPB, { [_mT]: _t }, 21];
 export var AllQueryStringTypesInput$: StaticStructureSchema = [3, n0, _AQSTI,
   0,
   [_qS, _qSL, _qSS, _qB, _qSu, _qI, _qIL, _qIS, _qL, _qF, _qD, _qDL, _qBu, _qBL, _qT, _qTL, _qE, _qEL, _qIE, _qIEL, _qPMOSL],
-  [[0, { [_hQ]: _S }], [64 | 0, { [_hQ]: _SL }], [64 | 0, { [_hQ]: _SS }], [1, { [_hQ]: _B }], [1, { [_hQ]: _Sh }], [1, { [_hQ]: _I }], [64 | 1, { [_hQ]: _IL }], [64 | 1, { [_hQ]: _IS }], [1, { [_hQ]: _L }], [1, { [_hQ]: _F }], [1, { [_hQ]: _D }], [64 | 1, { [_hQ]: _DL }], [2, { [_hQ]: _Bo }], [64 | 2, { [_hQ]: _BL }], [4, { [_hQ]: _T }], [64 | 4, { [_hQ]: _TL }], [0, { [_hQ]: _E }], [64 | 0, { [_hQ]: _EL }], [1, { [_hQ]: _IE }], [64 | 1, { [_hQ]: _IEL }], [[2, n1, _SLM, 0, 0, 64 | 0], 64]]
+  [[0, { [_hQ]: _S }], [64 | 0, { [_hQ]: _SL }], [64 | 0, { [_hQ]: _SS }], [1, { [_hQ]: _B }], [1, { [_hQ]: _Sh }], [1, { [_hQ]: _I }], [64 | 1, { [_hQ]: _IL }], [64 | 1, { [_hQ]: _IS }], [1, { [_hQ]: _L }], [1, { [_hQ]: _F }], [1, { [_hQ]: _D }], [64 | 1, { [_hQ]: _DL }], [2, { [_hQ]: _Bo }], [64 | 2, { [_hQ]: _BL }], [4, { [_hQ]: _T }], [64 | 4, { [_hQ]: _TLi }], [0, { [_hQ]: _E }], [64 | 0, { [_hQ]: _EL }], [1, { [_hQ]: _IE }], [64 | 1, { [_hQ]: _IEL }], [[2, n1, _SLM, 0, 0, 64 | 0], 64]]
 ];
 export var BlobPayloadEvent$: StaticStructureSchema = [3, n0, _BPE,
   0,
@@ -668,15 +711,9 @@ export var BlobPayloadEvent$: StaticStructureSchema = [3, n0, _BPE,
 ];
 export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD,
   0,
-  [_m],
+  [_me],
   [1]
 ];
-export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 403 },
-  [_H, _TLo, _N],
-  [[0, { [_hH]: _XH }], 0, [() => ComplexNestedErrorData$, 0]]
-];
-TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
   0,
   [_Fo],
@@ -734,32 +771,32 @@ export var DocumentTypeInputOutput$: StaticStructureSchema = [3, n0, _DTIO,
 ];
 export var DuplexStreamInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
-  [_st],
+  [_str],
   [[() => EventStream$, 16]]
 ];
 export var DuplexStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
-  [_st],
+  [_str],
   [[() => EventStream$, 16]]
 ];
 export var DuplexStreamWithDistinctStreamsInput$: StaticStructureSchema = [3, n0, _DSWDSI,
   0,
-  [_st],
+  [_str],
   [[() => EventStream$, 16]]
 ];
 export var DuplexStreamWithDistinctStreamsOutput$: StaticStructureSchema = [3, n0, _DSWDSO,
   0,
-  [_st],
+  [_str],
   [[() => SingletonEventStream$, 16]]
 ];
 export var DuplexStreamWithInitialMessagesInput$: StaticStructureSchema = [3, n0, _DSWIMI,
   0,
-  [_iRM, _st],
+  [_iRM, _str],
   [[0, { [_hH]: _irm }], [() => EventStream$, 16]], 1
 ];
 export var DuplexStreamWithInitialMessagesOutput$: StaticStructureSchema = [3, n0, _DSWIMO,
   0,
-  [_iRMn, _st],
+  [_iRMn, _str],
   [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]], 1
 ];
 export var EmptyInputAndEmptyOutputInput$: StaticStructureSchema = [3, n0, _EIAEOI,
@@ -777,23 +814,11 @@ export var EnumPayloadInput$: StaticStructureSchema = [3, n0, _EPI,
   [_p],
   [[0, 16]]
 ];
-export var ErrorEvent$: StaticErrorSchema = [-3, n0, _EE,
-  { [_e]: _c },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ErrorEvent$, ErrorEvent);
 export var Farewell$: StaticStructureSchema = [3, n0, _Fa,
   0,
   [_ph],
   [0]
 ];
-export var FooError$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _se, [_hE]: 500 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(FooError$, FooError);
 export var FractionalSecondsOutput$: StaticStructureSchema = [3, n0, _FSO,
   0,
   [_d],
@@ -901,7 +926,7 @@ export var HttpRequestWithLabelsAndTimestampFormatInput$: StaticStructureSchema 
 ];
 export var HttpRequestWithLabelsInput$: StaticStructureSchema = [3, n0, _HRWLI,
   0,
-  [_str, _sh, _in, _lo, _fl, _do, _bo, _ti],
+  [_stri, _sh, _in, _lo, _fl, _do, _bo, _ti],
   [[0, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2, 1], [4, 1]], 8
 ];
 export var HttpRequestWithRegexLiteralInput$: StaticStructureSchema = [3, n0, _HRWRLI,
@@ -926,20 +951,14 @@ export var InputAndOutputWithHeadersIO$: StaticStructureSchema = [3, n0, _IAOWHI
 ];
 export var InputStreamInput$: StaticStructureSchema = [3, n0, _ISI,
   0,
-  [_st],
+  [_str],
   [[() => EventStream$, 16]]
 ];
 export var InputStreamWithInitialRequestInput$: StaticStructureSchema = [3, n0, _ISWIRI,
   0,
-  [_iRM, _st],
+  [_iRM, _str],
   [[0, { [_hH]: _irm }], [() => EventStream$, 16]], 1
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
 export var JsonBlobsInputOutput$: StaticStructureSchema = [3, n0, _JBIO,
   0,
   [_da],
@@ -1153,7 +1172,7 @@ export var OmitsNullSerializesEmptyStringInput$: StaticStructureSchema = [3, n0,
 export var OmitsSerializingEmptyListsInput$: StaticStructureSchema = [3, n0, _OSELI,
   0,
   [_qSL, _qIL, _qDL, _qBL, _qTL, _qEL, _qIEL],
-  [[64 | 0, { [_hQ]: _SL }], [64 | 1, { [_hQ]: _IL }], [64 | 1, { [_hQ]: _DL }], [64 | 2, { [_hQ]: _BL }], [64 | 4, { [_hQ]: _TL }], [64 | 0, { [_hQ]: _EL }], [64 | 1, { [_hQ]: _IEL }]]
+  [[64 | 0, { [_hQ]: _SL }], [64 | 1, { [_hQ]: _IL }], [64 | 1, { [_hQ]: _DL }], [64 | 2, { [_hQ]: _BL }], [64 | 4, { [_hQ]: _TLi }], [64 | 0, { [_hQ]: _EL }], [64 | 1, { [_hQ]: _IEL }]]
 ];
 export var OperationWithDefaultsInput$: StaticStructureSchema = [3, n0, _OWDI,
   0,
@@ -1177,12 +1196,12 @@ export var OperationWithNestedStructureOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var OutputStreamOutput$: StaticStructureSchema = [3, n0, _OSO,
   0,
-  [_st],
+  [_str],
   [[() => EventStream$, 16]]
 ];
 export var OutputStreamWithInitialResponseOutput$: StaticStructureSchema = [3, n0, _OSWIRO,
   0,
-  [_iRMn, _st],
+  [_iRMn, _str],
   [[0, { [_hH]: _irm_ }], [() => EventStream$, 16]], 1
 ];
 export var PayloadConfig$: StaticStructureSchema = [3, n0, _PC,
@@ -1260,12 +1279,6 @@ export var ResponseCodeRequiredOutput$: StaticStructureSchema = [3, n0, _RCRO,
   [_rC],
   [[1, 32]], 1
 ];
-export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 500 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableError$, ServiceUnavailableError);
 export var SimpleScalarPropertiesInputOutput$: StaticStructureSchema = [3, n0, _SSPIO,
   0,
   [_fo, _sV, _tBV, _fBV, _bV, _sVh, _iV, _lV, _fV, _dVo],
@@ -1351,7 +1364,7 @@ export var TimestampFormatHeadersIO$: StaticStructureSchema = [3, n0, _TFHIO,
   [_mES, _mHD, _mDT, _dFe, _tES, _tHD, _tDT],
   [[7, { [_hH]: _Xm }], [6, { [_hH]: _Xm_ }], [5, { [_hH]: _Xm__ }], [4, { [_hH]: _Xd }], [7, { [_hH]: _Xt }], [6, { [_hH]: _Xt_ }], [5, { [_hH]: _Xt__ }]]
 ];
-export var TopLevel$: StaticStructureSchema = [3, n0, _TLo,
+export var TopLevel$: StaticStructureSchema = [3, n0, _TL,
   0,
   [_di, _dLi, _dMi],
   [() => Dialog$, () => DialogList, () => DialogMap], 1
@@ -1377,8 +1390,6 @@ export var GreetingStruct_n1$: StaticStructureSchema = [3, n1, _GS,
   [0]
 ];
 var __Unit = "unit" as const;
-export var RestJsonProtocolServiceException$: StaticErrorSchema = [-3, _sm, "RestJsonProtocolServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RestJsonProtocolServiceException$, RestJsonProtocolServiceException);
 var DialogList: StaticListSchema = [1, n0, _DLi,
   0, () => Dialog$
 ];
@@ -1446,7 +1457,7 @@ var StringListMap: StaticMapSchema = [2, n1, _SLM,
 ];
 var StringMap = 128 | 0;
 export var EventStream$: StaticUnionSchema = [4, n0, _ES,
-  { [_s]: 1 },
+  { [_st]: 1 },
   [_hea, _bP, _sP, _sPt, _uP, _hAEP, _hAIP, _e],
   [[() => HeadersEvent$, 0], [() => BlobPayloadEvent$, 0], [() => StringPayloadEvent$, 0], [() => StructurePayloadEvent$, 0], [() => UnionPayloadEvent$, 0], [() => HeadersAndExplicitPayloadEvent$, 0], [() => HeadersAndImplicitPayloadEvent$, 0], [() => ErrorEvent$, 0]]
 ];
@@ -1467,7 +1478,7 @@ export var PlayerAction$: StaticUnionSchema = [4, n0, _PA,
 ];
 export var SimpleUnion$: StaticUnionSchema = [4, n0, _SU,
   0,
-  [_int, _str],
+  [_int, _stri],
   [1, 0]
 ];
 export var SingletonEventStream$: StaticUnionSchema = [4, n0, _SES,

@@ -28,7 +28,7 @@ const _AIp = "AppInstances";
 const _AM = "AllowMessages";
 const _Ar = "Arn";
 const _BRE = "BadRequestException";
-const _C = "Configuration";
+const _C = "Code";
 const _CAI = "CreateAppInstance";
 const _CAIA = "CreateAppInstanceAdmin";
 const _CAIAR = "CreateAppInstanceAdminRequest";
@@ -45,7 +45,7 @@ const _CE = "ConflictException";
 const _CRS = "ChannelRetentionSettings";
 const _CRT = "ClientRequestToken";
 const _CT = "CreatedTimestamp";
-const _Co = "Code";
+const _Co = "Configuration";
 const _DAI = "DeleteAppInstance";
 const _DAIA = "DeleteAppInstanceAdmin";
 const _DAIAR = "DeleteAppInstanceAdminRequest";
@@ -109,9 +109,9 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LUT = "LastUpdatedTimestamp";
-const _M = "Metadata";
+const _M = "Message";
 const _MR = "MaxResults";
-const _Me = "Message";
+const _Me = "Metadata";
 const _N = "Name";
 const _NERN = "NonEmptyResourceName";
 const _NESS = "NonEmptySensitiveString1600";
@@ -180,8 +180,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mr = "max-results";
 const _nt = "next-token";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkidentity";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkidentity";
+const _se = "server";
 const n0 = "com.amazonaws.chimesdkidentity";
 
 // smithy-typescript generated code
@@ -208,7 +208,74 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Metadata: StaticSimpleSchema = [0, n0, _M, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ChimeSDKIdentityServiceException$: StaticErrorSchema = [-3, _s, "ChimeSDKIdentityServiceException", 0, [], []];
+_s_registry.registerError(ChimeSDKIdentityServiceException$, ChimeSDKIdentityServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 429 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 401 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Metadata: StaticSimpleSchema = [0, n0, _Me, 8, 0];
 var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 var NonEmptyResourceName: StaticSimpleSchema = [0, n0, _NERN, 8, 0];
 var NonEmptySensitiveString1600: StaticSimpleSchema = [0, n0, _NESS, 8, 0];
@@ -221,7 +288,7 @@ var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
 var UserName: StaticSimpleSchema = [0, n0, _UN, 8, 0];
 export var AppInstance$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_AIA, _N, _CT, _LUT, _M],
+  [_AIA, _N, _CT, _LUT, _Me],
   [0, [() => NonEmptyResourceName, 0], 4, 4, [() => Metadata, 0]]
 ];
 export var AppInstanceAdmin$: StaticStructureSchema = [3, n0, _AIAp,
@@ -236,12 +303,12 @@ export var AppInstanceAdminSummary$: StaticStructureSchema = [3, n0, _AIAS,
 ];
 export var AppInstanceBot$: StaticStructureSchema = [3, n0, _AIB,
   0,
-  [_AIBA, _N, _C, _CT, _LUT, _M],
+  [_AIBA, _N, _Co, _CT, _LUT, _Me],
   [0, [() => ResourceName, 0], () => Configuration$, 4, 4, [() => Metadata, 0]]
 ];
 export var AppInstanceBotSummary$: StaticStructureSchema = [3, n0, _AIBS,
   0,
-  [_AIBA, _N, _M],
+  [_AIBA, _N, _Me],
   [0, [() => ResourceName, 0], [() => Metadata, 0]]
 ];
 export var AppInstanceRetentionSettings$: StaticStructureSchema = [3, n0, _AIRS,
@@ -251,12 +318,12 @@ export var AppInstanceRetentionSettings$: StaticStructureSchema = [3, n0, _AIRS,
 ];
 export var AppInstanceSummary$: StaticStructureSchema = [3, n0, _AIS,
   0,
-  [_AIA, _N, _M],
+  [_AIA, _N, _Me],
   [0, [() => NonEmptyResourceName, 0], [() => Metadata, 0]]
 ];
 export var AppInstanceUser$: StaticStructureSchema = [3, n0, _AIU,
   0,
-  [_AIUA, _N, _M, _CT, _LUT, _ES],
+  [_AIUA, _N, _Me, _CT, _LUT, _ES],
   [0, [() => UserName, 0], [() => Metadata, 0], 4, 4, () => ExpirationSettings$]
 ];
 export var AppInstanceUserEndpoint$: StaticStructureSchema = [3, n0, _AIUE,
@@ -271,31 +338,19 @@ export var AppInstanceUserEndpointSummary$: StaticStructureSchema = [3, n0, _AIU
 ];
 export var AppInstanceUserSummary$: StaticStructureSchema = [3, n0, _AIUS,
   0,
-  [_AIUA, _N, _M],
+  [_AIUA, _N, _Me],
   [0, [() => UserName, 0], [() => Metadata, 0]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ChannelRetentionSettings$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_RD],
   [1]
 ];
-export var Configuration$: StaticStructureSchema = [3, n0, _C,
+export var Configuration$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_L],
   [() => LexConfiguration$], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAppInstanceAdminRequest$: StaticStructureSchema = [3, n0, _CAIAR,
   0,
   [_AIAA, _AIA],
@@ -308,7 +363,7 @@ export var CreateAppInstanceAdminResponse$: StaticStructureSchema = [3, n0, _CAI
 ];
 export var CreateAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _CAIBR,
   0,
-  [_AIA, _C, _N, _M, _CRT, _Ta],
+  [_AIA, _Co, _N, _Me, _CRT, _Ta],
   [0, () => Configuration$, [() => ResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0]], 2
 ];
 export var CreateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _CAIBRr,
@@ -318,7 +373,7 @@ export var CreateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _CAIBR
 ];
 export var CreateAppInstanceRequest$: StaticStructureSchema = [3, n0, _CAIR,
   0,
-  [_N, _M, _CRT, _Ta],
+  [_N, _Me, _CRT, _Ta],
   [[() => NonEmptyResourceName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0]], 1
 ];
 export var CreateAppInstanceResponse$: StaticStructureSchema = [3, n0, _CAIRr,
@@ -328,7 +383,7 @@ export var CreateAppInstanceResponse$: StaticStructureSchema = [3, n0, _CAIRr,
 ];
 export var CreateAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _CAIUR,
   0,
-  [_AIA, _AIUI, _N, _M, _CRT, _Ta, _ES],
+  [_AIA, _AIUI, _N, _Me, _CRT, _Ta, _ES],
   [0, [() => UserId, 0], [() => UserName, 0], [() => Metadata, 0], [0, 4], [() => TagList, 0], () => ExpirationSettings$], 3
 ];
 export var CreateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _CAIURr,
@@ -426,12 +481,6 @@ export var ExpirationSettings$: StaticStructureSchema = [3, n0, _ES,
   [_ED, _EC],
   [1, 0], 2
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetAppInstanceRetentionSettingsRequest$: StaticStructureSchema = [3, n0, _GAIRSR,
   0,
   [_AIA],
@@ -517,12 +566,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta],
   [[() => TagList, 0]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutAppInstanceRetentionSettingsRequest$: StaticStructureSchema = [3, n0, _PAIRSR,
   0,
   [_AIA, _AIRS],
@@ -553,24 +596,6 @@ export var RegisterAppInstanceUserEndpointResponse$: StaticStructureSchema = [3,
   [_AIUA, _EI],
   [0, 0]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
@@ -581,18 +606,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RARN, _Ta],
   [0, [() => TagList, 0]], 2
 ];
-export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c, [_hE]: 429 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
-export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
-  { [_e]: _c, [_hE]: 401 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
@@ -600,7 +613,7 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateAppInstanceBotRequest$: StaticStructureSchema = [3, n0, _UAIBR,
   0,
-  [_AIBA, _N, _M, _C],
+  [_AIBA, _N, _Me, _Co],
   [[0, 1], [() => ResourceName, 0], [() => Metadata, 0], () => Configuration$], 3
 ];
 export var UpdateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _UAIBRp,
@@ -610,7 +623,7 @@ export var UpdateAppInstanceBotResponse$: StaticStructureSchema = [3, n0, _UAIBR
 ];
 export var UpdateAppInstanceRequest$: StaticStructureSchema = [3, n0, _UAIR,
   0,
-  [_AIA, _N, _M],
+  [_AIA, _N, _Me],
   [[0, 1], [() => NonEmptyResourceName, 0], [() => Metadata, 0]], 3
 ];
 export var UpdateAppInstanceResponse$: StaticStructureSchema = [3, n0, _UAIRp,
@@ -630,7 +643,7 @@ export var UpdateAppInstanceUserEndpointResponse$: StaticStructureSchema = [3, n
 ];
 export var UpdateAppInstanceUserRequest$: StaticStructureSchema = [3, n0, _UAIUR,
   0,
-  [_AIUA, _N, _M],
+  [_AIUA, _N, _Me],
   [[0, 1], [() => UserName, 0], [() => Metadata, 0]], 3
 ];
 export var UpdateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _UAIURp,
@@ -639,8 +652,6 @@ export var UpdateAppInstanceUserResponse$: StaticStructureSchema = [3, n0, _UAIU
   [0]
 ];
 var __Unit = "unit" as const;
-export var ChimeSDKIdentityServiceException$: StaticErrorSchema = [-3, _sm, "ChimeSDKIdentityServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ChimeSDKIdentityServiceException$, ChimeSDKIdentityServiceException);
 var AppInstanceAdminList: StaticListSchema = [1, n0, _AIAL,
   0, [() => AppInstanceAdminSummary$,
     0]

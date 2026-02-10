@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDataBrewHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DataBrewClientConfig } from "./DataBrewClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DataBrewClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.databrew",
+      errorTypeRegistries,
       version: "2017-07-25",
       serviceTarget: "AWSGlueDataBrew",
     },

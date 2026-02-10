@@ -989,9 +989,9 @@ const _jN = "jsonName";
 const _nt = "next-token";
 const _p = "prefix";
 const _ps = "page-size";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpoint";
 const _sD = "segmentDimensions";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pinpoint";
+const _se = "server";
 const _st = "start-time";
 const _t = "tags";
 const _tK = "tagKeys";
@@ -1023,6 +1023,67 @@ import {
 import { PinpointServiceException } from "../models/PinpointServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PinpointServiceException$: StaticErrorSchema = [-3, _s, "PinpointServiceException", 0, [], []];
+_s_registry.registerError(PinpointServiceException$, PinpointServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
+  { [_e]: _c, [_hE]: 405 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var PayloadTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(PayloadTooLargeException$, PayloadTooLargeException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RID],
+  [0, 0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActivitiesResponse$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_I, _NT],
@@ -1148,12 +1209,6 @@ export var AttributesResource$: StaticStructureSchema = [3, n0, _ARt,
   [_AI, _AT, _At],
   [0, 0, 64 | 0], 2
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BaiduChannelRequest$: StaticStructureSchema = [3, n0, _BCR,
   0,
   [_AK, _SK, _En],
@@ -1259,12 +1314,6 @@ export var ConditionalSplitActivity$: StaticStructureSchema = [3, n0, _CSA,
   [_Con, _EWT, _FAa, _TA],
   [[() => Condition$, 0], () => WaitTime$, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContactCenterActivity$: StaticStructureSchema = [3, n0, _CCA,
   0,
   [_NA],
@@ -1825,12 +1874,6 @@ export var ExportJobsResponse$: StaticStructureSchema = [3, n0, _EJRxpo,
   [_I, _NT],
   [() => ListOfExportJobResponse, 0], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GCMChannelRequest$: StaticStructureSchema = [3, n0, _GCMCRh,
   0,
   [_AK, _DAM, _En, _SJ],
@@ -2421,12 +2464,6 @@ export var InAppTemplateResponse$: StaticStructureSchema = [3, n0, _IATRn,
   [_CD, _LMD, _TNe, _TT, _Ar, _Co, _CCu, _La, _t, _TDe, _V],
   [0, 0, 0, 0, 0, () => ListOfInAppMessageContent, 128 | 0, 0, [128 | 0, { [_jN]: _t }], 0, 0], 4
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ItemResponse$: StaticStructureSchema = [3, n0, _IRt,
   0,
   [_EIR, _EIRve],
@@ -2602,12 +2639,6 @@ export var MessageResult$: StaticStructureSchema = [3, n0, _MRes,
   [_DSel, _SC, _MI, _SM, _UT],
   [0, 1, 0, 0, 0], 2
 ];
-export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
-  { [_e]: _c, [_hE]: 405 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MDe,
   0,
   [_CO, _Val],
@@ -2623,12 +2654,6 @@ export var MultiConditionalSplitActivity$: StaticStructureSchema = [3, n0, _MCSA
   [_Br, _DA, _EWT],
   [[() => ListOfMultiConditionalBranch, 0], 0, () => WaitTime$]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var NumberValidateRequest$: StaticStructureSchema = [3, n0, _NVR,
   0,
   [_ICC, _PN],
@@ -2654,12 +2679,6 @@ export var OverrideButtonConfiguration$: StaticStructureSchema = [3, n0, _OBC,
   [_BA, _Li],
   [0, 0], 1
 ];
-export var PayloadTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(PayloadTooLargeException$, PayloadTooLargeException);
 export var PhoneNumberValidateRequest$: StaticStructureSchema = [3, n0, _PNVR,
   0,
   [_NVR],
@@ -2975,12 +2994,6 @@ export var TemplateVersionsResponse$: StaticStructureSchema = [3, n0, _TVR,
   [_I, _M, _NT, _RID],
   [() => ListOfTemplateVersionResponse, 0, 0, 0], 1
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RID],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var TreatmentResource$: StaticStructureSchema = [3, n0, _TRr,
   0,
   [_Id, _SPi, _CDC, _MCe, _Sc, _St, _TCe, _TD, _TN],
@@ -3327,8 +3340,6 @@ export var WriteTreatmentResource$: StaticStructureSchema = [3, n0, _WTR,
   [1, () => CustomDeliveryConfiguration$, () => MessageConfiguration$, () => Schedule$, () => TemplateConfiguration$, 0, 0], 1
 ];
 var __Unit = "unit" as const;
-export var PinpointServiceException$: StaticErrorSchema = [-3, _sm, "PinpointServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PinpointServiceException$, PinpointServiceException);
 var ListOf__EndpointTypesElement = 64 | 0;
 var ListOf__string = 64 | 0;
 var ListOf__TimezoneEstimationMethodsElement = 64 | 0;

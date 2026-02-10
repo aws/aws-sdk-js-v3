@@ -40,8 +40,8 @@ const _CBon = "ContentBlock";
 const _CC = "CollaboratorConfiguration";
 const _CCa = "CallerChain";
 const _CCo = "CollaboratorConfigurations";
-const _CE = "CitationEvent";
-const _CEo = "ConflictException";
+const _CE = "ConflictException";
+const _CEi = "CitationEvent";
 const _CH = "ConversationHistory";
 const _CI = "CollaborationInstruction";
 const _CIII = "CodeInterpreterInvocationInput";
@@ -719,7 +719,7 @@ const _q = "queries";
 const _qGI = "queryGenerationInput";
 const _qTC = "queryTransformationConfiguration";
 const _qu = "query";
-const _r = "regex";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAGC = "retrieveAndGenerateConfiguration";
 const _rB = "requestBody";
@@ -748,13 +748,13 @@ const _rSe = "responseStream";
 const _rSel = "relevanceScore";
 const _rT = "reasoningText";
 const _ra = "rationale";
-const _re = "regexes";
-const _rea = "reason";
+const _re = "regex";
+const _reg = "regexes";
 const _req = "required";
 const _res = "results";
 const _ro = "role";
 const _row = "row";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentruntime";
 const _sA = "sessionArn";
 const _sAe = "sessionAttributes";
 const _sAo = "sourceArn";
@@ -792,8 +792,8 @@ const _sU = "s3Uri";
 const _sW = "startsWith";
 const _s_ = "s3";
 const _sc = "score";
+const _se = "server";
 const _si = "signature";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentruntime";
 const _so = "sources";
 const _sou = "source";
 const _sp = "span";
@@ -874,6 +874,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockAgentRuntimeServiceException$: StaticErrorSchema = [-3, _s, "BedrockAgentRuntimeServiceException", 0, [], []];
+_s_registry.registerError(BedrockAgentRuntimeServiceException$, BedrockAgentRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
+  { [_e]: _se, [_hE]: 502 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(BadGatewayException$, BadGatewayException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(DependencyFailedException$, DependencyFailedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ModelNotReadyException$, ModelNotReadyException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ActionGroupName: StaticSimpleSchema = [0, n0, _AGN, 8, 0];
 var ActionGroupOutputString: StaticSimpleSchema = [0, n0, _AGOS, 8, 0];
 var AgentCollaboratorPayloadString: StaticSimpleSchema = [0, n0, _ACPS, 8, 0];
@@ -902,12 +975,6 @@ var Source: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
 var TraceKnowledgeBaseId: StaticSimpleSchema = [0, n0, _TKBI, 8, 0];
 var Verb: StaticSimpleSchema = [0, n0, _V, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionGroupInvocationInput$: StaticStructureSchema = [3, n0, _AGII,
   0,
   [_aGN, _v, _aP, _p, _rB, _f, _eT, _iI],
@@ -978,12 +1045,6 @@ export var AudioSegment$: StaticStructureSchema = [3, n0, _AS,
   [_sU, _tr],
   [0, 0], 1
 ];
-export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
-  { [_e]: _s, [_hE]: 502 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadGatewayException$, BadGatewayException);
 export var BedrockModelConfigurations$: StaticStructureSchema = [3, n0, _BMC,
   0,
   [_pC],
@@ -1014,7 +1075,7 @@ export var Citation$: StaticStructureSchema = [3, n0, _C,
   [_gRP, _rR],
   [[() => GeneratedResponsePart$, 0], [() => RetrievedReferences, 0]]
 ];
-export var CitationEvent$: StaticStructureSchema = [3, n0, _CE,
+export var CitationEvent$: StaticStructureSchema = [3, n0, _CEi,
   0,
   [_cit, _gRP, _rR],
   [[() => Citation$, 0], [() => GeneratedResponsePart$, 0], [() => RetrievedReferences, 0]]
@@ -1044,12 +1105,6 @@ export var ConditionResultEvent$: StaticStructureSchema = [3, n0, _CRE,
   [_nN, _ti, _sC],
   [0, 5, [() => SatisfiedConditions, 0]], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBody$: StaticStructureSchema = [3, n0, _CB,
   0,
   [_b, _im],
@@ -1115,12 +1170,6 @@ export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
   [],
   []
 ];
-export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedException);
 export var EndSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
   [_sI],
@@ -1433,12 +1482,12 @@ export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
 ];
 export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
   8,
-  [_n, _r, _ma, _a],
+  [_n, _re, _ma, _a],
   [0, 0, 0, 0]
 ];
 export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [3, n0, _GSIPA,
   8,
-  [_pE, _re],
+  [_pE, _reg],
   [[() => GuardrailPiiEntityFilterList, 0], [() => GuardrailRegexFilterList, 0]]
 ];
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
@@ -1526,12 +1575,6 @@ export var InputImage$: StaticStructureSchema = [3, n0, _IIn,
   [_fo, _iCn],
   [0, [() => ByteContentBlob, 0]], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _rea],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvocationInput$: StaticStructureSchema = [3, n0, _IInv,
   8,
   [_tI, _iT, _aGII, _kBLI, _cIII, _aCII],
@@ -1717,12 +1760,6 @@ export var ModelInvocationInput$: StaticStructureSchema = [3, n0, _MII,
   [_tI, _t, _ty, _oL, _pCM, _iCnf, _pM, _fM],
   [0, [() => PromptText, 0], 0, 0, 0, () => InferenceConfiguration$, 0, 0]
 ];
-export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ModelNotReadyException$, ModelNotReadyException);
 export var ModelPerformanceConfiguration$: StaticStructureSchema = [3, n0, _MPC,
   0,
   [_pC],
@@ -1963,12 +2000,6 @@ export var RerankTextDocument$: StaticStructureSchema = [3, n0, _RTD,
   [_t],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetrievalResultConfluenceLocation$: StaticStructureSchema = [3, n0, _RRCL,
   0,
   [_ur],
@@ -2124,12 +2155,6 @@ export var SatisfiedCondition$: StaticStructureSchema = [3, n0, _SC,
   [_cNo],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionState$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sAe, _pSA, _rCIR, _iI, _fi, _kBCn, _cH],
@@ -2205,12 +2230,6 @@ export var TextToSqlKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0,
   [_kBA],
   [0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TracePart$: StaticStructureSchema = [3, n0, _TPr,
   8,
   [_sIe, _tra, _cCa, _eTv, _cN, _aI, _aAI, _aV],
@@ -2246,12 +2265,6 @@ export var Usage$: StaticStructureSchema = [3, n0, _U,
   [_iTnp, _oTu],
   [1, 1]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorSearchBedrockRerankingConfiguration$: StaticStructureSchema = [3, n0, _VSBRC,
   0,
   [_mC, _nORR, _mCet],
@@ -2272,8 +2285,6 @@ export var VideoSegment$: StaticStructureSchema = [3, n0, _VS,
   [_sU, _su],
   [0, 0], 1
 ];
-export var BedrockAgentRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "BedrockAgentRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockAgentRuntimeServiceException$, BedrockAgentRuntimeServiceException);
 var AgentActionGroups: StaticListSchema = [1, n0, _AAGg,
   0, [() => AgentActionGroup$,
     0]

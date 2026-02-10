@@ -212,8 +212,8 @@ const _oSp = "operationalState";
 const _oSpe = "operationState";
 const _pC = "packageContent";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.tnb";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.tnb";
+const _se = "server";
 const _t = "tags";
 const _tC = "taskContext";
 const _tED = "taskErrorDetails";
@@ -264,13 +264,56 @@ import {
 import { TnbServiceException } from "../models/TnbServiceException";
 
 /* eslint no-var: 0 */
-var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
+const _s_registry = TypeRegistry.for(_s);
+export var TnbServiceException$: StaticErrorSchema = [-3, _s, "TnbServiceException", 0, [], []];
+_s_registry.registerError(TnbServiceException$, TnbServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
 export var CancelSolNetworkOperationInput$: StaticStructureSchema = [3, n0, _CSNOI,
   0,
   [_nLOOI],
@@ -486,12 +529,6 @@ export var InstantiateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0,
   [_nLOOI, _t],
   [0, [() => TagMap, 0]], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LcmOperationInfo$: StaticStructureSchema = [3, n0, _LOI,
   0,
   [_nLOOI],
@@ -652,18 +689,6 @@ export var PutSolNetworkPackageContentOutput$: StaticStructureSchema = [3, n0, _
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
   [0, 0, 0, 0, 0, 64 | 0, () => PutSolNetworkPackageContentMetadata$], 7
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -684,12 +709,6 @@ export var TerminateSolNetworkInstanceOutput$: StaticStructureSchema = [3, n0, _
   [_nLOOI, _t],
   [0, [() => TagMap, 0]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToscaOverride$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_na, _dV],
@@ -780,15 +799,7 @@ export var ValidateSolNetworkPackageContentOutput$: StaticStructureSchema = [3, 
   [_i, _a, _nI, _nNs, _nV, _vPIn, _me],
   [0, 0, 0, 0, 0, 64 | 0, () => ValidateSolNetworkPackageContentMetadata$], 7
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var TnbServiceException$: StaticErrorSchema = [-3, _sm, "TnbServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TnbServiceException$, TnbServiceException);
 var GetSolNetworkOperationTasksList: StaticListSchema = [1, n0, _GSNOTL,
   0, () => GetSolNetworkOperationTaskDetails$
 ];

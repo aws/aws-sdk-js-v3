@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWisdomHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WisdomClientConfig } from "./WisdomClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WisdomClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.wisdom",
+      errorTypeRegistries,
       version: "2020-10-19",
       serviceTarget: "WisdomService",
     },

@@ -46,8 +46,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakera2iruntime";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakera2iruntime";
+const _se = "server";
 const n0 = "com.amazonaws.sagemakera2iruntime";
 
 // smithy-typescript generated code
@@ -65,12 +65,55 @@ import {
 import { SageMakerA2IRuntimeServiceException } from "../models/SageMakerA2IRuntimeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerA2IRuntimeServiceException$: StaticErrorSchema = [-3, _s, "SageMakerA2IRuntimeServiceException", 0, [], []];
+_s_registry.registerError(SageMakerA2IRuntimeServiceException$, SageMakerA2IRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DeleteHumanLoopRequest$: StaticStructureSchema = [3, n0, _DHLR,
   0,
   [_HLN],
@@ -111,12 +154,6 @@ export var HumanLoopSummary$: StaticStructureSchema = [3, n0, _HLSu,
   [_HLN, _HLS, _CT, _FR, _FDA],
   [0, 0, 5, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListHumanLoopsRequest$: StaticStructureSchema = [3, n0, _LHLR,
   0,
   [_FDA, _CTA, _CTB, _SO, _NT, _MR],
@@ -127,18 +164,6 @@ export var ListHumanLoopsResponse$: StaticStructureSchema = [3, n0, _LHLRi,
   [_HLSum, _NT],
   [() => HumanLoopSummaries, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartHumanLoopRequest$: StaticStructureSchema = [3, n0, _SHLR,
   0,
   [_HLN, _FDA, _HLI, _DA],
@@ -159,20 +184,6 @@ export var StopHumanLoopResponse$: StaticStructureSchema = [3, n0, _SHLRtop,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SageMakerA2IRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerA2IRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SageMakerA2IRuntimeServiceException$, SageMakerA2IRuntimeServiceException);
 var ContentClassifiers = 64 | 0;
 var HumanLoopSummaries: StaticListSchema = [1, n0, _HLSum,
   0, () => HumanLoopSummary$

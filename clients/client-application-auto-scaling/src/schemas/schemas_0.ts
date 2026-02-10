@@ -183,8 +183,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.applicationautoscaling";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.applicationautoscaling";
+const _se = "server";
 const n0 = "com.amazonaws.applicationautoscaling";
 
 // smithy-typescript generated code
@@ -211,6 +211,73 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ApplicationAutoScalingServiceException$: StaticErrorSchema = [-3, _s, "ApplicationAutoScalingServiceException", 0, [], []];
+_s_registry.registerError(ApplicationAutoScalingServiceException$, ApplicationAutoScalingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentUpdateException$: StaticErrorSchema = [-3, n0, _CUE,
+  { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentUpdateException$, ConcurrentUpdateException);
+export var FailedResourceAccessException$: StaticErrorSchema = [-3, n0, _FRAE,
+  { [_aQE]: [`FailedResourceAccessException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FailedResourceAccessException$, FailedResourceAccessException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalServiceException`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_aQE]: [`InvalidNextTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ObjectNotFoundException$, ObjectNotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
   [_AN, _AARN],
@@ -221,12 +288,6 @@ export var CapacityForecast$: StaticStructureSchema = [3, n0, _CF,
   [_T, _V],
   [64 | 4, 64 | 1], 2
 ];
-export var ConcurrentUpdateException$: StaticErrorSchema = [-3, n0, _CUE,
-  { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentUpdateException$, ConcurrentUpdateException);
 export var CustomizedMetricSpecification$: StaticStructureSchema = [3, n0, _CMS,
   0,
   [_MN, _N, _D, _S, _U, _Me],
@@ -302,12 +363,6 @@ export var DescribeScheduledActionsResponse$: StaticStructureSchema = [3, n0, _D
   [_SAc, _NT],
   [() => ScheduledActions, 0]
 ];
-export var FailedResourceAccessException$: StaticErrorSchema = [-3, n0, _FRAE,
-  { [_aQE]: [`FailedResourceAccessException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FailedResourceAccessException$, FailedResourceAccessException);
 export var GetPredictiveScalingForecastRequest$: StaticStructureSchema = [3, n0, _GPSFR,
   0,
   [_SN, _RI, _SD, _PN, _STt, _ET],
@@ -318,24 +373,6 @@ export var GetPredictiveScalingForecastResponse$: StaticStructureSchema = [3, n0
   [_LF, _CF, _UT],
   [() => LoadForecasts, () => CapacityForecast$, 4]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalServiceException`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_aQE]: [`InvalidNextTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RARN],
@@ -361,12 +398,6 @@ export var NotScaledReason$: StaticStructureSchema = [3, n0, _NSR,
   [_C, _MC, _MCi, _CC],
   [0, 1, 1, 1], 1
 ];
-export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
-  { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundException);
 export var PredefinedMetricSpecification$: StaticStructureSchema = [3, n0, _PMS,
   0,
   [_PMT, _RL],
@@ -452,12 +483,6 @@ export var RegisterScalableTargetResponse$: StaticStructureSchema = [3, n0, _RST
   [_STARN],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScalableTarget$: StaticStructureSchema = [3, n0, _STc,
   0,
   [_SN, _RI, _SD, _MCi, _MC, _RARNo, _CT, _PC, _SS, _STARN],
@@ -533,12 +558,6 @@ export var TargetTrackingScalingPolicyConfiguration$: StaticStructureSchema = [3
   [_TV, _PMS, _CMS, _SOC, _SIC, _DSI],
   [1, () => PredefinedMetricSpecification$, () => CustomizedMetricSpecification$, 1, 1, 2], 1
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -549,14 +568,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ApplicationAutoScalingServiceException$: StaticErrorSchema = [-3, _sm, "ApplicationAutoScalingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ApplicationAutoScalingServiceException$, ApplicationAutoScalingServiceException);
 var Alarms: StaticListSchema = [1, n0, _Al,
   0, () => Alarm$
 ];

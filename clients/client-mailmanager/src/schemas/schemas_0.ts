@@ -477,18 +477,61 @@ import {
 import { MailManagerServiceException } from "../models/MailManagerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MailManagerServiceException$: StaticErrorSchema = [-3, _s, "MailManagerServiceException", 0, [], []];
+_s_registry.registerError(MailManagerServiceException$, MailManagerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Address: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var AddressPrefix: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var PreSignedUrl: StaticSimpleSchema = [0, n0, _PSU, 8, 0];
 var SenderIpAddress: StaticSimpleSchema = [0, n0, _SIA, 8, 0];
 var SmtpPassword: StaticSimpleSchema = [0, n0, _SP, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddHeaderAction$: StaticStructureSchema = [3, n0, _AHA,
   0,
   [_HN, _HV],
@@ -544,12 +587,6 @@ export var ArchiveStringExpression$: StaticStructureSchema = [3, n0, _ASE,
   [_E, _O, _V],
   [() => ArchiveStringToEvaluate$, 0, 64 | 0], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAddonInstanceRequest$: StaticStructureSchema = [3, n0, _CAIR,
   0,
   [_ASI, _CTl, _T],
@@ -1155,12 +1192,6 @@ export var ReplaceRecipientAction$: StaticStructureSchema = [3, n0, _RRA,
   [_RW],
   [[() => Recipients, 0]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Row$: StaticStructureSchema = [3, n0, _Row,
   0,
   [_AMI, _RT, _D, _To, _F, _Cc, _Su, _MI, _HA, _RH, _IRT, _XM, _XOM, _XP, _IPI, _SH, _SIA, _En, _SAo],
@@ -1241,12 +1272,6 @@ export var SendAction$: StaticStructureSchema = [3, n0, _SAe,
   [_RA, _AFP],
   [0, 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnsAction$: StaticStructureSchema = [3, n0, _SAn,
   0,
   [_TAo, _RA, _AFP, _Enc, _PT],
@@ -1327,12 +1352,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TPr,
   0,
   [_TPN, _TPI, _DA],
@@ -1398,14 +1417,6 @@ export var UpdateTrafficPolicyResponse$: StaticStructureSchema = [3, n0, _UTPRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var MailManagerServiceException$: StaticErrorSchema = [-3, _s, "MailManagerServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(MailManagerServiceException$, MailManagerServiceException);
 var AddonInstances: StaticListSchema = [1, n0, _AId,
   0, () => AddonInstance$
 ];

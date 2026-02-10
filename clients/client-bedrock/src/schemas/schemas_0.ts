@@ -1074,7 +1074,7 @@ const _rSI = "ragSourceIdentifier";
 const _rSS = "responseStreamingSupported";
 const _re = "regexes";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrock";
 const _sAE = "sourceAccountEquals";
 const _sAI = "sourceAccountId";
 const _sB = "sortBy";
@@ -1117,9 +1117,9 @@ const _sW = "startsWith";
 const _sa = "satisfiable";
 const _sc = "scenario";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrock";
 const _so = "sources";
-const _st = "statements";
+const _st = "status";
+const _sta = "statements";
 const _t = "translation";
 const _tA = "translationAmbiguous";
 const _tC = "typeCount";
@@ -1242,6 +1242,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockServiceException$: StaticErrorSchema = [-3, _s, "BedrockServiceException", 0, [], []];
+_s_registry.registerError(BedrockServiceException$, BedrockServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AutomatedReasoningLogicStatementContent: StaticSimpleSchema = [0, n0, _ARLSC, 8, 0];
 var AutomatedReasoningNaturalLanguageStatementContent: StaticSimpleSchema = [0, n0, _ARNLSC, 8, 0];
 var AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage: StaticSimpleSchema = [0, n0, _ARPAFNL, 8, 0];
@@ -1292,12 +1365,6 @@ var Message: StaticSimpleSchema = [0, n0, _M, 8, 0];
 var MetricName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
 var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountEnforcedGuardrailInferenceInputConfiguration$: StaticStructureSchema = [3, n0, _AEGIIC,
   0,
   [_gI, _gV, _iT],
@@ -1310,7 +1377,7 @@ export var AccountEnforcedGuardrailOutputConfiguration$: StaticStructureSchema =
 ];
 export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_s, _eM],
+  [_st, _eM],
   [0, 0], 1
 ];
 export var AutomatedEvaluationConfig$: StaticStructureSchema = [3, n0, _AEC,
@@ -1360,7 +1427,7 @@ export var AutomatedReasoningCheckSatisfiableFinding$: StaticStructureSchema = [
 ];
 export var AutomatedReasoningCheckScenario$: StaticStructureSchema = [3, n0, _ARCS,
   0,
-  [_st],
+  [_sta],
   [[() => AutomatedReasoningLogicStatementList, 0]]
 ];
 export var AutomatedReasoningCheckTooComplexFinding$: StaticStructureSchema = [3, n0, _ARCTCF,
@@ -1440,7 +1507,7 @@ export var AutomatedReasoningPolicyBuildLog$: StaticStructureSchema = [3, n0, _A
 ];
 export var AutomatedReasoningPolicyBuildLogEntry$: StaticStructureSchema = [3, n0, _ARPBLE,
   0,
-  [_a, _s, _bS],
+  [_a, _st, _bS],
   [[() => AutomatedReasoningPolicyAnnotation$, 0], 0, [() => AutomatedReasoningPolicyBuildStepList, 0]], 3
 ];
 export var AutomatedReasoningPolicyBuildStep$: StaticStructureSchema = [3, n0, _ARPBS,
@@ -1470,7 +1537,7 @@ export var AutomatedReasoningPolicyBuildWorkflowSource$: StaticStructureSchema =
 ];
 export var AutomatedReasoningPolicyBuildWorkflowSummary$: StaticStructureSchema = [3, n0, _ARPBWSu,
   0,
-  [_pA, _bWI, _s, _bWT, _cA, _uA],
+  [_pA, _bWI, _st, _bWT, _cA, _uA],
   [0, 0, 0, 0, 5, 5], 6
 ];
 export var AutomatedReasoningPolicyDefinition$: StaticStructureSchema = [3, n0, _ARPDu,
@@ -1683,12 +1750,6 @@ export var CloudWatchConfig$: StaticStructureSchema = [3, n0, _CWC,
   [_lGN, _rA, _lDDSC],
   [0, 0, () => S3Config$], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, _CARPR,
   0,
   [_n, _d, _cRT, _pD, _kKI, _ta],
@@ -1786,7 +1847,7 @@ export var CreateInferenceProfileRequest$: StaticStructureSchema = [3, n0, _CIPR
 ];
 export var CreateInferenceProfileResponse$: StaticStructureSchema = [3, n0, _CIPRr,
   0,
-  [_iPA, _s],
+  [_iPA, _st],
   [0, 0], 1
 ];
 export var CreateMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _CMMER,
@@ -1876,7 +1937,7 @@ export var CustomMetricEvaluatorModelConfig$: StaticStructureSchema = [3, n0, _C
 ];
 export var CustomModelDeploymentSummary$: StaticStructureSchema = [3, n0, _CMDS,
   0,
-  [_cMDA, _cMDN, _mA, _cA, _s, _lUA, _fMa],
+  [_cMDA, _cMDN, _mA, _cA, _st, _lUA, _fMa],
   [0, 0, 0, 5, 0, 5, 0], 5
 ];
 export var CustomModelDeploymentUpdateDetails$: StaticStructureSchema = [3, n0, _CMDUD,
@@ -1896,7 +1957,7 @@ export var CustomModelUnits$: StaticStructureSchema = [3, n0, _CMU,
 ];
 export var DataProcessingDetails$: StaticStructureSchema = [3, n0, _DPD,
   0,
-  [_s, _cTr, _lMT],
+  [_st, _cTr, _lMT],
   [0, 5, 5]
 ];
 export var DeleteAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _DARPBWR,
@@ -2111,7 +2172,7 @@ export var EvaluationRagConfigSummary$: StaticStructureSchema = [3, n0, _ERCS,
 ];
 export var EvaluationSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_jA, _jN, _s, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aT],
+  [_jA, _jN, _st, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aT],
   [0, 0, 0, 5, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => EvaluationInferenceConfigSummary$, 0], 6
 ];
 export var ExportAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema = [3, n0, _EARPVR,
@@ -2156,7 +2217,7 @@ export var FoundationModelDetails$: StaticStructureSchema = [3, n0, _FMD,
 ];
 export var FoundationModelLifecycle$: StaticStructureSchema = [3, n0, _FML,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var FoundationModelSummary$: StaticStructureSchema = [3, n0, _FMS,
@@ -2186,7 +2247,7 @@ export var GetAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSche
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSchema = [3, n0, _GARPBWRe,
   0,
-  [_pA, _bWI, _s, _bWT, _cA, _uA, _dN, _dCT, _dD],
+  [_pA, _bWI, _st, _bWT, _cA, _uA, _dN, _dCT, _dD],
   [0, 0, 0, 0, 5, 5, [() => AutomatedReasoningPolicyBuildDocumentName, 0], 0, [() => AutomatedReasoningPolicyBuildDocumentDescription, 0]], 6
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest$: StaticStructureSchema = [3, n0, _GARPBWRAR,
@@ -2246,7 +2307,7 @@ export var GetCustomModelDeploymentRequest$: StaticStructureSchema = [3, n0, _GC
 ];
 export var GetCustomModelDeploymentResponse$: StaticStructureSchema = [3, n0, _GCMDRe,
   0,
-  [_cMDA, _mDN, _mA, _cA, _s, _d, _uD, _fMa, _lUA],
+  [_cMDA, _mDN, _mA, _cA, _st, _d, _uD, _fMa, _lUA],
   [0, 0, 0, 5, 0, 0, () => CustomModelDeploymentUpdateDetails$, 0, 5], 5
 ];
 export var GetCustomModelRequest$: StaticStructureSchema = [3, n0, _GCMR,
@@ -2266,7 +2327,7 @@ export var GetEvaluationJobRequest$: StaticStructureSchema = [3, n0, _GEJR,
 ];
 export var GetEvaluationJobResponse$: StaticStructureSchema = [3, n0, _GEJRe,
   0,
-  [_jN, _s, _jA, _rA, _jTo, _eC, _iC, _oDC, _cTr, _jD, _cEKI, _aT, _lMT, _fMai],
+  [_jN, _st, _jA, _rA, _jTo, _eC, _iC, _oDC, _cTr, _jD, _cEKI, _aT, _lMT, _fMai],
   [0, 0, 0, 0, 0, [() => EvaluationConfig$, 0], [() => EvaluationInferenceConfig$, 0], () => EvaluationOutputDataConfig$, 5, [() => EvaluationJobDescription, 0], 0, 0, 5, 64 | 0], 9
 ];
 export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n0, _GFMAR,
@@ -2296,7 +2357,7 @@ export var GetGuardrailRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGuardrailResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_n, _gIu, _gA, _ve, _s, _cA, _uA, _bIM, _bOM, _d, _tP, _cP, _wP, _sIP, _cGP, _aRP, _cRD, _sRt, _fR, _kKA],
+  [_n, _gIu, _gA, _ve, _st, _cA, _uA, _bIM, _bOM, _d, _tP, _cP, _wP, _sIP, _cGP, _aRP, _cRD, _sRt, _fR, _kKA],
   [[() => GuardrailName, 0], 0, 0, 0, 0, 5, 5, [() => GuardrailBlockedMessaging, 0], [() => GuardrailBlockedMessaging, 0], [() => GuardrailDescription, 0], [() => GuardrailTopicPolicy$, 0], [() => GuardrailContentPolicy$, 0], [() => GuardrailWordPolicy$, 0], () => GuardrailSensitiveInformationPolicy$, [() => GuardrailContextualGroundingPolicy$, 0], () => GuardrailAutomatedReasoningPolicy$, () => GuardrailCrossRegionDetails$, [() => GuardrailStatusReasons, 0], [() => GuardrailFailureRecommendations, 0], 0], 9
 ];
 export var GetImportedModelRequest$: StaticStructureSchema = [3, n0, _GIMR,
@@ -2316,7 +2377,7 @@ export var GetInferenceProfileRequest$: StaticStructureSchema = [3, n0, _GIPR,
 ];
 export var GetInferenceProfileResponse$: StaticStructureSchema = [3, n0, _GIPRe,
   0,
-  [_iPN, _iPA, _mo, _iPIn, _s, _ty, _d, _cA, _uA],
+  [_iPN, _iPA, _mo, _iPIn, _st, _ty, _d, _cA, _uA],
   [0, 0, () => InferenceProfileModels, 0, 0, 0, [() => InferenceProfileDescription, 0], 5, 5], 6
 ];
 export var GetMarketplaceModelEndpointRequest$: StaticStructureSchema = [3, n0, _GMMER,
@@ -2336,7 +2397,7 @@ export var GetModelCopyJobRequest$: StaticStructureSchema = [3, n0, _GMCJR,
 ];
 export var GetModelCopyJobResponse$: StaticStructureSchema = [3, n0, _GMCJRe,
   0,
-  [_jA, _s, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
+  [_jA, _st, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0], 6
 ];
 export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GMCJRet,
@@ -2346,7 +2407,7 @@ export var GetModelCustomizationJobRequest$: StaticStructureSchema = [3, n0, _GM
 ];
 export var GetModelCustomizationJobResponse$: StaticStructureSchema = [3, n0, _GMCJReto,
   0,
-  [_jA, _jN, _oMN, _rA, _cTr, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _s, _sD, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
+  [_jA, _jN, _oMN, _rA, _cTr, _bMA, _tDC, _vDC, _oDC, _oMA, _cRT, _st, _sD, _fMa, _lMT, _eT, _hP, _cTu, _oMKKA, _tM, _vM, _vCp, _cC],
   [0, 0, 0, 0, 5, 0, [() => TrainingDataConfig$, 0], () => ValidationDataConfig$, () => OutputDataConfig$, 0, 0, 0, () => StatusDetails$, 0, 5, 5, 128 | 0, 0, 0, () => TrainingMetrics$, () => ValidationMetrics, () => VpcConfig$, () => CustomizationConfig$], 9
 ];
 export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR,
@@ -2356,7 +2417,7 @@ export var GetModelImportJobRequest$: StaticStructureSchema = [3, n0, _GMIJR,
 ];
 export var GetModelImportJobResponse$: StaticStructureSchema = [3, n0, _GMIJRe,
   0,
-  [_jA, _jN, _iMN, _iMA, _rA, _mDS, _s, _fMa, _cTr, _lMT, _eT, _vCp, _iMKKA],
+  [_jA, _jN, _iMN, _iMA, _rA, _mDS, _st, _fMa, _cTr, _lMT, _eT, _vCp, _iMKKA],
   [0, 0, 0, 0, 0, () => ModelDataSource$, 0, 0, 5, 5, 5, () => VpcConfig$, 0]
 ];
 export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJRet,
@@ -2366,7 +2427,7 @@ export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJR
 ];
 export var GetModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _GMIJReto,
   0,
-  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _s, _m, _lMT, _eT, _vCp, _tDIH, _jET],
+  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET],
   [0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5], 6
 ];
 export var GetModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GMILCR,
@@ -2386,7 +2447,7 @@ export var GetPromptRouterRequest$: StaticStructureSchema = [3, n0, _GPRR,
 ];
 export var GetPromptRouterResponse$: StaticStructureSchema = [3, n0, _GPRRe,
   0,
-  [_pRN, _rCo, _pRA, _mo, _fM, _s, _ty, _d, _cA, _uA],
+  [_pRN, _rCo, _pRA, _mo, _fM, _st, _ty, _d, _cA, _uA],
   [0, () => RoutingCriteria$, 0, () => PromptRouterTargetModels, () => PromptRouterTargetModel$, 0, 0, [() => PromptRouterDescription, 0], 5, 5], 7
 ];
 export var GetProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0, _GPMTR,
@@ -2396,7 +2457,7 @@ export var GetProvisionedModelThroughputRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetProvisionedModelThroughputResponse$: StaticStructureSchema = [3, n0, _GPMTRe,
   0,
-  [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _s, _cTr, _lMT, _fMa, _cD, _cET],
+  [_mU, _dMU, _pMN, _pMA, _mA, _dMA, _fMA, _st, _cTr, _lMT, _fMa, _cD, _cET],
   [1, 1, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 5], 10
 ];
 export var GetUseCaseForModelAccessRequest$: StaticStructureSchema = [3, n0, _GUCFMAR,
@@ -2526,7 +2587,7 @@ export var GuardrailSensitiveInformationPolicyConfig$: StaticStructureSchema = [
 ];
 export var GuardrailSummary$: StaticStructureSchema = [3, n0, _GS,
   0,
-  [_i, _ar, _s, _n, _ve, _cA, _uA, _d, _cRD],
+  [_i, _ar, _st, _n, _ve, _cA, _uA, _d, _cRD],
   [0, 0, 0, [() => GuardrailName, 0], 0, 5, 5, [() => GuardrailDescription, 0], () => GuardrailCrossRegionDetails$], 7
 ];
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
@@ -2611,15 +2672,9 @@ export var InferenceProfileModel$: StaticStructureSchema = [3, n0, _IPM,
 ];
 export var InferenceProfileSummary$: StaticStructureSchema = [3, n0, _IPS,
   0,
-  [_iPN, _iPA, _mo, _iPIn, _s, _ty, _d, _cA, _uA],
+  [_iPN, _iPA, _mo, _iPIn, _st, _ty, _d, _cA, _uA],
   [0, 0, () => InferenceProfileModels, 0, 0, 0, [() => InferenceProfileDescription, 0], 5, 5], 6
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvocationLogsConfig$: StaticStructureSchema = [3, n0, _ILC,
   0,
   [_iLS, _uPR, _rMF],
@@ -2872,12 +2927,12 @@ export var LoggingConfig$: StaticStructureSchema = [3, n0, _LC,
 ];
 export var MarketplaceModelEndpoint$: StaticStructureSchema = [3, n0, _MME,
   0,
-  [_eA, _mSI, _cA, _uA, _eCn, _eS, _s, _sM, _eSM],
+  [_eA, _mSI, _cA, _uA, _eCn, _eS, _st, _sM, _eSM],
   [0, 0, 5, 5, () => EndpointConfig$, 0, 0, 0, 0], 6
 ];
 export var MarketplaceModelEndpointSummary$: StaticStructureSchema = [3, n0, _MMES,
   0,
-  [_eA, _mSI, _cA, _uA, _s, _sM],
+  [_eA, _mSI, _cA, _uA, _st, _sM],
   [0, 0, 5, 5, 0, 0], 4
 ];
 export var MetadataAttributeSchema$: StaticStructureSchema = [3, n0, _MAS,
@@ -2892,17 +2947,17 @@ export var MetadataConfigurationForReranking$: StaticStructureSchema = [3, n0, _
 ];
 export var ModelCopyJobSummary$: StaticStructureSchema = [3, n0, _MCJS,
   0,
-  [_jA, _s, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
+  [_jA, _st, _cTr, _tMA, _sAI, _sMA, _tMN, _tMKKA, _tMT, _fMa, _sMN],
   [0, 0, 5, 0, 0, 0, 0, 0, () => TagList, 0, 0], 6
 ];
 export var ModelCustomizationJobSummary$: StaticStructureSchema = [3, n0, _MCJSo,
   0,
-  [_jA, _bMA, _jN, _s, _cTr, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
+  [_jA, _bMA, _jN, _st, _cTr, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
   [0, 0, 0, 0, 5, () => StatusDetails$, 5, 5, 0, 0, 0], 5
 ];
 export var ModelImportJobSummary$: StaticStructureSchema = [3, n0, _MIJS,
   0,
-  [_jA, _jN, _s, _cTr, _lMT, _eT, _iMA, _iMN],
+  [_jA, _jN, _st, _cTr, _lMT, _eT, _iMA, _iMN],
   [0, 0, 0, 5, 5, 5, 0, 0], 4
 ];
 export var ModelInvocationJobS3InputDataConfig$: StaticStructureSchema = [3, n0, _MIJSIDC,
@@ -2917,7 +2972,7 @@ export var ModelInvocationJobS3OutputDataConfig$: StaticStructureSchema = [3, n0
 ];
 export var ModelInvocationJobSummary$: StaticStructureSchema = [3, n0, _MIJSo,
   0,
-  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _s, _m, _lMT, _eT, _vCp, _tDIH, _jET],
+  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET],
   [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5], 7
 ];
 export var Offer$: StaticStructureSchema = [3, n0, _O,
@@ -2947,7 +3002,7 @@ export var PricingTerm$: StaticStructureSchema = [3, n0, _PT,
 ];
 export var PromptRouterSummary$: StaticStructureSchema = [3, n0, _PRS,
   0,
-  [_pRN, _rCo, _pRA, _mo, _fM, _s, _ty, _d, _cA, _uA],
+  [_pRN, _rCo, _pRA, _mo, _fM, _st, _ty, _d, _cA, _uA],
   [0, () => RoutingCriteria$, 0, () => PromptRouterTargetModels, () => PromptRouterTargetModel$, 0, 0, [() => PromptRouterDescription, 0], 5, 5], 7
 ];
 export var PromptRouterTargetModel$: StaticStructureSchema = [3, n0, _PRTM,
@@ -2962,7 +3017,7 @@ export var PromptTemplate$: StaticStructureSchema = [3, n0, _PTr,
 ];
 export var ProvisionedModelSummary$: StaticStructureSchema = [3, n0, _PMS,
   0,
-  [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _s, _cTr, _lMT, _cD, _cET],
+  [_pMN, _pMA, _mA, _dMA, _fMA, _mU, _dMU, _st, _cTr, _lMT, _cD, _cET],
   [0, 0, 0, 0, 0, 1, 1, 0, 5, 5, 0, 5], 10
 ];
 export var PutEnforcedGuardrailConfigurationRequest$: StaticStructureSchema = [3, n0, _PEGCR,
@@ -3020,18 +3075,6 @@ export var RequestMetadataBaseFilters$: StaticStructureSchema = [3, n0, _RMBF,
   [_eq, _nE],
   [[() => RequestMetadataMap, 0], [() => RequestMetadataMap, 0]]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _RAGC,
   0,
   [_ty, _kBC, _eSC],
@@ -3077,18 +3120,6 @@ export var SageMakerEndpoint$: StaticStructureSchema = [3, n0, _SME,
   [_iIC, _iTn, _eRx, _kEK, _vp],
   [1, 0, 0, 0, () => VpcConfig$], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartAutomatedReasoningPolicyBuildWorkflowRequest$: StaticStructureSchema = [3, n0, _SARPBWR,
   0,
   [_pA, _bWT, _sCo, _cRT],
@@ -3179,18 +3210,6 @@ export var TextInferenceConfig$: StaticStructureSchema = [3, n0, _TIC,
   [_tem, _tPo, _mTa, _sS],
   [1, 1, 1, 64 | 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TrainingDataConfig$: StaticStructureSchema = [3, n0, _TDC,
   0,
   [_sU, _iLC],
@@ -3198,7 +3217,7 @@ export var TrainingDataConfig$: StaticStructureSchema = [3, n0, _TDC,
 ];
 export var TrainingDetails$: StaticStructureSchema = [3, n0, _TDr,
   0,
-  [_s, _cTr, _lMT],
+  [_st, _cTr, _lMT],
   [0, 5, 5]
 ];
 export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
@@ -3293,15 +3312,9 @@ export var ValidationDataConfig$: StaticStructureSchema = [3, n0, _VDC,
 ];
 export var ValidationDetails$: StaticStructureSchema = [3, n0, _VD,
   0,
-  [_s, _cTr, _lMT],
+  [_st, _cTr, _lMT],
   [0, 5, 5]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Validator$: StaticStructureSchema = [3, n0, _V,
   0,
   [_sU],
@@ -3337,8 +3350,6 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   [_sI, _sGI],
   [64 | 0, 64 | 0], 2
 ];
-export var BedrockServiceException$: StaticErrorSchema = [-3, _sm, "BedrockServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockServiceException$, BedrockServiceException);
 var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [1, n0, _AEGOCc,
   0, () => AccountEnforcedGuardrailOutputConfiguration$
 ];

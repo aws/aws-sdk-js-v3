@@ -157,7 +157,7 @@ const _rP = "resourcesProcessed";
 const _rS = "resourcesSummary";
 const _rSe = "resourcesSuppressed";
 const _re = "region";
-const _s = "subject";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.support";
 const _sB = "submittedBy";
 const _sC = "serviceCode";
 const _sCL = "serviceCodeList";
@@ -167,13 +167,13 @@ const _sH = "supportedHours";
 const _sL = "severityLevels";
 const _sLu = "supportedLanguages";
 const _sT = "startTime";
-const _se = "services";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.support";
+const _se = "server";
+const _ser = "services";
 const _sp = "sparse";
 const _st = "status";
 const _sta = "statuses";
-const _su = "summaries";
+const _su = "subject";
+const _sum = "summaries";
 const _t = "type";
 const _tC = "timeCreated";
 const _ti = "timestamp";
@@ -198,6 +198,79 @@ import {
 import { SupportServiceException } from "../models/SupportServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SupportServiceException$: StaticErrorSchema = [-3, _s, "SupportServiceException", 0, [], []];
+_s_registry.registerError(SupportServiceException$, SupportServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AttachmentIdNotFound$: StaticErrorSchema = [-3, n0, _AINF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AttachmentIdNotFound$, AttachmentIdNotFound);
+export var AttachmentLimitExceeded$: StaticErrorSchema = [-3, n0, _ALE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AttachmentLimitExceeded$, AttachmentLimitExceeded);
+export var AttachmentSetExpired$: StaticErrorSchema = [-3, n0, _ASE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AttachmentSetExpired$, AttachmentSetExpired);
+export var AttachmentSetIdNotFound$: StaticErrorSchema = [-3, n0, _ASINF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AttachmentSetIdNotFound$, AttachmentSetIdNotFound);
+export var AttachmentSetSizeLimitExceeded$: StaticErrorSchema = [-3, n0, _ASSLE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AttachmentSetSizeLimitExceeded$, AttachmentSetSizeLimitExceeded);
+export var CaseCreationLimitExceeded$: StaticErrorSchema = [-3, n0, _CCLE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CaseCreationLimitExceeded$, CaseCreationLimitExceeded);
+export var CaseIdNotFound$: StaticErrorSchema = [-3, n0, _CINF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CaseIdNotFound$, CaseIdNotFound);
+export var DescribeAttachmentLimitExceeded$: StaticErrorSchema = [-3, n0, _DALE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DescribeAttachmentLimitExceeded$, DescribeAttachmentLimitExceeded);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddAttachmentsToSetRequest$: StaticStructureSchema = [3, n0, _AATSR,
   0,
   [_a, _aSI],
@@ -228,53 +301,11 @@ export var AttachmentDetails$: StaticStructureSchema = [3, n0, _AD,
   [_aI, _fN],
   [0, 0]
 ];
-export var AttachmentIdNotFound$: StaticErrorSchema = [-3, n0, _AINF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AttachmentIdNotFound$, AttachmentIdNotFound);
-export var AttachmentLimitExceeded$: StaticErrorSchema = [-3, n0, _ALE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AttachmentLimitExceeded$, AttachmentLimitExceeded);
-export var AttachmentSetExpired$: StaticErrorSchema = [-3, n0, _ASE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AttachmentSetExpired$, AttachmentSetExpired);
-export var AttachmentSetIdNotFound$: StaticErrorSchema = [-3, n0, _ASINF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AttachmentSetIdNotFound$, AttachmentSetIdNotFound);
-export var AttachmentSetSizeLimitExceeded$: StaticErrorSchema = [-3, n0, _ASSLE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AttachmentSetSizeLimitExceeded$, AttachmentSetSizeLimitExceeded);
-export var CaseCreationLimitExceeded$: StaticErrorSchema = [-3, n0, _CCLE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CaseCreationLimitExceeded$, CaseCreationLimitExceeded);
 export var CaseDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cI, _dI, _s, _st, _sC, _cC, _sCe, _sB, _tC, _rC, _cEA, _l],
+  [_cI, _dI, _su, _st, _sC, _cC, _sCe, _sB, _tC, _rC, _cEA, _l],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecentCaseCommunications$, 64 | 0, 0]
 ];
-export var CaseIdNotFound$: StaticErrorSchema = [-3, n0, _CINF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CaseIdNotFound$, CaseIdNotFound);
 export var Category$: StaticStructureSchema = [3, n0, _C,
   0,
   [_co, _n],
@@ -292,7 +323,7 @@ export var CommunicationTypeOptions$: StaticStructureSchema = [3, n0, _CTO,
 ];
 export var CreateCaseRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_s, _cB, _sC, _sCe, _cC, _cEA, _l, _iT, _aSI],
+  [_su, _cB, _sC, _sCe, _cC, _cEA, _l, _iT, _aSI],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 0], 2
 ];
 export var CreateCaseResponse$: StaticStructureSchema = [3, n0, _CCRr,
@@ -305,12 +336,6 @@ export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
   [_sDT, _eDT],
   [0, 0]
 ];
-export var DescribeAttachmentLimitExceeded$: StaticErrorSchema = [-3, n0, _DALE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DescribeAttachmentLimitExceeded$, DescribeAttachmentLimitExceeded);
 export var DescribeAttachmentRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
   [_aI],
@@ -358,7 +383,7 @@ export var DescribeServicesRequest$: StaticStructureSchema = [3, n0, _DSR,
 ];
 export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_se],
+  [_ser],
   [() => ServiceList]
 ];
 export var DescribeSeverityLevelsRequest$: StaticStructureSchema = [3, n0, _DSLR,
@@ -418,15 +443,9 @@ export var DescribeTrustedAdvisorCheckSummariesRequest$: StaticStructureSchema =
 ];
 export var DescribeTrustedAdvisorCheckSummariesResponse$: StaticStructureSchema = [3, n0, _DTACSRe,
   0,
-  [_su],
+  [_sum],
   [() => TrustedAdvisorCheckSummaryList], 1
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var RecentCaseCommunications$: StaticStructureSchema = [3, n0, _RCC,
   0,
   [_com, _nT],
@@ -472,12 +491,6 @@ export var SupportedLanguage$: StaticStructureSchema = [3, n0, _SLu,
   [_co, _l, _di],
   [0, 0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrustedAdvisorCategorySpecificSummary$: StaticStructureSchema = [3, n0, _TACSS,
   0,
   [_cO],
@@ -518,8 +531,6 @@ export var TrustedAdvisorResourcesSummary$: StaticStructureSchema = [3, n0, _TAR
   [_rP, _rF, _rIe, _rSe],
   [1, 1, 1, 1], 4
 ];
-export var SupportServiceException$: StaticErrorSchema = [-3, _sm, "SupportServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SupportServiceException$, SupportServiceException);
 var Attachments: StaticListSchema = [1, n0, _At,
   0, () => Attachment$
 ];

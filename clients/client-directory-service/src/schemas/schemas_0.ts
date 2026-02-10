@@ -431,13 +431,13 @@ const _SDRh = "ShareDirectoryResult";
 const _SDT = "StartDateTime";
 const _SDh = "SharedDirectories";
 const _SDha = "ShareDirectory";
-const _SE = "SettingEntries";
+const _SE = "ServiceException";
 const _SEI = "SchemaExtensionId";
 const _SEIc = "SchemaExtensionsInfo";
 const _SEIch = "SchemaExtensionInfo";
 const _SES = "SchemaExtensionStatus";
 const _SESR = "SchemaExtensionStatusReason";
-const _SEe = "ServiceException";
+const _SEe = "SettingEntries";
 const _SEet = "SettingEntry";
 const _SEs = "SsoEnabled";
 const _SGI = "SecurityGroupIds";
@@ -540,8 +540,8 @@ const _Va = "Validations";
 const _Val = "Value";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.directoryservice";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.directoryservice";
+const _se = "server";
 const n0 = "com.amazonaws.directoryservice";
 
 // smithy-typescript generated code
@@ -600,6 +600,259 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DirectoryServiceServiceException$: StaticErrorSchema = [-3, _s, "DirectoryServiceServiceException", 0, [], []];
+_s_registry.registerError(DirectoryServiceServiceException$, DirectoryServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ADAssessmentLimitExceededException$: StaticErrorSchema = [-3, n0, _ADALEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ADAssessmentLimitExceededException$, ADAssessmentLimitExceededException);
+export var AuthenticationFailedException$: StaticErrorSchema = [-3, n0, _AFE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(AuthenticationFailedException$, AuthenticationFailedException);
+export var CertificateAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CAEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(CertificateAlreadyExistsException$, CertificateAlreadyExistsException);
+export var CertificateDoesNotExistException$: StaticErrorSchema = [-3, n0, _CDNEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(CertificateDoesNotExistException$, CertificateDoesNotExistException);
+export var CertificateInUseException$: StaticErrorSchema = [-3, n0, _CIUE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(CertificateInUseException$, CertificateInUseException);
+export var CertificateLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(CertificateLimitExceededException$, CertificateLimitExceededException);
+export var ClientException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ClientException$, ClientException);
+export var DirectoryAlreadyInRegionException$: StaticErrorSchema = [-3, n0, _DAIRE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryAlreadyInRegionException$, DirectoryAlreadyInRegionException);
+export var DirectoryAlreadySharedException$: StaticErrorSchema = [-3, n0, _DASE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryAlreadySharedException$, DirectoryAlreadySharedException);
+export var DirectoryDoesNotExistException$: StaticErrorSchema = [-3, n0, _DDNEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryDoesNotExistException$, DirectoryDoesNotExistException);
+export var DirectoryInDesiredStateException$: StaticErrorSchema = [-3, n0, _DIDSE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryInDesiredStateException$, DirectoryInDesiredStateException);
+export var DirectoryLimitExceededException$: StaticErrorSchema = [-3, n0, _DLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryLimitExceededException$, DirectoryLimitExceededException);
+export var DirectoryNotSharedException$: StaticErrorSchema = [-3, n0, _DNSE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryNotSharedException$, DirectoryNotSharedException);
+export var DirectoryUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DirectoryUnavailableException$, DirectoryUnavailableException);
+export var DisableAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _DAIPE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DisableAlreadyInProgressException$, DisableAlreadyInProgressException);
+export var DomainControllerLimitExceededException$: StaticErrorSchema = [-3, n0, _DCLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DomainControllerLimitExceededException$, DomainControllerLimitExceededException);
+export var EnableAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _EAIPE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(EnableAlreadyInProgressException$, EnableAlreadyInProgressException);
+export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
+export var EntityDoesNotExistException$: StaticErrorSchema = [-3, n0, _EDNEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(EntityDoesNotExistException$, EntityDoesNotExistException);
+export var IncompatibleSettingsException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(IncompatibleSettingsException$, IncompatibleSettingsException);
+export var InsufficientPermissionsException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InsufficientPermissionsException$, InsufficientPermissionsException);
+export var InvalidCertificateException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidCertificateException$, InvalidCertificateException);
+export var InvalidClientAuthStatusException$: StaticErrorSchema = [-3, n0, _ICASE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidClientAuthStatusException$, InvalidClientAuthStatusException);
+export var InvalidLDAPSStatusException$: StaticErrorSchema = [-3, n0, _ILDAPSSE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidLDAPSStatusException$, InvalidLDAPSStatusException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPEn,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPEnv,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidPasswordException$, InvalidPasswordException);
+export var InvalidTargetException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidTargetException$, InvalidTargetException);
+export var IpRouteLimitExceededException$: StaticErrorSchema = [-3, n0, _IRLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(IpRouteLimitExceededException$, IpRouteLimitExceededException);
+export var NoAvailableCertificateException$: StaticErrorSchema = [-3, n0, _NACE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(NoAvailableCertificateException$, NoAvailableCertificateException);
+export var OrganizationsException$: StaticErrorSchema = [-3, n0, _OE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(OrganizationsException$, OrganizationsException);
+export var RegionLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(RegionLimitExceededException$, RegionLimitExceededException);
+export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _se },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ServiceException$, ServiceException);
+export var ShareLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ShareLimitExceededException$, ShareLimitExceededException);
+export var SnapshotLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEEn,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(SnapshotLimitExceededException$, SnapshotLimitExceededException);
+export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(TagLimitExceededException$, TagLimitExceededException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UnsupportedSettingsException$: StaticErrorSchema = [-3, n0, _USE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(UnsupportedSettingsException$, UnsupportedSettingsException);
+export var UserDoesNotExistException$: StaticErrorSchema = [-3, n0, _UDNEE,
+  { [_e]: _c },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(UserDoesNotExistException$, UserDoesNotExistException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ComputerPassword: StaticSimpleSchema = [0, n0, _CP, 8, 0];
 var ConnectPassword: StaticSimpleSchema = [0, n0, _CPo, 8, 0];
 var Notes: StaticSimpleSchema = [0, n0, _N, 8, 0];
@@ -617,18 +870,6 @@ export var AcceptSharedDirectoryResult$: StaticStructureSchema = [3, n0, _ASDRc,
   [_SD],
   [[() => SharedDirectory$, 0]]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var ADAssessmentLimitExceededException$: StaticErrorSchema = [-3, n0, _ADALEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ADAssessmentLimitExceededException$, ADAssessmentLimitExceededException);
 export var AddIpRoutesRequest$: StaticStructureSchema = [3, n0, _AIRR,
   0,
   [_DI, _IR, _USGFDC],
@@ -689,12 +930,6 @@ export var Attribute$: StaticStructureSchema = [3, n0, _At,
   [_Na, _Val],
   [0, 0]
 ];
-export var AuthenticationFailedException$: StaticErrorSchema = [-3, n0, _AFE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AuthenticationFailedException$, AuthenticationFailedException);
 export var CancelSchemaExtensionRequest$: StaticStructureSchema = [3, n0, _CSER,
   0,
   [_DI, _SEI],
@@ -710,35 +945,11 @@ export var Certificate$: StaticStructureSchema = [3, n0, _Ce,
   [_CI, _St, _SRt, _CN, _RDT, _EDT, _Ty, _CCAS],
   [0, 0, 0, 0, 4, 4, 0, () => ClientCertAuthSettings$]
 ];
-export var CertificateAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CAEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(CertificateAlreadyExistsException$, CertificateAlreadyExistsException);
-export var CertificateDoesNotExistException$: StaticErrorSchema = [-3, n0, _CDNEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(CertificateDoesNotExistException$, CertificateDoesNotExistException);
 export var CertificateInfo$: StaticStructureSchema = [3, n0, _CIe,
   0,
   [_CI, _CN, _St, _EDT, _Ty],
   [0, 0, 0, 4, 0]
 ];
-export var CertificateInUseException$: StaticErrorSchema = [-3, n0, _CIUE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(CertificateInUseException$, CertificateInUseException);
-export var CertificateLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(CertificateLimitExceededException$, CertificateLimitExceededException);
 export var ClientAuthenticationSettingInfo$: StaticStructureSchema = [3, n0, _CASI,
   0,
   [_Ty, _S, _LUDTa],
@@ -749,12 +960,6 @@ export var ClientCertAuthSettings$: StaticStructureSchema = [3, n0, _CCAS,
   [_OCSPU],
   [0]
 ];
-export var ClientException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ClientException$, ClientException);
 export var Computer$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_CIo, _CNo, _CA],
@@ -1072,7 +1277,7 @@ export var DescribeSettingsRequest$: StaticStructureSchema = [3, n0, _DSRes,
 ];
 export var DescribeSettingsResult$: StaticStructureSchema = [3, n0, _DSResc,
   0,
-  [_DI, _SE, _NTe],
+  [_DI, _SEe, _NTe],
   [0, () => SettingEntries, 0]
 ];
 export var DescribeSharedDirectoriesRequest$: StaticStructureSchema = [3, n0, _DSDR,
@@ -1115,18 +1320,6 @@ export var DescribeUpdateDirectoryResult$: StaticStructureSchema = [3, n0, _DUDR
   [_UA, _NTe],
   [() => UpdateActivities, 0]
 ];
-export var DirectoryAlreadyInRegionException$: StaticErrorSchema = [-3, n0, _DAIRE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryAlreadyInRegionException$, DirectoryAlreadyInRegionException);
-export var DirectoryAlreadySharedException$: StaticErrorSchema = [-3, n0, _DASE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryAlreadySharedException$, DirectoryAlreadySharedException);
 export var DirectoryConnectSettings$: StaticStructureSchema = [3, n0, _DCS,
   0,
   [_VI, _SI, _CUN, _CDI, _CDIV],
@@ -1142,46 +1335,16 @@ export var DirectoryDescription$: StaticStructureSchema = [3, n0, _DDi,
   [_DI, _Na, _SN, _Si, _E, _Al, _AU, _D, _DIA, _DIAn, _Sta, _SS, _SM, _SNh, _LT, _SLUDT, _Ty, _VS, _CS, _RSa, _RSad, _SRta, _SEs, _DNODC, _ODD, _RIeg, _OV, _HS, _NT],
   [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0, [() => Notes, 0], 4, 4, 0, () => DirectoryVpcSettingsDescription$, () => DirectoryConnectSettingsDescription$, [() => RadiusSettings$, 0], 0, 0, 2, 1, [() => OwnerDirectoryDescription$, 0], () => RegionsInfo$, 0, () => HybridSettingsDescription$, 0]
 ];
-export var DirectoryDoesNotExistException$: StaticErrorSchema = [-3, n0, _DDNEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryDoesNotExistException$, DirectoryDoesNotExistException);
-export var DirectoryInDesiredStateException$: StaticErrorSchema = [-3, n0, _DIDSE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryInDesiredStateException$, DirectoryInDesiredStateException);
-export var DirectoryLimitExceededException$: StaticErrorSchema = [-3, n0, _DLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryLimitExceededException$, DirectoryLimitExceededException);
 export var DirectoryLimits$: StaticStructureSchema = [3, n0, _DL,
   0,
   [_CODL, _CODCC, _CODLR, _COMADL, _COMADCC, _COMADLR, _CDL, _CDCC, _CDLR],
   [1, 1, 2, 1, 1, 2, 1, 1, 2]
 ];
-export var DirectoryNotSharedException$: StaticErrorSchema = [-3, n0, _DNSE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryNotSharedException$, DirectoryNotSharedException);
 export var DirectorySizeUpdateSettings$: StaticStructureSchema = [3, n0, _DSUS,
   0,
   [_DS],
   [0]
 ];
-export var DirectoryUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DirectoryUnavailableException$, DirectoryUnavailableException);
 export var DirectoryVpcSettings$: StaticStructureSchema = [3, n0, _DVS,
   0,
   [_VI, _SI],
@@ -1192,12 +1355,6 @@ export var DirectoryVpcSettingsDescription$: StaticStructureSchema = [3, n0, _DV
   [_VI, _SI, _SGIe, _AZ],
   [0, 64 | 0, 0, 64 | 0]
 ];
-export var DisableAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _DAIPE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DisableAlreadyInProgressException$, DisableAlreadyInProgressException);
 export var DisableCAEnrollmentPolicyRequest$: StaticStructureSchema = [3, n0, _DCAEPRi,
   0,
   [_DI],
@@ -1263,18 +1420,6 @@ export var DomainController$: StaticStructureSchema = [3, n0, _DCo,
   [_DI, _DCIom, _DIAns, _DIAnsp, _VI, _SIu, _AZv, _S, _SR, _LT, _SLUDTt],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
-export var DomainControllerLimitExceededException$: StaticErrorSchema = [-3, n0, _DCLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DomainControllerLimitExceededException$, DomainControllerLimitExceededException);
-export var EnableAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _EAIPE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(EnableAlreadyInProgressException$, EnableAlreadyInProgressException);
 export var EnableCAEnrollmentPolicyRequest$: StaticStructureSchema = [3, n0, _ECAEPR,
   0,
   [_DI, _PCA],
@@ -1335,18 +1480,6 @@ export var EnableSsoResult$: StaticStructureSchema = [3, n0, _ESRn,
   [],
   []
 ];
-export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
-export var EntityDoesNotExistException$: StaticErrorSchema = [-3, n0, _EDNEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(EntityDoesNotExistException$, EntityDoesNotExistException);
 export var EventTopic$: StaticStructureSchema = [3, n0, _ETv,
   0,
   [_DI, _TN, _TA, _CDT, _S],
@@ -1402,60 +1535,6 @@ export var HybridUpdateValue$: StaticStructureSchema = [3, n0, _HUV,
   [_II, _DIn],
   [64 | 0, 64 | 0]
 ];
-export var IncompatibleSettingsException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleSettingsException$, IncompatibleSettingsException);
-export var InsufficientPermissionsException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InsufficientPermissionsException$, InsufficientPermissionsException);
-export var InvalidCertificateException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidCertificateException$, InvalidCertificateException);
-export var InvalidClientAuthStatusException$: StaticErrorSchema = [-3, n0, _ICASE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidClientAuthStatusException$, InvalidClientAuthStatusException);
-export var InvalidLDAPSStatusException$: StaticErrorSchema = [-3, n0, _ILDAPSSE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidLDAPSStatusException$, InvalidLDAPSStatusException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPEn,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPEnv,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordException);
-export var InvalidTargetException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidTargetException$, InvalidTargetException);
 export var IpRoute$: StaticStructureSchema = [3, n0, _IRp,
   0,
   [_CIi, _CIid, _D],
@@ -1466,12 +1545,6 @@ export var IpRouteInfo$: StaticStructureSchema = [3, n0, _IRI,
   [_DI, _CIi, _CIid, _IRSM, _ADT, _IRSR, _D],
   [0, 0, 0, 0, 4, 0, 0]
 ];
-export var IpRouteLimitExceededException$: StaticErrorSchema = [-3, n0, _IRLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(IpRouteLimitExceededException$, IpRouteLimitExceededException);
 export var LDAPSSettingInfo$: StaticStructureSchema = [3, n0, _LDAPSSIe,
   0,
   [_LDAPSS, _LDAPSSR, _LUDTa],
@@ -1547,18 +1620,6 @@ export var NetworkUpdateSettings$: StaticStructureSchema = [3, n0, _NUS,
   [_NT, _CDIV],
   [0, 64 | 0]
 ];
-export var NoAvailableCertificateException$: StaticErrorSchema = [-3, n0, _NACE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NoAvailableCertificateException$, NoAvailableCertificateException);
-export var OrganizationsException$: StaticErrorSchema = [-3, n0, _OE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(OrganizationsException$, OrganizationsException);
 export var OSUpdateSettings$: StaticStructureSchema = [3, n0, _OSUS,
   0,
   [_OSV],
@@ -1579,12 +1640,6 @@ export var RegionDescription$: StaticStructureSchema = [3, n0, _RDe,
   [_DI, _RN, _RTe, _S, _VS, _DNODC, _LT, _SLUDTt, _LUDTa],
   [0, 0, 0, 0, () => DirectoryVpcSettings$, 1, 4, 4, 4]
 ];
-export var RegionLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(RegionLimitExceededException$, RegionLimitExceededException);
 export var RegionsInfo$: StaticStructureSchema = [3, n0, _RIeg,
   0,
   [_PR, _ARd],
@@ -1675,12 +1730,6 @@ export var SchemaExtensionInfo$: StaticStructureSchema = [3, n0, _SEIch,
   [_DI, _SEI, _D, _SES, _SESR, _SDT, _EDTn],
   [0, 0, 0, 0, 0, 4, 4]
 ];
-export var ServiceException$: StaticErrorSchema = [-3, n0, _SEe,
-  { [_e]: _s },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
 export var Setting$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_Na, _Val],
@@ -1706,12 +1755,6 @@ export var ShareDirectoryResult$: StaticStructureSchema = [3, n0, _SDRh,
   [_SDI],
   [0]
 ];
-export var ShareLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ShareLimitExceededException$, ShareLimitExceededException);
 export var ShareTarget$: StaticStructureSchema = [3, n0, _STh,
   0,
   [_I, _Ty],
@@ -1722,12 +1765,6 @@ export var Snapshot$: StaticStructureSchema = [3, n0, _Sna,
   [_DI, _SIn, _Ty, _Na, _S, _ST],
   [0, 0, 0, 0, 0, 4]
 ];
-export var SnapshotLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEEn,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(SnapshotLimitExceededException$, SnapshotLimitExceededException);
 export var SnapshotLimits$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_MSL, _MSCC, _MSLR],
@@ -1758,12 +1795,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _Val],
   [0, 0], 2
 ];
-export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
 export var Trust$: StaticStructureSchema = [3, n0, _Tru,
   0,
   [_DI, _TI, _RDN, _TT, _TD, _TS, _CDT, _LUDTa, _SLUDTta, _TSR, _SAe],
@@ -1784,18 +1815,6 @@ export var UnshareTarget$: StaticStructureSchema = [3, n0, _UTn,
   [_I, _Ty],
   [0, 0], 2
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
-export var UnsupportedSettingsException$: StaticErrorSchema = [-3, n0, _USE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedSettingsException$, UnsupportedSettingsException);
 export var UpdateConditionalForwarderRequest$: StaticStructureSchema = [3, n0, _UCFR,
   0,
   [_DI, _RDN, _DIA, _DIAn],
@@ -1876,12 +1895,6 @@ export var UpdateValue$: StaticStructureSchema = [3, n0, _UV,
   [_OSUS],
   [() => OSUpdateSettings$]
 ];
-export var UserDoesNotExistException$: StaticErrorSchema = [-3, n0, _UDNEE,
-  { [_e]: _c },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UserDoesNotExistException$, UserDoesNotExistException);
 export var VerifyTrustRequest$: StaticStructureSchema = [3, n0, _VTR,
   0,
   [_TI],
@@ -1892,8 +1905,6 @@ export var VerifyTrustResult$: StaticStructureSchema = [3, n0, _VTRe,
   [_TI],
   [0]
 ];
-export var DirectoryServiceServiceException$: StaticErrorSchema = [-3, _sm, "DirectoryServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DirectoryServiceServiceException$, DirectoryServiceServiceException);
 var AdditionalRegions = 64 | 0;
 var AssessmentInstanceIds = 64 | 0;
 var AssessmentReports: StaticListSchema = [1, n0, _ARs,
@@ -1961,7 +1972,7 @@ var SchemaExtensionsInfo: StaticListSchema = [1, n0, _SEIc,
 ];
 var SecurityGroupIds = 64 | 0;
 var Servers = 64 | 0;
-var SettingEntries: StaticListSchema = [1, n0, _SE,
+var SettingEntries: StaticListSchema = [1, n0, _SEe,
   0, () => SettingEntry$
 ];
 var Settings: StaticListSchema = [1, n0, _Set,

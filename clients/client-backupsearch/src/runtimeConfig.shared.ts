@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBackupSearchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BackupSearchClientConfig } from "./BackupSearchClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BackupSearchClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.backupsearch",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "CryoBackupSearchService",
     },

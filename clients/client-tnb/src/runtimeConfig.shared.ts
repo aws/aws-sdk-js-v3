@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTnbHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TnbClientConfig } from "./TnbClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TnbClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.tnb",
+      errorTypeRegistries,
       version: "2008-10-21",
       serviceTarget: "TNB",
     },

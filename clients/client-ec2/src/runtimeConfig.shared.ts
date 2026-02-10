@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEC2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { EC2ClientConfig } from "./EC2Client";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: EC2ClientConfig) => {
     protocol: config?.protocol ?? AwsEc2QueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ec2",
+      errorTypeRegistries,
       xmlNamespace: "http://ec2.amazonaws.com/doc/2016-11-15",
       version: "2016-11-15",
       serviceTarget: "AmazonEC2",

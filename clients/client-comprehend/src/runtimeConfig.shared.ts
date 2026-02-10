@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultComprehendHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ComprehendClientConfig } from "./ComprehendClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ComprehendClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.comprehend",
+      errorTypeRegistries,
       version: "2017-11-27",
       serviceTarget: "Comprehend_20171127",
     },

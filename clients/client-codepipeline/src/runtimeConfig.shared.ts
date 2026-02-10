@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodePipelineHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodePipelineClientConfig } from "./CodePipelineClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodePipelineClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codepipeline",
+      errorTypeRegistries,
       xmlNamespace: "http://codepipeline.amazonaws.com/doc/2015-07-09/",
       version: "2015-07-09",
       serviceTarget: "CodePipeline_20150709",

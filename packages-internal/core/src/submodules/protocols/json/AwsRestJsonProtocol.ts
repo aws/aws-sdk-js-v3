@@ -3,8 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import type { TypeRegistry } from "@smithy/core/schema";
-import { NormalizedSchema } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -20,33 +19,21 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import type { JsonSettings } from "./JsonCodec";
-import { JsonCodec } from "./JsonCodec";
+import { JsonCodec, JsonSettings } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
 /**
  * @public
  */
 export class AwsRestJsonProtocol extends HttpBindingProtocol {
-  /**
-   * @override
-   */
-  protected declare compositeErrorRegistry: TypeRegistry;
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   private readonly codec: JsonCodec;
   private readonly mixin = new ProtocolLib();
 
-  public constructor({
-    defaultNamespace,
-    errorTypeRegistries,
-  }: {
-    defaultNamespace: string;
-    errorTypeRegistries?: TypeRegistry[];
-  }) {
+  public constructor({ defaultNamespace }: { defaultNamespace: string }) {
     super({
       defaultNamespace,
-      errorTypeRegistries,
     });
     const settings: JsonSettings = {
       timestampFormat: {
@@ -142,7 +129,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);

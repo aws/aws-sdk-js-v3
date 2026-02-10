@@ -235,7 +235,7 @@ const _rP = "resourcePolicy";
 const _rS = "replicationStatus";
 const _ro = "role";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3tables";
 const _sA = "sseAlgorithm";
 const _sC = "storageClass";
 const _sCC = "storageClassConfiguration";
@@ -244,8 +244,8 @@ const _sTARN = "sourceTableARN";
 const _sc = "schema";
 const _se = "server";
 const _set = "settings";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3tables";
-const _st = "strategy";
+const _st = "status";
+const _str = "strategy";
 const _t = "tags";
 const _tA = "tableArn";
 const _tARN = "tableARN";
@@ -287,24 +287,67 @@ import {
 import { S3TablesServiceException } from "../models/S3TablesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var S3TablesServiceException$: StaticErrorSchema = [-3, _s, "S3TablesServiceException", 0, [], []];
+_s_registry.registerError(S3TablesServiceException$, S3TablesServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
+  { [_e]: _c, [_hE]: 405 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateNamespaceRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_tBARN, _n],
@@ -385,12 +428,6 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   [_sA, _kKA],
   [0, 0], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetNamespaceRequest$: StaticStructureSchema = [3, n0, _GNR,
   0,
   [_tBARN, _n],
@@ -498,7 +535,7 @@ export var GetTableMaintenanceJobStatusRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetTableMaintenanceJobStatusResponse$: StaticStructureSchema = [3, n0, _GTMJSRe,
   0,
-  [_tARN, _s],
+  [_tARN, _st],
   [0, () => TableMaintenanceJobStatus], 2
 ];
 export var GetTableMetadataLocationRequest$: StaticStructureSchema = [3, n0, _GTMLR,
@@ -538,7 +575,7 @@ export var GetTableRecordExpirationJobStatusRequest$: StaticStructureSchema = [3
 ];
 export var GetTableRecordExpirationJobStatusResponse$: StaticStructureSchema = [3, n0, _GTREJSRe,
   0,
-  [_s, _lRT, _fM, _met],
+  [_st, _lRT, _fM, _met],
   [0, 5, 0, () => TableRecordExpirationJobMetrics$], 1
 ];
 export var GetTableReplicationRequest$: StaticStructureSchema = [3, n0, _GTRR,
@@ -583,7 +620,7 @@ export var GetTableStorageClassResponse$: StaticStructureSchema = [3, n0, _GTSCR
 ];
 export var IcebergCompactionSettings$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_tFSMB, _st],
+  [_tFSMB, _str],
   [1, 0]
 ];
 export var IcebergMetadata$: StaticStructureSchema = [3, n0, _IM,
@@ -606,12 +643,6 @@ export var IcebergUnreferencedFileRemovalSettings$: StaticStructureSchema = [3, 
   [_uD, _nCD],
   [1, 1]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var LastSuccessfulReplicatedUpdate$: StaticStructureSchema = [3, n0, _LSRU,
   0,
   [_mL, _ti],
@@ -662,23 +693,11 @@ export var ManagedTableInformation$: StaticStructureSchema = [3, n0, _MTI,
   [_rI],
   [() => ReplicationInformation$]
 ];
-export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
-  { [_e]: _c, [_hE]: 405 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
 export var NamespaceSummary$: StaticStructureSchema = [3, n0, _NS,
   0,
   [_n, _cA, _cB, _oAI, _nI, _tBI],
   [64 | 0, 5, 0, 0, 0, 0], 4
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutTableBucketEncryptionRequest$: StaticStructureSchema = [3, n0, _PTBER,
   0,
   [_tBARN, _eC],
@@ -706,7 +725,7 @@ export var PutTableBucketReplicationRequest$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutTableBucketReplicationResponse$: StaticStructureSchema = [3, n0, _PTBRRu,
   0,
-  [_vT, _s],
+  [_vT, _st],
   [0, 0], 2
 ];
 export var PutTableBucketStorageClassRequest$: StaticStructureSchema = [3, n0, _PTBSCR,
@@ -736,7 +755,7 @@ export var PutTableReplicationRequest$: StaticStructureSchema = [3, n0, _PTRR,
 ];
 export var PutTableReplicationResponse$: StaticStructureSchema = [3, n0, _PTRRu,
   0,
-  [_vT, _s],
+  [_vT, _st],
   [0, 0], 2
 ];
 export var RenameTableRequest$: StaticStructureSchema = [3, n0, _RTR,
@@ -771,7 +790,7 @@ export var StorageClassConfiguration$: StaticStructureSchema = [3, n0, _SCC,
 ];
 export var TableBucketMaintenanceConfigurationValue$: StaticStructureSchema = [3, n0, _TBMCV,
   0,
-  [_s, _set],
+  [_st, _set],
   [0, () => TableBucketMaintenanceSettings$]
 ];
 export var TableBucketReplicationConfiguration$: StaticStructureSchema = [3, n0, _TBRC,
@@ -791,17 +810,17 @@ export var TableBucketSummary$: StaticStructureSchema = [3, n0, _TBS,
 ];
 export var TableMaintenanceConfigurationValue$: StaticStructureSchema = [3, n0, _TMCV,
   0,
-  [_s, _set],
+  [_st, _set],
   [0, () => TableMaintenanceSettings$]
 ];
 export var TableMaintenanceJobStatusValue$: StaticStructureSchema = [3, n0, _TMJSV,
   0,
-  [_s, _lRT, _fM],
+  [_st, _lRT, _fM],
   [0, 5, 0], 1
 ];
 export var TableRecordExpirationConfigurationValue$: StaticStructureSchema = [3, n0, _TRECV,
   0,
-  [_s, _set],
+  [_st, _set],
   [0, () => TableRecordExpirationSettings$]
 ];
 export var TableRecordExpirationJobMetrics$: StaticStructureSchema = [3, n0, _TREJM,
@@ -839,12 +858,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRag,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -866,8 +879,6 @@ export var UpdateTableMetadataLocationResponse$: StaticStructureSchema = [3, n0,
   [0, 0, 64 | 0, 0, 0], 5
 ];
 var __Unit = "unit" as const;
-export var S3TablesServiceException$: StaticErrorSchema = [-3, _sm, "S3TablesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3TablesServiceException$, S3TablesServiceException);
 var NamespaceList = 64 | 0;
 var NamespaceSummaryList: StaticListSchema = [1, n0, _NSL,
   0, () => NamespaceSummary$

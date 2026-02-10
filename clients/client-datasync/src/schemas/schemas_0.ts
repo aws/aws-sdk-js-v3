@@ -388,8 +388,8 @@ const _dEC = "datasyncErrorCode";
 const _e = "error";
 const _eC = "errorCode";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.datasync";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.datasync";
+const _se = "server";
 const n0 = "com.amazonaws.datasync";
 
 // smithy-typescript generated code
@@ -406,6 +406,31 @@ import { DataSyncServiceException } from "../models/DataSyncServiceException";
 import { InternalException, InvalidRequestException } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DataSyncServiceException$: StaticErrorSchema = [-3, _s, "DataSyncServiceException", 0, [], []];
+_s_registry.registerError(DataSyncServiceException$, DataSyncServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se },
+  [_m, _eC],
+  [0, 0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m, _eC, _dEC],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AzureBlobSasToken: StaticSimpleSchema = [0, n0, _ABST, 8, 0];
 var ObjectStorageSecretKey: StaticSimpleSchema = [0, n0, _OSSK, 8, 0];
 var SmbPassword: StaticSimpleSchema = [0, n0, _SP, 8, 0];
@@ -779,18 +804,6 @@ export var HdfsNameNode$: StaticStructureSchema = [3, n0, _HNN,
   [_H, _Po],
   [0, 1], 2
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _s },
-  [_m, _eC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_m, _eC, _dEC],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAgentsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_MR, _NT],
@@ -1166,8 +1179,6 @@ export var UpdateTaskResponse$: StaticStructureSchema = [3, n0, _UTRp,
   [],
   []
 ];
-export var DataSyncServiceException$: StaticErrorSchema = [-3, _sm, "DataSyncServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataSyncServiceException$, DataSyncServiceException);
 var AgentArnList = 64 | 0;
 var AgentList: StaticListSchema = [1, n0, _AL,
   0, () => AgentListEntry$

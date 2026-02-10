@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRestXmlProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => {
     protocol: config?.protocol ?? AwsRestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "aws.protocoltests.restxml",
+      errorTypeRegistries,
       version: "2019-12-16",
       serviceTarget: "RestXml",
     },

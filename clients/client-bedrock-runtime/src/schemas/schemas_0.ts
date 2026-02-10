@@ -380,7 +380,7 @@ const _rN = "resourceName";
 const _rT = "reasoningText";
 const _re = "regexes";
 const _ro = "role";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockruntime";
 const _sB = "sortBy";
 const _sC = "sourceContent";
 const _sE = "statusEquals";
@@ -409,7 +409,7 @@ const _sc = "score";
 const _sch = "schema";
 const _se = "server";
 const _si = "signature";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockruntime";
+const _so = "source";
 const _st = "status";
 const _sta = "start";
 const _stat = "statements";
@@ -490,18 +490,97 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockRuntimeServiceException$: StaticErrorSchema = [-3, _s, "BedrockRuntimeServiceException", 0, [], []];
+_s_registry.registerError(BedrockRuntimeServiceException$, BedrockRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ModelErrorException$: StaticErrorSchema = [-3, n0, _MEE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m, _oSC, _rN],
+  [0, 1, 0]
+];
+n0_registry.registerError(ModelErrorException$, ModelErrorException);
+export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ModelNotReadyException$, ModelNotReadyException);
+export var ModelStreamErrorException$: StaticErrorSchema = [-3, n0, _MSEE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m, _oSC, _oM],
+  [0, 1, 0]
+];
+n0_registry.registerError(ModelStreamErrorException$, ModelStreamErrorException);
+export var ModelTimeoutException$: StaticErrorSchema = [-3, n0, _MTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ModelTimeoutException$, ModelTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AsyncInvokeMessage: StaticSimpleSchema = [0, n0, _AIM, 8, 0];
 var Body: StaticSimpleSchema = [0, n0, _B, 8, 21];
 var GuardrailAutomatedReasoningStatementLogicContent: StaticSimpleSchema = [0, n0, _GARSLC, 8, 0];
 var GuardrailAutomatedReasoningStatementNaturalLanguageContent: StaticSimpleSchema = [0, n0, _GARSNLC, 8, 0];
 var ModelInputPayload: StaticSimpleSchema = [0, n0, _MIP, 8, 15];
 var PartBody: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AnyToolChoice$: StaticStructureSchema = [3, n0, _ATC,
   0,
   [],
@@ -514,7 +593,7 @@ export var AppliedGuardrailDetails$: StaticStructureSchema = [3, n0, _AGD,
 ];
 export var ApplyGuardrailRequest$: StaticStructureSchema = [3, n0, _AGR,
   0,
-  [_gIu, _gV, _s, _co, _oS],
+  [_gIu, _gV, _so, _co, _oS],
   [[0, 1], [0, 1], 0, [() => GuardrailContentBlockList, 0], 0], 4
 ];
 export var ApplyGuardrailResponse$: StaticStructureSchema = [3, n0, _AGRp,
@@ -534,7 +613,7 @@ export var AsyncInvokeSummary$: StaticStructureSchema = [3, n0, _AIS,
 ];
 export var AudioBlock$: StaticStructureSchema = [3, n0, _AB,
   0,
-  [_f, _s, _e],
+  [_f, _so, _e],
   [0, [() => AudioSource$, 0], [() => ErrorBlock$, 0]], 2
 ];
 export var AutoToolChoice$: StaticStructureSchema = [3, n0, _ATCu,
@@ -564,7 +643,7 @@ export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
 ];
 export var Citation$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_ti, _s, _sC, _l],
+  [_ti, _so, _sC, _l],
   [0, 0, () => CitationSourceContentList, () => CitationLocation$]
 ];
 export var CitationsConfig$: StaticStructureSchema = [3, n0, _CC,
@@ -579,7 +658,7 @@ export var CitationsContentBlock$: StaticStructureSchema = [3, n0, _CCB,
 ];
 export var CitationsDelta$: StaticStructureSchema = [3, n0, _CDi,
   0,
-  [_ti, _s, _sC, _l],
+  [_ti, _so, _sC, _l],
   [0, 0, () => CitationSourceContentListDelta, () => CitationLocation$]
 ];
 export var CitationSourceContentDelta$: StaticStructureSchema = [3, n0, _CSCD,
@@ -587,12 +666,6 @@ export var CitationSourceContentDelta$: StaticStructureSchema = [3, n0, _CSCD,
   [_te],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentBlockDeltaEvent$: StaticStructureSchema = [3, n0, _CBDE,
   0,
   [_d, _cBI],
@@ -670,7 +743,7 @@ export var CountTokensResponse$: StaticStructureSchema = [3, n0, _CTRou,
 ];
 export var DocumentBlock$: StaticStructureSchema = [3, n0, _DB,
   0,
-  [_n, _s, _f, _con, _ci],
+  [_n, _so, _f, _con, _ci],
   [0, () => DocumentSource$, 0, 0, () => CitationsConfig$], 2
 ];
 export var DocumentCharLocation$: StaticStructureSchema = [3, n0, _DCL,
@@ -810,7 +883,7 @@ export var GuardrailContextualGroundingPolicyAssessment$: StaticStructureSchema 
 ];
 export var GuardrailConverseImageBlock$: StaticStructureSchema = [3, n0, _GCIB,
   8,
-  [_f, _s],
+  [_f, _so],
   [0, [() => GuardrailConverseImageSource$, 0]], 2
 ];
 export var GuardrailConverseTextBlock$: StaticStructureSchema = [3, n0, _GCTB,
@@ -830,7 +903,7 @@ export var GuardrailCustomWord$: StaticStructureSchema = [3, n0, _GCW,
 ];
 export var GuardrailImageBlock$: StaticStructureSchema = [3, n0, _GIB,
   8,
-  [_f, _s],
+  [_f, _so],
   [0, [() => GuardrailImageSource$, 0]], 2
 ];
 export var GuardrailImageCoverage$: StaticStructureSchema = [3, n0, _GIC,
@@ -910,12 +983,12 @@ export var GuardrailWordPolicyAssessment$: StaticStructureSchema = [3, n0, _GWPA
 ];
 export var ImageBlock$: StaticStructureSchema = [3, n0, _IB,
   0,
-  [_f, _s, _e],
+  [_f, _so, _e],
   [0, [() => ImageSource$, 0], [() => ErrorBlock$, 0]], 2
 ];
 export var ImageBlockDelta$: StaticStructureSchema = [3, n0, _IBD,
   0,
-  [_s, _e],
+  [_so, _e],
   [[() => ImageSource$, 0], [() => ErrorBlock$, 0]]
 ];
 export var ImageBlockStart$: StaticStructureSchema = [3, n0, _IBS,
@@ -928,12 +1001,6 @@ export var InferenceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   [_mT, _tem, _tPo, _sS],
   [1, 1, 1, 64 | 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeModelRequest$: StaticStructureSchema = [3, n0, _IMR,
   0,
   [_mI, _bo, _cT, _ac, _tr, _gIu, _gV, _pCL, _sTe],
@@ -999,30 +1066,6 @@ export var MessageStopEvent$: StaticStructureSchema = [3, n0, _MSEe,
   [_sR, _aMRFd],
   [0, 15], 1
 ];
-export var ModelErrorException$: StaticErrorSchema = [-3, n0, _MEE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m, _oSC, _rN],
-  [0, 1, 0]
-];
-TypeRegistry.for(n0).registerError(ModelErrorException$, ModelErrorException);
-export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ModelNotReadyException$, ModelNotReadyException);
-export var ModelStreamErrorException$: StaticErrorSchema = [-3, n0, _MSEE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m, _oSC, _oM],
-  [0, 1, 0]
-];
-TypeRegistry.for(n0).registerError(ModelStreamErrorException$, ModelStreamErrorException);
-export var ModelTimeoutException$: StaticErrorSchema = [-3, n0, _MTE,
-  { [_e]: _c, [_hE]: 408 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ModelTimeoutException$, ModelTimeoutException);
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_tF],
@@ -1053,12 +1096,6 @@ export var ReasoningTextBlock$: StaticStructureSchema = [3, n0, _RTB,
   [_te, _si],
   [0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_ur, _bO],
@@ -1066,7 +1103,7 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
 ];
 export var SearchResultBlock$: StaticStructureSchema = [3, n0, _SRB,
   0,
-  [_s, _ti, _co, _ci],
+  [_so, _ti, _co, _ci],
   [0, 0, () => SearchResultContentBlocks, () => CitationsConfig$], 3
 ];
 export var SearchResultContentBlock$: StaticStructureSchema = [3, n0, _SRCB,
@@ -1079,23 +1116,11 @@ export var SearchResultLocation$: StaticStructureSchema = [3, n0, _SRL,
   [_sRI, _sta, _end],
   [1, 1, 1]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceTier$: StaticStructureSchema = [3, n0, _ST,
   0,
   [_ty],
   [0], 1
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SpecificToolChoice$: StaticStructureSchema = [3, n0, _STC,
   0,
   [_n],
@@ -1121,12 +1146,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
   [_k, _v],
   [0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
   0,
   [_iT, _oT, _tT, _cRIT, _cWIT, _cD],
@@ -1167,15 +1186,9 @@ export var ToolUseBlockStart$: StaticStructureSchema = [3, n0, _TUBS,
   [_tUI, _n, _ty],
   [0, 0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VideoBlock$: StaticStructureSchema = [3, n0, _VB,
   0,
-  [_f, _s],
+  [_f, _so],
   [0, () => VideoSource$], 2
 ];
 export var WebLocation$: StaticStructureSchema = [3, n0, _WL,
@@ -1183,8 +1196,6 @@ export var WebLocation$: StaticStructureSchema = [3, n0, _WL,
   [_url, _do],
   [0, 0]
 ];
-export var BedrockRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "BedrockRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockRuntimeServiceException$, BedrockRuntimeServiceException);
 var AdditionalModelResponseFieldPaths = 64 | 0;
 var AsyncInvokeSummaries: StaticListSchema = [1, n0, _AISs,
   0, [() => AsyncInvokeSummary$,

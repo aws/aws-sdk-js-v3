@@ -314,7 +314,7 @@ const _rT = "resolutionTechniques";
 const _rTe = "resolutionType";
 const _re = "record";
 const _ru = "rules";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.entityresolution";
 const _sA = "schemaArn";
 const _sI = "statementId";
 const _sL = "schemaList";
@@ -323,7 +323,7 @@ const _sT = "startTime";
 const _sTu = "subType";
 const _sc = "schemas";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.entityresolution";
+const _st = "status";
 const _t = "token";
 const _tK = "tagKeys";
 const _tMR = "totalMappedRecords";
@@ -364,12 +364,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EntityResolutionServiceException$: StaticErrorSchema = [-3, _s, "EntityResolutionServiceException", 0, [], []];
+_s_registry.registerError(EntityResolutionServiceException$, EntityResolutionServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ExceedsLimitException$: StaticErrorSchema = [-3, n0, _ELE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _qN, _qV],
+  [0, 0, 1]
+];
+n0_registry.registerError(ExceedsLimitException$, ExceedsLimitException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddPolicyStatementInput$: StaticStructureSchema = [3, n0, _APSI,
   0,
   [_a, _sI, _ef, _ac, _p, _co],
@@ -387,15 +436,9 @@ export var BatchDeleteUniqueIdInput$: StaticStructureSchema = [3, n0, _BDUII,
 ];
 export var BatchDeleteUniqueIdOutput$: StaticStructureSchema = [3, n0, _BDUIO,
   0,
-  [_s, _er, _d, _dUI],
+  [_st, _er, _d, _dUI],
   [0, () => DeleteUniqueIdErrorsList, () => DeletedUniqueIdList, 64 | 0], 4
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _CIMWI,
   0,
   [_wN, _iSC, _iMT, _de, _oSC, _iRC, _rA, _ta],
@@ -506,12 +549,6 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   [_eM],
   [0]
 ];
-export var ExceedsLimitException$: StaticErrorSchema = [-3, n0, _ELE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _qN, _qV],
-  [0, 0, 1]
-];
-TypeRegistry.for(n0).registerError(ExceedsLimitException$, ExceedsLimitException);
 export var FailedRecord$: StaticStructureSchema = [3, n0, _FR,
   0,
   [_iSARN, _uIn, _eM],
@@ -534,7 +571,7 @@ export var GetIdMappingJobInput$: StaticStructureSchema = [3, n0, _GIMJI,
 ];
 export var GetIdMappingJobOutput$: StaticStructureSchema = [3, n0, _GIMJO,
   0,
-  [_jI, _s, _sT, _eTn, _me, _eD, _oSC, _jT],
+  [_jI, _st, _sT, _eTn, _me, _eD, _oSC, _jT],
   [0, 0, 4, 4, () => IdMappingJobMetrics$, () => ErrorDetails$, () => IdMappingJobOutputSourceConfig, 0], 3
 ];
 export var GetIdMappingWorkflowInput$: StaticStructureSchema = [3, n0, _GIMWI,
@@ -574,7 +611,7 @@ export var GetMatchingJobInput$: StaticStructureSchema = [3, n0, _GMJI,
 ];
 export var GetMatchingJobOutput$: StaticStructureSchema = [3, n0, _GMJO,
   0,
-  [_jI, _s, _sT, _eTn, _me, _eD, _oSC],
+  [_jI, _st, _sT, _eTn, _me, _eD, _oSC],
   [0, 0, 4, 4, () => JobMetrics$, () => ErrorDetails$, () => JobOutputSourceConfig], 3
 ];
 export var GetMatchingWorkflowInput$: StaticStructureSchema = [3, n0, _GMWI,
@@ -692,12 +729,6 @@ export var IntermediateSourceConfiguration$: StaticStructureSchema = [3, n0, _IS
   [_iSP],
   [0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobMetrics$: StaticStructureSchema = [3, n0, _JM,
   0,
   [_iR, _tRP, _rNP, _dRP, _mID],
@@ -710,7 +741,7 @@ export var JobOutputSource$: StaticStructureSchema = [3, n0, _JOS,
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jI, _s, _sT, _eTn],
+  [_jI, _st, _sT, _eTn],
   [0, 0, 4, 4], 3
 ];
 export var ListIdMappingJobsInput$: StaticStructureSchema = [3, n0, _LIMJI,
@@ -883,12 +914,6 @@ export var ResolutionTechniques$: StaticStructureSchema = [3, n0, _RT,
   [_rTe, _rBP, _rCP, _pP],
   [0, () => RuleBasedProperties$, () => RuleConditionProperties$, () => ProviderProperties$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
   [_rN, _mK],
@@ -949,12 +974,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
@@ -1005,14 +1024,6 @@ export var UpdateSchemaMappingOutput$: StaticStructureSchema = [3, n0, _USMO,
   [_sN, _sA, _mIF, _de],
   [0, 0, () => SchemaInputAttributes, 0], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var EntityResolutionServiceException$: StaticErrorSchema = [-3, _sm, "EntityResolutionServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EntityResolutionServiceException$, EntityResolutionServiceException);
 var AwsAccountIdList = 64 | 0;
 var DeletedUniqueIdList: StaticListSchema = [1, n0, _DUIL,
   0, () => DeletedUniqueId$

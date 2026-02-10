@@ -135,8 +135,8 @@ const _RC = "RegistrationConfig";
 const _RD = "RiskDetails";
 const _RNFE = "ResourceNotFoundException";
 const _RS = "RiskScore";
-const _RT = "RiskThreshold";
-const _RTe = "ResourceType";
+const _RT = "ResourceType";
+const _RTi = "RiskThreshold";
 const _S = "Score";
 const _SC = "StatusCode";
 const _SEJ = "SpeakerEnrollmentJob";
@@ -197,8 +197,8 @@ const _WSa = "WatchlistSummary";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.voiceid";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.voiceid";
+const _se = "server";
 const n0 = "com.amazonaws.voiceid";
 
 // smithy-typescript generated code
@@ -223,6 +223,61 @@ import {
 import { VoiceIDServiceException } from "../models/VoiceIDServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var VoiceIDServiceException$: StaticErrorSchema = [-3, _s, "VoiceIDServiceException", 0, [], []];
+_s_registry.registerError(VoiceIDServiceException$, VoiceIDServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _CT],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CustomerSpeakerId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var DomainName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
@@ -233,12 +288,6 @@ var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 var WatchlistDescription: StaticSimpleSchema = [0, n0, _WD, 8, 0];
 var WatchlistName: StaticSimpleSchema = [0, n0, _WN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssociateFraudsterRequest$: StaticStructureSchema = [3, n0, _AFR,
   0,
   [_DI, _WI, _FI],
@@ -259,12 +308,6 @@ export var AuthenticationResult$: StaticStructureSchema = [3, n0, _AR,
   [_ARI, _AASA, _AAEA, _CSI, _GSI, _De, _S, _C],
   [0, 4, 4, [() => CustomerSpeakerId, 0], 0, 0, 1, () => AuthenticationConfiguration$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _CT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDomainRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_N, _SSEC, _D, _CTl, _T],
@@ -392,7 +435,7 @@ export var EnrollmentConfig$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var EnrollmentJobFraudDetectionConfig$: StaticStructureSchema = [3, n0, _EJFDC,
   0,
-  [_FDA, _RT, _WIa],
+  [_FDA, _RTi, _WIa],
   [0, 1, 64 | 0]
 ];
 export var EvaluateSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
@@ -412,7 +455,7 @@ export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
 ];
 export var FraudDetectionConfiguration$: StaticStructureSchema = [3, n0, _FDCr,
   0,
-  [_RT, _WI],
+  [_RTi, _WI],
   [1, 0]
 ];
 export var FraudDetectionResult$: StaticStructureSchema = [3, n0, _FDR,
@@ -450,12 +493,6 @@ export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   [_SU],
   [0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobProgress$: StaticStructureSchema = [3, n0, _JP,
   0,
   [_PC],
@@ -556,12 +593,6 @@ export var RegistrationConfig$: StaticStructureSchema = [3, n0, _RC,
   [_DRA, _FST, _WIa],
   [0, 1, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _SSEC,
   0,
   [_KKI],
@@ -572,12 +603,6 @@ export var ServerSideEncryptionUpdateDetails$: StaticStructureSchema = [3, n0, _
   [_OKKI, _US, _M],
   [0, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Speaker$: StaticStructureSchema = [3, n0, _Sp,
   0,
   [_DI, _CSI, _GSI, _St, _CA, _UA, _LAA],
@@ -633,12 +658,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
@@ -669,12 +688,6 @@ export var UpdateWatchlistResponse$: StaticStructureSchema = [3, n0, _UWRp,
   [_W],
   [[() => Watchlist$, 0]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VoiceSpoofingRisk$: StaticStructureSchema = [3, n0, _VSR,
   0,
   [_RS],
@@ -696,8 +709,6 @@ export var WatchlistSummary$: StaticStructureSchema = [3, n0, _WSa,
   [0, 0, [() => WatchlistName, 0], [() => WatchlistDescription, 0], 2, 4, 4]
 ];
 var __Unit = "unit" as const;
-export var VoiceIDServiceException$: StaticErrorSchema = [-3, _sm, "VoiceIDServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(VoiceIDServiceException$, VoiceIDServiceException);
 var DomainSummaries: StaticListSchema = [1, n0, _DSom,
   0, [() => DomainSummary$,
     0]

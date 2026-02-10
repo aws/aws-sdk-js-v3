@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRoute53RecoveryClusterHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { Route53RecoveryClusterClientConfig } from "./Route53RecoveryClusterClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: Route53RecoveryClusterClientConfig) => 
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.route53recoverycluster",
+      errorTypeRegistries,
       version: "2019-12-02",
       serviceTarget: "ToggleCustomerAPI",
     },

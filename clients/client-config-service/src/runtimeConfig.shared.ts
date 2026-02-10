@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultConfigServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ConfigServiceClientConfig } from "./ConfigServiceClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ConfigServiceClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.configservice",
+      errorTypeRegistries,
       xmlNamespace: "http://config.amazonaws.com/doc/2014-11-12/",
       version: "2014-11-12",
       serviceTarget: "StarlingDoveService",

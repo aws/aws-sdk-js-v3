@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRoute53RecoveryReadinessHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { Route53RecoveryReadinessClientConfig } from "./Route53RecoveryReadinessClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: Route53RecoveryReadinessClientConfig) =
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.route53recoveryreadiness",
+      errorTypeRegistries,
       version: "2019-12-02",
       serviceTarget: "Route53RecoveryReadiness",
     },

@@ -89,15 +89,15 @@ const _cA = "cancelActive";
 const _ca = "canceled";
 const _d = "description";
 const _do = "document";
-const _e = "expression";
+const _e = "error";
 const _eE = "evaluateExpressions";
 const _eEv = "evaluatedExpression";
 const _eI = "errorId";
 const _eM = "errorMessage";
 const _eST = "errorStackTrace";
-const _er = "error";
-const _err = "errored";
-const _erro = "errors";
+const _er = "errored";
+const _err = "errors";
+const _ex = "expression";
 const _f = "fields";
 const _fL = "fieldList";
 const _fN = "fieldName";
@@ -108,8 +108,8 @@ const _iI = "instanceIdentity";
 const _id = "ids";
 const _k = "key";
 const _l = "limit";
-const _m = "marker";
-const _me = "message";
+const _m = "message";
+const _ma = "marker";
 const _n = "name";
 const _o = "operator";
 const _oI = "objectIds";
@@ -125,12 +125,12 @@ const _pOa = "parameterObjects";
 const _pV = "parameterValues";
 const _q = "query";
 const _rV = "refValue";
-const _s = "signature";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.datapipeline";
 const _sT = "startTimestamp";
 const _sV = "stringValue";
 const _se = "server";
 const _sel = "selectors";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.datapipeline";
+const _si = "signature";
 const _sp = "sphere";
 const _st = "status";
 const _t = "tags";
@@ -172,6 +172,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DataPipelineServiceException$: StaticErrorSchema = [-3, _s, "DataPipelineServiceException", 0, [], []];
+_s_registry.registerError(DataPipelineServiceException$, DataPipelineServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceError$, InternalServiceError);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var PipelineDeletedException$: StaticErrorSchema = [-3, n0, _PDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineDeletedException$, PipelineDeletedException);
+export var PipelineNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PipelineNotFoundException$, PipelineNotFoundException);
+export var TaskNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TaskNotFoundException$, TaskNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActivatePipelineInput$: StaticStructureSchema = [3, n0, _API,
   0,
   [_pI, _pV, _sT],
@@ -219,12 +262,12 @@ export var DeletePipelineInput$: StaticStructureSchema = [3, n0, _DPIe,
 ];
 export var DescribeObjectsInput$: StaticStructureSchema = [3, n0, _DOI,
   0,
-  [_pI, _oI, _eE, _m],
+  [_pI, _oI, _eE, _ma],
   [0, 64 | 0, 2, 0], 2
 ];
 export var DescribeObjectsOutput$: StaticStructureSchema = [3, n0, _DOO,
   0,
-  [_pO, _m, _hMR],
+  [_pO, _ma, _hMR],
   [() => PipelineObjectList, 0, 2], 1
 ];
 export var DescribePipelinesInput$: StaticStructureSchema = [3, n0, _DPIes,
@@ -239,7 +282,7 @@ export var DescribePipelinesOutput$: StaticStructureSchema = [3, n0, _DPOe,
 ];
 export var EvaluateExpressionInput$: StaticStructureSchema = [3, n0, _EEI,
   0,
-  [_pI, _oIb, _e],
+  [_pI, _oIb, _ex],
   [0, 0, 0], 3
 ];
 export var EvaluateExpressionOutput$: StaticStructureSchema = [3, n0, _EEO,
@@ -264,29 +307,17 @@ export var GetPipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _GPDO,
 ];
 export var InstanceIdentity$: StaticStructureSchema = [3, n0, _II,
   0,
-  [_do, _s],
+  [_do, _si],
   [0, 0]
 ];
-export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _se },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_er]: _c },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListPipelinesInput$: StaticStructureSchema = [3, n0, _LPI,
   0,
-  [_m],
+  [_ma],
   [0]
 ];
 export var ListPipelinesOutput$: StaticStructureSchema = [3, n0, _LPO,
   0,
-  [_pIL, _m, _hMR],
+  [_pIL, _ma, _hMR],
   [() => pipelineList, 0, 2], 1
 ];
 export var Operator$: StaticStructureSchema = [3, n0, _O,
@@ -309,12 +340,6 @@ export var ParameterValue$: StaticStructureSchema = [3, n0, _PV,
   [_i, _sV],
   [0, 0], 2
 ];
-export var PipelineDeletedException$: StaticErrorSchema = [-3, n0, _PDE,
-  { [_er]: _c },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineDeletedException$, PipelineDeletedException);
 export var PipelineDescription$: StaticStructureSchema = [3, n0, _PD,
   0,
   [_pI, _n, _f, _d, _t],
@@ -325,12 +350,6 @@ export var PipelineIdName$: StaticStructureSchema = [3, n0, _PIN,
   [_i, _n],
   [0, 0]
 ];
-export var PipelineNotFoundException$: StaticErrorSchema = [-3, n0, _PNFE,
-  { [_er]: _c },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PipelineNotFoundException$, PipelineNotFoundException);
 export var PipelineObject$: StaticStructureSchema = [3, n0, _POi,
   0,
   [_i, _n, _f],
@@ -353,7 +372,7 @@ export var PutPipelineDefinitionInput$: StaticStructureSchema = [3, n0, _PPDI,
 ];
 export var PutPipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _PPDO,
   0,
-  [_err, _vE, _vW],
+  [_er, _vE, _vW],
   [2, () => ValidationErrors, () => ValidationWarnings], 1
 ];
 export var Query$: StaticStructureSchema = [3, n0, _Q,
@@ -363,12 +382,12 @@ export var Query$: StaticStructureSchema = [3, n0, _Q,
 ];
 export var QueryObjectsInput$: StaticStructureSchema = [3, n0, _QOI,
   0,
-  [_pI, _sp, _q, _m, _l],
+  [_pI, _sp, _q, _ma, _l],
   [0, 0, () => Query$, 0, 1], 2
 ];
 export var QueryObjectsOutput$: StaticStructureSchema = [3, n0, _QOO,
   0,
-  [_id, _m, _hMR],
+  [_id, _ma, _hMR],
   [64 | 0, 0, 2]
 ];
 export var RemoveTagsInput$: StaticStructureSchema = [3, n0, _RTI,
@@ -426,12 +445,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
   [_k, _val],
   [0, 0], 2
 ];
-export var TaskNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
-  { [_er]: _c },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TaskNotFoundException$, TaskNotFoundException);
 export var TaskObject$: StaticStructureSchema = [3, n0, _TO,
   0,
   [_tI, _pI, _aI, _ob],
@@ -444,12 +457,12 @@ export var ValidatePipelineDefinitionInput$: StaticStructureSchema = [3, n0, _VP
 ];
 export var ValidatePipelineDefinitionOutput$: StaticStructureSchema = [3, n0, _VPDO,
   0,
-  [_err, _vE, _vW],
+  [_er, _vE, _vW],
   [2, () => ValidationErrors, () => ValidationWarnings], 1
 ];
 export var ValidationError$: StaticStructureSchema = [3, n0, _VE,
   0,
-  [_i, _erro],
+  [_i, _err],
   [0, 64 | 0]
 ];
 export var ValidationWarning$: StaticStructureSchema = [3, n0, _VW,
@@ -458,8 +471,6 @@ export var ValidationWarning$: StaticStructureSchema = [3, n0, _VW,
   [0, 64 | 0]
 ];
 var __Unit = "unit" as const;
-export var DataPipelineServiceException$: StaticErrorSchema = [-3, _sm, "DataPipelineServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataPipelineServiceException$, DataPipelineServiceException);
 var fieldList: StaticListSchema = [1, n0, _fL,
   0, () => Field$
 ];

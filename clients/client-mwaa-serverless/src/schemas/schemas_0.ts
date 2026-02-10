@@ -65,10 +65,10 @@ const _OP = "OverrideParameters";
 const _OTE = "OperationTimeoutException";
 const _QC = "QuotaCode";
 const _R = "Reason";
-const _RA = "RoleArn";
+const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
-const _RA_ = "Retry-After";
 const _RAe = "ResourceArn";
+const _RAo = "RoleArn";
 const _RD = "RunDetail";
 const _RDS = "RunDetailSummary";
 const _RI = "ResourceId";
@@ -80,8 +80,8 @@ const _RT = "ResourceType";
 const _RTu = "RunType";
 const _S = "Status";
 const _SA = "StartedAt";
-const _SC = "ScheduleConfiguration";
-const _SCe = "ServiceCode";
+const _SC = "ServiceCode";
+const _SCc = "ScheduleConfiguration";
 const _SGI = "SecurityGroupIds";
 const _SI = "SubnetIds";
 const _SO = "StartedOn";
@@ -139,8 +139,8 @@ const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mwaaserverless";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mwaaserverless";
+const _se = "server";
 const _tK = "tagKeys";
 const _wV = "workflowVersion";
 const n0 = "com.amazonaws.mwaaserverless";
@@ -168,21 +168,70 @@ import {
 import { MWAAServerlessServiceException } from "../models/MWAAServerlessServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MWAAServerlessServiceException$: StaticErrorSchema = [-3, _s, "MWAAServerlessServiceException", 0, [], []];
+_s_registry.registerError(MWAAServerlessServiceException$, MWAAServerlessServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _RI, _RT],
   [0, 0, 0], 3
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var OperationTimeoutException$: StaticErrorSchema = [-3, n0, _OTE,
+  { [_e]: _se, [_hE]: 504 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationTimeoutException$, OperationTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _SC, _QC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _SC, _QC, _RAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 3
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [0, 0, () => ValidationExceptionFields], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_N, _DSL, _RA, _CT, _D, _EC, _LC, _EV, _NC, _T, _TM],
+  [_N, _DSL, _RAo, _CT, _D, _EC, _LC, _EV, _NC, _T, _TM],
   [0, () => DefinitionS3Location$, 0, [0, 4], 0, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 128 | 0, 0], 3
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
@@ -227,7 +276,7 @@ export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _SC, _RA, _NC, _TM, _WD],
+  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _SCc, _RAo, _NC, _TM, _WD],
   [0, 0, 0, 0, 5, 5, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, 0, () => DefinitionS3Location$, () => ScheduleConfiguration$, 0, () => NetworkConfiguration$, 0, 0], 1
 ];
 export var GetWorkflowRunRequest$: StaticStructureSchema = [3, n0, _GWRR,
@@ -240,12 +289,6 @@ export var GetWorkflowRunResponse$: StaticStructureSchema = [3, n0, _GWRRe,
   [_WA, _WV, _RIu, _RTu, _OP, _RD],
   [0, 0, 0, 0, [() => ObjectMap, 0], () => WorkflowRunDetail$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RAe],
@@ -306,34 +349,16 @@ export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   [_SGI, _SI],
   [64 | 0, 64 | 0]
 ];
-export var OperationTimeoutException$: StaticErrorSchema = [-3, n0, _OTE,
-  { [_e]: _s, [_hE]: 504 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationTimeoutException$, OperationTimeoutException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RunDetailSummary$: StaticStructureSchema = [3, n0, _RDS,
   0,
   [_S, _CO, _SA, _EA],
   [0, 5, 5, 5]
 ];
-export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SC,
+export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_CEr],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _SCe, _QC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartWorkflowRunRequest$: StaticStructureSchema = [3, n0, _SWRR,
   0,
   [_WA, _CT, _OP, _WV],
@@ -369,12 +394,6 @@ export var TaskInstanceSummary$: StaticStructureSchema = [3, n0, _TIS,
   [_WA, _WV, _RIu, _TII, _S, _DIS, _ON],
   [0, 0, 0, 0, 0, 1, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _SCe, _QC, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]], 3
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
@@ -387,7 +406,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateWorkflowRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_WA, _DSL, _RA, _D, _LC, _EV, _NC, _TM],
+  [_WA, _DSL, _RAo, _D, _LC, _EV, _NC, _TM],
   [[0, 1], () => DefinitionS3Location$, 0, 0, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 0], 3
 ];
 export var UpdateWorkflowResponse$: StaticStructureSchema = [3, n0, _UWRp,
@@ -395,12 +414,6 @@ export var UpdateWorkflowResponse$: StaticStructureSchema = [3, n0, _UWRp,
   [_WA, _MA, _WV, _W],
   [0, 5, 0, 64 | 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R, _FL],
-  [0, 0, () => ValidationExceptionFields], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
@@ -423,11 +436,9 @@ export var WorkflowSummary$: StaticStructureSchema = [3, n0, _WSo,
 ];
 export var WorkflowVersionSummary$: StaticStructureSchema = [3, n0, _WVS,
   0,
-  [_WV, _WA, _ILV, _CA, _MA, _DSL, _SC, _TM],
+  [_WV, _WA, _ILV, _CA, _MA, _DSL, _SCc, _TM],
   [0, 0, 2, 5, 5, () => DefinitionS3Location$, () => ScheduleConfiguration$, 0], 2
 ];
-export var MWAAServerlessServiceException$: StaticErrorSchema = [-3, _sm, "MWAAServerlessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MWAAServerlessServiceException$, MWAAServerlessServiceException);
 var SecurityGroupIds = 64 | 0;
 var SubnetIds = 64 | 0;
 var TagKeys = 64 | 0;

@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudFrontKeyValueStoreHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudFrontKeyValueStoreClientConfig } from "./CloudFrontKeyValueStoreClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: CloudFrontKeyValueStoreClientConfig) =>
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudfrontkeyvaluestore",
+      errorTypeRegistries,
       version: "2022-07-26",
       serviceTarget: "CloudFrontKeyValueStore",
     },

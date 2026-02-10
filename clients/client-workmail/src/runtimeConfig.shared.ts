@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWorkMailHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WorkMailClientConfig } from "./WorkMailClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WorkMailClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.workmail",
+      errorTypeRegistries,
       version: "2017-10-01",
       serviceTarget: "WorkMailService",
     },

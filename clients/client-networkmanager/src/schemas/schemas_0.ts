@@ -41,7 +41,7 @@ const _At = "Attachments";
 const _B = "Bandwidth";
 const _BC = "BgpConfigurations";
 const _BO = "BgpOptions";
-const _C = "Code";
+const _C = "Context";
 const _CA = "CreatedAt";
 const _CAI = "ConnectAttachmentId";
 const _CAO = "ConnectAttachmentOptions";
@@ -107,9 +107,9 @@ const _CNNFG = "CoreNetworkNetworkFunctionGroup";
 const _CNNFGI = "CoreNetworkNetworkFunctionGroupIdentifier";
 const _CNNFGL = "CoreNetworkNetworkFunctionGroupList";
 const _CNP = "CoreNetworkPolicy";
-const _CNPE = "CoreNetworkPolicyError";
+const _CNPE = "CoreNetworkPolicyException";
 const _CNPEL = "CoreNetworkPolicyErrorList";
-const _CNPEo = "CoreNetworkPolicyException";
+const _CNPEo = "CoreNetworkPolicyError";
 const _CNPV = "CoreNetworkPolicyVersion";
 const _CNPVL = "CoreNetworkPolicyVersionList";
 const _CNPVo = "CoreNetworkPolicyVersions";
@@ -156,11 +156,11 @@ const _CVA = "CreateVpcAttachment";
 const _CVAR = "CreateVpcAttachmentRequest";
 const _CVARr = "CreateVpcAttachmentResponse";
 const _Ci = "Cidr";
-const _Co = "Connection";
+const _Co = "Code";
 const _Com = "Communities";
-const _Con = "Configuration";
+const _Con = "Connection";
+const _Conf = "Configuration";
 const _Conn = "Connections";
-const _Cont = "Context";
 const _Cou = "Count";
 const _D = "Description";
 const _DA = "DeviceArn";
@@ -234,7 +234,7 @@ const _Def = "Definition";
 const _Des = "Destinations";
 const _Dest = "Destination";
 const _Dev = "Devices";
-const _E = "Edges";
+const _E = "Errors";
 const _EAPM = "ExactAsPathMatches";
 const _EC = "ErrorCode";
 const _ECM = "ExactCidrMatches";
@@ -247,11 +247,11 @@ const _EO = "EdgeOverride";
 const _ES = "EdgeSets";
 const _ESL = "EdgeSetList";
 const _ET = "EventTime";
-const _Er = "Errors";
-const _F = "From";
+const _Ed = "Edges";
+const _F = "Fields";
 const _FM = "FilterMap";
 const _FP = "ForwardPath";
-const _Fi = "Fields";
+const _Fr = "From";
 const _GC = "GetConnections";
 const _GCA = "GetConnectAttachment";
 const _GCAR = "GetConnectAttachmentRequest";
@@ -477,8 +477,8 @@ const _Pe = "Peering";
 const _Pee = "Peerings";
 const _Pr = "Prefix";
 const _Pro = "Provider";
-const _R = "Relationships";
-const _RA = "ResourceArn";
+const _R = "Reason";
+const _RA = "Retry-After";
 const _RAC = "RouteAnalysisCompletion";
 const _RAEO = "RouteAnalysisEndpointOptions";
 const _RAEOS = "RouteAnalysisEndpointOptionsSpecification";
@@ -490,8 +490,8 @@ const _RARPLR = "RemoveAttachmentRoutingPolicyLabelRequest";
 const _RARPLRe = "RemoveAttachmentRoutingPolicyLabelResponse";
 const _RARe = "RejectAttachmentResponse";
 const _RAS = "RetryAfterSeconds";
-const _RA_ = "Retry-After";
-const _RAe = "RejectAttachment";
+const _RAe = "ResourceArn";
+const _RAej = "RejectAttachment";
 const _RAo = "RouteAnalysis";
 const _RC = "ResultCode";
 const _RCNPV = "RestoreCoreNetworkPolicyVersion";
@@ -500,9 +500,9 @@ const _RCNPVRe = "RestoreCoreNetworkPolicyVersionResponse";
 const _RCe = "ReasonCode";
 const _RCea = "ReasonContext";
 const _RGA = "RegisteredGatewayArn";
-const _RI = "RequestId";
+const _RI = "ResourceId";
 const _RINH = "RoutingInformationNextHop";
-const _RIe = "ResourceId";
+const _RIe = "RequestId";
 const _RL = "RelationshipList";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RoutingPolicy";
@@ -522,9 +522,9 @@ const _RTGRe = "RegisterTransitGatewayResponse";
 const _RTI = "RouteTableIdentifier";
 const _RTT = "RouteTableType";
 const _RTTo = "RouteTableTimestamp";
-const _Re = "Resource";
-const _Rea = "Reason";
+const _Re = "Relationships";
 const _Rel = "Relationship";
+const _Res = "Resource";
 const _S = "State";
 const _SA = "SubnetArn";
 const _SAi = "SiteArn";
@@ -678,10 +678,10 @@ const _pVI = "policyVersionId";
 const _rA = "resourceArn";
 const _rGA = "registeredGatewayArn";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.networkmanager";
 const _sI = "siteId";
 const _sIi = "siteIds";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.networkmanager";
+const _se = "server";
 const _st = "state";
 const _t = "type";
 const _tGA = "transitGatewayArns";
@@ -714,6 +714,67 @@ import {
 import { NetworkManagerServiceException } from "../models/NetworkManagerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var NetworkManagerServiceException$: StaticErrorSchema = [-3, _s, "NetworkManagerServiceException", 0, [], []];
+_s_registry.registerError(NetworkManagerServiceException$, NetworkManagerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var CoreNetworkPolicyException$: StaticErrorSchema = [-3, n0, _CNPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _E],
+  [0, () => CoreNetworkPolicyErrorList], 1
+];
+n0_registry.registerError(CoreNetworkPolicyException$, CoreNetworkPolicyException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT, _C],
+  [0, 0, 0, 128 | 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _LC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var SynthesizedJsonCoreNetworkPolicyDocument: StaticSimpleSchema = [0, n0, _SJCNPD, { [_mT]: _a }, 0];
 var SynthesizedJsonResourcePolicyDocument: StaticSimpleSchema = [0, n0, _SJRPD, { [_mT]: _a }, 0];
 export var AcceptAttachmentRequest$: StaticStructureSchema = [3, n0, _AAR,
@@ -726,12 +787,6 @@ export var AcceptAttachmentResponse$: StaticStructureSchema = [3, n0, _AARc,
   [_A],
   [() => Attachment$]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_AIc, _SLRDS],
@@ -779,12 +834,12 @@ export var AssociateTransitGatewayConnectPeerResponse$: StaticStructureSchema = 
 ];
 export var Attachment$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_CNI, _CNA, _AI, _OAI, _AT, _S, _EL, _ELd, _RA, _APRN, _SN, _NFGN, _T, _PSC, _PNFGC, _CA, _UA, _LME],
+  [_CNI, _CNA, _AI, _OAI, _AT, _S, _EL, _ELd, _RAe, _APRN, _SN, _NFGN, _T, _PSC, _PNFGC, _CA, _UA, _LME],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 1, 0, 0, () => TagList, () => ProposedSegmentChange$, () => ProposedNetworkFunctionGroupChange$, 4, 4, () => AttachmentErrorList]
 ];
 export var AttachmentError$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_C, _M, _RA, _RI],
+  [_Co, _M, _RAe, _RIe],
   [0, 0, 0, 0]
 ];
 export var AttachmentRoutingPolicyAssociationSummary$: StaticStructureSchema = [3, n0, _ARPAS,
@@ -807,12 +862,6 @@ export var BgpOptions$: StaticStructureSchema = [3, n0, _BO,
   [_PA],
   [1]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RIe, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectAttachment$: StaticStructureSchema = [3, n0, _CAo,
   0,
   [_A, _TAI, _O],
@@ -823,7 +872,7 @@ export var ConnectAttachmentOptions$: StaticStructureSchema = [3, n0, _CAO,
   [_P],
   [0]
 ];
-export var Connection$: StaticStructureSchema = [3, n0, _Co,
+export var Connection$: StaticStructureSchema = [3, n0, _Con,
   0,
   [_CI, _CAon, _GNI, _DI, _CDI, _LI, _CLI, _D, _CA, _S, _T],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, () => TagList]
@@ -835,7 +884,7 @@ export var ConnectionHealth$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var ConnectPeer$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_CNI, _CAI, _CPI, _EL, _S, _CA, _Con, _T, _SA, _LME],
+  [_CNI, _CAI, _CPI, _EL, _S, _CA, _Conf, _T, _SA, _LME],
   [0, 0, 0, 0, 0, 4, () => ConnectPeerConfiguration$, () => TagList, 0, () => ConnectPeerErrorList]
 ];
 export var ConnectPeerAssociation$: StaticStructureSchema = [3, n0, _CPA,
@@ -855,7 +904,7 @@ export var ConnectPeerConfiguration$: StaticStructureSchema = [3, n0, _CPC,
 ];
 export var ConnectPeerError$: StaticStructureSchema = [3, n0, _CPE,
   0,
-  [_C, _M, _RA, _RI],
+  [_Co, _M, _RAe, _RIe],
   [0, 0, 0, 0]
 ];
 export var ConnectPeerSummary$: StaticStructureSchema = [3, n0, _CPS,
@@ -865,7 +914,7 @@ export var ConnectPeerSummary$: StaticStructureSchema = [3, n0, _CPS,
 ];
 export var CoreNetwork$: StaticStructureSchema = [3, n0, _CN,
   0,
-  [_GNI, _CNI, _CNA, _D, _CA, _S, _Se, _NFG, _E, _T],
+  [_GNI, _CNI, _CNA, _D, _CA, _S, _Se, _NFG, _Ed, _T],
   [0, 0, 0, 0, 4, 0, () => CoreNetworkSegmentList, () => CoreNetworkNetworkFunctionGroupList, () => CoreNetworkEdgeList, () => TagList]
 ];
 export var CoreNetworkChange$: StaticStructureSchema = [3, n0, _CNC,
@@ -908,17 +957,11 @@ export var CoreNetworkPolicy$: StaticStructureSchema = [3, n0, _CNP,
   [_CNI, _PVI, _Al, _D, _CA, _CSS, _PE, _PD],
   [0, 1, 0, 0, 4, 0, () => CoreNetworkPolicyErrorList, [() => SynthesizedJsonCoreNetworkPolicyDocument, 0]]
 ];
-export var CoreNetworkPolicyError$: StaticStructureSchema = [3, n0, _CNPE,
+export var CoreNetworkPolicyError$: StaticStructureSchema = [3, n0, _CNPEo,
   0,
   [_EC, _M, _Pa],
   [0, 0, 0], 2
 ];
-export var CoreNetworkPolicyException$: StaticErrorSchema = [-3, n0, _CNPEo,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Er],
-  [0, () => CoreNetworkPolicyErrorList], 1
-];
-TypeRegistry.for(n0).registerError(CoreNetworkPolicyException$, CoreNetworkPolicyException);
 export var CoreNetworkPolicyVersion$: StaticStructureSchema = [3, n0, _CNPV,
   0,
   [_CNI, _PVI, _Al, _D, _CA, _CSS],
@@ -961,7 +1004,7 @@ export var CreateConnectionRequest$: StaticStructureSchema = [3, n0, _CCR,
 ];
 export var CreateConnectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_Co],
+  [_Con],
   [() => Connection$]
 ];
 export var CreateConnectPeerRequest$: StaticStructureSchema = [3, n0, _CCPR,
@@ -1106,7 +1149,7 @@ export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
 ];
 export var DeleteConnectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
-  [_Co],
+  [_Con],
   [() => Connection$]
 ];
 export var DeleteConnectPeerRequest$: StaticStructureSchema = [3, n0, _DCPR,
@@ -1191,7 +1234,7 @@ export var DeletePeeringResponse$: StaticStructureSchema = [3, n0, _DPRe,
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_RA],
+  [_RAe],
   [[0, 1]], 1
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
@@ -1436,17 +1479,17 @@ export var GetNetworkResourceCountsResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetNetworkResourceRelationshipsRequest$: StaticStructureSchema = [3, n0, _GNRRR,
   0,
-  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
+  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RAe, _MR, _NT],
   [[0, 1], [0, { [_hQ]: _cNI }], [0, { [_hQ]: _rGA }], [0, { [_hQ]: _aR }], [0, { [_hQ]: _aI }], [0, { [_hQ]: _rT }], [0, { [_hQ]: _rA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetNetworkResourceRelationshipsResponse$: StaticStructureSchema = [3, n0, _GNRRRe,
   0,
-  [_R, _NT],
+  [_Re, _NT],
   [() => RelationshipList, 0]
 ];
 export var GetNetworkResourcesRequest$: StaticStructureSchema = [3, n0, _GNRR,
   0,
-  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
+  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RAe, _MR, _NT],
   [[0, 1], [0, { [_hQ]: _cNI }], [0, { [_hQ]: _rGA }], [0, { [_hQ]: _aR }], [0, { [_hQ]: _aI }], [0, { [_hQ]: _rT }], [0, { [_hQ]: _rA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetNetworkResourcesResponse$: StaticStructureSchema = [3, n0, _GNRRe,
@@ -1466,7 +1509,7 @@ export var GetNetworkRoutesResponse$: StaticStructureSchema = [3, n0, _GNRRete,
 ];
 export var GetNetworkTelemetryRequest$: StaticStructureSchema = [3, n0, _GNTR,
   0,
-  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RA, _MR, _NT],
+  [_GNI, _CNI, _RGA, _AR, _AIc, _RT, _RAe, _MR, _NT],
   [[0, 1], [0, { [_hQ]: _cNI }], [0, { [_hQ]: _rGA }], [0, { [_hQ]: _aR }], [0, { [_hQ]: _aI }], [0, { [_hQ]: _rT }], [0, { [_hQ]: _rA }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var GetNetworkTelemetryResponse$: StaticStructureSchema = [3, n0, _GNTRe,
@@ -1476,7 +1519,7 @@ export var GetNetworkTelemetryResponse$: StaticStructureSchema = [3, n0, _GNTRe,
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
-  [_RA],
+  [_RAe],
   [[0, 1]], 1
 ];
 export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
@@ -1569,12 +1612,6 @@ export var GlobalNetwork$: StaticStructureSchema = [3, n0, _GN,
   [_GNI, _GNA, _D, _CA, _S, _T],
   [0, 0, 0, 4, 0, () => TagList]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Link$: StaticStructureSchema = [3, n0, _Li,
   0,
   [_LI, _LAin, _GNI, _SI, _D, _Ty, _B, _Pro, _CA, _S, _T],
@@ -1677,7 +1714,7 @@ export var ListPeeringsResponse$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RA],
+  [_RAe],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -1697,7 +1734,7 @@ export var NetworkFunctionGroup$: StaticStructureSchema = [3, n0, _NFGe,
 ];
 export var NetworkResource$: StaticStructureSchema = [3, n0, _NRet,
   0,
-  [_RGA, _CNI, _AR, _AIc, _RT, _RIe, _RA, _Def, _DT, _T, _Met],
+  [_RGA, _CNI, _AR, _AIc, _RT, _RI, _RAe, _Def, _DT, _T, _Met],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, () => TagList, 128 | 0]
 ];
 export var NetworkResourceCount$: StaticStructureSchema = [3, n0, _NRCe,
@@ -1707,7 +1744,7 @@ export var NetworkResourceCount$: StaticStructureSchema = [3, n0, _NRCe,
 ];
 export var NetworkResourceSummary$: StaticStructureSchema = [3, n0, _NRS,
   0,
-  [_RGA, _RA, _RT, _Def, _NTa, _IM],
+  [_RGA, _RAe, _RT, _Def, _NTa, _IM],
   [0, 0, 0, 0, 0, 2]
 ];
 export var NetworkRoute$: StaticStructureSchema = [3, n0, _NRetw,
@@ -1717,12 +1754,12 @@ export var NetworkRoute$: StaticStructureSchema = [3, n0, _NRetw,
 ];
 export var NetworkRouteDestination$: StaticStructureSchema = [3, n0, _NRD,
   0,
-  [_CNAI, _TGAI, _SN, _NFGN, _EL, _RT, _RIe],
+  [_CNAI, _TGAI, _SN, _NFGN, _EL, _RT, _RI],
   [0, 0, 0, 0, 0, 0, 0]
 ];
 export var NetworkTelemetry$: StaticStructureSchema = [3, n0, _NTe,
   0,
-  [_RGA, _CNI, _AR, _AIc, _RT, _RIe, _RA, _Ad, _H],
+  [_RGA, _CNI, _AR, _AIc, _RT, _RI, _RAe, _Ad, _H],
   [0, 0, 0, 0, 0, 0, 0, 0, () => ConnectionHealth$]
 ];
 export var OrganizationStatus$: StaticStructureSchema = [3, n0, _OS,
@@ -1732,17 +1769,17 @@ export var OrganizationStatus$: StaticStructureSchema = [3, n0, _OS,
 ];
 export var PathComponent$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_Seq, _Re, _DCB],
+  [_Seq, _Res, _DCB],
   [1, () => NetworkResourceSummary$, 0]
 ];
 export var Peering$: StaticStructureSchema = [3, n0, _Pe,
   0,
-  [_CNI, _CNA, _PI, _OAI, _PT, _S, _EL, _RA, _T, _CA, _LME],
+  [_CNI, _CNA, _PI, _OAI, _PT, _S, _EL, _RAe, _T, _CA, _LME],
   [0, 0, 0, 0, 0, 0, 0, 0, () => TagList, 4, () => PeeringErrorList]
 ];
 export var PeeringError$: StaticStructureSchema = [3, n0, _PEe,
   0,
-  [_C, _M, _RA, _RI, _MPC],
+  [_Co, _M, _RAe, _RIe, _MPC],
   [0, 0, 0, 0, () => PermissionsErrorContext$]
 ];
 export var PermissionsErrorContext$: StaticStructureSchema = [3, n0, _PEC,
@@ -1787,7 +1824,7 @@ export var PutCoreNetworkPolicyResponse$: StaticStructureSchema = [3, n0, _PCNPR
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
-  [_PD, _RA],
+  [_PD, _RAe],
   [[() => SynthesizedJsonResourcePolicyDocument, 0], [0, 1]], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
@@ -1817,7 +1854,7 @@ export var RejectAttachmentResponse$: StaticStructureSchema = [3, n0, _RARe,
 ];
 export var Relationship$: StaticStructureSchema = [3, n0, _Rel,
   0,
-  [_F, _To],
+  [_Fr, _To],
   [0, 0]
 ];
 export var RemoveAttachmentRoutingPolicyLabelRequest$: StaticStructureSchema = [3, n0, _RARPLR,
@@ -1830,12 +1867,6 @@ export var RemoveAttachmentRoutingPolicyLabelResponse$: StaticStructureSchema = 
   [_CNI, _AI, _RPL],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RIe, _RT, _Cont],
-  [0, 0, 0, 128 | 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestoreCoreNetworkPolicyVersionRequest$: StaticStructureSchema = [3, n0, _RCNPVR,
   0,
   [_CNI, _PVI],
@@ -1878,7 +1909,7 @@ export var RouteTableIdentifier$: StaticStructureSchema = [3, n0, _RTI,
 ];
 export var RoutingInformationNextHop$: StaticStructureSchema = [3, n0, _RINH,
   0,
-  [_IA, _CNAI, _RIe, _RT, _SN, _EL],
+  [_IA, _CNAI, _RI, _RT, _SN, _EL],
   [0, 0, 0, 0, 0, 0]
 ];
 export var RoutingPolicyAssociationDetail$: StaticStructureSchema = [3, n0, _RPADo,
@@ -1896,12 +1927,6 @@ export var ServiceInsertionSegments$: StaticStructureSchema = [3, n0, _SIS,
   [_SV, _STe],
   [64 | 0, 64 | 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _LC, _SC, _RIe, _RT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Site$: StaticStructureSchema = [3, n0, _Si,
   0,
   [_SI, _SAi, _GNI, _D, _L, _CA, _S, _T],
@@ -1939,7 +1964,7 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _T],
+  [_RAe, _T],
   [[0, 1], () => TagList], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -1947,12 +1972,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransitGatewayConnectPeerAssociation$: StaticStructureSchema = [3, n0, _TGCPAr,
   0,
   [_TGCPA, _GNI, _DI, _LI, _S],
@@ -1970,7 +1989,7 @@ export var TransitGatewayRegistration$: StaticStructureSchema = [3, n0, _TGR,
 ];
 export var TransitGatewayRegistrationStateReason$: StaticStructureSchema = [3, n0, _TGRSR,
   0,
-  [_C, _M],
+  [_Co, _M],
   [0, 0]
 ];
 export var TransitGatewayRouteTableAttachment$: StaticStructureSchema = [3, n0, _TGRTAr,
@@ -1980,7 +1999,7 @@ export var TransitGatewayRouteTableAttachment$: StaticStructureSchema = [3, n0, 
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RA, _TK],
+  [_RAe, _TK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -1995,7 +2014,7 @@ export var UpdateConnectionRequest$: StaticStructureSchema = [3, n0, _UCR,
 ];
 export var UpdateConnectionResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_Co],
+  [_Con],
   [() => Connection$]
 ];
 export var UpdateCoreNetworkRequest$: StaticStructureSchema = [3, n0, _UCNR,
@@ -2050,12 +2069,12 @@ export var UpdateLinkResponse$: StaticStructureSchema = [3, n0, _ULRp,
 ];
 export var UpdateNetworkResourceMetadataRequest$: StaticStructureSchema = [3, n0, _UNRMR,
   0,
-  [_GNI, _RA, _Met],
+  [_GNI, _RAe, _Met],
   [[0, 1], [0, 1], 128 | 0], 3
 ];
 export var UpdateNetworkResourceMetadataResponse$: StaticStructureSchema = [3, n0, _UNRMRp,
   0,
-  [_RA, _Met],
+  [_RAe, _Met],
   [0, 128 | 0]
 ];
 export var UpdateSiteRequest$: StaticStructureSchema = [3, n0, _USR,
@@ -2078,12 +2097,6 @@ export var UpdateVpcAttachmentResponse$: StaticStructureSchema = [3, n0, _UVARp,
   [_VAp],
   [() => VpcAttachment$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _Fi],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
@@ -2109,8 +2122,6 @@ export var WhenSentTo$: StaticStructureSchema = [3, n0, _WST,
   [_WSTSL],
   [64 | 0]
 ];
-export var NetworkManagerServiceException$: StaticErrorSchema = [-3, _sm, "NetworkManagerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NetworkManagerServiceException$, NetworkManagerServiceException);
 var AccountStatusList: StaticListSchema = [1, n0, _ASL,
   0, () => AccountStatus$
 ];
@@ -2503,7 +2514,7 @@ export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRPu,
 export var RegisterTransitGateway$: StaticOperationSchema = [9, n0, _RTG,
   { [_h]: ["POST", "/global-networks/{GlobalNetworkId}/transit-gateway-registrations", 200] }, () => RegisterTransitGatewayRequest$, () => RegisterTransitGatewayResponse$
 ];
-export var RejectAttachment$: StaticOperationSchema = [9, n0, _RAe,
+export var RejectAttachment$: StaticOperationSchema = [9, n0, _RAej,
   { [_h]: ["POST", "/attachments/{AttachmentId}/reject", 200] }, () => RejectAttachmentRequest$, () => RejectAttachmentResponse$
 ];
 export var RemoveAttachmentRoutingPolicyLabel$: StaticOperationSchema = [9, n0, _RARPL,

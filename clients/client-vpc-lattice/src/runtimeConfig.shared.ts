@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultVPCLatticeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { VPCLatticeClientConfig } from "./VPCLatticeClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: VPCLatticeClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.vpclattice",
+      errorTypeRegistries,
       version: "2022-11-30",
       serviceTarget: "MercuryControlPlane",
     },

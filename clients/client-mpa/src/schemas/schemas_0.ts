@@ -189,8 +189,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mpa";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mpa";
+const _se = "server";
 const n0 = "com.amazonaws.mpa";
 
 // smithy-typescript generated code
@@ -219,6 +219,73 @@ import {
 import { MPAServiceException } from "../models/MPAServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MPAServiceException$: StaticErrorSchema = [-3, _s, "MPAServiceException", 0, [], []];
+_s_registry.registerError(MPAServiceException$, MPAServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0], 1
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var PolicyDocument: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
@@ -226,12 +293,6 @@ var SessionKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 var SessionValue: StaticSimpleSchema = [0, n0, _SV, 8, 0];
 var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
 var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ApprovalTeamRequestApprover$: StaticStructureSchema = [3, n0, _ATRA,
   0,
   [_PII, _PISA],
@@ -247,12 +308,6 @@ export var CancelSessionResponse$: StaticStructureSchema = [3, n0, _CSRa,
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApprovalTeamRequest$: StaticStructureSchema = [3, n0, _CATR,
   0,
   [_AS, _A, _D, _P, _N, _CT, _T],
@@ -378,18 +433,6 @@ export var IdentitySourceParameters$: StaticStructureSchema = [3, n0, _ISP,
   [_IIC],
   [() => IamIdentityCenter$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListApprovalTeamsRequest$: StaticStructureSchema = [3, n0, _LATR,
   0,
   [_MR, _NT],
@@ -510,18 +553,6 @@ export var PolicyVersionSummary$: StaticStructureSchema = [3, n0, _PVS,
   [_Ar, _PA, _VI, _PT, _ID, _N, _S, _CTr, _LUTa],
   [0, 0, 1, 0, 2, 0, 0, 5, 5], 9
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartActiveApprovalTeamDeletionRequest$: StaticStructureSchema = [3, n0, _SAATDR,
   0,
   [_Ar, _PWD],
@@ -542,18 +573,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RN],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TKa],
@@ -574,15 +593,7 @@ export var UpdateApprovalTeamResponse$: StaticStructureSchema = [3, n0, _UATRp,
   [_VI],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var MPAServiceException$: StaticErrorSchema = [-3, _sm, "MPAServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MPAServiceException$, MPAServiceException);
 var AdditionalSecurityRequirements = 64 | 0;
 var ApprovalTeamRequestApprovers: StaticListSchema = [1, n0, _ATRAp,
   0, () => ApprovalTeamRequestApprover$

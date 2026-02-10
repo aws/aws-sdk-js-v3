@@ -75,8 +75,8 @@ const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTransformersRequest";
 const _LTRi = "ListTransformersResponse";
-const _M = "Mapping";
-const _Me = "Message";
+const _M = "Message";
+const _Ma = "Mapping";
 const _OC = "OutputConversion";
 const _OEO = "OutboundEdiOptions";
 const _OSFS = "OutputSampleFileSource";
@@ -247,7 +247,7 @@ const _rIQ = "receiverIdQualifier";
 const _rIe = "receiverId";
 const _rS = "repetitionSeparator";
 const _rT = "resourceType";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.b2bi";
 const _sB = "splitBy";
 const _sC = "serviceCode";
 const _sD = "sampleDocument";
@@ -260,8 +260,8 @@ const _sO = "splitOptions";
 const _sT = "segmentTerminator";
 const _sTSCN = "startingTransactionSetControlNumber";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.b2bi";
 const _so = "source";
+const _st = "status";
 const _t = "type";
 const _tA = "transformerArn";
 const _tAe = "technicalAcknowledgment";
@@ -311,14 +311,63 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-var Phone: StaticSimpleSchema = [0, n0, _P, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var B2biServiceException$: StaticErrorSchema = [-3, _s, "B2biServiceException", 0, [], []];
+_s_registry.registerError(B2biServiceException$, B2biServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var Phone: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var AdvancedOptions$: StaticStructureSchema = [3, n0, _AO,
   0,
   [_x],
@@ -334,12 +383,6 @@ export var CapabilitySummary$: StaticStructureSchema = [3, n0, _CS,
   [_cI, _n, _t, _cA, _mA],
   [0, 0, 0, 5, 5], 4
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConversionSource$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_fF, _iF],
@@ -397,7 +440,7 @@ export var CreateTransformerRequest$: StaticStructureSchema = [3, n0, _CTR,
 ];
 export var CreateTransformerResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
-  [_tI, _tA, _n, _s, _cA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
+  [_tI, _tA, _n, _st, _cA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
   [0, 0, 0, 0, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 5
 ];
 export var DeleteCapabilityRequest$: StaticStructureSchema = [3, n0, _DCR,
@@ -472,7 +515,7 @@ export var GetTransformerJobRequest$: StaticStructureSchema = [3, n0, _GTJR,
 ];
 export var GetTransformerJobResponse$: StaticStructureSchema = [3, n0, _GTJRe,
   0,
-  [_s, _oF, _m],
+  [_st, _oF, _m],
   [0, () => S3LocationList, 0], 1
 ];
 export var GetTransformerRequest$: StaticStructureSchema = [3, n0, _GTR,
@@ -482,7 +525,7 @@ export var GetTransformerRequest$: StaticStructureSchema = [3, n0, _GTR,
 ];
 export var GetTransformerResponse$: StaticStructureSchema = [3, n0, _GTRe,
   0,
-  [_tI, _tA, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
+  [_tI, _tA, _n, _st, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
   [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 5
 ];
 export var InboundEdiOptions$: StaticStructureSchema = [3, n0, _IEO,
@@ -495,12 +538,6 @@ export var InputConversion$: StaticStructureSchema = [3, n0, _IC,
   [_fFr, _fO, _aO],
   [0, () => FormatOptions$, () => AdvancedOptions$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCapabilitiesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_nT, _mR],
@@ -551,7 +588,7 @@ export var ListTransformersResponse$: StaticStructureSchema = [3, n0, _LTRi,
   [_tr, _nT],
   [() => TransformerList, 0], 1
 ];
-export var Mapping$: StaticStructureSchema = [3, n0, _M,
+export var Mapping$: StaticStructureSchema = [3, n0, _Ma,
   0,
   [_tL, _te],
   [0, 0], 1
@@ -571,12 +608,6 @@ export var ProfileSummary$: StaticStructureSchema = [3, n0, _PSr,
   [_pI, _n, _bN, _cA, _l, _lGN, _mA],
   [0, 0, 0, 5, 0, 0, 5], 4
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bNu, _k],
@@ -592,12 +623,6 @@ export var SampleDocuments$: StaticStructureSchema = [3, n0, _SD,
   [_bNu, _ke],
   [0, () => KeyList], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartTransformerJobRequest$: StaticStructureSchema = [3, n0, _STJR,
   0,
   [_iF, _oL, _tI, _cT],
@@ -648,15 +673,9 @@ export var TestParsingResponse$: StaticStructureSchema = [3, n0, _TPRe,
   [_pFC, _pSFC, _vM],
   [0, 64 | 0, 64 | 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransformerSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
+  [_tI, _n, _st, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
   [0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 4
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -696,20 +715,14 @@ export var UpdateProfileResponse$: StaticStructureSchema = [3, n0, _UPRpda,
 ];
 export var UpdateTransformerRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_tI, _n, _s, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
+  [_tI, _n, _st, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
   [[0, 1], 0, 0, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 1
 ];
 export var UpdateTransformerResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
-  [_tI, _tA, _n, _s, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
+  [_tI, _tA, _n, _st, _cA, _mA, _fF, _mTa, _eT, _sD, _iC, _ma, _oC, _sDa],
   [0, 0, 0, 0, 5, 5, 0, 0, () => EdiType$, 0, () => InputConversion$, () => Mapping$, () => OutputConversion$, () => SampleDocuments$], 6
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WrapOptions$: StaticStructureSchema = [3, n0, _WO,
   0,
   [_wB, _lT, _lL],
@@ -791,8 +804,6 @@ export var X12ValidationOptions$: StaticStructureSchema = [3, n0, _XVO,
   [() => X12ValidationRules]
 ];
 var __Unit = "unit" as const;
-export var B2biServiceException$: StaticErrorSchema = [-3, _sm, "B2biServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(B2biServiceException$, B2biServiceException);
 var CapabilityList: StaticListSchema = [1, n0, _CL,
   0, () => CapabilitySummary$
 ];

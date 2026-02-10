@@ -264,7 +264,7 @@ const _rSA = "replicationSetArns";
 const _rT = "resourceType";
 const _rTe = "resolvedTime";
 const _re = "resource";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssmincidents";
 const _sA = "stackArn";
 const _sAs = "ssmAutomation";
 const _sB = "sortBy";
@@ -280,8 +280,8 @@ const _sTA = "snsTopicArn";
 const _sUDT = "statusUpdateDateTime";
 const _sV = "stringValues";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssmincidents";
 const _so = "source";
+const _st = "status";
 const _su = "summary";
 const _t = "tags";
 const _tA = "targetAccount";
@@ -319,12 +319,61 @@ import {
 import { SSMIncidentsServiceException } from "../models/SSMIncidentsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SSMIncidentsServiceException$: StaticErrorSchema = [-3, _s, "SSMIncidentsServiceException", 0, [], []];
+_s_registry.registerError(SSMIncidentsServiceException$, SSMIncidentsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT, _rA],
+  [0, 0, 0, 4], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _sC, _qC, _rI, _rT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddRegionAction$: StaticStructureSchema = [3, n0, _ARA,
   0,
   [_rN, _sKKI],
@@ -355,12 +404,6 @@ export var CodeDeployDeployment$: StaticStructureSchema = [3, n0, _CDD,
   [_sT, _dGA, _dI, _eT],
   [4, 0, 0, 4], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT, _rA],
-  [0, 0, 0, 4], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateReplicationSetInput$: StaticStructureSchema = [3, n0, _CRSI,
   0,
   [_r, _cT, _t],
@@ -523,7 +566,7 @@ export var GetTimelineEventOutput$: StaticStructureSchema = [3, n0, _GTEO,
 ];
 export var IncidentRecord$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_a, _ti, _s, _im, _cTr, _lMT, _lMB, _iRS, _dS, _su, _rTe, _aE, _cC, _nTo],
+  [_a, _ti, _st, _im, _cTr, _lMT, _lMB, _iRS, _dS, _su, _rTe, _aE, _cC, _nTo],
   [0, 0, 0, 1, 4, 4, 0, () => IncidentRecordSource$, 0, 0, 4, () => AutomationExecutionSet, () => ChatChannel$, () => NotificationTargetSet], 9
 ];
 export var IncidentRecordSource$: StaticStructureSchema = [3, n0, _IRS,
@@ -533,7 +576,7 @@ export var IncidentRecordSource$: StaticStructureSchema = [3, n0, _IRS,
 ];
 export var IncidentRecordSummary$: StaticStructureSchema = [3, n0, _IRSn,
   0,
-  [_a, _ti, _s, _im, _cTr, _iRS, _rTe],
+  [_a, _ti, _st, _im, _cTr, _iRS, _rTe],
   [0, 0, 0, 1, 4, () => IncidentRecordSource$, 4], 6
 ];
 export var IncidentTemplate$: StaticStructureSchema = [3, n0, _IT,
@@ -541,12 +584,6 @@ export var IncidentTemplate$: StaticStructureSchema = [3, n0, _IT,
   [_ti, _im, _su, _dS, _nTo, _iTn],
   [0, 1, 0, 0, () => NotificationTargetSet, 128 | 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ItemIdentifier$: StaticStructureSchema = [3, n0, _II,
   0,
   [_v, _ty],
@@ -649,7 +686,7 @@ export var PutResourcePolicyOutput$: StaticStructureSchema = [3, n0, _PRPO,
 ];
 export var RegionInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_s, _sUDT, _sKKI, _sM],
+  [_st, _sUDT, _sKKI, _sM],
   [0, 4, 0, 0], 2
 ];
 export var RegionMapInputValue$: StaticStructureSchema = [3, n0, _RMIV,
@@ -664,15 +701,9 @@ export var RelatedItem$: StaticStructureSchema = [3, n0, _RIe,
 ];
 export var ReplicationSet$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_rM, _s, _dP, _cTre, _cB, _lMT, _lMB, _a],
+  [_rM, _st, _dP, _cTre, _cB, _lMT, _lMB, _a],
   [() => RegionInfoMap, 0, 2, 4, 0, 4, 0, 0], 7
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_pD, _pI, _rRSR],
@@ -683,12 +714,6 @@ export var ResponsePlanSummary$: StaticStructureSchema = [3, n0, _RPS,
   [_a, _n, _dN],
   [0, 0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _sC, _qC, _rI, _rT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SsmAutomation$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_rAo, _dNo, _dV, _tA, _pa, _dPy],
@@ -714,12 +739,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimelineEvent$: StaticStructureSchema = [3, n0, _TEi,
   0,
   [_iRA, _eI, _eTv, _eUT, _eTve, _eD, _eR],
@@ -752,7 +771,7 @@ export var UpdateDeletionProtectionOutput$: StaticStructureSchema = [3, n0, _UDP
 ];
 export var UpdateIncidentRecordInput$: StaticStructureSchema = [3, n0, _UIRI,
   0,
-  [_a, _cT, _ti, _su, _im, _s, _cC, _nTo],
+  [_a, _cT, _ti, _su, _im, _st, _cC, _nTo],
   [0, [0, 4], 0, 0, 1, 0, () => ChatChannel$, () => NotificationTargetSet], 1
 ];
 export var UpdateIncidentRecordOutput$: StaticStructureSchema = [3, n0, _UIRO,
@@ -800,14 +819,6 @@ export var UpdateTimelineEventOutput$: StaticStructureSchema = [3, n0, _UTEO,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SSMIncidentsServiceException$: StaticErrorSchema = [-3, _sm, "SSMIncidentsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSMIncidentsServiceException$, SSMIncidentsServiceException);
 var ActionsList: StaticListSchema = [1, n0, _AL,
   0, () => Action$
 ];

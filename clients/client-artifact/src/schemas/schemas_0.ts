@@ -72,21 +72,21 @@ const _pE = "periodEnd";
 const _pN = "productName";
 const _pS = "periodStart";
 const _qC = "quotaCode";
-const _r = "reports";
+const _r = "reason";
 const _rAS = "retryAfterSeconds";
 const _rD = "reportDetails";
 const _rI = "resourceId";
 const _rIe = "reportId";
 const _rT = "resourceType";
 const _rV = "reportVersion";
-const _re = "reason";
-const _s = "state";
+const _re = "reports";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.artifact";
 const _sC = "serviceCode";
 const _sM = "statusMessage";
 const _sN = "sequenceNumber";
 const _se = "server";
 const _ser = "series";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.artifact";
+const _st = "state";
 const _t = "type";
 const _tA = "termArn";
 const _tT = "terminateTerms";
@@ -111,26 +111,69 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ArtifactServiceException$: StaticErrorSchema = [-3, _s, "ArtifactServiceException", 0, [], []];
+_s_registry.registerError(ArtifactServiceException$, ArtifactServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
-  0,
-  [_nSS],
-  [0]
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
   [0, 0, 0], 3
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_nSS],
+  [0]
+];
 export var CustomerAgreementSummary$: StaticStructureSchema = [3, n0, _CAS,
   0,
-  [_n, _a, _i, _aA, _aAI, _oA, _eS, _eE, _s, _d, _aT, _tT, _t],
+  [_n, _a, _i, _aA, _aAI, _oA, _eS, _eE, _st, _d, _aT, _tT, _t],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 64 | 0, 64 | 0, 0]
 ];
 export var GetAccountSettingsRequest$: StaticStructureSchema = [3, n0, _GASR,
@@ -173,12 +216,6 @@ export var GetTermForReportResponse$: StaticStructureSchema = [3, n0, _GTFRRe,
   [_dPU, _tTe],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListCustomerAgreementsRequest$: StaticStructureSchema = [3, n0, _LCAR,
   0,
   [_mR, _nT],
@@ -196,7 +233,7 @@ export var ListReportsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListReportsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_r, _nT],
+  [_re, _nT],
   [() => ReportsList, 0]
 ];
 export var ListReportVersionsRequest$: StaticStructureSchema = [3, n0, _LRVR,
@@ -206,7 +243,7 @@ export var ListReportVersionsRequest$: StaticStructureSchema = [3, n0, _LRVR,
 ];
 export var ListReportVersionsResponse$: StaticStructureSchema = [3, n0, _LRVRi,
   0,
-  [_r, _nT],
+  [_re, _nT],
   [() => ReportsList, 0], 1
 ];
 export var PutAccountSettingsRequest$: StaticStructureSchema = [3, n0, _PASR,
@@ -221,45 +258,19 @@ export var PutAccountSettingsResponse$: StaticStructureSchema = [3, n0, _PASRu,
 ];
 export var ReportDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_i, _n, _d, _pS, _pE, _cAr, _lMA, _dA, _s, _a, _ser, _ca, _cN, _pN, _tA, _v, _aTc, _sN, _uS, _sM],
+  [_i, _n, _d, _pS, _pE, _cAr, _lMA, _dA, _st, _a, _ser, _ca, _cN, _pN, _tA, _v, _aTc, _sN, _uS, _sM],
   [0, 0, 0, 5, 5, 5, 5, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0]
 ];
 export var ReportSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_i, _n, _s, _a, _v, _uS, _d, _pS, _pE, _ser, _ca, _cN, _pN, _sM, _aTc],
+  [_i, _n, _st, _a, _v, _uS, _d, _pS, _pE, _ser, _ca, _cN, _pN, _sM, _aTc],
   [0, 0, 0, 0, 1, 0, 0, 5, 5, 0, 0, 0, 0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var ArtifactServiceException$: StaticErrorSchema = [-3, _sm, "ArtifactServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ArtifactServiceException$, ArtifactServiceException);
 var AgreementTerms = 64 | 0;
 var CustomerAgreementList: StaticListSchema = [1, n0, _CAL,
   0, () => CustomerAgreementSummary$

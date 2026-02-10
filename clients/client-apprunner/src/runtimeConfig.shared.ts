@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import type { AppRunnerClientConfig } from "./AppRunnerClient";
 import { defaultAppRunnerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: AppRunnerClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.apprunner",
+      errorTypeRegistries,
       xmlNamespace: "http://apprunner.amazonaws.com/doc/2020-05-15/",
       version: "2020-05-15",
       serviceTarget: "AppRunner",

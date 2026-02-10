@@ -7577,7 +7577,7 @@ const _req = "requested";
 const _res = "result";
 const _ro = "route";
 const _rou = "routes";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ec2";
 const _sA = "sourceArn";
 const _sAS = "sourceAddressSet";
 const _sASu = "suggestedAccountSet";
@@ -7773,8 +7773,8 @@ const _scop = "scopes";
 const _scor = "score";
 const _se = "service";
 const _si = "size";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ec2";
-const _so = "sockets";
+const _so = "source";
+const _soc = "sockets";
 const _sof = "software";
 const _st = "state";
 const _sta = "status";
@@ -8084,6 +8084,17 @@ import type {
 import { EC2ServiceException } from "../models/EC2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EC2ServiceException$: StaticErrorSchema = [-3, _s, "EC2ServiceException", 0, [], []];
+_s_registry.registerError(EC2ServiceException$, EC2ServiceException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+]
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 var CopySnapshotRequestPSU: StaticSimpleSchema = [0, n0, _CSRPSU, 8, 0];
 var customerGatewayConfiguration: StaticSimpleSchema = [0, n0, _cGC, 8, 0];
@@ -8225,7 +8236,7 @@ export var AccessScopePath$: StaticStructureSchema = [3, n0, _ASP,
   0,
   [_S, _D, _TR],
   [[() => PathStatement$, { [_eQN]: `Source`
-  , [_xN]: _s }], [() => PathStatement$, { [_eQN]: `Destination`
+  , [_xN]: _so }], [() => PathStatement$, { [_eQN]: `Destination`
   , [_xN]: _d }], [() => ThroughResourcesStatementList, { [_eQN]: `ThroughResourceSet`
   , [_xN]: _tRS }]]
 ];
@@ -11344,7 +11355,7 @@ export var DataResponse$: StaticStructureSchema = [3, n0, _DRa,
   [_I, _S, _D, _Met, _Stat, _Per, _MPe],
   [[0, { [_eQN]: `Id`
   , [_xN]: _i }], [0, { [_eQN]: `Source`
-  , [_xN]: _s }], [0, { [_eQN]: `Destination`
+  , [_xN]: _so }], [0, { [_eQN]: `Destination`
   , [_xN]: _d }], [0, { [_eQN]: `Metric`
   , [_xN]: _met }], [0, { [_eQN]: `Statistic`
   , [_xN]: _stat }], [0, { [_eQN]: `Period`
@@ -17431,7 +17442,7 @@ export var HostProperties$: StaticStructureSchema = [3, n0, _HP,
   , [_xN]: _cor }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `InstanceFamily`
   , [_xN]: _iF }], [1, { [_eQN]: `Sockets`
-  , [_xN]: _so }], [1, { [_eQN]: `TotalVCpus`
+  , [_xN]: _soc }], [1, { [_eQN]: `TotalVCpus`
   , [_xN]: _tVC }]]
 ];
 export var HostReservation$: StaticStructureSchema = [3, n0, _HRo,
@@ -20995,7 +21006,7 @@ export var NetworkInsightsPath$: StaticStructureSchema = [3, n0, _NIP,
   , [_xN]: _nIPI }], [0, { [_eQN]: `NetworkInsightsPathArn`
   , [_xN]: _nIPA }], [4, { [_eQN]: `CreatedDate`
   , [_xN]: _cDre }], [0, { [_eQN]: `Source`
-  , [_xN]: _s }], [0, { [_eQN]: `Destination`
+  , [_xN]: _so }], [0, { [_eQN]: `Destination`
   , [_xN]: _d }], [0, { [_eQN]: `SourceArn`
   , [_xN]: _sA }], [0, { [_eQN]: `DestinationArn`
   , [_xN]: _dA }], [0, { [_eQN]: `SourceIp`
@@ -23706,7 +23717,7 @@ export var Subscription$: StaticStructureSchema = [3, n0, _Subs,
   0,
   [_S, _D, _Met, _Stat, _Per],
   [[0, { [_eQN]: `Source`
-  , [_xN]: _s }], [0, { [_eQN]: `Destination`
+  , [_xN]: _so }], [0, { [_eQN]: `Destination`
   , [_xN]: _d }], [0, { [_eQN]: `Metric`
   , [_xN]: _met }], [0, { [_eQN]: `Statistic`
   , [_xN]: _stat }], [0, { [_eQN]: `Period`
@@ -25352,7 +25363,7 @@ export var VpnStaticRoute$: StaticStructureSchema = [3, n0, _VSR,
   [_DCB, _S, _St],
   [[0, { [_eQN]: `DestinationCidrBlock`
   , [_xN]: _dCB }], [0, { [_eQN]: `Source`
-  , [_xN]: _s }], [0, { [_eQN]: `State`
+  , [_xN]: _so }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
 export var VpnTunnelLogOptions$: StaticStructureSchema = [3, n0, _VTLO,
@@ -25383,8 +25394,6 @@ export var WithdrawByoipCidrResult$: StaticStructureSchema = [3, n0, _WBCRi,
   , [_xN]: _bC }]]
 ];
 var __Unit = "unit" as const;
-export var EC2ServiceException$: StaticErrorSchema = [-3, _sm, "EC2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EC2ServiceException$, EC2ServiceException);
 var AcceleratorManufacturerSet: StaticListSchema = [1, n0, _AMSc,
   0, [0,
     { [_xN]: _it }]

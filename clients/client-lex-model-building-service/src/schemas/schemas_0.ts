@@ -280,10 +280,10 @@ const _rC = "responseCard";
 const _rCe = "regexConfiguration";
 const _rP = "resourcePrefix";
 const _rS = "rejectionStatement";
-const _rT = "resourceType";
-const _rTe = "referenceType";
+const _rT = "referenceType";
+const _rTe = "resourceType";
 const _rURL = "referenceURLs";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lexmodelbuildingservice";
 const _sBA = "sortByAttribute";
 const _sBO = "sortByOrder";
 const _sC = "signatureContains";
@@ -298,8 +298,8 @@ const _sU = "sampleUtterances";
 const _se = "server";
 const _si = "signature";
 const _sl = "slots";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lexmodelbuildingservice";
-const _st = "status_type";
+const _st = "status";
+const _st_ = "status_type";
 const _sy = "synonyms";
 const _t = "type";
 const _tK = "tagKeys";
@@ -349,18 +349,67 @@ import {
 import { LexModelBuildingServiceServiceException } from "../models/LexModelBuildingServiceServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LexModelBuildingServiceServiceException$: StaticErrorSchema = [-3, _s, "LexModelBuildingServiceServiceException", 0, [], []];
+_s_registry.registerError(LexModelBuildingServiceServiceException$, LexModelBuildingServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_rAS, _m],
+  [[0, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PreconditionFailedException$, PreconditionFailedException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_rT, _eR],
+  [0, () => ResourceReference$]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BotAliasMetadata$: StaticStructureSchema = [3, n0, _BAM,
   0,
   [_n, _d, _bV, _bN, _lUD, _cD, _ch, _cL],
@@ -368,12 +417,12 @@ export var BotAliasMetadata$: StaticStructureSchema = [3, n0, _BAM,
 ];
 export var BotChannelAssociation$: StaticStructureSchema = [3, n0, _BCA,
   0,
-  [_n, _d, _bA, _bN, _cD, _t, _bC, _s, _fR],
+  [_n, _d, _bA, _bN, _cD, _t, _bC, _st, _fR],
   [0, 0, 0, 0, 4, 0, [() => ChannelConfigurationMap, 0], 0, 0]
 ];
 export var BotMetadata$: StaticStructureSchema = [3, n0, _BM,
   0,
-  [_n, _d, _s, _lUD, _cD, _v],
+  [_n, _d, _st, _lUD, _cD, _v],
   [0, 0, 0, 4, 4, 0]
 ];
 export var BuiltinIntentMetadata$: StaticStructureSchema = [3, n0, _BIM,
@@ -396,12 +445,6 @@ export var CodeHook$: StaticStructureSchema = [3, n0, _CH,
   [_u, _mV],
   [0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConversationLogsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
   [_lS, _iRA],
@@ -419,7 +462,7 @@ export var CreateBotVersionRequest$: StaticStructureSchema = [3, n0, _CBVR,
 ];
 export var CreateBotVersionResponse$: StaticStructureSchema = [3, n0, _CBVRr,
   0,
-  [_n, _d, _i, _cP, _aS, _s, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _eMI, _dS],
+  [_n, _d, _i, _cP, _aS, _st, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _eMI, _dS],
   [0, 0, () => IntentList, () => Prompt$, () => Statement$, 0, 0, 4, 4, 1, 0, 0, 0, 0, 2, 2, 2]
 ];
 export var CreateIntentVersionRequest$: StaticStructureSchema = [3, n0, _CIVR,
@@ -529,7 +572,7 @@ export var GetBotChannelAssociationRequest$: StaticStructureSchema = [3, n0, _GB
 ];
 export var GetBotChannelAssociationResponse$: StaticStructureSchema = [3, n0, _GBCARe,
   0,
-  [_n, _d, _bA, _bN, _cD, _t, _bC, _s, _fR],
+  [_n, _d, _bA, _bN, _cD, _t, _bC, _st, _fR],
   [0, 0, 0, 0, 4, 0, [() => ChannelConfigurationMap, 0], 0, 0]
 ];
 export var GetBotChannelAssociationsRequest$: StaticStructureSchema = [3, n0, _GBCARet,
@@ -549,7 +592,7 @@ export var GetBotRequest$: StaticStructureSchema = [3, n0, _GBR,
 ];
 export var GetBotResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_n, _d, _i, _eMI, _nICT, _cP, _aS, _s, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _dS],
+  [_n, _d, _i, _eMI, _nICT, _cP, _aS, _st, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _dS],
   [0, 0, () => IntentList, 2, 1, () => Prompt$, () => Statement$, 0, 0, 4, 4, 1, 0, 0, 0, 0, 2, 2]
 ];
 export var GetBotsRequest$: StaticStructureSchema = [3, n0, _GBRet,
@@ -604,12 +647,12 @@ export var GetBuiltinSlotTypesResponse$: StaticStructureSchema = [3, n0, _GBSTRe
 ];
 export var GetExportRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
-  [_n, _v, _rT, _eT],
-  [[0, { [_hQ]: _n }], [0, { [_hQ]: _v }], [0, { [_hQ]: _rT }], [0, { [_hQ]: _eT }]], 4
+  [_n, _v, _rTe, _eT],
+  [[0, { [_hQ]: _n }], [0, { [_hQ]: _v }], [0, { [_hQ]: _rTe }], [0, { [_hQ]: _eT }]], 4
 ];
 export var GetExportResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_n, _v, _rT, _eT, _eS, _fR, _ur],
+  [_n, _v, _rTe, _eT, _eS, _fR, _ur],
   [0, 0, 0, 0, 0, 0, 0]
 ];
 export var GetImportRequest$: StaticStructureSchema = [3, n0, _GIR,
@@ -619,7 +662,7 @@ export var GetImportRequest$: StaticStructureSchema = [3, n0, _GIR,
 ];
 export var GetImportResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
-  [_n, _rT, _mS, _iI, _iS, _fR, _cD],
+  [_n, _rTe, _mS, _iI, _iS, _fR, _cD],
   [0, 0, 0, 0, 0, 64 | 0, 4]
 ];
 export var GetIntentRequest$: StaticStructureSchema = [3, n0, _GIRet,
@@ -705,7 +748,7 @@ export var GetSlotTypeVersionsResponse$: StaticStructureSchema = [3, n0, _GSTVRe
 export var GetUtterancesViewRequest$: StaticStructureSchema = [3, n0, _GUVR,
   0,
   [_bN, _bVo, _sTt],
-  [[0, 1], [64 | 0, { [_hQ]: _bv }], [0, { [_hQ]: _st }]], 3
+  [[0, 1], [64 | 0, { [_hQ]: _bv }], [0, { [_hQ]: _st_ }]], 3
 ];
 export var GetUtterancesViewResponse$: StaticStructureSchema = [3, n0, _GUVRe,
   0,
@@ -727,23 +770,11 @@ export var IntentMetadata$: StaticStructureSchema = [3, n0, _IM,
   [_n, _d, _lUD, _cD, _v],
   [0, 0, 4, 4, 0]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var KendraConfiguration$: StaticStructureSchema = [3, n0, _KC,
   0,
   [_kI, _r, _qFS],
   [0, 0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_rAS, _m],
-  [[0, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -779,23 +810,11 @@ export var MigrationSummary$: StaticStructureSchema = [3, n0, _MS,
   [_mI, _vBN, _vBV, _vBL, _vBI, _vBR, _mSi, _mSig, _mT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OutputContext$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_n, _tTLIS, _tTL],
   [0, 1, 1], 3
 ];
-export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
-  { [_e]: _c, [_hE]: 412 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
 export var Prompt$: StaticStructureSchema = [3, n0, _P,
   0,
   [_me, _mA, _rC],
@@ -818,7 +837,7 @@ export var PutBotRequest$: StaticStructureSchema = [3, n0, _PBR,
 ];
 export var PutBotResponse$: StaticStructureSchema = [3, n0, _PBRu,
   0,
-  [_n, _d, _i, _eMI, _nICT, _cP, _aS, _s, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _cV, _dS, _ta],
+  [_n, _d, _i, _eMI, _nICT, _cP, _aS, _st, _fR, _lUD, _cD, _iSTTLIS, _vI, _ch, _v, _l, _cDh, _cV, _dS, _ta],
   [0, 0, () => IntentList, 2, 1, () => Prompt$, () => Statement$, 0, 0, 4, 4, 1, 0, 0, 0, 0, 2, 2, 2, () => TagList]
 ];
 export var PutIntentRequest$: StaticStructureSchema = [3, n0, _PIR,
@@ -841,12 +860,6 @@ export var PutSlotTypeResponse$: StaticStructureSchema = [3, n0, _PSTRu,
   [_n, _d, _eV, _lUD, _cD, _v, _ch, _vSS, _cV, _pSTS, _sTC],
   [0, 0, () => EnumerationValues, 4, 4, 0, 0, 0, 2, 0, () => SlotTypeConfigurations]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_rTe, _eR],
-  [0, () => ResourceReference$]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
 export var ResourceReference$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_n, _v],
@@ -884,12 +897,12 @@ export var SlotTypeRegexConfiguration$: StaticStructureSchema = [3, n0, _STRC,
 ];
 export var StartImportRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
-  [_pay, _rT, _mS, _ta],
+  [_pay, _rTe, _mS, _ta],
   [21, 0, 0, () => TagList], 3
 ];
 export var StartImportResponse$: StaticStructureSchema = [3, n0, _SIRt,
   0,
-  [_n, _rT, _mS, _iI, _iS, _ta, _cD],
+  [_n, _rTe, _mS, _iI, _iS, _ta, _cD],
   [0, 0, 0, 0, 0, () => TagList, 4]
 ];
 export var StartMigrationRequest$: StaticStructureSchema = [3, n0, _SMR,
@@ -943,8 +956,6 @@ export var UtteranceList$: StaticStructureSchema = [3, n0, _UL,
   [0, () => ListOfUtterance]
 ];
 var __Unit = "unit" as const;
-export var LexModelBuildingServiceServiceException$: StaticErrorSchema = [-3, _sm, "LexModelBuildingServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LexModelBuildingServiceServiceException$, LexModelBuildingServiceServiceException);
 var BotAliasMetadataList: StaticListSchema = [1, n0, _BAML,
   0, () => BotAliasMetadata$
 ];

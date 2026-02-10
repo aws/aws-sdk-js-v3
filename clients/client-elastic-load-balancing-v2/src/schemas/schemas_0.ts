@@ -461,8 +461,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.elasticloadbalancingv2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.elasticloadbalancingv2";
+const _se = "server";
 const n0 = "com.amazonaws.elasticloadbalancingv2";
 
 // smithy-typescript generated code
@@ -536,6 +536,355 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ElasticLoadBalancingV2ServiceException$: StaticErrorSchema = [-3, _s, "ElasticLoadBalancingV2ServiceException", 0, [], []];
+_s_registry.registerError(ElasticLoadBalancingV2ServiceException$, ElasticLoadBalancingV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AllocationIdNotFoundException$: StaticErrorSchema = [-3, n0, _AINFE,
+  { [_aQE]: [`AllocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AllocationIdNotFoundException$, AllocationIdNotFoundException);
+export var ALPNPolicyNotSupportedException$: StaticErrorSchema = [-3, n0, _ALPNPNSE,
+  { [_aQE]: [`ALPNPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ALPNPolicyNotSupportedException$, ALPNPolicyNotSupportedException);
+export var AvailabilityZoneNotSupportedException$: StaticErrorSchema = [-3, n0, _AZNSE,
+  { [_aQE]: [`AvailabilityZoneNotSupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AvailabilityZoneNotSupportedException$, AvailabilityZoneNotSupportedException);
+export var CaCertificatesBundleNotFoundException$: StaticErrorSchema = [-3, n0, _CCBNFE,
+  { [_aQE]: [`CaCertificatesBundleNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CaCertificatesBundleNotFoundException$, CaCertificatesBundleNotFoundException);
+export var CapacityDecreaseRequestsLimitExceededException$: StaticErrorSchema = [-3, n0, _CDRLEE,
+  { [_aQE]: [`CapacityDecreaseRequestLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CapacityDecreaseRequestsLimitExceededException$, CapacityDecreaseRequestsLimitExceededException);
+export var CapacityReservationPendingException$: StaticErrorSchema = [-3, n0, _CRPE,
+  { [_aQE]: [`CapacityReservationPending`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CapacityReservationPendingException$, CapacityReservationPendingException);
+export var CapacityUnitsLimitExceededException$: StaticErrorSchema = [-3, n0, _CULEE,
+  { [_aQE]: [`CapacityUnitsLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CapacityUnitsLimitExceededException$, CapacityUnitsLimitExceededException);
+export var CertificateNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
+  { [_aQE]: [`CertificateNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CertificateNotFoundException$, CertificateNotFoundException);
+export var DeleteAssociationSameAccountException$: StaticErrorSchema = [-3, n0, _DASAE,
+  { [_aQE]: [`DeleteAssociationSameAccount`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DeleteAssociationSameAccountException$, DeleteAssociationSameAccountException);
+export var DuplicateListenerException$: StaticErrorSchema = [-3, n0, _DLE,
+  { [_aQE]: [`DuplicateListener`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateListenerException$, DuplicateListenerException);
+export var DuplicateLoadBalancerNameException$: StaticErrorSchema = [-3, n0, _DLBNE,
+  { [_aQE]: [`DuplicateLoadBalancerName`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateLoadBalancerNameException$, DuplicateLoadBalancerNameException);
+export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
+  { [_aQE]: [`DuplicateTagKeys`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
+export var DuplicateTargetGroupNameException$: StaticErrorSchema = [-3, n0, _DTGNE,
+  { [_aQE]: [`DuplicateTargetGroupName`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateTargetGroupNameException$, DuplicateTargetGroupNameException);
+export var DuplicateTrustStoreNameException$: StaticErrorSchema = [-3, n0, _DTSNE,
+  { [_aQE]: [`DuplicateTrustStoreName`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateTrustStoreNameException$, DuplicateTrustStoreNameException);
+export var HealthUnavailableException$: StaticErrorSchema = [-3, n0, _HUE,
+  { [_aQE]: [`HealthUnavailable`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(HealthUnavailableException$, HealthUnavailableException);
+export var IncompatibleProtocolsException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_aQE]: [`IncompatibleProtocols`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IncompatibleProtocolsException$, IncompatibleProtocolsException);
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InsufficientCapacity`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InvalidCaCertificatesBundleException$: StaticErrorSchema = [-3, n0, _ICCBE,
+  { [_aQE]: [`InvalidCaCertificatesBundle`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidCaCertificatesBundleException$, InvalidCaCertificatesBundleException);
+export var InvalidConfigurationRequestException$: StaticErrorSchema = [-3, n0, _ICRE,
+  { [_aQE]: [`InvalidConfigurationRequest`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidConfigurationRequestException$, InvalidConfigurationRequestException);
+export var InvalidLoadBalancerActionException$: StaticErrorSchema = [-3, n0, _ILBAE,
+  { [_aQE]: [`InvalidLoadBalancerAction`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidLoadBalancerActionException$, InvalidLoadBalancerActionException);
+export var InvalidRevocationContentException$: StaticErrorSchema = [-3, n0, _IRCE,
+  { [_aQE]: [`InvalidRevocationContent`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRevocationContentException$, InvalidRevocationContentException);
+export var InvalidSchemeException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InvalidScheme`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSchemeException$, InvalidSchemeException);
+export var InvalidSecurityGroupException$: StaticErrorSchema = [-3, n0, _ISGE,
+  { [_aQE]: [`InvalidSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSecurityGroupException$, InvalidSecurityGroupException);
+export var InvalidSubnetException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidSubnetException$, InvalidSubnetException);
+export var InvalidTargetException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_aQE]: [`InvalidTarget`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidTargetException$, InvalidTargetException);
+export var ListenerNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
+  { [_aQE]: [`ListenerNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ListenerNotFoundException$, ListenerNotFoundException);
+export var LoadBalancerNotFoundException$: StaticErrorSchema = [-3, n0, _LBNFE,
+  { [_aQE]: [`LoadBalancerNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LoadBalancerNotFoundException$, LoadBalancerNotFoundException);
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var PriorityInUseException$: StaticErrorSchema = [-3, n0, _PIUE,
+  { [_aQE]: [`PriorityInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PriorityInUseException$, PriorityInUseException);
+export var PriorRequestNotCompleteException$: StaticErrorSchema = [-3, n0, _PRNCE,
+  { [_aQE]: [`PriorRequestNotComplete`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PriorRequestNotCompleteException$, PriorRequestNotCompleteException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RevocationContentNotFoundException$: StaticErrorSchema = [-3, n0, _RCNFE,
+  { [_aQE]: [`RevocationContentNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RevocationContentNotFoundException$, RevocationContentNotFoundException);
+export var RevocationIdNotFoundException$: StaticErrorSchema = [-3, n0, _RINFE,
+  { [_aQE]: [`RevocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RevocationIdNotFoundException$, RevocationIdNotFoundException);
+export var RuleNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEu,
+  { [_aQE]: [`RuleNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RuleNotFoundException$, RuleNotFoundException);
+export var SSLPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _SSLPNFE,
+  { [_aQE]: [`SSLPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SSLPolicyNotFoundException$, SSLPolicyNotFoundException);
+export var SubnetNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_aQE]: [`SubnetNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SubnetNotFoundException$, SubnetNotFoundException);
+export var TargetGroupAssociationLimitException$: StaticErrorSchema = [-3, n0, _TGALE,
+  { [_aQE]: [`TargetGroupAssociationLimit`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TargetGroupAssociationLimitException$, TargetGroupAssociationLimitException);
+export var TargetGroupNotFoundException$: StaticErrorSchema = [-3, n0, _TGNFE,
+  { [_aQE]: [`TargetGroupNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TargetGroupNotFoundException$, TargetGroupNotFoundException);
+export var TooManyActionsException$: StaticErrorSchema = [-3, n0, _TMAE,
+  { [_aQE]: [`TooManyActions`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyActionsException$, TooManyActionsException);
+export var TooManyCertificatesException$: StaticErrorSchema = [-3, n0, _TMCE,
+  { [_aQE]: [`TooManyCertificates`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyCertificatesException$, TooManyCertificatesException);
+export var TooManyListenersException$: StaticErrorSchema = [-3, n0, _TMLE,
+  { [_aQE]: [`TooManyListeners`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyListenersException$, TooManyListenersException);
+export var TooManyLoadBalancersException$: StaticErrorSchema = [-3, n0, _TMLBE,
+  { [_aQE]: [`TooManyLoadBalancers`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyLoadBalancersException$, TooManyLoadBalancersException);
+export var TooManyRegistrationsForTargetIdException$: StaticErrorSchema = [-3, n0, _TMRFTIE,
+  { [_aQE]: [`TooManyRegistrationsForTargetId`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRegistrationsForTargetIdException$, TooManyRegistrationsForTargetIdException);
+export var TooManyRulesException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_aQE]: [`TooManyRules`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRulesException$, TooManyRulesException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_aQE]: [`TooManyTags`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var TooManyTargetGroupsException$: StaticErrorSchema = [-3, n0, _TMTGE,
+  { [_aQE]: [`TooManyTargetGroups`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTargetGroupsException$, TooManyTargetGroupsException);
+export var TooManyTargetsException$: StaticErrorSchema = [-3, n0, _TMTEo,
+  { [_aQE]: [`TooManyTargets`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTargetsException$, TooManyTargetsException);
+export var TooManyTrustStoreRevocationEntriesException$: StaticErrorSchema = [-3, n0, _TMTSREE,
+  { [_aQE]: [`TooManyTrustStoreRevocationEntries`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTrustStoreRevocationEntriesException$, TooManyTrustStoreRevocationEntriesException);
+export var TooManyTrustStoresException$: StaticErrorSchema = [-3, n0, _TMTSE,
+  { [_aQE]: [`TooManyTrustStores`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTrustStoresException$, TooManyTrustStoresException);
+export var TooManyUniqueTargetGroupsPerLoadBalancerException$: StaticErrorSchema = [-3, n0, _TMUTGPLBE,
+  { [_aQE]: [`TooManyUniqueTargetGroupsPerLoadBalancer`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyUniqueTargetGroupsPerLoadBalancerException$, TooManyUniqueTargetGroupsPerLoadBalancerException);
+export var TrustStoreAssociationNotFoundException$: StaticErrorSchema = [-3, n0, _TSANFE,
+  { [_aQE]: [`AssociationNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TrustStoreAssociationNotFoundException$, TrustStoreAssociationNotFoundException);
+export var TrustStoreInUseException$: StaticErrorSchema = [-3, n0, _TSIUE,
+  { [_aQE]: [`TrustStoreInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TrustStoreInUseException$, TrustStoreInUseException);
+export var TrustStoreNotFoundException$: StaticErrorSchema = [-3, n0, _TSNFE,
+  { [_aQE]: [`TrustStoreNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TrustStoreNotFoundException$, TrustStoreNotFoundException);
+export var TrustStoreNotReadyException$: StaticErrorSchema = [-3, n0, _TSNRE,
+  { [_aQE]: [`TrustStoreNotReady`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TrustStoreNotReadyException$, TrustStoreNotReadyException);
+export var UnsupportedProtocolException$: StaticErrorSchema = [-3, n0, _UPE,
+  { [_aQE]: [`UnsupportedProtocol`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedProtocolException$, UnsupportedProtocolException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_T, _TGA, _AOC, _ACC, _O, _RC, _FRC, _FC, _JVC],
@@ -576,18 +925,6 @@ export var AdministrativeOverride$: StaticStructureSchema = [3, n0, _AO,
   [_S, _R, _D],
   [0, 0, 0]
 ];
-export var AllocationIdNotFoundException$: StaticErrorSchema = [-3, n0, _AINFE,
-  { [_aQE]: [`AllocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AllocationIdNotFoundException$, AllocationIdNotFoundException);
-export var ALPNPolicyNotSupportedException$: StaticErrorSchema = [-3, n0, _ALPNPNSE,
-  { [_aQE]: [`ALPNPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ALPNPolicyNotSupportedException$, ALPNPolicyNotSupportedException);
 export var AnomalyDetection$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_Re, _MIE],
@@ -608,52 +945,16 @@ export var AvailabilityZone$: StaticStructureSchema = [3, n0, _AZ,
   [_ZN, _SI, _OI, _LBA, _SNIP],
   [0, 0, 0, () => LoadBalancerAddresses, 64 | 0]
 ];
-export var AvailabilityZoneNotSupportedException$: StaticErrorSchema = [-3, n0, _AZNSE,
-  { [_aQE]: [`AvailabilityZoneNotSupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AvailabilityZoneNotSupportedException$, AvailabilityZoneNotSupportedException);
-export var CaCertificatesBundleNotFoundException$: StaticErrorSchema = [-3, n0, _CCBNFE,
-  { [_aQE]: [`CaCertificatesBundleNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CaCertificatesBundleNotFoundException$, CaCertificatesBundleNotFoundException);
-export var CapacityDecreaseRequestsLimitExceededException$: StaticErrorSchema = [-3, n0, _CDRLEE,
-  { [_aQE]: [`CapacityDecreaseRequestLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CapacityDecreaseRequestsLimitExceededException$, CapacityDecreaseRequestsLimitExceededException);
-export var CapacityReservationPendingException$: StaticErrorSchema = [-3, n0, _CRPE,
-  { [_aQE]: [`CapacityReservationPending`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CapacityReservationPendingException$, CapacityReservationPendingException);
 export var CapacityReservationStatus$: StaticStructureSchema = [3, n0, _CRS,
   0,
   [_Co, _R],
   [0, 0]
 ];
-export var CapacityUnitsLimitExceededException$: StaticErrorSchema = [-3, n0, _CULEE,
-  { [_aQE]: [`CapacityUnitsLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CapacityUnitsLimitExceededException$, CapacityUnitsLimitExceededException);
 export var Certificate$: StaticStructureSchema = [3, n0, _Ce,
   0,
   [_CA, _ID],
   [0, 2]
 ];
-export var CertificateNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
-  { [_aQE]: [`CertificateNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CertificateNotFoundException$, CertificateNotFoundException);
 export var Cipher$: StaticStructureSchema = [3, n0, _Ci,
   0,
   [_N, _P],
@@ -709,12 +1010,6 @@ export var CreateTrustStoreOutput$: StaticStructureSchema = [3, n0, _CTSO,
   [_TS],
   [() => TrustStores]
 ];
-export var DeleteAssociationSameAccountException$: StaticErrorSchema = [-3, n0, _DASAE,
-  { [_aQE]: [`DeleteAssociationSameAccount`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeleteAssociationSameAccountException$, DeleteAssociationSameAccountException);
 export var DeleteListenerInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
   [_LA],
@@ -950,36 +1245,6 @@ export var DescribeTrustStoresOutput$: StaticStructureSchema = [3, n0, _DTSOe,
   [_TS, _NM],
   [() => TrustStores, 0]
 ];
-export var DuplicateListenerException$: StaticErrorSchema = [-3, n0, _DLE,
-  { [_aQE]: [`DuplicateListener`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateListenerException$, DuplicateListenerException);
-export var DuplicateLoadBalancerNameException$: StaticErrorSchema = [-3, n0, _DLBNE,
-  { [_aQE]: [`DuplicateLoadBalancerName`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateLoadBalancerNameException$, DuplicateLoadBalancerNameException);
-export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
-  { [_aQE]: [`DuplicateTagKeys`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
-export var DuplicateTargetGroupNameException$: StaticErrorSchema = [-3, n0, _DTGNE,
-  { [_aQE]: [`DuplicateTargetGroupName`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateTargetGroupNameException$, DuplicateTargetGroupNameException);
-export var DuplicateTrustStoreNameException$: StaticErrorSchema = [-3, n0, _DTSNE,
-  { [_aQE]: [`DuplicateTrustStoreName`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateTrustStoreNameException$, DuplicateTrustStoreNameException);
 export var FixedResponseActionConfig$: StaticStructureSchema = [3, n0, _FRAC,
   0,
   [_SC, _MB, _CT],
@@ -1020,12 +1285,6 @@ export var GetTrustStoreRevocationContentOutput$: StaticStructureSchema = [3, n0
   [_Lo],
   [0]
 ];
-export var HealthUnavailableException$: StaticErrorSchema = [-3, n0, _HUE,
-  { [_aQE]: [`HealthUnavailable`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HealthUnavailableException$, HealthUnavailableException);
 export var HostHeaderConditionConfig$: StaticStructureSchema = [3, n0, _HHCC,
   0,
   [_V, _RV],
@@ -1046,66 +1305,6 @@ export var HttpRequestMethodConditionConfig$: StaticStructureSchema = [3, n0, _H
   [_V],
   [64 | 0]
 ];
-export var IncompatibleProtocolsException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_aQE]: [`IncompatibleProtocols`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleProtocolsException$, IncompatibleProtocolsException);
-export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_aQE]: [`InsufficientCapacity`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
-export var InvalidCaCertificatesBundleException$: StaticErrorSchema = [-3, n0, _ICCBE,
-  { [_aQE]: [`InvalidCaCertificatesBundle`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCaCertificatesBundleException$, InvalidCaCertificatesBundleException);
-export var InvalidConfigurationRequestException$: StaticErrorSchema = [-3, n0, _ICRE,
-  { [_aQE]: [`InvalidConfigurationRequest`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidConfigurationRequestException$, InvalidConfigurationRequestException);
-export var InvalidLoadBalancerActionException$: StaticErrorSchema = [-3, n0, _ILBAE,
-  { [_aQE]: [`InvalidLoadBalancerAction`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLoadBalancerActionException$, InvalidLoadBalancerActionException);
-export var InvalidRevocationContentException$: StaticErrorSchema = [-3, n0, _IRCE,
-  { [_aQE]: [`InvalidRevocationContent`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRevocationContentException$, InvalidRevocationContentException);
-export var InvalidSchemeException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InvalidScheme`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSchemeException$, InvalidSchemeException);
-export var InvalidSecurityGroupException$: StaticErrorSchema = [-3, n0, _ISGE,
-  { [_aQE]: [`InvalidSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSecurityGroupException$, InvalidSecurityGroupException);
-export var InvalidSubnetException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSubnetException$, InvalidSubnetException);
-export var InvalidTargetException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_aQE]: [`InvalidTarget`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTargetException$, InvalidTargetException);
 export var IpamPools$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_IIPI],
@@ -1136,12 +1335,6 @@ export var ListenerAttribute$: StaticStructureSchema = [3, n0, _LAis,
   [_K, _Va],
   [0, 0]
 ];
-export var ListenerNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
-  { [_aQE]: [`ListenerNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ListenerNotFoundException$, ListenerNotFoundException);
 export var LoadBalancer$: StaticStructureSchema = [3, n0, _LBo,
   0,
   [_LBAo, _DNSN, _CHZI, _CTr, _LBN, _Sch, _VI, _S, _T, _AZv, _SG, _IAT, _COIP, _ESGIROPLT, _EPFISN, _IP],
@@ -1157,12 +1350,6 @@ export var LoadBalancerAttribute$: StaticStructureSchema = [3, n0, _LBAoada,
   [_K, _Va],
   [0, 0]
 ];
-export var LoadBalancerNotFoundException$: StaticErrorSchema = [-3, n0, _LBNFE,
-  { [_aQE]: [`LoadBalancerNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LoadBalancerNotFoundException$, LoadBalancerNotFoundException);
 export var LoadBalancerState$: StaticStructureSchema = [3, n0, _LBS,
   0,
   [_Co, _R],
@@ -1273,29 +1460,11 @@ export var MutualAuthenticationAttributes$: StaticStructureSchema = [3, n0, _MAA
   [_Mo, _TSA, _ICCE, _TSAS, _ATSCN],
   [0, 0, 2, 0, 0]
 ];
-export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
-  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
 export var PathPatternConditionConfig$: StaticStructureSchema = [3, n0, _PPCC,
   0,
   [_V, _RV],
   [64 | 0, 64 | 0]
 ];
-export var PriorityInUseException$: StaticErrorSchema = [-3, n0, _PIUE,
-  { [_aQE]: [`PriorityInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PriorityInUseException$, PriorityInUseException);
-export var PriorRequestNotCompleteException$: StaticErrorSchema = [-3, n0, _PRNCE,
-  { [_aQE]: [`PriorRequestNotComplete`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PriorRequestNotCompleteException$, PriorRequestNotCompleteException);
 export var QueryStringConditionConfig$: StaticStructureSchema = [3, n0, _QSCC,
   0,
   [_V],
@@ -1351,35 +1520,11 @@ export var RemoveTrustStoreRevocationsOutput$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_aQE]: [`ResourceInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RevocationContent$: StaticStructureSchema = [3, n0, _RCev,
   0,
   [_SB, _SK, _SOV, _RT],
   [0, 0, 0, 0]
 ];
-export var RevocationContentNotFoundException$: StaticErrorSchema = [-3, n0, _RCNFE,
-  { [_aQE]: [`RevocationContentNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RevocationContentNotFoundException$, RevocationContentNotFoundException);
-export var RevocationIdNotFoundException$: StaticErrorSchema = [-3, n0, _RINFE,
-  { [_aQE]: [`RevocationIdNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RevocationIdNotFoundException$, RevocationIdNotFoundException);
 export var RewriteConfig$: StaticStructureSchema = [3, n0, _RCew,
   0,
   [_Reg, _Rep],
@@ -1395,12 +1540,6 @@ export var RuleCondition$: StaticStructureSchema = [3, n0, _RCu,
   [_Fi, _V, _HHC, _PPC, _HHCt, _QSC, _HRMC, _SIC, _RV],
   [0, 64 | 0, () => HostHeaderConditionConfig$, () => PathPatternConditionConfig$, () => HttpHeaderConditionConfig$, () => QueryStringConditionConfig$, () => HttpRequestMethodConditionConfig$, () => SourceIpConditionConfig$, 64 | 0]
 ];
-export var RuleNotFoundException$: StaticErrorSchema = [-3, n0, _RNFEu,
-  { [_aQE]: [`RuleNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RuleNotFoundException$, RuleNotFoundException);
 export var RulePriorityPair$: StaticStructureSchema = [3, n0, _RPP,
   0,
   [_RAu, _P],
@@ -1461,23 +1600,11 @@ export var SslPolicy$: StaticStructureSchema = [3, n0, _SP,
   [_SPsl, _Cip, _N, _SLBT],
   [64 | 0, () => Ciphers, 0, 64 | 0]
 ];
-export var SSLPolicyNotFoundException$: StaticErrorSchema = [-3, n0, _SSLPNFE,
-  { [_aQE]: [`SSLPolicyNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SSLPolicyNotFoundException$, SSLPolicyNotFoundException);
 export var SubnetMapping$: StaticStructureSchema = [3, n0, _SMu,
   0,
   [_SI, _AI, _PIPA, _IPA, _SNIPo],
   [0, 0, 0, 0, 0]
 ];
-export var SubnetNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_aQE]: [`SubnetNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubnetNotFoundException$, SubnetNotFoundException);
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _Va],
@@ -1498,23 +1625,11 @@ export var TargetGroup$: StaticStructureSchema = [3, n0, _TGa,
   [_TGA, _TGN, _Pr, _Po, _VI, _HCP, _HCPe, _HCE, _HCIS, _HCTS, _HTC, _UTC, _HCPea, _Ma, _LBAoa, _TT, _PV, _IAT, _TCP],
   [0, 0, 0, 1, 0, 0, 0, 2, 1, 1, 1, 1, 0, () => Matcher$, 64 | 0, 0, 0, 0, 1]
 ];
-export var TargetGroupAssociationLimitException$: StaticErrorSchema = [-3, n0, _TGALE,
-  { [_aQE]: [`TargetGroupAssociationLimit`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TargetGroupAssociationLimitException$, TargetGroupAssociationLimitException);
 export var TargetGroupAttribute$: StaticStructureSchema = [3, n0, _TGAar,
   0,
   [_K, _Va],
   [0, 0]
 ];
-export var TargetGroupNotFoundException$: StaticErrorSchema = [-3, n0, _TGNFE,
-  { [_aQE]: [`TargetGroupNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TargetGroupNotFoundException$, TargetGroupNotFoundException);
 export var TargetGroupStickinessConfig$: StaticStructureSchema = [3, n0, _TGSC,
   0,
   [_E, _DS],
@@ -1535,78 +1650,6 @@ export var TargetHealthDescription$: StaticStructureSchema = [3, n0, _THDa,
   [_Targ, _HCPe, _TH, _AD, _AO],
   [() => TargetDescription$, 0, () => TargetHealth$, () => AnomalyDetection$, () => AdministrativeOverride$]
 ];
-export var TooManyActionsException$: StaticErrorSchema = [-3, n0, _TMAE,
-  { [_aQE]: [`TooManyActions`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyActionsException$, TooManyActionsException);
-export var TooManyCertificatesException$: StaticErrorSchema = [-3, n0, _TMCE,
-  { [_aQE]: [`TooManyCertificates`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyCertificatesException$, TooManyCertificatesException);
-export var TooManyListenersException$: StaticErrorSchema = [-3, n0, _TMLE,
-  { [_aQE]: [`TooManyListeners`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyListenersException$, TooManyListenersException);
-export var TooManyLoadBalancersException$: StaticErrorSchema = [-3, n0, _TMLBE,
-  { [_aQE]: [`TooManyLoadBalancers`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyLoadBalancersException$, TooManyLoadBalancersException);
-export var TooManyRegistrationsForTargetIdException$: StaticErrorSchema = [-3, n0, _TMRFTIE,
-  { [_aQE]: [`TooManyRegistrationsForTargetId`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRegistrationsForTargetIdException$, TooManyRegistrationsForTargetIdException);
-export var TooManyRulesException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_aQE]: [`TooManyRules`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRulesException$, TooManyRulesException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_aQE]: [`TooManyTags`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var TooManyTargetGroupsException$: StaticErrorSchema = [-3, n0, _TMTGE,
-  { [_aQE]: [`TooManyTargetGroups`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTargetGroupsException$, TooManyTargetGroupsException);
-export var TooManyTargetsException$: StaticErrorSchema = [-3, n0, _TMTEo,
-  { [_aQE]: [`TooManyTargets`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTargetsException$, TooManyTargetsException);
-export var TooManyTrustStoreRevocationEntriesException$: StaticErrorSchema = [-3, n0, _TMTSREE,
-  { [_aQE]: [`TooManyTrustStoreRevocationEntries`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTrustStoreRevocationEntriesException$, TooManyTrustStoreRevocationEntriesException);
-export var TooManyTrustStoresException$: StaticErrorSchema = [-3, n0, _TMTSE,
-  { [_aQE]: [`TooManyTrustStores`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTrustStoresException$, TooManyTrustStoresException);
-export var TooManyUniqueTargetGroupsPerLoadBalancerException$: StaticErrorSchema = [-3, n0, _TMUTGPLBE,
-  { [_aQE]: [`TooManyUniqueTargetGroupsPerLoadBalancer`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyUniqueTargetGroupsPerLoadBalancerException$, TooManyUniqueTargetGroupsPerLoadBalancerException);
 export var TrustStore$: StaticStructureSchema = [3, n0, _TSr,
   0,
   [_N, _TSA, _St, _NOCC, _TRE],
@@ -1617,41 +1660,11 @@ export var TrustStoreAssociation$: StaticStructureSchema = [3, n0, _TSArus,
   [_RAe],
   [0]
 ];
-export var TrustStoreAssociationNotFoundException$: StaticErrorSchema = [-3, n0, _TSANFE,
-  { [_aQE]: [`AssociationNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrustStoreAssociationNotFoundException$, TrustStoreAssociationNotFoundException);
-export var TrustStoreInUseException$: StaticErrorSchema = [-3, n0, _TSIUE,
-  { [_aQE]: [`TrustStoreInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrustStoreInUseException$, TrustStoreInUseException);
-export var TrustStoreNotFoundException$: StaticErrorSchema = [-3, n0, _TSNFE,
-  { [_aQE]: [`TrustStoreNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrustStoreNotFoundException$, TrustStoreNotFoundException);
-export var TrustStoreNotReadyException$: StaticErrorSchema = [-3, n0, _TSNRE,
-  { [_aQE]: [`TrustStoreNotReady`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrustStoreNotReadyException$, TrustStoreNotReadyException);
 export var TrustStoreRevocation$: StaticStructureSchema = [3, n0, _TSRr,
   0,
   [_TSA, _RI, _RT, _NORE],
   [0, 1, 0, 1]
 ];
-export var UnsupportedProtocolException$: StaticErrorSchema = [-3, n0, _UPE,
-  { [_aQE]: [`UnsupportedProtocol`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedProtocolException$, UnsupportedProtocolException);
 export var UrlRewriteConfig$: StaticStructureSchema = [3, n0, _URC,
   0,
   [_Rew],
@@ -1662,8 +1675,6 @@ export var ZonalCapacityReservationState$: StaticStructureSchema = [3, n0, _ZCRS
   [_S, _AZ, _ECU],
   [() => CapacityReservationStatus$, 0, 1]
 ];
-export var ElasticLoadBalancingV2ServiceException$: StaticErrorSchema = [-3, _sm, "ElasticLoadBalancingV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ElasticLoadBalancingV2ServiceException$, ElasticLoadBalancingV2ServiceException);
 var Actions: StaticListSchema = [1, n0, _Ac,
   0, () => Action$
 ];

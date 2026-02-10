@@ -524,15 +524,15 @@ const _S = "Smile";
 const _SA = "SummarizationAttributes";
 const _SB = "SortBy";
 const _SBu = "S3Bucket";
-const _SC = "StatusCode";
+const _SC = "ServiceCode";
 const _SCM = "StartContentModeration";
 const _SCMR = "StartContentModerationRequest";
 const _SCMRt = "StartContentModerationResponse";
 const _SCR = "StartCelebrityRecognition";
 const _SCRR = "StartCelebrityRecognitionRequest";
 const _SCRRt = "StartCelebrityRecognitionResponse";
-const _SCe = "ServiceCode";
 const _SCi = "SimplifiedColor";
+const _SCt = "StatusCode";
 const _SD = "S3Destination";
 const _SDe = "SegmentDetection";
 const _SDeg = "SegmentDetections";
@@ -651,9 +651,9 @@ const _TDRext = "TextDetectionResults";
 const _TDe = "TestingData";
 const _TDex = "TextDetections";
 const _TDext = "TextDetection";
-const _TE = "TotalEntries";
+const _TE = "ThrottlingException";
 const _TET = "TrainingEndTimestamp";
-const _TEh = "ThrottlingException";
+const _TEo = "TotalEntries";
 const _TI = "TargetImage";
 const _TIOC = "TargetImageOrientationCorrection";
 const _TK = "TagKeys";
@@ -724,8 +724,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _mT = "mediaType";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rekognition";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rekognition";
+const _se = "server";
 const n0 = "com.amazonaws.rekognition";
 
 // smithy-typescript generated code
@@ -767,14 +767,159 @@ import {
 import { RekognitionServiceException } from "../models/RekognitionServiceException";
 
 /* eslint no-var: 0 */
-var LivenessImageBlob: StaticSimpleSchema = [0, n0, _LIB, 8, 21];
-var SynthesizedJsonHumanLoopActivationConditionsEvaluationResults: StaticSimpleSchema = [0, n0, _SJHLACER, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var RekognitionServiceException$: StaticErrorSchema = [-3, _s, "RekognitionServiceException", 0, [], []];
+_s_registry.registerError(RekognitionServiceException$, RekognitionServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M, _C, _L],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var HumanLoopQuotaExceededException$: StaticErrorSchema = [-3, n0, _HLQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_RT, _QC, _SC, _M, _C, _L],
+  [0, 0, 0, 0, 0, 0]
+];
+n0_registry.registerError(HumanLoopQuotaExceededException$, HumanLoopQuotaExceededException);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var ImageTooLargeException$: StaticErrorSchema = [-3, n0, _ITLE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ImageTooLargeException$, ImageTooLargeException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidImageFormatException$: StaticErrorSchema = [-3, n0, _IIFE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidImageFormatException$, InvalidImageFormatException);
+export var InvalidManifestException$: StaticErrorSchema = [-3, n0, _IME,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidManifestException$, InvalidManifestException);
+export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
+export var InvalidS3ObjectException$: StaticErrorSchema = [-3, n0, _ISOE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidS3ObjectException$, InvalidS3ObjectException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(SessionNotFoundException$, SessionNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _se },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var VideoTooLargeException$: StaticErrorSchema = [-3, n0, _VTLE,
+  { [_e]: _c },
+  [_M, _C, _L],
+  [0, 0, 0]
+];
+n0_registry.registerError(VideoTooLargeException$, VideoTooLargeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var LivenessImageBlob: StaticSimpleSchema = [0, n0, _LIB, 8, 21];
+var SynthesizedJsonHumanLoopActivationConditionsEvaluationResults: StaticSimpleSchema = [0, n0, _SJHLACER, { [_mT]: _a }, 0];
 export var AgeRange$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_Lo, _H],
@@ -875,12 +1020,6 @@ export var CompareFacesResponse$: StaticStructureSchema = [3, n0, _CFRo,
   [_SIF, _FM, _UF, _SIOC, _TIOC],
   [() => ComparedSourceImageFace$, () => CompareFacesMatchList, () => CompareFacesUnmatchList, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectedHomeSettings$: StaticStructureSchema = [3, n0, _CHS,
   0,
   [_Lab, _MCi],
@@ -923,7 +1062,7 @@ export var CreateCollectionRequest$: StaticStructureSchema = [3, n0, _CCR,
 ];
 export var CreateCollectionResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_SC, _CA, _FMV],
+  [_SCt, _CA, _FMV],
   [1, 0, 0]
 ];
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
@@ -1038,7 +1177,7 @@ export var DatasetSource$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var DatasetStats$: StaticStructureSchema = [3, n0, _DSa,
   0,
-  [_LE, _TE, _TL, _EE],
+  [_LE, _TEo, _TL, _EE],
   [1, 1, 1, 1]
 ];
 export var DeleteCollectionRequest$: StaticStructureSchema = [3, n0, _DCR,
@@ -1048,7 +1187,7 @@ export var DeleteCollectionRequest$: StaticStructureSchema = [3, n0, _DCR,
 ];
 export var DeleteCollectionResponse$: StaticStructureSchema = [3, n0, _DCRe,
   0,
-  [_SC],
+  [_SCt],
   [1]
 ];
 export var DeleteDatasetRequest$: StaticStructureSchema = [3, n0, _DDR,
@@ -1526,18 +1665,6 @@ export var HumanLoopDataAttributes$: StaticStructureSchema = [3, n0, _HLDA,
   [_CC],
   [64 | 0]
 ];
-export var HumanLoopQuotaExceededException$: StaticErrorSchema = [-3, n0, _HLQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_RT, _QC, _SCe, _M, _C, _L],
-  [0, 0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(HumanLoopQuotaExceededException$, HumanLoopQuotaExceededException);
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
 export var Image$: StaticStructureSchema = [3, n0, _Im,
   0,
   [_B, _SO],
@@ -1548,12 +1675,6 @@ export var ImageQuality$: StaticStructureSchema = [3, n0, _IQ,
   [_Br, _Sh],
   [1, 1]
 ];
-export var ImageTooLargeException$: StaticErrorSchema = [-3, n0, _ITLE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ImageTooLargeException$, ImageTooLargeException);
 export var IndexFacesRequest$: StaticStructureSchema = [3, n0, _IFR,
   0,
   [_CI, _Im, _EII, _DAe, _MF, _QF],
@@ -1569,48 +1690,6 @@ export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   [_BB, _Con, _DCo],
   [() => BoundingBox$, 1, () => DominantColors]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidImageFormatException$: StaticErrorSchema = [-3, n0, _IIFE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidImageFormatException$, InvalidImageFormatException);
-export var InvalidManifestException$: StaticErrorSchema = [-3, n0, _IME,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidManifestException$, InvalidManifestException);
-export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
-export var InvalidS3ObjectException$: StaticErrorSchema = [-3, n0, _ISOE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3ObjectException$, InvalidS3ObjectException);
 export var KinesisDataStream$: StaticStructureSchema = [3, n0, _KDS,
   0,
   [_Ar],
@@ -1661,12 +1740,6 @@ export var Landmark$: StaticStructureSchema = [3, n0, _Lan,
   [_Ty, _X, _Y_],
   [0, 1, 1]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListCollectionsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_NT, _MR],
@@ -1762,12 +1835,6 @@ export var LivenessOutputConfig$: StaticStructureSchema = [3, n0, _LOC,
   [_SBu, _SKP],
   [0, 0], 1
 ];
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
 export var MatchedUser$: StaticStructureSchema = [3, n0, _MU,
   0,
   [_UI, _US],
@@ -1908,12 +1975,6 @@ export var ProtectiveEquipmentSummary$: StaticStructureSchema = [3, n0, _PES,
   [_PWRE, _PWREe, _PI],
   [64 | 1, 64 | 1, 64 | 1]
 ];
-export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
 export var PutProjectPolicyRequest$: StaticStructureSchema = [3, n0, _PPPR,
   0,
   [_PA, _PNo, _PDo, _PRI],
@@ -1939,30 +2000,6 @@ export var RegionOfInterest$: StaticStructureSchema = [3, n0, _ROIe,
   [_BB, _Po],
   [() => BoundingBox$, () => Polygon]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotReadyException$, ResourceNotReadyException);
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_Bu, _KP],
@@ -2038,18 +2075,6 @@ export var SegmentTypeInfo$: StaticStructureSchema = [3, n0, _STI,
   [_Ty, _MVo],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(SessionNotFoundException$, SessionNotFoundException);
 export var ShotSegment$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_Ind, _Con],
@@ -2300,12 +2325,6 @@ export var TextDetectionResult$: StaticStructureSchema = [3, n0, _TDRex,
   [_Ti, _TDext],
   [1, () => TextDetection$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _s },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrainingData$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_As],
@@ -2401,14 +2420,6 @@ export var VideoMetadata$: StaticStructureSchema = [3, n0, _VM,
   [_Co, _DM, _For, _FRr, _FH, _FW, _CRo],
   [0, 1, 0, 1, 1, 1, 0]
 ];
-export var VideoTooLargeException$: StaticErrorSchema = [-3, n0, _VTLE,
-  { [_e]: _c },
-  [_M, _C, _L],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(VideoTooLargeException$, VideoTooLargeException);
-export var RekognitionServiceException$: StaticErrorSchema = [-3, _sm, "RekognitionServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RekognitionServiceException$, RekognitionServiceException);
 var Assets: StaticListSchema = [1, n0, _As,
   0, () => Asset$
 ];

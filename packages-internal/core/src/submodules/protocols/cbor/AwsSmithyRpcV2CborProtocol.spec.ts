@@ -1,7 +1,7 @@
 import { cbor } from "@smithy/core/cbor";
-import { error as registerError, TypeRegistry } from "@smithy/core/schema";
+import { error as registerError } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { NumericSchema, StaticErrorSchema, StringSchema } from "@smithy/types";
+import type { NumericSchema, StringSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context } from "../test-schema.spec";
@@ -73,33 +73,6 @@ describe(AwsSmithyRpcV2CborProtocol.name, () => {
       Type: "Client",
       Code: MyQueryError.name,
     });
-  });
-
-  it("has a composite error registry", () => {
-    const errorSchema = [
-      -3,
-      "smithy.ts.sdk.synthetic.com.amazonaws",
-      "GenericServiceException",
-      0,
-      [],
-      [],
-      0,
-    ] satisfies StaticErrorSchema;
-    const protocol = new AwsSmithyRpcV2CborProtocol({
-      defaultNamespace: "ns",
-      awsQueryCompatible: true,
-      errorTypeRegistries: [
-        (() => {
-          const r = TypeRegistry.for("ns");
-          r.registerError(errorSchema, Error);
-          return r;
-        })(),
-      ],
-    });
-
-    const registry = (protocol as any).compositeErrorRegistry;
-    expect(registry).toBeInstanceOf(TypeRegistry);
-    expect(registry.getBaseException()).toEqual(errorSchema);
   });
 
   it("decorates service exceptions with unmodeled fields", async () => {

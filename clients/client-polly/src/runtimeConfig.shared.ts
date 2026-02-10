@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPollyHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PollyClientConfig } from "./PollyClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: PollyClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.polly",
+      errorTypeRegistries,
       xmlNamespace: "http://polly.amazonaws.com/doc/v1",
       version: "2016-06-10",
       serviceTarget: "Parrot_v1",

@@ -80,8 +80,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kendraranking";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kendraranking";
+const _se = "server";
 const n0 = "com.amazonaws.kendraranking";
 
 // smithy-typescript generated code
@@ -101,23 +101,72 @@ import {
 import { KendraRankingServiceException } from "../models/KendraRankingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KendraRankingServiceException$: StaticErrorSchema = [-3, _s, "KendraRankingServiceException", 0, [], []];
+_s_registry.registerError(KendraRankingServiceException$, KendraRankingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC,
-  0,
-  [_RCU],
-  [1], 1
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var CapacityUnitsConfiguration$: StaticStructureSchema = [3, n0, _CUC,
+  0,
+  [_RCU],
+  [1], 1
+];
 export var CreateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _CREPR,
   0,
   [_N, _D, _CU, _T, _CT],
@@ -148,12 +197,6 @@ export var Document$: StaticStructureSchema = [3, n0, _Do,
   [_I, _OS, _GI, _Ti, _B, _TT, _TB],
   [0, 1, 0, 0, 0, 64 | 0, 64 | 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRescoreExecutionPlansRequest$: StaticStructureSchema = [3, n0, _LREPR,
   0,
   [_NT, _MR],
@@ -194,24 +237,6 @@ export var RescoreResultItem$: StaticStructureSchema = [3, n0, _RRI,
   [_DI, _Sc],
   [0, 1]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -227,12 +252,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -248,15 +267,7 @@ export var UpdateRescoreExecutionPlanRequest$: StaticStructureSchema = [3, n0, _
   [_I, _N, _D, _CU],
   [[0, 1], 0, 0, () => CapacityUnitsConfiguration$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var KendraRankingServiceException$: StaticErrorSchema = [-3, _sm, "KendraRankingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KendraRankingServiceException$, KendraRankingServiceException);
 var BodyTokensList = 64 | 0;
 var DocumentList: StaticListSchema = [1, n0, _DL,
   0, () => Document$

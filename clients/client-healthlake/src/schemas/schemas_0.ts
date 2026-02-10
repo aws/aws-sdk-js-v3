@@ -111,8 +111,8 @@ const _VL = "ValidationLevel";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.healthlake";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.healthlake";
+const _se = "server";
 const n0 = "com.amazonaws.healthlake";
 
 // smithy-typescript generated code
@@ -136,18 +136,55 @@ import {
 import { HealthLakeServiceException } from "../models/HealthLakeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var HealthLakeServiceException$: StaticErrorSchema = [-3, _s, "HealthLakeServiceException", 0, [], []];
+_s_registry.registerError(HealthLakeServiceException$, HealthLakeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _CFHIRDR,
   0,
   [_DTV, _DN, _SC, _PDC, _CT, _T, _IPC],
@@ -228,12 +265,6 @@ export var ImportJobProperties$: StaticStructureSchema = [3, n0, _IJP,
   [_JI, _JS, _ST, _DI, _IDC, _JN, _ET, _JODC, _JPR, _DARA, _M, _VL],
   [0, 0, 4, 0, () => InputDataConfig$, 0, 4, () => OutputDataConfig$, () => JobProgressReport$, 0, 0, 0], 5
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobProgressReport$: StaticStructureSchema = [3, n0, _JPR,
   0,
   [_TNOSF, _TSOSFIMB, _TNOIF, _TNORS, _TNORI, _TNORWCE, _TNOFRWCE, _Th],
@@ -289,12 +320,6 @@ export var PreloadDataConfig$: StaticStructureSchema = [3, n0, _PDC,
   [_PDT],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_SU, _KKI],
@@ -340,12 +365,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -356,14 +375,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var HealthLakeServiceException$: StaticErrorSchema = [-3, _sm, "HealthLakeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(HealthLakeServiceException$, HealthLakeServiceException);
 var DatastorePropertiesList: StaticListSchema = [1, n0, _DPL,
   0, () => DatastoreProperties$
 ];

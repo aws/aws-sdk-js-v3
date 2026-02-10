@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCleanRoomsMLHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CleanRoomsMLClientConfig } from "./CleanRoomsMLClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CleanRoomsMLClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cleanroomsml",
+      errorTypeRegistries,
       version: "2023-09-06",
       serviceTarget: "AWSStarkControlService",
     },

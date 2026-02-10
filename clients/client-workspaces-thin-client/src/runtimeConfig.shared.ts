@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWorkSpacesThinClientHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WorkSpacesThinClientClientConfig } from "./WorkSpacesThinClientClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WorkSpacesThinClientClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.workspacesthinclient",
+      errorTypeRegistries,
       version: "2023-08-22",
       serviceTarget: "ThinClient",
     },

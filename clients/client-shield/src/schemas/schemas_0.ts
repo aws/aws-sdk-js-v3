@@ -206,7 +206,7 @@ const _SS = "SubscriptionState";
 const _ST = "StartTime";
 const _Su = "Subscription";
 const _Sum = "Sum";
-const _T = "Total";
+const _T = "Type";
 const _TC = "TopContributors";
 const _TCIS = "TimeCommitmentInSeconds";
 const _TE = "ToExclusive";
@@ -218,7 +218,7 @@ const _TRRa = "TagResourceResponse";
 const _TRa = "TagResource";
 const _Ta = "Tags";
 const _Tag = "Tag";
-const _Ty = "Type";
+const _To = "Total";
 const _U = "Unit";
 const _UALAR = "UpdateApplicationLayerAutomaticResponse";
 const _UALARR = "UpdateApplicationLayerAutomaticResponseRequest";
@@ -247,8 +247,8 @@ const _m = "message";
 const _n = "name";
 const _r = "reason";
 const _rT = "resourceType";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.shield";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.shield";
+const _se = "server";
 const n0 = "com.amazonaws.shield";
 
 // smithy-typescript generated code
@@ -273,18 +273,97 @@ import {
 import { ShieldServiceException } from "../models/ShieldServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ShieldServiceException$: StaticErrorSchema = [-3, _s, "ShieldServiceException", 0, [], []];
+_s_registry.registerError(ShieldServiceException$, ShieldServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessDeniedForDependencyException$: StaticErrorSchema = [-3, n0, _ADFDE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedForDependencyException$, AccessDeniedForDependencyException);
+n0_registry.registerError(AccessDeniedForDependencyException$, AccessDeniedForDependencyException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidResourceException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidResourceException$, InvalidResourceException);
+export var LimitsExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m, _T, _L],
+  [0, 0, 1]
+];
+n0_registry.registerError(LimitsExceededException$, LimitsExceededException);
+export var LockedSubscriptionException$: StaticErrorSchema = [-3, n0, _LSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LockedSubscriptionException$, LockedSubscriptionException);
+export var NoAssociatedRoleException$: StaticErrorSchema = [-3, n0, _NARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoAssociatedRoleException$, NoAssociatedRoleException);
+export var OptimisticLockException$: StaticErrorSchema = [-3, n0, _OLE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OptimisticLockException$, OptimisticLockException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m, _rT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m, _rT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApplicationLayerAutomaticResponseConfiguration$: StaticStructureSchema = [3, n0, _ALARC,
   0,
   [_S, _A],
@@ -337,7 +416,7 @@ export var AttackDetail$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AttackProperty$: StaticStructureSchema = [3, n0, _APt,
   0,
-  [_AL, _API, _TC, _U, _T],
+  [_AL, _API, _TC, _U, _To],
   [0, 0, () => TopContributors, 0, 1]
 ];
 export var AttackStatisticsDataItem$: StaticStructureSchema = [3, n0, _ASDI,
@@ -605,47 +684,11 @@ export var InclusionProtectionGroupFilters$: StaticStructureSchema = [3, n0, _IP
   [_PGIr, _Pa, _RTe, _Agg],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_m, _r, _f],
-  [0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidResourceException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceException$, InvalidResourceException);
 export var Limit$: StaticStructureSchema = [3, n0, _L,
   0,
-  [_Ty, _Ma],
+  [_T, _Ma],
   [0, 1]
 ];
-export var LimitsExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m, _Ty, _L],
-  [0, 0, 1]
-];
-TypeRegistry.for(n0).registerError(LimitsExceededException$, LimitsExceededException);
 export var ListAttacksRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_RAes, _ST, _ET, _NT, _MR],
@@ -696,29 +739,11 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta],
   [() => TagList]
 ];
-export var LockedSubscriptionException$: StaticErrorSchema = [-3, n0, _LSE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LockedSubscriptionException$, LockedSubscriptionException);
 export var Mitigation$: StaticStructureSchema = [3, n0, _Mi,
   0,
   [_MN],
   [0]
 ];
-export var NoAssociatedRoleException$: StaticErrorSchema = [-3, n0, _NARE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoAssociatedRoleException$, NoAssociatedRoleException);
-export var OptimisticLockException$: StaticErrorSchema = [-3, n0, _OLE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OptimisticLockException$, OptimisticLockException);
 export var Protection$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_I, _N, _RAe, _HCI, _PA, _ALARC],
@@ -749,18 +774,6 @@ export var ProtectionLimits$: StaticStructureSchema = [3, n0, _PL,
   [_PRTL],
   [() => Limits], 1
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m, _rT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m, _rT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseAction$: StaticStructureSchema = [3, n0, _RAesp,
   0,
   [_B, _Co],
@@ -768,7 +781,7 @@ export var ResponseAction$: StaticStructureSchema = [3, n0, _RAesp,
 ];
 export var SubResourceSummary$: StaticStructureSchema = [3, n0, _SRS,
   0,
-  [_Ty, _I, _AVt, _Cou],
+  [_T, _I, _AVt, _Cou],
   [0, 0, () => SummarizedAttackVectorList, () => SummarizedCounterList]
 ];
 export var Subscription$: StaticStructureSchema = [3, n0, _Su,
@@ -866,8 +879,6 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_n, _m],
   [0, 0], 2
 ];
-export var ShieldServiceException$: StaticErrorSchema = [-3, _sm, "ShieldServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ShieldServiceException$, ShieldServiceException);
 var AttackProperties: StaticListSchema = [1, n0, _AP,
   0, () => AttackProperty$
 ];

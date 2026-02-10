@@ -878,8 +878,8 @@ const _hN = "headerName";
 const _hV = "headerValue";
 const _m = "message";
 const _rC = "reasonCode";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cognitoidentityprovider";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cognitoidentityprovider";
+const _se = "server";
 const n0 = "com.amazonaws.cognitoidentityprovider";
 
 // smithy-typescript generated code
@@ -953,6 +953,349 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CognitoIdentityProviderServiceException$: StaticErrorSchema = [-3, _s, "CognitoIdentityProviderServiceException", 0, [], []];
+_s_registry.registerError(CognitoIdentityProviderServiceException$, CognitoIdentityProviderServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AliasExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AliasExistsException$, AliasExistsException);
+export var CodeDeliveryFailureException$: StaticErrorSchema = [-3, n0, _CDFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CodeDeliveryFailureException$, CodeDeliveryFailureException);
+export var CodeMismatchException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CodeMismatchException$, CodeMismatchException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CMEo,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var DeviceKeyExistsException$: StaticErrorSchema = [-3, n0, _DKEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeviceKeyExistsException$, DeviceKeyExistsException);
+export var DuplicateProviderException$: StaticErrorSchema = [-3, n0, _DPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateProviderException$, DuplicateProviderException);
+export var EnableSoftwareTokenMFAException$: StaticErrorSchema = [-3, n0, _ESTMFAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EnableSoftwareTokenMFAException$, EnableSoftwareTokenMFAException);
+export var ExpiredCodeException$: StaticErrorSchema = [-3, n0, _ECE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredCodeException$, ExpiredCodeException);
+export var FeatureUnavailableInTierException$: StaticErrorSchema = [-3, n0, _FUITE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(FeatureUnavailableInTierException$, FeatureUnavailableInTierException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GroupExistsException$: StaticErrorSchema = [-3, n0, _GEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GroupExistsException$, GroupExistsException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidEmailRoleAccessPolicyException$: StaticErrorSchema = [-3, n0, _IERAPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEmailRoleAccessPolicyException$, InvalidEmailRoleAccessPolicyException);
+export var InvalidLambdaResponseException$: StaticErrorSchema = [-3, n0, _ILRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLambdaResponseException$, InvalidLambdaResponseException);
+export var InvalidOAuthFlowException$: StaticErrorSchema = [-3, n0, _IOAFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOAuthFlowException$, InvalidOAuthFlowException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rC],
+  [0, 0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPEn,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPasswordException$, InvalidPasswordException);
+export var InvalidSmsRoleAccessPolicyException$: StaticErrorSchema = [-3, n0, _ISRAPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSmsRoleAccessPolicyException$, InvalidSmsRoleAccessPolicyException);
+export var InvalidSmsRoleTrustRelationshipException$: StaticErrorSchema = [-3, n0, _ISRTRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSmsRoleTrustRelationshipException$, InvalidSmsRoleTrustRelationshipException);
+export var InvalidUserPoolConfigurationException$: StaticErrorSchema = [-3, n0, _IUPCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUserPoolConfigurationException$, InvalidUserPoolConfigurationException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ManagedLoginBrandingExistsException$: StaticErrorSchema = [-3, n0, _MLBEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ManagedLoginBrandingExistsException$, ManagedLoginBrandingExistsException);
+export var MFAMethodNotFoundException$: StaticErrorSchema = [-3, n0, _MFAMNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MFAMethodNotFoundException$, MFAMethodNotFoundException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var PasswordHistoryPolicyViolationException$: StaticErrorSchema = [-3, n0, _PHPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PasswordHistoryPolicyViolationException$, PasswordHistoryPolicyViolationException);
+export var PasswordResetRequiredException$: StaticErrorSchema = [-3, n0, _PRRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PasswordResetRequiredException$, PasswordResetRequiredException);
+export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PreconditionNotMetException$, PreconditionNotMetException);
+export var RefreshTokenReuseException$: StaticErrorSchema = [-3, n0, _RTRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RefreshTokenReuseException$, RefreshTokenReuseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ScopeDoesNotExistException$: StaticErrorSchema = [-3, n0, _SDNEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScopeDoesNotExistException$, ScopeDoesNotExistException);
+export var SoftwareTokenMFANotFoundException$: StaticErrorSchema = [-3, n0, _STMFANFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SoftwareTokenMFANotFoundException$, SoftwareTokenMFANotFoundException);
+export var TermsExistsException$: StaticErrorSchema = [-3, n0, _TEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TermsExistsException$, TermsExistsException);
+export var TierChangeNotAllowedException$: StaticErrorSchema = [-3, n0, _TCNAE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TierChangeNotAllowedException$, TierChangeNotAllowedException);
+export var TooManyFailedAttemptsException$: StaticErrorSchema = [-3, n0, _TMFAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyFailedAttemptsException$, TooManyFailedAttemptsException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var UnexpectedLambdaException$: StaticErrorSchema = [-3, n0, _ULE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnexpectedLambdaException$, UnexpectedLambdaException);
+export var UnsupportedIdentityProviderException$: StaticErrorSchema = [-3, n0, _UIPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedIdentityProviderException$, UnsupportedIdentityProviderException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UnsupportedTokenTypeException$: StaticErrorSchema = [-3, n0, _UTTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedTokenTypeException$, UnsupportedTokenTypeException);
+export var UnsupportedUserStateException$: StaticErrorSchema = [-3, n0, _UUSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedUserStateException$, UnsupportedUserStateException);
+export var UserImportInProgressException$: StaticErrorSchema = [-3, n0, _UIIPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserImportInProgressException$, UserImportInProgressException);
+export var UserLambdaValidationException$: StaticErrorSchema = [-3, n0, _ULVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserLambdaValidationException$, UserLambdaValidationException);
+export var UsernameExistsException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UsernameExistsException$, UsernameExistsException);
+export var UserNotConfirmedException$: StaticErrorSchema = [-3, n0, _UNCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserNotConfirmedException$, UserNotConfirmedException);
+export var UserNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserNotFoundException$, UserNotFoundException);
+export var UserPoolAddOnNotEnabledException$: StaticErrorSchema = [-3, n0, _UPAONEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserPoolAddOnNotEnabledException$, UserPoolAddOnNotEnabledException);
+export var UserPoolTaggingException$: StaticErrorSchema = [-3, n0, _UPTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UserPoolTaggingException$, UserPoolTaggingException);
+export var WebAuthnChallengeNotFoundException$: StaticErrorSchema = [-3, n0, _WACNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnChallengeNotFoundException$, WebAuthnChallengeNotFoundException);
+export var WebAuthnClientMismatchException$: StaticErrorSchema = [-3, n0, _WACME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnClientMismatchException$, WebAuthnClientMismatchException);
+export var WebAuthnConfigurationMissingException$: StaticErrorSchema = [-3, n0, _WACMEe,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnConfigurationMissingException$, WebAuthnConfigurationMissingException);
+export var WebAuthnCredentialNotSupportedException$: StaticErrorSchema = [-3, n0, _WACNSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnCredentialNotSupportedException$, WebAuthnCredentialNotSupportedException);
+export var WebAuthnNotEnabledException$: StaticErrorSchema = [-3, n0, _WANEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnNotEnabledException$, WebAuthnNotEnabledException);
+export var WebAuthnOriginNotAllowedException$: StaticErrorSchema = [-3, n0, _WAONAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnOriginNotAllowedException$, WebAuthnOriginNotAllowedException);
+export var WebAuthnRelyingPartyMismatchException$: StaticErrorSchema = [-3, n0, _WARPME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WebAuthnRelyingPartyMismatchException$, WebAuthnRelyingPartyMismatchException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AttributeValueType: StaticSimpleSchema = [0, n0, _AVT, 8, 0];
 var ClientIdType: StaticSimpleSchema = [0, n0, _CIT, 8, 0];
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
@@ -1243,12 +1586,6 @@ export var AdvancedSecurityAdditionalFlowsType$: StaticStructureSchema = [3, n0,
   [_CAM],
   [0]
 ];
-export var AliasExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AliasExistsException$, AliasExistsException);
 export var AnalyticsConfigurationType$: StaticStructureSchema = [3, n0, _ACT,
   0,
   [_AI, _AA, _RA, _EIx, _UDS],
@@ -1314,18 +1651,6 @@ export var CodeDeliveryDetailsType$: StaticStructureSchema = [3, n0, _CDDT,
   [_Des, _DM, _AN],
   [0, 0, 0]
 ];
-export var CodeDeliveryFailureException$: StaticErrorSchema = [-3, n0, _CDFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CodeDeliveryFailureException$, CodeDeliveryFailureException);
-export var CodeMismatchException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CodeMismatchException$, CodeMismatchException);
 export var CompleteWebAuthnRegistrationRequest$: StaticStructureSchema = [3, n0, _CWARR,
   0,
   [_ATc, _Cr],
@@ -1346,12 +1671,6 @@ export var CompromisedCredentialsRiskConfigurationType$: StaticStructureSchema =
   [_A, _EFv],
   [() => CompromisedCredentialsActionsType$, 64 | 0], 1
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CMEo,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var ConfirmDeviceRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_ATc, _DK, _DSVC, _DN],
@@ -1667,12 +1986,6 @@ export var DeviceConfigurationType$: StaticStructureSchema = [3, n0, _DCT,
   [_CROND, _DOROUP],
   [2, 2]
 ];
-export var DeviceKeyExistsException$: StaticErrorSchema = [-3, n0, _DKEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeviceKeyExistsException$, DeviceKeyExistsException);
 export var DeviceSecretVerifierConfigType$: StaticStructureSchema = [3, n0, _DSVCT,
   0,
   [_PV, _Sa],
@@ -1688,12 +2001,6 @@ export var DomainDescriptionType$: StaticStructureSchema = [3, n0, _DDT,
   [_UPI, _AWSAI, _Do, _SB, _CFDl, _Ve, _St, _CDC, _MLV],
   [0, 0, 0, 0, 0, 0, 0, () => CustomDomainConfigType$, 1]
 ];
-export var DuplicateProviderException$: StaticErrorSchema = [-3, n0, _DPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateProviderException$, DuplicateProviderException);
 export var EmailConfigurationType$: StaticStructureSchema = [3, n0, _ECT,
   0,
   [_SA, _RTEA, _ESA, _F, _CS],
@@ -1709,12 +2016,6 @@ export var EmailMfaSettingsType$: StaticStructureSchema = [3, n0, _EMST,
   [_E, _PM],
   [2, 2]
 ];
-export var EnableSoftwareTokenMFAException$: StaticErrorSchema = [-3, n0, _ESTMFAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EnableSoftwareTokenMFAException$, EnableSoftwareTokenMFAException);
 export var EventContextDataType$: StaticStructureSchema = [3, n0, _ECDT,
   0,
   [_IA, _DN, _Ti, _Ci, _Co],
@@ -1730,29 +2031,11 @@ export var EventRiskType$: StaticStructureSchema = [3, n0, _ERT,
   [_RD, _RL, _CCD],
   [0, 0, 2]
 ];
-export var ExpiredCodeException$: StaticErrorSchema = [-3, n0, _ECE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredCodeException$, ExpiredCodeException);
-export var FeatureUnavailableInTierException$: StaticErrorSchema = [-3, n0, _FUITE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FeatureUnavailableInTierException$, FeatureUnavailableInTierException);
 export var FirehoseConfigurationType$: StaticStructureSchema = [3, n0, _FCT,
   0,
   [_SAt],
   [0]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var ForgetDeviceRequest$: StaticStructureSchema = [3, n0, _FDR,
   0,
   [_DK, _ATc],
@@ -1898,12 +2181,6 @@ export var GlobalSignOutResponse$: StaticStructureSchema = [3, n0, _GSORl,
   [],
   []
 ];
-export var GroupExistsException$: StaticErrorSchema = [-3, n0, _GEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GroupExistsException$, GroupExistsException);
 export var GroupType$: StaticStructureSchema = [3, n0, _GT,
   0,
   [_GN, _UPI, _Desc, _RA, _Pr, _LMD, _CDr],
@@ -1934,71 +2211,11 @@ export var InitiateAuthResponse$: StaticStructureSchema = [3, n0, _IARn,
   [_CN, _S, _CP, _AR, _AC],
   [0, [() => SessionType, 0], 128 | 0, [() => AuthenticationResultType$, 0], 64 | 0]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidEmailRoleAccessPolicyException$: StaticErrorSchema = [-3, n0, _IERAPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEmailRoleAccessPolicyException$, InvalidEmailRoleAccessPolicyException);
-export var InvalidLambdaResponseException$: StaticErrorSchema = [-3, n0, _ILRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLambdaResponseException$, InvalidLambdaResponseException);
-export var InvalidOAuthFlowException$: StaticErrorSchema = [-3, n0, _IOAFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOAuthFlowException$, InvalidOAuthFlowException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPEn,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordException);
-export var InvalidSmsRoleAccessPolicyException$: StaticErrorSchema = [-3, n0, _ISRAPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSmsRoleAccessPolicyException$, InvalidSmsRoleAccessPolicyException);
-export var InvalidSmsRoleTrustRelationshipException$: StaticErrorSchema = [-3, n0, _ISRTRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSmsRoleTrustRelationshipException$, InvalidSmsRoleTrustRelationshipException);
-export var InvalidUserPoolConfigurationException$: StaticErrorSchema = [-3, n0, _IUPCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUserPoolConfigurationException$, InvalidUserPoolConfigurationException);
 export var LambdaConfigType$: StaticStructureSchema = [3, n0, _LCT,
   0,
   [_PSU, _CMu, _PC, _PA, _PAo, _DAC, _CAC, _VACR, _PTG, _UM, _PTGC, _CSMSS, _CES, _KMSKID, _IF],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => PreTokenGenerationVersionConfigType$, () => CustomSMSLambdaVersionConfigType$, () => CustomEmailLambdaVersionConfigType$, 0, () => InboundFederationLambdaType$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListDevicesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_ATc, _L, _PTa],
@@ -2129,12 +2346,6 @@ export var LogDeliveryConfigurationType$: StaticStructureSchema = [3, n0, _LDCT,
   [_UPI, _LCo],
   [0, () => LogConfigurationListType], 2
 ];
-export var ManagedLoginBrandingExistsException$: StaticErrorSchema = [-3, n0, _MLBEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ManagedLoginBrandingExistsException$, ManagedLoginBrandingExistsException);
 export var ManagedLoginBrandingType$: StaticStructureSchema = [3, n0, _MLBT,
   0,
   [_MLBI, _UPI, _UCPV, _Se, _As, _CDr, _LMD],
@@ -2145,12 +2356,6 @@ export var MessageTemplateType$: StaticStructureSchema = [3, n0, _MTT,
   [_SMSM, _EM, _ESm],
   [0, 0, 0]
 ];
-export var MFAMethodNotFoundException$: StaticErrorSchema = [-3, n0, _MFAMNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MFAMethodNotFoundException$, MFAMethodNotFoundException);
 export var MFAOptionType$: StaticStructureSchema = [3, n0, _MFAOT,
   0,
   [_DM, _AN],
@@ -2161,12 +2366,6 @@ export var NewDeviceMetadataType$: StaticStructureSchema = [3, n0, _NDMT,
   [_DK, _DGK],
   [0, 0]
 ];
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
 export var NotifyConfigurationType$: StaticStructureSchema = [3, n0, _NCT,
   0,
   [_SA, _F, _RTe, _BE, _NAEo, _ME],
@@ -2182,29 +2381,11 @@ export var NumberAttributeConstraintsType$: StaticStructureSchema = [3, n0, _NAC
   [_MV, _MVa],
   [0, 0]
 ];
-export var PasswordHistoryPolicyViolationException$: StaticErrorSchema = [-3, n0, _PHPVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PasswordHistoryPolicyViolationException$, PasswordHistoryPolicyViolationException);
 export var PasswordPolicyType$: StaticStructureSchema = [3, n0, _PPT,
   0,
   [_ML, _RU, _RLe, _RN, _RSeq, _PHS, _TPVD],
   [1, 2, 2, 2, 2, 1, 1]
 ];
-export var PasswordResetRequiredException$: StaticErrorSchema = [-3, n0, _PRRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PasswordResetRequiredException$, PasswordResetRequiredException);
-export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PreconditionNotMetException$, PreconditionNotMetException);
 export var PreTokenGenerationVersionConfigType$: StaticStructureSchema = [3, n0, _PTGVCT,
   0,
   [_LV, _LAa],
@@ -2225,12 +2406,6 @@ export var RecoveryOptionType$: StaticStructureSchema = [3, n0, _ROT,
   [_Pri, _Na],
   [1, 0], 2
 ];
-export var RefreshTokenReuseException$: StaticErrorSchema = [-3, n0, _RTRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RefreshTokenReuseException$, RefreshTokenReuseException);
 export var RefreshTokenRotationType$: StaticStructureSchema = [3, n0, _RTRT,
   0,
   [_Fe, _RGPS],
@@ -2246,12 +2421,6 @@ export var ResendConfirmationCodeResponse$: StaticStructureSchema = [3, n0, _RCC
   [_CDD],
   [() => CodeDeliveryDetailsType$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceServerScopeType$: StaticStructureSchema = [3, n0, _RSST,
   0,
   [_SNc, _SD],
@@ -2302,12 +2471,6 @@ export var SchemaAttributeType$: StaticStructureSchema = [3, n0, _SAT,
   [_Na, _ADT, _DOA, _Mu, _R, _NAC, _SAC],
   [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$]
 ];
-export var ScopeDoesNotExistException$: StaticErrorSchema = [-3, n0, _SDNEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScopeDoesNotExistException$, ScopeDoesNotExistException);
 export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _SLDCR,
   0,
   [_UPI, _LCo],
@@ -2403,12 +2566,6 @@ export var SoftwareTokenMfaConfigType$: StaticStructureSchema = [3, n0, _STMCT,
   [_E],
   [2]
 ];
-export var SoftwareTokenMFANotFoundException$: StaticErrorSchema = [-3, n0, _STMFANFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SoftwareTokenMFANotFoundException$, SoftwareTokenMFANotFoundException);
 export var SoftwareTokenMfaSettingsType$: StaticStructureSchema = [3, n0, _STMST,
   0,
   [_E, _PM],
@@ -2464,81 +2621,21 @@ export var TermsDescriptionType$: StaticStructureSchema = [3, n0, _TDT,
   [_TI, _TN, _En, _CDr, _LMD],
   [0, 0, 0, 4, 4], 5
 ];
-export var TermsExistsException$: StaticErrorSchema = [-3, n0, _TEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TermsExistsException$, TermsExistsException);
 export var TermsType$: StaticStructureSchema = [3, n0, _TTe,
   0,
   [_TI, _UPI, _CI, _TN, _TS, _En, _Li, _CDr, _LMD],
   [0, 0, [() => ClientIdType, 0], 0, 0, 0, 128 | 0, 4, 4], 9
 ];
-export var TierChangeNotAllowedException$: StaticErrorSchema = [-3, n0, _TCNAE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TierChangeNotAllowedException$, TierChangeNotAllowedException);
 export var TokenValidityUnitsType$: StaticStructureSchema = [3, n0, _TVUT,
   0,
   [_ATc, _IT, _RT],
   [0, 0, 0]
 ];
-export var TooManyFailedAttemptsException$: StaticErrorSchema = [-3, n0, _TMFAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyFailedAttemptsException$, TooManyFailedAttemptsException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UICustomizationType$: StaticStructureSchema = [3, n0, _UICT,
   0,
   [_UPI, _CI, _IU, _CSS, _CSSV, _LMD, _CDr],
   [0, [() => ClientIdType, 0], 0, 0, 0, 4, 4]
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnexpectedLambdaException$: StaticErrorSchema = [-3, n0, _ULE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnexpectedLambdaException$, UnexpectedLambdaException);
-export var UnsupportedIdentityProviderException$: StaticErrorSchema = [-3, n0, _UIPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedIdentityProviderException$, UnsupportedIdentityProviderException);
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
-export var UnsupportedTokenTypeException$: StaticErrorSchema = [-3, n0, _UTTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedTokenTypeException$, UnsupportedTokenTypeException);
-export var UnsupportedUserStateException$: StaticErrorSchema = [-3, n0, _UUSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedUserStateException$, UnsupportedUserStateException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAes, _TK],
@@ -2669,52 +2766,16 @@ export var UserContextDataType$: StaticStructureSchema = [3, n0, _UCDT,
   [_IA, _ED],
   [0, 0]
 ];
-export var UserImportInProgressException$: StaticErrorSchema = [-3, n0, _UIIPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserImportInProgressException$, UserImportInProgressException);
 export var UserImportJobType$: StaticStructureSchema = [3, n0, _UIJT,
   0,
   [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom],
   [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0]
 ];
-export var UserLambdaValidationException$: StaticErrorSchema = [-3, n0, _ULVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserLambdaValidationException$, UserLambdaValidationException);
 export var UsernameConfigurationType$: StaticStructureSchema = [3, n0, _UCT,
   0,
   [_CSa],
   [2], 1
 ];
-export var UsernameExistsException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UsernameExistsException$, UsernameExistsException);
-export var UserNotConfirmedException$: StaticErrorSchema = [-3, n0, _UNCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserNotConfirmedException$, UserNotConfirmedException);
-export var UserNotFoundException$: StaticErrorSchema = [-3, n0, _UNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserNotFoundException$, UserNotFoundException);
-export var UserPoolAddOnNotEnabledException$: StaticErrorSchema = [-3, n0, _UPAONEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserPoolAddOnNotEnabledException$, UserPoolAddOnNotEnabledException);
 export var UserPoolAddOnsType$: StaticStructureSchema = [3, n0, _UPAOT,
   0,
   [_ASM, _ASAF],
@@ -2740,12 +2801,6 @@ export var UserPoolPolicyType$: StaticStructureSchema = [3, n0, _UPPT,
   [_PPa, _SIPi],
   [() => PasswordPolicyType$, () => SignInPolicyType$]
 ];
-export var UserPoolTaggingException$: StaticErrorSchema = [-3, n0, _UPTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UserPoolTaggingException$, UserPoolTaggingException);
 export var UserPoolType$: StaticStructureSchema = [3, n0, _UPTse,
   0,
   [_Id, _Na, _Po, _DP, _LC, _St, _LMD, _CDr, _SAc, _AVA, _AAl, _UAs, _SVM, _EVM, _EVS, _VMT, _SAM, _UAUS, _MC, _DC, _ENOU, _EC, _SCm, _UPT, _SCF, _ECF, _Do, _CDu, _ACUC, _UPAO, _UC, _Ar, _ARS, _UPTs],
@@ -2781,24 +2836,6 @@ export var VerifyUserAttributeResponse$: StaticStructureSchema = [3, n0, _VUARe,
   [],
   []
 ];
-export var WebAuthnChallengeNotFoundException$: StaticErrorSchema = [-3, n0, _WACNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnChallengeNotFoundException$, WebAuthnChallengeNotFoundException);
-export var WebAuthnClientMismatchException$: StaticErrorSchema = [-3, n0, _WACME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnClientMismatchException$, WebAuthnClientMismatchException);
-export var WebAuthnConfigurationMissingException$: StaticErrorSchema = [-3, n0, _WACMEe,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnConfigurationMissingException$, WebAuthnConfigurationMissingException);
 export var WebAuthnConfigurationType$: StaticStructureSchema = [3, n0, _WACT,
   0,
   [_RPI, _UV],
@@ -2809,33 +2846,7 @@ export var WebAuthnCredentialDescription$: StaticStructureSchema = [3, n0, _WACD
   [_CIr, _FCN, _RPI, _ATu, _CAr, _AAu],
   [0, 0, 0, 64 | 0, 4, 0], 5
 ];
-export var WebAuthnCredentialNotSupportedException$: StaticErrorSchema = [-3, n0, _WACNSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnCredentialNotSupportedException$, WebAuthnCredentialNotSupportedException);
-export var WebAuthnNotEnabledException$: StaticErrorSchema = [-3, n0, _WANEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnNotEnabledException$, WebAuthnNotEnabledException);
-export var WebAuthnOriginNotAllowedException$: StaticErrorSchema = [-3, n0, _WAONAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnOriginNotAllowedException$, WebAuthnOriginNotAllowedException);
-export var WebAuthnRelyingPartyMismatchException$: StaticErrorSchema = [-3, n0, _WARPME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WebAuthnRelyingPartyMismatchException$, WebAuthnRelyingPartyMismatchException);
 var __Unit = "unit" as const;
-export var CognitoIdentityProviderServiceException$: StaticErrorSchema = [-3, _sm, "CognitoIdentityProviderServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CognitoIdentityProviderServiceException$, CognitoIdentityProviderServiceException);
 var AliasAttributesListType = 64 | 0;
 var AllowedFirstAuthFactorsListType = 64 | 0;
 var AssetListType: StaticListSchema = [1, n0, _ALT,

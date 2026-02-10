@@ -230,7 +230,7 @@ const _rTe = "resourceTypes";
 const _rV = "returnValue";
 const _re = "return";
 const _res = "resources";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ram";
 const _sA = "sourceAssociations";
 const _sAI = "senderAccountId";
 const _sI = "sourceId";
@@ -238,8 +238,8 @@ const _sM = "statusMessage";
 const _sN = "serviceName";
 const _sT = "sourceType";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ram";
 const _so = "sources";
+const _st = "status";
 const _t = "tags";
 const _tF = "tagFilters";
 const _tK = "tagKey";
@@ -291,6 +291,187 @@ import {
 import { RAMServiceException } from "../models/RAMServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RAMServiceException$: StaticErrorSchema = [-3, _s, "RAMServiceException", 0, [], []];
+_s_registry.registerError(RAMServiceException$, RAMServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var InvalidClientTokenException$: StaticErrorSchema = [-3, n0, _ICTE,
+  { [_aQE]: [`InvalidClientToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidClientTokenException$, InvalidClientTokenException);
+export var InvalidMaxResultsException$: StaticErrorSchema = [-3, n0, _IMRE,
+  { [_aQE]: [`InvalidMaxResults`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidMaxResultsException$, InvalidMaxResultsException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPEn,
+  { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidPolicyException$, InvalidPolicyException);
+export var InvalidResourceTypeException$: StaticErrorSchema = [-3, n0, _IRTE,
+  { [_aQE]: [`InvalidResourceType.Unknown`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidResourceTypeException$, InvalidResourceTypeException);
+export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
+  { [_aQE]: [`InvalidStateTransitionException.Unknown`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
+export var MalformedArnException$: StaticErrorSchema = [-3, n0, _MAE,
+  { [_aQE]: [`InvalidArn.Malformed`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(MalformedArnException$, MalformedArnException);
+export var MalformedPolicyTemplateException$: StaticErrorSchema = [-3, n0, _MPTE,
+  { [_aQE]: [`MalformedPolicyTemplateException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(MalformedPolicyTemplateException$, MalformedPolicyTemplateException);
+export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
+  { [_aQE]: [`MissingRequiredParameter`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
+  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var PermissionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _PAEE,
+  { [_aQE]: [`PermissionAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PermissionAlreadyExistsException$, PermissionAlreadyExistsException);
+export var PermissionLimitExceededException$: StaticErrorSchema = [-3, n0, _PLEE,
+  { [_aQE]: [`PermissionLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PermissionLimitExceededException$, PermissionLimitExceededException);
+export var PermissionVersionsLimitExceededException$: StaticErrorSchema = [-3, n0, _PVLEE,
+  { [_aQE]: [`PermissionVersionsLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PermissionVersionsLimitExceededException$, PermissionVersionsLimitExceededException);
+export var ResourceArnNotFoundException$: StaticErrorSchema = [-3, n0, _RANFE,
+  { [_aQE]: [`InvalidResourceArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceArnNotFoundException$, ResourceArnNotFoundException);
+export var ResourceShareInvitationAlreadyAcceptedException$: StaticErrorSchema = [-3, n0, _RSIAAE,
+  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceShareInvitationAlreadyAcceptedException$, ResourceShareInvitationAlreadyAcceptedException);
+export var ResourceShareInvitationAlreadyRejectedException$: StaticErrorSchema = [-3, n0, _RSIARE,
+  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceShareInvitationAlreadyRejectedException$, ResourceShareInvitationAlreadyRejectedException);
+export var ResourceShareInvitationArnNotFoundException$: StaticErrorSchema = [-3, n0, _RSIANFE,
+  { [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceShareInvitationArnNotFoundException$, ResourceShareInvitationArnNotFoundException);
+export var ResourceShareInvitationExpiredException$: StaticErrorSchema = [-3, n0, _RSIEE,
+  { [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceShareInvitationExpiredException$, ResourceShareInvitationExpiredException);
+export var ResourceShareLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
+  { [_aQE]: [`ResourceShareLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceShareLimitExceededException$, ResourceShareLimitExceededException);
+export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
+  { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServerInternalException$, ServerInternalException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_aQE]: [`Unavailable`, 503], [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
+  { [_aQE]: [`TagLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TagLimitExceededException$, TagLimitExceededException);
+export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
+  { [_aQE]: [`TagPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TagPolicyViolationException$, TagPolicyViolationException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
+  { [_aQE]: [`InvalidResourceShareArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(UnknownResourceException$, UnknownResourceException);
+export var UnmatchedPolicyPermissionException$: StaticErrorSchema = [-3, n0, _UPPE,
+  { [_aQE]: [`UnmatchedPolicyPermissionException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(UnmatchedPolicyPermissionException$, UnmatchedPolicyPermissionException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptResourceShareInvitationRequest$: StaticStructureSchema = [3, n0, _ARSIR,
   0,
   [_rSIA, _cT],
@@ -303,12 +484,12 @@ export var AcceptResourceShareInvitationResponse$: StaticStructureSchema = [3, n
 ];
 export var AssociatedPermission$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_a, _pV, _dV, _rT, _s, _fS, _lUT, _rSA],
+  [_a, _pV, _dV, _rT, _st, _fS, _lUT, _rSA],
   [0, 0, 2, 0, 0, 0, 4, 0]
 ];
 export var AssociatedSource$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_rSA, _sI, _sT, _s, _lUT, _cTr, _sM],
+  [_rSA, _sI, _sT, _st, _lUT, _cTr, _sM],
   [0, 0, 0, 0, 4, 4, 0]
 ];
 export var AssociateResourceSharePermissionRequest$: StaticStructureSchema = [3, n0, _ARSPR,
@@ -471,54 +652,6 @@ export var GetResourceSharesResponse$: StaticStructureSchema = [3, n0, _GRSRe,
   [_rSe, _nT],
   [[() => ResourceShareList, 0], 0]
 ];
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
-export var InvalidClientTokenException$: StaticErrorSchema = [-3, n0, _ICTE,
-  { [_aQE]: [`InvalidClientToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidClientTokenException$, InvalidClientTokenException);
-export var InvalidMaxResultsException$: StaticErrorSchema = [-3, n0, _IMRE,
-  { [_aQE]: [`InvalidMaxResults`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidMaxResultsException$, InvalidMaxResultsException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPolicyException$: StaticErrorSchema = [-3, n0, _IPEn,
-  { [_aQE]: [`InvalidPolicy`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyException$, InvalidPolicyException);
-export var InvalidResourceTypeException$: StaticErrorSchema = [-3, n0, _IRTE,
-  { [_aQE]: [`InvalidResourceType.Unknown`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidResourceTypeException$, InvalidResourceTypeException);
-export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
-  { [_aQE]: [`InvalidStateTransitionException.Unknown`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
 export var ListPendingInvitationResourcesRequest$: StaticStructureSchema = [3, n0, _LPIRR,
   0,
   [_rSIA, _nT, _mR, _rRS],
@@ -571,7 +704,7 @@ export var ListPrincipalsResponse$: StaticStructureSchema = [3, n0, _LPRist,
 ];
 export var ListReplacePermissionAssociationsWorkRequest$: StaticStructureSchema = [3, n0, _LRPAWR,
   0,
-  [_wI, _s, _nT, _mR],
+  [_wI, _st, _nT, _mR],
   [[() => ReplacePermissionAssociationsWorkIdList, 0], 0, 0, 1]
 ];
 export var ListReplacePermissionAssociationsWorkResponse$: StaticStructureSchema = [3, n0, _LRPAWRi,
@@ -619,48 +752,6 @@ export var ListSourceAssociationsResponse$: StaticStructureSchema = [3, n0, _LSA
   [_sA, _nT],
   [[() => AssociatedSourceList, 0], 0]
 ];
-export var MalformedArnException$: StaticErrorSchema = [-3, n0, _MAE,
-  { [_aQE]: [`InvalidArn.Malformed`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(MalformedArnException$, MalformedArnException);
-export var MalformedPolicyTemplateException$: StaticErrorSchema = [-3, n0, _MPTE,
-  { [_aQE]: [`MalformedPolicyTemplateException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyTemplateException$, MalformedPolicyTemplateException);
-export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
-  { [_aQE]: [`MissingRequiredParameter`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
-export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
-  { [_aQE]: [`OperationNotPermitted`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
-export var PermissionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _PAEE,
-  { [_aQE]: [`PermissionAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PermissionAlreadyExistsException$, PermissionAlreadyExistsException);
-export var PermissionLimitExceededException$: StaticErrorSchema = [-3, n0, _PLEE,
-  { [_aQE]: [`PermissionLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PermissionLimitExceededException$, PermissionLimitExceededException);
-export var PermissionVersionsLimitExceededException$: StaticErrorSchema = [-3, n0, _PVLEE,
-  { [_aQE]: [`PermissionVersionsLimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PermissionVersionsLimitExceededException$, PermissionVersionsLimitExceededException);
 export var Principal$: StaticStructureSchema = [3, n0, _P,
   0,
   [_i, _rSA, _cTr, _lUT, _ex],
@@ -708,92 +799,44 @@ export var ReplacePermissionAssociationsResponse$: StaticStructureSchema = [3, n
 ];
 export var ReplacePermissionAssociationsWork$: StaticStructureSchema = [3, n0, _RPAW,
   0,
-  [_i, _fPA, _fPV, _tPA, _tPV, _s, _sM, _cTr, _lUT],
+  [_i, _fPA, _fPV, _tPA, _tPV, _st, _sM, _cTr, _lUT],
   [0, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_a, _ty, _rSA, _rGA, _s, _sM, _cTr, _lUT, _rRS],
+  [_a, _ty, _rSA, _rGA, _st, _sM, _cTr, _lUT, _rRS],
   [0, 0, 0, 0, 0, 0, 4, 4, 0]
 ];
-export var ResourceArnNotFoundException$: StaticErrorSchema = [-3, n0, _RANFE,
-  { [_aQE]: [`InvalidResourceArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceArnNotFoundException$, ResourceArnNotFoundException);
 export var ResourceShare$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_rSA, _n, _oAI, _aEP, _s, _sM, _t, _cTr, _lUT, _fS],
+  [_rSA, _n, _oAI, _aEP, _st, _sM, _t, _cTr, _lUT, _fS],
   [0, 0, 0, 2, 0, 0, () => TagList, 4, 4, 0]
 ];
 export var ResourceShareAssociation$: StaticStructureSchema = [3, n0, _RSA,
   0,
-  [_rSA, _rSN, _aE, _aT, _s, _sM, _cTr, _lUT, _ex],
+  [_rSA, _rSN, _aE, _aT, _st, _sM, _cTr, _lUT, _ex],
   [0, 0, 0, 0, 0, 0, 4, 4, 2]
 ];
 export var ResourceShareInvitation$: StaticStructureSchema = [3, n0, _RSI,
   0,
-  [_rSIA, _rSN, _rSA, _sAI, _rAI, _iT, _s, _rSAe, _rAec],
+  [_rSIA, _rSN, _rSA, _sAI, _rAI, _iT, _st, _rSAe, _rAec],
   [0, 0, 0, 0, 0, 4, 0, [() => ResourceShareAssociationList, 0], 0]
 ];
-export var ResourceShareInvitationAlreadyAcceptedException$: StaticErrorSchema = [-3, n0, _RSIAAE,
-  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyAccepted`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceShareInvitationAlreadyAcceptedException$, ResourceShareInvitationAlreadyAcceptedException);
-export var ResourceShareInvitationAlreadyRejectedException$: StaticErrorSchema = [-3, n0, _RSIARE,
-  { [_aQE]: [`InvalidResourceShareInvitationArn.AlreadyRejected`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceShareInvitationAlreadyRejectedException$, ResourceShareInvitationAlreadyRejectedException);
-export var ResourceShareInvitationArnNotFoundException$: StaticErrorSchema = [-3, n0, _RSIANFE,
-  { [_aQE]: [`InvalidResourceShareInvitationArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceShareInvitationArnNotFoundException$, ResourceShareInvitationArnNotFoundException);
-export var ResourceShareInvitationExpiredException$: StaticErrorSchema = [-3, n0, _RSIEE,
-  { [_aQE]: [`InvalidResourceShareInvitationArn.Expired`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceShareInvitationExpiredException$, ResourceShareInvitationExpiredException);
-export var ResourceShareLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
-  { [_aQE]: [`ResourceShareLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceShareLimitExceededException$, ResourceShareLimitExceededException);
 export var ResourceSharePermissionDetail$: StaticStructureSchema = [3, n0, _RSPD,
   0,
-  [_a, _v, _dV, _n, _rT, _pe, _cTr, _lUT, _iRTD, _pTe, _fS, _s, _t],
+  [_a, _v, _dV, _n, _rT, _pe, _cTr, _lUT, _iRTD, _pTe, _fS, _st, _t],
   [0, 0, 2, 0, 0, 0, 4, 4, 2, 0, 0, 0, () => TagList]
 ];
 export var ResourceSharePermissionSummary$: StaticStructureSchema = [3, n0, _RSPS,
   0,
-  [_a, _v, _dV, _n, _rT, _s, _cTr, _lUT, _iRTD, _pTe, _fS, _t],
+  [_a, _v, _dV, _n, _rT, _st, _cTr, _lUT, _iRTD, _pTe, _fS, _t],
   [0, 0, 2, 0, 0, 0, 4, 4, 2, 0, 0, () => TagList]
 ];
-export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
-  { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServerInternalException$, ServerInternalException);
 export var ServiceNameAndResourceType$: StaticStructureSchema = [3, n0, _SNART,
   0,
   [_rT, _sN, _rRS],
   [0, 0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_aQE]: [`Unavailable`, 503], [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetDefaultPermissionVersionRequest$: StaticStructureSchema = [3, n0, _SDPVR,
   0,
   [_pA, _pV, _cT],
@@ -814,18 +857,6 @@ export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
   [_tK, _tV],
   [0, 64 | 0]
 ];
-export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
-  { [_aQE]: [`TagLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
-export var TagPolicyViolationException$: StaticErrorSchema = [-3, n0, _TPVE,
-  { [_aQE]: [`TagPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TagPolicyViolationException$, TagPolicyViolationException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_t, _rSA, _rAe],
@@ -836,24 +867,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`ThrottlingException`, 429], [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
-  { [_aQE]: [`InvalidResourceShareArn.NotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(UnknownResourceException$, UnknownResourceException);
-export var UnmatchedPolicyPermissionException$: StaticErrorSchema = [-3, n0, _UPPE,
-  { [_aQE]: [`UnmatchedPolicyPermissionException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(UnmatchedPolicyPermissionException$, UnmatchedPolicyPermissionException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_tKa, _rSA, _rAe],
@@ -874,8 +887,6 @@ export var UpdateResourceShareResponse$: StaticStructureSchema = [3, n0, _URSRp,
   [_rS, _cT],
   [() => ResourceShare$, 0]
 ];
-export var RAMServiceException$: StaticErrorSchema = [-3, _sm, "RAMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RAMServiceException$, RAMServiceException);
 var AssociatedPermissionList: StaticListSchema = [1, n0, _APL,
   0, [() => AssociatedPermission$,
     { [_xN]: _it }]

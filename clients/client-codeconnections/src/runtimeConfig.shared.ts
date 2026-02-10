@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeConnectionsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeConnectionsClientConfig } from "./CodeConnectionsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeConnectionsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codeconnections",
+      errorTypeRegistries,
       version: "2023-12-01",
       serviceTarget: "CodeConnections_20231201",
     },

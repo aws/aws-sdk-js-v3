@@ -53,11 +53,11 @@ const _mLTM = "maxLifetimeTimeoutMinutes";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _rA = "resourceArn";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotsecuretunneling";
 const _sAT = "sourceAccessToken";
 const _sCS = "sourceConnectionState";
 const _se = "services";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotsecuretunneling";
+const _st = "status";
 const _t = "tunnel";
 const _tA = "tunnelArn";
 const _tC = "timeoutConfig";
@@ -83,6 +83,31 @@ import { LimitExceededException, ResourceNotFoundException } from "../models/err
 import { IoTSecureTunnelingServiceException } from "../models/IoTSecureTunnelingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTSecureTunnelingServiceException$: StaticErrorSchema = [-3, _s, "IoTSecureTunnelingServiceException", 0, [], []];
+_s_registry.registerError(IoTSecureTunnelingServiceException$, IoTSecureTunnelingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceededException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ClientAccessToken: StaticSimpleSchema = [0, n0, _CAT, 8, 0];
 export var CloseTunnelRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
@@ -96,7 +121,7 @@ export var CloseTunnelResponse$: StaticStructureSchema = [3, n0, _CTRl,
 ];
 export var ConnectionState$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_s, _lUA],
+  [_st, _lUA],
   [0, 4]
 ];
 export var DescribeTunnelRequest$: StaticStructureSchema = [3, n0, _DTR,
@@ -114,12 +139,6 @@ export var DestinationConfig$: StaticStructureSchema = [3, n0, _DC,
   [_se, _tN],
   [64 | 0, 0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceededException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -150,12 +169,6 @@ export var OpenTunnelResponse$: StaticStructureSchema = [3, n0, _OTRp,
   [_tI, _tA, _sAT, _dAT],
   [0, 0, [() => ClientAccessToken, 0], [() => ClientAccessToken, 0]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RotateTunnelAccessTokenRequest$: StaticStructureSchema = [3, n0, _RTATR,
   0,
   [_tI, _cM, _dC],
@@ -188,12 +201,12 @@ export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TC,
 ];
 export var Tunnel$: StaticStructureSchema = [3, n0, _Tu,
   0,
-  [_tI, _tA, _s, _sCS, _dCS, _de, _dC, _tC, _ta, _cA, _lUA],
+  [_tI, _tA, _st, _sCS, _dCS, _de, _dC, _tC, _ta, _cA, _lUA],
   [0, 0, 0, () => ConnectionState$, () => ConnectionState$, 0, () => DestinationConfig$, () => TimeoutConfig$, () => TagList, 4, 4]
 ];
 export var TunnelSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _tA, _s, _de, _cA, _lUA],
+  [_tI, _tA, _st, _de, _cA, _lUA],
   [0, 0, 0, 0, 4, 4]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -206,8 +219,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var IoTSecureTunnelingServiceException$: StaticErrorSchema = [-3, _sm, "IoTSecureTunnelingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTSecureTunnelingServiceException$, IoTSecureTunnelingServiceException);
 var ServiceList = 64 | 0;
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,

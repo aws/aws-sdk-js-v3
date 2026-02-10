@@ -581,7 +581,7 @@ const _b = "budgets";
 const _bI = "budgetId";
 const _bN = "bucketName";
 const _bR = "blockedReason";
-const _c = "count";
+const _c = "client";
 const _cA = "createdAt";
 const _cAT = "cpuArchitectureType";
 const _cAu = "customAmounts";
@@ -598,12 +598,12 @@ const _cT = "clientToken";
 const _cU = "consumersUnresolved";
 const _ca = "capabilities";
 const _ch = "chunks";
-const _cl = "client";
 const _co = "context";
 const _cod = "code";
 const _com = "combination";
 const _con = "configuration";
 const _cons = "consumers";
+const _cou = "count";
 const _cr = "credentials";
 const _d = "definition";
 const _dBA = "defaultBudgetAction";
@@ -702,7 +702,7 @@ const _lS = "lifecycleStatus";
 const _lSAI = "latestSessionActionId";
 const _lSM = "lifecycleStatusMessage";
 const _li = "limits";
-const _m = "min";
+const _m = "message";
 const _mC = "maxCount";
 const _mFTC = "maxFailedTasksCount";
 const _mI = "monitorId";
@@ -716,8 +716,8 @@ const _mWC = "maxWorkerCount";
 const _mWCi = "minWorkerCount";
 const _ma = "max";
 const _man = "manifests";
-const _me = "message";
-const _mem = "members";
+const _me = "members";
+const _mi = "min";
 const _mo = "mode";
 const _mon = "monitors";
 const _n = "name";
@@ -757,7 +757,7 @@ const _qIu = "queueIds";
 const _qLA = "queueLimitAssociations";
 const _qRA = "queueRoleArn";
 const _qSA = "queueStoppedAt";
-const _r = "runtime";
+const _r = "reason";
 const _rA = "roleArn";
 const _rAS = "retryAfterSeconds";
 const _rAe = "resourceArn";
@@ -777,8 +777,8 @@ const _rPF = "rootPathFormat";
 const _rPo = "rootPath";
 const _rS = "runStatus";
 const _rT = "resourceType";
-const _re = "reason";
-const _s = "selections";
+const _ru = "runtime";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.deadline";
 const _sA = "sessionActions";
 const _sAI = "sessionActionId";
 const _sAK = "secretAccessKey";
@@ -812,8 +812,8 @@ const _sTt = "startTime";
 const _sV = "schemaVersion";
 const _sc = "schedule";
 const _se = "server";
+const _sel = "selections";
 const _ses = "sessions";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.deadline";
 const _st = "status";
 const _sta = "statistics";
 const _ste = "steps";
@@ -893,6 +893,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DeadlineServiceException$: StaticErrorSchema = [-3, _s, "DeadlineServiceException", 0, [], []];
+_s_registry.registerError(DeadlineServiceException$, DeadlineServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _co],
+  [0, 128 | 0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _r, _rI, _rT, _co],
+  [0, 0, 0, 0, 128 | 0], 4
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT, _co],
+  [0, 0, 0, 128 | 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _r, _rT, _sC, _qC, _rI, _co],
+  [0, 0, 0, 0, 0, 0, 128 | 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS, _co],
+  [0, 0, 0, [1, { [_hH]: _RA }], 128 | 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL, _co],
+  [0, 0, () => ValidationExceptionFieldList, 128 | 0], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var Document: StaticSimpleSchema = [0, n0, _Do, 8, 15];
@@ -907,33 +962,27 @@ var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
 var StepDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 export var AcceleratorCapabilities$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_s, _c],
+  [_sel, _cou],
   [() => AcceleratorSelections, () => AcceleratorCountRange$], 1
 ];
 export var AcceleratorCountRange$: StaticStructureSchema = [3, n0, _ACR,
   0,
-  [_m, _ma],
+  [_mi, _ma],
   [1, 1], 1
 ];
 export var AcceleratorSelection$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_n, _r],
+  [_n, _ru],
   [0, 0], 1
 ];
 export var AcceleratorTotalMemoryMiBRange$: StaticStructureSchema = [3, n0, _ATMMBR,
   0,
-  [_m, _ma],
+  [_mi, _ma],
   [1, 1], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _cl, [_hE]: 403 },
-  [_me, _co],
-  [0, 128 | 0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AcquiredLimit$: StaticStructureSchema = [3, n0, _AL,
   0,
-  [_lI, _c],
+  [_lI, _cou],
   [0, 1], 2
 ];
 export var AssignedEnvironmentEnterSessionActionDefinition$: StaticStructureSchema = [3, n0, _AEESAD,
@@ -1091,12 +1140,6 @@ export var BudgetSummary$: StaticStructureSchema = [3, n0, _BS,
   [_bI, _uTR, _st, _dN, _aDL, _u, _cB, _cA, _de, _uB, _uA],
   [0, () => UsageTrackingResource$, 0, 0, 1, () => ConsumedUsages$, 0, 5, [() => Description, 0], 0, 5], 8
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _cl, [_hE]: 409 },
-  [_me, _re, _rI, _rT, _co],
-  [0, 0, 0, 0, 128 | 0], 4
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsumedUsages$: StaticStructureSchema = [3, n0, _CU,
   0,
   [_aDU],
@@ -1444,7 +1487,7 @@ export var EnvironmentDetailsEntity$: StaticStructureSchema = [3, n0, _EDE,
 ];
 export var EnvironmentDetailsError$: StaticStructureSchema = [3, n0, _EDEn,
   0,
-  [_jI, _eI, _cod, _me],
+  [_jI, _eI, _cod, _m],
   [0, 0, 0, 0], 4
 ];
 export var EnvironmentDetailsIdentifiers$: StaticStructureSchema = [3, n0, _EDI,
@@ -1499,7 +1542,7 @@ export var FixedBudgetSchedule$: StaticStructureSchema = [3, n0, _FBS,
 ];
 export var FleetAmountCapability$: StaticStructureSchema = [3, n0, _FAC,
   0,
-  [_n, _m, _ma],
+  [_n, _mi, _ma],
   [0, 1, 1], 2
 ];
 export var FleetAttributeCapability$: StaticStructureSchema = [3, n0, _FACl,
@@ -1727,12 +1770,6 @@ export var HostPropertiesResponse$: StaticStructureSchema = [3, n0, _HPRo,
   [_iA, _hN, _eIA, _eIT],
   [() => IpAddresses$, 0, 0, 0]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_me, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var IpAddresses$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_iVA, _iVAp],
@@ -1745,7 +1782,7 @@ export var JobAttachmentDetailsEntity$: StaticStructureSchema = [3, n0, _JADE,
 ];
 export var JobAttachmentDetailsError$: StaticStructureSchema = [3, n0, _JADEo,
   0,
-  [_jI, _cod, _me],
+  [_jI, _cod, _m],
   [0, 0, 0], 3
 ];
 export var JobAttachmentDetailsIdentifiers$: StaticStructureSchema = [3, n0, _JADI,
@@ -1765,7 +1802,7 @@ export var JobDetailsEntity$: StaticStructureSchema = [3, n0, _JDE,
 ];
 export var JobDetailsError$: StaticStructureSchema = [3, n0, _JDEo,
   0,
-  [_jI, _cod, _me],
+  [_jI, _cod, _m],
   [0, 0, 0], 3
 ];
 export var JobDetailsIdentifiers$: StaticStructureSchema = [3, n0, _JDI,
@@ -1830,7 +1867,7 @@ export var ListFarmMembersRequest$: StaticStructureSchema = [3, n0, _LFMR,
 ];
 export var ListFarmMembersResponse$: StaticStructureSchema = [3, n0, _LFMRi,
   0,
-  [_mem, _nT],
+  [_me, _nT],
   [() => FarmMembers, 0], 1
 ];
 export var ListFarmsRequest$: StaticStructureSchema = [3, n0, _LFR,
@@ -1850,7 +1887,7 @@ export var ListFleetMembersRequest$: StaticStructureSchema = [3, n0, _LFMRis,
 ];
 export var ListFleetMembersResponse$: StaticStructureSchema = [3, n0, _LFMRist,
   0,
-  [_mem, _nT],
+  [_me, _nT],
   [() => FleetMembers, 0], 1
 ];
 export var ListFleetsRequest$: StaticStructureSchema = [3, n0, _LFRis,
@@ -1870,7 +1907,7 @@ export var ListJobMembersRequest$: StaticStructureSchema = [3, n0, _LJMR,
 ];
 export var ListJobMembersResponse$: StaticStructureSchema = [3, n0, _LJMRi,
   0,
-  [_mem, _nT],
+  [_me, _nT],
   [() => JobMembers, 0], 1
 ];
 export var ListJobParameterDefinitionsRequest$: StaticStructureSchema = [3, n0, _LJPDR,
@@ -1970,7 +2007,7 @@ export var ListQueueMembersRequest$: StaticStructureSchema = [3, n0, _LQMR,
 ];
 export var ListQueueMembersResponse$: StaticStructureSchema = [3, n0, _LQMRi,
   0,
-  [_mem, _nT],
+  [_me, _nT],
   [() => QueueMemberList, 0], 1
 ];
 export var ListQueuesRequest$: StaticStructureSchema = [3, n0, _LQR,
@@ -2105,7 +2142,7 @@ export var ManifestProperties$: StaticStructureSchema = [3, n0, _MP,
 ];
 export var MemoryMiBRange$: StaticStructureSchema = [3, n0, _MMBR,
   0,
-  [_m, _ma],
+  [_mi, _ma],
   [1, 1], 1
 ];
 export var MeteredProductSummary$: StaticStructureSchema = [3, n0, _MPS,
@@ -2178,12 +2215,6 @@ export var QueueSummary$: StaticStructureSchema = [3, n0, _QS,
   [_fI, _qI, _dN, _st, _dBA, _cA, _cB, _bR, _uA, _uB],
   [0, 0, 0, 0, 0, 5, 0, 0, 5, 0], 7
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_me, _rI, _rT, _co],
-  [0, 0, 0, 128 | 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseBudgetAction$: StaticStructureSchema = [3, n0, _RBA,
   0,
   [_t, _tP, _de],
@@ -2259,12 +2290,6 @@ export var ServiceManagedEc2InstanceMarketOptions$: StaticStructureSchema = [3, 
   [_t],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _cl, [_hE]: 402 },
-  [_me, _re, _rT, _sC, _qC, _rI, _co],
-  [0, 0, 0, 0, 0, 0, 128 | 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionActionSummary$: StaticStructureSchema = [3, n0, _SAS,
   0,
   [_sAI, _st, _d, _sAt, _eA, _wUA, _pP, _man],
@@ -2287,17 +2312,17 @@ export var StartSessionsStatisticsAggregationResponse$: StaticStructureSchema = 
 ];
 export var Statistics$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_c, _cIU, _rIS, _qI, _fIl, _jI, _jN, _uI, _uT, _lP, _iTn, _aST, _aET],
+  [_cou, _cIU, _rIS, _qI, _fIl, _jI, _jN, _uI, _uT, _lP, _iTn, _aST, _aET],
   [1, () => Stats$, () => Stats$, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5], 3
 ];
 export var Stats$: StaticStructureSchema = [3, n0, _St,
   0,
-  [_m, _ma, _av, _sum],
+  [_mi, _ma, _av, _sum],
   [1, 1, 1, 1]
 ];
 export var StepAmountCapability$: StaticStructureSchema = [3, n0, _SAC,
   0,
-  [_n, _m, _ma, _va],
+  [_n, _mi, _ma, _va],
   [0, 1, 1, 1], 1
 ];
 export var StepAttributeCapability$: StaticStructureSchema = [3, n0, _SACt,
@@ -2322,7 +2347,7 @@ export var StepDetailsEntity$: StaticStructureSchema = [3, n0, _SDE,
 ];
 export var StepDetailsError$: StaticStructureSchema = [3, n0, _SDEt,
   0,
-  [_jI, _sI, _cod, _me],
+  [_jI, _sI, _cod, _m],
   [0, 0, 0, 0], 4
 ];
 export var StepDetailsIdentifiers$: StaticStructureSchema = [3, n0, _SDI,
@@ -2420,12 +2445,6 @@ export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tI, _cA, _cB, _rS, _tRSa, _fRC, _p, _sAt, _eA, _uA, _uB, _lSAI],
   [0, 5, 0, 0, 0, 1, [() => TaskParameters, 0], 5, 5, 5, 0, 0], 4
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _cl, [_hE]: 429 },
-  [_me, _sC, _qC, _rAS, _co],
-  [0, 0, 0, [1, { [_hH]: _RA }], 128 | 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -2606,20 +2625,14 @@ export var UserJobsFirst$: StaticStructureSchema = [3, n0, _UJF,
   [_uII],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_me, _re, _fL, _co],
-  [0, 0, () => ValidationExceptionFieldList, 128 | 0], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_n, _me],
+  [_n, _m],
   [0, 0], 2
 ];
 export var VCpuCountRange$: StaticStructureSchema = [3, n0, _VCCR,
   0,
-  [_m, _ma],
+  [_mi, _ma],
   [1, 1], 1
 ];
 export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
@@ -2662,8 +2675,6 @@ export var WorkerSummary$: StaticStructureSchema = [3, n0, _WS,
   [_wI, _fI, _fIl, _st, _cA, _cB, _hP, _l, _uA, _uB],
   [0, 0, 0, 0, 5, 0, () => HostPropertiesResponse$, () => LogConfiguration$, 5, 0], 6
 ];
-export var DeadlineServiceException$: StaticErrorSchema = [-3, _sm, "DeadlineServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DeadlineServiceException$, DeadlineServiceException);
 var AcceleratorSelections: StaticListSchema = [1, n0, _ASc,
   0, () => AcceleratorSelection$
 ];

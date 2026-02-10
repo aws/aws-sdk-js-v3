@@ -657,17 +657,114 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var AnalysisDetails$: StaticStructureSchema = [3, n0, _AD,
-  0,
-  [_SPPAD],
-  [() => SavingsPlansPurchaseAnalysisDetails$]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var CostExplorerServiceException$: StaticErrorSchema = [-3, _s, "CostExplorerServiceException", 0, [], []];
+_s_registry.registerError(CostExplorerServiceException$, CostExplorerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AnalysisNotFoundException$: StaticErrorSchema = [-3, n0, _ANFE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AnalysisNotFoundException$, AnalysisNotFoundException);
+n0_registry.registerError(AnalysisNotFoundException$, AnalysisNotFoundException);
+export var BackfillLimitExceededException$: StaticErrorSchema = [-3, n0, _BLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BackfillLimitExceededException$, BackfillLimitExceededException);
+export var BillExpirationException$: StaticErrorSchema = [-3, n0, _BEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BillExpirationException$, BillExpirationException);
+export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
+export var DataUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DataUnavailableException$, DataUnavailableException);
+export var GenerationExistsException$: StaticErrorSchema = [-3, n0, _GEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(GenerationExistsException$, GenerationExistsException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var RequestChangedException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RequestChangedException$, RequestChangedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnknownMonitorException$: StaticErrorSchema = [-3, n0, _UME,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnknownMonitorException$, UnknownMonitorException);
+export var UnknownSubscriptionException$: StaticErrorSchema = [-3, n0, _USE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnknownSubscriptionException$, UnknownSubscriptionException);
+export var UnresolvableUsageUnitException$: StaticErrorSchema = [-3, n0, _UUUE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnresolvableUsageUnitException$, UnresolvableUsageUnitException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AnalysisDetails$: StaticStructureSchema = [3, n0, _AD,
+  0,
+  [_SPPAD],
+  [() => SavingsPlansPurchaseAnalysisDetails$]
+];
 export var AnalysisSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_ECT, _ACT, _AST, _ASn, _EC, _AI, _CPAC],
@@ -698,24 +795,6 @@ export var AnomalySubscription$: StaticStructureSchema = [3, n0, _ASnom,
   [_MAL, _S, _Fr, _SN, _SA, _AIc, _T, _TE],
   [64 | 0, () => Subscribers, 0, 0, 0, 0, 1, () => Expression$], 4
 ];
-export var BackfillLimitExceededException$: StaticErrorSchema = [-3, n0, _BLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BackfillLimitExceededException$, BackfillLimitExceededException);
-export var BillExpirationException$: StaticErrorSchema = [-3, n0, _BEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BillExpirationException$, BillExpirationException);
-export var BillingViewHealthStatusException$: StaticErrorSchema = [-3, n0, _BVHSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BillingViewHealthStatusException$, BillingViewHealthStatusException);
 export var CommitmentPurchaseAnalysisConfiguration$: StaticStructureSchema = [3, n0, _CPAC,
   0,
   [_SPPAC],
@@ -861,12 +940,6 @@ export var CurrentInstance$: StaticStructureSchema = [3, n0, _CI,
   [_RI, _IN, _Tag, _RD, _RU, _RCHILP, _SPCHILP, _ODHILP, _TRHILP, _MC, _CCu],
   [0, 0, () => TagValuesList, () => ResourceDetails$, () => ResourceUtilization$, 0, 0, 0, 0, 0, 0]
 ];
-export var DataUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DataUnavailableException$, DataUnavailableException);
 export var DateInterval$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_Sta, _E],
@@ -977,12 +1050,6 @@ export var ForecastResult$: StaticStructureSchema = [3, n0, _FR,
   [_TP, _MV, _PILB, _PIUB],
   [() => DateInterval$, 0, 0, 0]
 ];
-export var GenerationExistsException$: StaticErrorSchema = [-3, n0, _GEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GenerationExistsException$, GenerationExistsException);
 export var GenerationSummary$: StaticStructureSchema = [3, n0, _GS,
   0,
   [_RIe, _GSe, _GST, _GCT, _ECT],
@@ -1238,18 +1305,6 @@ export var InstanceDetails$: StaticStructureSchema = [3, n0, _ID,
   [_ECID, _RDSID, _RID, _ECIDl, _ESID, _MDBID],
   [() => EC2InstanceDetails$, () => RDSInstanceDetails$, () => RedshiftInstanceDetails$, () => ElastiCacheInstanceDetails$, () => ESInstanceDetails$, () => MemoryDBInstanceDetails$]
 ];
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListCommitmentPurchaseAnalysesRequest$: StaticStructureSchema = [3, n0, _LCPAR,
   0,
   [_ASn, _NPT, _PSa, _AIna],
@@ -1370,12 +1425,6 @@ export var RedshiftInstanceDetails$: StaticStructureSchema = [3, n0, _RID,
   [_Fa, _NT, _Re, _CG, _SFE],
   [0, 0, 0, 2, 2]
 ];
-export var RequestChangedException$: StaticErrorSchema = [-3, n0, _RCE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestChangedException$, RequestChangedException);
 export var ReservationAggregates$: StaticStructureSchema = [3, n0, _RAes,
   0,
   [_UP, _UPIU, _PH, _PU, _TAH, _TAU, _UH, _UU, _ODCORIHU, _NRIS, _TPRIS, _AUF, _ARF, _TAF, _RICFUH, _RSe, _US],
@@ -1421,12 +1470,6 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   [_ECRD],
   [() => EC2ResourceDetails$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_K, _Va],
@@ -1552,12 +1595,6 @@ export var SavingsPlansUtilizationDetail$: StaticStructureSchema = [3, n0, _SPUD
   [_SPA, _At, _Ut, _Sa, _AC],
   [0, 128 | 0, () => SavingsPlansUtilization$, () => SavingsPlansSavings$, () => SavingsPlansAmortizedCommitment$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSpecification$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_ECS],
@@ -1628,35 +1665,11 @@ export var TerminateRecommendationDetail$: StaticStructureSchema = [3, n0, _TRD,
   [_EMS, _CCu],
   [0, 0]
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TotalImpactFilter$: StaticStructureSchema = [3, n0, _TIF,
   0,
   [_NO, _SV, _EV],
   [0, 1, 1], 2
 ];
-export var UnknownMonitorException$: StaticErrorSchema = [-3, n0, _UME,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnknownMonitorException$, UnknownMonitorException);
-export var UnknownSubscriptionException$: StaticErrorSchema = [-3, n0, _USE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnknownSubscriptionException$, UnknownSubscriptionException);
-export var UnresolvableUsageUnitException$: StaticErrorSchema = [-3, n0, _UUUE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnresolvableUsageUnitException$, UnresolvableUsageUnitException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _RTK],
@@ -1717,8 +1730,6 @@ export var UtilizationByTime$: StaticStructureSchema = [3, n0, _UBTt,
   [_TP, _G, _To],
   [() => DateInterval$, () => ReservationUtilizationGroups, () => ReservationAggregates$]
 ];
-export var CostExplorerServiceException$: StaticErrorSchema = [-3, _s, "CostExplorerServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(CostExplorerServiceException$, CostExplorerServiceException);
 var AnalysisIds = 64 | 0;
 var AnalysisSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => AnalysisSummary$

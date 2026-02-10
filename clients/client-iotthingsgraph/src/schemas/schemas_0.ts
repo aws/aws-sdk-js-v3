@@ -188,15 +188,15 @@ const _nV = "namespaceVersion";
 const _p = "payload";
 const _rA = "resourceArn";
 const _rN = "revisionNumber";
-const _s = "summary";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotthingsgraph";
 const _sBN = "s3BucketName";
 const _sII = "systemInstanceId";
 const _sT = "startTime";
 const _sWPN = "syncWithPublicNamespace";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotthingsgraph";
 const _st = "status";
-const _su = "summaries";
+const _su = "summary";
+const _sum = "summaries";
 const _t = "target";
 const _tA = "thingArn";
 const _tK = "tagKeys";
@@ -232,6 +232,61 @@ import {
 import { IoTThingsGraphServiceException } from "../models/IoTThingsGraphServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTThingsGraphServiceException$: StaticErrorSchema = [-3, _s, "IoTThingsGraphServiceException", 0, [], []];
+_s_registry.registerError(IoTThingsGraphServiceException$, IoTThingsGraphServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateEntityToThingRequest$: StaticStructureSchema = [3, n0, _AETTR,
   0,
   [_tN, _eI, _nV],
@@ -249,7 +304,7 @@ export var CreateFlowTemplateRequest$: StaticStructureSchema = [3, n0, _CFTR,
 ];
 export var CreateFlowTemplateResponse$: StaticStructureSchema = [3, n0, _CFTRr,
   0,
-  [_s],
+  [_su],
   [() => FlowTemplateSummary$]
 ];
 export var CreateSystemInstanceRequest$: StaticStructureSchema = [3, n0, _CSIR,
@@ -259,7 +314,7 @@ export var CreateSystemInstanceRequest$: StaticStructureSchema = [3, n0, _CSIR,
 ];
 export var CreateSystemInstanceResponse$: StaticStructureSchema = [3, n0, _CSIRr,
   0,
-  [_s],
+  [_su],
   [() => SystemInstanceSummary$]
 ];
 export var CreateSystemTemplateRequest$: StaticStructureSchema = [3, n0, _CSTR,
@@ -269,7 +324,7 @@ export var CreateSystemTemplateRequest$: StaticStructureSchema = [3, n0, _CSTR,
 ];
 export var CreateSystemTemplateResponse$: StaticStructureSchema = [3, n0, _CSTRr,
   0,
-  [_s],
+  [_su],
   [() => SystemTemplateSummary$]
 ];
 export var DefinitionDocument$: StaticStructureSchema = [3, n0, _DD,
@@ -329,7 +384,7 @@ export var DeploySystemInstanceRequest$: StaticStructureSchema = [3, n0, _DSIRep
 ];
 export var DeploySystemInstanceResponse$: StaticStructureSchema = [3, n0, _DSIRepl,
   0,
-  [_s, _gDI],
+  [_su, _gDI],
   [() => SystemInstanceSummary$, 0], 1
 ];
 export var DeprecateFlowTemplateRequest$: StaticStructureSchema = [3, n0, _DFTRep,
@@ -394,7 +449,7 @@ export var FlowExecutionSummary$: StaticStructureSchema = [3, n0, _FES,
 ];
 export var FlowTemplateDescription$: StaticStructureSchema = [3, n0, _FTD,
   0,
-  [_s, _d, _vNV],
+  [_su, _d, _vNV],
   [() => FlowTemplateSummary$, () => DefinitionDocument$, 1]
 ];
 export var FlowTemplateFilter$: StaticStructureSchema = [3, n0, _FTF,
@@ -434,7 +489,7 @@ export var GetFlowTemplateRevisionsRequest$: StaticStructureSchema = [3, n0, _GF
 ];
 export var GetFlowTemplateRevisionsResponse$: StaticStructureSchema = [3, n0, _GFTRRe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => FlowTemplateSummaries, 0]
 ];
 export var GetNamespaceDeletionStatusRequest$: StaticStructureSchema = [3, n0, _GNDSR,
@@ -474,7 +529,7 @@ export var GetSystemTemplateRevisionsRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetSystemTemplateRevisionsResponse$: StaticStructureSchema = [3, n0, _GSTRRe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => SystemTemplateSummaries, 0]
 ];
 export var GetUploadStatusRequest$: StaticStructureSchema = [3, n0, _GUSR,
@@ -487,24 +542,6 @@ export var GetUploadStatusResponse$: StaticStructureSchema = [3, n0, _GUSRe,
   [_uI, _uS, _cD, _nA, _nN, _nV, _fR],
   [0, 0, 4, 0, 0, 1, 64 | 0], 3
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 410 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListFlowExecutionMessagesRequest$: StaticStructureSchema = [3, n0, _LFEMR,
   0,
   [_fEI, _nT, _mR],
@@ -530,24 +567,6 @@ export var MetricsConfiguration$: StaticStructureSchema = [3, n0, _MC,
   [_cME, _mRRA],
   [2, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 412 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchEntitiesRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_eTn, _f, _nT, _mR, _nV],
@@ -565,7 +584,7 @@ export var SearchFlowExecutionsRequest$: StaticStructureSchema = [3, n0, _SFER,
 ];
 export var SearchFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _SFERe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => FlowExecutionSummaries, 0]
 ];
 export var SearchFlowTemplatesRequest$: StaticStructureSchema = [3, n0, _SFTR,
@@ -575,7 +594,7 @@ export var SearchFlowTemplatesRequest$: StaticStructureSchema = [3, n0, _SFTR,
 ];
 export var SearchFlowTemplatesResponse$: StaticStructureSchema = [3, n0, _SFTRe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => FlowTemplateSummaries, 0]
 ];
 export var SearchSystemInstancesRequest$: StaticStructureSchema = [3, n0, _SSIR,
@@ -585,7 +604,7 @@ export var SearchSystemInstancesRequest$: StaticStructureSchema = [3, n0, _SSIR,
 ];
 export var SearchSystemInstancesResponse$: StaticStructureSchema = [3, n0, _SSIRe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => SystemInstanceSummaries, 0]
 ];
 export var SearchSystemTemplatesRequest$: StaticStructureSchema = [3, n0, _SSTR,
@@ -595,7 +614,7 @@ export var SearchSystemTemplatesRequest$: StaticStructureSchema = [3, n0, _SSTR,
 ];
 export var SearchSystemTemplatesResponse$: StaticStructureSchema = [3, n0, _SSTRe,
   0,
-  [_su, _nT],
+  [_sum, _nT],
   [() => SystemTemplateSummaries, 0]
 ];
 export var SearchThingsRequest$: StaticStructureSchema = [3, n0, _STR,
@@ -610,7 +629,7 @@ export var SearchThingsResponse$: StaticStructureSchema = [3, n0, _STRe,
 ];
 export var SystemInstanceDescription$: StaticStructureSchema = [3, n0, _SID,
   0,
-  [_s, _d, _sBN, _mC, _vNV, _vDR, _fARA],
+  [_su, _d, _sBN, _mC, _vNV, _vDR, _fARA],
   [() => SystemInstanceSummary$, () => DefinitionDocument$, 0, () => MetricsConfiguration$, 1, () => DependencyRevisions, 0]
 ];
 export var SystemInstanceFilter$: StaticStructureSchema = [3, n0, _SIF,
@@ -625,7 +644,7 @@ export var SystemInstanceSummary$: StaticStructureSchema = [3, n0, _SIS,
 ];
 export var SystemTemplateDescription$: StaticStructureSchema = [3, n0, _STD,
   0,
-  [_s, _d, _vNV],
+  [_su, _d, _vNV],
   [() => SystemTemplateSummary$, () => DefinitionDocument$, 1]
 ];
 export var SystemTemplateFilter$: StaticStructureSchema = [3, n0, _STF,
@@ -658,12 +677,6 @@ export var Thing$: StaticStructureSchema = [3, n0, _Th,
   [_tA, _tN],
   [0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UndeploySystemInstanceRequest$: StaticStructureSchema = [3, n0, _USIR,
   0,
   [_i],
@@ -671,7 +684,7 @@ export var UndeploySystemInstanceRequest$: StaticStructureSchema = [3, n0, _USIR
 ];
 export var UndeploySystemInstanceResponse$: StaticStructureSchema = [3, n0, _USIRn,
   0,
-  [_s],
+  [_su],
   [() => SystemInstanceSummary$]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -691,7 +704,7 @@ export var UpdateFlowTemplateRequest$: StaticStructureSchema = [3, n0, _UFTR,
 ];
 export var UpdateFlowTemplateResponse$: StaticStructureSchema = [3, n0, _UFTRp,
   0,
-  [_s],
+  [_su],
   [() => FlowTemplateSummary$]
 ];
 export var UpdateSystemTemplateRequest$: StaticStructureSchema = [3, n0, _USTR,
@@ -701,7 +714,7 @@ export var UpdateSystemTemplateRequest$: StaticStructureSchema = [3, n0, _USTR,
 ];
 export var UpdateSystemTemplateResponse$: StaticStructureSchema = [3, n0, _USTRp,
   0,
-  [_s],
+  [_su],
   [() => SystemTemplateSummary$]
 ];
 export var UploadEntityDefinitionsRequest$: StaticStructureSchema = [3, n0, _UEDR,
@@ -714,8 +727,6 @@ export var UploadEntityDefinitionsResponse$: StaticStructureSchema = [3, n0, _UE
   [_uI],
   [0], 1
 ];
-export var IoTThingsGraphServiceException$: StaticErrorSchema = [-3, _sm, "IoTThingsGraphServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTThingsGraphServiceException$, IoTThingsGraphServiceException);
 var DependencyRevisions: StaticListSchema = [1, n0, _DRe,
   0, () => DependencyRevision$
 ];

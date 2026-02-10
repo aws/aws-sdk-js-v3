@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultMachineLearningHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { MachineLearningClientConfig } from "./MachineLearningClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: MachineLearningClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.machinelearning",
+      errorTypeRegistries,
       xmlNamespace: "http://machinelearning.amazonaws.com/doc/2014-12-12/",
       version: "2014-12-12",
       serviceTarget: "AmazonML_20141212",

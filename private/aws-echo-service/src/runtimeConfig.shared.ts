@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEchoServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { EchoServiceClientConfig } from "./EchoServiceClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "aws.test.generic",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "EchoService",
     },

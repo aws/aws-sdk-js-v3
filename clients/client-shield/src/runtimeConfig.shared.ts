@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultShieldHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ShieldClientConfig } from "./ShieldClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ShieldClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.shield",
+      errorTypeRegistries,
       xmlNamespace: "http://ddp.amazonaws.com/doc/2016-06-02/",
       version: "2016-06-02",
       serviceTarget: "AWSShield_20160616",

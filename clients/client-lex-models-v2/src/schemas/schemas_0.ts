@@ -782,7 +782,7 @@ const _bVLS = "botVersionLocaleSpecification";
 const _bVRS = "botVersionReplicationStatus";
 const _bVRSo = "botVersionReplicaSummaries";
 const _bVS = "botVersionSummaries";
-const _c = "condition";
+const _c = "client";
 const _cB = "conditionalBranches";
 const _cC = "confirmationConditional";
 const _cCa = "captureConditional";
@@ -821,9 +821,9 @@ const _cVS = "customVocabularyStatus";
 const _cW = "cloudWatch";
 const _cWLGA = "cloudWatchLogGroupArn";
 const _ch = "channel";
-const _cl = "client";
-const _co = "conditional";
-const _con = "content";
+const _co = "condition";
+const _con = "conditional";
+const _cont = "content";
 const _d = "destination";
 const _dA = "displayAs";
 const _dAT = "dialogActionType";
@@ -851,7 +851,7 @@ const _dV = "defaultValue";
 const _dVL = "defaultValueList";
 const _dVS = "defaultValueSpecification";
 const _de = "description";
-const _e = "enabled";
+const _e = "error";
 const _eAP = "expectedAgentPrompt";
 const _eC = "endCharacter";
 const _eCH = "elicitationCodeHook";
@@ -878,9 +878,9 @@ const _eTER = "endToEndResult";
 const _eTERC = "endToEndResultCounts";
 const _eTM = "endTimeoutMs";
 const _ef = "effect";
-const _en = "engine";
+const _en = "enabled";
+const _eng = "engine";
 const _er = "errors";
-const _err = "error";
 const _ev = "event";
 const _ex = "expression";
 const _exp = "expected";
@@ -1052,7 +1052,7 @@ const _rSu = "runtimeSettings";
 const _rTF = "resultTypeFilter";
 const _re = "response";
 const _res = "results";
-const _s = "statistic";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lexmodelsv2";
 const _sA = "sessionAttributes";
 const _sAS = "sentimentAnalysisSettings";
 const _sB = "s3Bucket";
@@ -1127,10 +1127,10 @@ const _ser = "service";
 const _ses = "sessions";
 const _sh = "shape";
 const _sl = "slots";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lexmodelsv2";
 const _so = "source";
-const _st = "statistics";
-const _sta = "status";
+const _st = "statistic";
+const _sta = "statistics";
+const _stat = "status";
 const _su = "subtitle";
 const _sy = "synonyms";
 const _t = "transcript";
@@ -1230,6 +1230,61 @@ import {
 import { LexModelsV2ServiceException } from "../models/LexModelsV2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LexModelsV2ServiceException$: StaticErrorSchema = [-3, _s, "LexModelsV2ServiceException", 0, [], []];
+_s_registry.registerError(LexModelsV2ServiceException$, LexModelsV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PreconditionFailedException$, PreconditionFailedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_rAS, _m],
+  [[1, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var FilePassword: StaticSimpleSchema = [0, n0, _FP, 8, 0];
 var ImportExportFilePassword: StaticSimpleSchema = [0, n0, _IEFP, 8, 0];
 export var ActiveContext$: StaticStructureSchema = [3, n0, _AC,
@@ -1299,12 +1354,12 @@ export var AnalyticsIntentGroupBySpecification$: StaticStructureSchema = [3, n0,
 ];
 export var AnalyticsIntentMetric$: StaticStructureSchema = [3, n0, _AIM,
   0,
-  [_n, _s, _or],
+  [_n, _st, _or],
   [0, 0, 0], 2
 ];
 export var AnalyticsIntentMetricResult$: StaticStructureSchema = [3, n0, _AIMR,
   0,
-  [_n, _s, _va],
+  [_n, _st, _va],
   [0, 0, 1]
 ];
 export var AnalyticsIntentNodeSummary$: StaticStructureSchema = [3, n0, _AINS,
@@ -1334,12 +1389,12 @@ export var AnalyticsIntentStageGroupBySpecification$: StaticStructureSchema = [3
 ];
 export var AnalyticsIntentStageMetric$: StaticStructureSchema = [3, n0, _AISM,
   0,
-  [_n, _s, _or],
+  [_n, _st, _or],
   [0, 0, 0], 2
 ];
 export var AnalyticsIntentStageMetricResult$: StaticStructureSchema = [3, n0, _AISMR,
   0,
-  [_n, _s, _va],
+  [_n, _st, _va],
   [0, 0, 1]
 ];
 export var AnalyticsIntentStageResult$: StaticStructureSchema = [3, n0, _AISR,
@@ -1369,12 +1424,12 @@ export var AnalyticsSessionGroupBySpecification$: StaticStructureSchema = [3, n0
 ];
 export var AnalyticsSessionMetric$: StaticStructureSchema = [3, n0, _ASM,
   0,
-  [_n, _s, _or],
+  [_n, _st, _or],
   [0, 0, 0], 2
 ];
 export var AnalyticsSessionMetricResult$: StaticStructureSchema = [3, n0, _ASMR,
   0,
-  [_n, _s, _va],
+  [_n, _st, _va],
   [0, 0, 1]
 ];
 export var AnalyticsSessionResult$: StaticStructureSchema = [3, n0, _ASR,
@@ -1409,12 +1464,12 @@ export var AnalyticsUtteranceGroupBySpecification$: StaticStructureSchema = [3, 
 ];
 export var AnalyticsUtteranceMetric$: StaticStructureSchema = [3, n0, _AUM,
   0,
-  [_n, _s, _or],
+  [_n, _st, _or],
   [0, 0, 0], 2
 ];
 export var AnalyticsUtteranceMetricResult$: StaticStructureSchema = [3, n0, _AUMR,
   0,
-  [_n, _s, _va],
+  [_n, _st, _va],
   [0, 0, 1]
 ];
 export var AnalyticsUtteranceResult$: StaticStructureSchema = [3, n0, _AUR,
@@ -1444,7 +1499,7 @@ export var AudioLogDestination$: StaticStructureSchema = [3, n0, _ALD,
 ];
 export var AudioLogSetting$: StaticStructureSchema = [3, n0, _ALS,
   0,
-  [_e, _d, _sLE],
+  [_en, _d, _sLE],
   [2, () => AudioLogDestination$, 2], 2
 ];
 export var AudioSpecification$: StaticStructureSchema = [3, n0, _AS,
@@ -1509,7 +1564,7 @@ export var BotAliasHistoryEvent$: StaticStructureSchema = [3, n0, _BAHE,
 ];
 export var BotAliasLocaleSettings$: StaticStructureSchema = [3, n0, _BALS,
   0,
-  [_e, _cHS],
+  [_en, _cHS],
   [2, () => CodeHookSpecification$], 1
 ];
 export var BotAliasReplicaSummary$: StaticStructureSchema = [3, n0, _BARS,
@@ -1579,7 +1634,7 @@ export var BotMember$: StaticStructureSchema = [3, n0, _BM,
 ];
 export var BotRecommendationResults$: StaticStructureSchema = [3, n0, _BRR,
   0,
-  [_bLEU, _aTU, _st],
+  [_bLEU, _aTU, _sta],
   [0, 0, () => BotRecommendationResultStatistics$]
 ];
 export var BotRecommendationResultStatistics$: StaticStructureSchema = [3, n0, _BRRS,
@@ -1694,7 +1749,7 @@ export var Condition$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ConditionalBranch$: StaticStructureSchema = [3, n0, _CB,
   0,
-  [_n, _c, _nS, _re],
+  [_n, _co, _nS, _re],
   [0, () => Condition$, () => DialogState$, () => ResponseSpecification$], 3
 ];
 export var ConditionalSpecification$: StaticStructureSchema = [3, n0, _CS,
@@ -1702,12 +1757,6 @@ export var ConditionalSpecification$: StaticStructureSchema = [3, n0, _CS,
   [_ac, _cB, _dB],
   [2, () => ConditionalBranches, () => DefaultConditionalBranch$], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_err]: _cl, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConversationLevelIntentClassificationResultItem$: StaticStructureSchema = [3, n0, _CLICRI,
   0,
   [_iN, _mRa],
@@ -1835,7 +1884,7 @@ export var CreateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _CRPRr
 ];
 export var CreateResourcePolicyStatementRequest$: StaticStructureSchema = [3, n0, _CRPSR,
   0,
-  [_rAe, _sI, _ef, _pr, _act, _c, _eRI],
+  [_rAe, _sI, _ef, _pr, _act, _co, _eRI],
   [[0, 1], 0, 0, () => PrincipalList, 64 | 0, [2, n0, _CM, 0, 0, 128 | 0], [0, { [_hQ]: _eRI }]], 5
 ];
 export var CreateResourcePolicyStatementResponse$: StaticStructureSchema = [3, n0, _CRPSRr,
@@ -2240,12 +2289,12 @@ export var DescribeTestSetRequest$: StaticStructureSchema = [3, n0, _DTSRe,
 ];
 export var DescribeTestSetResponse$: StaticStructureSchema = [3, n0, _DTSRes,
   0,
-  [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
+  [_tSI, _tSN, _de, _mo, _stat, _rA, _nTu, _sL, _cDT, _lUDT],
   [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4]
 ];
 export var DescriptiveBotBuilderSpecification$: StaticStructureSchema = [3, n0, _DBBS,
   0,
-  [_e, _bMS],
+  [_en, _bMS],
   [2, () => BedrockModelSpecification$], 1
 ];
 export var DialogAction$: StaticStructureSchema = [3, n0, _DA,
@@ -2260,7 +2309,7 @@ export var DialogCodeHookInvocationSetting$: StaticStructureSchema = [3, n0, _DC
 ];
 export var DialogCodeHookSettings$: StaticStructureSchema = [3, n0, _DCHS,
   0,
-  [_e],
+  [_en],
   [2], 1
 ];
 export var DialogState$: StaticStructureSchema = [3, n0, _DS,
@@ -2285,7 +2334,7 @@ export var EncryptionSetting$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var ErrorLogSettings$: StaticStructureSchema = [3, n0, _ELS,
   0,
-  [_e],
+  [_en],
   [2], 1
 ];
 export var ExactResponseFields$: StaticStructureSchema = [3, n0, _ERF,
@@ -2330,7 +2379,7 @@ export var FailedCustomVocabularyItem$: StaticStructureSchema = [3, n0, _FCVI,
 ];
 export var FulfillmentCodeHookSettings$: StaticStructureSchema = [3, n0, _FCHS,
   0,
-  [_e, _pFSS, _fUS, _ac],
+  [_en, _pFSS, _fUS, _ac],
   [2, () => PostFulfillmentStatusSpecification$, () => FulfillmentUpdatesSpecification$, 2], 1
 ];
 export var FulfillmentStartResponseSpecification$: StaticStructureSchema = [3, n0, _FSRS,
@@ -2420,7 +2469,7 @@ export var ImportSummary$: StaticStructureSchema = [3, n0, _IS,
 ];
 export var InitialResponseSetting$: StaticStructureSchema = [3, n0, _IRSn,
   0,
-  [_iR, _nS, _co, _cH],
+  [_iR, _nS, _con, _cH],
   [() => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogCodeHookInvocationSetting$]
 ];
 export var InputContext$: StaticStructureSchema = [3, n0, _IC,
@@ -2450,7 +2499,7 @@ export var IntentClassificationTestResults$: StaticStructureSchema = [3, n0, _IC
 ];
 export var IntentClosingSetting$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_cR, _ac, _nS, _co],
+  [_cR, _ac, _nS, _con],
   [() => ResponseSpecification$, 2, () => DialogState$, () => ConditionalSpecification$]
 ];
 export var IntentConfirmationSetting$: StaticStructureSchema = [3, n0, _ICSn,
@@ -2460,7 +2509,7 @@ export var IntentConfirmationSetting$: StaticStructureSchema = [3, n0, _ICSn,
 ];
 export var IntentDisambiguationSettings$: StaticStructureSchema = [3, n0, _IDS,
   0,
-  [_e, _mDI, _cDM],
+  [_en, _mDI, _cDM],
   [2, 1, 0], 1
 ];
 export var IntentFilter$: StaticStructureSchema = [3, n0, _IFn,
@@ -2498,12 +2547,6 @@ export var IntentSummary$: StaticStructureSchema = [3, n0, _ISnt,
   [_iI, _iN, _iDN, _de, _pIS, _iCn, _oC, _lUDT],
   [0, 0, 0, 0, 0, () => InputContextsList, () => OutputContextsList, 4]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_err]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokedIntentSample$: StaticStructureSchema = [3, n0, _IIS,
   0,
   [_iN],
@@ -2856,7 +2899,7 @@ export var NewCustomVocabularyItem$: StaticStructureSchema = [3, n0, _NCVI,
 ];
 export var NluImprovementSpecification$: StaticStructureSchema = [3, n0, _NIS,
   0,
-  [_e, _aNM, _iDS],
+  [_en, _aNM, _iDS],
   [2, 0, () => IntentDisambiguationSettings$], 1
 ];
 export var ObfuscationSetting$: StaticStructureSchema = [3, n0, _OS,
@@ -2909,12 +2952,6 @@ export var PostFulfillmentStatusSpecification$: StaticStructureSchema = [3, n0, 
   [_sRu, _fRa, _tR, _sNS, _sC, _fNS, _fC, _tNS, _tC],
   [() => ResponseSpecification$, () => ResponseSpecification$, () => ResponseSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogState$, () => ConditionalSpecification$, () => DialogState$, () => ConditionalSpecification$]
 ];
-export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
-  { [_err]: _cl, [_hE]: 412 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
 export var Principal$: StaticStructureSchema = [3, n0, _P,
   0,
   [_ser, _ar],
@@ -2960,12 +2997,6 @@ export var RelativeAggregationDuration$: StaticStructureSchema = [3, n0, _RAD,
   [_tD, _tV],
   [0, 1], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_err]: _cl, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseSpecification$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_mG, _aIl],
@@ -3008,7 +3039,7 @@ export var SampleUtterance$: StaticStructureSchema = [3, n0, _SU,
 ];
 export var SampleUtteranceGenerationSpecification$: StaticStructureSchema = [3, n0, _SUGS,
   0,
-  [_e, _bMS],
+  [_en, _bMS],
   [2, () => BedrockModelSpecification$], 1
 ];
 export var SampleValue$: StaticStructureSchema = [3, n0, _SV,
@@ -3031,12 +3062,6 @@ export var SentimentAnalysisSettings$: StaticStructureSchema = [3, n0, _SAS,
   [_dSe],
   [2], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_err]: _cl, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionDataSortBy$: StaticStructureSchema = [3, n0, _SDSB,
   0,
   [_n, _or],
@@ -3074,7 +3099,7 @@ export var SlotPriority$: StaticStructureSchema = [3, n0, _SP,
 ];
 export var SlotResolutionImprovementSpecification$: StaticStructureSchema = [3, n0, _SRIS,
   0,
-  [_e, _bMS],
+  [_en, _bMS],
   [2, () => BedrockModelSpecification$], 1
 ];
 export var SlotResolutionSetting$: StaticStructureSchema = [3, n0, _SRS,
@@ -3349,7 +3374,7 @@ export var TestSetStorageLocation$: StaticStructureSchema = [3, n0, _TSSL,
 ];
 export var TestSetSummary$: StaticStructureSchema = [3, n0, _TSS,
   0,
-  [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
+  [_tSI, _tSN, _de, _mo, _stat, _rA, _nTu, _sL, _cDT, _lUDT],
   [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4]
 ];
 export var TestSetTurnRecord$: StaticStructureSchema = [3, n0, _TSTR,
@@ -3374,15 +3399,9 @@ export var TextLogDestination$: StaticStructureSchema = [3, n0, _TLD,
 ];
 export var TextLogSetting$: StaticStructureSchema = [3, n0, _TLS,
   0,
-  [_e, _d, _sLE],
+  [_en, _d, _sLE],
   [2, () => TextLogDestination$, 2], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_err]: _cl, [_hE]: 429 },
-  [_rAS, _m],
-  [[1, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TranscriptFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_lTF],
@@ -3510,7 +3529,7 @@ export var UpdateTestSetRequest$: StaticStructureSchema = [3, n0, _UTSR,
 ];
 export var UpdateTestSetResponse$: StaticStructureSchema = [3, n0, _UTSRp,
   0,
-  [_tSI, _tSN, _de, _mo, _sta, _rA, _nTu, _sL, _cDT, _lUDT],
+  [_tSI, _tSN, _de, _mo, _stat, _rA, _nTu, _sL, _cDT, _lUDT],
   [0, 0, 0, 0, 0, 0, 1, () => TestSetStorageLocation$, 4, 4]
 ];
 export var UserTurnInputSpecification$: StaticStructureSchema = [3, n0, _UTIS,
@@ -3555,7 +3574,7 @@ export var UtteranceAudioInputSpecification$: StaticStructureSchema = [3, n0, _U
 ];
 export var UtteranceBotResponse$: StaticStructureSchema = [3, n0, _UBRt,
   0,
-  [_con, _cT, _iRC],
+  [_cont, _cT, _iRC],
   [0, 0, () => ImageResponseCard$]
 ];
 export var UtteranceDataSortBy$: StaticStructureSchema = [3, n0, _UDSB,
@@ -3583,15 +3602,9 @@ export var UtteranceSpecification$: StaticStructureSchema = [3, n0, _US,
   [_bAI, _bV, _lI, _sIe, _ch, _mod, _cST, _cET, _u, _uTt, _aVDM, _uUt, _iT, _oT, _aIN, _aSN, _iSnt, _dAT, _bRAVI, _sFIS, _uRI, _bR],
   [0, 0, 0, 0, 0, 0, 4, 4, 0, 4, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => UtteranceBotResponses]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_err]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VoiceSettings$: StaticStructureSchema = [3, n0, _VS,
   0,
-  [_vI, _en],
+  [_vI, _eng],
   [0, 0], 1
 ];
 export var WaitAndContinueSpecification$: StaticStructureSchema = [3, n0, _WACS,
@@ -3600,8 +3613,6 @@ export var WaitAndContinueSpecification$: StaticStructureSchema = [3, n0, _WACS,
   [() => ResponseSpecification$, () => ResponseSpecification$, () => StillWaitingResponseSpecification$, 2], 2
 ];
 var __Unit = "unit" as const;
-export var LexModelsV2ServiceException$: StaticErrorSchema = [-3, _sm, "LexModelsV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LexModelsV2ServiceException$, LexModelsV2ServiceException);
 var ActiveContextList: StaticListSchema = [1, n0, _ACL,
   0, () => ActiveContext$
 ];

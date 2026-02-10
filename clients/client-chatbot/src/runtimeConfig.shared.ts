@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultChatbotHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ChatbotClientConfig } from "./ChatbotClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ChatbotClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.chatbot",
+      errorTypeRegistries,
       xmlNamespace: "http://wheatley.amazonaws.com/orchestration/2017-10-11/",
       version: "2017-10-11",
       serviceTarget: "WheatleyOrchestration_20171011",

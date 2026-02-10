@@ -226,7 +226,7 @@ const _rM = "recordingMode";
 const _rRWS = "recordingReconnectWindowSeconds";
 const _rS = "renditionSelection";
 const _re = "resolution";
-const _s = "srt";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ivs";
 const _sI = "streamId";
 const _sK = "streamKeys";
 const _sKt = "streamKey";
@@ -236,7 +236,7 @@ const _sSt = "streamSessions";
 const _sT = "startTime";
 const _s_ = "s3";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ivs";
+const _sr = "srt";
 const _st = "stream";
 const _sta = "state";
 const _sto = "storage";
@@ -287,15 +287,82 @@ import {
 import { IvsServiceException } from "../models/IvsServiceException";
 
 /* eslint no-var: 0 */
-var SrtPassphrase: StaticSimpleSchema = [0, n0, _SP, 8, 0];
-var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
-var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var IvsServiceException$: StaticErrorSchema = [-3, _s, "IvsServiceException", 0, [], []];
+_s_registry.registerError(IvsServiceException$, IvsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_eM],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ChannelNotBroadcasting$: StaticErrorSchema = [-3, n0, _CNB,
+  { [_e]: _c, [_hE]: 404 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ChannelNotBroadcasting$, ChannelNotBroadcasting);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV,
+  { [_e]: _c, [_hE]: 403 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(PendingVerification$, PendingVerification);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var StreamUnavailable$: StaticErrorSchema = [-3, n0, _SU,
+  { [_e]: _se, [_hE]: 503 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(StreamUnavailable$, StreamUnavailable);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_eM],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SrtPassphrase: StaticSimpleSchema = [0, n0, _SP, 8, 0];
+var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
+var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
 export var AudioConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_co, _tB, _sR, _ch, _t],
@@ -348,26 +415,14 @@ export var BatchStartViewerSessionRevocationViewerSession$: StaticStructureSchem
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _ta, _iI, _p, _s, _pRPA, _mIC, _cF],
+  [_a, _n, _lM, _ty, _rCA, _iE, _pU, _au, _ta, _iI, _p, _sr, _pRPA, _mIC, _cF],
   [0, 0, 0, 0, 0, 0, 0, 2, 128 | 0, 2, 0, [() => Srt$, 0], 0, () => MultitrackInputConfiguration$, 0]
 ];
-export var ChannelNotBroadcasting$: StaticErrorSchema = [-3, n0, _CNB,
-  { [_e]: _c, [_hE]: 404 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ChannelNotBroadcasting$, ChannelNotBroadcasting);
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
   [_a, _n, _lM, _au, _rCA, _ta, _iI, _ty, _p, _pRPA],
   [0, 0, 0, 2, 0, 128 | 0, 2, 0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _lM, _ty, _au, _rCA, _ta, _iI, _p, _pRPA, _mIC, _cF],
@@ -533,12 +588,6 @@ export var IngestConfigurations$: StaticStructureSchema = [3, n0, _ICn,
   [_vC, _aCu],
   [() => VideoConfigurationList, () => AudioConfigurationList], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_fBN, _fBRCA, _fBPRPA, _nT, _mR],
@@ -624,12 +673,6 @@ export var MultitrackInputConfiguration$: StaticStructureSchema = [3, n0, _MIC,
   [_en, _po, _mRa],
   [2, 0, 0]
 ];
-export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV,
-  { [_e]: _c, [_hE]: 403 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PendingVerification$, PendingVerification);
 export var PlaybackKeyPair$: StaticStructureSchema = [3, n0, _PKP,
   0,
   [_a, _n, _f, _ta],
@@ -670,23 +713,11 @@ export var RenditionConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   [_rS, _r],
   [0, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_bN],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Srt$: StaticStructureSchema = [3, n0, _S,
   0,
   [_end, _pa],
@@ -752,12 +783,6 @@ export var StreamSummary$: StaticStructureSchema = [3, n0, _SSt,
   [_cA, _sI, _sta, _h, _vCi, _sT],
   [0, 0, 0, 0, 1, 5]
 ];
-export var StreamUnavailable$: StaticErrorSchema = [-3, n0, _SU,
-  { [_e]: _se, [_hE]: 503 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StreamUnavailable$, StreamUnavailable);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _ta],
@@ -768,12 +793,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ThumbnailConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_rM, _tIS, _re, _sto],
@@ -809,20 +828,12 @@ export var UpdatePlaybackRestrictionPolicyResponse$: StaticStructureSchema = [3,
   [_pRP],
   [() => PlaybackRestrictionPolicy$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_eM],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VideoConfiguration$: StaticStructureSchema = [3, n0, _VC,
   0,
   [_aP, _aL, _co, _enc, _tB, _tF, _vH, _vW, _l, _t, _pr],
   [0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
 ];
 var __Unit = "unit" as const;
-export var IvsServiceException$: StaticErrorSchema = [-3, _sm, "IvsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IvsServiceException$, IvsServiceException);
 var AudioConfigurationList: StaticListSchema = [1, n0, _ACL,
   0, () => AudioConfiguration$
 ];

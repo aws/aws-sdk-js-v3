@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultQueryProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { QueryProtocolClientConfig } from "./QueryProtocolClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: QueryProtocolClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "aws.protocoltests.query",
+      errorTypeRegistries,
       xmlNamespace: "https://example.com/",
       version: "2020-01-08",
       serviceTarget: "AwsQuery",

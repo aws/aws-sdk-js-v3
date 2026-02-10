@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudWatchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudWatchClientConfig } from "./CloudWatchClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudWatchClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudwatch",
+      errorTypeRegistries,
       xmlNamespace: "http://monitoring.amazonaws.com/doc/2010-08-01/",
       version: "2010-08-01",
       serviceTarget: "GraniteServiceVersion20100801",

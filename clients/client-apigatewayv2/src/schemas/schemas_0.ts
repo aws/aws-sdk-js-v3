@@ -443,9 +443,9 @@ const _RRou = "RoutingRule";
 const _RS = "RouteSettings";
 const _RSE = "RouteSelectionExpression";
 const _RSM = "RouteSettingsMap";
-const _RT = "RequestTemplates";
-const _RTe = "ResponseTemplates";
-const _RTes = "ResourceType";
+const _RT = "ResourceType";
+const _RTe = "RequestTemplates";
+const _RTes = "ResponseTemplates";
 const _Ro = "Route";
 const _S = "Stage";
 const _SBP = "StripBasePath";
@@ -743,10 +743,10 @@ const _rRK = "routeResponseKey";
 const _rRSE = "routeResponseSelectionExpression";
 const _rS = "routeSettings";
 const _rSE = "routeSelectionExpression";
-const _rT = "requestTemplates";
-const _rTe = "responseTemplates";
-const _rTes = "resourceType";
-const _s = "stage";
+const _rT = "resourceType";
+const _rTe = "requestTemplates";
+const _rTes = "responseTemplates";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.apigatewayv2";
 const _sBP = "stripBasePath";
 const _sE = "statusException";
 const _sGI = "securityGroupIds";
@@ -757,8 +757,8 @@ const _sNe = "sectionName";
 const _sP = "securityPolicy";
 const _sV = "stageVariables";
 const _sc = "schema";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.apigatewayv2";
-const _st = "status";
+const _st = "stage";
+const _sta = "status";
 const _t = "tags";
 const _tBL = "throttlingBurstLimit";
 const _tC = "tlsConfig";
@@ -806,12 +806,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ApiGatewayV2ServiceException$: StaticErrorSchema = [-3, _s, "ApiGatewayV2ServiceException", 0, [], []];
+_s_registry.registerError(ApiGatewayV2ServiceException$, ApiGatewayV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [[0, { [_jN]: _m }]]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RT],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _rT }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_LT, _M],
+  [[0, { [_jN]: _lT }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessLogSettings$: StaticStructureSchema = [3, n0, _ALS,
   0,
   [_DA, _F],
@@ -830,7 +867,7 @@ export var Api$: StaticStructureSchema = [3, n0, _A,
 export var ApiMapping$: StaticStructureSchema = [3, n0, _AM,
   0,
   [_AI, _S, _AMI, _AMK],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _s }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }]], 2
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _st }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }]], 2
 ];
 export var Authorization$: StaticStructureSchema = [3, n0, _Au,
   0,
@@ -842,23 +879,11 @@ export var Authorizer$: StaticStructureSchema = [3, n0, _Aut,
   [_N, _ACA, _AIu, _APFV, _ARTIS, _AT, _AU, _ESR, _IS, _IVE, _JC],
   [[0, { [_jN]: _n }], [0, { [_jN]: _aCA }], [0, { [_jN]: _aIu }], [0, { [_jN]: _aPFV }], [1, { [_jN]: _aRTIS }], [0, { [_jN]: _aT }], [0, { [_jN]: _aU }], [2, { [_jN]: _eSR }], [64 | 0, { [_jN]: _iS }], [0, { [_jN]: _iVE }], [() => JWTConfiguration$, { [_jN]: _jC }]], 1
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CognitoConfig$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_ACI, _UPA, _UPD],
   [[0, { [_jN]: _aCI }], [0, { [_jN]: _uPA }], [0, { [_jN]: _uPD }]], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Cors$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AC, _AH, _AMl, _AO, _EH, _MA],
@@ -867,12 +892,12 @@ export var Cors$: StaticStructureSchema = [3, n0, _C,
 export var CreateApiMappingRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
   [_AI, _DN, _S, _AMK],
-  [[0, { [_jN]: _aI }], [0, 1], [0, { [_jN]: _s }], [0, { [_jN]: _aMK }]], 3
+  [[0, { [_jN]: _aI }], [0, 1], [0, { [_jN]: _st }], [0, { [_jN]: _aMK }]], 3
 ];
 export var CreateApiMappingResponse$: StaticStructureSchema = [3, n0, _CAMRr,
   0,
   [_AI, _AMI, _AMK, _S],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _st }]]
 ];
 export var CreateApiRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
@@ -916,23 +941,23 @@ export var CreateDomainNameResponse$: StaticStructureSchema = [3, n0, _CDNRr,
 ];
 export var CreateIntegrationRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_AI, _IT, _CI, _CT, _CHS, _CAr, _D, _IM, _ISn, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[0, 1], [0, { [_jN]: _iT }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iM }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfigInput$, { [_jN]: _tC }]], 2
+  [_AI, _IT, _CI, _CT, _CHS, _CAr, _D, _IM, _ISn, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[0, 1], [0, { [_jN]: _iT }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iM }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfigInput$, { [_jN]: _tC }]], 2
 ];
 export var CreateIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _CIRR,
   0,
-  [_AI, _IIn, _IRK, _CHS, _RPe, _RTe, _TSE],
-  [[0, 1], [0, 1], [0, { [_jN]: _iRK }], [0, { [_jN]: _cHS }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]], 3
+  [_AI, _IIn, _IRK, _CHS, _RPe, _RTes, _TSE],
+  [[0, 1], [0, 1], [0, { [_jN]: _iRK }], [0, { [_jN]: _cHS }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]], 3
 ];
 export var CreateIntegrationResponseResponse$: StaticStructureSchema = [3, n0, _CIRRr,
   0,
-  [_CHS, _IRI, _IRK, _RPe, _RTe, _TSE],
-  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]]
+  [_CHS, _IRI, _IRK, _RPe, _RTes, _TSE],
+  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]]
 ];
 export var CreateIntegrationResult$: StaticStructureSchema = [3, n0, _CIRr,
   0,
-  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
 ];
 export var CreateModelRequest$: StaticStructureSchema = [3, n0, _CMR,
   0,
@@ -982,7 +1007,7 @@ export var CreateProductRestEndpointPageRequest$: StaticStructureSchema = [3, n0
 export var CreateProductRestEndpointPageResponse$: StaticStructureSchema = [3, n0, _CPREPRr,
   0,
   [_DC, _LM, _PREPA, _PREPI, _REI, _St, _SE, _TIS],
-  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _st }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
+  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _sta }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
 ];
 export var CreateRouteRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
@@ -1227,7 +1252,7 @@ export var GetApiMappingRequest$: StaticStructureSchema = [3, n0, _GAMR,
 export var GetApiMappingResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
   [_AI, _AMI, _AMK, _S],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _st }]]
 ];
 export var GetApiMappingsRequest$: StaticStructureSchema = [3, n0, _GAMRet,
   0,
@@ -1331,8 +1356,8 @@ export var GetIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _GIRR
 ];
 export var GetIntegrationResponseResponse$: StaticStructureSchema = [3, n0, _GIRRe,
   0,
-  [_CHS, _IRI, _IRK, _RPe, _RTe, _TSE],
-  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]]
+  [_CHS, _IRI, _IRK, _RPe, _RTes, _TSE],
+  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]]
 ];
 export var GetIntegrationResponsesRequest$: StaticStructureSchema = [3, n0, _GIRRet,
   0,
@@ -1346,8 +1371,8 @@ export var GetIntegrationResponsesResponse$: StaticStructureSchema = [3, n0, _GI
 ];
 export var GetIntegrationResult$: StaticStructureSchema = [3, n0, _GIRe,
   0,
-  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
 ];
 export var GetIntegrationsRequest$: StaticStructureSchema = [3, n0, _GIRet,
   0,
@@ -1437,7 +1462,7 @@ export var GetProductRestEndpointPageRequest$: StaticStructureSchema = [3, n0, _
 export var GetProductRestEndpointPageResponse$: StaticStructureSchema = [3, n0, _GPREPRe,
   0,
   [_DC, _LM, _PREPA, _PREPI, _RDC, _REI, _St, _SE, _TIS],
-  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [0, { [_jN]: _rDC }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _st }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
+  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [0, { [_jN]: _rDC }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _sta }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
 ];
 export var GetRouteRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
@@ -1542,7 +1567,7 @@ export var GetVpcLinksResponse$: StaticStructureSchema = [3, n0, _GVLRetp,
 export var IdentifierParts$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_Me, _Pa, _RAI, _S],
-  [[0, { [_jN]: _me }], [0, { [_jN]: _pa }], [0, { [_jN]: _rAI }], [0, { [_jN]: _s }]], 4
+  [[0, { [_jN]: _me }], [0, { [_jN]: _pa }], [0, { [_jN]: _rAI }], [0, { [_jN]: _st }]], 4
 ];
 export var ImportApiRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
@@ -1556,13 +1581,13 @@ export var ImportApiResponse$: StaticStructureSchema = [3, n0, _IARm,
 ];
 export var Integration$: StaticStructureSchema = [3, n0, _In,
   0,
-  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
 ];
 export var IntegrationResponse$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_IRK, _CHS, _IRI, _RPe, _RTe, _TSE],
-  [[0, { [_jN]: _iRK }], [0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]], 1
+  [_IRK, _CHS, _IRI, _RPe, _RTes, _TSE],
+  [[0, { [_jN]: _iRK }], [0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]], 1
 ];
 export var JWTConfiguration$: StaticStructureSchema = [3, n0, _JWTC,
   0,
@@ -1639,12 +1664,6 @@ export var None$: StaticStructureSchema = [3, n0, _No,
   [],
   []
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RTes],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _rTes }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var ParameterConstraints$: StaticStructureSchema = [3, n0, _PCa,
   0,
   [_R],
@@ -1693,7 +1712,7 @@ export var ProductPageSummaryNoBody$: StaticStructureSchema = [3, n0, _PPSNB,
 export var ProductRestEndpointPageSummaryNoBody$: StaticStructureSchema = [3, n0, _PREPSNB,
   0,
   [_E, _LM, _PREPA, _PREPI, _REI, _St, _TIS, _ON, _SE],
-  [[0, { [_jN]: _en }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _st }], [0, { [_jN]: _tIS }], [0, { [_jN]: _oN }], [() => StatusException$, { [_jN]: _sE }]], 7
+  [[0, { [_jN]: _en }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _sta }], [0, { [_jN]: _tIS }], [0, { [_jN]: _oN }], [() => StatusException$, { [_jN]: _sE }]], 7
 ];
 export var PublishPortalRequest$: StaticStructureSchema = [3, n0, _PPRu,
   0,
@@ -1773,7 +1792,7 @@ export var RoutingRuleAction$: StaticStructureSchema = [3, n0, _RRAo,
 export var RoutingRuleActionInvokeApi$: StaticStructureSchema = [3, n0, _RRAIA,
   0,
   [_AI, _S, _SBP],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _s }], [2, { [_jN]: _sBP }]], 2
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _st }], [2, { [_jN]: _sBP }]], 2
 ];
 export var RoutingRuleCondition$: StaticStructureSchema = [3, n0, _RRC,
   0,
@@ -1830,12 +1849,6 @@ export var TlsConfigInput$: StaticStructureSchema = [3, n0, _TCI,
   [_SNTV],
   [[0, { [_jN]: _sNTV }]]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_LT, _M],
-  [[0, { [_jN]: _lT }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1844,12 +1857,12 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 export var UpdateApiMappingRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
   [_AI, _AMI, _DN, _AMK, _S],
-  [[0, { [_jN]: _aI }], [0, 1], [0, 1], [0, { [_jN]: _aMK }], [0, { [_jN]: _s }]], 3
+  [[0, { [_jN]: _aI }], [0, 1], [0, 1], [0, { [_jN]: _aMK }], [0, { [_jN]: _st }]], 3
 ];
 export var UpdateApiMappingResponse$: StaticStructureSchema = [3, n0, _UAMRp,
   0,
   [_AI, _AMI, _AMK, _S],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _s }]]
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _aMI }], [0, { [_jN]: _aMK }], [0, { [_jN]: _st }]]
 ];
 export var UpdateApiRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
@@ -1893,23 +1906,23 @@ export var UpdateDomainNameResponse$: StaticStructureSchema = [3, n0, _UDNRp,
 ];
 export var UpdateIntegrationRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
-  [_AI, _IIn, _CI, _CT, _CHS, _CAr, _D, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[0, 1], [0, 1], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iM }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfigInput$, { [_jN]: _tC }]], 2
+  [_AI, _IIn, _CI, _CT, _CHS, _CAr, _D, _IM, _ISn, _IT, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[0, 1], [0, 1], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iM }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfigInput$, { [_jN]: _tC }]], 2
 ];
 export var UpdateIntegrationResponseRequest$: StaticStructureSchema = [3, n0, _UIRR,
   0,
-  [_AI, _IIn, _IRI, _CHS, _IRK, _RPe, _RTe, _TSE],
-  [[0, 1], [0, 1], [0, 1], [0, { [_jN]: _cHS }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]], 3
+  [_AI, _IIn, _IRI, _CHS, _IRK, _RPe, _RTes, _TSE],
+  [[0, 1], [0, 1], [0, 1], [0, { [_jN]: _cHS }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]], 3
 ];
 export var UpdateIntegrationResponseResponse$: StaticStructureSchema = [3, n0, _UIRRp,
   0,
-  [_CHS, _IRI, _IRK, _RPe, _RTe, _TSE],
-  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTe }], [0, { [_jN]: _tSE }]]
+  [_CHS, _IRI, _IRK, _RPe, _RTes, _TSE],
+  [[0, { [_jN]: _cHS }], [0, { [_jN]: _iRI }], [0, { [_jN]: _iRK }], [128 | 0, { [_jN]: _rPe }], [128 | 0, { [_jN]: _rTes }], [0, { [_jN]: _tSE }]]
 ];
 export var UpdateIntegrationResult$: StaticStructureSchema = [3, n0, _UIRp,
   0,
-  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RT, _RPe, _TSE, _TIM, _TC],
-  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rT }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
+  [_AGM, _CI, _CT, _CHS, _CAr, _D, _IIn, _IM, _IRSE, _ISn, _IT, _IU, _PB, _PFV, _RP, _RTe, _RPe, _TSE, _TIM, _TC],
+  [[2, { [_jN]: _aGM }], [0, { [_jN]: _cI }], [0, { [_jN]: _cT }], [0, { [_jN]: _cHS }], [0, { [_jN]: _cAr }], [0, { [_jN]: _d }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iM }], [0, { [_jN]: _iRSE }], [0, { [_jN]: _iSn }], [0, { [_jN]: _iT }], [0, { [_jN]: _iU }], [0, { [_jN]: _pB }], [0, { [_jN]: _pFV }], [128 | 0, { [_jN]: _rP }], [128 | 0, { [_jN]: _rTe }], [[2, n0, _RPe, 0, 0, 128 | 0], { [_jN]: _rPe }], [0, { [_jN]: _tSE }], [1, { [_jN]: _tIM }], [() => TlsConfig$, { [_jN]: _tC }]]
 ];
 export var UpdateModelRequest$: StaticStructureSchema = [3, n0, _UMR,
   0,
@@ -1959,7 +1972,7 @@ export var UpdateProductRestEndpointPageRequest$: StaticStructureSchema = [3, n0
 export var UpdateProductRestEndpointPageResponse$: StaticStructureSchema = [3, n0, _UPREPRp,
   0,
   [_DC, _LM, _PREPA, _PREPI, _REI, _St, _SE, _TIS],
-  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _st }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
+  [[() => EndpointDisplayContentResponse$, { [_jN]: _dC }], [5, { [_jN]: _lM }], [0, { [_jN]: _pREPA }], [0, { [_jN]: _pREPI }], [() => RestEndpointIdentifier$, { [_jN]: _rEI }], [0, { [_jN]: _sta }], [() => StatusException$, { [_jN]: _sE }], [0, { [_jN]: _tIS }]]
 ];
 export var UpdateRouteRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
@@ -2007,8 +2020,6 @@ export var VpcLink$: StaticStructureSchema = [3, n0, _VL,
   [[0, { [_jN]: _n }], [64 | 0, { [_jN]: _sGI }], [64 | 0, { [_jN]: _sI }], [0, { [_jN]: _vLI }], [5, { [_jN]: _cD }], [128 | 0, { [_jN]: _t }], [0, { [_jN]: _vLS }], [0, { [_jN]: _vLSM }], [0, { [_jN]: _vLV }]], 4
 ];
 var __Unit = "unit" as const;
-export var ApiGatewayV2ServiceException$: StaticErrorSchema = [-3, _sm, "ApiGatewayV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ApiGatewayV2ServiceException$, ApiGatewayV2ServiceException);
 var __listOf__string = 64 | 0;
 var __listOf__stringMin20Max2048 = 64 | 0;
 var __listOfApi: StaticListSchema = [1, n0, _lOA,

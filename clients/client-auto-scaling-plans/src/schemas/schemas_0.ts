@@ -95,8 +95,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.autoscalingplans";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.autoscalingplans";
+const _se = "server";
 const n0 = "com.amazonaws.autoscalingplans";
 
 // smithy-typescript generated code
@@ -114,17 +114,60 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AutoScalingPlansServiceException$: StaticErrorSchema = [-3, _s, "AutoScalingPlansServiceException", 0, [], []];
+_s_registry.registerError(AutoScalingPlansServiceException$, AutoScalingPlansServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentUpdateException$: StaticErrorSchema = [-3, n0, _CUE,
+  { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentUpdateException$, ConcurrentUpdateException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalServiceException`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_aQE]: [`InvalidNextTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ObjectNotFoundException$, ObjectNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApplicationSource$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_CFSARN, _TF],
   [0, () => TagFilters]
 ];
-export var ConcurrentUpdateException$: StaticErrorSchema = [-3, n0, _CUE,
-  { [_aQE]: [`ConcurrentUpdateException`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentUpdateException$, ConcurrentUpdateException);
 export var CreateScalingPlanRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
   [_SPN, _AS, _SI],
@@ -190,35 +233,11 @@ export var GetScalingPlanResourceForecastDataResponse$: StaticStructureSchema = 
   [_Dat],
   [() => Datapoints], 1
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalServiceException`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_aQE]: [`InvalidNextTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var MetricDimension$: StaticStructureSchema = [3, n0, _MD,
   0,
   [_Na, _V],
   [0, 0], 2
 ];
-export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
-  { [_aQE]: [`ObjectNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundException);
 export var PredefinedLoadMetricSpecification$: StaticStructureSchema = [3, n0, _PLMS,
   0,
   [_PLMT, _RL],
@@ -269,14 +288,6 @@ export var UpdateScalingPlanResponse$: StaticStructureSchema = [3, n0, _USPRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var AutoScalingPlansServiceException$: StaticErrorSchema = [-3, _sm, "AutoScalingPlansServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AutoScalingPlansServiceException$, AutoScalingPlansServiceException);
 var ApplicationSources: StaticListSchema = [1, n0, _ASp,
   0, () => ApplicationSource$
 ];

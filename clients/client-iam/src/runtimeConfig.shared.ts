@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultIAMHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { IAMClientConfig } from "./IAMClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: IAMClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.iam",
+      errorTypeRegistries,
       xmlNamespace: "https://iam.amazonaws.com/doc/2010-05-08/",
       version: "2010-05-08",
       serviceTarget: "AWSIdentityManagementV20100508",

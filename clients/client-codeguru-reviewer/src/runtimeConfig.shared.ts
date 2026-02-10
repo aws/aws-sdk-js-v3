@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeGuruReviewerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeGuruReviewerClientConfig } from "./CodeGuruReviewerClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeGuruReviewerClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codegurureviewer",
+      errorTypeRegistries,
       version: "2019-09-19",
       serviceTarget: "AWSGuruFrontendService",
     },

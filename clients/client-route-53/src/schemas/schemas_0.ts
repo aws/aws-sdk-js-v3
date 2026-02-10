@@ -379,11 +379,11 @@ const _NRI = "NextRecordIdentifier";
 const _NRN = "NextRecordName";
 const _NRT = "NextRecordType";
 const _NS = "NameServers";
-const _NSC = "NextSubdivisionCode";
+const _NSC = "NoSuchChange";
 const _NSCCE = "NoSuchCidrCollectionException";
 const _NSCLE = "NoSuchCidrLocationException";
 const _NSCWLLG = "NoSuchCloudWatchLogsLogGroup";
-const _NSCo = "NoSuchChange";
+const _NSCe = "NextSubdivisionCode";
 const _NSDS = "NoSuchDelegationSet";
 const _NSGL = "NoSuchGeoLocation";
 const _NSHC = "NoSuchHealthCheck";
@@ -545,11 +545,11 @@ const _na = "name";
 const _r = "recordname";
 const _re = "recordtype";
 const _res = "resolverip";
-const _s = "subdivisioncode";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.route53";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.route53";
 const _st = "startcontinentcode";
 const _sta = "startcountrycode";
 const _star = "startsubdivisioncode";
+const _su = "subdivisioncode";
 const _t = "type";
 const _tr = "trafficpolicyid";
 const _tra = "trafficpolicyinstancename";
@@ -639,6 +639,433 @@ import {
 import { Route53ServiceException } from "../models/Route53ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Route53ServiceException$: StaticErrorSchema = [-3, _s, "Route53ServiceException", 0, [], []];
+_s_registry.registerError(Route53ServiceException$, Route53ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CidrBlockInUseException$: StaticErrorSchema = [-3, n0, _CBIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CidrBlockInUseException$, CidrBlockInUseException);
+export var CidrCollectionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CCAEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CidrCollectionAlreadyExistsException$, CidrCollectionAlreadyExistsException);
+export var CidrCollectionInUseException$: StaticErrorSchema = [-3, n0, _CCIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CidrCollectionInUseException$, CidrCollectionInUseException);
+export var CidrCollectionVersionMismatchException$: StaticErrorSchema = [-3, n0, _CCVME,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CidrCollectionVersionMismatchException$, CidrCollectionVersionMismatchException);
+export var ConcurrentModification$: StaticErrorSchema = [-3, n0, _CM,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModification$, ConcurrentModification);
+export var ConflictingDomainExists$: StaticErrorSchema = [-3, n0, _CDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictingDomainExists$, ConflictingDomainExists);
+export var ConflictingTypes$: StaticErrorSchema = [-3, n0, _CT,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictingTypes$, ConflictingTypes);
+export var DelegationSetAlreadyCreated$: StaticErrorSchema = [-3, n0, _DSAC,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DelegationSetAlreadyCreated$, DelegationSetAlreadyCreated);
+export var DelegationSetAlreadyReusable$: StaticErrorSchema = [-3, n0, _DSAR,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DelegationSetAlreadyReusable$, DelegationSetAlreadyReusable);
+export var DelegationSetInUse$: StaticErrorSchema = [-3, n0, _DSIU,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DelegationSetInUse$, DelegationSetInUse);
+export var DelegationSetNotAvailable$: StaticErrorSchema = [-3, n0, _DSNA,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DelegationSetNotAvailable$, DelegationSetNotAvailable);
+export var DelegationSetNotReusable$: StaticErrorSchema = [-3, n0, _DSNR,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DelegationSetNotReusable$, DelegationSetNotReusable);
+export var DNSSECNotFound$: StaticErrorSchema = [-3, n0, _DNSSECNF,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DNSSECNotFound$, DNSSECNotFound);
+export var HealthCheckAlreadyExists$: StaticErrorSchema = [-3, n0, _HCAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HealthCheckAlreadyExists$, HealthCheckAlreadyExists);
+export var HealthCheckInUse$: StaticErrorSchema = [-3, n0, _HCIU,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HealthCheckInUse$, HealthCheckInUse);
+export var HealthCheckVersionMismatch$: StaticErrorSchema = [-3, n0, _HCVM,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HealthCheckVersionMismatch$, HealthCheckVersionMismatch);
+export var HostedZoneAlreadyExists$: StaticErrorSchema = [-3, n0, _HZAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HostedZoneAlreadyExists$, HostedZoneAlreadyExists);
+export var HostedZoneNotEmpty$: StaticErrorSchema = [-3, n0, _HZNE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HostedZoneNotEmpty$, HostedZoneNotEmpty);
+export var HostedZoneNotFound$: StaticErrorSchema = [-3, n0, _HZNF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HostedZoneNotFound$, HostedZoneNotFound);
+export var HostedZoneNotPrivate$: StaticErrorSchema = [-3, n0, _HZNP,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HostedZoneNotPrivate$, HostedZoneNotPrivate);
+export var HostedZonePartiallyDelegated$: StaticErrorSchema = [-3, n0, _HZPD,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HostedZonePartiallyDelegated$, HostedZonePartiallyDelegated);
+export var IncompatibleVersion$: StaticErrorSchema = [-3, n0, _IV,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IncompatibleVersion$, IncompatibleVersion);
+export var InsufficientCloudWatchLogsResourcePolicy$: StaticErrorSchema = [-3, n0, _ICWLRP,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientCloudWatchLogsResourcePolicy$, InsufficientCloudWatchLogsResourcePolicy);
+export var InvalidArgument$: StaticErrorSchema = [-3, n0, _IA,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArgument$, InvalidArgument);
+export var InvalidChangeBatch$: StaticErrorSchema = [-3, n0, _ICB,
+  { [_e]: _c },
+  [_me, _m],
+  [[() => ErrorMessages, 0], 0]
+];
+n0_registry.registerError(InvalidChangeBatch$, InvalidChangeBatch);
+export var InvalidDomainName$: StaticErrorSchema = [-3, n0, _IDN,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDomainName$, InvalidDomainName);
+export var InvalidInput$: StaticErrorSchema = [-3, n0, _II,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInput$, InvalidInput);
+export var InvalidKeySigningKeyName$: StaticErrorSchema = [-3, n0, _IKSKN,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidKeySigningKeyName$, InvalidKeySigningKeyName);
+export var InvalidKeySigningKeyStatus$: StaticErrorSchema = [-3, n0, _IKSKS,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidKeySigningKeyStatus$, InvalidKeySigningKeyStatus);
+export var InvalidKMSArn$: StaticErrorSchema = [-3, n0, _IKMSA,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidKMSArn$, InvalidKMSArn);
+export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationToken$, InvalidPaginationToken);
+export var InvalidSigningStatus$: StaticErrorSchema = [-3, n0, _ISS,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSigningStatus$, InvalidSigningStatus);
+export var InvalidTrafficPolicyDocument$: StaticErrorSchema = [-3, n0, _ITPD,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTrafficPolicyDocument$, InvalidTrafficPolicyDocument);
+export var InvalidVPCId$: StaticErrorSchema = [-3, n0, _IVPCI,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidVPCId$, InvalidVPCId);
+export var KeySigningKeyAlreadyExists$: StaticErrorSchema = [-3, n0, _KSKAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeySigningKeyAlreadyExists$, KeySigningKeyAlreadyExists);
+export var KeySigningKeyInParentDSRecord$: StaticErrorSchema = [-3, n0, _KSKIPDSR,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeySigningKeyInParentDSRecord$, KeySigningKeyInParentDSRecord);
+export var KeySigningKeyInUse$: StaticErrorSchema = [-3, n0, _KSKIU,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeySigningKeyInUse$, KeySigningKeyInUse);
+export var KeySigningKeyWithActiveStatusNotFound$: StaticErrorSchema = [-3, n0, _KSKWASNF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeySigningKeyWithActiveStatusNotFound$, KeySigningKeyWithActiveStatusNotFound);
+export var LastVPCAssociation$: StaticErrorSchema = [-3, n0, _LVPCA,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LastVPCAssociation$, LastVPCAssociation);
+export var LimitsExceeded$: StaticErrorSchema = [-3, n0, _LE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitsExceeded$, LimitsExceeded);
+export var NoSuchChange$: StaticErrorSchema = [-3, n0, _NSC,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchChange$, NoSuchChange);
+export var NoSuchCidrCollectionException$: StaticErrorSchema = [-3, n0, _NSCCE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoSuchCidrCollectionException$, NoSuchCidrCollectionException);
+export var NoSuchCidrLocationException$: StaticErrorSchema = [-3, n0, _NSCLE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoSuchCidrLocationException$, NoSuchCidrLocationException);
+export var NoSuchCloudWatchLogsLogGroup$: StaticErrorSchema = [-3, n0, _NSCWLLG,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchCloudWatchLogsLogGroup$, NoSuchCloudWatchLogsLogGroup);
+export var NoSuchDelegationSet$: StaticErrorSchema = [-3, n0, _NSDS,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchDelegationSet$, NoSuchDelegationSet);
+export var NoSuchGeoLocation$: StaticErrorSchema = [-3, n0, _NSGL,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchGeoLocation$, NoSuchGeoLocation);
+export var NoSuchHealthCheck$: StaticErrorSchema = [-3, n0, _NSHC,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchHealthCheck$, NoSuchHealthCheck);
+export var NoSuchHostedZone$: StaticErrorSchema = [-3, n0, _NSHZ,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchHostedZone$, NoSuchHostedZone);
+export var NoSuchKeySigningKey$: StaticErrorSchema = [-3, n0, _NSKSK,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchKeySigningKey$, NoSuchKeySigningKey);
+export var NoSuchQueryLoggingConfig$: StaticErrorSchema = [-3, n0, _NSQLC,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchQueryLoggingConfig$, NoSuchQueryLoggingConfig);
+export var NoSuchTrafficPolicy$: StaticErrorSchema = [-3, n0, _NSTP,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchTrafficPolicy$, NoSuchTrafficPolicy);
+export var NoSuchTrafficPolicyInstance$: StaticErrorSchema = [-3, n0, _NSTPI,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchTrafficPolicyInstance$, NoSuchTrafficPolicyInstance);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var PriorRequestNotComplete$: StaticErrorSchema = [-3, n0, _PRNC,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PriorRequestNotComplete$, PriorRequestNotComplete);
+export var PublicZoneVPCAssociation$: StaticErrorSchema = [-3, n0, _PZVPCA,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PublicZoneVPCAssociation$, PublicZoneVPCAssociation);
+export var QueryLoggingConfigAlreadyExists$: StaticErrorSchema = [-3, n0, _QLCAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(QueryLoggingConfigAlreadyExists$, QueryLoggingConfigAlreadyExists);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyHealthChecks$: StaticErrorSchema = [-3, n0, _TMHC,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyHealthChecks$, TooManyHealthChecks);
+export var TooManyHostedZones$: StaticErrorSchema = [-3, n0, _TMHZ,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyHostedZones$, TooManyHostedZones);
+export var TooManyKeySigningKeys$: StaticErrorSchema = [-3, n0, _TMKSK,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyKeySigningKeys$, TooManyKeySigningKeys);
+export var TooManyTrafficPolicies$: StaticErrorSchema = [-3, n0, _TMTP,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTrafficPolicies$, TooManyTrafficPolicies);
+export var TooManyTrafficPolicyInstances$: StaticErrorSchema = [-3, n0, _TMTPI,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTrafficPolicyInstances$, TooManyTrafficPolicyInstances);
+export var TooManyTrafficPolicyVersionsForCurrentPolicy$: StaticErrorSchema = [-3, n0, _TMTPVFCP,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTrafficPolicyVersionsForCurrentPolicy$, TooManyTrafficPolicyVersionsForCurrentPolicy);
+export var TooManyVPCAssociationAuthorizations$: StaticErrorSchema = [-3, n0, _TMVPCAA,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyVPCAssociationAuthorizations$, TooManyVPCAssociationAuthorizations);
+export var TrafficPolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _TPAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TrafficPolicyAlreadyExists$, TrafficPolicyAlreadyExists);
+export var TrafficPolicyInstanceAlreadyExists$: StaticErrorSchema = [-3, n0, _TPIAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TrafficPolicyInstanceAlreadyExists$, TrafficPolicyInstanceAlreadyExists);
+export var TrafficPolicyInUse$: StaticErrorSchema = [-3, n0, _TPIU,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TrafficPolicyInUse$, TrafficPolicyInUse);
+export var VPCAssociationAuthorizationNotFound$: StaticErrorSchema = [-3, n0, _VPCAANF,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(VPCAssociationAuthorizationNotFound$, VPCAssociationAuthorizationNotFound);
+export var VPCAssociationNotFound$: StaticErrorSchema = [-3, n0, _VPCANF,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(VPCAssociationNotFound$, VPCAssociationNotFound);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountLimit$: StaticStructureSchema = [3, n0, _AL,
   0,
   [_T, _V],
@@ -719,12 +1146,6 @@ export var ChangeTagsForResourceResponse$: StaticStructureSchema = [3, n0, _CTFR
   [],
   []
 ];
-export var CidrBlockInUseException$: StaticErrorSchema = [-3, n0, _CBIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CidrBlockInUseException$, CidrBlockInUseException);
 export var CidrBlockSummary$: StaticStructureSchema = [3, n0, _CBS,
   0,
   [_CBi, _LN],
@@ -735,29 +1156,11 @@ export var CidrCollection$: StaticStructureSchema = [3, n0, _CC,
   [_Ar, _I, _N, _Ve],
   [0, 0, 0, 1]
 ];
-export var CidrCollectionAlreadyExistsException$: StaticErrorSchema = [-3, n0, _CCAEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CidrCollectionAlreadyExistsException$, CidrCollectionAlreadyExistsException);
 export var CidrCollectionChange$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_LN, _A, _CL],
   [0, 0, [() => CidrList, 0]], 3
 ];
-export var CidrCollectionInUseException$: StaticErrorSchema = [-3, n0, _CCIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CidrCollectionInUseException$, CidrCollectionInUseException);
-export var CidrCollectionVersionMismatchException$: StaticErrorSchema = [-3, n0, _CCVME,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CidrCollectionVersionMismatchException$, CidrCollectionVersionMismatchException);
 export var CidrRoutingConfig$: StaticStructureSchema = [3, n0, _CRC,
   0,
   [_CIo, _LN],
@@ -773,24 +1176,6 @@ export var CollectionSummary$: StaticStructureSchema = [3, n0, _CS,
   [_Ar, _I, _N, _Ve],
   [0, 0, 0, 1]
 ];
-export var ConcurrentModification$: StaticErrorSchema = [-3, n0, _CM,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModification$, ConcurrentModification);
-export var ConflictingDomainExists$: StaticErrorSchema = [-3, n0, _CDE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictingDomainExists$, ConflictingDomainExists);
-export var ConflictingTypes$: StaticErrorSchema = [-3, n0, _CT,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictingTypes$, ConflictingTypes);
 export var Coordinates$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_L, _Lo],
@@ -911,36 +1296,6 @@ export var DelegationSet$: StaticStructureSchema = [3, n0, _DS,
   [_NS, _I, _CR],
   [[() => DelegationSetNameServers, 0], 0, 0], 1
 ];
-export var DelegationSetAlreadyCreated$: StaticErrorSchema = [-3, n0, _DSAC,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DelegationSetAlreadyCreated$, DelegationSetAlreadyCreated);
-export var DelegationSetAlreadyReusable$: StaticErrorSchema = [-3, n0, _DSAR,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DelegationSetAlreadyReusable$, DelegationSetAlreadyReusable);
-export var DelegationSetInUse$: StaticErrorSchema = [-3, n0, _DSIU,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DelegationSetInUse$, DelegationSetInUse);
-export var DelegationSetNotAvailable$: StaticErrorSchema = [-3, n0, _DSNA,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DelegationSetNotAvailable$, DelegationSetNotAvailable);
-export var DelegationSetNotReusable$: StaticErrorSchema = [-3, n0, _DSNR,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DelegationSetNotReusable$, DelegationSetNotReusable);
 export var DeleteCidrCollectionRequest$: StaticStructureSchema = [3, n0, _DCCR,
   0,
   [_I],
@@ -1056,12 +1411,6 @@ export var DisassociateVPCFromHostedZoneResponse$: StaticStructureSchema = [3, n
   [_CI],
   [() => ChangeInfo$], 1
 ];
-export var DNSSECNotFound$: StaticErrorSchema = [-3, n0, _DNSSECNF,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DNSSECNotFound$, DNSSECNotFound);
 export var DNSSECStatus$: StaticStructureSchema = [3, n0, _DNSSECS,
   0,
   [_SS, _SM],
@@ -1135,7 +1484,7 @@ export var GetDNSSECResponse$: StaticStructureSchema = [3, n0, _GDNSSECRe,
 export var GetGeoLocationRequest$: StaticStructureSchema = [3, n0, _GGLR,
   0,
   [_CCo, _CCou, _SC],
-  [[0, { [_hQ]: _co }], [0, { [_hQ]: _cou }], [0, { [_hQ]: _s }]]
+  [[0, { [_hQ]: _co }], [0, { [_hQ]: _cou }], [0, { [_hQ]: _su }]]
 ];
 export var GetGeoLocationResponse$: StaticStructureSchema = [3, n0, _GGLRe,
   0,
@@ -1277,45 +1626,21 @@ export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   [_I, _CR, _HCC, _HCV, _LS, _CWAC],
   [0, 0, [() => HealthCheckConfig$, 0], 1, () => LinkedService$, [() => CloudWatchAlarmConfiguration$, 0]], 4
 ];
-export var HealthCheckAlreadyExists$: StaticErrorSchema = [-3, n0, _HCAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HealthCheckAlreadyExists$, HealthCheckAlreadyExists);
 export var HealthCheckConfig$: StaticStructureSchema = [3, n0, _HCC,
   0,
   [_T, _IPA, _Po, _RP, _FQDN, _SSe, _RIe, _FT, _ML, _In, _Dis, _HT, _CHC, _ESNI, _Re, _AI, _IDHS, _RCA],
   [0, 0, 1, 0, 0, 0, 1, 1, 2, 2, 2, 1, [() => ChildHealthCheckList, 0], 2, [() => HealthCheckRegionList, 0], () => AlarmIdentifier$, 0, 0], 1
 ];
-export var HealthCheckInUse$: StaticErrorSchema = [-3, n0, _HCIU,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HealthCheckInUse$, HealthCheckInUse);
 export var HealthCheckObservation$: StaticStructureSchema = [3, n0, _HCOe,
   0,
   [_R, _IPA, _SR],
   [0, 0, () => StatusReport$]
 ];
-export var HealthCheckVersionMismatch$: StaticErrorSchema = [-3, n0, _HCVM,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HealthCheckVersionMismatch$, HealthCheckVersionMismatch);
 export var HostedZone$: StaticStructureSchema = [3, n0, _HZ,
   0,
   [_I, _N, _CR, _Con, _RRSC, _LS, _F],
   [0, 0, 0, () => HostedZoneConfig$, 1, () => LinkedService$, () => HostedZoneFeatures$], 3
 ];
-export var HostedZoneAlreadyExists$: StaticErrorSchema = [-3, n0, _HZAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HostedZoneAlreadyExists$, HostedZoneAlreadyExists);
 export var HostedZoneConfig$: StaticStructureSchema = [3, n0, _HZC,
   0,
   [_C, _PZ],
@@ -1336,159 +1661,21 @@ export var HostedZoneLimit$: StaticStructureSchema = [3, n0, _HZL,
   [_T, _V],
   [0, 1], 2
 ];
-export var HostedZoneNotEmpty$: StaticErrorSchema = [-3, n0, _HZNE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HostedZoneNotEmpty$, HostedZoneNotEmpty);
-export var HostedZoneNotFound$: StaticErrorSchema = [-3, n0, _HZNF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HostedZoneNotFound$, HostedZoneNotFound);
-export var HostedZoneNotPrivate$: StaticErrorSchema = [-3, n0, _HZNP,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HostedZoneNotPrivate$, HostedZoneNotPrivate);
 export var HostedZoneOwner$: StaticStructureSchema = [3, n0, _HZO,
   0,
   [_OA, _OS],
   [0, 0]
 ];
-export var HostedZonePartiallyDelegated$: StaticErrorSchema = [-3, n0, _HZPD,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HostedZonePartiallyDelegated$, HostedZonePartiallyDelegated);
 export var HostedZoneSummary$: StaticStructureSchema = [3, n0, _HZS,
   0,
   [_HZI, _N, _O],
   [0, 0, () => HostedZoneOwner$], 3
 ];
-export var IncompatibleVersion$: StaticErrorSchema = [-3, n0, _IV,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleVersion$, IncompatibleVersion);
-export var InsufficientCloudWatchLogsResourcePolicy$: StaticErrorSchema = [-3, n0, _ICWLRP,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientCloudWatchLogsResourcePolicy$, InsufficientCloudWatchLogsResourcePolicy);
-export var InvalidArgument$: StaticErrorSchema = [-3, n0, _IA,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgument$, InvalidArgument);
-export var InvalidChangeBatch$: StaticErrorSchema = [-3, n0, _ICB,
-  { [_e]: _c },
-  [_me, _m],
-  [[() => ErrorMessages, 0], 0]
-];
-TypeRegistry.for(n0).registerError(InvalidChangeBatch$, InvalidChangeBatch);
-export var InvalidDomainName$: StaticErrorSchema = [-3, n0, _IDN,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDomainName$, InvalidDomainName);
-export var InvalidInput$: StaticErrorSchema = [-3, n0, _II,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInput$, InvalidInput);
-export var InvalidKeySigningKeyName$: StaticErrorSchema = [-3, n0, _IKSKN,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidKeySigningKeyName$, InvalidKeySigningKeyName);
-export var InvalidKeySigningKeyStatus$: StaticErrorSchema = [-3, n0, _IKSKS,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidKeySigningKeyStatus$, InvalidKeySigningKeyStatus);
-export var InvalidKMSArn$: StaticErrorSchema = [-3, n0, _IKMSA,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidKMSArn$, InvalidKMSArn);
-export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationToken$, InvalidPaginationToken);
-export var InvalidSigningStatus$: StaticErrorSchema = [-3, n0, _ISS,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSigningStatus$, InvalidSigningStatus);
-export var InvalidTrafficPolicyDocument$: StaticErrorSchema = [-3, n0, _ITPD,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTrafficPolicyDocument$, InvalidTrafficPolicyDocument);
-export var InvalidVPCId$: StaticErrorSchema = [-3, n0, _IVPCI,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidVPCId$, InvalidVPCId);
 export var KeySigningKey$: StaticStructureSchema = [3, n0, _KSK,
   0,
   [_N, _KA, _Fl, _SAM, _SAT, _DAM, _DAT, _KT, _DV, _PK, _DSR, _DNSKEYR, _S, _SM, _CD, _LMD],
   [0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 4, 4]
 ];
-export var KeySigningKeyAlreadyExists$: StaticErrorSchema = [-3, n0, _KSKAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeySigningKeyAlreadyExists$, KeySigningKeyAlreadyExists);
-export var KeySigningKeyInParentDSRecord$: StaticErrorSchema = [-3, n0, _KSKIPDSR,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeySigningKeyInParentDSRecord$, KeySigningKeyInParentDSRecord);
-export var KeySigningKeyInUse$: StaticErrorSchema = [-3, n0, _KSKIU,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeySigningKeyInUse$, KeySigningKeyInUse);
-export var KeySigningKeyWithActiveStatusNotFound$: StaticErrorSchema = [-3, n0, _KSKWASNF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeySigningKeyWithActiveStatusNotFound$, KeySigningKeyWithActiveStatusNotFound);
-export var LastVPCAssociation$: StaticErrorSchema = [-3, n0, _LVPCA,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LastVPCAssociation$, LastVPCAssociation);
-export var LimitsExceeded$: StaticErrorSchema = [-3, n0, _LE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitsExceeded$, LimitsExceeded);
 export var LinkedService$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_SP, _De],
@@ -1531,7 +1718,7 @@ export var ListGeoLocationsRequest$: StaticStructureSchema = [3, n0, _LGLR,
 ];
 export var ListGeoLocationsResponse$: StaticStructureSchema = [3, n0, _LGLRi,
   0,
-  [_GLDL, _IT, _MI, _NCC, _NCCe, _NSC],
+  [_GLDL, _IT, _MI, _NCC, _NCCe, _NSCe],
   [[() => GeoLocationDetailsList, 0], 2, 1, 0, 0, 0], 3
 ];
 export var ListHealthChecksRequest$: StaticStructureSchema = [3, n0, _LHCR,
@@ -1689,107 +1876,11 @@ export var LocationSummary$: StaticStructureSchema = [3, n0, _LSo,
   [_LN],
   [0]
 ];
-export var NoSuchChange$: StaticErrorSchema = [-3, n0, _NSCo,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchChange$, NoSuchChange);
-export var NoSuchCidrCollectionException$: StaticErrorSchema = [-3, n0, _NSCCE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchCidrCollectionException$, NoSuchCidrCollectionException);
-export var NoSuchCidrLocationException$: StaticErrorSchema = [-3, n0, _NSCLE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchCidrLocationException$, NoSuchCidrLocationException);
-export var NoSuchCloudWatchLogsLogGroup$: StaticErrorSchema = [-3, n0, _NSCWLLG,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchCloudWatchLogsLogGroup$, NoSuchCloudWatchLogsLogGroup);
-export var NoSuchDelegationSet$: StaticErrorSchema = [-3, n0, _NSDS,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchDelegationSet$, NoSuchDelegationSet);
-export var NoSuchGeoLocation$: StaticErrorSchema = [-3, n0, _NSGL,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchGeoLocation$, NoSuchGeoLocation);
-export var NoSuchHealthCheck$: StaticErrorSchema = [-3, n0, _NSHC,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchHealthCheck$, NoSuchHealthCheck);
-export var NoSuchHostedZone$: StaticErrorSchema = [-3, n0, _NSHZ,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchHostedZone$, NoSuchHostedZone);
-export var NoSuchKeySigningKey$: StaticErrorSchema = [-3, n0, _NSKSK,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchKeySigningKey$, NoSuchKeySigningKey);
-export var NoSuchQueryLoggingConfig$: StaticErrorSchema = [-3, n0, _NSQLC,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchQueryLoggingConfig$, NoSuchQueryLoggingConfig);
-export var NoSuchTrafficPolicy$: StaticErrorSchema = [-3, n0, _NSTP,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchTrafficPolicy$, NoSuchTrafficPolicy);
-export var NoSuchTrafficPolicyInstance$: StaticErrorSchema = [-3, n0, _NSTPI,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchTrafficPolicyInstance$, NoSuchTrafficPolicyInstance);
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
-export var PriorRequestNotComplete$: StaticErrorSchema = [-3, n0, _PRNC,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PriorRequestNotComplete$, PriorRequestNotComplete);
-export var PublicZoneVPCAssociation$: StaticErrorSchema = [-3, n0, _PZVPCA,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PublicZoneVPCAssociation$, PublicZoneVPCAssociation);
 export var QueryLoggingConfig$: StaticStructureSchema = [3, n0, _QLC,
   0,
   [_I, _HZI, _CWLLGA],
   [0, 0, 0], 3
 ];
-export var QueryLoggingConfigAlreadyExists$: StaticErrorSchema = [-3, n0, _QLCAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueryLoggingConfigAlreadyExists$, QueryLoggingConfigAlreadyExists);
 export var ResourceRecord$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_V],
@@ -1830,82 +1921,16 @@ export var TestDNSAnswerResponse$: StaticStructureSchema = [3, n0, _TDNSARe,
   [_Nam, _RN, _RTe, _RD, _RC, _Pr],
   [0, 0, 0, [() => RecordData, 0], 0, 0], 6
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyHealthChecks$: StaticErrorSchema = [-3, n0, _TMHC,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyHealthChecks$, TooManyHealthChecks);
-export var TooManyHostedZones$: StaticErrorSchema = [-3, n0, _TMHZ,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyHostedZones$, TooManyHostedZones);
-export var TooManyKeySigningKeys$: StaticErrorSchema = [-3, n0, _TMKSK,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyKeySigningKeys$, TooManyKeySigningKeys);
-export var TooManyTrafficPolicies$: StaticErrorSchema = [-3, n0, _TMTP,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTrafficPolicies$, TooManyTrafficPolicies);
-export var TooManyTrafficPolicyInstances$: StaticErrorSchema = [-3, n0, _TMTPI,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTrafficPolicyInstances$, TooManyTrafficPolicyInstances);
-export var TooManyTrafficPolicyVersionsForCurrentPolicy$: StaticErrorSchema = [-3, n0, _TMTPVFCP,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTrafficPolicyVersionsForCurrentPolicy$, TooManyTrafficPolicyVersionsForCurrentPolicy);
-export var TooManyVPCAssociationAuthorizations$: StaticErrorSchema = [-3, n0, _TMVPCAA,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyVPCAssociationAuthorizations$, TooManyVPCAssociationAuthorizations);
 export var TrafficPolicy$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_I, _Ve, _N, _T, _Do, _C],
   [0, 1, 0, 0, 0, 0], 5
 ];
-export var TrafficPolicyAlreadyExists$: StaticErrorSchema = [-3, n0, _TPAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrafficPolicyAlreadyExists$, TrafficPolicyAlreadyExists);
 export var TrafficPolicyInstance$: StaticStructureSchema = [3, n0, _TPIr,
   0,
   [_I, _HZI, _N, _TTL, _Sta, _M, _TPI, _TPV, _TPT],
   [0, 0, 0, 1, 0, 0, 0, 1, 0], 9
 ];
-export var TrafficPolicyInstanceAlreadyExists$: StaticErrorSchema = [-3, n0, _TPIAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrafficPolicyInstanceAlreadyExists$, TrafficPolicyInstanceAlreadyExists);
-export var TrafficPolicyInUse$: StaticErrorSchema = [-3, n0, _TPIU,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrafficPolicyInUse$, TrafficPolicyInUse);
 export var TrafficPolicySummary$: StaticStructureSchema = [3, n0, _TPSr,
   0,
   [_I, _N, _T, _LV, _TPC],
@@ -1966,20 +1991,6 @@ export var VPC$: StaticStructureSchema = [3, n0, _VPC,
   [_VPCR, _VPCI],
   [0, 0]
 ];
-export var VPCAssociationAuthorizationNotFound$: StaticErrorSchema = [-3, n0, _VPCAANF,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(VPCAssociationAuthorizationNotFound$, VPCAssociationAuthorizationNotFound);
-export var VPCAssociationNotFound$: StaticErrorSchema = [-3, n0, _VPCANF,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(VPCAssociationNotFound$, VPCAssociationNotFound);
-export var Route53ServiceException$: StaticErrorSchema = [-3, _sm, "Route53ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Route53ServiceException$, Route53ServiceException);
 var Changes: StaticListSchema = [1, n0, _Cha,
   0, [() => Change$,
     { [_xN]: _Ch }]

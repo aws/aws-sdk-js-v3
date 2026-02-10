@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWorkspacesInstancesHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WorkspacesInstancesClientConfig } from "./WorkspacesInstancesClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WorkspacesInstancesClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.workspacesinstances",
+      errorTypeRegistries,
       version: "2022-07-26",
       serviceTarget: "EUCMIFrontendAPIService",
     },

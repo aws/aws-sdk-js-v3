@@ -136,8 +136,8 @@ const _OI = "OutputId";
 const _OU = "OutputUpdates";
 const _OUu = "OutputUpdate";
 const _Ou = "Outputs";
-const _PIR = "ParsedInputRecords";
-const _PIRr = "ProcessedInputRecords";
+const _PIR = "ProcessedInputRecords";
+const _PIRa = "ParsedInputRecords";
 const _RARN = "RoleARN";
 const _RARNU = "RoleARNUpdate";
 const _RARNUe = "ResourceARNUpdate";
@@ -202,8 +202,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kinesisanalytics";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kinesisanalytics";
+const _se = "server";
 const n0 = "com.amazonaws.kinesisanalytics";
 
 // smithy-typescript generated code
@@ -227,6 +227,91 @@ import {
 import { KinesisAnalyticsServiceException } from "../models/KinesisAnalyticsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KinesisAnalyticsServiceException$: StaticErrorSchema = [-3, _s, "KinesisAnalyticsServiceException", 0, [], []];
+_s_registry.registerError(KinesisAnalyticsServiceException$, KinesisAnalyticsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CodeValidationException$: StaticErrorSchema = [-3, n0, _CVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CodeValidationException$, CodeValidationException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var InvalidApplicationConfigurationException$: StaticErrorSchema = [-3, n0, _IACE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidApplicationConfigurationException$, InvalidApplicationConfigurationException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _RPTEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceProvisionedThroughputExceededException$, ResourceProvisionedThroughputExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var UnableToDetectSchemaException$: StaticErrorSchema = [-3, n0, _UTDSE,
+  { [_e]: _c },
+  [_m, _RIR, _PIR],
+  [0, 64 | 0, 64 | 0]
+];
+n0_registry.registerError(UnableToDetectSchemaException$, UnableToDetectSchemaException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddApplicationCloudWatchLoggingOptionRequest$: StaticStructureSchema = [3, n0, _AACWLOR,
   0,
   [_AN, _CAVI, _CWLO],
@@ -307,18 +392,6 @@ export var CloudWatchLoggingOptionUpdate$: StaticStructureSchema = [3, n0, _CWLO
   [_CWLOI, _LSARNU, _RARNU],
   [0, 0, 0], 1
 ];
-export var CodeValidationException$: StaticErrorSchema = [-3, n0, _CVE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CodeValidationException$, CodeValidationException);
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_AN, _ADp, _In, _Ou, _CWLOl, _AC, _T],
@@ -406,8 +479,8 @@ export var DiscoverInputSchemaRequest$: StaticStructureSchema = [3, n0, _DISR,
 ];
 export var DiscoverInputSchemaResponse$: StaticStructureSchema = [3, n0, _DISRi,
   0,
-  [_IS, _PIR, _PIRr, _RIR],
-  [() => SourceSchema$, [1, n0, _PIR, 0, 64 | 0], 64 | 0, 64 | 0]
+  [_IS, _PIRa, _PIR, _RIR],
+  [() => SourceSchema$, [1, n0, _PIRa, 0, 64 | 0], 64 | 0, 64 | 0]
 ];
 export var Input$: StaticStructureSchema = [3, n0, _I,
   0,
@@ -479,18 +552,6 @@ export var InputUpdate$: StaticStructureSchema = [3, n0, _IUn,
   [_II, _NPU, _IPCU, _KSIU, _KFIU, _ISU, _IPU],
   [0, 0, () => InputProcessingConfigurationUpdate$, () => KinesisStreamsInputUpdate$, () => KinesisFirehoseInputUpdate$, () => InputSchemaUpdate$, () => InputParallelismUpdate$], 1
 ];
-export var InvalidApplicationConfigurationException$: StaticErrorSchema = [-3, n0, _IACE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidApplicationConfigurationException$, InvalidApplicationConfigurationException);
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
 export var JSONMappingParameters$: StaticStructureSchema = [3, n0, _JSONMP,
   0,
   [_RRP],
@@ -571,12 +632,6 @@ export var LambdaOutputUpdate$: StaticStructureSchema = [3, n0, _LOU,
   [_RARNUe, _RARNU],
   [0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_L, _ESAN],
@@ -642,24 +697,6 @@ export var ReferenceDataSourceUpdate$: StaticStructureSchema = [3, n0, _RDSUe,
   [_RI, _TNU, _SRDSU, _RSU],
   [0, 0, () => S3ReferenceDataSourceUpdate$, () => SourceSchema$], 1
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _RPTEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceProvisionedThroughputExceededException$, ResourceProvisionedThroughputExceededException);
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_RARN, _BARN, _FK],
@@ -680,12 +717,6 @@ export var S3ReferenceDataSourceUpdate$: StaticStructureSchema = [3, n0, _SRDSU,
   [_BARNU, _FKU, _RRARNU],
   [0, 0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SourceSchema$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_RF, _RCe, _RE],
@@ -726,24 +757,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
-export var UnableToDetectSchemaException$: StaticErrorSchema = [-3, n0, _UTDSE,
-  { [_e]: _c },
-  [_m, _RIR, _PIRr],
-  [0, 64 | 0, 64 | 0]
-];
-TypeRegistry.for(n0).registerError(UnableToDetectSchemaException$, UnableToDetectSchemaException);
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARNe, _TK],
@@ -764,8 +777,6 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
   [],
   []
 ];
-export var KinesisAnalyticsServiceException$: StaticErrorSchema = [-3, _sm, "KinesisAnalyticsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KinesisAnalyticsServiceException$, KinesisAnalyticsServiceException);
 var ApplicationSummaries: StaticListSchema = [1, n0, _ASpp,
   0, () => ApplicationSummary$
 ];
@@ -801,7 +812,7 @@ var OutputUpdates: StaticListSchema = [1, n0, _OU,
   0, () => OutputUpdate$
 ];
 var ParsedInputRecord = 64 | 0;
-var ParsedInputRecords: StaticListSchema = [1, n0, _PIR,
+var ParsedInputRecords: StaticListSchema = [1, n0, _PIRa,
   0, 64 | 0
 ];
 var ProcessedInputRecords = 64 | 0;

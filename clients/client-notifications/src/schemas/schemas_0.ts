@@ -255,16 +255,16 @@ const _oU = "organizationalUnits";
 const _oUI = "organizationalUnitId";
 const _pS = "paragraphSummary";
 const _qC = "quotaCode";
-const _r = "regions";
+const _r = "reason";
 const _rA = "relatedAccount";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rR = "relatedResources";
 const _rT = "resourceType";
-const _re = "reason";
-const _s = "source";
-const _sC = "subCategory";
-const _sCe = "serviceCode";
+const _re = "regions";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.notifications";
+const _sC = "serviceCode";
+const _sCu = "subCategory";
 const _sD = "summarizationDimensions";
 const _sEDU = "sourceEventDetailUrl";
 const _sEDUDT = "sourceEventDetailUrlDisplayText";
@@ -277,7 +277,7 @@ const _sT = "startTime";
 const _sV = "schemaVersion";
 const _sVa = "sampleValues";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.notifications";
+const _so = "source";
 const _st = "status";
 const _su = "subtype";
 const _t = "tags";
@@ -311,12 +311,61 @@ import {
 import { NotificationsServiceException } from "../models/NotificationsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var NotificationsServiceException$: StaticErrorSchema = [-3, _s, "NotificationsServiceException", 0, [], []];
+_s_registry.registerError(NotificationsServiceException$, NotificationsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI],
+  [0, 0], 2
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI],
+  [0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rT, _rI, _sC, _qC],
+  [0, 0, 0, 0, 0], 2
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AggregationDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_sD],
@@ -372,15 +421,9 @@ export var AssociateOrganizationalUnitResponse$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEventRuleRequest$: StaticStructureSchema = [3, n0, _CERR,
   0,
-  [_nCA, _s, _eT, _r, _eP],
+  [_nCA, _so, _eT, _re, _eP],
   [0, 0, 0, 64 | 0, 0], 4
 ];
 export var CreateEventRuleResponse$: StaticStructureSchema = [3, n0, _CERRr,
@@ -495,12 +538,12 @@ export var EnableNotificationsAccessForOrganizationResponse$: StaticStructureSch
 ];
 export var EventRuleStatusSummary$: StaticStructureSchema = [3, n0, _ERSS,
   0,
-  [_st, _re],
+  [_st, _r],
   [0, 0], 2
 ];
 export var EventRuleStructure$: StaticStructureSchema = [3, n0, _ERS,
   0,
-  [_a, _nCA, _cT, _s, _eT, _eP, _r, _mR, _sSBR],
+  [_a, _nCA, _cT, _so, _eT, _eP, _re, _mR, _sSBR],
   [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion], 9
 ];
 export var GetEventRuleRequest$: StaticStructureSchema = [3, n0, _GERR,
@@ -510,7 +553,7 @@ export var GetEventRuleRequest$: StaticStructureSchema = [3, n0, _GERR,
 ];
 export var GetEventRuleResponse$: StaticStructureSchema = [3, n0, _GERRe,
   0,
-  [_a, _nCA, _cT, _s, _eT, _eP, _r, _mR, _sSBR],
+  [_a, _nCA, _cT, _so, _eT, _eP, _re, _mR, _sSBR],
   [0, 0, 5, 0, 0, 0, 64 | 0, 64 | 0, () => StatusSummaryByRegion], 9
 ];
 export var GetManagedNotificationChildEventRequest$: StaticStructureSchema = [3, n0, _GMNCER,
@@ -530,7 +573,7 @@ export var GetManagedNotificationConfigurationRequest$: StaticStructureSchema = 
 ];
 export var GetManagedNotificationConfigurationResponse$: StaticStructureSchema = [3, n0, _GMNCRe,
   0,
-  [_a, _n, _d, _ca, _sC],
+  [_a, _n, _d, _ca, _sCu],
   [0, 0, 0, 0, 0], 5
 ];
 export var GetManagedNotificationEventRequest$: StaticStructureSchema = [3, n0, _GMNER,
@@ -573,12 +616,6 @@ export var GetNotificationsAccessForOrganizationResponse$: StaticStructureSchema
   [_nAFO],
   [() => NotificationsAccessForOrganization$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_nCA, _mRa, _nT],
@@ -631,8 +668,8 @@ export var ListManagedNotificationConfigurationsResponse$: StaticStructureSchema
 ];
 export var ListManagedNotificationEventsRequest$: StaticStructureSchema = [3, n0, _LMNER,
   0,
-  [_sT, _eTn, _l, _s, _mRa, _nT, _oUI, _rA],
-  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _rA }]]
+  [_sT, _eTn, _l, _so, _mRa, _nT, _oUI, _rA],
+  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _so }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }], [0, { [_hQ]: _rA }]]
 ];
 export var ListManagedNotificationEventsResponse$: StaticStructureSchema = [3, n0, _LMNERi,
   0,
@@ -661,8 +698,8 @@ export var ListNotificationConfigurationsResponse$: StaticStructureSchema = [3, 
 ];
 export var ListNotificationEventsRequest$: StaticStructureSchema = [3, n0, _LNER,
   0,
-  [_sT, _eTn, _l, _s, _iCE, _aNEA, _mRa, _nT, _oUI],
-  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _s }], [2, { [_hQ]: _iCE }], [0, { [_hQ]: _aNEA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }]]
+  [_sT, _eTn, _l, _so, _iCE, _aNEA, _mRa, _nT, _oUI],
+  [[5, { [_hQ]: _sT }], [5, { [_hQ]: _eTn }], [0, { [_hQ]: _l }], [0, { [_hQ]: _so }], [2, { [_hQ]: _iCE }], [0, { [_hQ]: _aNEA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _oUI }]]
 ];
 export var ListNotificationEventsResponse$: StaticStructureSchema = [3, n0, _LNERi,
   0,
@@ -741,7 +778,7 @@ export var ManagedNotificationEventSummary$: StaticStructureSchema = [3, n0, _MN
 ];
 export var ManagedSourceEventMetadataSummary$: StaticStructureSchema = [3, n0, _MSEMS,
   0,
-  [_s, _eT, _eOR],
+  [_so, _eT, _eOR],
   [0, 0, 0], 2
 ];
 export var MediaElement$: StaticStructureSchema = [3, n0, _ME,
@@ -791,7 +828,7 @@ export var NotificationHubOverview$: StaticStructureSchema = [3, n0, _NHO,
 ];
 export var NotificationHubStatusSummary$: StaticStructureSchema = [3, n0, _NHSS,
   0,
-  [_st, _re],
+  [_st, _r],
   [0, 0], 2
 ];
 export var NotificationsAccessForOrganization$: StaticStructureSchema = [3, n0, _NAFO,
@@ -814,26 +851,14 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
   [_i, _a, _dU, _t],
   [0, 0, 0, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rT, _rI, _sCe, _qC],
-  [0, 0, 0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceEventMetadata$: StaticStructureSchema = [3, n0, _SEM,
   0,
-  [_eTV, _sEI, _rA, _s, _eOT, _eT, _rR, _eOR],
+  [_eTV, _sEI, _rA, _so, _eOT, _eT, _rR, _eOR],
   [0, 0, 0, 0, 5, 0, () => Resources, 0], 7
 ];
 export var SourceEventMetadataSummary$: StaticStructureSchema = [3, n0, _SEMS,
   0,
-  [_s, _eT, _eOR],
+  [_so, _eT, _eOR],
   [0, 0, 0], 2
 ];
 export var SummarizationDimensionDetail$: StaticStructureSchema = [3, n0, _SDD,
@@ -861,12 +886,6 @@ export var TextPartValue$: StaticStructureSchema = [3, n0, _TPV,
   [_ty, _dT, _tBL, _u],
   [0, 0, 128 | 0, 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
@@ -879,7 +898,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateEventRuleRequest$: StaticStructureSchema = [3, n0, _UERR,
   0,
-  [_a, _eP, _r],
+  [_a, _eP, _re],
   [[0, 1], 0, 64 | 0], 1
 ];
 export var UpdateEventRuleResponse$: StaticStructureSchema = [3, n0, _UERRp,
@@ -897,19 +916,11 @@ export var UpdateNotificationConfigurationResponse$: StaticStructureSchema = [3,
   [_a],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var NotificationsServiceException$: StaticErrorSchema = [-3, _sm, "NotificationsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NotificationsServiceException$, NotificationsServiceException);
 var AggregatedNotificationRegions = 64 | 0;
 var AggregationKeys: StaticListSchema = [1, n0, _AKg,
   0, () => AggregationKey$

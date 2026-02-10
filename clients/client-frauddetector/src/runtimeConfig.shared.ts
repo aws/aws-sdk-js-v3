@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultFraudDetectorHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { FraudDetectorClientConfig } from "./FraudDetectorClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: FraudDetectorClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.frauddetector",
+      errorTypeRegistries,
       xmlNamespace: "http://hawksnest.amazonaws.com/doc/2019-11-15",
       version: "2019-11-15",
       serviceTarget: "AWSHawksNestServiceFacade",

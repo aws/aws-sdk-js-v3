@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBackupHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BackupClientConfig } from "./BackupClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BackupClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.backup",
+      errorTypeRegistries,
       version: "2018-11-15",
       serviceTarget: "CryoControllerUserManager",
     },

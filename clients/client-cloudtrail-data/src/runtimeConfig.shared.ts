@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudTrailDataHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudTrailDataClientConfig } from "./CloudTrailDataClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudTrailDataClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudtraildata",
+      errorTypeRegistries,
       version: "2021-08-11",
       serviceTarget: "CloudTrailDataService",
     },

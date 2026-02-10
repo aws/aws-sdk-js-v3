@@ -136,8 +136,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mwaa";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mwaa";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.mwaa";
 
@@ -163,16 +163,59 @@ import {
 import { MWAAServiceException } from "../models/MWAAServiceException";
 
 /* eslint no-var: 0 */
-var ConfigValue: StaticSimpleSchema = [0, n0, _CV, 8, 0];
-var RestApiRequestBody: StaticSimpleSchema = [0, n0, _RARB, 8, 15];
-var RestApiResponse: StaticSimpleSchema = [0, n0, _RAR, 8, 15];
-var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var MWAAServiceException$: StaticErrorSchema = [-3, _s, "MWAAServiceException", 0, [], []];
+_s_registry.registerError(MWAAServiceException$, MWAAServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RestApiClientException$: StaticErrorSchema = [-3, n0, _RACE,
+  { [_e]: _c, [_hE]: 400 },
+  [_RASC, _RAR],
+  [1, [() => RestApiResponse, 0]]
+];
+n0_registry.registerError(RestApiClientException$, RestApiClientException);
+export var RestApiServerException$: StaticErrorSchema = [-3, n0, _RASE,
+  { [_e]: _c, [_hE]: 400 },
+  [_RASC, _RAR],
+  [1, [() => RestApiResponse, 0]]
+];
+n0_registry.registerError(RestApiServerException$, RestApiServerException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ConfigValue: StaticSimpleSchema = [0, n0, _CV, 8, 0];
+var RestApiRequestBody: StaticSimpleSchema = [0, n0, _RARB, 8, 15];
+var RestApiResponse: StaticSimpleSchema = [0, n0, _RAR, 8, 15];
+var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var CreateCliTokenRequest$: StaticStructureSchema = [3, n0, _CCTR,
   0,
   [_N],
@@ -233,12 +276,6 @@ export var GetEnvironmentOutput$: StaticStructureSchema = [3, n0, _GEO,
   [_E],
   [[() => Environment$, 0]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeRestApiRequest$: StaticStructureSchema = [3, n0, _IRAR,
   0,
   [_N, _P, _Me, _QP, _B],
@@ -314,24 +351,6 @@ export var PublishMetricsOutput$: StaticStructureSchema = [3, n0, _PMO,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var RestApiClientException$: StaticErrorSchema = [-3, n0, _RACE,
-  { [_e]: _c, [_hE]: 400 },
-  [_RASC, _RAR],
-  [1, [() => RestApiResponse, 0]]
-];
-TypeRegistry.for(n0).registerError(RestApiClientException$, RestApiClientException);
-export var RestApiServerException$: StaticErrorSchema = [-3, n0, _RASE,
-  { [_e]: _c, [_hE]: 400 },
-  [_RASC, _RAR],
-  [1, [() => RestApiResponse, 0]]
-];
-TypeRegistry.for(n0).registerError(RestApiServerException$, RestApiServerException);
 export var StatisticSet$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SC, _Su, _Mi, _Ma],
@@ -377,14 +396,6 @@ export var UpdateNetworkConfigurationInput$: StaticStructureSchema = [3, n0, _UN
   [_SGI],
   [64 | 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var MWAAServiceException$: StaticErrorSchema = [-3, _sm, "MWAAServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MWAAServiceException$, MWAAServiceException);
 var Dimensions: StaticListSchema = [1, n0, _Di,
   0, () => Dimension$
 ];

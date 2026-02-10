@@ -47,9 +47,9 @@ const _rD = "reportDescription";
 const _rDe = "reportDefinitions";
 const _rF = "reportFrequency";
 const _rI = "reportId";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.applicationcostprofiler";
 const _sSL = "sourceS3Location";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.applicationcostprofiler";
+const _se = "server";
 const n0 = "com.amazonaws.applicationcostprofiler";
 
 // smithy-typescript generated code
@@ -66,12 +66,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ApplicationCostProfilerServiceException$: StaticErrorSchema = [-3, _s, "ApplicationCostProfilerServiceException", 0, [], []];
+_s_registry.registerError(ApplicationCostProfilerServiceException$, ApplicationCostProfilerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DeleteReportDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR,
   0,
   [_rI],
@@ -102,12 +139,6 @@ export var ImportApplicationUsageResult$: StaticStructureSchema = [3, n0, _IAURm
   [_iI],
   [0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListReportDefinitionsRequest$: StaticStructureSchema = [3, n0, _LRDR,
   0,
   [_nT, _mR],
@@ -138,23 +169,11 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   [_b, _p],
   [0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceS3Location$: StaticStructureSchema = [3, n0, _SSL,
   0,
   [_b, _k, _r],
   [0, 0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateReportDefinitionRequest$: StaticStructureSchema = [3, n0, _URDR,
   0,
   [_rI, _rD, _rF, _f, _dSL],
@@ -165,14 +184,6 @@ export var UpdateReportDefinitionResult$: StaticStructureSchema = [3, n0, _URDRp
   [_rI],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ApplicationCostProfilerServiceException$: StaticErrorSchema = [-3, _sm, "ApplicationCostProfilerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ApplicationCostProfilerServiceException$, ApplicationCostProfilerServiceException);
 var ReportDefinitionList: StaticListSchema = [1, n0, _RDL,
   0, () => ReportDefinition$
 ];

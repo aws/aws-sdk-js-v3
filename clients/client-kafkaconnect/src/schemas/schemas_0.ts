@@ -196,7 +196,7 @@ const _pFC = "propertiesFileContent";
 const _pr = "prefix";
 const _r = "revision";
 const _rA = "resourceArn";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafkaconnect";
 const _sD = "stateDescription";
 const _sERA = "serviceExecutionRoleArn";
 const _sG = "securityGroups";
@@ -207,7 +207,7 @@ const _sS = "__sensitiveString";
 const _sSt = "stepState";
 const _sT = "stepType";
 const _s_ = "s3";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kafkaconnect";
+const _se = "server";
 const _su = "subnets";
 const _t = "tags";
 const _tCC = "targetConnectorConfiguration";
@@ -246,6 +246,67 @@ import {
 import { KafkaConnectServiceException } from "../models/KafkaConnectServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KafkaConnectServiceException$: StaticErrorSchema = [-3, _s, "KafkaConnectServiceException", 0, [], []];
+_s_registry.registerError(KafkaConnectServiceException$, KafkaConnectServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var __sensitiveString: StaticSimpleSchema = [0, n0, _sS, 8, 0];
 export var ApacheKafkaCluster$: StaticStructureSchema = [3, n0, _AKC,
   0,
@@ -272,12 +333,6 @@ export var AutoScalingUpdate$: StaticStructureSchema = [3, n0, _ASU,
   [_mWC, _mC, _mWCi, _sIP, _sOP],
   [1, 1, 1, () => ScaleInPolicyUpdate$, () => ScaleOutPolicyUpdate$], 5
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Capacity$: StaticStructureSchema = [3, n0, _C,
   0,
   [_aS, _pC],
@@ -303,12 +358,6 @@ export var CloudWatchLogsLogDeliveryDescription$: StaticStructureSchema = [3, n0
   [_en, _lG],
   [2, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorOperationStep$: StaticStructureSchema = [3, n0, _COS,
   0,
   [_sT, _sSt],
@@ -469,18 +518,6 @@ export var FirehoseLogDeliveryDescription$: StaticStructureSchema = [3, n0, _FLD
   [_dS, _en],
   [0, 2]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var KafkaCluster$: StaticStructureSchema = [3, n0, _KC,
   0,
   [_aKC],
@@ -571,12 +608,6 @@ export var LogDeliveryDescription$: StaticStructureSchema = [3, n0, _LDD,
   [_wLD],
   [() => WorkerLogDeliveryDescription$]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Plugin$: StaticStructureSchema = [3, n0, _P,
   0,
   [_cPu],
@@ -652,12 +683,6 @@ export var ScaleOutPolicyUpdate$: StaticStructureSchema = [3, n0, _SOPU,
   [_cUP],
   [1], 1
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StateDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_cod, _m],
@@ -673,18 +698,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -755,8 +768,6 @@ export var WorkerSetting$: StaticStructureSchema = [3, n0, _WS,
   [_ca],
   [() => CapacityDescription$]
 ];
-export var KafkaConnectServiceException$: StaticErrorSchema = [-3, _sm, "KafkaConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KafkaConnectServiceException$, KafkaConnectServiceException);
 var __listOf__string = 64 | 0;
 var __listOfConnectorOperationStep: StaticListSchema = [1, n0, _lOCOS,
   0, () => ConnectorOperationStep$

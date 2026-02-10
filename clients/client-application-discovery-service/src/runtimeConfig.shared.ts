@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import type { ApplicationDiscoveryServiceClientConfig } from "./ApplicationDiscoveryServiceClient";
 import { defaultApplicationDiscoveryServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ApplicationDiscoveryServiceClientConfig
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.applicationdiscoveryservice",
+      errorTypeRegistries,
       xmlNamespace: "http://ec2.amazon.com/awsposiedon/V2015_11_01/",
       version: "2015-11-01",
       serviceTarget: "AWSPoseidonService_V2015_11_01",

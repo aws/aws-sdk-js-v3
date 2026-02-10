@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultSageMakerA2IRuntimeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SageMakerA2IRuntimeClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.sagemakera2iruntime",
+      errorTypeRegistries,
       version: "2019-11-07",
       serviceTarget: "AmazonSageMakerA2IRuntime",
     },

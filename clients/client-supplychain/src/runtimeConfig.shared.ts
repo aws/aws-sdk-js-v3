@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSupplyChainHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SupplyChainClientConfig } from "./SupplyChainClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SupplyChainClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.supplychain",
+      errorTypeRegistries,
       version: "2024-01-01",
       serviceTarget: "GalaxyPublicAPIGateway",
     },

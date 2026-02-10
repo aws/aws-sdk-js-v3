@@ -1,8 +1,7 @@
 import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import type { ServiceExceptionOptions } from "@smithy/smithy-client";
-import { ServiceException } from "@smithy/smithy-client";
-import type { StaticErrorSchema } from "@smithy/types";
+import { ServiceException, ServiceExceptionOptions } from "@smithy/smithy-client";
+import { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context } from "../test-schema.spec";
@@ -57,33 +56,6 @@ describe(AwsQueryProtocol.name, () => {
         httpStatusCode: 400,
       },
     });
-  });
-
-  it("has a composite error registry", () => {
-    const errorSchema = [
-      -3,
-      "smithy.ts.sdk.synthetic.com.amazonaws",
-      "GenericServiceException",
-      0,
-      [],
-      [],
-      0,
-    ] satisfies StaticErrorSchema;
-    const protocol = new AwsQueryProtocol({
-      version: "",
-      defaultNamespace: "",
-      xmlNamespace: "ns",
-      errorTypeRegistries: [
-        (() => {
-          const r = TypeRegistry.for("ns");
-          r.registerError(errorSchema, Error);
-          return r;
-        })(),
-      ],
-    });
-    const registry = (protocol as any).compositeErrorRegistry;
-    expect(registry).toBeInstanceOf(TypeRegistry);
-    expect(registry.getBaseException()).toEqual(errorSchema);
   });
 
   it("should copy Error.Code to error.name and Error.Message to error.message", async () => {

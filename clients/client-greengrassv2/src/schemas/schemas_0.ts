@@ -137,9 +137,9 @@ const _LVM = "LambdaVolumeMount";
 const _M = "Metadata";
 const _Me = "Message";
 const _PN = "PortNumber";
-const _RA = "RoleArn";
+const _RA = "Retry-After";
 const _RAIPE = "RequestAlreadyInProgressException";
-const _RA_ = "Retry-After";
+const _RAo = "RoleArn";
 const _RCC = "ResolveComponentCandidates";
 const _RCCR = "ResolveComponentCandidatesRequest";
 const _RCCRe = "ResolveComponentCandidatesResponse";
@@ -284,7 +284,7 @@ const _pi = "pinned";
 const _pl = "platforms";
 const _pla = "platform";
 const _qC = "quotaCode";
-const _r = "reset";
+const _r = "reason";
 const _rA = "roleArn";
 const _rAS = "retryAfterSeconds";
 const _rAe = "resourceArn";
@@ -295,10 +295,10 @@ const _rIe = "revisionId";
 const _rOF = "recipeOutputFormat";
 const _rT = "resourceType";
 const _rW = "runWith";
-const _re = "reason";
+const _re = "reset";
 const _rec = "recipe";
 const _ru = "runtime";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.greengrassv2";
 const _sC = "serviceCode";
 const _sD = "statusDetails";
 const _sET = "s3EndpointType";
@@ -307,7 +307,7 @@ const _sRL = "systemResourceLimits";
 const _sTIS = "statusTimeoutInSeconds";
 const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.greengrassv2";
+const _st = "status";
 const _t = "tags";
 const _tA = "targetArn";
 const _tC = "timeoutConfig";
@@ -352,12 +352,67 @@ import {
 import { GreengrassV2ServiceException } from "../models/GreengrassV2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GreengrassV2ServiceException$: StaticErrorSchema = [-3, _s, "GreengrassV2ServiceException", 0, [], []];
+_s_registry.registerError(GreengrassV2ServiceException$, GreengrassV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var RequestAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _RAIPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(RequestAlreadyInProgressException$, RequestAlreadyInProgressException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _qC, _sC, _rI, _rT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _qC, _sC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateClientDeviceWithCoreDeviceEntry$: StaticStructureSchema = [3, n0, _ACDWCDE,
   0,
   [_tN],
@@ -376,7 +431,7 @@ export var AssociatedClientDevice$: StaticStructureSchema = [3, n0, _ACD,
 export var AssociateServiceRoleToAccountRequest$: StaticStructureSchema = [3, n0, _ASRTAR,
   0,
   [_rA],
-  [[0, { [_jN]: _RA }]], 1
+  [[0, { [_jN]: _RAo }]], 1
 ];
 export var AssociateServiceRoleToAccountResponse$: StaticStructureSchema = [3, n0, _ASRTARs,
   0,
@@ -430,7 +485,7 @@ export var ComponentCandidate$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var ComponentConfigurationUpdate$: StaticStructureSchema = [3, n0, _CCU,
   0,
-  [_me, _r],
+  [_me, _re],
   [0, 64 | 0]
 ];
 export var ComponentDependencyRequirement$: StaticStructureSchema = [3, n0, _CDRo,
@@ -463,12 +518,6 @@ export var ComponentVersionListItem$: StaticStructureSchema = [3, n0, _CVLI,
   [_cN, _cV, _a],
   [0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_i, _hA, _pN, _met],
@@ -476,7 +525,7 @@ export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var CoreDevice$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_cDTN, _s, _lSUT, _pla, _ar, _ru],
+  [_cDTN, _st, _lSUT, _pla, _ar, _ru],
   [0, 0, 4, 0, 0, 0]
 ];
 export var CreateComponentVersionRequest$: StaticStructureSchema = [3, n0, _CCVR,
@@ -486,7 +535,7 @@ export var CreateComponentVersionRequest$: StaticStructureSchema = [3, n0, _CCVR
 ];
 export var CreateComponentVersionResponse$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
-  [_cN, _cV, _cT, _s, _a],
+  [_cN, _cV, _cT, _st, _a],
   [0, 0, 4, () => CloudComponentStatus$, 0], 4
 ];
 export var CreateDeploymentRequest$: StaticStructureSchema = [3, n0, _CDRr,
@@ -546,7 +595,7 @@ export var DescribeComponentRequest$: StaticStructureSchema = [3, n0, _DCRe,
 ];
 export var DescribeComponentResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
-  [_a, _cN, _cV, _cT, _p, _d, _s, _pl, _t],
+  [_a, _cN, _cV, _cT, _p, _d, _st, _pl, _t],
   [0, 0, 0, 4, 0, 0, () => CloudComponentStatus$, () => ComponentPlatformList, 128 | 0]
 ];
 export var DisassociateClientDeviceFromCoreDeviceEntry$: StaticStructureSchema = [3, n0, _DCDFCDE,
@@ -571,7 +620,7 @@ export var DisassociateServiceRoleFromAccountResponse$: StaticStructureSchema = 
 ];
 export var EffectiveDeployment$: StaticStructureSchema = [3, n0, _ED,
   0,
-  [_dI, _dN, _tA, _cDES, _cT, _mT, _iJI, _iJA, _d, _re, _sD],
+  [_dI, _dN, _tA, _cDES, _cT, _mT, _iJI, _iJA, _d, _r, _sD],
   [0, 0, 0, 0, 4, 4, 0, 0, 0, 0, () => EffectiveDeploymentStatusDetails$], 6
 ];
 export var EffectiveDeploymentStatusDetails$: StaticStructureSchema = [3, n0, _EDSD,
@@ -616,7 +665,7 @@ export var GetCoreDeviceRequest$: StaticStructureSchema = [3, n0, _GCDR,
 ];
 export var GetCoreDeviceResponse$: StaticStructureSchema = [3, n0, _GCDRe,
   0,
-  [_cDTN, _cVo, _pla, _ar, _ru, _s, _lSUT, _t],
+  [_cDTN, _cVo, _pla, _ar, _ru, _st, _lSUT, _t],
   [0, 0, 0, 0, 0, 0, 4, 128 | 0]
 ];
 export var GetDeploymentRequest$: StaticStructureSchema = [3, n0, _GDR,
@@ -637,19 +686,13 @@ export var GetServiceRoleForAccountRequest$: StaticStructureSchema = [3, n0, _GS
 export var GetServiceRoleForAccountResponse$: StaticStructureSchema = [3, n0, _GSRFARe,
   0,
   [_aA, _rA],
-  [[0, { [_jN]: _AA }], [0, { [_jN]: _RA }]]
+  [[0, { [_jN]: _AA }], [0, { [_jN]: _RAo }]]
 ];
 export var InstalledComponent$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_cN, _cV, _lS, _lSD, _iRs, _lSCT, _lRT, _lIS, _lSC],
   [0, 0, 0, 0, 2, 4, 4, 0, 64 | 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IoTJobAbortConfig$: StaticStructureSchema = [3, n0, _ITJAC,
   0,
   [_cL],
@@ -747,8 +790,8 @@ export var ListComponentVersionsResponse$: StaticStructureSchema = [3, n0, _LCVR
 ];
 export var ListCoreDevicesRequest$: StaticStructureSchema = [3, n0, _LCDR,
   0,
-  [_tGA, _s, _mR, _nT, _ru],
-  [[0, { [_hQ]: _tGA }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _ru }]]
+  [_tGA, _st, _mR, _nT, _ru],
+  [[0, { [_hQ]: _tGA }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _ru }]]
 ];
 export var ListCoreDevicesResponse$: StaticStructureSchema = [3, n0, _LCDRi,
   0,
@@ -795,12 +838,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
-export var RequestAlreadyInProgressException$: StaticErrorSchema = [-3, n0, _RAIPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(RequestAlreadyInProgressException$, RequestAlreadyInProgressException);
 export var ResolveComponentCandidatesRequest$: StaticStructureSchema = [3, n0, _RCCR,
   0,
   [_pla, _cC],
@@ -816,18 +853,6 @@ export var ResolvedComponentVersion$: StaticStructureSchema = [3, n0, _RCV,
   [_a, _cN, _cV, _rec, _vG, _m],
   [0, 0, 0, 21, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _qC, _sC, _rI, _rT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SystemResourceLimits$: StaticStructureSchema = [3, n0, _SRL,
   0,
   [_mem, _cp],
@@ -843,12 +868,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _qC, _sC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -869,20 +888,12 @@ export var UpdateConnectivityInfoResponse$: StaticStructureSchema = [3, n0, _UCI
   [_ve, _m],
   [[0, { [_jN]: _V }], [0, { [_jN]: _Me }]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _f],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
 var __Unit = "unit" as const;
-export var GreengrassV2ServiceException$: StaticErrorSchema = [-3, _sm, "GreengrassV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GreengrassV2ServiceException$, GreengrassV2ServiceException);
 var AssociateClientDeviceWithCoreDeviceEntryList: StaticListSchema = [1, n0, _ACDWCDEL,
   0, () => AssociateClientDeviceWithCoreDeviceEntry$
 ];

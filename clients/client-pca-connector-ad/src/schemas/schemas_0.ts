@@ -147,7 +147,7 @@ const _PTo = "PolicyType";
 const _PTr = "PropertyType";
 const _Pe = "Period";
 const _QC = "QuotaCode";
-const _R = "Revision";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RACH = "ReenrollAllCertificateHolders";
 const _RASA = "RequireAlternateSignatureAlgorithm";
@@ -161,7 +161,7 @@ const _RNFE = "ResourceNotFoundException";
 const _RP = "RenewalPeriod";
 const _RSKR = "RequireSameKeyRenewal";
 const _RT = "ResourceType";
-const _Re = "Reason";
+const _Re = "Revision";
 const _S = "Status";
 const _SC = "ServiceCode";
 const _SGI = "SecurityGroupIds";
@@ -217,8 +217,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pcaconnectorad";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pcaconnectorad";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.pcaconnectorad";
 
@@ -245,6 +245,61 @@ import {
 import { PcaConnectorAdServiceException } from "../models/PcaConnectorAdServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PcaConnectorAdServiceException$: StaticErrorSchema = [-3, _s, "PcaConnectorAdServiceException", 0, [], []];
+_s_registry.registerError(PcaConnectorAdServiceException$, PcaConnectorAdServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _SC, _QC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _SC, _QC],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessControlEntry$: StaticStructureSchema = [3, n0, _ACE,
   0,
   [_GDN, _GSI, _AR, _TA, _CA, _UA],
@@ -255,12 +310,6 @@ export var AccessControlEntrySummary$: StaticStructureSchema = [3, n0, _ACES,
   [_GDN, _GSI, _AR, _TA, _CA, _UA],
   [0, 0, () => AccessRights$, 0, 4, 4]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessRights$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_E, _AE],
@@ -276,12 +325,6 @@ export var CertificateValidity$: StaticStructureSchema = [3, n0, _CV,
   [_VP, _RP],
   [() => ValidityPeriod$, () => ValidityPeriod$], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connector$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_A, _CAA, _CEPSE, _DI, _VI, _S, _SR, _CA, _UA],
@@ -462,12 +505,6 @@ export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
   [_Te],
   [() => Template$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KeyUsage$: StaticStructureSchema = [3, n0, _KU,
   0,
   [_UF, _C],
@@ -573,12 +610,6 @@ export var PrivateKeyFlagsV4$: StaticStructureSchema = [3, n0, _PKFVri,
   [_CVl, _EK, _SKPR, _RASA, _RSKR, _ULP],
   [0, 2, 2, 2, 2, 2], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServicePrincipalName$: StaticStructureSchema = [3, n0, _SPN,
   0,
   [_DRA, _CAo, _S, _SR, _CA, _UA],
@@ -589,12 +620,6 @@ export var ServicePrincipalNameSummary$: StaticStructureSchema = [3, n0, _SPNS,
   [_DRA, _CAo, _S, _SR, _CA, _UA],
   [0, 0, 0, 0, 4, 4]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _SC, _QC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SubjectNameFlagsV2$: StaticStructureSchema = [3, n0, _SNFV,
   0,
   [_SRDD, _SRS, _SRDG, _SRU, _SRE, _SRD, _RDAC, _RE, _RCN, _RDP],
@@ -617,7 +642,7 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
 ];
 export var Template$: StaticStructureSchema = [3, n0, _Te,
   0,
-  [_A, _CAo, _D, _N, _OI, _PS, _S, _R, _CA, _UA],
+  [_A, _CAo, _D, _N, _OI, _PS, _S, _Re, _CA, _UA],
   [0, 0, () => TemplateDefinition$, 0, 0, 1, 0, () => TemplateRevision$, 4, 4]
 ];
 export var TemplateRevision$: StaticStructureSchema = [3, n0, _TR,
@@ -627,7 +652,7 @@ export var TemplateRevision$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TemplateSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_A, _CAo, _D, _N, _OI, _PS, _S, _R, _CA, _UA],
+  [_A, _CAo, _D, _N, _OI, _PS, _S, _Re, _CA, _UA],
   [0, 0, () => TemplateDefinition$, 0, 0, 1, 0, () => TemplateRevision$, 4, 4]
 ];
 export var TemplateV2$: StaticStructureSchema = [3, n0, _TV,
@@ -645,12 +670,6 @@ export var TemplateV4$: StaticStructureSchema = [3, n0, _TVem,
   [_CV, _PKA, _PKF, _EF, _SNF, _GF, _Ex, _ST, _HA],
   [() => CertificateValidity$, () => PrivateKeyAttributesV4$, () => PrivateKeyFlagsV4$, () => EnrollmentFlagsV4$, () => SubjectNameFlagsV4$, () => GeneralFlagsV4$, () => ExtensionsV4$, 64 | 0, 0], 7
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _SC, _QC],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -666,12 +685,6 @@ export var UpdateTemplateRequest$: StaticStructureSchema = [3, n0, _UTR,
   [_TA, _D, _RACH],
   [[0, 1], () => TemplateDefinition$, 2], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Re],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidityPeriod$: StaticStructureSchema = [3, n0, _VP,
   0,
   [_PT, _Pe],
@@ -683,8 +696,6 @@ export var VpcInformation$: StaticStructureSchema = [3, n0, _VI,
   [64 | 0, 0], 1
 ];
 var __Unit = "unit" as const;
-export var PcaConnectorAdServiceException$: StaticErrorSchema = [-3, _sm, "PcaConnectorAdServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PcaConnectorAdServiceException$, PcaConnectorAdServiceException);
 var AccessControlEntryList: StaticListSchema = [1, n0, _ACEL,
   0, () => AccessControlEntrySummary$
 ];

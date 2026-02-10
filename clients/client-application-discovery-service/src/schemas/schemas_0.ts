@@ -246,7 +246,7 @@ const _rIO = "reservedInstanceOptions";
 const _rPMB = "ramPerformanceMetricBasis";
 const _rST = "requestedStartTime";
 const _rT = "registeredTime";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.applicationdiscoveryservice";
 const _sA = "shutdownAgents";
 const _sAC = "shutdownAgentlessCollectors";
 const _sB = "s3Bucket";
@@ -263,9 +263,9 @@ const _sSC = "schemaStorageConfig";
 const _sSI = "sourceServerId";
 const _sT = "startTime";
 const _sTt = "stopTime";
-const _se = "servers";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.applicationdiscoveryservice";
+const _se = "server";
+const _ser = "servers";
+const _st = "status";
 const _t = "tags";
 const _tA = "totalAgents";
 const _tAC = "totalAgentlessCollectors";
@@ -321,6 +321,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ApplicationDiscoveryServiceServiceException$: StaticErrorSchema = [-3, _s, "ApplicationDiscoveryServiceServiceException", 0, [], []];
+_s_registry.registerError(ApplicationDiscoveryServiceServiceException$, ApplicationDiscoveryServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AuthorizationErrorException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthorizationErrorException$, AuthorizationErrorException);
+export var ConflictErrorException$: StaticErrorSchema = [-3, n0, _CEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictErrorException$, ConflictErrorException);
+export var HomeRegionNotSetException$: StaticErrorSchema = [-3, n0, _HRNSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HomeRegionNotSetException$, HomeRegionNotSetException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServerInternalErrorException$: StaticErrorSchema = [-3, n0, _SIEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServerInternalErrorException$, ServerInternalErrorException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AgentConfigurationStatus$: StaticStructureSchema = [3, n0, _ACS,
   0,
   [_aI, _oS, _d],
@@ -346,12 +419,6 @@ export var AssociateConfigurationItemsToApplicationResponse$: StaticStructureSch
   [],
   []
 ];
-export var AuthorizationErrorException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthorizationErrorException$, AuthorizationErrorException);
 export var BatchDeleteAgentError$: StaticStructureSchema = [3, n0, _BDAE,
   0,
   [_aI, _eM, _eC],
@@ -369,7 +436,7 @@ export var BatchDeleteAgentsResponse$: StaticStructureSchema = [3, n0, _BDARa,
 ];
 export var BatchDeleteConfigurationTask$: StaticStructureSchema = [3, n0, _BDCT,
   0,
-  [_tI, _s, _sT, _eT, _cT, _rC, _dC, _fC, _dW],
+  [_tI, _st, _sT, _eT, _cT, _rC, _dC, _fC, _dW],
   [0, 0, 4, 4, 0, 64 | 0, 64 | 0, () => FailedConfigurationList, () => DeletionWarningsList]
 ];
 export var BatchDeleteImportDataError$: StaticStructureSchema = [3, n0, _BDIDE,
@@ -392,15 +459,9 @@ export var ConfigurationTag$: StaticStructureSchema = [3, n0, _CT,
   [_cT, _cIon, _k, _va, _tOC],
   [0, 0, 0, 0, 4]
 ];
-export var ConflictErrorException$: StaticErrorSchema = [-3, n0, _CEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictErrorException$, ConflictErrorException);
 export var ContinuousExportDescription$: StaticStructureSchema = [3, n0, _CED,
   0,
-  [_eI, _s, _sD, _sB, _sT, _sTt, _dS, _sSC],
+  [_eI, _st, _sD, _sB, _sT, _sTt, _dS, _sSC],
   [0, 0, 0, 0, 4, 4, 0, 128 | 0]
 ];
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
@@ -600,18 +661,12 @@ export var GetDiscoverySummaryRequest$: StaticStructureSchema = [3, n0, _GDSR,
 ];
 export var GetDiscoverySummaryResponse$: StaticStructureSchema = [3, n0, _GDSRe,
   0,
-  [_se, _a, _sMTA, _sMT, _aS, _cSo, _mCS, _aCS],
+  [_ser, _a, _sMTA, _sMT, _aS, _cSo, _mCS, _aCS],
   [1, 1, 1, 1, () => CustomerAgentInfo$, () => CustomerConnectorInfo$, () => CustomerMeCollectorInfo$, () => CustomerAgentlessCollectorInfo$]
 ];
-export var HomeRegionNotSetException$: StaticErrorSchema = [-3, n0, _HRNSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HomeRegionNotSetException$, HomeRegionNotSetException);
 export var ImportTask$: StaticStructureSchema = [3, n0, _IT,
   0,
-  [_iTI, _cRT, _n, _iU, _s, _iRT, _iCT, _iDT, _fCi, _sIS, _sIF, _aIS, _aIF, _eAFEZ],
+  [_iTI, _cRT, _n, _iU, _st, _iRT, _iCT, _iDT, _fCi, _sIS, _sIF, _aIS, _aIF, _eAFEZ],
   [0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, 1, 1, 0]
 ];
 export var ImportTaskFilter$: StaticStructureSchema = [3, n0, _ITF,
@@ -619,24 +674,6 @@ export var ImportTaskFilter$: StaticStructureSchema = [3, n0, _ITF,
   [_n, _val],
   [0, 64 | 0]
 ];
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_cT, _fi, _mR, _nT, _oB],
@@ -662,12 +699,6 @@ export var NeighborConnectionDetail$: StaticStructureSchema = [3, n0, _NCD,
   [_sSI, _dSI, _cC, _dP, _tP],
   [0, 0, 1, 1, 0], 3
 ];
-export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
 export var OrderByElement$: StaticStructureSchema = [3, n0, _OBE,
   0,
   [_fN, _sO],
@@ -678,24 +709,6 @@ export var ReservedInstanceOptions$: StaticStructureSchema = [3, n0, _RIO,
   [_pO, _oC, _tL],
   [0, 0, 0], 3
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServerInternalErrorException$: StaticErrorSchema = [-3, n0, _SIEE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServerInternalErrorException$, ServerInternalErrorException);
 export var StartBatchDeleteConfigurationTaskRequest$: StaticStructureSchema = [3, n0, _SBDCTR,
   0,
   [_cT, _cIo],
@@ -792,8 +805,6 @@ export var UsageMetricBasis$: StaticStructureSchema = [3, n0, _UMB,
   [0, 1]
 ];
 var __Unit = "unit" as const;
-export var ApplicationDiscoveryServiceServiceException$: StaticErrorSchema = [-3, _sm, "ApplicationDiscoveryServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ApplicationDiscoveryServiceServiceException$, ApplicationDiscoveryServiceServiceException);
 var AgentConfigurationStatusList: StaticListSchema = [1, n0, _ACSL,
   0, () => AgentConfigurationStatus$
 ];

@@ -118,7 +118,7 @@ const _mR = "maxResults";
 const _n = "name";
 const _nT = "nextToken";
 const _qC = "quotaCode";
-const _r = "role";
+const _r = "reason";
 const _rA = "roleArn";
 const _rAI = "removedAccessorIds";
 const _rAS = "retryAfterSeconds";
@@ -126,17 +126,17 @@ const _rAe = "resourceArn";
 const _rD = "randomDomain";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _re = "reason";
-const _ro = "roles";
-const _s = "subdomain";
+const _ro = "role";
+const _rol = "roles";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.repostspace";
 const _sC = "serviceCode";
 const _sED = "supportedEmailDomains";
 const _sI = "spaceId";
 const _sL = "storageLimit";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.repostspace";
 const _sp = "spaces";
 const _st = "status";
+const _su = "subdomain";
 const _t = "tier";
 const _tK = "tagKeys";
 const _ta = "tags";
@@ -171,6 +171,61 @@ import {
 import { RepostspaceServiceException } from "../models/RepostspaceServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RepostspaceServiceException$: StaticErrorSchema = [-3, _s, "RepostspaceServiceException", 0, [], []];
+_s_registry.registerError(RepostspaceServiceException$, RepostspaceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ChannelDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
 var ChannelName: StaticSimpleSchema = [0, n0, _CN, 8, 0];
 var EmailDomain: StaticSimpleSchema = [0, n0, _ED, 8, 0];
@@ -178,12 +233,6 @@ var InviteBody: StaticSimpleSchema = [0, n0, _IB, 8, 0];
 var InviteTitle: StaticSimpleSchema = [0, n0, _IT, 8, 0];
 var SpaceDescription: StaticSimpleSchema = [0, n0, _SD, 8, 0];
 var SpaceName: StaticSimpleSchema = [0, n0, _SN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BatchAddChannelRoleToAccessorsInput$: StaticStructureSchema = [3, n0, _BACRTAI,
   0,
   [_sI, _cI, _aI, _cR],
@@ -196,7 +245,7 @@ export var BatchAddChannelRoleToAccessorsOutput$: StaticStructureSchema = [3, n0
 ];
 export var BatchAddRoleInput$: StaticStructureSchema = [3, n0, _BARI,
   0,
-  [_sI, _aI, _r],
+  [_sI, _aI, _ro],
   [[0, 1], 64 | 0, 0], 3
 ];
 export var BatchAddRoleOutput$: StaticStructureSchema = [3, n0, _BARO,
@@ -221,7 +270,7 @@ export var BatchRemoveChannelRoleFromAccessorsOutput$: StaticStructureSchema = [
 ];
 export var BatchRemoveRoleInput$: StaticStructureSchema = [3, n0, _BRRI,
   0,
-  [_sI, _aI, _r],
+  [_sI, _aI, _ro],
   [[0, 1], 64 | 0, 0], 3
 ];
 export var BatchRemoveRoleOutput$: StaticStructureSchema = [3, n0, _BRRO,
@@ -234,12 +283,6 @@ export var ChannelData$: StaticStructureSchema = [3, n0, _CDh,
   [_sI, _cI, _cN, _cDT, _cS, _uC, _gC, _cD, _dDT],
   [0, 0, [() => ChannelName, 0], 5, 0, 1, 1, [() => ChannelDescription, 0], 5], 7
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelInput$: StaticStructureSchema = [3, n0, _CCI,
   0,
   [_sI, _cN, _cD],
@@ -252,7 +295,7 @@ export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
 ];
 export var CreateSpaceInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
-  [_n, _s, _t, _d, _uKMSK, _ta, _rA, _sED],
+  [_n, _su, _t, _d, _uKMSK, _ta, _rA, _sED],
   [[() => SpaceName, 0], 0, 0, [() => SpaceDescription, 0], 0, [() => Tags, 0], 0, [() => SupportedEmailDomainsParameters$, 0]], 3
 ];
 export var CreateSpaceOutput$: StaticStructureSchema = [3, n0, _CSO,
@@ -287,15 +330,9 @@ export var GetSpaceInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetSpaceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_sI, _a, _n, _st, _cSo, _cIl, _vDS, _vD, _rD, _cDT, _t, _sL, _iSI, _aA, _d, _cRA, _dDT, _uA, _gA, _ro, _uKMSK, _uC, _cSon, _sED],
+  [_sI, _a, _n, _st, _cSo, _cIl, _vDS, _vD, _rD, _cDT, _t, _sL, _iSI, _aA, _d, _cRA, _dDT, _uA, _gA, _rol, _uKMSK, _uC, _cSon, _sED],
   [0, 0, [() => SpaceName, 0], 0, 0, 0, 0, 0, 0, 5, 0, 1, 0, 0, [() => SpaceDescription, 0], 0, 5, 64 | 0, 64 | 0, [2, n0, _R, 0, 0, 64 | 0], 0, 1, 1, [() => SupportedEmailDomainsStatus$, 0]], 12
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelsInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_sI, _nT, _mR],
@@ -331,23 +368,11 @@ export var RegisterAdminInput$: StaticStructureSchema = [3, n0, _RAI,
   [_sI, _aId],
   [[0, 1], [0, 1]], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendInvitesInput$: StaticStructureSchema = [3, n0, _SII,
   0,
   [_sI, _aI, _ti, _b],
   [[0, 1], 64 | 0, [() => InviteTitle, 0], [() => InviteBody, 0]], 4
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpaceData$: StaticStructureSchema = [3, n0, _SDp,
   0,
   [_sI, _a, _n, _st, _cSo, _vDS, _vD, _rD, _t, _sL, _cDT, _d, _dDT, _uKMSK, _uC, _cSon, _sED],
@@ -373,12 +398,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -404,20 +423,12 @@ export var UpdateSpaceInput$: StaticStructureSchema = [3, n0, _USI,
   [_sI, _d, _t, _rA, _sED],
   [[0, 1], [() => SpaceDescription, 0], 0, 0, [() => SupportedEmailDomainsParameters$, 0]], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
 var __Unit = "unit" as const;
-export var RepostspaceServiceException$: StaticErrorSchema = [-3, _sm, "RepostspaceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RepostspaceServiceException$, RepostspaceServiceException);
 var AccessorIdList = 64 | 0;
 var AllowedDomainsList: StaticListSchema = [1, n0, _ADL,
   0, [() => EmailDomain,

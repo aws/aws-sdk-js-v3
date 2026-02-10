@@ -70,8 +70,8 @@ const _IBOAR = "InvokeBlueprintOptimizationAsyncRequest";
 const _IBOARn = "InvokeBlueprintOptimizationAsyncResponse";
 const _IEC = "ImageExtractionCategory";
 const _IOC = "ImageOverrideConfiguration";
-const _ISE = "ImageStandardExtraction";
-const _ISEn = "InternalServerException";
+const _ISE = "InternalServerException";
+const _ISEm = "ImageStandardExtraction";
 const _ISGF = "ImageStandardGenerativeField";
 const _ISOC = "ImageStandardOutputConfiguration";
 const _LB = "ListBlueprints";
@@ -192,7 +192,7 @@ const _pr = "projects";
 const _rARN = "resourceARN";
 const _rMM = "redactionMaskMode";
 const _rO = "resourceOwner";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockdataautomation";
 const _sDC = "sensitiveDataConfiguration";
 const _sL = "speakerLabeling";
 const _sO = "s3Object";
@@ -202,10 +202,10 @@ const _sU = "s3Uri";
 const _sa = "samples";
 const _sc = "schema";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockdataautomation";
 const _sp = "splitter";
-const _st = "stage";
-const _sta = "status";
+const _st = "state";
+const _sta = "stage";
+const _stat = "status";
 const _t = "types";
 const _tC = "typeConfiguration";
 const _tF = "textFormat";
@@ -242,19 +242,68 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var BlueprintName: StaticSimpleSchema = [0, n0, _BN, 8, 0];
-var BlueprintSchema: StaticSimpleSchema = [0, n0, _BS, 8, 0];
-var DataAutomationProjectDescription: StaticSimpleSchema = [0, n0, _DAPD, 8, 0];
-var DataAutomationProjectName: StaticSimpleSchema = [0, n0, _DAPN, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockDataAutomationServiceException$: StaticErrorSchema = [-3, _s, "BedrockDataAutomationServiceException", 0, [], []];
+_s_registry.registerError(BedrockDataAutomationServiceException$, BedrockDataAutomationServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _fL],
+  [0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var BlueprintName: StaticSimpleSchema = [0, n0, _BN, 8, 0];
+var BlueprintSchema: StaticSimpleSchema = [0, n0, _BS, 8, 0];
+var DataAutomationProjectDescription: StaticSimpleSchema = [0, n0, _DAPD, 8, 0];
+var DataAutomationProjectName: StaticSimpleSchema = [0, n0, _DAPN, 8, 0];
 export var AudioExtractionCategory$: StaticStructureSchema = [3, n0, _AEC,
   0,
-  [_s, _t, _tC],
+  [_st, _t, _tC],
   [0, 64 | 0, () => AudioExtractionCategoryTypeConfiguration$], 1
 ];
 export var AudioExtractionCategoryTypeConfiguration$: StaticStructureSchema = [3, n0, _AECTC,
@@ -279,7 +328,7 @@ export var AudioStandardExtraction$: StaticStructureSchema = [3, n0, _ASE,
 ];
 export var AudioStandardGenerativeField$: StaticStructureSchema = [3, n0, _ASGF,
   0,
-  [_s, _t],
+  [_st, _t],
   [0, 64 | 0], 1
 ];
 export var AudioStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _ASOC,
@@ -304,7 +353,7 @@ export var BlueprintItem$: StaticStructureSchema = [3, n0, _BI,
 ];
 export var BlueprintOptimizationObject$: StaticStructureSchema = [3, n0, _BOO,
   0,
-  [_bA, _st],
+  [_bA, _sta],
   [0, 0], 1
 ];
 export var BlueprintOptimizationOutputConfiguration$: StaticStructureSchema = [3, n0, _BOOC,
@@ -324,15 +373,9 @@ export var BlueprintSummary$: StaticStructureSchema = [3, n0, _BSl,
 ];
 export var ChannelLabelingConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CopyBlueprintStageRequest$: StaticStructureSchema = [3, n0, _CBSR,
   0,
   [_bA, _sS, _tS, _cTl],
@@ -370,7 +413,7 @@ export var CreateDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _CDAPRr,
   0,
-  [_pA, _pS, _sta],
+  [_pA, _pS, _stat],
   [0, 0, 0], 1
 ];
 export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
@@ -380,7 +423,7 @@ export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
 ];
 export var DataAutomationProject$: StaticStructureSchema = [3, n0, _DAP,
   0,
-  [_pA, _cT, _lMT, _pN, _sta, _pS, _pT, _pD, _sOC, _cOC, _oC, _kKI, _kEC],
+  [_pA, _cT, _lMT, _pN, _stat, _pS, _pT, _pD, _sOC, _cOC, _oC, _kKI, _kEC],
   [0, 5, 5, [() => DataAutomationProjectName, 0], 0, 0, 0, [() => DataAutomationProjectDescription, 0], () => StandardOutputConfiguration$, () => CustomOutputConfiguration$, () => OverrideConfiguration$, 0, 128 | 0], 5
 ];
 export var DataAutomationProjectFilter$: StaticStructureSchema = [3, n0, _DAPF,
@@ -410,12 +453,12 @@ export var DeleteDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _DDAPRe,
   0,
-  [_pA, _sta],
+  [_pA, _stat],
   [0, 0], 1
 ];
 export var DocumentBoundingBox$: StaticStructureSchema = [3, n0, _DBB,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG,
@@ -425,7 +468,7 @@ export var DocumentExtractionGranularity$: StaticStructureSchema = [3, n0, _DEG,
 ];
 export var DocumentOutputAdditionalFileFormat$: StaticStructureSchema = [3, n0, _DOAFF,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var DocumentOutputFormat$: StaticStructureSchema = [3, n0, _DOF,
@@ -450,7 +493,7 @@ export var DocumentStandardExtraction$: StaticStructureSchema = [3, n0, _DSE,
 ];
 export var DocumentStandardGenerativeField$: StaticStructureSchema = [3, n0, _DSGF,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var DocumentStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _DSOC,
@@ -470,7 +513,7 @@ export var GetBlueprintOptimizationStatusRequest$: StaticStructureSchema = [3, n
 ];
 export var GetBlueprintOptimizationStatusResponse$: StaticStructureSchema = [3, n0, _GBOSRe,
   0,
-  [_sta, _eT, _eM, _oCu],
+  [_stat, _eT, _eM, _oCu],
   [0, 0, 0, () => BlueprintOptimizationOutputConfiguration$]
 ];
 export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR,
@@ -495,12 +538,12 @@ export var GetDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var ImageBoundingBox$: StaticStructureSchema = [3, n0, _IBB,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var ImageExtractionCategory$: StaticStructureSchema = [3, n0, _IEC,
   0,
-  [_s, _t],
+  [_st, _t],
   [0, 64 | 0], 1
 ];
 export var ImageOverrideConfiguration$: StaticStructureSchema = [3, n0, _IOC,
@@ -508,14 +551,14 @@ export var ImageOverrideConfiguration$: StaticStructureSchema = [3, n0, _IOC,
   [_mP, _sDC],
   [() => ModalityProcessingConfiguration$, () => SensitiveDataConfiguration$]
 ];
-export var ImageStandardExtraction$: StaticStructureSchema = [3, n0, _ISE,
+export var ImageStandardExtraction$: StaticStructureSchema = [3, n0, _ISEm,
   0,
   [_ca, _bB],
   [() => ImageExtractionCategory$, () => ImageBoundingBox$], 2
 ];
 export var ImageStandardGenerativeField$: StaticStructureSchema = [3, n0, _ISGF,
   0,
-  [_s, _t],
+  [_st, _t],
   [0, 64 | 0], 1
 ];
 export var ImageStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _ISOC,
@@ -523,12 +566,6 @@ export var ImageStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _I
   [_ex, _gF],
   [() => ImageStandardExtraction$, () => ImageStandardGenerativeField$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvokeBlueprintOptimizationAsyncRequest$: StaticStructureSchema = [3, n0, _IBOAR,
   0,
   [_b, _sa, _oCu, _dAPA, _eC, _ta],
@@ -571,7 +608,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ModalityProcessingConfiguration$: StaticStructureSchema = [3, n0, _MPC,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var ModalityRoutingConfiguration$: StaticStructureSchema = [3, n0, _MRC,
@@ -589,12 +626,6 @@ export var PIIEntitiesConfiguration$: StaticStructureSchema = [3, n0, _PIIEC,
   [_pET, _rMM],
   [64 | 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Object$: StaticStructureSchema = [3, n0, _SO,
   0,
   [_sU, _ve],
@@ -605,20 +636,14 @@ export var SensitiveDataConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   [_dM, _dS, _pEC],
   [0, 64 | 0, () => PIIEntitiesConfiguration$], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpeakerLabelingConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var SplitterConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var StandardOutputConfiguration$: StaticStructureSchema = [3, n0, _SOC,
@@ -641,12 +666,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TranscriptConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_sL, _cL],
@@ -679,15 +698,9 @@ export var UpdateDataAutomationProjectRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateDataAutomationProjectResponse$: StaticStructureSchema = [3, n0, _UDAPRp,
   0,
-  [_pA, _pS, _sta],
+  [_pA, _pS, _stat],
   [0, 0, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -695,12 +708,12 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var VideoBoundingBox$: StaticStructureSchema = [3, n0, _VBB,
   0,
-  [_s],
+  [_st],
   [0], 1
 ];
 export var VideoExtractionCategory$: StaticStructureSchema = [3, n0, _VEC,
   0,
-  [_s, _t],
+  [_st, _t],
   [0, 64 | 0], 1
 ];
 export var VideoOverrideConfiguration$: StaticStructureSchema = [3, n0, _VOC,
@@ -715,7 +728,7 @@ export var VideoStandardExtraction$: StaticStructureSchema = [3, n0, _VSE,
 ];
 export var VideoStandardGenerativeField$: StaticStructureSchema = [3, n0, _VSGF,
   0,
-  [_s, _t],
+  [_st, _t],
   [0, 64 | 0], 1
 ];
 export var VideoStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _VSOC,
@@ -723,8 +736,6 @@ export var VideoStandardOutputConfiguration$: StaticStructureSchema = [3, n0, _V
   [_ex, _gF],
   [() => VideoStandardExtraction$, () => VideoStandardGenerativeField$]
 ];
-export var BedrockDataAutomationServiceException$: StaticErrorSchema = [-3, _sm, "BedrockDataAutomationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockDataAutomationServiceException$, BedrockDataAutomationServiceException);
 var AudioExtractionCategoryTypes = 64 | 0;
 var AudioInputLanguages = 64 | 0;
 var AudioStandardGenerativeFieldTypes = 64 | 0;

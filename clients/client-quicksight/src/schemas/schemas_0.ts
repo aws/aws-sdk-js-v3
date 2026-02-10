@@ -2543,10 +2543,10 @@ const _RSes = "ResourceStatus";
 const _RSesu = "ResultSize";
 const _RSo = "RowSpan";
 const _RSow = "RowSort";
-const _RT = "RequestType";
+const _RT = "ResourceType";
 const _RTF = "RestoreToFolders";
 const _RTO = "RowTotalOptions";
-const _RTe = "ResourceType";
+const _RTe = "RequestType";
 const _RTef = "RefreshType";
 const _RTel = "RelationalTable";
 const _RTes = "ResultType";
@@ -3078,13 +3078,13 @@ const _TCo = "TopicColumn";
 const _TCop = "TopicColumns";
 const _TD = "TopicDetails";
 const _TDRF = "TopicDateRangeFilter";
-const _TE = "TokenEndpoint";
+const _TE = "ThrottlingException";
 const _TEF = "TimeEqualityFilter";
 const _TEL = "TemplateErrorList";
 const _TELh = "ThemeErrorList";
 const _TEe = "TemplateError";
 const _TEh = "ThemeError";
-const _TEhr = "ThrottlingException";
+const _TEo = "TokenEndpoint";
 const _TF = "TooltipFields";
 const _TFCDO = "TextFieldControlDisplayOptions";
 const _TFCIC = "TableFieldCustomIconContent";
@@ -3670,9 +3670,9 @@ const _r = "resolved";
 const _rd = "reset-disabled";
 const _rtf = "restore-to-folders";
 const _rwid = "recovery-window-in-days";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.quicksight";
+const _se = "server";
 const _sl = "session-lifetime";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.quicksight";
 const _spe = "state-persistence-enabled";
 const _t = "type";
 const _uLN = "userLoginName";
@@ -3722,6 +3722,157 @@ import {
 import { QuickSightServiceException } from "../models/QuickSightServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var QuickSightServiceException$: StaticErrorSchema = [-3, _s, "QuickSightServiceException", 0, [], []];
+_s_registry.registerError(QuickSightServiceException$, QuickSightServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConcurrentUpdatingException$: StaticErrorSchema = [-3, n0, _CUE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ConcurrentUpdatingException$, ConcurrentUpdatingException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var CustomerManagedKeyUnavailableException$: StaticErrorSchema = [-3, n0, _CMKUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(CustomerManagedKeyUnavailableException$, CustomerManagedKeyUnavailableException);
+export var DomainNotWhitelistedException$: StaticErrorSchema = [-3, n0, _DNWE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(DomainNotWhitelistedException$, DomainNotWhitelistedException);
+export var IdentityTypeNotSupportedException$: StaticErrorSchema = [-3, n0, _ITNSE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(IdentityTypeNotSupportedException$, IdentityTypeNotSupportedException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidDataSetParameterValueException$: StaticErrorSchema = [-3, n0, _IDSPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidDataSetParameterValueException$, InvalidDataSetParameterValueException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RT, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(PreconditionNotMetException$, PreconditionNotMetException);
+export var QuickSightUserNotFoundException$: StaticErrorSchema = [-3, n0, _QSUNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(QuickSightUserNotFoundException$, QuickSightUserNotFoundException);
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RT, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RT, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M, _RT, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var SessionLifetimeInMinutesInvalidException$: StaticErrorSchema = [-3, n0, _SLIMIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(SessionLifetimeInMinutesInvalidException$, SessionLifetimeInMinutesInvalidException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedPricingPlanException$: StaticErrorSchema = [-3, n0, _UPPE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(UnsupportedPricingPlanException$, UnsupportedPricingPlanException);
+export var UnsupportedUserEditionException$: StaticErrorSchema = [-3, n0, _UUEE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(UnsupportedUserEditionException$, UnsupportedUserEditionException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ActionConnectorDescription: StaticSimpleSchema = [0, n0, _ACD, 8, 0];
 var ActionConnectorName: StaticSimpleSchema = [0, n0, _ACN, 8, 0];
 var ActionPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
@@ -3755,12 +3906,6 @@ var SensitiveTimestamp: StaticSimpleSchema = [0, n0, _ST, 8, 4];
 var SessionTagValue: StaticSimpleSchema = [0, n0, _STV, 8, 0];
 var SqlQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
 var Suffix: StaticSimpleSchema = [0, n0, _S, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountCustomization$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_DT, _DECT],
@@ -4263,7 +4408,7 @@ export var AuthConfig$: StaticStructureSchema = [3, n0, _ACut,
 ];
 export var AuthorizationCodeGrantDetails$: StaticStructureSchema = [3, n0, _ACGD,
   0,
-  [_CI, _CS, _TE, _AEu],
+  [_CI, _CS, _TEo, _AEu],
   [0, [() => ClientSecret, 0], 0, 0], 4
 ];
 export var AuthorizationCodeGrantMetadata$: StaticStructureSchema = [3, n0, _ACGM,
@@ -4618,7 +4763,7 @@ export var ChartAxisLabelOptions$: StaticStructureSchema = [3, n0, _CALO,
 ];
 export var ClientCredentialsGrantDetails$: StaticStructureSchema = [3, n0, _CCGD,
   0,
-  [_CI, _CS, _TE],
+  [_CI, _CS, _TEo],
   [0, [() => ClientSecret, 0], 0], 3
 ];
 export var ClientCredentialsGrantMetadata$: StaticStructureSchema = [3, n0, _CCGM,
@@ -4781,12 +4926,6 @@ export var Computation$: StaticStructureSchema = [3, n0, _Com,
   [_TBR, _TBM, _TAot, _MMa, _MC, _POP, _PTD, _GRr, _UV, _For],
   [() => TopBottomRankedComputation$, () => TopBottomMoversComputation$, () => TotalAggregationComputation$, () => MaximumMinimumComputation$, () => MetricComparisonComputation$, () => PeriodOverPeriodComputation$, () => PeriodToDateComputation$, () => GrowthRateComputation$, () => UniqueValuesComputation$, () => ForecastComputation$]
 ];
-export var ConcurrentUpdatingException$: StaticErrorSchema = [-3, n0, _CUE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentUpdatingException$, ConcurrentUpdatingException);
 export var ConditionalFormattingColor$: StaticStructureSchema = [3, n0, _CFCon,
   0,
   [_Sol, _G],
@@ -4827,12 +4966,6 @@ export var ConditionalFormattingSolidColor$: StaticStructureSchema = [3, n0, _CF
   [_Ex, _Col],
   [[() => Expression, 0], 0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConfluenceParameters$: StaticStructureSchema = [3, n0, _CPo,
   0,
   [_CU],
@@ -5178,12 +5311,6 @@ export var CustomContentVisual$: StaticStructureSchema = [3, n0, _CCVu,
   [_VI, _DSIatae, _Tit, _Su, _CCh, _Ac, _VCAT],
   [0, 0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, () => CustomContentConfiguration$, () => VisualCustomActionList, 0], 2
 ];
-export var CustomerManagedKeyUnavailableException$: StaticErrorSchema = [-3, n0, _CMKUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(CustomerManagedKeyUnavailableException$, CustomerManagedKeyUnavailableException);
 export var CustomFilterConfiguration$: StaticStructureSchema = [3, n0, _CFCu,
   0,
   [_MO, _NO, _CVa, _SAOe, _PN],
@@ -6664,12 +6791,6 @@ export var DisplayFormatOptions$: StaticStructureSchema = [3, n0, _DFO,
   [_UBCF, _BCF, _DFa, _DSec, _GS, _UG, _FD, _P, _S, _US, _NF, _CSur],
   [2, 0, 0, 0, 0, 2, 1, 0, 0, 0, () => NegativeFormat$, 0]
 ];
-export var DomainNotWhitelistedException$: StaticErrorSchema = [-3, n0, _DNWE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DomainNotWhitelistedException$, DomainNotWhitelistedException);
 export var DonutCenterOptions$: StaticStructureSchema = [3, n0, _DCO,
   0,
   [_LVa],
@@ -7560,12 +7681,6 @@ export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
   [_EIP],
   [2]
 ];
-export var IdentityTypeNotSupportedException$: StaticErrorSchema = [-3, n0, _ITNSE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(IdentityTypeNotSupportedException$, IdentityTypeNotSupportedException);
 export var Image$: StaticStructureSchema = [3, n0, _Im,
   0,
   [_So, _GIU],
@@ -7633,7 +7748,7 @@ export var IncrementalRefresh$: StaticStructureSchema = [3, n0, _IR,
 ];
 export var Ingestion$: StaticStructureSchema = [3, n0, _Ing,
   0,
-  [_A, _ISn, _CT, _II, _EI, _RIow, _QIu, _ITIS, _ISIB, _RSeq, _RT],
+  [_A, _ISn, _CT, _II, _EI, _RIow, _QIu, _ITIS, _ISIB, _RSeq, _RTe],
   [0, 0, 4, 0, () => ErrorInfo$, () => RowInfo$, () => QueueInfo$, 1, 1, 0, 0], 3
 ];
 export var InnerFilter$: StaticStructureSchema = [3, n0, _IF,
@@ -7686,48 +7801,6 @@ export var IntegerValueWhenUnsetConfiguration$: StaticStructureSchema = [3, n0, 
   [_VWUO, _CVus],
   [0, [() => SensitiveLong, 0]]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidDataSetParameterValueException$: StaticErrorSchema = [-3, n0, _IDSPVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidDataSetParameterValueException$, InvalidDataSetParameterValueException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var InvalidTopicReviewedAnswer$: StaticStructureSchema = [3, n0, _ITRA,
   0,
   [_AInsw, _Er],
@@ -7873,12 +7946,6 @@ export var LegendOptions$: StaticStructureSchema = [3, n0, _LOeg,
   [_Vi, _Tit, _Pos, _W, _He, _VFC],
   [0, () => LabelOptions$, 0, 0, 0, () => FontConfiguration$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RTe, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var LineChartAggregatedFieldWells$: StaticStructureSchema = [3, n0, _LCAFW,
   0,
   [_Ca, _Va, _Co, _SM],
@@ -8884,12 +8951,6 @@ export var PostgreSqlParameters$: StaticStructureSchema = [3, n0, _PSP,
   [_H, _Po, _Dat],
   [0, 1, 0], 3
 ];
-export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(PreconditionNotMetException$, PreconditionNotMetException);
 export var PredefinedHierarchy$: StaticStructureSchema = [3, n0, _PH,
   0,
   [_HI, _Colu, _DDFr],
@@ -8955,12 +9016,6 @@ export var QueueInfo$: StaticStructureSchema = [3, n0, _QIu,
   [_WOI, _QIue],
   [0, 0], 2
 ];
-export var QuickSightUserNotFoundException$: StaticErrorSchema = [-3, n0, _QSUNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(QuickSightUserNotFoundException$, QuickSightUserNotFoundException);
 export var QuickSuiteActionsOption$: StaticStructureSchema = [3, n0, _QSAO,
   0,
   [_ASv],
@@ -9028,7 +9083,7 @@ export var ReadAuthConfig$: StaticStructureSchema = [3, n0, _RAC,
 ];
 export var ReadAuthorizationCodeGrantDetails$: StaticStructureSchema = [3, n0, _RACGD,
   0,
-  [_CI, _TE, _AEu],
+  [_CI, _TEo, _AEu],
   [0, 0, 0], 3
 ];
 export var ReadAuthorizationCodeGrantMetadata$: StaticStructureSchema = [3, n0, _RACGM,
@@ -9043,7 +9098,7 @@ export var ReadBasicAuthConnectionMetadata$: StaticStructureSchema = [3, n0, _RB
 ];
 export var ReadClientCredentialsGrantDetails$: StaticStructureSchema = [3, n0, _RCCGD,
   0,
-  [_CI, _TE],
+  [_CI, _TEo],
   [0, 0], 2
 ];
 export var ReadClientCredentialsGrantMetadata$: StaticStructureSchema = [3, n0, _RCCGM,
@@ -9231,29 +9286,11 @@ export var RenameColumnsOperation$: StaticStructureSchema = [3, n0, _RCOe,
   [_Al, _So, _RCOen],
   [0, () => TransformOperationSource$, () => RenameColumnOperationList], 3
 ];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RTe, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RTe, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePermission$: StaticStructureSchema = [3, n0, _RPes,
   0,
   [_Prin, _Ac],
   [0, 64 | 0], 2
 ];
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M, _RTe, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var RestoreAnalysisRequest$: StaticStructureSchema = [3, n0, _RAR,
   0,
   [_AAI, _AIn, _RTF],
@@ -9579,12 +9616,6 @@ export var ServiceNowParameters$: StaticStructureSchema = [3, n0, _SNP,
   [_SBU],
   [0], 1
 ];
-export var SessionLifetimeInMinutesInvalidException$: StaticErrorSchema = [-3, n0, _SLIMIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(SessionLifetimeInMinutesInvalidException$, SessionLifetimeInMinutesInvalidException);
 export var SessionTag$: StaticStructureSchema = [3, n0, _STes,
   0,
   [_K, _V],
@@ -10270,12 +10301,6 @@ export var ThresholdAlertsConfigurations$: StaticStructureSchema = [3, n0, _TAC,
   [_En],
   [2], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEhr,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TileLayoutStyle$: StaticStructureSchema = [3, n0, _TLS,
   0,
   [_Gu, _Mar],
@@ -10596,18 +10621,6 @@ export var UnpivotOperation$: StaticStructureSchema = [3, n0, _UOn,
   [_Al, _So, _CTUo, _ULCN, _ULCI, _UVCN, _UVCI],
   [0, () => TransformOperationSource$, () => ColumnToUnpivotList, 0, 0, 0, 0], 7
 ];
-export var UnsupportedPricingPlanException$: StaticErrorSchema = [-3, n0, _UPPE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedPricingPlanException$, UnsupportedPricingPlanException);
-export var UnsupportedUserEditionException$: StaticErrorSchema = [-3, n0, _UUEE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedUserEditionException$, UnsupportedUserEditionException);
 export var UntagColumnOperation$: StaticStructureSchema = [3, n0, _UCO,
   0,
   [_CN, _TNa],
@@ -11333,8 +11346,6 @@ export var YAxisOptions$: StaticStructureSchema = [3, n0, _YAO,
   [_YA],
   [0], 1
 ];
-export var QuickSightServiceException$: StaticErrorSchema = [-3, _sm, "QuickSightServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QuickSightServiceException$, QuickSightServiceException);
 var ActionConnectorSearchFilterList: StaticListSchema = [1, n0, _ACSFL,
   0, () => ActionConnectorSearchFilter$
 ];

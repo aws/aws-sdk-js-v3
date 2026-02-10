@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBedrockAgentHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BedrockAgentClientConfig } from "./BedrockAgentClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BedrockAgentClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.bedrockagent",
+      errorTypeRegistries,
       version: "2023-06-05",
       serviceTarget: "AmazonBedrockAgentBuildTimeLambda",
     },

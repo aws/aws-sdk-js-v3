@@ -455,7 +455,7 @@ const _rPHT = "redactionPlaceHolderType";
 const _rPHTe = "redactionPlaceHolderText";
 const _rT = "resourceType";
 const _rTe = "rendererType";
-const _s = "sensitive";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesweb";
 const _sB = "sortBy";
 const _sC = "serviceCode";
 const _sGI = "securityGroupIds";
@@ -469,10 +469,10 @@ const _sR = "statusReason";
 const _sT = "startTime";
 const _sU = "s3Uri";
 const _s_ = "s3";
-const _se = "session";
-const _ser = "server";
-const _ses = "sessions";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesweb";
+const _se = "server";
+const _sen = "sensitive";
+const _ses = "session";
+const _sess = "sessions";
 const _st = "status";
 const _su = "subject";
 const _t = "text/markdown";
@@ -524,6 +524,67 @@ import {
 import { WorkSpacesWebServiceException } from "../models/WorkSpacesWebServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WorkSpacesWebServiceException$: StaticErrorSchema = [-3, _s, "WorkSpacesWebServiceException", 0, [], []];
+_s_registry.registerError(WorkSpacesWebServiceException$, WorkSpacesWebServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var BrowserPolicy: StaticSimpleSchema = [0, n0, _BP, 8, 0];
 var BuiltInPatternId: StaticSimpleSchema = [0, n0, _BIPI, 8, 0];
 var CookieDomain: StaticSimpleSchema = [0, n0, _CD, 8, 0];
@@ -538,7 +599,7 @@ var IdentityProviderName: StaticSimpleSchema = [0, n0, _IPN, 8, 0];
 var InlineRedactionUrl: StaticSimpleSchema = [0, n0, _IRU, 8, 0];
 var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
 var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
-var Markdown: StaticSimpleSchema = [0, n0, _M, { [_mT]: _t, [_s]: 1 }, 0];
+var Markdown: StaticSimpleSchema = [0, n0, _M, { [_mT]: _t, [_sen]: 1 }, 0];
 var PatternName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var RedactionPlaceHolderText: StaticSimpleSchema = [0, n0, _RPHT, 8, 0];
 var Regex: StaticSimpleSchema = [0, n0, _R, 8, 0];
@@ -549,12 +610,6 @@ var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 var UrlPattern: StaticSimpleSchema = [0, n0, _UP, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 var WallpaperImage: StaticSimpleSchema = [0, n0, _WI, { [_mT]: _i }, 21];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssociateBrowserSettingsRequest$: StaticStructureSchema = [3, n0, _ABSR,
   0,
   [_pA, _bSA],
@@ -670,12 +725,6 @@ export var CertificateSummary$: StaticStructureSchema = [3, n0, _CS,
   [_th, _su, _is, _nVB, _nVA],
   [0, 0, 0, 4, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CookieSpecification$: StaticStructureSchema = [3, n0, _CSo,
   0,
   [_d, _n, _p],
@@ -1078,7 +1127,7 @@ export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_se],
+  [_ses],
   [[() => Session$, 0]]
 ];
 export var GetTrustStoreCertificateRequest$: StaticStructureSchema = [3, n0, _GTSCR,
@@ -1146,12 +1195,6 @@ export var InlineRedactionPattern$: StaticStructureSchema = [3, n0, _IRP,
   [_rPH, _bIPI, _cP, _eU, _eUx, _cLo],
   [[() => RedactionPlaceHolder$, 0], [() => BuiltInPatternId, 0], [() => CustomPattern$, 0], [() => InlineRedactionUrls, 0], [() => InlineRedactionUrls, 0], 1], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IpAccessSettings$: StaticStructureSchema = [3, n0, _IAS,
   0,
   [_iASA, _aPA, _iR, _dN, _de, _cD, _cMK, _aEC],
@@ -1244,7 +1287,7 @@ export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSR,
 ];
 export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
-  [_ses, _nT],
+  [_sess, _nT],
   [[() => SessionSummaryList, 0], 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -1332,23 +1375,11 @@ export var RedactionPlaceHolder$: StaticStructureSchema = [3, n0, _RPH,
   [_rPHT, _rPHTe],
   [0, [() => RedactionPlaceHolderText, 0]], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3LogConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
   [_bu, _lFF, _fS, _kP, _bO],
   [[() => S3Bucket, 0], 0, 0, [() => S3KeyPrefix, 0], 0], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Session$: StaticStructureSchema = [3, n0, _S,
   0,
   [_pA, _sIe, _u, _cIA, _st, _sT, _eT],
@@ -1384,23 +1415,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToolbarConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_tT, _vM, _hTI, _mDR],
   [0, 0, 64 | 0, 0]
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TrustStore$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_tSA, _aPA],
@@ -1541,12 +1560,6 @@ export var UserSettingsSummary$: StaticStructureSchema = [3, n0, _USS,
   [_uSA, _cA, _pAa, _dA, _uA, _pAr, _dTIM, _iDTIM, _cSC, _dLA, _tC, _bC, _wAA],
   [0, 0, 0, 0, 0, 0, 1, 1, [() => CookieSynchronizationConfiguration$, 0], 0, () => ToolbarConfiguration$, [() => BrandingConfiguration$, 0], 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -1558,8 +1571,6 @@ export var WebContentFilteringPolicy$: StaticStructureSchema = [3, n0, _WCFP,
   [64 | 0, [() => UrlPatternList, 0], [() => UrlPatternList, 0]]
 ];
 var __Unit = "unit" as const;
-export var WorkSpacesWebServiceException$: StaticErrorSchema = [-3, _sm, "WorkSpacesWebServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WorkSpacesWebServiceException$, WorkSpacesWebServiceException);
 var ArnList = 64 | 0;
 var BlockedCategories = 64 | 0;
 var BrowserSettingsList: StaticListSchema = [1, n0, _BSL,

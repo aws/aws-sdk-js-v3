@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPinpointSMSVoiceV2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PinpointSMSVoiceV2ClientConfig } from "./PinpointSMSVoiceV2Client";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: PinpointSMSVoiceV2ClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.pinpointsmsvoicev2",
+      errorTypeRegistries,
       version: "2022-03-31",
       serviceTarget: "PinpointSMSVoiceV2",
     },

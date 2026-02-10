@@ -82,8 +82,8 @@ const _eN = "eventName";
 const _eS = "eventSource";
 const _eV = "eventVersion";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.dynamodbstreams";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.dynamodbstreams";
+const _se = "server";
 const _uI = "userIdentity";
 const n0 = "com.amazonaws.dynamodbstreams";
 
@@ -108,6 +108,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DynamoDBStreamsServiceException$: StaticErrorSchema = [-3, _s, "DynamoDBStreamsServiceException", 0, [], []];
+_s_registry.registerError(DynamoDBStreamsServiceException$, DynamoDBStreamsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredIteratorException$, ExpiredIteratorException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TrimmedDataAccessException$: StaticErrorSchema = [-3, n0, _TDAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TrimmedDataAccessException$, TrimmedDataAccessException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_SA, _L, _ESSI, _SF],
@@ -118,12 +161,6 @@ export var DescribeStreamOutput$: StaticStructureSchema = [3, n0, _DSO,
   [_SD],
   [() => StreamDescription$]
 ];
-export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredIteratorException$, ExpiredIteratorException);
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_SI, _L],
@@ -149,23 +186,11 @@ export var Identity$: StaticStructureSchema = [3, n0, _I,
   [_PI, _T],
   [0, 0]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var KeySchemaElement$: StaticStructureSchema = [3, n0, _KSE,
   0,
   [_AN, _KT],
   [0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListStreamsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_TN, _L, _ESSA],
@@ -181,12 +206,6 @@ export var _Record$: StaticStructureSchema = [3, n0, _Re,
   [_eID, _eN, _eV, _eS, _aR, _d, _uI],
   [0, 0, 0, 0, 0, () => StreamRecord$, () => Identity$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_SSN, _ESN],
@@ -217,14 +236,6 @@ export var StreamRecord$: StaticStructureSchema = [3, n0, _SR,
   [_ACDT, _K, _NI, _OI, _SN, _SB, _SVT],
   [4, () => AttributeMap, () => AttributeMap, () => AttributeMap, 0, 1, 0]
 ];
-export var TrimmedDataAccessException$: StaticErrorSchema = [-3, n0, _TDAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TrimmedDataAccessException$, TrimmedDataAccessException);
-export var DynamoDBStreamsServiceException$: StaticErrorSchema = [-3, _sm, "DynamoDBStreamsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DynamoDBStreamsServiceException$, DynamoDBStreamsServiceException);
 var BinarySetAttributeValue = 64 | 21;
 var KeySchema: StaticListSchema = [1, n0, _KS,
   0, () => KeySchemaElement$

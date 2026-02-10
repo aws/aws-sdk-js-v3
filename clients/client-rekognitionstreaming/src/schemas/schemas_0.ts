@@ -80,8 +80,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rekognitionstreaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rekognitionstreaming";
+const _se = "server";
 const _st = "streaming";
 const _xarslcv = "x-amz-rekognition-streaming-liveness-challenge-versions";
 const _xarslsi = "x-amz-rekognition-streaming-liveness-session-id";
@@ -111,12 +111,61 @@ import {
 import { RekognitionStreamingServiceException } from "../models/RekognitionStreamingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RekognitionStreamingServiceException$: StaticErrorSchema = [-3, _s, "RekognitionStreamingServiceException", 0, [], []];
+_s_registry.registerError(RekognitionStreamingServiceException$, RekognitionStreamingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M, _C],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(SessionNotFoundException$, SessionNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BoundingBox$: StaticStructureSchema = [3, n0, _BB,
   0,
   [_W, _H, _L, _T],
@@ -182,12 +231,6 @@ export var InitialFace$: StaticStructureSchema = [3, n0, _IF,
   [_BB, _IFDT],
   [() => BoundingBox$, 1], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var OvalParameters$: StaticStructureSchema = [3, n0, _OP,
   0,
   [_W, _H, _CX, _CY],
@@ -198,29 +241,11 @@ export var ServerSessionInformationEvent$: StaticStructureSchema = [3, n0, _SSIE
   [_SI],
   [() => SessionInformation$], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SessionInformation$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_Ch],
   [() => ServerChallenge$], 1
 ];
-export var SessionNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(SessionNotFoundException$, SessionNotFoundException);
 export var StartFaceLivenessSessionRequest$: StaticStructureSchema = [3, n0, _SFLSR,
   0,
   [_SIe, _VW, _VH, _CV, _LRS],
@@ -236,25 +261,11 @@ export var TargetFace$: StaticStructureSchema = [3, n0, _TF,
   [_BB, _FDITPST, _FDITPET],
   [() => BoundingBox$, 1, 1], 3
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _C],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VideoEvent$: StaticStructureSchema = [3, n0, _VEi,
   0,
   [_VC, _TM],
   [21, 1]
 ];
-export var RekognitionStreamingServiceException$: StaticErrorSchema = [-3, _sm, "RekognitionStreamingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RekognitionStreamingServiceException$, RekognitionStreamingServiceException);
 var ColorComponentList = 64 | 1;
 var ColorSequences: StaticListSchema = [1, n0, _CSo,
   0, () => ColorSequence$

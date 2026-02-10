@@ -235,7 +235,7 @@ const _Posi = "Position23";
 const _Pr = "Profile";
 const _Q = "Quad";
 const _Qu = "Quint";
-const _R = "Routes";
+const _R = "Reason";
 const _RA = "RoadAttributes";
 const _RAA = "RouteAvoidanceArea";
 const _RAAG = "RouteAvoidanceAreaGeometry";
@@ -468,8 +468,8 @@ const _Ra = "Radius";
 const _Ran = "Range";
 const _Rat = "Rates";
 const _Re = "Region";
-const _Rea = "Reason";
-const _Ro = "Route";
+const _Ro = "Routes";
+const _Rou = "Route";
 const _S = "Strategy";
 const _SA = "ScooterAccess";
 const _SAF = "SpanAdditionalFeatures";
@@ -634,8 +634,8 @@ const _k = "key";
 const _m = "message";
 const _n = "name";
 const _r = "reason";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.georoutes";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.georoutes";
+const _se = "server";
 const _xagpb = "x-amz-geo-pricing-bucket";
 const n0 = "com.amazonaws.georoutes";
 
@@ -658,6 +658,43 @@ import {
 import { GeoRoutesServiceException } from "../models/GeoRoutesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GeoRoutesServiceException$: StaticErrorSchema = [-3, _s, "GeoRoutesServiceException", 0, [], []];
+_s_registry.registerError(GeoRoutesServiceException$, GeoRoutesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 var CountryCode3: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
@@ -719,12 +756,6 @@ var WaypointOptimizationHazardousCargoType: StaticSimpleSchema = [0, n0, _WOHCT,
 var WaypointOptimizationServiceTimeTreatment: StaticSimpleSchema = [0, n0, _WOSTT, 8, 0];
 var WaypointOptimizationTruckType: StaticSimpleSchema = [0, n0, _WOTT, 8, 0];
 var WeightKilograms: StaticSimpleSchema = [0, n0, _WK, 8, 1];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var CalculateIsolinesRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_T, _A, _AT, _Av, _DN, _DT, _D, _DO, _IGF, _IG, _K, _OIF, _ORF, _O, _OO, _Tr, _TM, _TMO],
@@ -752,7 +783,7 @@ export var CalculateRoutesRequest$: StaticStructureSchema = [3, n0, _CRR,
 ];
 export var CalculateRoutesResponse$: StaticStructureSchema = [3, n0, _CRRa,
   0,
-  [_LGF, _N, _PB, _R],
+  [_LGF, _N, _PB, _Ro],
   [0, () => RouteResponseNoticeList, [0, { [_hH]: _xagpb }], [() => RouteList, 0]], 4
 ];
 export var Circle$: StaticStructureSchema = [3, n0, _C,
@@ -765,12 +796,6 @@ export var Corridor$: StaticStructureSchema = [3, n0, _Co,
   [_LS, _Ra],
   [[() => LineString, 0], 1], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Isoline$: StaticStructureSchema = [3, n0, _Is,
   0,
   [_Con, _G, _DTi, _TT],
@@ -936,7 +961,7 @@ export var RoadSnapTruckOptions$: StaticStructureSchema = [3, n0, _RSTOo,
   [_GW, _HC, _He, _Le, _Tra, _TRC, _Wi],
   [[() => WeightKilograms, 0], [() => RoadSnapHazardousCargoTypeList, 0], [() => DimensionCentimeters, 0], [() => DimensionCentimeters, 0], [() => RoadSnapTrailerOptions$, 0], [() => TunnelRestrictionCode, 0], [() => DimensionCentimeters, 0]]
 ];
-export var Route$: StaticStructureSchema = [3, n0, _Ro,
+export var Route$: StaticStructureSchema = [3, n0, _Rou,
   0,
   [_Leg, _MRL, _Su],
   [[() => RouteLegList, 0], [() => RouteMajorRoadLabelList, 0], [() => RouteSummary$, 0]], 2
@@ -1546,18 +1571,6 @@ export var SnapToRoadsResponse$: StaticStructureSchema = [3, n0, _STRRn,
   [_N, _PB, _SGF, _STP, _SG],
   [[() => RoadSnapNoticeList, 0], [0, { [_hH]: _xagpb }], 0, [() => RoadSnapSnappedTracePointList, 0], [() => RoadSnapSnappedGeometry$, 0]], 4
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_Na, _M],
@@ -1620,7 +1633,7 @@ export var WaypointOptimizationExclusionOptions$: StaticStructureSchema = [3, n0
 ];
 export var WaypointOptimizationFailedConstraint$: StaticStructureSchema = [3, n0, _WOFC,
   0,
-  [_Cons, _Rea],
+  [_Cons, _R],
   [[() => WaypointOptimizationConstraint, 0], [() => SensitiveString, 0]]
 ];
 export var WaypointOptimizationImpedingWaypoint$: StaticStructureSchema = [3, n0, _WOIW,
@@ -1698,8 +1711,6 @@ export var WeightPerAxleGroup$: StaticStructureSchema = [3, n0, _WPAG,
   [_Sin, _Ta, _Tri, _Q, _Qu],
   [[() => WeightKilograms, 0], [() => WeightKilograms, 0], [() => WeightKilograms, 0], [() => WeightKilograms, 0], [() => WeightKilograms, 0]]
 ];
-export var GeoRoutesServiceException$: StaticErrorSchema = [-3, _sm, "GeoRoutesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GeoRoutesServiceException$, GeoRoutesServiceException);
 var BeforeWaypointsList = 64 | 1;
 var BoundingBox: StaticListSchema = [1, n0, _BB,
   8, 1

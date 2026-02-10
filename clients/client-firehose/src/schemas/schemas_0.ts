@@ -332,8 +332,8 @@ const _co = "code";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.firehose";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.firehose";
+const _se = "server";
 const n0 = "com.amazonaws.firehose";
 
 // smithy-typescript generated code
@@ -360,6 +360,67 @@ import {
 import { FirehoseServiceException } from "../models/FirehoseServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var FirehoseServiceException$: StaticErrorSchema = [-3, _s, "FirehoseServiceException", 0, [], []];
+_s_registry.registerError(FirehoseServiceException$, FirehoseServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidKMSResourceException$: StaticErrorSchema = [-3, n0, _IKMSRE,
+  { [_e]: _c },
+  [_co, _m],
+  [0, 0]
+];
+n0_registry.registerError(InvalidKMSResourceException$, InvalidKMSResourceException);
+export var InvalidSourceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_co, _m],
+  [0, 0]
+];
+n0_registry.registerError(InvalidSourceException$, InvalidSourceException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var HttpEndpointAccessKey: StaticSimpleSchema = [0, n0, _HEAK, 8, 0];
 var HttpEndpointAttributeName: StaticSimpleSchema = [0, n0, _HEAN, 8, 0];
 var HttpEndpointAttributeValue: StaticSimpleSchema = [0, n0, _HEAV, 8, 0];
@@ -447,12 +508,6 @@ export var CloudWatchLoggingOptions$: StaticStructureSchema = [3, n0, _CWLO,
   [_E, _LGN, _LSN],
   [2, 0, 0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var CopyCommand$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_DTN, _DTC, _CO],
@@ -703,24 +758,6 @@ export var InputFormatConfiguration$: StaticStructureSchema = [3, n0, _IFC,
   [_Des],
   [() => Deserializer$]
 ];
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var InvalidKMSResourceException$: StaticErrorSchema = [-3, n0, _IKMSRE,
-  { [_e]: _c },
-  [_co, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidKMSResourceException$, InvalidKMSResourceException);
-export var InvalidSourceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_co, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidSourceException$, InvalidSourceException);
 export var KinesisStreamSourceConfiguration$: StaticStructureSchema = [3, n0, _KSSC,
   0,
   [_KSARN, _RARN],
@@ -736,12 +773,6 @@ export var KMSEncryptionConfig$: StaticStructureSchema = [3, n0, _KMSEC,
   [_AWSKMSKARN],
   [0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListDeliveryStreamsInput$: StaticStructureSchema = [3, n0, _LDSI,
   0,
   [_L, _DST, _ESDSN],
@@ -867,18 +898,6 @@ export var RedshiftRetryOptions$: StaticStructureSchema = [3, n0, _RRO,
   [_DIS],
   [1]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryOptions$: StaticStructureSchema = [3, n0, _RO,
   0,
   [_DIS],
@@ -919,12 +938,6 @@ export var Serializer$: StaticStructureSchema = [3, n0, _Se,
   [_PSD, _OSD],
   [() => ParquetSerDe$, () => OrcSerDe$]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SnowflakeBufferingHints$: StaticStructureSchema = [3, n0, _SBH,
   0,
   [_SIMB, _IIS],
@@ -1060,8 +1073,6 @@ export var VpcConfigurationDescription$: StaticStructureSchema = [3, n0, _VCD,
   [_SIu, _RARN, _SGI, _VIp],
   [64 | 0, 0, 64 | 0, 0], 4
 ];
-export var FirehoseServiceException$: StaticErrorSchema = [-3, _sm, "FirehoseServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(FirehoseServiceException$, FirehoseServiceException);
 var DatabaseColumnIncludeOrExcludeList = 64 | 0;
 var DatabaseIncludeOrExcludeList = 64 | 0;
 var DatabaseSnapshotInfoList: StaticListSchema = [1, n0, _DSIL,

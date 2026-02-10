@@ -40,8 +40,8 @@ const _c = "client";
 const _e = "error";
 const _h = "http";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.connectcontactlens";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcontactlens";
+const _se = "server";
 const n0 = "com.amazonaws.connectcontactlens";
 
 // smithy-typescript generated code
@@ -64,12 +64,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ConnectContactLensServiceException$: StaticErrorSchema = [-3, _s, "ConnectContactLensServiceException", 0, [], []];
+_s_registry.registerError(ConnectContactLensServiceException$, ConnectContactLensServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Categories$: StaticStructureSchema = [3, n0, _C,
   0,
   [_MC, _MD],
@@ -85,18 +122,6 @@ export var CharacterOffsets$: StaticStructureSchema = [3, n0, _CO,
   [_BOC, _EOC],
   [1, 1], 2
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var IssueDetected$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_CO],
@@ -127,25 +152,11 @@ export var RealtimeContactAnalysisSegment$: StaticStructureSchema = [3, n0, _RCA
   [_T, _C, _PCS],
   [() => Transcript$, () => Categories$, () => PostContactSummary$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Transcript$: StaticStructureSchema = [3, n0, _T,
   0,
   [_I, _PI, _PR, _Co, _BOM, _EOM, _Se, _IDs],
   [0, 0, 0, 0, 1, 1, 0, () => IssuesDetected], 6
 ];
-export var ConnectContactLensServiceException$: StaticErrorSchema = [-3, _sm, "ConnectContactLensServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ConnectContactLensServiceException$, ConnectContactLensServiceException);
 var IssuesDetected: StaticListSchema = [1, n0, _IDs,
   0, () => IssueDetected$
 ];

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultStorageGatewayHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { StorageGatewayClientConfig } from "./StorageGatewayClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: StorageGatewayClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.storagegateway",
+      errorTypeRegistries,
       xmlNamespace: "http://storagegateway.amazonaws.com/doc/2013-06-30",
       version: "2013-06-30",
       serviceTarget: "StorageGateway_20130630",

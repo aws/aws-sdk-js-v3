@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCognitoIdentityHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CognitoIdentityClientConfig } from "./CognitoIdentityClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: CognitoIdentityClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cognitoidentity",
+      errorTypeRegistries,
       xmlNamespace: "http://cognito-identity.amazonaws.com/doc/2014-06-30/",
       version: "2014-06-30",
       serviceTarget: "AWSCognitoIdentityService",

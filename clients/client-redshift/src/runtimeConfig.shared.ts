@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRedshiftHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { RedshiftClientConfig } from "./RedshiftClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: RedshiftClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.redshift",
+      errorTypeRegistries,
       xmlNamespace: "http://redshift.amazonaws.com/doc/2012-12-01/",
       version: "2012-12-01",
       serviceTarget: "RedshiftServiceVersion20121201",

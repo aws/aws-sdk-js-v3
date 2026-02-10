@@ -600,14 +600,14 @@ const _SM = "StatusMessage";
 const _SNAE = "SlotNotAvailableException";
 const _SO = "SnapshotOptions";
 const _SOS = "SnapshotOptionsStatus";
-const _SS = "StorageSize";
+const _SS = "SlotSuggestions";
 const _SSO = "ServiceSoftwareOptions";
 const _SSSU = "StartServiceSoftwareUpdate";
 const _SSSUR = "StartServiceSoftwareUpdateRequest";
 const _SSSURt = "StartServiceSoftwareUpdateResponse";
 const _SSTN = "StorageSubTypeName";
-const _SSl = "SlotSuggestions";
-const _SSt = "StepStatus";
+const _SSt = "StorageSize";
+const _SSte = "StepStatus";
 const _ST = "StartTime";
 const _STL = "StorageTypeLimits";
 const _STLL = "StorageTypeLimitList";
@@ -694,7 +694,7 @@ const _UVER = "UpdateVpcEndpointRequest";
 const _UVERp = "UpdateVpcEndpointResponse";
 const _Un = "Unit";
 const _V = "Value";
-const _VE = "VpcEndpoint";
+const _VE = "ValidationException";
 const _VEE = "VpcEndpointErrors";
 const _VEEL = "VpcEndpointErrorList";
 const _VEEp = "VpcEndpointError";
@@ -703,9 +703,9 @@ const _VEIp = "VpcEndpointIds";
 const _VEO = "VpcEndpointOwner";
 const _VES = "VpcEndpointSummary";
 const _VESL = "VpcEndpointSummaryList";
-const _VEa = "ValidationException";
 const _VEe = "VendingEnabled";
-const _VEp = "VpcEndpoints";
+const _VEp = "VpcEndpoint";
+const _VEpc = "VpcEndpoints";
 const _VF = "ValidationFailures";
 const _VFa = "ValidationFailure";
 const _VO = "VpcOptions";
@@ -767,11 +767,11 @@ const _ne = "nexttoken";
 const _oI = "offeringId";
 const _rAZ = "retrieveAZs";
 const _rI = "reservationId";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.opensearch";
 const _sAD = "setAsDefault";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.opensearch";
-const _st = "statuses";
+const _st = "status";
+const _sta = "statuses";
 const _tL = "tagList";
 const _v = "value";
 const _xN = "xmlName";
@@ -808,6 +808,103 @@ import {
 import { OpenSearchServiceException } from "../models/OpenSearchServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var OpenSearchServiceException$: StaticErrorSchema = [-3, _s, "OpenSearchServiceException", 0, [], []];
+_s_registry.registerError(OpenSearchServiceException$, OpenSearchServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BaseException$, BaseException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyFailureException$: StaticErrorSchema = [-3, n0, _DFE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependencyFailureException$, DependencyFailureException);
+export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DisabledOperationException$, DisabledOperationException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
+export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTypeException$, InvalidTypeException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SlotNotAvailableException$: StaticErrorSchema = [-3, n0, _SNAE,
+  { [_e]: _c, [_hE]: 409 },
+  [_SS, _m],
+  [64 | 1, 0]
+];
+n0_registry.registerError(SlotNotAvailableException$, SlotNotAvailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
 export var AcceptInboundConnectionRequest$: StaticStructureSchema = [3, n0, _AICR,
@@ -820,12 +917,6 @@ export var AcceptInboundConnectionResponse$: StaticStructureSchema = [3, n0, _AI
   [_C],
   [() => InboundConnection$]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessPoliciesStatus$: StaticStructureSchema = [3, n0, _APS,
   0,
   [_O, _S],
@@ -903,7 +994,7 @@ export var AppConfig$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var ApplicationSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_i, _a, _n, _en, _s, _cA, _lUA],
+  [_i, _a, _n, _en, _st, _cA, _lUA],
   [0, 0, 0, 0, 0, 4, 4]
 ];
 export var AssociatePackageRequest$: StaticStructureSchema = [3, n0, _APR,
@@ -991,12 +1082,6 @@ export var AWSDomainInformation$: StaticStructureSchema = [3, n0, _AWSDI,
   [_DN, _OI, _R],
   [0, 0, 0], 1
 ];
-export var BaseException$: StaticErrorSchema = [-3, n0, _BE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BaseException$, BaseException);
 export var CancelDomainConfigChangeRequest$: StaticStructureSchema = [3, n0, _CDCCR,
   0,
   [_DN, _DR],
@@ -1072,12 +1157,6 @@ export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
   [_SV, _TV],
   [0, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionProperties$: StaticStructureSchema = [3, n0, _CPo,
   0,
   [_En, _CCSr],
@@ -1140,7 +1219,7 @@ export var CreateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _CVER,
 ];
 export var CreateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _CVERr,
   0,
-  [_VE],
+  [_VEp],
   [() => VpcEndpoint$], 1
 ];
 export var CrossClusterSearchConnectionProperties$: StaticStructureSchema = [3, n0, _CCSCP,
@@ -1243,12 +1322,6 @@ export var DeleteVpcEndpointResponse$: StaticStructureSchema = [3, n0, _DVERe,
   [_VES],
   [() => VpcEndpointSummary$], 1
 ];
-export var DependencyFailureException$: StaticErrorSchema = [-3, n0, _DFE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyFailureException$, DependencyFailureException);
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
   [_DN, _MR, _NT],
@@ -1401,7 +1474,7 @@ export var DescribeVpcEndpointsRequest$: StaticStructureSchema = [3, n0, _DVERes
 ];
 export var DescribeVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _DVEResc,
   0,
-  [_VEp, _VEE],
+  [_VEpc, _VEE],
   [() => VpcEndpoints, () => VpcEndpointErrorList], 2
 ];
 export var DirectQueryDataSource$: StaticStructureSchema = [3, n0, _DQDS,
@@ -1409,12 +1482,6 @@ export var DirectQueryDataSource$: StaticStructureSchema = [3, n0, _DQDS,
   [_DSN, _DST, _D, _OSA, _DSA, _TL],
   [0, () => DirectQueryDataSourceType$, 0, 64 | 0, 0, () => TagList]
 ];
-export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperationException);
 export var DissociatePackageRequest$: StaticStructureSchema = [3, n0, _DPRi,
   0,
   [_PID, _DN],
@@ -1467,7 +1534,7 @@ export var DomainMaintenanceDetails$: StaticStructureSchema = [3, n0, _DMD,
 ];
 export var DomainNodesStatus$: StaticStructureSchema = [3, n0, _DNS,
   0,
-  [_NI, _NTo, _AZ, _IT, _NS, _STt, _SVT, _SS],
+  [_NI, _NTo, _AZ, _IT, _NS, _STt, _SVT, _SSt],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var DomainPackageDetails$: StaticStructureSchema = [3, n0, _DPD,
@@ -1537,7 +1604,7 @@ export var GetApplicationRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetApplicationResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_i, _a, _n, _en, _s, _iICO, _dS, _aC, _cA, _lUA, _kKA],
+  [_i, _a, _n, _en, _st, _iICO, _dS, _aC, _cA, _lUA, _kKA],
   [0, 0, 0, 0, 0, () => IamIdentityCenterOptions$, () => DataSources, () => AppConfigs, 4, 4, 0]
 ];
 export var GetCompatibleVersionsRequest$: StaticStructureSchema = [3, n0, _GCVR,
@@ -1627,7 +1694,7 @@ export var GetUpgradeStatusRequest$: StaticStructureSchema = [3, n0, _GUSR,
 ];
 export var GetUpgradeStatusResponse$: StaticStructureSchema = [3, n0, _GUSRe,
   0,
-  [_US, _SSt, _UN],
+  [_US, _SSte, _UN],
   [0, 0, 0]
 ];
 export var IAMFederationOptionsInput$: StaticStructureSchema = [3, n0, _IAMFOI,
@@ -1690,24 +1757,6 @@ export var InstanceTypeDetails$: StaticStructureSchema = [3, n0, _ITD,
   [_IT, _EE, _CEo, _ALE, _ASE, _WE, _IR, _AZv],
   [0, 2, 2, 2, 2, 2, 64 | 0, 64 | 0]
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
-export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTypeException$, InvalidTypeException);
 export var IPAddressTypeStatus$: StaticStructureSchema = [3, n0, _IPATS,
   0,
   [_O, _S],
@@ -1728,12 +1777,6 @@ export var KeyStoreAccessOption$: StaticStructureSchema = [3, n0, _KSAO,
   [_KSAE, _KARA],
   [2, 0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var Limits$: StaticStructureSchema = [3, n0, _L,
   0,
   [_STto, _IL, _ALd],
@@ -1741,8 +1784,8 @@ export var Limits$: StaticStructureSchema = [3, n0, _L,
 ];
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_nT, _st, _mR],
-  [[0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }]]
+  [_nT, _sta, _mR],
+  [[0, { [_hQ]: _nT }], [64 | 0, { [_hQ]: _sta }], [1, { [_hQ]: _mR }]]
 ];
 export var ListApplicationsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1772,7 +1815,7 @@ export var ListDirectQueryDataSourcesResponse$: StaticStructureSchema = [3, n0, 
 export var ListDomainMaintenancesRequest$: StaticStructureSchema = [3, n0, _LDMR,
   0,
   [_DN, _Ac, _S, _MR, _NT],
-  [[0, 1], [0, { [_hQ]: _ac }], [0, { [_hQ]: _s }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [[0, 1], [0, { [_hQ]: _ac }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListDomainMaintenancesResponse$: StaticStructureSchema = [3, n0, _LDMRi,
   0,
@@ -2054,18 +2097,6 @@ export var ReservedInstanceOffering$: StaticStructureSchema = [3, n0, _RIOe,
   [_RIOI, _IT, _Du, _FP, _UPs, _CCu, _POa, _RCe],
   [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0]]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RevokeVpcEndpointAccessRequest$: StaticStructureSchema = [3, n0, _RVEAR,
   0,
   [_DN, _A, _Se],
@@ -2126,12 +2157,6 @@ export var ServiceSoftwareOptions$: StaticStructureSchema = [3, n0, _SSO,
   [_CVu, _NV, _UAp, _Ca, _USp, _D, _AUD, _OD],
   [0, 0, 2, 2, 0, 0, 4, 2]
 ];
-export var SlotNotAvailableException$: StaticErrorSchema = [-3, n0, _SNAE,
-  { [_e]: _c, [_hE]: 409 },
-  [_SSl, _m],
-  [64 | 1, 0]
-];
-TypeRegistry.for(n0).registerError(SlotNotAvailableException$, SlotNotAvailableException);
 export var SnapshotOptions$: StaticStructureSchema = [3, n0, _SO,
   0,
   [_ASSH],
@@ -2187,12 +2212,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateApplicationRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
   [_i, _dS, _aC],
@@ -2280,7 +2299,7 @@ export var UpdateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _UVER,
 ];
 export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
   0,
-  [_VE],
+  [_VEp],
   [() => VpcEndpoint$], 1
 ];
 export var UpgradeDomainRequest$: StaticStructureSchema = [3, n0, _UDR,
@@ -2303,12 +2322,6 @@ export var UpgradeStepItem$: StaticStructureSchema = [3, n0, _USI,
   [_US, _USS, _Is, _PPr],
   [0, 0, 64 | 0, 1]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationFailure$: StaticStructureSchema = [3, n0, _VFa,
   0,
   [_Cod, _M],
@@ -2329,7 +2342,7 @@ export var VPCDerivedInfoStatus$: StaticStructureSchema = [3, n0, _VPCDIS,
   [_O, _S],
   [() => VPCDerivedInfo$, () => OptionStatus$], 2
 ];
-export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
+export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
   0,
   [_VEI, _VEO, _DA, _VO, _S, _En],
   [0, 0, 0, () => VPCDerivedInfo$, 0, 0]
@@ -2360,8 +2373,6 @@ export var ZoneAwarenessConfig$: StaticStructureSchema = [3, n0, _ZAC,
   [1]
 ];
 var __Unit = "unit" as const;
-export var OpenSearchServiceException$: StaticErrorSchema = [-3, _sm, "OpenSearchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OpenSearchServiceException$, OpenSearchServiceException);
 var AdditionalLimitList: StaticListSchema = [1, n0, _ALL,
   0, () => AdditionalLimit$
 ];
@@ -2501,7 +2512,7 @@ var VpcEndpointErrorList: StaticListSchema = [1, n0, _VEEL,
   0, () => VpcEndpointError$
 ];
 var VpcEndpointIdList = 64 | 0;
-var VpcEndpoints: StaticListSchema = [1, n0, _VEp,
+var VpcEndpoints: StaticListSchema = [1, n0, _VEpc,
   0, () => VpcEndpoint$
 ];
 var VpcEndpointSummaryList: StaticListSchema = [1, n0, _VESL,

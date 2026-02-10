@@ -243,7 +243,7 @@ const _bP = "bgpPeers";
 const _bPI = "bgpPeerId";
 const _bPS = "bgpPeerState";
 const _bS = "bgpStatus";
-const _c = "ckn";
+const _c = "client";
 const _cA = "customerAddress";
 const _cB = "connectionsBandwidth";
 const _cCT = "childConnectionTags";
@@ -253,7 +253,7 @@ const _cRC = "customerRouterConfig";
 const _cS = "connectionState";
 const _ca = "cak";
 const _ci = "cidr";
-const _cl = "client";
+const _ck = "ckn";
 const _co = "connections";
 const _dCG = "directConnectGateway";
 const _dCGA = "directConnectGatewayAssociation";
@@ -330,16 +330,16 @@ const _rMACS = "requestMACSec";
 const _rT = "resourceTags";
 const _rTI = "routerTypeIdentifier";
 const _ro = "router";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.directconnect";
 const _sARN = "secretARN";
 const _sCE = "stateChangeError";
 const _sLE = "siteLinkEnabled";
 const _sO = "startOn";
 const _sT = "startTime";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.directconnect";
 const _so = "software";
-const _st = "state";
+const _st = "status";
+const _sta = "state";
 const _t = "tags";
 const _tDIM = "testDurationInMinutes";
 const _tI = "testId";
@@ -380,6 +380,43 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DirectConnectServiceException$: StaticErrorSchema = [-3, _s, "DirectConnectServiceException", 0, [], []];
+_s_registry.registerError(DirectConnectServiceException$, DirectConnectServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DirectConnectClientException$: StaticErrorSchema = [-3, n0, _DCCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DirectConnectClientException$, DirectConnectClientException);
+export var DirectConnectServerException$: StaticErrorSchema = [-3, n0, _DCSE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DirectConnectServerException$, DirectConnectServerException);
+export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptDirectConnectGatewayAssociationProposalRequest$: StaticStructureSchema = [3, n0, _ADCGAPR,
   0,
   [_dCGI, _pI, _aGOA, _oAPTDCG],
@@ -442,7 +479,7 @@ export var AssociateHostedConnectionRequest$: StaticStructureSchema = [3, n0, _A
 ];
 export var AssociateMacSecKeyRequest$: StaticStructureSchema = [3, n0, _AMSKR,
   0,
-  [_cI, _sARN, _c, _ca],
+  [_cI, _sARN, _ck, _ca],
   [0, 0, 0, 0], 1
 ];
 export var AssociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _AMSKRs,
@@ -477,7 +514,7 @@ export var ConfirmCustomerAgreementRequest$: StaticStructureSchema = [3, n0, _CC
 ];
 export var ConfirmCustomerAgreementResponse$: StaticStructureSchema = [3, n0, _CCARo,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var ConfirmPrivateVirtualInterfaceRequest$: StaticStructureSchema = [3, n0, _CPVIR,
@@ -597,7 +634,7 @@ export var CreateTransitVirtualInterfaceResult$: StaticStructureSchema = [3, n0,
 ];
 export var CustomerAgreement$: StaticStructureSchema = [3, n0, _CA,
   0,
-  [_aN, _s],
+  [_aN, _st],
   [0, 0]
 ];
 export var DeleteBGPPeerRequest$: StaticStructureSchema = [3, n0, _DBGPPR,
@@ -790,12 +827,6 @@ export var DescribeVirtualInterfacesRequest$: StaticStructureSchema = [3, n0, _D
   [_cI, _vII, _mR, _nT],
   [0, 0, 1, 0]
 ];
-export var DirectConnectClientException$: StaticErrorSchema = [-3, n0, _DCCE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectConnectClientException$, DirectConnectClientException);
 export var DirectConnectGateway$: StaticStructureSchema = [3, n0, _DCG,
   0,
   [_dCGI, _dCGN, _aSA, _oA, _dCGS, _sCE, _t],
@@ -816,12 +847,6 @@ export var DirectConnectGatewayAttachment$: StaticStructureSchema = [3, n0, _DCG
   [_dCGI, _vII, _vIR, _vIOA, _aSt, _aT, _sCE],
   [0, 0, 0, 0, 0, 0, 0]
 ];
-export var DirectConnectServerException$: StaticErrorSchema = [-3, n0, _DCSE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DirectConnectServerException$, DirectConnectServerException);
 export var DisassociateConnectionFromLagRequest$: StaticStructureSchema = [3, n0, _DCFLR,
   0,
   [_cI, _lI],
@@ -837,12 +862,6 @@ export var DisassociateMacSecKeyResponse$: StaticStructureSchema = [3, n0, _DMSK
   [_cI, _mSK],
   [0, () => MacSecKeyList]
 ];
-export var DuplicateTagKeysException$: StaticErrorSchema = [-3, n0, _DTKE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateTagKeysException$, DuplicateTagKeysException);
 export var Interconnect$: StaticStructureSchema = [3, n0, _I,
   0,
   [_iI, _iN, _iS, _r, _l, _b, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK],
@@ -865,7 +884,7 @@ export var Lags$: StaticStructureSchema = [3, n0, _La,
 ];
 export var ListVirtualInterfaceTestHistoryRequest$: StaticStructureSchema = [3, n0, _LVITHR,
   0,
-  [_tI, _vII, _bP, _s, _mR, _nT],
+  [_tI, _vII, _bP, _st, _mR, _nT],
   [0, 0, 64 | 0, 0, 1, 0]
 ];
 export var ListVirtualInterfaceTestHistoryResponse$: StaticStructureSchema = [3, n0, _LVITHRi,
@@ -890,7 +909,7 @@ export var Locations$: StaticStructureSchema = [3, n0, _Loca,
 ];
 export var MacSecKey$: StaticStructureSchema = [3, n0, _MSK,
   0,
-  [_sARN, _c, _st, _sO],
+  [_sARN, _ck, _sta, _sO],
   [0, 0, 0, 0]
 ];
 export var NewBGPPeer$: StaticStructureSchema = [3, n0, _NBGPP,
@@ -978,12 +997,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -1051,12 +1064,10 @@ export var VirtualInterfaces$: StaticStructureSchema = [3, n0, _VIi,
 ];
 export var VirtualInterfaceTestHistory$: StaticStructureSchema = [3, n0, _VITH,
   0,
-  [_tI, _vII, _bP, _s, _oA, _tDIM, _sT, _eT],
+  [_tI, _vII, _bP, _st, _oA, _tDIM, _sT, _eT],
   [0, 0, 64 | 0, 0, 0, 1, 4, 4]
 ];
 var __Unit = "unit" as const;
-export var DirectConnectServiceException$: StaticErrorSchema = [-3, _sm, "DirectConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DirectConnectServiceException$, DirectConnectServiceException);
 var AgreementList: StaticListSchema = [1, n0, _AL,
   0, () => CustomerAgreement$
 ];

@@ -129,12 +129,79 @@ import {
 import { Route53ProfilesServiceException } from "../models/Route53ProfilesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Route53ProfilesServiceException$: StaticErrorSchema = [-3, _s, "Route53ProfilesServiceException", 0, [], []];
+_s_registry.registerError(Route53ProfilesServiceException$, Route53ProfilesServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M, _FN],
+  [0, 0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateProfileRequest$: StaticStructureSchema = [3, n0, _APR,
   0,
   [_PI, _RI, _N, _T],
@@ -155,12 +222,6 @@ export var AssociateResourceToProfileResponse$: StaticStructureSchema = [3, n0, 
   [_PRA],
   [() => ProfileResourceAssociation$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_N, _CT, _T],
@@ -231,30 +292,6 @@ export var GetProfileResponse$: StaticStructureSchema = [3, n0, _GPRe,
   [_P],
   [() => Profile$]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M, _FN],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M, _RT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListProfileAssociationsRequest$: StaticStructureSchema = [3, n0, _LPAR,
   0,
   [_RI, _PI, _MR, _NT],
@@ -315,18 +352,6 @@ export var ProfileSummary$: StaticStructureSchema = [3, n0, _PSr,
   [_I, _A, _N, _SS],
   [0, 0, 0, 0]
 ];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
-  { [_e]: _c },
-  [_M, _RT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M, _RT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -342,12 +367,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -368,14 +387,6 @@ export var UpdateProfileResourceAssociationResponse$: StaticStructureSchema = [3
   [_PRA],
   [() => ProfileResourceAssociation$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var Route53ProfilesServiceException$: StaticErrorSchema = [-3, _s, "Route53ProfilesServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(Route53ProfilesServiceException$, Route53ProfilesServiceException);
 var ProfileAssociations: StaticListSchema = [1, n0, _PAr,
   0, () => ProfileAssociation$
 ];

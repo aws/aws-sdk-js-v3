@@ -63,10 +63,10 @@ const _r = "reason";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.notificationscontacts";
 const _sC = "serviceCode";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.notificationscontacts";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _uT = "updateTime";
@@ -95,15 +95,64 @@ import {
 import { NotificationsContactsServiceException } from "../models/NotificationsContactsServiceException";
 
 /* eslint no-var: 0 */
-var EmailContactName: StaticSimpleSchema = [0, n0, _ECN, 8, 0];
-var SensitiveEmailContactAddress: StaticSimpleSchema = [0, n0, _SECA, 8, 0];
-var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var NotificationsContactsServiceException$: StaticErrorSchema = [-3, _s, "NotificationsContactsServiceException", 0, [], []];
+_s_registry.registerError(NotificationsContactsServiceException$, NotificationsContactsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var EmailContactName: StaticSimpleSchema = [0, n0, _ECN, 8, 0];
+var SensitiveEmailContactAddress: StaticSimpleSchema = [0, n0, _SECA, 8, 0];
+var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var ActivateEmailContactRequest$: StaticStructureSchema = [3, n0, _AECR,
   0,
   [_a, _co],
@@ -114,12 +163,6 @@ export var ActivateEmailContactResponse$: StaticStructureSchema = [3, n0, _AECRc
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEmailContactRequest$: StaticStructureSchema = [3, n0, _CECR,
   0,
   [_n, _eA, _t],
@@ -142,7 +185,7 @@ export var DeleteEmailContactResponse$: StaticStructureSchema = [3, n0, _DECRe,
 ];
 export var EmailContact$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_a, _n, _ad, _s, _cT, _uT],
+  [_a, _n, _ad, _st, _cT, _uT],
   [0, [() => EmailContactName, 0], [() => SensitiveEmailContactAddress, 0], 0, 5, 5], 6
 ];
 export var GetEmailContactRequest$: StaticStructureSchema = [3, n0, _GECR,
@@ -155,12 +198,6 @@ export var GetEmailContactResponse$: StaticStructureSchema = [3, n0, _GECRe,
   [_eC],
   [[() => EmailContact$, 0]], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListEmailContactsRequest$: StaticStructureSchema = [3, n0, _LECR,
   0,
   [_mR, _nT],
@@ -181,12 +218,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendActivationCodeRequest$: StaticStructureSchema = [3, n0, _SACR,
   0,
   [_a],
@@ -197,12 +228,6 @@ export var SendActivationCodeResponse$: StaticStructureSchema = [3, n0, _SACRe,
   [],
   []
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_a, _t],
@@ -213,12 +238,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
@@ -229,19 +248,11 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var NotificationsContactsServiceException$: StaticErrorSchema = [-3, _sm, "NotificationsContactsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NotificationsContactsServiceException$, NotificationsContactsServiceException);
 var EmailContacts: StaticListSchema = [1, n0, _ECm,
   0, [() => EmailContact$,
     0]

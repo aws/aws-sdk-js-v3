@@ -118,10 +118,10 @@ const _rM = "requiredMap";
 const _rS = "requiredString";
 const _rSe = "requiredShort";
 const _rT = "requiredTimestamp";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.aws.protocoltests.json10";
 const _sV = "stringValue";
 const _sVt = "structureValue";
-const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.json10";
+const _se = "server";
 const _tL = "topLevel";
 const _tLD = "topLevelDefault";
 const _tV = "timestampValue";
@@ -150,17 +150,42 @@ import { ComplexError, FooError, InvalidGreeting } from "../models/errors";
 import { JSONRPC10ServiceException } from "../models/JSONRPC10ServiceException";
 
 /* eslint no-var: 0 */
-export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD,
-  0,
-  [_m],
-  [1]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var JSONRPC10ServiceException$: StaticErrorSchema = [-3, _s, "JSONRPC10ServiceException", 0, [], []];
+_s_registry.registerError(JSONRPC10ServiceException$, JSONRPC10ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData$, 0]]
 ];
-TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
+n0_registry.registerError(ComplexError$, ComplexError);
+export var FooError$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _se },
+  [],
+  []
+];
+n0_registry.registerError(FooError$, FooError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGreeting$, InvalidGreeting);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var ClientOptionalDefaults$: StaticStructureSchema = [3, n0, _COD,
+  0,
+  [_m],
+  [1]
+];
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
   0,
   [_F],
@@ -206,12 +231,6 @@ export var Farewell$: StaticStructureSchema = [3, n0, _Fa,
   [_p],
   [0]
 ];
-export var FooError$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _s },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(FooError$, FooError);
 export var GreetingWithErrorsInput$: StaticStructureSchema = [3, n0, _GWEI,
   0,
   [_g],
@@ -222,12 +241,6 @@ export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n0, _GWEO,
   [_g],
   [0]
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
 export var JsonUnionsInput$: StaticStructureSchema = [3, n0, _JUI,
   0,
   [_co],
@@ -299,8 +312,6 @@ export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
   [0]
 ];
 var __Unit = "unit" as const;
-export var JSONRPC10ServiceException$: StaticErrorSchema = [-3, _sm, "JSONRPC10ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(JSONRPC10ServiceException$, JSONRPC10ServiceException);
 var DialogList: StaticListSchema = [1, n0, _DL,
   0, () => Dialog$
 ];

@@ -13,7 +13,7 @@ const _AU = "ActivateUser";
 const _AUR = "ActivateUserRequest";
 const _AURc = "ActivateUserResponse";
 const _Ac = "Activity";
-const _C = "Comment";
+const _C = "Code";
 const _CC = "ContentCategories";
 const _CCM = "CreateCustomMetadata";
 const _CCMR = "CreateCustomMetadataRequest";
@@ -50,10 +50,10 @@ const _CTol = "CollectionType";
 const _CU = "CreateUser";
 const _CUR = "CreateUserRequest";
 const _CURr = "CreateUserResponse";
-const _Co = "Contributor";
-const _Cod = "Code";
+const _Co = "Comment";
 const _Com = "Comments";
 const _Comp = "Components";
+const _Con = "Contributor";
 const _D = "Documents";
 const _DA = "DeleteAll";
 const _DAR = "DescribeActivitiesRequest";
@@ -351,11 +351,11 @@ const _oI = "organizationId";
 const _pI = "principalId";
 const _q = "query";
 const _rI = "resourceId";
-const _s = "sort";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.workdocs";
 const _sQ = "searchQuery";
 const _sT = "startTime";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.workdocs";
+const _so = "sort";
 const _t = "type";
 const _uI = "userId";
 const _uIs = "userIds";
@@ -404,6 +404,169 @@ import {
 import { WorkDocsServiceException } from "../models/WorkDocsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WorkDocsServiceException$: StaticErrorSchema = [-3, _s, "WorkDocsServiceException", 0, [], []];
+_s_registry.registerError(WorkDocsServiceException$, WorkDocsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictingOperationException$: StaticErrorSchema = [-3, n0, _COE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictingOperationException$, ConflictingOperationException);
+export var CustomMetadataLimitExceededException$: StaticErrorSchema = [-3, n0, _CMLEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CustomMetadataLimitExceededException$, CustomMetadataLimitExceededException);
+export var DeactivatingLastSystemUserException$: StaticErrorSchema = [-3, n0, _DLSUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(DeactivatingLastSystemUserException$, DeactivatingLastSystemUserException);
+export var DocumentLockedForCommentsException$: StaticErrorSchema = [-3, n0, _DLFCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DocumentLockedForCommentsException$, DocumentLockedForCommentsException);
+export var DraftUploadOutOfSyncException$: StaticErrorSchema = [-3, n0, _DUOOSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DraftUploadOutOfSyncException$, DraftUploadOutOfSyncException);
+export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
+export var EntityNotExistsException$: StaticErrorSchema = [-3, n0, _ENEE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _EI],
+  [0, 64 | 0]
+];
+n0_registry.registerError(EntityNotExistsException$, EntityNotExistsException);
+export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE,
+  { [_e]: _c, [_hE]: 424 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FailedDependencyException$, FailedDependencyException);
+export var IllegalUserStateException$: StaticErrorSchema = [-3, n0, _IUSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IllegalUserStateException$, IllegalUserStateException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidCommentOperationException$: StaticErrorSchema = [-3, n0, _ICOE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidCommentOperationException$, InvalidCommentOperationException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c, [_hE]: 405 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidPasswordException$, InvalidPasswordException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ProhibitedStateException$: StaticErrorSchema = [-3, n0, _PSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ProhibitedStateException$, ProhibitedStateException);
+export var RequestedEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RequestedEntityTooLargeException$, RequestedEntityTooLargeException);
+export var ResourceAlreadyCheckedOutException$: StaticErrorSchema = [-3, n0, _RACOE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyCheckedOutException$, ResourceAlreadyCheckedOutException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var StorageLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StorageLimitExceededException$, StorageLimitExceededException);
+export var StorageLimitWillExceedException$: StaticErrorSchema = [-3, n0, _SLWEE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StorageLimitWillExceedException$, StorageLimitWillExceedException);
+export var TooManyLabelsException$: StaticErrorSchema = [-3, n0, _TMLE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyLabelsException$, TooManyLabelsException);
+export var TooManySubscriptionsException$: StaticErrorSchema = [-3, n0, _TMSE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManySubscriptionsException$, TooManySubscriptionsException);
+export var UnauthorizedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(UnauthorizedOperationException$, UnauthorizedOperationException);
+export var UnauthorizedResourceAccessException$: StaticErrorSchema = [-3, n0, _URAE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedResourceAccessException$, UnauthorizedResourceAccessException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AuthenticationHeaderType: StaticSimpleSchema = [0, n0, _AHT, 8, 0];
 var CommentTextType: StaticSimpleSchema = [0, n0, _CTT, 8, 0];
 var EmailAddressType: StaticSimpleSchema = [0, n0, _EAT, 8, 0];
@@ -445,28 +608,16 @@ export var AddResourcePermissionsResponse$: StaticStructureSchema = [3, n0, _ARP
   [_SR],
   [[() => ShareResultsList, 0]]
 ];
-export var Comment$: StaticStructureSchema = [3, n0, _C,
+export var Comment$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_CI, _PI, _TI, _Te, _Co, _CT, _S, _V, _RIe],
+  [_CI, _PI, _TI, _Te, _Con, _CT, _S, _V, _RIe],
   [0, 0, 0, [() => CommentTextType, 0], [() => User$, 0], 4, 0, 0, 0], 1
 ];
 export var CommentMetadata$: StaticStructureSchema = [3, n0, _CM,
   0,
-  [_CI, _Co, _CT, _CS, _RIe, _CIo],
+  [_CI, _Con, _CT, _CS, _RIe, _CIo],
   [0, [() => User$, 0], 4, 0, 0, 0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConflictingOperationException$: StaticErrorSchema = [-3, n0, _COE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictingOperationException$, ConflictingOperationException);
 export var CreateCommentRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_DI, _VI, _Te, _AT, _PI, _TI, _V, _NC],
@@ -474,7 +625,7 @@ export var CreateCommentRequest$: StaticStructureSchema = [3, n0, _CCR,
 ];
 export var CreateCommentResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_C],
+  [_Co],
   [[() => Comment$, 0]]
 ];
 export var CreateCustomMetadataRequest$: StaticStructureSchema = [3, n0, _CCMR,
@@ -527,12 +678,6 @@ export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
   [_U],
   [[() => User$, 0]]
 ];
-export var CustomMetadataLimitExceededException$: StaticErrorSchema = [-3, n0, _CMLEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomMetadataLimitExceededException$, CustomMetadataLimitExceededException);
 export var DateRangeType$: StaticStructureSchema = [3, n0, _DRT,
   0,
   [_SV, _EV],
@@ -543,12 +688,6 @@ export var DeactivateUserRequest$: StaticStructureSchema = [3, n0, _DUR,
   [_UI, _AT],
   [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }]], 1
 ];
-export var DeactivatingLastSystemUserException$: StaticErrorSchema = [-3, n0, _DLSUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _Cod],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DeactivatingLastSystemUserException$, DeactivatingLastSystemUserException);
 export var DeleteCommentRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_DI, _VI, _CI, _AT],
@@ -637,7 +776,7 @@ export var DescribeDocumentVersionsResponse$: StaticStructureSchema = [3, n0, _D
 export var DescribeFolderContentsRequest$: StaticStructureSchema = [3, n0, _DFCRe,
   0,
   [_FI, _AT, _So, _O, _Li, _Ma, _T, _In],
-  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _s }], [0, { [_hQ]: _o }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }], [0, { [_hQ]: _t }], [0, { [_hQ]: _i }]], 1
+  [[0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _so }], [0, { [_hQ]: _o }], [1, { [_hQ]: _li }], [0, { [_hQ]: _m }], [0, { [_hQ]: _t }], [0, { [_hQ]: _i }]], 1
 ];
 export var DescribeFolderContentsResponse$: StaticStructureSchema = [3, n0, _DFCRes,
   0,
@@ -687,19 +826,13 @@ export var DescribeRootFoldersResponse$: StaticStructureSchema = [3, n0, _DRFRe,
 export var DescribeUsersRequest$: StaticStructureSchema = [3, n0, _DURes,
   0,
   [_AT, _OI, _UIs, _Q, _In, _O, _So, _Ma, _Li, _F],
-  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _oI }], [0, { [_hQ]: _uIs }], [() => SearchQueryType, { [_hQ]: _q }], [0, { [_hQ]: _i }], [0, { [_hQ]: _o }], [0, { [_hQ]: _s }], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }]]
+  [[() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _oI }], [0, { [_hQ]: _uIs }], [() => SearchQueryType, { [_hQ]: _q }], [0, { [_hQ]: _i }], [0, { [_hQ]: _o }], [0, { [_hQ]: _so }], [0, { [_hQ]: _m }], [1, { [_hQ]: _li }], [0, { [_hQ]: _f }]]
 ];
 export var DescribeUsersResponse$: StaticStructureSchema = [3, n0, _DUResc,
   0,
   [_Use, _TNOU, _Ma],
   [[() => OrganizationUserList, 0], 1, 0]
 ];
-export var DocumentLockedForCommentsException$: StaticErrorSchema = [-3, n0, _DLFCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DocumentLockedForCommentsException$, DocumentLockedForCommentsException);
 export var DocumentMetadata$: StaticStructureSchema = [3, n0, _DM,
   0,
   [_Id, _CIr, _PFI, _CT, _MTo, _LVM, _RS, _L],
@@ -710,30 +843,6 @@ export var DocumentVersionMetadata$: StaticStructureSchema = [3, n0, _DVM,
   [_Id, _N, _CTo, _Si, _Sig, _S, _CT, _MTo, _CCT, _CMT, _CIr, _Th, _Sou],
   [0, [() => ResourceNameType, 0], 0, 1, 0, 0, 4, 4, 4, 4, 0, [() => DocumentThumbnailUrlMap, 0], [() => DocumentSourceUrlMap, 0]]
 ];
-export var DraftUploadOutOfSyncException$: StaticErrorSchema = [-3, n0, _DUOOSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DraftUploadOutOfSyncException$, DraftUploadOutOfSyncException);
-export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
-export var EntityNotExistsException$: StaticErrorSchema = [-3, n0, _ENEE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _EI],
-  [0, 64 | 0]
-];
-TypeRegistry.for(n0).registerError(EntityNotExistsException$, EntityNotExistsException);
-export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE,
-  { [_e]: _c, [_hE]: 424 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FailedDependencyException$, FailedDependencyException);
 export var Filters$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_TL, _CC, _RT, _L, _Pr, _AI, _SCT, _SRi, _CR, _MR],
@@ -819,12 +928,6 @@ export var GroupMetadata$: StaticStructureSchema = [3, n0, _GM,
   [_Id, _N],
   [0, 0]
 ];
-export var IllegalUserStateException$: StaticErrorSchema = [-3, n0, _IUSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IllegalUserStateException$, IllegalUserStateException);
 export var InitiateDocumentVersionUploadRequest$: StaticStructureSchema = [3, n0, _IDVUR,
   0,
   [_AT, _Id, _N, _CCT, _CMT, _CTo, _DSIB, _PFI],
@@ -835,36 +938,6 @@ export var InitiateDocumentVersionUploadResponse$: StaticStructureSchema = [3, n
   [_Me, _UM],
   [[() => DocumentMetadata$, 0], [() => UploadMetadata$, 0]]
 ];
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var InvalidCommentOperationException$: StaticErrorSchema = [-3, n0, _ICOE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCommentOperationException$, InvalidCommentOperationException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c, [_hE]: 405 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidPasswordException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPasswordException$, InvalidPasswordException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var LongRangeType$: StaticStructureSchema = [3, n0, _LRT,
   0,
   [_SV, _EV],
@@ -890,12 +963,6 @@ export var Principal$: StaticStructureSchema = [3, n0, _Pri,
   [_Id, _T, _Ro],
   [0, 0, () => PermissionInfoList]
 ];
-export var ProhibitedStateException$: StaticErrorSchema = [-3, n0, _PSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ProhibitedStateException$, ProhibitedStateException);
 export var RemoveAllResourcePermissionsRequest$: StaticStructureSchema = [3, n0, _RARPR,
   0,
   [_RI, _AT],
@@ -906,18 +973,6 @@ export var RemoveResourcePermissionRequest$: StaticStructureSchema = [3, n0, _RR
   [_RI, _PIr, _AT, _PTr],
   [[0, 1], [0, 1], [() => AuthenticationHeaderType, { [_hH]: _A }], [0, { [_hQ]: _t }]], 2
 ];
-export var RequestedEntityTooLargeException$: StaticErrorSchema = [-3, n0, _RETLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestedEntityTooLargeException$, RequestedEntityTooLargeException);
-export var ResourceAlreadyCheckedOutException$: StaticErrorSchema = [-3, n0, _RACOE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyCheckedOutException$, ResourceAlreadyCheckedOutException);
 export var ResourceMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_T, _N, _ON, _Id, _VI, _Ow, _PI],
@@ -963,12 +1018,6 @@ export var SearchSortResult$: StaticStructureSchema = [3, n0, _SSR,
   [_Fie, _O],
   [0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SharePrincipal$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_Id, _T, _R],
@@ -979,18 +1028,6 @@ export var ShareResult$: StaticStructureSchema = [3, n0, _SRh,
   [_PIr, _IPI, _R, _S, _SIh, _SM],
   [0, 0, 0, 0, 0, [() => MessageType, 0]]
 ];
-export var StorageLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StorageLimitExceededException$, StorageLimitExceededException);
-export var StorageLimitWillExceedException$: StaticErrorSchema = [-3, n0, _SLWEE,
-  { [_e]: _c, [_hE]: 413 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StorageLimitWillExceedException$, StorageLimitWillExceedException);
 export var StorageRuleType$: StaticStructureSchema = [3, n0, _SRT,
   0,
   [_SAIB, _STto],
@@ -1001,30 +1038,6 @@ export var Subscription$: StaticStructureSchema = [3, n0, _Su,
   [_SI, _EP, _Pro],
   [0, 0, 0]
 ];
-export var TooManyLabelsException$: StaticErrorSchema = [-3, n0, _TMLE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyLabelsException$, TooManyLabelsException);
-export var TooManySubscriptionsException$: StaticErrorSchema = [-3, n0, _TMSE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManySubscriptionsException$, TooManySubscriptionsException);
-export var UnauthorizedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _Cod],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedOperationException$, UnauthorizedOperationException);
-export var UnauthorizedResourceAccessException$: StaticErrorSchema = [-3, n0, _URAE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedResourceAccessException$, UnauthorizedResourceAccessException);
 export var UpdateDocumentRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
   [_DI, _AT, _N, _PFI, _RS],
@@ -1071,8 +1084,6 @@ export var UserStorageMetadata$: StaticStructureSchema = [3, n0, _USM,
   [1, () => StorageRuleType$]
 ];
 var __Unit = "unit" as const;
-export var WorkDocsServiceException$: StaticErrorSchema = [-3, _sm, "WorkDocsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WorkDocsServiceException$, WorkDocsServiceException);
 var AdditionalResponseFieldsList = 64 | 0;
 var CommentList: StaticListSchema = [1, n0, _CL,
   0, [() => Comment$,

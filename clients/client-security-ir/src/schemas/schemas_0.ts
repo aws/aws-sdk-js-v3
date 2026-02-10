@@ -205,7 +205,7 @@ const _oUTR = "organizationalUnitsToRemove";
 const _p = "principal";
 const _pA = "pendingAction";
 const _qC = "quotaCode";
-const _r = "region";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
@@ -215,11 +215,11 @@ const _rS = "relationshipStatus";
 const _rT = "resourceType";
 const _rTe = "resolverType";
 const _rTel = "relationshipType";
-const _re = "reason";
-const _s = "server";
+const _re = "region";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.securityir";
 const _sA = "submittedAt";
 const _sC = "serviceCode";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.securityir";
+const _se = "server";
 const _st = "status";
 const _t = "title";
 const _tAIA = "threatActorIpAddresses";
@@ -262,6 +262,73 @@ import {
 import { SecurityIRServiceException } from "../models/SecurityIRServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SecurityIRServiceException$: StaticErrorSchema = [-3, _s, "SecurityIRServiceException", 0, [], []];
+_s_registry.registerError(SecurityIRServiceException$, SecurityIRServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c, [_hE]: 423 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidTokenException$, InvalidTokenException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var SecurityIncidentResponseNotActiveException$: StaticErrorSchema = [-3, n0, _SIRNAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(SecurityIncidentResponseNotActiveException$, SecurityIncidentResponseNotActiveException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CaseDescription: StaticSimpleSchema = [0, n0, _CD, 8, 0];
 var CaseTitle: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 var CommentBody: StaticSimpleSchema = [0, n0, _CB, 8, 0];
@@ -273,12 +340,6 @@ var JobTitle: StaticSimpleSchema = [0, n0, _JT, 8, 0];
 var MembershipName: StaticSimpleSchema = [0, n0, _MN, 8, 0];
 var PersonName: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 var Url: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var BatchGetMemberAccountDetailsRequest$: StaticStructureSchema = [3, n0, _BGMADR,
   0,
   [_mI, _aI],
@@ -324,12 +385,6 @@ export var CloseCaseResponse$: StaticStructureSchema = [3, n0, _CCRl,
   [_cS, _cDl],
   [0, 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCaseCommentRequest$: StaticStructureSchema = [3, n0, _CCCR,
   0,
   [_cI, _b, _cT],
@@ -407,12 +462,12 @@ export var GetMembershipRequest$: StaticStructureSchema = [3, n0, _GMR,
 ];
 export var GetMembershipResponse$: StaticStructureSchema = [3, n0, _GMRe,
   0,
-  [_mI, _aIc, _r, _mN, _mA, _mS, _mAT, _mDT, _cTu, _nOAC, _iRT, _oIF, _mAC],
+  [_mI, _aIc, _re, _mN, _mA, _mS, _mAT, _mDT, _cTu, _nOAC, _iRT, _oIF, _mAC],
   [0, 0, 0, [() => MembershipName, 0], 0, 0, 4, 4, 0, 1, [() => IncidentResponseTeam, 0], () => OptInFeatures, () => MembershipAccountsConfigurations$], 1
 ];
 export var ImpactedAwsRegion$: StaticStructureSchema = [3, n0, _IAR,
   0,
-  [_r],
+  [_re],
   [0], 1
 ];
 export var IncidentResponder$: StaticStructureSchema = [3, n0, _IR,
@@ -420,18 +475,6 @@ export var IncidentResponder$: StaticStructureSchema = [3, n0, _IR,
   [_n, _jT, _em, _cP],
   [[() => IncidentResponderName, 0], [() => JobTitle, 0], [() => EmailAddress, 0], 64 | 0], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c, [_hE]: 423 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException);
 export var InvestigationAction$: StaticStructureSchema = [3, n0, _IA,
   0,
   [_iI, _aT, _t, _co, _st, _lU, _f],
@@ -494,7 +537,7 @@ export var ListInvestigationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 ];
 export var ListMembershipItem$: StaticStructureSchema = [3, n0, _LMI,
   0,
-  [_mI, _aIc, _r, _mA, _mS],
+  [_mI, _aIc, _re, _mA, _mS],
   [0, 0, 0, 0, 0], 1
 ];
 export var ListMembershipsRequest$: StaticStructureSchema = [3, n0, _LMR,
@@ -532,18 +575,6 @@ export var OptInFeature$: StaticStructureSchema = [3, n0, _OIF,
   [_fNe, _iE],
   [0, 2], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var SecurityIncidentResponseNotActiveException$: StaticErrorSchema = [-3, n0, _SIRNAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(SecurityIncidentResponseNotActiveException$, SecurityIncidentResponseNotActiveException);
 export var SendFeedbackRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_cI, _rIe, _u, _com],
@@ -554,12 +585,6 @@ export var SendFeedbackResponse$: StaticStructureSchema = [3, n0, _SFRe,
   [],
   []
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _ta],
@@ -575,12 +600,6 @@ export var ThreatActorIp$: StaticStructureSchema = [3, n0, _TAI,
   [_iAp, _uA],
   [[() => IPAddress, 0], 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -641,12 +660,6 @@ export var UpdateResolverTypeResponse$: StaticStructureSchema = [3, n0, _URTRp,
   [_cI, _cS, _rTe],
   [0, 0, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -657,8 +670,6 @@ export var Watcher$: StaticStructureSchema = [3, n0, _W,
   [_em, _n, _jT],
   [[() => EmailAddress, 0], [() => PersonName, 0], [() => JobTitle, 0]], 1
 ];
-export var SecurityIRServiceException$: StaticErrorSchema = [-3, _sm, "SecurityIRServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SecurityIRServiceException$, SecurityIRServiceException);
 var AWSAccountIds = 64 | 0;
 var CaseAttachmentsList: StaticListSchema = [1, n0, _CAL,
   0, [() => CaseAttachmentAttributes$,

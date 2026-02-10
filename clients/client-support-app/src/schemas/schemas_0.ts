@@ -53,11 +53,11 @@ const _nOCORC = "notifyOnCreateOrReopenCase";
 const _nOCS = "notifyOnCaseSeverity";
 const _nORC = "notifyOnResolveCase";
 const _nT = "nextToken";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.supportapp";
 const _sCC = "slackChannelConfigurations";
 const _sCCL = "slackChannelConfigurationList";
 const _sWC = "slackWorkspaceConfigurations";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.supportapp";
+const _se = "server";
 const _tI = "teamId";
 const _tN = "teamName";
 const n0 = "com.amazonaws.supportapp";
@@ -77,18 +77,55 @@ import {
 import { SupportAppServiceException } from "../models/SupportAppServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SupportAppServiceException$: StaticErrorSchema = [-3, _s, "SupportAppServiceException", 0, [], []];
+_s_registry.registerError(SupportAppServiceException$, SupportAppServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateSlackChannelConfigurationRequest$: StaticStructureSchema = [3, n0, _CSCCR,
   0,
   [_tI, _cI, _nOCS, _cRA, _cN, _nOCORC, _nOACTC, _nORC],
@@ -139,12 +176,6 @@ export var GetAccountAliasResult$: StaticStructureSchema = [3, n0, _GAARe,
   [_aA],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListSlackChannelConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSCCR,
   0,
   [_nT],
@@ -185,18 +216,6 @@ export var RegisterSlackWorkspaceForOrganizationResult$: StaticStructureSchema =
   [_tI, _tN, _aT],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SlackChannelConfiguration$: StaticStructureSchema = [3, n0, _SCC,
   0,
   [_tI, _cI, _cN, _nOCORC, _nOACTC, _nORC, _nOCS, _cRA],
@@ -217,14 +236,6 @@ export var UpdateSlackChannelConfigurationResult$: StaticStructureSchema = [3, n
   [_tI, _cI, _cN, _nOCORC, _nOACTC, _nORC, _nOCS, _cRA],
   [0, 0, 0, 2, 2, 2, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SupportAppServiceException$: StaticErrorSchema = [-3, _sm, "SupportAppServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SupportAppServiceException$, SupportAppServiceException);
 var slackChannelConfigurationList: StaticListSchema = [1, n0, _sCCL,
   0, () => SlackChannelConfiguration$
 ];

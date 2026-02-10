@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSMContactsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSMContactsClientConfig } from "./SSMContactsClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSMContactsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssmcontacts",
+      errorTypeRegistries,
       version: "2021-05-03",
       serviceTarget: "SSMContacts",
     },

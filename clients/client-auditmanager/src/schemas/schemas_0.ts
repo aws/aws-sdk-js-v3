@@ -413,14 +413,14 @@ const _eT = "expirationTime";
 const _eTv = "eventTime";
 const _er = "errors";
 const _ev = "evidence";
-const _f = "framework";
+const _f = "fields";
 const _fD = "frameworkDescription";
 const _fI = "frameworkId";
 const _fML = "frameworkMetadataList";
 const _fN = "frameworkName";
 const _fNi = "fileName";
 const _fT = "frameworkType";
-const _fi = "fields";
+const _fr = "framework";
 const _h = "http";
 const _hE = "httpError";
 const _hN = "hyperlinkName";
@@ -454,18 +454,18 @@ const _oT = "objectType";
 const _pD = "postedDate";
 const _pSU = "preSignedUrl";
 const _qS = "queryStatement";
-const _r = "response";
+const _r = "reason";
 const _rA = "roleArn";
 const _rAe = "resourceArn";
-const _rI = "requestId";
-const _rIe = "resourcesIncluded";
-const _rIes = "resourceId";
-const _rT = "roleType";
+const _rI = "resourceId";
+const _rIe = "requestId";
+const _rIes = "resourcesIncluded";
+const _rT = "resourceType";
 const _rTe = "requestType";
-const _rTes = "resourceType";
-const _re = "reason";
+const _rTo = "roleType";
+const _re = "response";
 const _ro = "roles";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.auditmanager";
 const _sA = "sourceAccount";
 const _sAi = "signatureAlgorithm";
 const _sCC = "standardControlsCount";
@@ -486,11 +486,11 @@ const _sT = "sourceType";
 const _sTn = "snsTopic";
 const _sV = "signatureValid";
 const _sc = "scope";
-const _se = "settings";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.auditmanager";
+const _se = "server";
+const _set = "settings";
 const _so = "source";
-const _st = "state";
+const _st = "status";
+const _sta = "state";
 const _t = "tags";
 const _tACC = "totalAssessmentControlsCount";
 const _tCC = "totalControlsCount";
@@ -529,6 +529,55 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AuditManagerServiceException$: StaticErrorSchema = [-3, _s, "AuditManagerServiceException", 0, [], []];
+_s_registry.registerError(AuditManagerServiceException$, AuditManagerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ActionPlanInstructions: StaticSimpleSchema = [0, n0, _API, 8, 0];
 var ActionPlanTitle: StaticSimpleSchema = [0, n0, _APT, 8, 0];
 var AssessmentDescription: StaticSimpleSchema = [0, n0, _AD, 8, 0];
@@ -547,25 +596,19 @@ var SNSTopic: StaticSimpleSchema = [0, n0, _SNST, 8, 0];
 var TestingInformation: StaticSimpleSchema = [0, n0, _TI, 8, 0];
 var TroubleshootingText: StaticSimpleSchema = [0, n0, _TT, 8, 0];
 var Username: StaticSimpleSchema = [0, n0, _U, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Assessment$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_a, _aA, _me, _f, _t],
+  [_a, _aA, _me, _fr, _t],
   [0, [() => AWSAccount$, 0], [() => AssessmentMetadata$, 0], [() => AssessmentFramework$, 0], 128 | 0]
 ];
 export var AssessmentControl$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_i, _n, _d, _s, _r, _co, _eS, _eC, _aREC],
+  [_i, _n, _d, _st, _re, _co, _eS, _eC, _aREC],
   [0, 0, [() => ControlDescription, 0], 0, 0, [() => ControlComments, 0], 64 | 0, 1, 1]
 ];
 export var AssessmentControlSet$: StaticStructureSchema = [3, n0, _ACS,
   0,
-  [_i, _d, _s, _ro, _con, _de, _sEC, _mEC],
+  [_i, _d, _st, _ro, _con, _de, _sEC, _mEC],
   [0, 0, 0, [() => Roles, 0], [() => AssessmentControls, 0], [() => Delegations, 0], 1, 1]
 ];
 export var AssessmentEvidenceFolder$: StaticStructureSchema = [3, n0, _AEF,
@@ -585,22 +628,22 @@ export var AssessmentFrameworkMetadata$: StaticStructureSchema = [3, n0, _AFM,
 ];
 export var AssessmentFrameworkShareRequest$: StaticStructureSchema = [3, n0, _AFSR,
   0,
-  [_i, _fI, _fN, _fD, _s, _sA, _dA, _dR, _eT, _cTr, _lU, _com, _sCC, _cCC, _cT],
+  [_i, _fI, _fN, _fD, _st, _sA, _dA, _dR, _eT, _cTr, _lU, _com, _sCC, _cCC, _cT],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 1, 1, [() => ComplianceType, 0]]
 ];
 export var AssessmentMetadata$: StaticStructureSchema = [3, n0, _AM,
   0,
-  [_n, _i, _d, _cT, _s, _aRD, _sc, _ro, _de, _cTr, _lU],
+  [_n, _i, _d, _cT, _st, _aRD, _sc, _ro, _de, _cTr, _lU],
   [[() => AssessmentName, 0], 0, [() => AssessmentDescription, 0], [() => ComplianceType, 0], 0, [() => AssessmentReportsDestination$, 0], [() => Scope$, 0], [() => Roles, 0], [() => Delegations, 0], 4, 4]
 ];
 export var AssessmentMetadataItem$: StaticStructureSchema = [3, n0, _AMI,
   0,
-  [_n, _i, _cT, _s, _ro, _de, _cTr, _lU],
+  [_n, _i, _cT, _st, _ro, _de, _cTr, _lU],
   [[() => AssessmentName, 0], 0, [() => ComplianceType, 0], 0, [() => Roles, 0], [() => Delegations, 0], 4, 4]
 ];
 export var AssessmentReport$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_i, _n, _d, _aAI, _aI, _aN, _au, _s, _cTr],
+  [_i, _n, _d, _aAI, _aI, _aN, _au, _st, _cTr],
   [0, 0, [() => AssessmentReportDescription, 0], 0, 0, [() => AssessmentName, 0], [() => Username, 0], 0, 4]
 ];
 export var AssessmentReportEvidenceError$: StaticStructureSchema = [3, n0, _AREE,
@@ -610,7 +653,7 @@ export var AssessmentReportEvidenceError$: StaticStructureSchema = [3, n0, _AREE
 ];
 export var AssessmentReportMetadata$: StaticStructureSchema = [3, n0, _ARM,
   0,
-  [_i, _n, _d, _aI, _aN, _au, _s, _cTr],
+  [_i, _n, _d, _aI, _aN, _au, _st, _cTr],
   [0, 0, [() => AssessmentReportDescription, 0], 0, [() => AssessmentName, 0], [() => Username, 0], 0, 4]
 ];
 export var AssessmentReportsDestination$: StaticStructureSchema = [3, n0, _ARDs,
@@ -710,7 +753,7 @@ export var ChangeLog$: StaticStructureSchema = [3, n0, _CL,
 ];
 export var Control$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_a, _i, _ty, _n, _d, _tI, _aPT, _aPI, _cSo, _cMS, _cA, _lUA, _cB, _lUB, _t, _st],
+  [_a, _i, _ty, _n, _d, _tI, _aPT, _aPI, _cSo, _cMS, _cA, _lUA, _cB, _lUB, _t, _sta],
   [0, 0, 0, 0, [() => ControlDescription, 0], [() => TestingInformation, 0], [() => ActionPlanTitle, 0], [() => ActionPlanInstructions, 0], 0, [() => ControlMappingSources, 0], 4, 4, [() => CreatedBy, 0], [() => LastUpdatedBy, 0], 128 | 0, 0]
 ];
 export var ControlComment$: StaticStructureSchema = [3, n0, _CC,
@@ -765,7 +808,7 @@ export var CreateAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _CAFRr,
   0,
-  [_f],
+  [_fr],
   [[() => Framework$, 0]]
 ];
 export var CreateAssessmentReportRequest$: StaticStructureSchema = [3, n0, _CARR,
@@ -805,7 +848,7 @@ export var CreateControlResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateDelegationRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_com, _cSI, _rA, _rT],
+  [_com, _cSI, _rA, _rTo],
   [[() => DelegationComment, 0], 0, 0, 0]
 ];
 export var DefaultExportDestination$: StaticStructureSchema = [3, n0, _DED,
@@ -815,12 +858,12 @@ export var DefaultExportDestination$: StaticStructureSchema = [3, n0, _DED,
 ];
 export var Delegation$: StaticStructureSchema = [3, n0, _D,
   8,
-  [_i, _aN, _aI, _s, _rA, _rT, _cTr, _lU, _cSI, _com, _cB],
+  [_i, _aN, _aI, _st, _rA, _rTo, _cTr, _lU, _cSI, _com, _cB],
   [0, [() => AssessmentName, 0], 0, 0, 0, 0, 4, 4, 0, [() => DelegationComment, 0], [() => CreatedBy, 0]]
 ];
 export var DelegationMetadata$: StaticStructureSchema = [3, n0, _DM,
   0,
-  [_i, _aN, _aI, _s, _rA, _cTr, _cSN],
+  [_i, _aN, _aI, _st, _rA, _cTr, _cSN],
   [0, [() => AssessmentName, 0], 0, 0, 0, 4, 0]
 ];
 export var DeleteAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _DAFR,
@@ -835,7 +878,7 @@ export var DeleteAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DeleteAssessmentFrameworkShareRequest$: StaticStructureSchema = [3, n0, _DAFSR,
   0,
-  [_rI, _rTe],
+  [_rIe, _rTe],
   [[0, 1], [0, { [_hQ]: _rTe }]], 2
 ];
 export var DeleteAssessmentFrameworkShareResponse$: StaticStructureSchema = [3, n0, _DAFSRe,
@@ -880,7 +923,7 @@ export var DeregisterAccountRequest$: StaticStructureSchema = [3, n0, _DARer,
 ];
 export var DeregisterAccountResponse$: StaticStructureSchema = [3, n0, _DARere,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var DeregisterOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _DOAAR,
@@ -910,7 +953,7 @@ export var DisassociateAssessmentReportEvidenceFolderResponse$: StaticStructureS
 ];
 export var Evidence$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_dS, _eAAI, _ti, _eSv, _eN, _eBT, _rIe, _at, _iI, _cCo, _aO, _aAI, _eFI, _i, _aRS],
+  [_dS, _eAAI, _ti, _eSv, _eN, _eBT, _rIes, _at, _iI, _cCo, _aO, _aAI, _eFI, _i, _aRS],
   [0, 0, 4, 0, 0, 0, () => Resources, 128 | 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var EvidenceFinderEnablement$: StaticStructureSchema = [3, n0, _EFE,
@@ -940,7 +983,7 @@ export var GetAccountStatusRequest$: StaticStructureSchema = [3, n0, _GASR,
 ];
 export var GetAccountStatusResponse$: StaticStructureSchema = [3, n0, _GASRe,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var GetAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _GAFR,
@@ -950,7 +993,7 @@ export var GetAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _GAFR
 ];
 export var GetAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _GAFRe,
   0,
-  [_f],
+  [_fr],
   [[() => Framework$, 0]]
 ];
 export var GetAssessmentReportUrlRequest$: StaticStructureSchema = [3, n0, _GARUR,
@@ -1110,7 +1153,7 @@ export var GetSettingsRequest$: StaticStructureSchema = [3, n0, _GSR,
 ];
 export var GetSettingsResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_se],
+  [_set],
   [[() => Settings$, 0]]
 ];
 export var Insights$: StaticStructureSchema = [3, n0, _I,
@@ -1123,12 +1166,6 @@ export var InsightsByAssessment$: StaticStructureSchema = [3, n0, _IBA,
   [_nEC, _cEC, _iEC, _aCCBNE, _tACC, _lU],
   [1, 1, 1, 1, 1, 4]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAssessmentControlInsightsByControlDomainRequest$: StaticStructureSchema = [3, n0, _LACIBCDR,
   0,
   [_cDI, _aI, _nT, _mR],
@@ -1171,8 +1208,8 @@ export var ListAssessmentReportsResponse$: StaticStructureSchema = [3, n0, _LARR
 ];
 export var ListAssessmentsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_s, _nT, _mR],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_st, _nT, _mR],
+  [[0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
 ];
 export var ListAssessmentsResponse$: StaticStructureSchema = [3, n0, _LARi,
   0,
@@ -1266,7 +1303,7 @@ export var RegisterAccountRequest$: StaticStructureSchema = [3, n0, _RAR,
 ];
 export var RegisterAccountResponse$: StaticStructureSchema = [3, n0, _RARe,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var RegisterOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _ROAAR,
@@ -1284,15 +1321,9 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
   [_a, _v, _cCo],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rIes, _rTes],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Role$: StaticStructureSchema = [3, n0, _Ro,
   0,
-  [_rT, _rA],
+  [_rTo, _rA],
   [0, 0], 2
 ];
 export var Scope$: StaticStructureSchema = [3, n0, _S,
@@ -1305,12 +1336,6 @@ export var ServiceMetadata$: StaticStructureSchema = [3, n0, _SM,
   [_n, _dN, _d, _ca],
   [0, 0, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Settings$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_iAOE, _sTn, _dARD, _dPO, _kK, _eFE, _dP, _dED],
@@ -1341,12 +1366,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -1369,7 +1388,7 @@ export var UpdateAssessmentControlResponse$: StaticStructureSchema = [3, n0, _UA
 ];
 export var UpdateAssessmentControlSetStatusRequest$: StaticStructureSchema = [3, n0, _UACSSR,
   0,
-  [_aI, _cSI, _s, _com],
+  [_aI, _cSI, _st, _com],
   [[0, 1], [0, 1], 0, [() => DelegationComment, 0]], 4
 ];
 export var UpdateAssessmentControlSetStatusResponse$: StaticStructureSchema = [3, n0, _UACSSRp,
@@ -1389,12 +1408,12 @@ export var UpdateAssessmentFrameworkRequest$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateAssessmentFrameworkResponse$: StaticStructureSchema = [3, n0, _UAFRp,
   0,
-  [_f],
+  [_fr],
   [[() => Framework$, 0]]
 ];
 export var UpdateAssessmentFrameworkShareRequest$: StaticStructureSchema = [3, n0, _UAFSR,
   0,
-  [_rI, _rTe, _ac],
+  [_rIe, _rTe, _ac],
   [[0, 1], 0, 0], 3
 ];
 export var UpdateAssessmentFrameworkShareResponse$: StaticStructureSchema = [3, n0, _UAFSRp,
@@ -1414,7 +1433,7 @@ export var UpdateAssessmentResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateAssessmentStatusRequest$: StaticStructureSchema = [3, n0, _UASR,
   0,
-  [_aI, _s],
+  [_aI, _st],
   [[0, 1], 0], 2
 ];
 export var UpdateAssessmentStatusResponse$: StaticStructureSchema = [3, n0, _UASRp,
@@ -1439,7 +1458,7 @@ export var UpdateSettingsRequest$: StaticStructureSchema = [3, n0, _USR,
 ];
 export var UpdateSettingsResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_se],
+  [_set],
   [[() => Settings$, 0]]
 ];
 export var URL$: StaticStructureSchema = [3, n0, _URL,
@@ -1457,19 +1476,11 @@ export var ValidateAssessmentReportIntegrityResponse$: StaticStructureSchema = [
   [_sV, _sAi, _sDT, _sKI, _vE],
   [2, 0, 0, 0, 64 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fi],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var AuditManagerServiceException$: StaticErrorSchema = [-3, _sm, "AuditManagerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AuditManagerServiceException$, AuditManagerServiceException);
 var AssessmentControls: StaticListSchema = [1, n0, _ACs,
   0, [() => AssessmentControl$,
     0]

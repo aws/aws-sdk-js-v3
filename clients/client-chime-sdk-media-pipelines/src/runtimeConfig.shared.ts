@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultChimeSDKMediaPipelinesHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ChimeSDKMediaPipelinesClientConfig } from "./ChimeSDKMediaPipelinesClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ChimeSDKMediaPipelinesClientConfig) => 
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.chimesdkmediapipelines",
+      errorTypeRegistries,
       version: "2021-07-15",
       serviceTarget: "ChimeSDKMediaPipelinesService",
     },

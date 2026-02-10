@@ -294,14 +294,14 @@ const _pV = "policyVersion";
 const _qC = "quotaCode";
 const _r = "resource";
 const _rA = "resourceArn";
-const _rI = "resourceIdentifiers";
-const _rIe = "resourceId";
+const _rI = "resourceId";
+const _rIe = "resourceIdentifiers";
 const _rP = "retentionPeriod";
 const _rSGI = "removeSecurityGroupIds";
 const _rSI = "removeSubnetIds";
 const _rT = "resourceType";
 const _re = "resources";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.opensearchserverless";
 const _sC = "serviceCode";
 const _sCD = "securityConfigDetail";
 const _sCS = "securityConfigSummaries";
@@ -313,7 +313,7 @@ const _sPS = "securityPolicySummaries";
 const _sR = "standbyReplicas";
 const _sT = "sessionTimeout";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.opensearchserverless";
+const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
 const _ta = "tags";
@@ -344,6 +344,55 @@ import {
 import { OpenSearchServerlessServiceException } from "../models/OpenSearchServerlessServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var OpenSearchServerlessServiceException$: StaticErrorSchema = [-3, _s, "OpenSearchServerlessServiceException", 0, [], []];
+_s_registry.registerError(OpenSearchServerlessServiceException$, OpenSearchServerlessServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var OcuLimitExceededException$: StaticErrorSchema = [-3, n0, _OLEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(OcuLimitExceededException$, OcuLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _sC, _rI, _rT, _qC],
+  [0, 0, 0, 0, 0], 2
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessPolicyDetail$: StaticStructureSchema = [3, n0, _APD,
   0,
   [_t, _n, _pV, _d, _p, _cD, _lMD],
@@ -386,7 +435,7 @@ export var BatchGetCollectionResponse$: StaticStructureSchema = [3, n0, _BGCRa,
 ];
 export var BatchGetEffectiveLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _BGELPR,
   0,
-  [_rI],
+  [_rIe],
   [() => LifecyclePolicyResourceIdentifiers], 1
 ];
 export var BatchGetEffectiveLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _BGELPRa,
@@ -421,7 +470,7 @@ export var CapacityLimits$: StaticStructureSchema = [3, n0, _CL,
 ];
 export var CollectionDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cE, _dE, _fE, _fC, _fM, _cGN],
+  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cE, _dE, _fE, _fC, _fM, _cGN],
   [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0, 0, () => FipsEndpoints$, 0, 0, 0]
 ];
 export var CollectionErrorDetail$: StaticStructureSchema = [3, n0, _CED,
@@ -431,7 +480,7 @@ export var CollectionErrorDetail$: StaticStructureSchema = [3, n0, _CED,
 ];
 export var CollectionFilters$: StaticStructureSchema = [3, n0, _CF,
   0,
-  [_n, _s, _cGN],
+  [_n, _st, _cGN],
   [0, 0, 0]
 ];
 export var CollectionGroupCapacityLimits$: StaticStructureSchema = [3, n0, _CGCL,
@@ -456,15 +505,9 @@ export var CollectionGroupSummary$: StaticStructureSchema = [3, n0, _CGS,
 ];
 export var CollectionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_id_, _n, _s, _a, _kKA, _cGN],
+  [_id_, _n, _st, _a, _kKA, _cGN],
   [0, 0, 0, 0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessPolicyRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
   [_t, _n, _p, _d, _cT],
@@ -477,7 +520,7 @@ export var CreateAccessPolicyResponse$: StaticStructureSchema = [3, n0, _CAPRr,
 ];
 export var CreateCollectionDetail$: StaticStructureSchema = [3, n0, _CCD,
   0,
-  [_id_, _n, _s, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cGN],
+  [_id_, _n, _st, _t, _d, _a, _kKA, _sR, _vO, _cD, _lMD, _cGN],
   [0, 0, 0, 0, 0, 0, 0, 0, () => VectorOptions$, 1, 1, 0]
 ];
 export var CreateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _CCGD,
@@ -552,7 +595,7 @@ export var CreateSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _CSPRr
 ];
 export var CreateVpcEndpointDetail$: StaticStructureSchema = [3, n0, _CVED,
   0,
-  [_id_, _n, _s],
+  [_id_, _n, _st],
   [0, 0, 0]
 ];
 export var CreateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _CVER,
@@ -577,7 +620,7 @@ export var DeleteAccessPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe,
 ];
 export var DeleteCollectionDetail$: StaticStructureSchema = [3, n0, _DCD,
   0,
-  [_id_, _n, _s],
+  [_id_, _n, _st],
   [0, 0, 0]
 ];
 export var DeleteCollectionGroupRequest$: StaticStructureSchema = [3, n0, _DCGR,
@@ -642,7 +685,7 @@ export var DeleteSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _DSPRe
 ];
 export var DeleteVpcEndpointDetail$: StaticStructureSchema = [3, n0, _DVED,
   0,
-  [_id_, _n, _s],
+  [_id_, _n, _st],
   [0, 0, 0]
 ];
 export var DeleteVpcEndpointRequest$: StaticStructureSchema = [3, n0, _DVER,
@@ -745,12 +788,6 @@ export var IamIdentityCenterConfigOptions$: StaticStructureSchema = [3, n0, _IIC
   [_iA, _aA, _aN, _aD, _uA, _gA],
   [0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LifecyclePolicyDetail$: StaticStructureSchema = [3, n0, _LPD,
   0,
   [_t, _n, _pV, _d, _p, _cD, _lMD],
@@ -861,18 +898,6 @@ export var ListVpcEndpointsResponse$: StaticStructureSchema = [3, n0, _LVERi,
   [_vES, _nT],
   [() => VpcEndpointSummaries, 0]
 ];
-export var OcuLimitExceededException$: StaticErrorSchema = [-3, n0, _OLEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(OcuLimitExceededException$, OcuLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SamlConfigOptions$: StaticStructureSchema = [3, n0, _SCO,
   0,
   [_me, _uA, _gA, _oSSEI, _sT],
@@ -908,12 +933,6 @@ export var SecurityPolicySummary$: StaticStructureSchema = [3, n0, _SPSe,
   [_t, _n, _pV, _d, _cD, _lMD],
   [0, 0, 0, 0, 1, 1]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _sC, _rIe, _rT, _qC],
-  [0, 0, 0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Tag$: StaticStructureSchema = [3, n0, _T,
   0,
   [_k, _v],
@@ -961,7 +980,7 @@ export var UpdateAccountSettingsResponse$: StaticStructureSchema = [3, n0, _UASR
 ];
 export var UpdateCollectionDetail$: StaticStructureSchema = [3, n0, _UCD,
   0,
-  [_id_, _n, _s, _t, _d, _a, _cD, _lMD],
+  [_id_, _n, _st, _t, _d, _a, _cD, _lMD],
   [0, 0, 0, 0, 0, 0, 1, 1]
 ];
 export var UpdateCollectionGroupDetail$: StaticStructureSchema = [3, n0, _UCGD,
@@ -1036,7 +1055,7 @@ export var UpdateSecurityPolicyResponse$: StaticStructureSchema = [3, n0, _USPRp
 ];
 export var UpdateVpcEndpointDetail$: StaticStructureSchema = [3, n0, _UVED,
   0,
-  [_id_, _n, _s, _sI, _sGI, _lMD],
+  [_id_, _n, _st, _sI, _sGI, _lMD],
   [0, 0, 0, 64 | 0, 64 | 0, 1]
 ];
 export var UpdateVpcEndpointRequest$: StaticStructureSchema = [3, n0, _UVER,
@@ -1049,12 +1068,6 @@ export var UpdateVpcEndpointResponse$: StaticStructureSchema = [3, n0, _UVERp,
   [_UVED],
   [() => UpdateVpcEndpointDetail$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorOptions$: StaticStructureSchema = [3, n0, _VO,
   0,
   [_SVA],
@@ -1062,7 +1075,7 @@ export var VectorOptions$: StaticStructureSchema = [3, n0, _VO,
 ];
 export var VpcEndpointDetail$: StaticStructureSchema = [3, n0, _VED,
   0,
-  [_id_, _n, _vI, _sI, _sGI, _s, _cD, _fC, _fM],
+  [_id_, _n, _vI, _sI, _sGI, _st, _cD, _fC, _fM],
   [0, 0, 0, 64 | 0, 64 | 0, 0, 1, 0, 0]
 ];
 export var VpcEndpointErrorDetail$: StaticStructureSchema = [3, n0, _VEED,
@@ -1072,16 +1085,14 @@ export var VpcEndpointErrorDetail$: StaticStructureSchema = [3, n0, _VEED,
 ];
 export var VpcEndpointFilters$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var VpcEndpointSummary$: StaticStructureSchema = [3, n0, _VES,
   0,
-  [_id_, _n, _s],
+  [_id_, _n, _st],
   [0, 0, 0]
 ];
-export var OpenSearchServerlessServiceException$: StaticErrorSchema = [-3, _sm, "OpenSearchServerlessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OpenSearchServerlessServiceException$, OpenSearchServerlessServiceException);
 var AccessPolicySummaries: StaticListSchema = [1, n0, _APScc,
   0, () => AccessPolicySummary$
 ];

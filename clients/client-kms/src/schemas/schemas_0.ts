@@ -361,8 +361,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kms";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kms";
+const _se = "server";
 const n0 = "com.amazonaws.kms";
 
 // smithy-typescript generated code
@@ -429,6 +429,307 @@ import {
 import { KMSServiceException } from "../models/KMSServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KMSServiceException$: StaticErrorSchema = [-3, _s, "KMSServiceException", 0, [], []];
+_s_registry.registerError(KMSServiceException$, KMSServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_aQE]: [`AlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
+export var CloudHsmClusterInUseException$: StaticErrorSchema = [-3, n0, _CHCIUE,
+  { [_aQE]: [`CloudHsmClusterInUseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CloudHsmClusterInUseException$, CloudHsmClusterInUseException);
+export var CloudHsmClusterInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _CHCICE,
+  { [_aQE]: [`CloudHsmClusterInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CloudHsmClusterInvalidConfigurationException$, CloudHsmClusterInvalidConfigurationException);
+export var CloudHsmClusterNotActiveException$: StaticErrorSchema = [-3, n0, _CHCNAE,
+  { [_aQE]: [`CloudHsmClusterNotActiveException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CloudHsmClusterNotActiveException$, CloudHsmClusterNotActiveException);
+export var CloudHsmClusterNotFoundException$: StaticErrorSchema = [-3, n0, _CHCNFE,
+  { [_aQE]: [`CloudHsmClusterNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CloudHsmClusterNotFoundException$, CloudHsmClusterNotFoundException);
+export var CloudHsmClusterNotRelatedException$: StaticErrorSchema = [-3, n0, _CHCNRE,
+  { [_aQE]: [`CloudHsmClusterNotRelatedException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CloudHsmClusterNotRelatedException$, CloudHsmClusterNotRelatedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var CustomKeyStoreHasCMKsException$: StaticErrorSchema = [-3, n0, _CKSHCMKE,
+  { [_aQE]: [`CustomKeyStoreHasCMKsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomKeyStoreHasCMKsException$, CustomKeyStoreHasCMKsException);
+export var CustomKeyStoreInvalidStateException$: StaticErrorSchema = [-3, n0, _CKSISE,
+  { [_aQE]: [`CustomKeyStoreInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomKeyStoreInvalidStateException$, CustomKeyStoreInvalidStateException);
+export var CustomKeyStoreNameInUseException$: StaticErrorSchema = [-3, n0, _CKSNIUE,
+  { [_aQE]: [`CustomKeyStoreNameInUseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomKeyStoreNameInUseException$, CustomKeyStoreNameInUseException);
+export var CustomKeyStoreNotFoundException$: StaticErrorSchema = [-3, n0, _CKSNFE,
+  { [_aQE]: [`CustomKeyStoreNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomKeyStoreNotFoundException$, CustomKeyStoreNotFoundException);
+export var DependencyTimeoutException$: StaticErrorSchema = [-3, n0, _DTE,
+  { [_aQE]: [`DependencyTimeout`, 503], [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependencyTimeoutException$, DependencyTimeoutException);
+export var DisabledException$: StaticErrorSchema = [-3, n0, _DE,
+  { [_aQE]: [`Disabled`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DisabledException$, DisabledException);
+export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
+  { [_aQE]: [`DryRunOperation`, 412], [_e]: _c, [_hE]: 412 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DryRunOperationException$, DryRunOperationException);
+export var ExpiredImportTokenException$: StaticErrorSchema = [-3, n0, _EITE,
+  { [_aQE]: [`ExpiredImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredImportTokenException$, ExpiredImportTokenException);
+export var IncorrectKeyException$: StaticErrorSchema = [-3, n0, _IKE,
+  { [_aQE]: [`IncorrectKeyException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IncorrectKeyException$, IncorrectKeyException);
+export var IncorrectKeyMaterialException$: StaticErrorSchema = [-3, n0, _IKME,
+  { [_aQE]: [`IncorrectKeyMaterialException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IncorrectKeyMaterialException$, IncorrectKeyMaterialException);
+export var IncorrectTrustAnchorException$: StaticErrorSchema = [-3, n0, _ITAE,
+  { [_aQE]: [`IncorrectTrustAnchorException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IncorrectTrustAnchorException$, IncorrectTrustAnchorException);
+export var InvalidAliasNameException$: StaticErrorSchema = [-3, n0, _IANE,
+  { [_aQE]: [`InvalidAliasName`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAliasNameException$, InvalidAliasNameException);
+export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_aQE]: [`InvalidArn`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArnException$, InvalidArnException);
+export var InvalidCiphertextException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InvalidCiphertext`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidCiphertextException$, InvalidCiphertextException);
+export var InvalidGrantIdException$: StaticErrorSchema = [-3, n0, _IGIE,
+  { [_aQE]: [`InvalidGrantId`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidGrantIdException$, InvalidGrantIdException);
+export var InvalidGrantTokenException$: StaticErrorSchema = [-3, n0, _IGTE,
+  { [_aQE]: [`InvalidGrantToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidGrantTokenException$, InvalidGrantTokenException);
+export var InvalidImportTokenException$: StaticErrorSchema = [-3, n0, _IITE,
+  { [_aQE]: [`InvalidImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidImportTokenException$, InvalidImportTokenException);
+export var InvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _IKUE,
+  { [_aQE]: [`InvalidKeyUsage`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidKeyUsageException$, InvalidKeyUsageException);
+export var InvalidMarkerException$: StaticErrorSchema = [-3, n0, _IME,
+  { [_aQE]: [`InvalidMarker`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidMarkerException$, InvalidMarkerException);
+export var KeyUnavailableException$: StaticErrorSchema = [-3, n0, _KUE,
+  { [_aQE]: [`KeyUnavailable`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeyUnavailableException$, KeyUnavailableException);
+export var KMSInternalException$: StaticErrorSchema = [-3, n0, _KMSIE,
+  { [_aQE]: [`KMSInternal`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInternalException$, KMSInternalException);
+export var KMSInvalidMacException$: StaticErrorSchema = [-3, n0, _KMSIME,
+  { [_aQE]: [`KMSInvalidMac`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInvalidMacException$, KMSInvalidMacException);
+export var KMSInvalidSignatureException$: StaticErrorSchema = [-3, n0, _KMSISE,
+  { [_aQE]: [`KMSInvalidSignature`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInvalidSignatureException$, KMSInvalidSignatureException);
+export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISEn,
+  { [_aQE]: [`KMSInvalidStateException`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInvalidStateException$, KMSInvalidStateException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_aQE]: [`NotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TagException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`TagException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagException$, TagException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var XksKeyAlreadyInUseException$: StaticErrorSchema = [-3, n0, _XKAIUE,
+  { [_aQE]: [`XksKeyAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksKeyAlreadyInUseException$, XksKeyAlreadyInUseException);
+export var XksKeyInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XKICE,
+  { [_aQE]: [`XksKeyInvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksKeyInvalidConfigurationException$, XksKeyInvalidConfigurationException);
+export var XksKeyNotFoundException$: StaticErrorSchema = [-3, n0, _XKNFE,
+  { [_aQE]: [`XksKeyNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksKeyNotFoundException$, XksKeyNotFoundException);
+export var XksProxyIncorrectAuthenticationCredentialException$: StaticErrorSchema = [-3, n0, _XPIACE,
+  { [_aQE]: [`XksProxyIncorrectAuthenticationCredentialException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyIncorrectAuthenticationCredentialException$, XksProxyIncorrectAuthenticationCredentialException);
+export var XksProxyInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XPICE,
+  { [_aQE]: [`XksProxyInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyInvalidConfigurationException$, XksProxyInvalidConfigurationException);
+export var XksProxyInvalidResponseException$: StaticErrorSchema = [-3, n0, _XPIRE,
+  { [_aQE]: [`XksProxyInvalidResponseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyInvalidResponseException$, XksProxyInvalidResponseException);
+export var XksProxyUriEndpointInUseException$: StaticErrorSchema = [-3, n0, _XPUEIUE,
+  { [_aQE]: [`XksProxyUriEndpointInUseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyUriEndpointInUseException$, XksProxyUriEndpointInUseException);
+export var XksProxyUriInUseException$: StaticErrorSchema = [-3, n0, _XPUIUE,
+  { [_aQE]: [`XksProxyUriInUseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyUriInUseException$, XksProxyUriInUseException);
+export var XksProxyUriUnreachableException$: StaticErrorSchema = [-3, n0, _XPUUE,
+  { [_aQE]: [`XksProxyUriUnreachableException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyUriUnreachableException$, XksProxyUriUnreachableException);
+export var XksProxyVpcEndpointServiceInUseException$: StaticErrorSchema = [-3, n0, _XPVESIUE,
+  { [_aQE]: [`XksProxyVpcEndpointServiceInUseException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyVpcEndpointServiceInUseException$, XksProxyVpcEndpointServiceInUseException);
+export var XksProxyVpcEndpointServiceInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XPVESICE,
+  { [_aQE]: [`XksProxyVpcEndpointServiceInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyVpcEndpointServiceInvalidConfigurationException$, XksProxyVpcEndpointServiceInvalidConfigurationException);
+export var XksProxyVpcEndpointServiceNotFoundException$: StaticErrorSchema = [-3, n0, _XPVESNFE,
+  { [_aQE]: [`XksProxyVpcEndpointServiceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(XksProxyVpcEndpointServiceNotFoundException$, XksProxyVpcEndpointServiceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var KeyStorePasswordType: StaticSimpleSchema = [0, n0, _KSPT, 8, 0];
 var PlaintextType: StaticSimpleSchema = [0, n0, _PT, 8, 21];
 var XksProxyAuthenticationAccessKeyIdType: StaticSimpleSchema = [0, n0, _XPAAKIT, 8, 0];
@@ -438,12 +739,6 @@ export var AliasListEntry$: StaticStructureSchema = [3, n0, _ALE,
   [_AN, _AA, _TKI, _CD, _LUD],
   [0, 0, 0, 4, 4]
 ];
-export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_aQE]: [`AlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
 export var CancelKeyDeletionRequest$: StaticStructureSchema = [3, n0, _CKDR,
   0,
   [_KI],
@@ -454,42 +749,6 @@ export var CancelKeyDeletionResponse$: StaticStructureSchema = [3, n0, _CKDRa,
   [_KI],
   [0]
 ];
-export var CloudHsmClusterInUseException$: StaticErrorSchema = [-3, n0, _CHCIUE,
-  { [_aQE]: [`CloudHsmClusterInUseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CloudHsmClusterInUseException$, CloudHsmClusterInUseException);
-export var CloudHsmClusterInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _CHCICE,
-  { [_aQE]: [`CloudHsmClusterInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CloudHsmClusterInvalidConfigurationException$, CloudHsmClusterInvalidConfigurationException);
-export var CloudHsmClusterNotActiveException$: StaticErrorSchema = [-3, n0, _CHCNAE,
-  { [_aQE]: [`CloudHsmClusterNotActiveException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CloudHsmClusterNotActiveException$, CloudHsmClusterNotActiveException);
-export var CloudHsmClusterNotFoundException$: StaticErrorSchema = [-3, n0, _CHCNFE,
-  { [_aQE]: [`CloudHsmClusterNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CloudHsmClusterNotFoundException$, CloudHsmClusterNotFoundException);
-export var CloudHsmClusterNotRelatedException$: StaticErrorSchema = [-3, n0, _CHCNRE,
-  { [_aQE]: [`CloudHsmClusterNotRelatedException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CloudHsmClusterNotRelatedException$, CloudHsmClusterNotRelatedException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectCustomKeyStoreRequest$: StaticStructureSchema = [3, n0, _CCKSR,
   0,
   [_CKSI],
@@ -535,30 +794,6 @@ export var CreateKeyResponse$: StaticStructureSchema = [3, n0, _CKRr,
   [_KM],
   [() => KeyMetadata$]
 ];
-export var CustomKeyStoreHasCMKsException$: StaticErrorSchema = [-3, n0, _CKSHCMKE,
-  { [_aQE]: [`CustomKeyStoreHasCMKsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomKeyStoreHasCMKsException$, CustomKeyStoreHasCMKsException);
-export var CustomKeyStoreInvalidStateException$: StaticErrorSchema = [-3, n0, _CKSISE,
-  { [_aQE]: [`CustomKeyStoreInvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomKeyStoreInvalidStateException$, CustomKeyStoreInvalidStateException);
-export var CustomKeyStoreNameInUseException$: StaticErrorSchema = [-3, n0, _CKSNIUE,
-  { [_aQE]: [`CustomKeyStoreNameInUseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomKeyStoreNameInUseException$, CustomKeyStoreNameInUseException);
-export var CustomKeyStoreNotFoundException$: StaticErrorSchema = [-3, n0, _CKSNFE,
-  { [_aQE]: [`CustomKeyStoreNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomKeyStoreNotFoundException$, CustomKeyStoreNotFoundException);
 export var CustomKeyStoresListEntry$: StaticStructureSchema = [3, n0, _CKSLE,
   0,
   [_CKSI, _CKSN, _CHCI, _TAC, _CS, _CEC, _CD, _CKST, _XPCk],
@@ -599,12 +834,6 @@ export var DeleteImportedKeyMaterialResponse$: StaticStructureSchema = [3, n0, _
   [_KI, _KMI],
   [0, 0]
 ];
-export var DependencyTimeoutException$: StaticErrorSchema = [-3, n0, _DTE,
-  { [_aQE]: [`DependencyTimeout`, 503], [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyTimeoutException$, DependencyTimeoutException);
 export var DeriveSharedSecretRequest$: StaticStructureSchema = [3, n0, _DSSR,
   0,
   [_KI, _KAA, _PK, _GT, _DR, _R],
@@ -635,12 +864,6 @@ export var DescribeKeyResponse$: StaticStructureSchema = [3, n0, _DKRe,
   [_KM],
   [() => KeyMetadata$]
 ];
-export var DisabledException$: StaticErrorSchema = [-3, n0, _DE,
-  { [_aQE]: [`Disabled`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DisabledException$, DisabledException);
 export var DisableKeyRequest$: StaticStructureSchema = [3, n0, _DKRi,
   0,
   [_KI],
@@ -661,12 +884,6 @@ export var DisconnectCustomKeyStoreResponse$: StaticStructureSchema = [3, n0, _D
   [],
   []
 ];
-export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
-  { [_aQE]: [`DryRunOperation`, 412], [_e]: _c, [_hE]: 412 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DryRunOperationException$, DryRunOperationException);
 export var EnableKeyRequest$: StaticStructureSchema = [3, n0, _EKR,
   0,
   [_KI],
@@ -687,12 +904,6 @@ export var EncryptResponse$: StaticStructureSchema = [3, n0, _ERn,
   [_CB, _KI, _EA],
   [21, 0, 0]
 ];
-export var ExpiredImportTokenException$: StaticErrorSchema = [-3, n0, _EITE,
-  { [_aQE]: [`ExpiredImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredImportTokenException$, ExpiredImportTokenException);
 export var GenerateDataKeyPairRequest$: StaticStructureSchema = [3, n0, _GDKPR,
   0,
   [_KI, _KPS, _EC, _GT, _R, _DR],
@@ -813,72 +1024,6 @@ export var ImportKeyMaterialResponse$: StaticStructureSchema = [3, n0, _IKMRm,
   [_KI, _KMI],
   [0, 0]
 ];
-export var IncorrectKeyException$: StaticErrorSchema = [-3, n0, _IKE,
-  { [_aQE]: [`IncorrectKeyException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncorrectKeyException$, IncorrectKeyException);
-export var IncorrectKeyMaterialException$: StaticErrorSchema = [-3, n0, _IKME,
-  { [_aQE]: [`IncorrectKeyMaterialException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncorrectKeyMaterialException$, IncorrectKeyMaterialException);
-export var IncorrectTrustAnchorException$: StaticErrorSchema = [-3, n0, _ITAE,
-  { [_aQE]: [`IncorrectTrustAnchorException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncorrectTrustAnchorException$, IncorrectTrustAnchorException);
-export var InvalidAliasNameException$: StaticErrorSchema = [-3, n0, _IANE,
-  { [_aQE]: [`InvalidAliasName`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAliasNameException$, InvalidAliasNameException);
-export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_aQE]: [`InvalidArn`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArnException$, InvalidArnException);
-export var InvalidCiphertextException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_aQE]: [`InvalidCiphertext`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCiphertextException$, InvalidCiphertextException);
-export var InvalidGrantIdException$: StaticErrorSchema = [-3, n0, _IGIE,
-  { [_aQE]: [`InvalidGrantId`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGrantIdException$, InvalidGrantIdException);
-export var InvalidGrantTokenException$: StaticErrorSchema = [-3, n0, _IGTE,
-  { [_aQE]: [`InvalidGrantToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGrantTokenException$, InvalidGrantTokenException);
-export var InvalidImportTokenException$: StaticErrorSchema = [-3, n0, _IITE,
-  { [_aQE]: [`InvalidImportTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidImportTokenException$, InvalidImportTokenException);
-export var InvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _IKUE,
-  { [_aQE]: [`InvalidKeyUsage`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidKeyUsageException$, InvalidKeyUsageException);
-export var InvalidMarkerException$: StaticErrorSchema = [-3, n0, _IME,
-  { [_aQE]: [`InvalidMarker`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidMarkerException$, InvalidMarkerException);
 export var KeyListEntry$: StaticStructureSchema = [3, n0, _KLE,
   0,
   [_KI, _KA],
@@ -889,42 +1034,6 @@ export var KeyMetadata$: StaticStructureSchema = [3, n0, _KM,
   [_KI, _AWSAI, _A, _CD, _E, _D, _KU, _KSe, _DD, _VT, _Or, _CKSI, _CHCI, _EM, _KMe, _CMKS, _KS, _EAn, _SA, _KAAe, _MR, _MRC, _PDWID, _MAa, _XKC, _CKMI],
   [0, 0, 0, 4, 2, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 2, () => MultiRegionConfiguration$, 1, 64 | 0, () => XksKeyConfigurationType$, 0], 1
 ];
-export var KeyUnavailableException$: StaticErrorSchema = [-3, n0, _KUE,
-  { [_aQE]: [`KeyUnavailable`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeyUnavailableException$, KeyUnavailableException);
-export var KMSInternalException$: StaticErrorSchema = [-3, n0, _KMSIE,
-  { [_aQE]: [`KMSInternal`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInternalException$, KMSInternalException);
-export var KMSInvalidMacException$: StaticErrorSchema = [-3, n0, _KMSIME,
-  { [_aQE]: [`KMSInvalidMac`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInvalidMacException$, KMSInvalidMacException);
-export var KMSInvalidSignatureException$: StaticErrorSchema = [-3, n0, _KMSISE,
-  { [_aQE]: [`KMSInvalidSignature`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInvalidSignatureException$, KMSInvalidSignatureException);
-export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISEn,
-  { [_aQE]: [`KMSInvalidStateException`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInvalidStateException$, KMSInvalidStateException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAliasesRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_KI, _L, _M],
@@ -990,12 +1099,6 @@ export var ListRetirableGrantsRequest$: StaticStructureSchema = [3, n0, _LRGR,
   [_RP, _L, _M],
   [0, 1, 0], 1
 ];
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
 export var MultiRegionConfiguration$: StaticStructureSchema = [3, n0, _MRC,
   0,
   [_MRKT, _PKr, _RK],
@@ -1006,12 +1109,6 @@ export var MultiRegionKey$: StaticStructureSchema = [3, n0, _MRK,
   [_A, _Re],
   [0, 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_aQE]: [`NotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutKeyPolicyRequest$: StaticStructureSchema = [3, n0, _PKPR,
   0,
   [_KI, _P, _PN, _BPLSC],
@@ -1092,23 +1189,11 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_TK, _TV],
   [0, 0], 2
 ];
-export var TagException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`TagException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagException$, TagException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_KI, _T],
   [0, () => TagList], 2
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_KI, _TKa],
@@ -1159,29 +1244,11 @@ export var VerifyResponse$: StaticStructureSchema = [3, n0, _VRe,
   [_KI, _SV, _SAi],
   [0, 2, 0]
 ];
-export var XksKeyAlreadyInUseException$: StaticErrorSchema = [-3, n0, _XKAIUE,
-  { [_aQE]: [`XksKeyAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksKeyAlreadyInUseException$, XksKeyAlreadyInUseException);
 export var XksKeyConfigurationType$: StaticStructureSchema = [3, n0, _XKCT,
   0,
   [_I],
   [0]
 ];
-export var XksKeyInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XKICE,
-  { [_aQE]: [`XksKeyInvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksKeyInvalidConfigurationException$, XksKeyInvalidConfigurationException);
-export var XksKeyNotFoundException$: StaticErrorSchema = [-3, n0, _XKNFE,
-  { [_aQE]: [`XksKeyNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksKeyNotFoundException$, XksKeyNotFoundException);
 export var XksProxyAuthenticationCredentialType$: StaticStructureSchema = [3, n0, _XPACT,
   0,
   [_AKI, _RSAK],
@@ -1192,63 +1259,7 @@ export var XksProxyConfigurationType$: StaticStructureSchema = [3, n0, _XPCT,
   [_Co, _AKI, _UE, _UP, _VESN, _VESO],
   [0, [() => XksProxyAuthenticationAccessKeyIdType, 0], 0, 0, 0, 0]
 ];
-export var XksProxyIncorrectAuthenticationCredentialException$: StaticErrorSchema = [-3, n0, _XPIACE,
-  { [_aQE]: [`XksProxyIncorrectAuthenticationCredentialException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyIncorrectAuthenticationCredentialException$, XksProxyIncorrectAuthenticationCredentialException);
-export var XksProxyInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XPICE,
-  { [_aQE]: [`XksProxyInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyInvalidConfigurationException$, XksProxyInvalidConfigurationException);
-export var XksProxyInvalidResponseException$: StaticErrorSchema = [-3, n0, _XPIRE,
-  { [_aQE]: [`XksProxyInvalidResponseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyInvalidResponseException$, XksProxyInvalidResponseException);
-export var XksProxyUriEndpointInUseException$: StaticErrorSchema = [-3, n0, _XPUEIUE,
-  { [_aQE]: [`XksProxyUriEndpointInUseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyUriEndpointInUseException$, XksProxyUriEndpointInUseException);
-export var XksProxyUriInUseException$: StaticErrorSchema = [-3, n0, _XPUIUE,
-  { [_aQE]: [`XksProxyUriInUseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyUriInUseException$, XksProxyUriInUseException);
-export var XksProxyUriUnreachableException$: StaticErrorSchema = [-3, n0, _XPUUE,
-  { [_aQE]: [`XksProxyUriUnreachableException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyUriUnreachableException$, XksProxyUriUnreachableException);
-export var XksProxyVpcEndpointServiceInUseException$: StaticErrorSchema = [-3, n0, _XPVESIUE,
-  { [_aQE]: [`XksProxyVpcEndpointServiceInUseException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyVpcEndpointServiceInUseException$, XksProxyVpcEndpointServiceInUseException);
-export var XksProxyVpcEndpointServiceInvalidConfigurationException$: StaticErrorSchema = [-3, n0, _XPVESICE,
-  { [_aQE]: [`XksProxyVpcEndpointServiceInvalidConfigurationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyVpcEndpointServiceInvalidConfigurationException$, XksProxyVpcEndpointServiceInvalidConfigurationException);
-export var XksProxyVpcEndpointServiceNotFoundException$: StaticErrorSchema = [-3, n0, _XPVESNFE,
-  { [_aQE]: [`XksProxyVpcEndpointServiceNotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(XksProxyVpcEndpointServiceNotFoundException$, XksProxyVpcEndpointServiceNotFoundException);
 var __Unit = "unit" as const;
-export var KMSServiceException$: StaticErrorSchema = [-3, _sm, "KMSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KMSServiceException$, KMSServiceException);
 var AliasList: StaticListSchema = [1, n0, _AL,
   0, () => AliasListEntry$
 ];

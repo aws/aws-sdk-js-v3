@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBedrockDataAutomationRuntimeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BedrockDataAutomationRuntimeClientConfig } from "./BedrockDataAutomationRuntimeClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BedrockDataAutomationRuntimeClientConfi
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.bedrockdataautomationruntime",
+      errorTypeRegistries,
       version: "2024-06-13",
       serviceTarget: "AmazonBedrockKeystoneRuntimeService",
     },

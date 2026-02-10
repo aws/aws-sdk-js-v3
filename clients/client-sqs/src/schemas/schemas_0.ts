@@ -238,23 +238,192 @@ import {
 import { SQSServiceException } from "../models/SQSServiceException";
 
 /* eslint no-var: 0 */
-export var AddPermissionRequest$: StaticStructureSchema = [3, n0, _APR,
-  0,
-  [_QU, _L, _AWSAI, _A],
-  [0, 0, [64 | 0, { [_xF]: 1, [_xN]: _AWSAIc }], [64 | 0, { [_xF]: 1, [_xN]: _AN }]], 4
-];
+const _s_registry = TypeRegistry.for(_s);
+export var SQSServiceException$: StaticErrorSchema = [-3, _s, "SQSServiceException", 0, [], []];
+_s_registry.registerError(SQSServiceException$, SQSServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BatchEntryIdsNotDistinct$: StaticErrorSchema = [-3, n0, _BEIND,
   { [_aQE]: [`AWS.SimpleQueueService.BatchEntryIdsNotDistinct`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BatchEntryIdsNotDistinct$, BatchEntryIdsNotDistinct);
+n0_registry.registerError(BatchEntryIdsNotDistinct$, BatchEntryIdsNotDistinct);
 export var BatchRequestTooLong$: StaticErrorSchema = [-3, n0, _BRTL,
   { [_aQE]: [`AWS.SimpleQueueService.BatchRequestTooLong`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BatchRequestTooLong$, BatchRequestTooLong);
+n0_registry.registerError(BatchRequestTooLong$, BatchRequestTooLong);
+export var EmptyBatchRequest$: StaticErrorSchema = [-3, n0, _EBR,
+  { [_aQE]: [`AWS.SimpleQueueService.EmptyBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EmptyBatchRequest$, EmptyBatchRequest);
+export var InvalidAddress$: StaticErrorSchema = [-3, n0, _IA,
+  { [_aQE]: [`InvalidAddress`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAddress$, InvalidAddress);
+export var InvalidAttributeName$: StaticErrorSchema = [-3, n0, _IAN,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAttributeName$, InvalidAttributeName);
+export var InvalidAttributeValue$: StaticErrorSchema = [-3, n0, _IAV,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAttributeValue$, InvalidAttributeValue);
+export var InvalidBatchEntryId$: StaticErrorSchema = [-3, n0, _IBEI,
+  { [_aQE]: [`AWS.SimpleQueueService.InvalidBatchEntryId`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidBatchEntryId$, InvalidBatchEntryId);
+export var InvalidIdFormat$: StaticErrorSchema = [-3, n0, _IIF,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(InvalidIdFormat$, InvalidIdFormat);
+export var InvalidMessageContents$: StaticErrorSchema = [-3, n0, _IMC,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidMessageContents$, InvalidMessageContents);
+export var InvalidSecurity$: StaticErrorSchema = [-3, n0, _IS,
+  { [_aQE]: [`InvalidSecurity`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSecurity$, InvalidSecurity);
+export var KmsAccessDenied$: StaticErrorSchema = [-3, n0, _KAD,
+  { [_aQE]: [`KMS.AccessDeniedException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsAccessDenied$, KmsAccessDenied);
+export var KmsDisabled$: StaticErrorSchema = [-3, n0, _KD,
+  { [_aQE]: [`KMS.DisabledException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsDisabled$, KmsDisabled);
+export var KmsInvalidKeyUsage$: StaticErrorSchema = [-3, n0, _KIKU,
+  { [_aQE]: [`KMS.InvalidKeyUsageException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsInvalidKeyUsage$, KmsInvalidKeyUsage);
+export var KmsInvalidState$: StaticErrorSchema = [-3, n0, _KIS,
+  { [_aQE]: [`KMS.InvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsInvalidState$, KmsInvalidState);
+export var KmsNotFound$: StaticErrorSchema = [-3, n0, _KNF,
+  { [_aQE]: [`KMS.NotFoundException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsNotFound$, KmsNotFound);
+export var KmsOptInRequired$: StaticErrorSchema = [-3, n0, _KOIR,
+  { [_aQE]: [`KMS.OptInRequired`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsOptInRequired$, KmsOptInRequired);
+export var KmsThrottled$: StaticErrorSchema = [-3, n0, _KT,
+  { [_aQE]: [`KMS.ThrottlingException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KmsThrottled$, KmsThrottled);
+export var MessageNotInflight$: StaticErrorSchema = [-3, n0, _MNI,
+  { [_aQE]: [`AWS.SimpleQueueService.MessageNotInflight`, 400], [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(MessageNotInflight$, MessageNotInflight);
+export var OverLimit$: StaticErrorSchema = [-3, n0, _OL,
+  { [_aQE]: [`OverLimit`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OverLimit$, OverLimit);
+export var PurgeQueueInProgress$: StaticErrorSchema = [-3, n0, _PQIP,
+  { [_aQE]: [`AWS.SimpleQueueService.PurgeQueueInProgress`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PurgeQueueInProgress$, PurgeQueueInProgress);
+export var QueueDeletedRecently$: StaticErrorSchema = [-3, n0, _QDR,
+  { [_aQE]: [`AWS.SimpleQueueService.QueueDeletedRecently`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(QueueDeletedRecently$, QueueDeletedRecently);
+export var QueueDoesNotExist$: StaticErrorSchema = [-3, n0, _QDNE,
+  { [_aQE]: [`AWS.SimpleQueueService.NonExistentQueue`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(QueueDoesNotExist$, QueueDoesNotExist);
+export var QueueNameExists$: StaticErrorSchema = [-3, n0, _QNE,
+  { [_aQE]: [`QueueAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(QueueNameExists$, QueueNameExists);
+export var ReceiptHandleIsInvalid$: StaticErrorSchema = [-3, n0, _RHII,
+  { [_aQE]: [`ReceiptHandleIsInvalid`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReceiptHandleIsInvalid$, ReceiptHandleIsInvalid);
+export var RequestThrottled$: StaticErrorSchema = [-3, n0, _RT,
+  { [_aQE]: [`RequestThrottled`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestThrottled$, RequestThrottled);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyEntriesInBatchRequest$: StaticErrorSchema = [-3, n0, _TMEIBR,
+  { [_aQE]: [`AWS.SimpleQueueService.TooManyEntriesInBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyEntriesInBatchRequest$, TooManyEntriesInBatchRequest);
+export var UnsupportedOperation$: StaticErrorSchema = [-3, n0, _UO,
+  { [_aQE]: [`AWS.SimpleQueueService.UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperation$, UnsupportedOperation);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AddPermissionRequest$: StaticStructureSchema = [3, n0, _APR,
+  0,
+  [_QU, _L, _AWSAI, _A],
+  [0, 0, [64 | 0, { [_xF]: 1, [_xN]: _AWSAIc }], [64 | 0, { [_xF]: 1, [_xN]: _AN }]], 4
+];
 export var BatchResultErrorEntry$: StaticStructureSchema = [3, n0, _BREE,
   0,
   [_I, _SF, _C, _M],
@@ -335,12 +504,6 @@ export var DeleteQueueRequest$: StaticStructureSchema = [3, n0, _DQR,
   [_QU],
   [0], 1
 ];
-export var EmptyBatchRequest$: StaticErrorSchema = [-3, n0, _EBR,
-  { [_aQE]: [`AWS.SimpleQueueService.EmptyBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EmptyBatchRequest$, EmptyBatchRequest);
 export var GetQueueAttributesRequest$: StaticStructureSchema = [3, n0, _GQAR,
   0,
   [_QU, _ANt],
@@ -361,90 +524,6 @@ export var GetQueueUrlResult$: StaticStructureSchema = [3, n0, _GQURe,
   [_QU],
   [0]
 ];
-export var InvalidAddress$: StaticErrorSchema = [-3, n0, _IA,
-  { [_aQE]: [`InvalidAddress`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAddress$, InvalidAddress);
-export var InvalidAttributeName$: StaticErrorSchema = [-3, n0, _IAN,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAttributeName$, InvalidAttributeName);
-export var InvalidAttributeValue$: StaticErrorSchema = [-3, n0, _IAV,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAttributeValue$, InvalidAttributeValue);
-export var InvalidBatchEntryId$: StaticErrorSchema = [-3, n0, _IBEI,
-  { [_aQE]: [`AWS.SimpleQueueService.InvalidBatchEntryId`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidBatchEntryId$, InvalidBatchEntryId);
-export var InvalidIdFormat$: StaticErrorSchema = [-3, n0, _IIF,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(InvalidIdFormat$, InvalidIdFormat);
-export var InvalidMessageContents$: StaticErrorSchema = [-3, n0, _IMC,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidMessageContents$, InvalidMessageContents);
-export var InvalidSecurity$: StaticErrorSchema = [-3, n0, _IS,
-  { [_aQE]: [`InvalidSecurity`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSecurity$, InvalidSecurity);
-export var KmsAccessDenied$: StaticErrorSchema = [-3, n0, _KAD,
-  { [_aQE]: [`KMS.AccessDeniedException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsAccessDenied$, KmsAccessDenied);
-export var KmsDisabled$: StaticErrorSchema = [-3, n0, _KD,
-  { [_aQE]: [`KMS.DisabledException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsDisabled$, KmsDisabled);
-export var KmsInvalidKeyUsage$: StaticErrorSchema = [-3, n0, _KIKU,
-  { [_aQE]: [`KMS.InvalidKeyUsageException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsInvalidKeyUsage$, KmsInvalidKeyUsage);
-export var KmsInvalidState$: StaticErrorSchema = [-3, n0, _KIS,
-  { [_aQE]: [`KMS.InvalidStateException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsInvalidState$, KmsInvalidState);
-export var KmsNotFound$: StaticErrorSchema = [-3, n0, _KNF,
-  { [_aQE]: [`KMS.NotFoundException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsNotFound$, KmsNotFound);
-export var KmsOptInRequired$: StaticErrorSchema = [-3, n0, _KOIR,
-  { [_aQE]: [`KMS.OptInRequired`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsOptInRequired$, KmsOptInRequired);
-export var KmsThrottled$: StaticErrorSchema = [-3, n0, _KT,
-  { [_aQE]: [`KMS.ThrottlingException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KmsThrottled$, KmsThrottled);
 export var ListDeadLetterSourceQueuesRequest$: StaticStructureSchema = [3, n0, _LDLSQR,
   0,
   [_QU, _NT, _MR],
@@ -500,58 +579,16 @@ export var MessageAttributeValue$: StaticStructureSchema = [3, n0, _MAV,
   [_DT, _SV, _BV, _SLV, _BLV],
   [0, 0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }]], 1
 ];
-export var MessageNotInflight$: StaticErrorSchema = [-3, n0, _MNI,
-  { [_aQE]: [`AWS.SimpleQueueService.MessageNotInflight`, 400], [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(MessageNotInflight$, MessageNotInflight);
 export var MessageSystemAttributeValue$: StaticStructureSchema = [3, n0, _MSAV,
   0,
   [_DT, _SV, _BV, _SLV, _BLV],
   [0, 0, 21, [() => StringList, { [_xF]: 1, [_xN]: _SLVt }], [() => BinaryList, { [_xF]: 1, [_xN]: _BLVi }]], 1
 ];
-export var OverLimit$: StaticErrorSchema = [-3, n0, _OL,
-  { [_aQE]: [`OverLimit`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OverLimit$, OverLimit);
-export var PurgeQueueInProgress$: StaticErrorSchema = [-3, n0, _PQIP,
-  { [_aQE]: [`AWS.SimpleQueueService.PurgeQueueInProgress`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PurgeQueueInProgress$, PurgeQueueInProgress);
 export var PurgeQueueRequest$: StaticStructureSchema = [3, n0, _PQR,
   0,
   [_QU],
   [0], 1
 ];
-export var QueueDeletedRecently$: StaticErrorSchema = [-3, n0, _QDR,
-  { [_aQE]: [`AWS.SimpleQueueService.QueueDeletedRecently`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueueDeletedRecently$, QueueDeletedRecently);
-export var QueueDoesNotExist$: StaticErrorSchema = [-3, n0, _QDNE,
-  { [_aQE]: [`AWS.SimpleQueueService.NonExistentQueue`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueueDoesNotExist$, QueueDoesNotExist);
-export var QueueNameExists$: StaticErrorSchema = [-3, n0, _QNE,
-  { [_aQE]: [`QueueAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(QueueNameExists$, QueueNameExists);
-export var ReceiptHandleIsInvalid$: StaticErrorSchema = [-3, n0, _RHII,
-  { [_aQE]: [`ReceiptHandleIsInvalid`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReceiptHandleIsInvalid$, ReceiptHandleIsInvalid);
 export var ReceiveMessageRequest$: StaticStructureSchema = [3, n0, _RMR,
   0,
   [_QU, _ANt, _MSAN, _MAN, _MNOM, _VT, _WTS, _RRAI],
@@ -567,18 +604,6 @@ export var RemovePermissionRequest$: StaticStructureSchema = [3, n0, _RPR,
   [_QU, _L],
   [0, 0], 2
 ];
-export var RequestThrottled$: StaticErrorSchema = [-3, n0, _RT,
-  { [_aQE]: [`RequestThrottled`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestThrottled$, RequestThrottled);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendMessageBatchRequest$: StaticStructureSchema = [3, n0, _SMBR,
   0,
   [_QU, _E],
@@ -629,26 +654,12 @@ export var TagQueueRequest$: StaticStructureSchema = [3, n0, _TQR,
   [_QU, _Ta],
   [0, [() => TagMap, { [_xF]: 1, [_xN]: _T }]], 2
 ];
-export var TooManyEntriesInBatchRequest$: StaticErrorSchema = [-3, n0, _TMEIBR,
-  { [_aQE]: [`AWS.SimpleQueueService.TooManyEntriesInBatchRequest`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyEntriesInBatchRequest$, TooManyEntriesInBatchRequest);
-export var UnsupportedOperation$: StaticErrorSchema = [-3, n0, _UO,
-  { [_aQE]: [`AWS.SimpleQueueService.UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperation$, UnsupportedOperation);
 export var UntagQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
   [_QU, _TK],
   [0, [64 | 0, { [_xF]: 1, [_xN]: _TKa }]], 2
 ];
 var __Unit = "unit" as const;
-export var SQSServiceException$: StaticErrorSchema = [-3, _s, "SQSServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SQSServiceException$, SQSServiceException);
 var ActionNameList = 64 | 0;
 var AttributeNameList = 64 | 0;
 var AWSAccountIdList = 64 | 0;

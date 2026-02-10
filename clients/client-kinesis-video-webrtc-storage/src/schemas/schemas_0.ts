@@ -29,24 +29,43 @@ import {
 import { KinesisVideoWebRTCStorageServiceException } from "../models/KinesisVideoWebRTCStorageServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KinesisVideoWebRTCStorageServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoWebRTCStorageServiceException", 0, [], []];
+_s_registry.registerError(KinesisVideoWebRTCStorageServiceException$, KinesisVideoWebRTCStorageServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExceededException);
+n0_registry.registerError(ClientLimitExceededException$, ClientLimitExceededException);
 export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var JoinStorageSessionAsViewerInput$: StaticStructureSchema = [3, n0, _JSSAVI,
   0,
   [_cA, _cI],
@@ -57,15 +76,7 @@ export var JoinStorageSessionInput$: StaticStructureSchema = [3, n0, _JSSI,
   [_cA],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 var __Unit = "unit" as const;
-export var KinesisVideoWebRTCStorageServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoWebRTCStorageServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(KinesisVideoWebRTCStorageServiceException$, KinesisVideoWebRTCStorageServiceException);
 export var JoinStorageSession$: StaticOperationSchema = [9, n0, _JSS,
   { [_h]: ["POST", "/joinStorageSession", 200] }, () => JoinStorageSessionInput$, () => __Unit
 ];

@@ -88,8 +88,8 @@ const _Va = "Values";
 const _c = "client";
 const _e = "error";
 const _h = "http";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.resourcegroupstaggingapi";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resourcegroupstaggingapi";
+const _se = "server";
 const n0 = "com.amazonaws.resourcegroupstaggingapi";
 
 // smithy-typescript generated code
@@ -113,23 +113,60 @@ import {
 import { ResourceGroupsTaggingAPIServiceException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
 /* eslint no-var: 0 */
-export var ComplianceDetails$: StaticStructureSchema = [3, n0, _CD,
-  0,
-  [_NK, _KWNV, _CS],
-  [64 | 0, 64 | 0, 2]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var ResourceGroupsTaggingAPIServiceException$: StaticErrorSchema = [-3, _s, "ResourceGroupsTaggingAPIServiceException", 0, [], []];
+_s_registry.registerError(ResourceGroupsTaggingAPIServiceException$, ResourceGroupsTaggingAPIServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var ConstraintViolationException$: StaticErrorSchema = [-3, n0, _CVE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConstraintViolationException$, ConstraintViolationException);
+n0_registry.registerError(ConstraintViolationException$, ConstraintViolationException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var PaginationTokenExpiredException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PaginationTokenExpiredException$, PaginationTokenExpiredException);
+export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottledException$, ThrottledException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var ComplianceDetails$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_NK, _KWNV, _CS],
+  [64 | 0, 64 | 0, 2]
+];
 export var DescribeReportCreationInput$: StaticStructureSchema = [3, n0, _DRCI,
   0,
   [],
@@ -185,18 +222,6 @@ export var GetTagValuesOutput$: StaticStructureSchema = [3, n0, _GTVO,
   [_PT, _TV],
   [0, 64 | 0]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListRequiredTagsInput$: StaticStructureSchema = [3, n0, _LRTI,
   0,
   [_NT, _MR],
@@ -207,12 +232,6 @@ export var ListRequiredTagsOutput$: StaticStructureSchema = [3, n0, _LRTO,
   [_RT, _NT],
   [() => RequiredTagsForListRequiredTags, 0]
 ];
-export var PaginationTokenExpiredException$: StaticErrorSchema = [-3, n0, _PTEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PaginationTokenExpiredException$, PaginationTokenExpiredException);
 export var RequiredTag$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_RTes, _CFRT, _RTK],
@@ -258,12 +277,6 @@ export var TagResourcesOutput$: StaticStructureSchema = [3, n0, _TRO,
   [_FRM],
   [() => FailedResourcesMap]
 ];
-export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
 export var UntagResourcesInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RARNL, _TK],
@@ -274,8 +287,6 @@ export var UntagResourcesOutput$: StaticStructureSchema = [3, n0, _URO,
   [_FRM],
   [() => FailedResourcesMap]
 ];
-export var ResourceGroupsTaggingAPIServiceException$: StaticErrorSchema = [-3, _sm, "ResourceGroupsTaggingAPIServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ResourceGroupsTaggingAPIServiceException$, ResourceGroupsTaggingAPIServiceException);
 var CloudFormationResourceTypes = 64 | 0;
 var GroupBy = 64 | 0;
 var RegionFilterList = 64 | 0;

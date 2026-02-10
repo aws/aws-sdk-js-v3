@@ -744,11 +744,11 @@ const _rPCDB = "recoveryPointCreationDateBefore";
 const _rRID = "retainRecordInDays";
 const _rT = "resourceType";
 const _rTPA = "restoreTestingPlanArn";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.backup";
 const _sRA = "sourceResourceArn";
 const _sRPA = "sourceRecoveryPointArn";
+const _se = "server";
 const _sh = "shared";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.backup";
 const _st = "state";
 const _sta = "status";
 const _vI = "versionId";
@@ -781,6 +781,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BackupServiceException$: StaticErrorSchema = [-3, _s, "BackupServiceException", 0, [], []];
+_s_registry.registerError(BackupServiceException$, BackupServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_e]: _c },
+  [_C, _M, _CRI, _A, _T, _Co],
+  [0, 0, 0, 0, 0, 0]
+];
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyFailureException$: StaticErrorSchema = [-3, n0, _DFE,
+  { [_e]: _se },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(DependencyFailureException$, DependencyFailureException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(InvalidResourceStateException$, InvalidResourceStateException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MissingParameterValueException$: StaticErrorSchema = [-3, n0, _MPVE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(MissingParameterValueException$, MissingParameterValueException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se },
+  [_C, _M, _T, _Co],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var RequesterComment: StaticSimpleSchema = [0, n0, _RC, 8, 0];
 export var AdvancedBackupSetting$: StaticStructureSchema = [3, n0, _ABS,
   0,
@@ -792,12 +865,6 @@ export var AggregatedScanResult$: StaticStructureSchema = [3, n0, _ASR,
   [_FS, _F, _LC],
   [2, 64 | 0, 4]
 ];
-export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_e]: _c },
-  [_C, _M, _CRI, _A, _T, _Co],
-  [0, 0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
 export var AssociateBackupVaultMpaApprovalTeamInput$: StaticStructureSchema = [3, n0, _ABVMATI,
   0,
   [_BVN, _MATA, _RC],
@@ -888,12 +955,6 @@ export var Conditions$: StaticStructureSchema = [3, n0, _Con,
   [_SEt, _SNE, _SL, _SNL],
   [() => ConditionParameters, () => ConditionParameters, () => ConditionParameters, () => ConditionParameters]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ControlInputParameter$: StaticStructureSchema = [3, n0, _CIP,
   0,
   [_PN, _PV],
@@ -1104,12 +1165,6 @@ export var DeleteTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _D
   [],
   []
 ];
-export var DependencyFailureException$: StaticErrorSchema = [-3, n0, _DFE,
-  { [_e]: _s },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(DependencyFailureException$, DependencyFailureException);
 export var DescribeBackupJobInput$: StaticStructureSchema = [3, n0, _DBJI,
   0,
   [_BJI],
@@ -1420,24 +1475,6 @@ export var IndexedRecoveryPoint$: StaticStructureSchema = [3, n0, _IRP,
   [_RPA, _SRA, _IRA, _BCD, _RT, _ICD, _IS, _ISM, _BVA],
   [0, 0, 0, 4, 0, 4, 0, 0, 0]
 ];
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResourceStateException);
 export var KeyValue$: StaticStructureSchema = [3, n0, _KV,
   0,
   [_K, _V],
@@ -1463,12 +1500,6 @@ export var Lifecycle$: StaticStructureSchema = [3, n0, _L,
   [_MTCSAD, _DAD, _OITAFSR, _DAE],
   [1, 1, 2, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListBackupJobsInput$: StaticStructureSchema = [3, n0, _LBJI,
   0,
   [_NT, _MR, _BRA, _BSy, _BBVN, _BCB, _BCA, _BRT, _BAI, _BCAy, _BCBy, _BPJI, _BMC],
@@ -1759,12 +1790,6 @@ export var ListTieringConfigurationsOutput$: StaticStructureSchema = [3, n0, _LT
   [_TCi, _NT],
   [() => TieringConfigurationsList, 0]
 ];
-export var MissingParameterValueException$: StaticErrorSchema = [-3, n0, _MPVE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(MissingParameterValueException$, MissingParameterValueException);
 export var ProtectedResource$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_RA, _RT, _LBT, _RN, _LBVA, _LRPA],
@@ -1845,12 +1870,6 @@ export var ReportSetting$: StaticStructureSchema = [3, n0, _RS,
   [_RTep, _FAr, _NOF, _Ac, _OU, _Reg],
   [0, 64 | 0, 1, 64 | 0, 64 | 0, 64 | 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSelection$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_Re, _TDSID, _RT],
@@ -1966,12 +1985,6 @@ export var ScheduledPlanExecutionMember$: StaticStructureSchema = [3, n0, _SPEM,
   [_ETx, _RI, _RET],
   [4, 0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s },
-  [_C, _M, _T, _Co],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartBackupJobInput$: StaticStructureSchema = [3, n0, _SBJI,
   0,
   [_BVN, _RA, _IRA, _LAGBVA, _IT, _SWM, _CWMo, _L, _RPT, _BO, _I],
@@ -2148,8 +2161,6 @@ export var UpdateTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _U
   [0, 0, 4, 4]
 ];
 var __Unit = "unit" as const;
-export var BackupServiceException$: StaticErrorSchema = [-3, _sm, "BackupServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BackupServiceException$, BackupServiceException);
 var AdvancedBackupSettings: StaticListSchema = [1, n0, _ABSd,
   0, () => AdvancedBackupSetting$
 ];

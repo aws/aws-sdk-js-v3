@@ -576,9 +576,9 @@ const _aIB = "allowImageBuilder";
 const _c = "client";
 const _cUI = "canUpdateImage";
 const _dR = "dryRun";
-const _e = "errors";
+const _e = "error";
 const _eIN = "existingImageName";
-const _er = "error";
+const _er = "errors";
 const _hE = "httpError";
 const _i = "image";
 const _iP = "imagePermissions";
@@ -621,6 +621,109 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppStreamServiceException$: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
+_s_registry.registerError(AppStreamServiceException$, AppStreamServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
+  { [_e]: _c, [_hE]: 412 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DryRunOperationException$, DryRunOperationException);
+export var EntitlementAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EntitlementAlreadyExistsException$, EntitlementAlreadyExistsException);
+export var EntitlementNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EntitlementNotFoundException$, EntitlementNotFoundException);
+export var IncompatibleImageException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IncompatibleImageException$, IncompatibleImageException);
+export var InvalidAccountStatusException$: StaticErrorSchema = [-3, n0, _IASE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidAccountStatusException$, InvalidAccountStatusException);
+export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
+export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRoleException$, InvalidRoleException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationNotPermittedException$, OperationNotPermittedException);
+export var RequestLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RequestLimitExceededException$, RequestLimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotAvailableException$: StaticErrorSchema = [-3, n0, _RNAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotAvailableException$, ResourceNotAvailableException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var AccountPassword: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
@@ -739,7 +842,7 @@ export var BatchAssociateUserStackRequest$: StaticStructureSchema = [3, n0, _BAU
 ];
 export var BatchAssociateUserStackResult$: StaticStructureSchema = [3, n0, _BAUSRa,
   0,
-  [_e],
+  [_er],
   [[() => UserStackAssociationErrorList, 0]]
 ];
 export var BatchDisassociateUserStackRequest$: StaticStructureSchema = [3, n0, _BDUSR,
@@ -749,7 +852,7 @@ export var BatchDisassociateUserStackRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var BatchDisassociateUserStackResult$: StaticStructureSchema = [3, n0, _BDUSRa,
   0,
-  [_e],
+  [_er],
   [[() => UserStackAssociationErrorList, 0]]
 ];
 export var CertificateBasedAuthProperties$: StaticStructureSchema = [3, n0, _CBAP,
@@ -767,12 +870,6 @@ export var ComputeCapacityStatus$: StaticStructureSchema = [3, n0, _CCS,
   [_De, _R, _IU, _Av, _DUS, _AUS, _AUSc, _AUSct],
   [1, 1, 1, 1, 1, 1, 1, 1], 1
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var CopyImageRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
   [_SIN, _DIN, _DR, _DID],
@@ -1343,12 +1440,6 @@ export var DomainJoinInfo$: StaticStructureSchema = [3, n0, _DJI,
   [_DNi, _OUDNr],
   [0, 0]
 ];
-export var DryRunOperationException$: StaticErrorSchema = [-3, n0, _DROE,
-  { [_er]: _c, [_hE]: 412 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DryRunOperationException$, DryRunOperationException);
 export var EnableUserRequest$: StaticStructureSchema = [3, n0, _EUR,
   0,
   [_UN, _AT],
@@ -1369,23 +1460,11 @@ export var Entitlement$: StaticStructureSchema = [3, n0, _En,
   [_N, _SN, _AV, _At, _D, _CT, _LMT],
   [0, 0, 0, () => EntitlementAttributeList, 0, 4, 4], 4
 ];
-export var EntitlementAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntitlementAlreadyExistsException$, EntitlementAlreadyExistsException);
 export var EntitlementAttribute$: StaticStructureSchema = [3, n0, _EAn,
   0,
   [_N, _Va],
   [0, 0], 2
 ];
-export var EntitlementNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntitlementNotFoundException$, EntitlementNotFoundException);
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EC, _EM],
@@ -1456,41 +1535,11 @@ export var ImageStateChangeReason$: StaticStructureSchema = [3, n0, _ISCR,
   [_C, _M],
   [0, 0]
 ];
-export var IncompatibleImageException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleImageException$, IncompatibleImageException);
-export var InvalidAccountStatusException$: StaticErrorSchema = [-3, n0, _IASE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAccountStatusException$, InvalidAccountStatusException);
-export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
-export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRoleException$, InvalidRoleException);
 export var LastReportGenerationExecutionError$: StaticStructureSchema = [3, n0, _LRGEE,
   0,
   [_EC, _EM],
   [0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAssociatedFleetsRequest$: StaticStructureSchema = [3, n0, _LAFR,
   0,
   [_SN, _NT],
@@ -1546,47 +1595,11 @@ export var NetworkAccessConfiguration$: StaticStructureSchema = [3, n0, _NAC,
   [_EPIA, _EIA, _EI],
   [0, 64 | 0, 0]
 ];
-export var OperationNotPermittedException$: StaticErrorSchema = [-3, n0, _ONPE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotPermittedException$, OperationNotPermittedException);
-export var RequestLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestLimitExceededException$, RequestLimitExceededException);
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
 export var ResourceError$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_EC, _EM, _ETr],
   [0, 0, 4]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotAvailableException$: StaticErrorSchema = [-3, n0, _RNAE,
-  { [_er]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotAvailableException$, ResourceNotAvailableException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuntimeValidationConfig$: StaticStructureSchema = [3, n0, _RVCu,
   0,
   [_IIT],
@@ -1857,8 +1870,6 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   [_SIu, _SGI],
   [64 | 0, 64 | 0]
 ];
-export var AppStreamServiceException$: StaticErrorSchema = [-3, _s, "AppStreamServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(AppStreamServiceException$, AppStreamServiceException);
 var AccessEndpointList: StaticListSchema = [1, n0, _AEL,
   0, () => AccessEndpoint$
 ];

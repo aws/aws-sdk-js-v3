@@ -56,7 +56,7 @@ const _DDD = "DownlinkDataflowDetails";
 const _DDEG = "DeleteDataflowEndpointGroup";
 const _DDEGR = "DeleteDataflowEndpointGroupRequest";
 const _DDi = "DiscoveryData";
-const _DE = "DataflowEndpoint";
+const _DE = "DependencyException";
 const _DEC = "DataflowEndpointConfig";
 const _DEGIR = "DataflowEndpointGroupIdResponse";
 const _DEGL = "DataflowEndpointGroupList";
@@ -65,8 +65,8 @@ const _DELI = "DataflowEndpointListItem";
 const _DER = "DeleteEphemerisRequest";
 const _DERe = "DescribeEphemerisRequest";
 const _DERes = "DescribeEphemerisResponse";
-const _DEe = "DependencyException";
-const _DEel = "DeleteEphemeris";
+const _DEa = "DataflowEndpoint";
+const _DEe = "DeleteEphemeris";
 const _DEes = "DescribeEphemeris";
 const _DL = "DataflowList";
 const _DMP = "DeleteMissionProfile";
@@ -263,7 +263,7 @@ const _dL = "dataflowList";
 const _dSR = "dataflowSourceRegion";
 const _de = "destination";
 const _dt = "dt";
-const _e = "ephemeris";
+const _e = "error";
 const _eA = "egressAddress";
 const _eAAP = "egressAddressAndPort";
 const _eC = "errorCode";
@@ -281,9 +281,9 @@ const _el = "el";
 const _en = "endpoints";
 const _ena = "enabled";
 const _end = "endpoint";
-const _ep = "epoch";
+const _ep = "ephemeris";
 const _eph = "ephemerides";
-const _er = "error";
+const _epo = "epoch";
 const _gS = "groundStation";
 const _gSI = "groundStationId";
 const _gSL = "groundStationList";
@@ -309,7 +309,7 @@ const _kDSD = "kinesisDataStreamData";
 const _kKA = "kmsKeyArn";
 const _kRA = "kinesisRoleArn";
 const _kT = "keyTemplate";
-const _m = "mtu";
+const _m = "message";
 const _mE = "maximumElevation";
 const _mPA = "missionProfileArn";
 const _mPI = "missionProfileId";
@@ -317,9 +317,9 @@ const _mPL = "missionProfileList";
 const _mR = "maxResults";
 const _mVCDS = "minimumViableContactDurationSeconds";
 const _ma = "maximum";
-const _me = "message";
 const _mi = "minimum";
 const _mo = "month";
+const _mt = "mtu";
 const _n = "name";
 const _nSID = "noradSatelliteID";
 const _nT = "nextToken";
@@ -344,7 +344,7 @@ const _rA = "resourceArn";
 const _rAo = "roleArn";
 const _rCC = "reservedCpuCores";
 const _rE = "referenceEpoch";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.groundstation";
 const _sA = "socketAddress";
 const _sAa = "satelliteArn";
 const _sC = "spectrumConfig";
@@ -364,8 +364,8 @@ const _sSO = "sourceS3Object";
 const _sT = "startTime";
 const _sa = "satellites";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.groundstation";
 const _so = "source";
+const _st = "status";
 const _t = "tags";
 const _tC = "trackingConfig";
 const _tCA = "trackingConfigArn";
@@ -422,6 +422,55 @@ import {
 import { GroundStationServiceException } from "../models/GroundStationServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GroundStationServiceException$: StaticErrorSchema = [-3, _s, "GroundStationServiceException", 0, [], []];
+_s_registry.registerError(GroundStationServiceException$, GroundStationServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DependencyException$: StaticErrorSchema = [-3, n0, _DE,
+  { [_e]: _se, [_hE]: 531 },
+  [_m, _pN],
+  [0, 0]
+];
+n0_registry.registerError(DependencyException$, DependencyException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 431 },
+  [_m, _pN],
+  [0, 0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _pN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 434 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _pN],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AgentDetails$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_aV, _iI, _iT, _cV, _rCC, _aCC],
@@ -429,7 +478,7 @@ export var AgentDetails$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AggregateStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_s, _sM],
+  [_st, _sM],
   [0, 128 | 2], 1
 ];
 export var AntennaDemodDecodeDetails$: StaticStructureSchema = [3, n0, _ADDD,
@@ -489,7 +538,7 @@ export var CancelContactRequest$: StaticStructureSchema = [3, n0, _CCR,
 ];
 export var ComponentStatusData$: StaticStructureSchema = [3, n0, _CSD,
   0,
-  [_cT, _cA, _s, _dI, _bS, _bR, _pD],
+  [_cT, _cA, _st, _dI, _bS, _bR, _pD],
   [0, 0, 0, 0, 1, 1, 1], 4
 ];
 export var ComponentVersion$: StaticStructureSchema = [3, n0, _CV,
@@ -509,12 +558,12 @@ export var ConfigListItem$: StaticStructureSchema = [3, n0, _CLI,
 ];
 export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_sA, _m],
+  [_sA, _mt],
   [() => SocketAddress$, 1], 1
 ];
 export var ContactData$: StaticStructureSchema = [3, n0, _CDo,
   0,
-  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _r, _t, _vST, _vET, _e],
+  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _r, _t, _vST, _vET, _ep],
   [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 0, 128 | 0, 4, 4, () => EphemerisResponseData$]
 ];
 export var ContactIdResponse$: StaticStructureSchema = [3, n0, _CIRo,
@@ -544,7 +593,7 @@ export var CreateDataflowEndpointGroupV2Response$: StaticStructureSchema = [3, n
 ];
 export var CreateEphemerisRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_n, _sI, _ena, _p, _eTx, _kKA, _e, _t],
+  [_n, _sI, _ena, _p, _eTx, _kKA, _ep, _t],
   [0, 0, 2, 1, 4, 0, () => EphemerisData$, 128 | 0], 1
 ];
 export var CreateMissionProfileRequest$: StaticStructureSchema = [3, n0, _CMPR,
@@ -557,9 +606,9 @@ export var DataflowDetail$: StaticStructureSchema = [3, n0, _DD,
   [_so, _de, _eM],
   [() => Source$, () => Destination$, 0]
 ];
-export var DataflowEndpoint$: StaticStructureSchema = [3, n0, _DE,
+export var DataflowEndpoint$: StaticStructureSchema = [3, n0, _DEa,
   0,
-  [_n, _a, _s, _m],
+  [_n, _a, _st, _mt],
   [0, () => SocketAddress$, 0, 1]
 ];
 export var DataflowEndpointConfig$: StaticStructureSchema = [3, n0, _DEC,
@@ -607,12 +656,6 @@ export var DemodulationConfig$: StaticStructureSchema = [3, n0, _DCe,
   [_uJSON],
   [0], 1
 ];
-export var DependencyException$: StaticErrorSchema = [-3, n0, _DEe,
-  { [_er]: _se, [_hE]: 531 },
-  [_me, _pN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DependencyException$, DependencyException);
 export var DescribeContactRequest$: StaticStructureSchema = [3, n0, _DCRe,
   0,
   [_cI],
@@ -620,7 +663,7 @@ export var DescribeContactRequest$: StaticStructureSchema = [3, n0, _DCRe,
 ];
 export var DescribeContactResponse$: StaticStructureSchema = [3, n0, _DCRes,
   0,
-  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _t, _r, _dL, _vST, _vET, _tO, _e],
+  [_cI, _mPA, _sAa, _sT, _eT, _pPST, _pPET, _gS, _cS, _eM, _mE, _t, _r, _dL, _vST, _vET, _tO, _ep],
   [0, 0, 0, 4, 4, 4, 4, 0, 0, 0, () => Elevation$, 128 | 0, 0, () => DataflowList, 4, 4, () => TrackingOverrides$, () => EphemerisResponseData$]
 ];
 export var DescribeEphemerisRequest$: StaticStructureSchema = [3, n0, _DERe,
@@ -630,7 +673,7 @@ export var DescribeEphemerisRequest$: StaticStructureSchema = [3, n0, _DERe,
 ];
 export var DescribeEphemerisResponse$: StaticStructureSchema = [3, n0, _DERes,
   0,
-  [_eI, _sI, _s, _p, _cTr, _ena, _n, _t, _sD, _iR, _eR],
+  [_eI, _sI, _st, _p, _cTr, _ena, _n, _t, _sD, _iR, _eR],
   [0, 0, 0, 1, 4, 2, 0, 128 | 0, () => EphemerisTypeDescription$, 0, () => EphemerisErrorReasonList]
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _D,
@@ -690,12 +733,12 @@ export var EphemerisIdResponse$: StaticStructureSchema = [3, n0, _EIR,
 ];
 export var EphemerisItem$: StaticStructureSchema = [3, n0, _EI,
   0,
-  [_eI, _eTp, _s, _p, _ena, _cTr, _n, _sSO],
+  [_eI, _eTp, _st, _p, _ena, _cTr, _n, _sSO],
   [0, 0, 0, 1, 2, 4, 0, () => S3Object$]
 ];
 export var EphemerisMetaData$: StaticStructureSchema = [3, n0, _EMD,
   0,
-  [_so, _eI, _ep, _n],
+  [_so, _eI, _epo, _n],
   [0, 0, 4, 0], 1
 ];
 export var EphemerisResponseData$: StaticStructureSchema = [3, n0, _ERD,
@@ -793,12 +836,6 @@ export var IntegerRange$: StaticStructureSchema = [3, n0, _IR,
   [_mi, _ma],
   [1, 1], 2
 ];
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_er]: _c, [_hE]: 431 },
-  [_me, _pN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ISO8601TimeRange$: StaticStructureSchema = [3, n0, _ISOTR,
   0,
   [_sT, _eT],
@@ -821,7 +858,7 @@ export var ListConfigsResponse$: StaticStructureSchema = [3, n0, _LCRi,
 ];
 export var ListContactsRequest$: StaticStructureSchema = [3, n0, _LCRis,
   0,
-  [_sL, _sT, _eT, _mR, _nT, _gS, _sAa, _mPA, _e],
+  [_sL, _sT, _eT, _mR, _nT, _gS, _sAa, _mPA, _ep],
   [64 | 0, 4, 4, 1, 0, 0, 0, 0, () => EphemerisFilter$], 3
 ];
 export var ListContactsResponse$: StaticStructureSchema = [3, n0, _LCRist,
@@ -906,7 +943,7 @@ export var OEMEphemeris$: StaticStructureSchema = [3, n0, _OEME,
 ];
 export var RangedConnectionDetails$: StaticStructureSchema = [3, n0, _RCD,
   0,
-  [_sA, _m],
+  [_sA, _mt],
   [() => RangedSocketAddress$, 1], 1
 ];
 export var RangedSocketAddress$: StaticStructureSchema = [3, n0, _RSA,
@@ -929,24 +966,6 @@ export var ReserveContactRequest$: StaticStructureSchema = [3, n0, _RCR,
   [_mPA, _sT, _eT, _gS, _sAa, _t, _tO],
   [0, 4, 4, 0, 0, 128 | 0, () => TrackingOverrides$], 4
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_er]: _c, [_hE]: 409 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_er]: _c, [_hE]: 429 },
-  [_me, _pN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _c, [_hE]: 434 },
-  [_me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Object$: StaticStructureSchema = [3, n0, _SO,
   0,
   [_b, _k, _ve],
@@ -972,12 +991,6 @@ export var SecurityDetails$: StaticStructureSchema = [3, n0, _SD,
   [_sIu, _sGI, _rAo],
   [64 | 0, 64 | 0, 0], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_er]: _c, [_hE]: 402 },
-  [_me, _pN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SocketAddress$: StaticStructureSchema = [3, n0, _SA,
   0,
   [_n, _po],
@@ -1098,8 +1111,6 @@ export var UplinkSpectrumConfig$: StaticStructureSchema = [3, n0, _USC,
   [_cF, _pol],
   [() => Frequency$, 0], 1
 ];
-export var GroundStationServiceException$: StaticErrorSchema = [-3, _sm, "GroundStationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GroundStationServiceException$, GroundStationServiceException);
 var AgentCpuCoresList = 64 | 1;
 var AzElSegmentList: StaticListSchema = [1, n0, _AESL,
   0, () => AzElSegment$
@@ -1249,7 +1260,7 @@ export var DeleteConfig$: StaticOperationSchema = [9, n0, _DCel,
 export var DeleteDataflowEndpointGroup$: StaticOperationSchema = [9, n0, _DDEG,
   { [_h]: ["DELETE", "/dataflowEndpointGroup/{dataflowEndpointGroupId}", 200] }, () => DeleteDataflowEndpointGroupRequest$, () => DataflowEndpointGroupIdResponse$
 ];
-export var DeleteEphemeris$: StaticOperationSchema = [9, n0, _DEel,
+export var DeleteEphemeris$: StaticOperationSchema = [9, n0, _DEe,
   { [_h]: ["DELETE", "/ephemeris/{ephemerisId}", 200] }, () => DeleteEphemerisRequest$, () => EphemerisIdResponse$
 ];
 export var DeleteMissionProfile$: StaticOperationSchema = [9, n0, _DMP,

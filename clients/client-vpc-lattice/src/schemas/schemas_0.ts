@@ -375,7 +375,7 @@ const _pol = "policy";
 const _pr = "priority";
 const _pre = "prefix";
 const _qC = "quotaCode";
-const _r = "rules";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rC = "reasonCode";
@@ -393,12 +393,12 @@ const _rI = "resourceId";
 const _rIe = "resourceIdentifier";
 const _rIu = "ruleIdentifier";
 const _rT = "resourceType";
-const _re = "reason";
-const _s = "successful";
+const _ru = "rules";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.vpclattice";
 const _sA = "serviceArn";
 const _sAe = "serviceArns";
-const _sC = "sharingConfig";
-const _sCe = "serviceCode";
+const _sC = "serviceCode";
+const _sCh = "sharingConfig";
 const _sCt = "statusCode";
 const _sGI = "securityGroupIds";
 const _sI = "serviceIdentifier";
@@ -414,9 +414,9 @@ const _sNRAI = "serviceNetworkResourceAssociationIdentifier";
 const _sNSAI = "serviceNetworkServiceAssociationIdentifier";
 const _sNVAI = "serviceNetworkVpcAssociationIdentifier";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.vpclattice";
 const _st = "status";
 const _sta = "state";
+const _su = "successful";
 const _t = "tags";
 const _tG = "targetGroups";
 const _tGI = "targetGroupIdentifier";
@@ -459,12 +459,61 @@ import {
 import { VPCLatticeServiceException } from "../models/VPCLatticeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var VPCLatticeServiceException$: StaticErrorSchema = [-3, _s, "VPCLatticeServiceException", 0, [], []];
+_s_registry.registerError(VPCLatticeServiceException$, VPCLatticeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rT, _sC, _qC, _rI],
+  [0, 0, 0, 0, 0], 4
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessLogSubscriptionSummary$: StaticStructureSchema = [3, n0, _ALSS,
   0,
   [_i, _a, _rI, _rA, _dA, _cA, _lUA, _sNLT],
@@ -477,20 +526,14 @@ export var ArnResource$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var BatchUpdateRuleRequest$: StaticStructureSchema = [3, n0, _BURR,
   0,
-  [_sI, _lI, _r],
+  [_sI, _lI, _ru],
   [[0, 1], [0, 1], () => RuleUpdateList], 3
 ];
 export var BatchUpdateRuleResponse$: StaticStructureSchema = [3, n0, _BURRa,
   0,
-  [_s, _u],
+  [_su, _u],
   [() => RuleUpdateSuccessList, () => RuleUpdateFailureList]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessLogSubscriptionRequest$: StaticStructureSchema = [3, n0, _CALSR,
   0,
   [_rIe, _dA, _cT, _sNLT, _t],
@@ -543,7 +586,7 @@ export var CreateRuleResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateServiceNetworkRequest$: StaticStructureSchema = [3, n0, _CSNR,
   0,
-  [_n, _cT, _aT, _t, _sC],
+  [_n, _cT, _aT, _t, _sCh],
   [0, [0, 4], 0, 128 | 0, () => SharingConfig$], 1
 ];
 export var CreateServiceNetworkResourceAssociationRequest$: StaticStructureSchema = [3, n0, _CSNRAR,
@@ -558,7 +601,7 @@ export var CreateServiceNetworkResourceAssociationResponse$: StaticStructureSche
 ];
 export var CreateServiceNetworkResponse$: StaticStructureSchema = [3, n0, _CSNRr,
   0,
-  [_i, _n, _a, _sC, _aT],
+  [_i, _n, _a, _sCh, _aT],
   [0, 0, 0, () => SharingConfig$, 0]
 ];
 export var CreateServiceNetworkServiceAssociationRequest$: StaticStructureSchema = [3, n0, _CSNSAR,
@@ -758,7 +801,7 @@ export var DeregisterTargetsRequest$: StaticStructureSchema = [3, n0, _DTR,
 ];
 export var DeregisterTargetsResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
-  [_s, _u],
+  [_su, _u],
   [() => TargetList, () => TargetFailureList]
 ];
 export var DnsEntry$: StaticStructureSchema = [3, n0, _DE,
@@ -888,7 +931,7 @@ export var GetServiceNetworkResourceAssociationResponse$: StaticStructureSchema 
 ];
 export var GetServiceNetworkResponse$: StaticStructureSchema = [3, n0, _GSNRe,
   0,
-  [_i, _n, _cA, _lUA, _a, _aT, _sC, _nOAVPC, _nOAS],
+  [_i, _n, _cA, _lUA, _a, _aT, _sCh, _nOAVPC, _nOAS],
   [0, 0, 5, 5, 0, 0, () => SharingConfig$, 1, 1]
 ];
 export var GetServiceNetworkServiceAssociationRequest$: StaticStructureSchema = [3, n0, _GSNSAR,
@@ -946,12 +989,6 @@ export var HttpMatch$: StaticStructureSchema = [3, n0, _HMt,
   [_me, _pM, _hM],
   [0, () => PathMatch$, () => HeaderMatchList]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IpResource$: StaticStructureSchema = [3, n0, _IR,
   0,
   [_iA],
@@ -1154,7 +1191,7 @@ export var RegisterTargetsRequest$: StaticStructureSchema = [3, n0, _RTR,
 ];
 export var RegisterTargetsResponse$: StaticStructureSchema = [3, n0, _RTRe,
   0,
-  [_s, _u],
+  [_su, _u],
   [() => TargetList, () => TargetFailureList]
 ];
 export var ResourceConfigurationSummary$: StaticStructureSchema = [3, n0, _RCS,
@@ -1172,12 +1209,6 @@ export var ResourceGatewaySummary$: StaticStructureSchema = [3, n0, _RGS,
   [_n, _i, _a, _st, _vI, _sIu, _sGI, _iAT, _iAPE, _cA, _lUA],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 1, 5, 5]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_a, _i, _n, _iD, _pr, _cA, _lUA],
@@ -1223,12 +1254,6 @@ export var ServiceNetworkVpcAssociationSummary$: StaticStructureSchema = [3, n0,
   [_i, _a, _st, _cB, _cA, _sNIe, _sNN, _sNA, _pDE, _dO, _vIp, _lUA],
   [0, 0, 0, 0, 5, 0, 0, 0, 2, () => DnsOptions$, 0, 5]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rT, _sCe, _qC, _rI],
-  [0, 0, 0, 0, 0], 4
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceSummary$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_i, _n, _a, _cA, _lUA, _dE, _cDN, _st],
@@ -1284,12 +1309,6 @@ export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   [_i, _po, _st, _rC],
   [0, 1, 0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TxtMethodConfig$: StaticStructureSchema = [3, n0, _TMC,
   0,
   [_v, _n],
@@ -1395,12 +1414,6 @@ export var UpdateTargetGroupResponse$: StaticStructureSchema = [3, n0, _UTGRp,
   [_i, _a, _n, _ty, _co, _st],
   [0, 0, 0, 0, () => TargetGroupConfig$, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -1411,8 +1424,6 @@ export var WeightedTargetGroup$: StaticStructureSchema = [3, n0, _WTG,
   [_tGI, _w],
   [0, 1], 1
 ];
-export var VPCLatticeServiceException$: StaticErrorSchema = [-3, _sm, "VPCLatticeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(VPCLatticeServiceException$, VPCLatticeServiceException);
 var AccessLogSubscriptionList: StaticListSchema = [1, n0, _ALSL,
   0, () => AccessLogSubscriptionSummary$
 ];

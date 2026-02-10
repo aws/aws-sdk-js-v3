@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeCatalystHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeCatalystClientConfig } from "./CodeCatalystClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codecatalyst",
+      errorTypeRegistries,
       version: "2022-09-28",
       serviceTarget: "CodeCatalyst",
     },

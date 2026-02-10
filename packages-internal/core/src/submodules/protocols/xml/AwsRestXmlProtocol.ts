@@ -3,8 +3,7 @@ import {
   HttpInterceptingShapeDeserializer,
   HttpInterceptingShapeSerializer,
 } from "@smithy/core/protocols";
-import type { TypeRegistry } from "@smithy/core/schema";
-import { NormalizedSchema } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -33,11 +32,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   private readonly mixin = new ProtocolLib();
 
-  public constructor(options: {
-    defaultNamespace: string;
-    xmlNamespace: string;
-    errorTypeRegistries?: TypeRegistry[];
-  }) {
+  public constructor(options: { defaultNamespace: string; xmlNamespace: string }) {
     super(options);
     const settings: XmlSettings = {
       timestampFormat: {
@@ -138,7 +133,7 @@ export class AwsRestXmlProtocol extends HttpBindingProtocol {
     const ns = NormalizedSchema.of(errorSchema);
     const message =
       dataObject.Error?.message ?? dataObject.Error?.Message ?? dataObject.message ?? dataObject.Message ?? "Unknown";
-    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);

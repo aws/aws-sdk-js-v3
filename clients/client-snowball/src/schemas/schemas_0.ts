@@ -282,6 +282,85 @@ import {
 import { SnowballServiceException } from "../models/SnowballServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SnowballServiceException$: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
+_s_registry.registerError(SnowballServiceException$, SnowballServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ClusterLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ClusterLimitExceededException$, ClusterLimitExceededException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_CR, _M],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var Ec2RequestFailedException$: StaticErrorSchema = [-3, n0, _ERFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(Ec2RequestFailedException$, Ec2RequestFailedException);
+export var InvalidAddressException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidAddressException$, InvalidAddressException);
+export var InvalidInputCombinationException$: StaticErrorSchema = [-3, n0, _IICE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputCombinationException$, InvalidInputCombinationException);
+export var InvalidJobStateException$: StaticErrorSchema = [-3, n0, _IJSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidJobStateException$, InvalidJobStateException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidResourceException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(InvalidResourceException$, InvalidResourceException);
+export var KMSRequestFailedException$: StaticErrorSchema = [-3, n0, _KMSRFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(KMSRequestFailedException$, KMSRequestFailedException);
+export var ReturnShippingLabelAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RSLAEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ReturnShippingLabelAlreadyExistsException$, ReturnShippingLabelAlreadyExistsException);
+export var UnsupportedAddressException$: StaticErrorSchema = [-3, n0, _UAE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedAddressException$, UnsupportedAddressException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
 export var Address$: StaticStructureSchema = [3, n0, _A,
@@ -309,12 +388,6 @@ export var CancelJobResult$: StaticStructureSchema = [3, n0, _CJRa,
   [],
   []
 ];
-export var ClusterLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterLimitExceededException$, ClusterLimitExceededException);
 export var ClusterListEntry$: StaticStructureSchema = [3, n0, _CLE,
   0,
   [_CI, _CS, _CD, _D],
@@ -330,12 +403,6 @@ export var CompatibleImage$: StaticStructureSchema = [3, n0, _CIo,
   [_AIm, _N],
   [0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_CR, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAddressRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_A],
@@ -456,12 +523,6 @@ export var Ec2AmiResource$: StaticStructureSchema = [3, n0, _EAR,
   [_AIm, _SAI],
   [0, 0], 1
 ];
-export var Ec2RequestFailedException$: StaticErrorSchema = [-3, n0, _ERFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(Ec2RequestFailedException$, Ec2RequestFailedException);
 export var EKSOnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _EKSODSC,
   0,
   [_KV, _EKSAV],
@@ -517,36 +578,6 @@ export var INDTaxDocuments$: StaticStructureSchema = [3, n0, _INDTD,
   [_GSTIN],
   [0]
 ];
-export var InvalidAddressException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAddressException$, InvalidAddressException);
-export var InvalidInputCombinationException$: StaticErrorSchema = [-3, n0, _IICE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputCombinationException$, InvalidInputCombinationException);
-export var InvalidJobStateException$: StaticErrorSchema = [-3, n0, _IJSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidJobStateException$, InvalidJobStateException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidResourceException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M, _RT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceException$, InvalidResourceException);
 export var JobListEntry$: StaticStructureSchema = [3, n0, _JLEo,
   0,
   [_JI, _JS, _IM, _JT, _ST, _CD, _D],
@@ -572,12 +603,6 @@ export var KeyRange$: StaticStructureSchema = [3, n0, _KR,
   [_BM, _EM],
   [0, 0]
 ];
-export var KMSRequestFailedException$: StaticErrorSchema = [-3, n0, _KMSRFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSRequestFailedException$, KMSRequestFailedException);
 export var LambdaResource$: StaticStructureSchema = [3, n0, _LRa,
   0,
   [_LA, _ET],
@@ -678,12 +703,6 @@ export var PickupDetails$: StaticStructureSchema = [3, n0, _PD,
   [_N, _PN, _E, _IN, _IED, _IIO, _DPI],
   [0, [() => PhoneNumber, 0], [() => Email, 0], 0, 4, 0, 0]
 ];
-export var ReturnShippingLabelAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RSLAEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReturnShippingLabelAlreadyExistsException$, ReturnShippingLabelAlreadyExistsException);
 export var S3OnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _SODSC,
   0,
   [_SLt, _SU, _SS, _FT],
@@ -729,12 +748,6 @@ export var TGWOnDeviceServiceConfiguration$: StaticStructureSchema = [3, n0, _TG
   [_SLt, _SU],
   [1, 0]
 ];
-export var UnsupportedAddressException$: StaticErrorSchema = [-3, n0, _UAE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedAddressException$, UnsupportedAddressException);
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
   [_CI, _RARN, _D, _R, _ODSC, _AI, _SO, _No, _FAI],
@@ -780,8 +793,6 @@ export var WirelessConnection$: StaticStructureSchema = [3, n0, _WC,
   [_IWE],
   [2]
 ];
-export var SnowballServiceException$: StaticErrorSchema = [-3, _s, "SnowballServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SnowballServiceException$, SnowballServiceException);
 var AddressList: StaticListSchema = [1, n0, _AL,
   0, () => Address$
 ];

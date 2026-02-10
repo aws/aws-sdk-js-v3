@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodestarNotificationsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodestarNotificationsClientConfig } from "./CodestarNotificationsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodestarNotificationsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codestarnotifications",
+      errorTypeRegistries,
       version: "2019-10-15",
       serviceTarget: "CodeStarNotifications_20191015",
     },

@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultOpenSearchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { OpenSearchClientConfig } from "./OpenSearchClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: OpenSearchClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.opensearch",
+      errorTypeRegistries,
       xmlNamespace: "http://es.amazonaws.com/doc/2021-01-01/",
       version: "2021-01-01",
       serviceTarget: "AmazonOpenSearchService",

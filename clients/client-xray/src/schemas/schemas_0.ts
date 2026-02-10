@@ -258,9 +258,9 @@ const _REAH = "ReceivedEventAgeHistogram";
 const _RI = "ReferenceId";
 const _RIS = "RequestImpactStatistics";
 const _RLEE = "RuleLimitExceededException";
-const _RN = "RuleName";
+const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
-const _RNe = "ResourceName";
+const _RNu = "RuleName";
 const _RP = "ResourcePolicies";
 const _RPL = "ResourcePolicyList";
 const _RPe = "ResourcePolicy";
@@ -442,6 +442,79 @@ import {
 import { XRayServiceException } from "../models/XRayServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var XRayServiceException$: StaticErrorSchema = [-3, _s, "XRayServiceException", 0, [], []];
+_s_registry.registerError(XRayServiceException$, XRayServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LockoutPreventionException$: StaticErrorSchema = [-3, n0, _LPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LockoutPreventionException$, LockoutPreventionException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var PolicyCountLimitExceededException$: StaticErrorSchema = [-3, n0, _PCLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicyCountLimitExceededException$, PolicyCountLimitExceededException);
+export var PolicySizeLimitExceededException$: StaticErrorSchema = [-3, n0, _PSLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PolicySizeLimitExceededException$, PolicySizeLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var RuleLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RuleLimitExceededException$, RuleLimitExceededException);
+export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottledException$, ThrottledException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Alias$: StaticStructureSchema = [3, n0, _A,
   0,
   [_N, _Na, _T],
@@ -524,7 +597,7 @@ export var DeleteResourcePolicyResult$: StaticStructureSchema = [3, n0, _DRPRe,
 ];
 export var DeleteSamplingRuleRequest$: StaticStructureSchema = [3, n0, _DSRR,
   0,
-  [_RN, _RARN],
+  [_RNu, _RARN],
   [0, 0]
 ];
 export var DeleteSamplingRuleResult$: StaticStructureSchema = [3, n0, _DSRRe,
@@ -827,18 +900,6 @@ export var InstanceIdDetail$: StaticStructureSchema = [3, n0, _IID,
   [_Id],
   [0]
 ];
-export var InvalidPolicyRevisionIdException$: StaticErrorSchema = [-3, n0, _IPRIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyRevisionIdException$, InvalidPolicyRevisionIdException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _LRPR,
   0,
   [_NT],
@@ -869,30 +930,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta, _NT],
   [() => TagList, 0]
 ];
-export var LockoutPreventionException$: StaticErrorSchema = [-3, n0, _LPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LockoutPreventionException$, LockoutPreventionException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var PolicyCountLimitExceededException$: StaticErrorSchema = [-3, n0, _PCLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyCountLimitExceededException$, PolicyCountLimitExceededException);
-export var PolicySizeLimitExceededException$: StaticErrorSchema = [-3, n0, _PSLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicySizeLimitExceededException$, PolicySizeLimitExceededException);
 export var ProbabilisticRuleValue$: StaticStructureSchema = [3, n0, _PRV,
   0,
   [_DSP, _ASP],
@@ -953,12 +990,6 @@ export var ResourceARNDetail$: StaticStructureSchema = [3, n0, _RARND,
   [_ARN],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RNe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_PN, _PD, _PRI, _LUTa],
@@ -994,12 +1025,6 @@ export var RootCauseException$: StaticStructureSchema = [3, n0, _RCE,
   [_N, _M],
   [0, 0]
 ];
-export var RuleLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RuleLimitExceededException$, RuleLimitExceededException);
 export var SamplingBoost$: StaticStructureSchema = [3, n0, _SB,
   0,
   [_BR, _BRTTL],
@@ -1007,7 +1032,7 @@ export var SamplingBoost$: StaticStructureSchema = [3, n0, _SB,
 ];
 export var SamplingBoostStatisticsDocument$: StaticStructureSchema = [3, n0, _SBSDa,
   0,
-  [_RN, _SN, _Ti, _AC, _TCo, _SAC],
+  [_RNu, _SN, _Ti, _AC, _TCo, _SAC],
   [0, 0, 4, 1, 1, 1], 6
 ];
 export var SamplingRateBoost$: StaticStructureSchema = [3, n0, _SRB,
@@ -1017,7 +1042,7 @@ export var SamplingRateBoost$: StaticStructureSchema = [3, n0, _SRB,
 ];
 export var SamplingRule$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_RARNe, _Pr, _FR, _RSes, _SN, _STe, _Hos, _HTTPM, _URLP, _Ve, _RN, _RARN, _At, _SRB],
+  [_RARNe, _Pr, _FR, _RSes, _SN, _STe, _Hos, _HTTPM, _URLP, _Ve, _RNu, _RARN, _At, _SRB],
   [0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 128 | 0, () => SamplingRateBoost$], 10
 ];
 export var SamplingRuleRecord$: StaticStructureSchema = [3, n0, _SRR,
@@ -1027,17 +1052,17 @@ export var SamplingRuleRecord$: StaticStructureSchema = [3, n0, _SRR,
 ];
 export var SamplingRuleUpdate$: StaticStructureSchema = [3, n0, _SRU,
   0,
-  [_RN, _RARN, _RARNe, _Pr, _FR, _RSes, _Hos, _SN, _STe, _HTTPM, _URLP, _At, _SRB],
+  [_RNu, _RARN, _RARNe, _Pr, _FR, _RSes, _Hos, _SN, _STe, _HTTPM, _URLP, _At, _SRB],
   [0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 128 | 0, () => SamplingRateBoost$]
 ];
 export var SamplingStatisticsDocument$: StaticStructureSchema = [3, n0, _SSDa,
   0,
-  [_RN, _CID, _Ti, _RC, _SC, _BC],
+  [_RNu, _CID, _Ti, _RC, _SC, _BC],
   [0, 0, 4, 1, 1, 1], 5
 ];
 export var SamplingStatisticSummary$: StaticStructureSchema = [3, n0, _SSSa,
   0,
-  [_RN, _Ti, _RC, _BC, _SC],
+  [_RNu, _Ti, _RC, _BC, _SC],
   [0, 4, 1, 1, 1]
 ];
 export var SamplingStrategy$: StaticStructureSchema = [3, n0, _SSa,
@@ -1047,7 +1072,7 @@ export var SamplingStrategy$: StaticStructureSchema = [3, n0, _SSa,
 ];
 export var SamplingTargetDocument$: StaticStructureSchema = [3, n0, _STDa,
   0,
-  [_RN, _FR, _RQ, _RQTTL, _Int, _SB],
+  [_RNu, _FR, _RQ, _RQTTL, _Int, _SB],
   [0, 1, 1, 4, 1, () => SamplingBoost$]
 ];
 export var Segment$: StaticStructureSchema = [3, n0, _Seg,
@@ -1105,23 +1130,11 @@ export var TelemetryRecord$: StaticStructureSchema = [3, n0, _TRe,
   [_Ti, _SRC, _SSC, _SSCe, _SRCe, _BCE],
   [4, 1, 1, 1, 1, () => BackendConnectionErrors$], 1
 ];
-export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
 export var TimeSeriesServiceStatistics$: StaticStructureSchema = [3, n0, _TSSS,
   0,
   [_Ti, _ESS, _SSSe, _SFS, _RTH],
   [4, () => EdgeStatistics$, () => ServiceStatistics$, () => ForecastStatistics$, () => Histogram]
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RNe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var Trace$: StaticStructureSchema = [3, n0, _Tra,
   0,
   [_Id, _Du, _LE, _Segm],
@@ -1139,7 +1152,7 @@ export var TraceUser$: StaticStructureSchema = [3, n0, _TU,
 ];
 export var UnprocessedStatistics$: StaticStructureSchema = [3, n0, _US,
   0,
-  [_RN, _ECr, _M],
+  [_RNu, _ECr, _M],
   [0, 0, 0]
 ];
 export var UnprocessedTraceSegment$: StaticStructureSchema = [3, n0, _UTSn,
@@ -1202,8 +1215,6 @@ export var ValueWithServiceIds$: StaticStructureSchema = [3, n0, _VWSI,
   [_AV, _SIe],
   [() => AnnotationValue$, () => ServiceIds]
 ];
-export var XRayServiceException$: StaticErrorSchema = [-3, _s, "XRayServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(XRayServiceException$, XRayServiceException);
 var AliasList: StaticListSchema = [1, n0, _AL,
   0, () => Alias$
 ];

@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudDirectoryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudDirectoryClientConfig } from "./CloudDirectoryClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudDirectoryClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.clouddirectory",
+      errorTypeRegistries,
       version: "2017-01-11",
       serviceTarget: "AmazonCloudDirectory_20170111",
     },

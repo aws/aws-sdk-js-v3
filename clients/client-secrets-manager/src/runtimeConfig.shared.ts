@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSecretsManagerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SecretsManagerClientConfig } from "./SecretsManagerClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SecretsManagerClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.secretsmanager",
+      errorTypeRegistries,
       version: "2017-10-17",
       serviceTarget: "secretsmanager",
     },

@@ -71,8 +71,8 @@ const _eP = "eventPayload";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerruntime";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerruntime";
+const _se = "server";
 const _st = "streaming";
 const _xAIPV = "x-Amzn-Invoked-Production-Variant";
 const n0 = "com.amazonaws.sagemakerruntime";
@@ -100,27 +100,70 @@ import {
 import { SageMakerRuntimeServiceException } from "../models/SageMakerRuntimeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerRuntimeServiceException$: StaticErrorSchema = [-3, _s, "SageMakerRuntimeServiceException", 0, [], []];
+_s_registry.registerError(SageMakerRuntimeServiceException$, SageMakerRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalDependencyException$: StaticErrorSchema = [-3, n0, _IDE,
+  { [_e]: _se, [_hE]: 530 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalDependencyException$, InternalDependencyException);
+export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailure$, InternalFailure);
+export var InternalStreamFailure$: StaticErrorSchema = [-3, n0, _ISF,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalStreamFailure$, InternalStreamFailure);
+export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
+  { [_e]: _c, [_hE]: 424 },
+  [_M, _OSC, _OM, _LSA],
+  [0, 1, 0, 0]
+];
+n0_registry.registerError(ModelError$, ModelError);
+export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
+  { [_aQE]: [`ModelNotReadyException`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ModelNotReadyException$, ModelNotReadyException);
+export var ModelStreamError$: StaticErrorSchema = [-3, n0, _MSE,
+  { [_e]: _c },
+  [_M, _EC],
+  [0, 0]
+];
+n0_registry.registerError(ModelStreamError$, ModelStreamError);
+export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailable$, ServiceUnavailable);
+export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationError$, ValidationError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var BodyBlob: StaticSimpleSchema = [0, n0, _BB, 8, 21];
 var CustomAttributesHeader: StaticSimpleSchema = [0, n0, _CAH, 8, 0];
 var PartBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-export var InternalDependencyException$: StaticErrorSchema = [-3, n0, _IDE,
-  { [_e]: _s, [_hE]: 530 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalDependencyException$, InternalDependencyException);
-export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailure$, InternalFailure);
-export var InternalStreamFailure$: StaticErrorSchema = [-3, n0, _ISF,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalStreamFailure$, InternalStreamFailure);
 export var InvokeEndpointAsyncInput$: StaticStructureSchema = [3, n0, _IEAI,
   0,
   [_EN, _IL, _CT, _A, _CA, _II, _RTTLS, _ITS],
@@ -151,43 +194,11 @@ export var InvokeEndpointWithResponseStreamOutput$: StaticStructureSchema = [3, 
   [_B, _CT, _IPV, _CA],
   [[() => ResponseStream$, 16], [0, { [_hH]: _XASCT }], [0, { [_hH]: _xAIPV }], [() => CustomAttributesHeader, { [_hH]: _XASCA }]], 1
 ];
-export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
-  { [_e]: _c, [_hE]: 424 },
-  [_M, _OSC, _OM, _LSA],
-  [0, 1, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ModelError$, ModelError);
-export var ModelNotReadyException$: StaticErrorSchema = [-3, n0, _MNRE,
-  { [_aQE]: [`ModelNotReadyException`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ModelNotReadyException$, ModelNotReadyException);
-export var ModelStreamError$: StaticErrorSchema = [-3, n0, _MSE,
-  { [_e]: _c },
-  [_M, _EC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ModelStreamError$, ModelStreamError);
 export var PayloadPart$: StaticStructureSchema = [3, n0, _PP,
   0,
   [_By],
   [[() => PartBlob, { [_eP]: 1 }]]
 ];
-export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailable$, ServiceUnavailable);
-export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
-export var SageMakerRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SageMakerRuntimeServiceException$, SageMakerRuntimeServiceException);
 export var ResponseStream$: StaticUnionSchema = [4, n0, _RS,
   { [_st]: 1 },
   [_PP, _MSE, _ISF],

@@ -383,7 +383,7 @@ const _pR = "participatingResources";
 const _pRID = "participatingResourceID";
 const _pS = "participatingServers";
 const _qC = "quotaCode";
-const _r = "runs";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rB = "ramBytes";
@@ -411,8 +411,8 @@ const _rSIT = "replicationServerInstanceType";
 const _rSSGID = "replicationServersSecurityGroupsIDs";
 const _rT = "resourceType";
 const _rVN = "rootVolumeName";
-const _re = "reason";
-const _s = "steps";
+const _ru = "runs";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.drs";
 const _sA = "stagingArea";
 const _sADD = "ssmAgentDiscoveryDatetime";
 const _sAID = "stagingAccountIDs";
@@ -447,9 +447,9 @@ const _sSo = "sourceServers";
 const _sV = "sourceVpc";
 const _sVID = "sourceVpcID";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.drs";
-const _st = "status";
-const _sta = "state";
+const _st = "steps";
+const _sta = "status";
+const _stat = "state";
 const _t = "tags";
 const _tD = "toDate";
 const _tDT = "toDateTime";
@@ -498,14 +498,69 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var CfnStackName: StaticSimpleSchema = [0, n0, _CSN, 8, 0];
-var SensitiveBoundedString: StaticSimpleSchema = [0, n0, _SBS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var DrsServiceException$: StaticErrorSchema = [-3, _s, "DrsServiceException", 0, [], []];
+_s_registry.registerError(DrsServiceException$, DrsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _co],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _co, _rI, _rT],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _co, _rI, _rT],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _co, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [0, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UninitializedAccountException$: StaticErrorSchema = [-3, n0, _UAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co],
+  [0, 0]
+];
+n0_registry.registerError(UninitializedAccountException$, UninitializedAccountException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _co, _r, _fL],
+  [0, 0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var CfnStackName: StaticSimpleSchema = [0, n0, _CSN, 8, 0];
+var SensitiveBoundedString: StaticSimpleSchema = [0, n0, _SBS, 8, 0];
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
   [_aID],
@@ -521,12 +576,6 @@ export var AssociateSourceNetworkStackResponse$: StaticStructureSchema = [3, n0,
   [_j],
   [[() => Job$, 0]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _co, _rI, _rT],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConversionProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_vTCM, _rVN, _fU, _dT, _vTVS, _vTPC],
@@ -589,12 +638,12 @@ export var DataReplicationInfoReplicatedDisk$: StaticStructureSchema = [3, n0, _
 ];
 export var DataReplicationInitiation$: StaticStructureSchema = [3, n0, _DRIa,
   0,
-  [_sDT, _nADT, _s],
+  [_sDT, _nADT, _st],
   [0, 0, () => DataReplicationInitiationSteps]
 ];
 export var DataReplicationInitiationStep$: StaticStructureSchema = [3, n0, _DRIS,
   0,
-  [_n, _st],
+  [_n, _sta],
   [0, 0]
 ];
 export var DeleteJobRequest$: StaticStructureSchema = [3, n0, _DJR,
@@ -827,15 +876,9 @@ export var InitializeServiceResponse$: StaticStructureSchema = [3, n0, _ISRn,
   [],
   []
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_jID, _a, _ty, _iB, _cDT, _eDTn, _st, _pS, _t, _pR],
+  [_jID, _a, _ty, _iB, _cDT, _eDTn, _sta, _pS, _t, _pR],
   [0, 0, 0, 0, 0, 0, 0, () => ParticipatingServers, [() => TagsMap, 0], () => ParticipatingResources], 1
 ];
 export var JobLog$: StaticStructureSchema = [3, n0, _JL,
@@ -860,7 +903,7 @@ export var LaunchActionParameter$: StaticStructureSchema = [3, n0, _LAP,
 ];
 export var LaunchActionRun$: StaticStructureSchema = [3, n0, _LAR,
   0,
-  [_act, _rIu, _st, _fR],
+  [_act, _rIu, _sta, _fR],
   [() => LaunchAction$, 0, 0, 0]
 ];
 export var LaunchActionsRequestFilters$: StaticStructureSchema = [3, n0, _LARF,
@@ -870,7 +913,7 @@ export var LaunchActionsRequestFilters$: StaticStructureSchema = [3, n0, _LARF,
 ];
 export var LaunchActionsStatus$: StaticStructureSchema = [3, n0, _LAS,
   0,
-  [_sADD, _r],
+  [_sADD, _ru],
   [0, () => LaunchActionRuns]
 ];
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -900,7 +943,7 @@ export var LifeCycle$: StaticStructureSchema = [3, n0, _LCi,
 ];
 export var LifeCycleLastLaunch$: StaticStructureSchema = [3, n0, _LCLL,
   0,
-  [_in, _st],
+  [_in, _sta],
   [() => LifeCycleLastLaunchInitiated$, 0]
 ];
 export var LifeCycleLastLaunchInitiated$: StaticStructureSchema = [3, n0, _LCLLI,
@@ -1010,12 +1053,12 @@ export var RecoveryInstanceDataReplicationInfoReplicatedDisk$: StaticStructureSc
 ];
 export var RecoveryInstanceDataReplicationInitiation$: StaticStructureSchema = [3, n0, _RIDRIe,
   0,
-  [_sDT, _s],
+  [_sDT, _st],
   [0, () => RecoveryInstanceDataReplicationInitiationSteps]
 ];
 export var RecoveryInstanceDataReplicationInitiationStep$: StaticStructureSchema = [3, n0, _RIDRIS,
   0,
-  [_n, _st],
+  [_n, _sta],
   [0, 0]
 ];
 export var RecoveryInstanceDisk$: StaticStructureSchema = [3, n0, _RID,
@@ -1025,7 +1068,7 @@ export var RecoveryInstanceDisk$: StaticStructureSchema = [3, n0, _RID,
 ];
 export var RecoveryInstanceFailback$: StaticStructureSchema = [3, n0, _RIF,
   0,
-  [_fCID, _fJID, _fIT, _sta, _aLSBSDT, _fCLSBSDT, _fTOS, _fBDT, _eRDl, _fLT],
+  [_fCID, _fJID, _fIT, _stat, _aLSBSDT, _fCLSBSDT, _fTOS, _fBDT, _eRDl, _fLT],
   [0, 0, 0, 0, 0, 0, 2, 0, 0, 0]
 ];
 export var RecoveryInstanceProperties$: StaticStructureSchema = [3, n0, _RIP,
@@ -1058,12 +1101,6 @@ export var ReplicationConfigurationTemplate$: StaticStructureSchema = [3, n0, _R
   [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _t, _pP, _aRND],
   [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], [() => TagsMap, 0], () => PITPolicy, 2], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _co, _rI, _rT],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryDataReplicationRequest$: StaticStructureSchema = [3, n0, _RDRR,
   0,
   [_sSID],
@@ -1079,12 +1116,6 @@ export var ReverseReplicationResponse$: StaticStructureSchema = [3, n0, _RRRe,
   [_rDSSA],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _co, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceCloudProperties$: StaticStructureSchema = [3, n0, _SCP,
   0,
   [_oAID, _oR, _oAZ, _sOAo],
@@ -1112,7 +1143,7 @@ export var SourceServer$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var StagingArea$: StaticStructureSchema = [3, n0, _SA,
   0,
-  [_st, _sAIDt, _sSSA, _eM],
+  [_sta, _sAIDt, _sSSA, _eM],
   [0, 0, 0, 0]
 ];
 export var StagingSourceServer$: StaticStructureSchema = [3, n0, _SSS,
@@ -1220,18 +1251,6 @@ export var TerminateRecoveryInstancesResponse$: StaticStructureSchema = [3, n0, 
   [_j],
   [[() => Job$, 0]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [0, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UninitializedAccountException$: StaticErrorSchema = [-3, n0, _UAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UninitializedAccountException$, UninitializedAccountException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -1267,20 +1286,12 @@ export var UpdateReplicationConfigurationTemplateRequest$: StaticStructureSchema
   [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND],
   [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], () => PITPolicy, 2], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _co, _re, _fL],
-  [0, 0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0]
 ];
 var __Unit = "unit" as const;
-export var DrsServiceException$: StaticErrorSchema = [-3, _sm, "DrsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DrsServiceException$, DrsServiceException);
 var AccountIDs = 64 | 0;
 var Accounts: StaticListSchema = [1, n0, _Ac,
   0, () => Account$

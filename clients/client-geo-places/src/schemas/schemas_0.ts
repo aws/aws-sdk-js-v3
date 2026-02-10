@@ -163,7 +163,7 @@ const _QRu = "QueryRadius";
 const _QRue = "QueryRefinements";
 const _QT = "QueryText";
 const _QTu = "QueryType";
-const _R = "Restricted";
+const _R = "Reason";
 const _RD = "RouteDistance";
 const _RG = "ReverseGeocode";
 const _RGF = "ReverseGeocodeFilter";
@@ -178,9 +178,9 @@ const _RPL = "RelatedPlaceList";
 const _RT = "RefinedTerm";
 const _RTC = "RecordTypeCode";
 const _Ra = "Radius";
-const _Re = "Region";
-const _Rea = "Reason";
+const _Re = "Restricted";
 const _Rec = "Recurrence";
+const _Reg = "Region";
 const _S = "Street";
 const _SA = "SecondaryAddresses";
 const _SAC = "SecondaryAddressComponents";
@@ -251,8 +251,8 @@ const _m = "message";
 const _n = "name";
 const _pv = "political-view";
 const _r = "reason";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.geoplaces";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.geoplaces";
+const _se = "server";
 const _xagpb = "x-amz-geo-pricing-bucket";
 const n0 = "com.amazonaws.geoplaces";
 
@@ -275,6 +275,43 @@ import {
 import { GeoPlacesServiceException } from "../models/GeoPlacesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GeoPlacesServiceException$: StaticErrorSchema = [-3, _s, "GeoPlacesServiceException", 0, [], []];
+_s_registry.registerError(GeoPlacesServiceException$, GeoPlacesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKey: StaticSimpleSchema = [0, n0, _AK, 8, 0];
 var CountryCode: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 var CountryCode2: StaticSimpleSchema = [0, n0, _CCo, 8, 0];
@@ -291,12 +328,6 @@ var RecordTypeCode: StaticSimpleSchema = [0, n0, _RTC, 8, 0];
 var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var ZipClassificationCode: StaticSimpleSchema = [0, n0, _ZCC, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessPoint$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_P],
@@ -304,27 +335,27 @@ export var AccessPoint$: StaticStructureSchema = [3, n0, _AP,
 ];
 export var AccessRestriction$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_R, _C],
+  [_Re, _C],
   [[() => SensitiveBoolean, 0], [() => CategoryList, 0]]
 ];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_L, _Co, _Re, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _S, _SC, _AN, _Bu, _SAC],
+  [_L, _Co, _Reg, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _S, _SC, _AN, _Bu, _SAC],
   [[() => SensitiveString, 0], [() => Country$, 0], [() => Region$, 0], [() => SubRegion$, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 64 | 0, [() => SensitiveString, 0], [() => StreetComponentsList, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SecondaryAddressComponentList, 0]]
 ];
 export var AddressComponentMatchScores$: StaticStructureSchema = [3, n0, _ACMS,
   0,
-  [_Co, _Re, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _AN, _Bu, _SAC],
+  [_Co, _Reg, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _I, _AN, _Bu, _SAC],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 64 | 1, 1, 1, () => SecondaryAddressComponentMatchScoreList]
 ];
 export var AddressComponentPhonemes$: StaticStructureSchema = [3, n0, _ACP,
   0,
-  [_Co, _Re, _SR, _Lo, _D, _SD, _B, _SBu, _S],
+  [_Co, _Reg, _SR, _Lo, _D, _SD, _B, _SBu, _S],
   [[() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0]]
 ];
 export var AutocompleteAddressHighlights$: StaticStructureSchema = [3, n0, _AAH,
   0,
-  [_L, _Co, _Re, _SR, _Lo, _D, _SD, _S, _B, _SBu, _I, _PC, _AN, _Bu],
+  [_L, _Co, _Reg, _SR, _Lo, _D, _SD, _S, _B, _SBu, _I, _PC, _AN, _Bu],
   [[() => HighlightList, 0], [() => CountryHighlights$, 0], [() => RegionHighlights$, 0], [() => SubRegionHighlights$, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => IntersectionHighlightsList, 0], [() => HighlightList, 0], [() => HighlightList, 0], [() => HighlightList, 0]]
 ];
 export var AutocompleteFilter$: StaticStructureSchema = [3, n0, _AF,
@@ -409,12 +440,12 @@ export var GeocodeParsedQuery$: StaticStructureSchema = [3, n0, _GPQ,
 ];
 export var GeocodeParsedQueryAddressComponents$: StaticStructureSchema = [3, n0, _GPQAC,
   0,
-  [_Co, _Re, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _S, _AN, _Bu, _SAC],
+  [_Co, _Reg, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _S, _AN, _Bu, _SAC],
   [[() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQuerySecondaryAddressComponentList, 0]]
 ];
 export var GeocodeQueryComponents$: StaticStructureSchema = [3, n0, _GQC,
   0,
-  [_Co, _Re, _SR, _Lo, _D, _S, _AN, _PC],
+  [_Co, _Reg, _SR, _Lo, _D, _S, _AN, _PC],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var GeocodeRequest$: StaticStructureSchema = [3, n0, _GR,
@@ -447,12 +478,6 @@ export var Highlight$: StaticStructureSchema = [3, n0, _Hig,
   [_SI, _EI, _V],
   [1, 1, [() => SensitiveString, 0]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Intersection$: StaticStructureSchema = [3, n0, _I,
   0,
   [_PI, _T, _A, _P, _Di, _RD, _MV, _APc],
@@ -503,7 +528,7 @@ export var QueryRefinement$: StaticStructureSchema = [3, n0, _QR,
   [_RT, _OTr, _SI, _EI],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], 1, 1], 4
 ];
-export var Region$: StaticStructureSchema = [3, n0, _Re,
+export var Region$: StaticStructureSchema = [3, n0, _Reg,
   0,
   [_Code_, _N],
   [[() => SensitiveString, 0], [() => SensitiveString, 0]]
@@ -643,12 +668,6 @@ export var SuggestResultItem$: StaticStructureSchema = [3, n0, _SRI,
   [_T, _SRIT, _Pl, _Q, _Hi],
   [[() => SensitiveString, 0], 0, [() => SuggestPlaceResult$, 0], [() => SuggestQueryResult$, 0], [() => SuggestHighlights$, 0]], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeZone$: StaticStructureSchema = [3, n0, _TZ,
   0,
   [_N, _Of, _OS],
@@ -664,19 +683,11 @@ export var UspsZipPlus4$: StaticStructureSchema = [3, n0, _UZP,
   [_RTC],
   [[() => RecordTypeCode, 0]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _FL],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _r }], [() => ValidationExceptionFieldList, { [_jN]: _fL }]], 3
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
   [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
-export var GeoPlacesServiceException$: StaticErrorSchema = [-3, _sm, "GeoPlacesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GeoPlacesServiceException$, GeoPlacesServiceException);
 var AccessPointList: StaticListSchema = [1, n0, _APL,
   0, [() => AccessPoint$,
     0]

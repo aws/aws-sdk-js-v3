@@ -295,8 +295,8 @@ const _RRC = "ResolverRuleConfig";
 const _RRI = "ResolverRuleId";
 const _RRP = "ResolverRulePolicy";
 const _RRe = "ResolverRules";
-const _RT = "RuleType";
-const _RTe = "ResourceType";
+const _RT = "ResourceType";
+const _RTu = "RuleType";
 const _RUE = "ResourceUnavailableException";
 const _RV = "ReturnValue";
 const _S = "Status";
@@ -393,12 +393,121 @@ import {
 import { Route53ResolverServiceException } from "../models/Route53ResolverServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Route53ResolverServiceException$: StaticErrorSchema = [-3, _s, "Route53ResolverServiceException", 0, [], []];
+_s_registry.registerError(Route53ResolverServiceException$, Route53ResolverServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M, _FN],
+  [0, 0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidPolicyDocument$: StaticErrorSchema = [-3, n0, _IPD,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidPolicyDocument$, InvalidPolicyDocument);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidTagException$, InvalidTagException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c },
+  [_M, _RT],
+  [0, 0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnknownResourceException$, UnknownResourceException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateFirewallRuleGroupRequest$: StaticStructureSchema = [3, n0, _AFRGR,
   0,
   [_FRGI, _VI, _P, _N, _CRI, _MP, _T],
@@ -439,12 +548,6 @@ export var AssociateResolverRuleResponse$: StaticStructureSchema = [3, n0, _ARRR
   [_RRA],
   [() => ResolverRuleAssociation$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateFirewallDomainListRequest$: StaticStructureSchema = [3, n0, _CFDLR,
   0,
   [_N, _CRI, _T],
@@ -507,7 +610,7 @@ export var CreateResolverQueryLogConfigResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateResolverRuleRequest$: StaticStructureSchema = [3, n0, _CRRR,
   0,
-  [_CRI, _RT, _N, _DN, _TI, _REI, _T, _DR],
+  [_CRI, _RTu, _N, _DN, _TI, _REI, _T, _DR],
   [0, 0, 0, 0, () => TargetList, 0, () => TagList, 0], 2
 ];
 export var CreateResolverRuleResponse$: StaticStructureSchema = [3, n0, _CRRRr,
@@ -825,42 +928,6 @@ export var ImportFirewallDomainsResponse$: StaticStructureSchema = [3, n0, _IFDR
   [_I, _N, _S, _SM],
   [0, 0, 0, 0]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M, _FN],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidPolicyDocument$: StaticErrorSchema = [-3, n0, _IPD,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyDocument$, InvalidPolicyDocument);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
 export var IpAddressRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
   [_SI, _Ip, _Ipv],
@@ -876,12 +943,6 @@ export var IpAddressUpdate$: StaticStructureSchema = [3, n0, _IAU,
   [_II, _SI, _Ip, _Ipv],
   [0, 0, 0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListFirewallConfigsRequest$: StaticStructureSchema = [3, n0, _LFCR,
   0,
   [_MR, _NT],
@@ -1104,7 +1165,7 @@ export var ResolverQueryLogConfigAssociation$: StaticStructureSchema = [3, n0, _
 ];
 export var ResolverRule$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_I, _CRI, _Ar, _DN, _S, _SM, _RT, _N, _TI, _REI, _OI, _SS, _CTr, _MT, _DR],
+  [_I, _CRI, _Ar, _DN, _S, _SM, _RTu, _N, _TI, _REI, _OI, _SS, _CTr, _MT, _DR],
   [0, 0, 0, 0, 0, 0, 0, 0, () => TargetList, 0, 0, 0, 0, 0, 0]
 ];
 export var ResolverRuleAssociation$: StaticStructureSchema = [3, n0, _RRA,
@@ -1117,36 +1178,6 @@ export var ResolverRuleConfig$: StaticStructureSchema = [3, n0, _RRC,
   [_N, _TI, _REI],
   [0, () => TargetList, 0]
 ];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
-  { [_e]: _c },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c },
-  [_M, _RTe],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _Va],
@@ -1167,18 +1198,6 @@ export var TargetAddress$: StaticStructureSchema = [3, n0, _TA,
   [_Ip, _Po, _Ipv, _Pro, _SNI],
   [0, 1, 0, 0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnknownResourceException$: StaticErrorSchema = [-3, n0, _URE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnknownResourceException$, UnknownResourceException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1284,14 +1303,6 @@ export var UpdateResolverRuleResponse$: StaticStructureSchema = [3, n0, _URRRp,
   [_RR],
   [() => ResolverRule$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var Route53ResolverServiceException$: StaticErrorSchema = [-3, _s, "Route53ResolverServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(Route53ResolverServiceException$, Route53ResolverServiceException);
 var Filters: StaticListSchema = [1, n0, _Fi,
   0, () => Filter$
 ];

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWorkSpacesWebHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WorkSpacesWebClientConfig } from "./WorkSpacesWebClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WorkSpacesWebClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.workspacesweb",
+      errorTypeRegistries,
       version: "2020-07-08",
       serviceTarget: "AWSErmineControlPlaneService",
     },

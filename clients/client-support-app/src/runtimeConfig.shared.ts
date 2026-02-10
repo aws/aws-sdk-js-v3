@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSupportAppHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SupportAppClientConfig } from "./SupportAppClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SupportAppClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.supportapp",
+      errorTypeRegistries,
       version: "2021-08-20",
       serviceTarget: "SupportApp",
     },

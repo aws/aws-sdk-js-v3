@@ -814,6 +814,193 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudFormationServiceException$: StaticErrorSchema = [-3, _s, "CloudFormationServiceException", 0, [], []];
+_s_registry.registerError(CloudFormationServiceException$, CloudFormationServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
+export var CFNRegistryException$: StaticErrorSchema = [-3, n0, _CFNRE,
+  { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CFNRegistryException$, CFNRegistryException);
+export var ChangeSetNotFoundException$: StaticErrorSchema = [-3, n0, _CSNFE,
+  { [_aQE]: [`ChangeSetNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ChangeSetNotFoundException$, ChangeSetNotFoundException);
+export var ConcurrentResourcesLimitExceededException$: StaticErrorSchema = [-3, n0, _CRLEE,
+  { [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentResourcesLimitExceededException$, ConcurrentResourcesLimitExceededException);
+export var CreatedButModifiedException$: StaticErrorSchema = [-3, n0, _CBME,
+  { [_aQE]: [`CreatedButModifiedException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CreatedButModifiedException$, CreatedButModifiedException);
+export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
+  { [_aQE]: [`GeneratedTemplateNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(GeneratedTemplateNotFoundException$, GeneratedTemplateNotFoundException);
+export var HookResultNotFoundException$: StaticErrorSchema = [-3, n0, _HRNFE,
+  { [_aQE]: [`HookResultNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(HookResultNotFoundException$, HookResultNotFoundException);
+export var InsufficientCapabilitiesException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InsufficientCapabilitiesException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InsufficientCapabilitiesException$, InsufficientCapabilitiesException);
+export var InvalidChangeSetStatusException$: StaticErrorSchema = [-3, n0, _ICSSE,
+  { [_aQE]: [`InvalidChangeSetStatus`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidChangeSetStatusException$, InvalidChangeSetStatusException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_aQE]: [`InvalidOperationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
+  { [_aQE]: [`InvalidStateTransition`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NameAlreadyExistsException$: StaticErrorSchema = [-3, n0, _NAEE,
+  { [_aQE]: [`NameAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NameAlreadyExistsException$, NameAlreadyExistsException);
+export var OperationIdAlreadyExistsException$: StaticErrorSchema = [-3, n0, _OIAEE,
+  { [_aQE]: [`OperationIdAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationIdAlreadyExistsException$, OperationIdAlreadyExistsException);
+export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
+  { [_aQE]: [`OperationInProgressException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationInProgressException$, OperationInProgressException);
+export var OperationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_aQE]: [`OperationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationNotFoundException$, OperationNotFoundException);
+export var OperationStatusCheckFailedException$: StaticErrorSchema = [-3, n0, _OSCFE,
+  { [_aQE]: [`ConditionalCheckFailed`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationStatusCheckFailedException$, OperationStatusCheckFailedException);
+export var ResourceScanInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
+  { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceScanInProgressException$, ResourceScanInProgressException);
+export var ResourceScanLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
+  { [_aQE]: [`ResourceScanLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceScanLimitExceededException$, ResourceScanLimitExceededException);
+export var ResourceScanNotFoundException$: StaticErrorSchema = [-3, n0, _RSNFE,
+  { [_aQE]: [`ResourceScanNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceScanNotFoundException$, ResourceScanNotFoundException);
+export var StackInstanceNotFoundException$: StaticErrorSchema = [-3, n0, _SINFE,
+  { [_aQE]: [`StackInstanceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StackInstanceNotFoundException$, StackInstanceNotFoundException);
+export var StackNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
+  { [_aQE]: [`StackNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StackNotFoundException$, StackNotFoundException);
+export var StackRefactorNotFoundException$: StaticErrorSchema = [-3, n0, _SRNFE,
+  { [_aQE]: [`StackRefactorNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StackRefactorNotFoundException$, StackRefactorNotFoundException);
+export var StackSetNotEmptyException$: StaticErrorSchema = [-3, n0, _SSNEE,
+  { [_aQE]: [`StackSetNotEmptyException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StackSetNotEmptyException$, StackSetNotEmptyException);
+export var StackSetNotFoundException$: StaticErrorSchema = [-3, n0, _SSNFE,
+  { [_aQE]: [`StackSetNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StackSetNotFoundException$, StackSetNotFoundException);
+export var StaleRequestException$: StaticErrorSchema = [-3, n0, _SRE,
+  { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StaleRequestException$, StaleRequestException);
+export var TokenAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
+  { [_aQE]: [`TokenAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TokenAlreadyExistsException$, TokenAlreadyExistsException);
+export var TypeConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _TCNFE,
+  { [_aQE]: [`TypeConfigurationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TypeConfigurationNotFoundException$, TypeConfigurationNotFoundException);
+export var TypeNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
+  { [_aQE]: [`TypeNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TypeNotFoundException$, TypeNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountGateResult$: StaticStructureSchema = [3, n0, _AGR,
   0,
   [_S, _SR],
@@ -844,12 +1031,6 @@ export var ActivateTypeOutput$: StaticStructureSchema = [3, n0, _ATO,
   [_A],
   [0]
 ];
-export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_aQE]: [`AlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
 export var Annotation$: StaticStructureSchema = [3, n0, _An,
   0,
   [_AN, _S, _SM, _RM, _RL, _SL],
@@ -880,12 +1061,6 @@ export var CancelUpdateStackInput$: StaticStructureSchema = [3, n0, _CUSI,
   [_SN, _CRT],
   [0, 0], 1
 ];
-export var CFNRegistryException$: StaticErrorSchema = [-3, n0, _CFNRE,
-  { [_aQE]: [`CFNRegistryException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CFNRegistryException$, CFNRegistryException);
 export var Change$: StaticStructureSchema = [3, n0, _C,
   0,
   [_T, _HIC, _RC],
@@ -906,23 +1081,11 @@ export var ChangeSetHookTargetDetails$: StaticStructureSchema = [3, n0, _CSHTD,
   [_TT, _RTD],
   [0, () => ChangeSetHookResourceTargetDetails$]
 ];
-export var ChangeSetNotFoundException$: StaticErrorSchema = [-3, n0, _CSNFE,
-  { [_aQE]: [`ChangeSetNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ChangeSetNotFoundException$, ChangeSetNotFoundException);
 export var ChangeSetSummary$: StaticStructureSchema = [3, n0, _CSS,
   0,
   [_SI, _SN, _CSI, _CSN, _ES, _S, _SR, _CT, _D, _INS, _PCSI, _RCSI, _IER],
   [0, 0, 0, 0, 0, 0, 0, 4, 0, 2, 0, 0, 2]
 ];
-export var ConcurrentResourcesLimitExceededException$: StaticErrorSchema = [-3, n0, _CRLEE,
-  { [_aQE]: [`ConcurrentResourcesLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentResourcesLimitExceededException$, ConcurrentResourcesLimitExceededException);
 export var ContinueUpdateRollbackInput$: StaticStructureSchema = [3, n0, _CURI,
   0,
   [_SN, _RARN, _RTS, _CRT],
@@ -943,12 +1106,6 @@ export var CreateChangeSetOutput$: StaticStructureSchema = [3, n0, _CCSO,
   [_I, _SI],
   [0, 0]
 ];
-export var CreatedButModifiedException$: StaticErrorSchema = [-3, n0, _CBME,
-  { [_aQE]: [`CreatedButModifiedException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CreatedButModifiedException$, CreatedButModifiedException);
 export var CreateGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _CGTI,
   0,
   [_GTN, _R, _SN, _TCe],
@@ -1339,12 +1496,6 @@ export var Export$: StaticStructureSchema = [3, n0, _Ex,
   [_ESI, _N, _V],
   [0, 0, 0]
 ];
-export var GeneratedTemplateNotFoundException$: StaticErrorSchema = [-3, n0, _GTNFE,
-  { [_aQE]: [`GeneratedTemplateNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GeneratedTemplateNotFoundException$, GeneratedTemplateNotFoundException);
 export var GetGeneratedTemplateInput$: StaticStructureSchema = [3, n0, _GGTI,
   0,
   [_GTN, _Fo],
@@ -1395,12 +1546,6 @@ export var GetTemplateSummaryOutput$: StaticStructureSchema = [3, n0, _GTSO,
   [_P, _D, _Ca, _CR, _RTe, _Ve, _Me, _DTe, _RIS, _W],
   [() => ParameterDeclarations, 0, 64 | 0, 0, 64 | 0, 0, 0, 64 | 0, () => ResourceIdentifierSummaries, () => Warnings$]
 ];
-export var HookResultNotFoundException$: StaticErrorSchema = [-3, n0, _HRNFE,
-  { [_aQE]: [`HookResultNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HookResultNotFoundException$, HookResultNotFoundException);
 export var HookResultSummary$: StaticStructureSchema = [3, n0, _HRS,
   0,
   [_HRI, _IP, _FM, _TN, _TVI, _TCVI, _S, _HSR, _IAn, _TT, _TI, _TA, _HET],
@@ -1421,36 +1566,6 @@ export var ImportStacksToStackSetOutput$: StaticStructureSchema = [3, n0, _ISTSS
   [_OI],
   [0]
 ];
-export var InsufficientCapabilitiesException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_aQE]: [`InsufficientCapabilitiesException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientCapabilitiesException$, InsufficientCapabilitiesException);
-export var InvalidChangeSetStatusException$: StaticErrorSchema = [-3, n0, _ICSSE,
-  { [_aQE]: [`InvalidChangeSetStatus`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidChangeSetStatusException$, InvalidChangeSetStatusException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_aQE]: [`InvalidOperationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidStateTransitionException$: StaticErrorSchema = [-3, n0, _ISTE,
-  { [_aQE]: [`InvalidStateTransition`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateTransitionException$, InvalidStateTransitionException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListChangeSetsInput$: StaticStructureSchema = [3, n0, _LCSI,
   0,
   [_SN, _NT],
@@ -1681,12 +1796,6 @@ export var ModuleInfo$: StaticStructureSchema = [3, n0, _MI,
   [_TH, _LIH],
   [0, 0]
 ];
-export var NameAlreadyExistsException$: StaticErrorSchema = [-3, n0, _NAEE,
-  { [_aQE]: [`NameAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NameAlreadyExistsException$, NameAlreadyExistsException);
 export var OperationEntry$: StaticStructureSchema = [3, n0, _OEp,
   0,
   [_OT, _OI],
@@ -1697,35 +1806,11 @@ export var OperationEvent$: StaticStructureSchema = [3, n0, _OEpe,
   [_EI, _SI, _OI, _OT, _OS, _ETv, _LRI, _PRI, _RT, _Ti, _ST, _ET, _RSes, _RSR, _RP, _CRT, _HTo, _HS, _HSR, _HIP, _HFM, _DSet, _VFM, _VN, _VS, _VSR, _VP],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var OperationIdAlreadyExistsException$: StaticErrorSchema = [-3, n0, _OIAEE,
-  { [_aQE]: [`OperationIdAlreadyExistsException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationIdAlreadyExistsException$, OperationIdAlreadyExistsException);
-export var OperationInProgressException$: StaticErrorSchema = [-3, n0, _OIPE,
-  { [_aQE]: [`OperationInProgressException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationInProgressException$, OperationInProgressException);
-export var OperationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
-  { [_aQE]: [`OperationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotFoundException$, OperationNotFoundException);
 export var OperationResultFilter$: StaticStructureSchema = [3, n0, _ORF,
   0,
   [_N, _Va],
   [0, 0]
 ];
-export var OperationStatusCheckFailedException$: StaticErrorSchema = [-3, n0, _OSCFE,
-  { [_aQE]: [`ConditionalCheckFailed`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationStatusCheckFailedException$, OperationStatusCheckFailedException);
 export var Output$: StaticStructureSchema = [3, n0, _O,
   0,
   [_OK, _OV, _D, _EN],
@@ -1841,24 +1926,6 @@ export var ResourceMapping$: StaticStructureSchema = [3, n0, _RMeso,
   [_So, _Des],
   [() => ResourceLocation$, () => ResourceLocation$], 2
 ];
-export var ResourceScanInProgressException$: StaticErrorSchema = [-3, n0, _RSIPE,
-  { [_aQE]: [`ResourceScanInProgress`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceScanInProgressException$, ResourceScanInProgressException);
-export var ResourceScanLimitExceededException$: StaticErrorSchema = [-3, n0, _RSLEE,
-  { [_aQE]: [`ResourceScanLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceScanLimitExceededException$, ResourceScanLimitExceededException);
-export var ResourceScanNotFoundException$: StaticErrorSchema = [-3, n0, _RSNFE,
-  { [_aQE]: [`ResourceScanNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceScanNotFoundException$, ResourceScanNotFoundException);
 export var ResourceScanSummary$: StaticStructureSchema = [3, n0, _RSSe,
   0,
   [_RSI, _S, _SR, _ST, _ET, _PC, _STc],
@@ -1979,12 +2046,6 @@ export var StackInstanceFilter$: StaticStructureSchema = [3, n0, _SIF,
   [_N, _Va],
   [0, 0]
 ];
-export var StackInstanceNotFoundException$: StaticErrorSchema = [-3, n0, _SINFE,
-  { [_aQE]: [`StackInstanceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StackInstanceNotFoundException$, StackInstanceNotFoundException);
 export var StackInstanceResourceDriftsSummary$: StaticStructureSchema = [3, n0, _SIRDSt,
   0,
   [_SI, _LRI, _RT, _SRDS, _Ti, _PRI, _PRIC, _PDro],
@@ -1995,23 +2056,11 @@ export var StackInstanceSummary$: StaticStructureSchema = [3, n0, _SISt,
   [_SSI, _Reg, _Acc, _SI, _S, _SR, _SIS, _OUIr, _DSr, _LDCT, _LOI],
   [0, 0, 0, 0, 0, 0, () => StackInstanceComprehensiveStatus$, 0, 0, 4, 0]
 ];
-export var StackNotFoundException$: StaticErrorSchema = [-3, n0, _SNFE,
-  { [_aQE]: [`StackNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StackNotFoundException$, StackNotFoundException);
 export var StackRefactorAction$: StaticStructureSchema = [3, n0, _SRAt,
   0,
   [_Act, _En, _PRI, _RI, _D, _Det, _DRe, _TR, _UR, _RMeso],
   [0, 0, 0, 0, 0, 0, 0, () => StackRefactorTagResources, 64 | 0, () => ResourceMapping$]
 ];
-export var StackRefactorNotFoundException$: StaticErrorSchema = [-3, n0, _SRNFE,
-  { [_aQE]: [`StackRefactorNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StackRefactorNotFoundException$, StackRefactorNotFoundException);
 export var StackRefactorSummary$: StaticStructureSchema = [3, n0, _SRSta,
   0,
   [_SRI, _D, _ES, _ESR, _S, _SR],
@@ -2062,18 +2111,6 @@ export var StackSetDriftDetectionDetails$: StaticStructureSchema = [3, n0, _SSDD
   [_DSr, _DDS, _LDCT, _TSIC, _DSIC, _ISSIC, _IPSIC, _FSIC],
   [0, 0, 4, 1, 1, 1, 1, 1]
 ];
-export var StackSetNotEmptyException$: StaticErrorSchema = [-3, n0, _SSNEE,
-  { [_aQE]: [`StackSetNotEmptyException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StackSetNotEmptyException$, StackSetNotEmptyException);
-export var StackSetNotFoundException$: StaticErrorSchema = [-3, n0, _SSNFE,
-  { [_aQE]: [`StackSetNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StackSetNotFoundException$, StackSetNotFoundException);
 export var StackSetOperation$: StaticStructureSchema = [3, n0, _SSO,
   0,
   [_OI, _SSI, _Act, _S, _OP, _RS, _ARARN, _ERN, _CTr, _ETn, _DT, _SSDDD, _SR, _SDta],
@@ -2109,12 +2146,6 @@ export var StackSummary$: StaticStructureSchema = [3, n0, _SStac,
   [_SN, _CT, _SSta, _SI, _TDe, _LUT, _DTel, _SSR, _PIa, _RIo, _DI, _LO],
   [0, 4, 0, 0, 0, 4, 4, 0, 0, 0, () => StackDriftInformationSummary$, () => LastOperations], 3
 ];
-export var StaleRequestException$: StaticErrorSchema = [-3, n0, _SRE,
-  { [_aQE]: [`StaleRequestException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StaleRequestException$, StaleRequestException);
 export var StartResourceScanInput$: StaticStructureSchema = [3, n0, _SRSI,
   0,
   [_CRT, _SF],
@@ -2175,12 +2206,6 @@ export var TestTypeOutput$: StaticStructureSchema = [3, n0, _TTO,
   [_TVA],
   [0]
 ];
-export var TokenAlreadyExistsException$: StaticErrorSchema = [-3, n0, _TAEE,
-  { [_aQE]: [`TokenAlreadyExistsException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TokenAlreadyExistsException$, TokenAlreadyExistsException);
 export var TypeConfigurationDetails$: StaticStructureSchema = [3, n0, _TCD,
   0,
   [_A, _Al, _Co, _LU, _TA, _TN, _IDC],
@@ -2191,23 +2216,11 @@ export var TypeConfigurationIdentifier$: StaticStructureSchema = [3, n0, _TCI,
   [_TA, _TCA, _TCAy, _T, _TN],
   [0, 0, 0, 0, 0]
 ];
-export var TypeConfigurationNotFoundException$: StaticErrorSchema = [-3, n0, _TCNFE,
-  { [_aQE]: [`TypeConfigurationNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TypeConfigurationNotFoundException$, TypeConfigurationNotFoundException);
 export var TypeFilters$: StaticStructureSchema = [3, n0, _TF,
   0,
   [_Cat, _PI, _TNP],
   [0, 0, 0]
 ];
-export var TypeNotFoundException$: StaticErrorSchema = [-3, n0, _TNFE,
-  { [_aQE]: [`TypeNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TypeNotFoundException$, TypeNotFoundException);
 export var TypeSummary$: StaticStructureSchema = [3, n0, _TSyp,
   0,
   [_T, _TN, _DVI, _TA, _LU, _D, _PI, _OTN, _PVN, _LPV, _PIu, _PN, _IA],
@@ -2294,8 +2307,6 @@ export var Warnings$: StaticStructureSchema = [3, n0, _W,
   [64 | 0]
 ];
 var __Unit = "unit" as const;
-export var CloudFormationServiceException$: StaticErrorSchema = [-3, _s, "CloudFormationServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(CloudFormationServiceException$, CloudFormationServiceException);
 var AccountLimitList: StaticListSchema = [1, n0, _ALL,
   0, () => AccountLimit$
 ];

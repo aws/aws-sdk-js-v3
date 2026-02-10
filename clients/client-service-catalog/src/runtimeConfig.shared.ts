@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultServiceCatalogHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ServiceCatalogClientConfig } from "./ServiceCatalogClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ServiceCatalogClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.servicecatalog",
+      errorTypeRegistries,
       version: "2015-12-10",
       serviceTarget: "AWS242ServiceCatalogService",
     },

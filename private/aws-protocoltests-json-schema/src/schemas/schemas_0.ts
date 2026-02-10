@@ -123,12 +123,12 @@ const _lV = "listValue";
 const _mT = "mediaType";
 const _mV = "mapValue";
 const _nV = "numberValue";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.aws.protocoltests.json";
 const _sSL = "sparseStringList";
 const _sSM = "sparseStringMap";
 const _sV = "stringValue";
 const _sVt = "structureValue";
-const _sm = "smithy.ts.sdk.synthetic.aws.protocoltests.json";
+const _se = "server";
 const _sp = "sparse";
 const _st = "string";
 const _tV = "timestampValue";
@@ -152,13 +152,50 @@ import { ComplexError, ErrorWithMembers, ErrorWithoutMembers, FooError, InvalidG
 import { JsonProtocolServiceException } from "../models/JsonProtocolServiceException";
 
 /* eslint no-var: 0 */
-var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var JsonProtocolServiceException$: StaticErrorSchema = [-3, _s, "JsonProtocolServiceException", 0, [], []];
+_s_registry.registerError(JsonProtocolServiceException$, JsonProtocolServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],
   [0, [() => ComplexNestedErrorData$, 0]]
 ];
-TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
+n0_registry.registerError(ComplexError$, ComplexError);
+export var ErrorWithMembers$: StaticErrorSchema = [-3, n0, _EWM,
+  { [_e]: _c },
+  [_C, _CD, _IF, _LF, _MF, _M, _SF],
+  [0, [() => KitchenSink$, 0], 1, 64 | 0, 128 | 0, 0, 0]
+];
+n0_registry.registerError(ErrorWithMembers$, ErrorWithMembers);
+export var ErrorWithoutMembers$: StaticErrorSchema = [-3, n0, _EWMr,
+  { [_e]: _se },
+  [],
+  []
+];
+n0_registry.registerError(ErrorWithoutMembers$, ErrorWithoutMembers);
+export var FooError$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _se },
+  [],
+  []
+];
+n0_registry.registerError(FooError$, FooError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGreeting$, InvalidGreeting);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
   0,
   [_F],
@@ -184,24 +221,6 @@ export var EmptyStruct$: StaticStructureSchema = [3, n0, _ES,
   [],
   []
 ];
-export var ErrorWithMembers$: StaticErrorSchema = [-3, n0, _EWM,
-  { [_e]: _c },
-  [_C, _CD, _IF, _LF, _MF, _M, _SF],
-  [0, [() => KitchenSink$, 0], 1, 64 | 0, 128 | 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ErrorWithMembers$, ErrorWithMembers);
-export var ErrorWithoutMembers$: StaticErrorSchema = [-3, n0, _EWMr,
-  { [_e]: _s },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ErrorWithoutMembers$, ErrorWithoutMembers);
-export var FooError$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _s },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(FooError$, FooError);
 export var FractionalSecondsOutput$: StaticStructureSchema = [3, n0, _FSO,
   0,
   [_d],
@@ -217,12 +236,6 @@ export var HostLabelInput$: StaticStructureSchema = [3, n0, _HLI,
   [_l],
   [[0, { [_hL]: 1 }]], 1
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
 export var JsonEnumsInputOutput$: StaticStructureSchema = [3, n0, _JEIO,
   0,
   [_fE, _fEo, _fEoo, _fEL, _fES, _fEM],
@@ -294,8 +307,6 @@ export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
   [0]
 ];
 var __Unit = "unit" as const;
-export var JsonProtocolServiceException$: StaticErrorSchema = [-3, _sm, "JsonProtocolServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(JsonProtocolServiceException$, JsonProtocolServiceException);
 var ListOfKitchenSinks: StaticListSchema = [1, n0, _LOKS,
   0, [() => KitchenSink$,
     0]

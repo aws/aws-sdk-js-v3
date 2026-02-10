@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultConnectContactLensHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ConnectContactLensClientConfig } from "./ConnectContactLensClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ConnectContactLensClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.connectcontactlens",
+      errorTypeRegistries,
       version: "2020-08-21",
       serviceTarget: "AmazonConnectContactLens",
     },

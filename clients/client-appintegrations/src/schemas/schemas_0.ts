@@ -176,8 +176,8 @@ const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appintegrations";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appintegrations";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.appintegrations";
@@ -205,12 +205,67 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppIntegrationsServiceException$: StaticErrorSchema = [-3, _s, "AppIntegrationsServiceException", 0, [], []];
+_s_registry.registerError(AppIntegrationsServiceException$, AppIntegrationsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateResourceException$, DuplicateResourceException);
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceError$, InternalServiceError);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RQEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceQuotaExceededException$, ResourceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ApplicationAssociationSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
   [_AAA, _AA, _CI],
@@ -316,12 +371,6 @@ export var DeleteEventIntegrationResponse$: StaticStructureSchema = [3, n0, _DEI
   [],
   []
 ];
-export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateResourceException$, DuplicateResourceException);
 export var EventFilter$: StaticStructureSchema = [3, n0, _EF,
   0,
   [_So],
@@ -387,18 +436,6 @@ export var IframeConfig$: StaticStructureSchema = [3, n0, _IC,
   [_Al, _Sa],
   [64 | 0, 64 | 0]
 ];
-export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var LastExecutionStatus$: StaticStructureSchema = [3, n0, _LES,
   0,
   [_ES, _SM],
@@ -484,18 +521,6 @@ export var Publication$: StaticStructureSchema = [3, n0, _Pu,
   [_E, _Sc, _D],
   [0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RQEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceQuotaExceededException$, ResourceQuotaExceededException);
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_SE, _FEF, _O],
@@ -516,18 +541,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -578,8 +591,6 @@ export var UpdateEventIntegrationResponse$: StaticStructureSchema = [3, n0, _UEI
   [],
   []
 ];
-export var AppIntegrationsServiceException$: StaticErrorSchema = [-3, _sm, "AppIntegrationsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppIntegrationsServiceException$, AppIntegrationsServiceException);
 var ApplicationApprovedOrigins = 64 | 0;
 var ApplicationAssociationsList: StaticListSchema = [1, n0, _AAL,
   0, () => ApplicationAssociationSummary$

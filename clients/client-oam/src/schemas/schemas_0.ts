@@ -89,8 +89,8 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.oam";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.oam";
+const _se = "server";
 const _tK = "tagKeys";
 const _xaE = "x-amzn-ErrorType";
 const n0 = "com.amazonaws.oam";
@@ -118,12 +118,67 @@ import {
 import { OAMServiceException } from "../models/OAMServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var OAMServiceException$: StaticErrorSchema = [-3, _s, "OAMServiceException", 0, [], []];
+_s_registry.registerError(OAMServiceException$, OAMServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _aET],
   [0, [0, { [_hH]: _xaE }]]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceFault$: StaticErrorSchema = [-3, n0, _ISF,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _aET],
+  [0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(InternalServiceFault$, InternalServiceFault);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _aET],
+  [0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _aET],
+  [0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _aET],
+  [0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _aET],
+  [0, [0, { [_hH]: _xaE }]]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateLinkInput$: StaticStructureSchema = [3, n0, _CLI,
   0,
   [_LT, _RT, _SI, _T, _LC],
@@ -194,18 +249,6 @@ export var GetSinkPolicyOutput$: StaticStructureSchema = [3, n0, _GSPO,
   [_SA, _SIi, _P],
   [0, 0, 0]
 ];
-export var InternalServiceFault$: StaticErrorSchema = [-3, n0, _ISF,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _aET],
-  [0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(InternalServiceFault$, InternalServiceFault);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _aET],
-  [0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var LinkConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_LGC, _MC],
@@ -276,12 +319,6 @@ export var MetricConfiguration$: StaticStructureSchema = [3, n0, _MC,
   [_F],
   [0], 1
 ];
-export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _aET],
-  [0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
 export var PutSinkPolicyInput$: StaticStructureSchema = [3, n0, _PSPI,
   0,
   [_SI, _P],
@@ -292,18 +329,6 @@ export var PutSinkPolicyOutput$: StaticStructureSchema = [3, n0, _PSPO,
   [_SA, _SIi, _P],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _aET],
-  [0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _aET],
-  [0, [0, { [_hH]: _xaE }]]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _T],
@@ -314,12 +339,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
@@ -340,14 +359,6 @@ export var UpdateLinkOutput$: StaticStructureSchema = [3, n0, _ULO,
   [_A, _I, _L, _LT, _RT, _SA, _T, _LC],
   [0, 0, 0, 0, 64 | 0, 0, 128 | 0, () => LinkConfiguration$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var OAMServiceException$: StaticErrorSchema = [-3, _sm, "OAMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OAMServiceException$, OAMServiceException);
 var ListAttachedLinksItems: StaticListSchema = [1, n0, _LALIis,
   0, () => ListAttachedLinksItem$
 ];

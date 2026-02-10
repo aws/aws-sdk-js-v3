@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultMedicalImagingHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { MedicalImagingClientConfig } from "./MedicalImagingClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: MedicalImagingClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.medicalimaging",
+      errorTypeRegistries,
       version: "2023-07-19",
       serviceTarget: "AHIGatewayService",
     },

@@ -267,7 +267,7 @@ const _rF = "refreshFrequency";
 const _rP = "restrictedPeriods";
 const _rPL = "restrictedPeriodList";
 const _rT = "ringTimeout";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2";
 const _sD = "startDate";
 const _sEADN = "sourceEmailAddressDisplayName";
 const _sLRA = "serviceLinkedRoleArn";
@@ -276,7 +276,7 @@ const _sT = "startTime";
 const _sc = "schedule";
 const _se = "server";
 const _sm = "sms";
-const _smi = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaignsv2";
+const _so = "source";
 const _st = "state";
 const _sta = "status";
 const _t = "type";
@@ -320,15 +320,76 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
-var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
-var EmailDisplayName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ConnectCampaignsV2ServiceException$: StaticErrorSchema = [-3, _s, "ConnectCampaignsV2ServiceException", 0, [], []];
+_s_registry.registerError(ConnectCampaignsV2ServiceException$, ConnectCampaignsV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],
   [0, [0, { [_hH]: _xaE }]], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_st, _m, _xAET],
+  [0, 0, [0, { [_hH]: _xaE }]], 2
+];
+n0_registry.registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
+var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
+var EmailDisplayName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
 export var AgentlessConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [],
@@ -341,7 +402,7 @@ export var AnswerMachineDetectionConfig$: StaticStructureSchema = [3, n0, _AMDC,
 ];
 export var Campaign$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_i, _a, _n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
+  [_i, _a, _n, _cII, _cSC, _t, _so, _cCFA, _sc, _cTC, _cLO, _ta],
   [0, 0, 0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 4
 ];
 export var CampaignFilters$: StaticStructureSchema = [3, n0, _CF,
@@ -374,15 +435,9 @@ export var CommunicationTimeConfig$: StaticStructureSchema = [3, n0, _CTC,
   [_lTZC, _te, _sm, _em, _wA],
   [() => LocalTimeZoneConfig$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$, () => TimeWindow$], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_n, _cII, _cSC, _t, _s, _cCFA, _sc, _cTC, _cLO, _ta],
+  [_n, _cII, _cSC, _t, _so, _cCFA, _sc, _cTC, _cLO, _ta],
   [0, 0, [() => ChannelSubtypeConfig$, 0], 0, () => Source$, 0, () => Schedule$, () => CommunicationTimeConfig$, () => CommunicationLimitsConfig$, 128 | 0], 2
 ];
 export var CreateCampaignResponse$: StaticStructureSchema = [3, n0, _CCRr,
@@ -560,24 +615,6 @@ export var InstanceOnboardingJobStatus$: StaticStructureSchema = [3, n0, _IOJS,
   [_cII, _sta, _fC],
   [0, 0, 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_st, _m, _xAET],
-  [0, 0, [0, { [_hH]: _xaE }]], 2
-];
-TypeRegistry.for(n0).registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var LambdaIntegrationConfig$: StaticStructureSchema = [3, n0, _LIC,
   0,
   [_fA],
@@ -703,12 +740,6 @@ export var QConnectIntegrationSummary$: StaticStructureSchema = [3, n0, _QCIS,
   [_kBA],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestrictedPeriod$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_sD, _eD, _n],
@@ -724,12 +755,6 @@ export var Schedule$: StaticStructureSchema = [3, n0, _S,
   [_sT, _eTn, _rF],
   [5, 5, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SmsChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _SCSC,
   0,
   [_oM, _dOC, _cap],
@@ -800,12 +825,6 @@ export var TelephonyOutboundConfig$: StaticStructureSchema = [3, n0, _TOC,
   [_cCFI, _cSPN, _aMDC, _rT],
   [0, 0, () => AnswerMachineDetectionConfig$, 1], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeoutConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_dIS],
@@ -858,15 +877,9 @@ export var UpdateCampaignScheduleRequest$: StaticStructureSchema = [3, n0, _UCSR
 ];
 export var UpdateCampaignSourceRequest$: StaticStructureSchema = [3, n0, _UCSRp,
   0,
-  [_i, _s],
+  [_i, _so],
   [[0, 1], () => Source$], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WhatsAppChannelSubtypeConfig$: StaticStructureSchema = [3, n0, _WACSC,
   0,
   [_oM, _dOC, _cap],
@@ -883,8 +896,6 @@ export var WhatsAppOutboundConfig$: StaticStructureSchema = [3, n0, _WAOC,
   [0, 0], 2
 ];
 var __Unit = "unit" as const;
-export var ConnectCampaignsV2ServiceException$: StaticErrorSchema = [-3, _smi, "ConnectCampaignsV2ServiceException", 0, [], []];
-TypeRegistry.for(_smi).registerError(ConnectCampaignsV2ServiceException$, ConnectCampaignsV2ServiceException);
 var AgentActions = 64 | 0;
 var CampaignIdList = 64 | 0;
 var CampaignSummaryList: StaticListSchema = [1, n0, _CSL,

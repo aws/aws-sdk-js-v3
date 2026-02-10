@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDeadlineHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DeadlineClientConfig } from "./DeadlineClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DeadlineClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.deadline",
+      errorTypeRegistries,
       version: "2023-10-12",
       serviceTarget: "Deadline",
     },

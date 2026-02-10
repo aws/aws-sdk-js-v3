@@ -120,9 +120,9 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "simulation";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.simspaceweaver";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.simspaceweaver";
+const _si = "simulation";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.simspaceweaver";
 
@@ -149,24 +149,67 @@ import {
 import { SimSpaceWeaverServiceException } from "../models/SimSpaceWeaverServiceException";
 
 /* eslint no-var: 0 */
-var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SimSpaceWeaverServiceException$: StaticErrorSchema = [-3, _s, "SimSpaceWeaverServiceException", 0, [], []];
+_s_registry.registerError(SimSpaceWeaverServiceException$, SimSpaceWeaverServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var CloudWatchLogsLogGroup$: StaticStructureSchema = [3, n0, _CWLLG,
-  0,
-  [_LGA],
-  [0]
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
+export var CloudWatchLogsLogGroup$: StaticStructureSchema = [3, n0, _CWLLG,
+  0,
+  [_LGA],
+  [0]
+];
 export var CreateSnapshotInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_S, _D],
@@ -180,7 +223,7 @@ export var CreateSnapshotOutput$: StaticStructureSchema = [3, n0, _CSO,
 export var DeleteAppInput$: StaticStructureSchema = [3, n0, _DAI,
   0,
   [_S, _Do, _A],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
+  [[0, { [_hQ]: _si }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
 ];
 export var DeleteAppOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
@@ -190,7 +233,7 @@ export var DeleteAppOutput$: StaticStructureSchema = [3, n0, _DAO,
 export var DeleteSimulationInput$: StaticStructureSchema = [3, n0, _DSI,
   0,
   [_S],
-  [[0, { [_hQ]: _s }]], 1
+  [[0, { [_hQ]: _si }]], 1
 ];
 export var DeleteSimulationOutput$: StaticStructureSchema = [3, n0, _DSO,
   0,
@@ -200,7 +243,7 @@ export var DeleteSimulationOutput$: StaticStructureSchema = [3, n0, _DSO,
 export var DescribeAppInput$: StaticStructureSchema = [3, n0, _DAIe,
   0,
   [_S, _Do, _A],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
+  [[0, { [_hQ]: _si }], [0, { [_hQ]: _d }], [0, { [_hQ]: _a }]], 3
 ];
 export var DescribeAppOutput$: StaticStructureSchema = [3, n0, _DAOe,
   0,
@@ -210,7 +253,7 @@ export var DescribeAppOutput$: StaticStructureSchema = [3, n0, _DAOe,
 export var DescribeSimulationInput$: StaticStructureSchema = [3, n0, _DSIe,
   0,
   [_S],
-  [[0, { [_hQ]: _s }]], 1
+  [[0, { [_hQ]: _si }]], 1
 ];
 export var DescribeSimulationOutput$: StaticStructureSchema = [3, n0, _DSOe,
   0,
@@ -222,12 +265,6 @@ export var Domain$: StaticStructureSchema = [3, n0, _Do,
   [_N, _L],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LaunchOverrides$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_LCa],
@@ -236,7 +273,7 @@ export var LaunchOverrides$: StaticStructureSchema = [3, n0, _LO,
 export var ListAppsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_S, _Do, _MR, _NT],
-  [[0, { [_hQ]: _s }], [0, { [_hQ]: _d }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [[0, { [_hQ]: _si }], [0, { [_hQ]: _d }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListAppsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
@@ -278,12 +315,6 @@ export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
   [_Des],
   [() => LogDestinations]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_BN, _OKP],
@@ -294,12 +325,6 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   [_BN, _OK],
   [0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SimulationAppEndpointInfo$: StaticStructureSchema = [3, n0, _SAEI,
   0,
   [_Ad, _IPM],
@@ -395,12 +420,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RAe, _TK],
@@ -411,14 +430,6 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SimSpaceWeaverServiceException$: StaticErrorSchema = [-3, _sm, "SimSpaceWeaverServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SimSpaceWeaverServiceException$, SimSpaceWeaverServiceException);
 var AppPortMappings: StaticListSchema = [1, n0, _APM,
   0, () => SimulationAppPortMapping$
 ];

@@ -826,11 +826,11 @@ const _pPLT = "policyParameterListType";
 const _pT = "passwordType";
 const _rDLT = "roleDetailListType";
 const _rLT = "roleListType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iam";
 const _sCMLT = "serverCertificateMetadataListType";
 const _sCS = "serviceCredentialSecret";
 const _sP = "servicePassword";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iam";
+const _se = "server";
 const _tLT = "tagListType";
 const _uDLT = "userDetailListType";
 const _uLT = "userListType";
@@ -888,6 +888,229 @@ import {
 import { IAMServiceException } from "../models/IAMServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IAMServiceException$: StaticErrorSchema = [-3, _s, "IAMServiceException", 0, [], []];
+_s_registry.registerError(IAMServiceException$, IAMServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccountNotManagementOrDelegatedAdministratorException$: StaticErrorSchema = [-3, n0, _ANMODAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccountNotManagementOrDelegatedAdministratorException$, AccountNotManagementOrDelegatedAdministratorException);
+export var CallerIsNotManagementAccountException$: StaticErrorSchema = [-3, n0, _CINMAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(CallerIsNotManagementAccountException$, CallerIsNotManagementAccountException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_aQE]: [`ConcurrentModification`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var CredentialReportExpiredException$: StaticErrorSchema = [-3, n0, _CREE,
+  { [_aQE]: [`ReportExpired`, 410], [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CredentialReportExpiredException$, CredentialReportExpiredException);
+export var CredentialReportNotPresentException$: StaticErrorSchema = [-3, n0, _CRNPE,
+  { [_aQE]: [`ReportNotPresent`, 410], [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CredentialReportNotPresentException$, CredentialReportNotPresentException);
+export var CredentialReportNotReadyException$: StaticErrorSchema = [-3, n0, _CRNRE,
+  { [_aQE]: [`ReportInProgress`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CredentialReportNotReadyException$, CredentialReportNotReadyException);
+export var DeleteConflictException$: StaticErrorSchema = [-3, n0, _DCE,
+  { [_aQE]: [`DeleteConflict`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeleteConflictException$, DeleteConflictException);
+export var DuplicateCertificateException$: StaticErrorSchema = [-3, n0, _DCEu,
+  { [_aQE]: [`DuplicateCertificate`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateCertificateException$, DuplicateCertificateException);
+export var DuplicateSSHPublicKeyException$: StaticErrorSchema = [-3, n0, _DSSHPKE,
+  { [_aQE]: [`DuplicateSSHPublicKey`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateSSHPublicKeyException$, DuplicateSSHPublicKeyException);
+export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
+  { [_aQE]: [`EntityAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
+export var EntityTemporarilyUnmodifiableException$: StaticErrorSchema = [-3, n0, _ETUE,
+  { [_aQE]: [`EntityTemporarilyUnmodifiable`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EntityTemporarilyUnmodifiableException$, EntityTemporarilyUnmodifiableException);
+export var FeatureDisabledException$: StaticErrorSchema = [-3, n0, _FDE,
+  { [_aQE]: [`FeatureDisabled`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(FeatureDisabledException$, FeatureDisabledException);
+export var FeatureEnabledException$: StaticErrorSchema = [-3, n0, _FEE,
+  { [_aQE]: [`FeatureEnabled`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(FeatureEnabledException$, FeatureEnabledException);
+export var InvalidAuthenticationCodeException$: StaticErrorSchema = [-3, n0, _IACE,
+  { [_aQE]: [`InvalidAuthenticationCode`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAuthenticationCodeException$, InvalidAuthenticationCodeException);
+export var InvalidCertificateException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InvalidCertificate`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidCertificateException$, InvalidCertificateException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_aQE]: [`InvalidInput`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidPublicKeyException$: StaticErrorSchema = [-3, n0, _IPKE,
+  { [_aQE]: [`InvalidPublicKey`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPublicKeyException$, InvalidPublicKeyException);
+export var InvalidUserTypeException$: StaticErrorSchema = [-3, n0, _IUTE,
+  { [_aQE]: [`InvalidUserType`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUserTypeException$, InvalidUserTypeException);
+export var KeyPairMismatchException$: StaticErrorSchema = [-3, n0, _KPME,
+  { [_aQE]: [`KeyPairMismatch`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KeyPairMismatchException$, KeyPairMismatchException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedCertificateException$: StaticErrorSchema = [-3, n0, _MCE,
+  { [_aQE]: [`MalformedCertificate`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MalformedCertificateException$, MalformedCertificateException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
+  { [_aQE]: [`NoSuchEntity`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NoSuchEntityException$, NoSuchEntityException);
+export var OpenIdIdpCommunicationErrorException$: StaticErrorSchema = [-3, n0, _OIICEE,
+  { [_aQE]: [`OpenIdIdpCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OpenIdIdpCommunicationErrorException$, OpenIdIdpCommunicationErrorException);
+export var OrganizationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OrganizationNotFoundException$, OrganizationNotFoundException);
+export var OrganizationNotInAllFeaturesModeException$: StaticErrorSchema = [-3, n0, _ONIAFME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OrganizationNotInAllFeaturesModeException$, OrganizationNotInAllFeaturesModeException);
+export var PasswordPolicyViolationException$: StaticErrorSchema = [-3, n0, _PPVE,
+  { [_aQE]: [`PasswordPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PasswordPolicyViolationException$, PasswordPolicyViolationException);
+export var PolicyEvaluationException$: StaticErrorSchema = [-3, n0, _PEE,
+  { [_aQE]: [`PolicyEvaluation`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PolicyEvaluationException$, PolicyEvaluationException);
+export var PolicyNotAttachableException$: StaticErrorSchema = [-3, n0, _PNAE,
+  { [_aQE]: [`PolicyNotAttachable`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PolicyNotAttachableException$, PolicyNotAttachableException);
+export var ReportGenerationLimitExceededException$: StaticErrorSchema = [-3, n0, _RGLEE,
+  { [_aQE]: [`ReportGenerationLimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReportGenerationLimitExceededException$, ReportGenerationLimitExceededException);
+export var ServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _SANEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceAccessNotEnabledException$, ServiceAccessNotEnabledException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_aQE]: [`ServiceFailure`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceNotSupportedException$: StaticErrorSchema = [-3, n0, _SNSE,
+  { [_aQE]: [`NotSupportedService`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceNotSupportedException$, ServiceNotSupportedException);
+export var UnmodifiableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_aQE]: [`UnmodifiableEntity`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnmodifiableEntityException$, UnmodifiableEntityException);
+export var UnrecognizedPublicKeyEncodingException$: StaticErrorSchema = [-3, n0, _UPKEE,
+  { [_aQE]: [`UnrecognizedPublicKeyEncoding`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnrecognizedPublicKeyEncodingException$, UnrecognizedPublicKeyEncodingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var BootstrapDatum: StaticSimpleSchema = [0, n0, _BD, 8, 21];
 var passwordType: StaticSimpleSchema = [0, n0, _pT, 8, 0];
@@ -919,12 +1142,6 @@ export var AccessKeyMetadata$: StaticStructureSchema = [3, n0, _AKM,
   [_UN, _AKI, _S, _CD],
   [0, 0, 0, 4]
 ];
-export var AccountNotManagementOrDelegatedAdministratorException$: StaticErrorSchema = [-3, n0, _ANMODAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccountNotManagementOrDelegatedAdministratorException$, AccountNotManagementOrDelegatedAdministratorException);
 export var AddClientIDToOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _ACIDTOIDCPR,
   0,
   [_OIDCPA, _CID],
@@ -970,23 +1187,11 @@ export var AttachUserPolicyRequest$: StaticStructureSchema = [3, n0, _AUPR,
   [_UN, _PA],
   [0, 0], 2
 ];
-export var CallerIsNotManagementAccountException$: StaticErrorSchema = [-3, n0, _CINMAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CallerIsNotManagementAccountException$, CallerIsNotManagementAccountException);
 export var ChangePasswordRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_OP, _NP],
   [[() => passwordType, 0], [() => passwordType, 0]], 2
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_aQE]: [`ConcurrentModification`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var ContextEntry$: StaticStructureSchema = [3, n0, _CE,
   0,
   [_CKN, _CKV, _CKT],
@@ -1137,24 +1342,6 @@ export var CreateVirtualMFADeviceResponse$: StaticStructureSchema = [3, n0, _CVM
   [_VMFAD],
   [[() => VirtualMFADevice$, 0]], 1
 ];
-export var CredentialReportExpiredException$: StaticErrorSchema = [-3, n0, _CREE,
-  { [_aQE]: [`ReportExpired`, 410], [_e]: _c, [_hE]: 410 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CredentialReportExpiredException$, CredentialReportExpiredException);
-export var CredentialReportNotPresentException$: StaticErrorSchema = [-3, n0, _CRNPE,
-  { [_aQE]: [`ReportNotPresent`, 410], [_e]: _c, [_hE]: 410 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CredentialReportNotPresentException$, CredentialReportNotPresentException);
-export var CredentialReportNotReadyException$: StaticErrorSchema = [-3, n0, _CRNRE,
-  { [_aQE]: [`ReportInProgress`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CredentialReportNotReadyException$, CredentialReportNotReadyException);
 export var DeactivateMFADeviceRequest$: StaticStructureSchema = [3, n0, _DMFADR,
   0,
   [_SNer, _UN],
@@ -1180,12 +1367,6 @@ export var DeleteAccountAliasRequest$: StaticStructureSchema = [3, n0, _DAAR,
   [_AA],
   [0], 1
 ];
-export var DeleteConflictException$: StaticErrorSchema = [-3, n0, _DCE,
-  { [_aQE]: [`DeleteConflict`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeleteConflictException$, DeleteConflictException);
 export var DeleteGroupPolicyRequest$: StaticStructureSchema = [3, n0, _DGPR,
   0,
   [_GN, _PN],
@@ -1331,18 +1512,6 @@ export var DisableOrganizationsRootSessionsResponse$: StaticStructureSchema = [3
   [_OIr, _EF],
   [0, 64 | 0]
 ];
-export var DuplicateCertificateException$: StaticErrorSchema = [-3, n0, _DCEu,
-  { [_aQE]: [`DuplicateCertificate`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateCertificateException$, DuplicateCertificateException);
-export var DuplicateSSHPublicKeyException$: StaticErrorSchema = [-3, n0, _DSSHPKE,
-  { [_aQE]: [`DuplicateSSHPublicKey`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateSSHPublicKeyException$, DuplicateSSHPublicKeyException);
 export var EnableMFADeviceRequest$: StaticStructureSchema = [3, n0, _EMFADR,
   0,
   [_UN, _SNer, _AC, _ACu],
@@ -1373,12 +1542,6 @@ export var EnableOutboundWebIdentityFederationResponse$: StaticStructureSchema =
   [_II],
   [0]
 ];
-export var EntityAlreadyExistsException$: StaticErrorSchema = [-3, n0, _EAEE,
-  { [_aQE]: [`EntityAlreadyExists`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntityAlreadyExistsException$, EntityAlreadyExistsException);
 export var EntityDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EI, _LA],
@@ -1389,12 +1552,6 @@ export var EntityInfo$: StaticStructureSchema = [3, n0, _EI,
   [_A, _N, _Ty, _I, _Pa],
   [0, 0, 0, 0, 0], 4
 ];
-export var EntityTemporarilyUnmodifiableException$: StaticErrorSchema = [-3, n0, _ETUE,
-  { [_aQE]: [`EntityTemporarilyUnmodifiable`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntityTemporarilyUnmodifiableException$, EntityTemporarilyUnmodifiableException);
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _EDr,
   0,
   [_M, _C],
@@ -1405,18 +1562,6 @@ export var EvaluationResult$: StaticStructureSchema = [3, n0, _ER,
   [_EAN, _EDv, _ERN, _MS, _MCV, _ODD, _PBDD, _EDD, _RSR],
   [0, 0, 0, () => StatementListType, 64 | 0, () => OrganizationsDecisionDetail$, () => PermissionsBoundaryDecisionDetail$, 128 | 0, () => ResourceSpecificResultListType], 2
 ];
-export var FeatureDisabledException$: StaticErrorSchema = [-3, n0, _FDE,
-  { [_aQE]: [`FeatureDisabled`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FeatureDisabledException$, FeatureDisabledException);
-export var FeatureEnabledException$: StaticErrorSchema = [-3, n0, _FEE,
-  { [_aQE]: [`FeatureEnabled`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FeatureEnabledException$, FeatureEnabledException);
 export var GenerateCredentialReportResponse$: StaticStructureSchema = [3, n0, _GCRR,
   0,
   [_St, _D],
@@ -1722,48 +1867,6 @@ export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
   [_Pa, _IPN, _IPI, _A, _CD, _Rol, _T],
   [0, 0, 0, 0, 4, () => roleListType, () => tagListType], 6
 ];
-export var InvalidAuthenticationCodeException$: StaticErrorSchema = [-3, n0, _IACE,
-  { [_aQE]: [`InvalidAuthenticationCode`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAuthenticationCodeException$, InvalidAuthenticationCodeException);
-export var InvalidCertificateException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_aQE]: [`InvalidCertificate`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCertificateException$, InvalidCertificateException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_aQE]: [`InvalidInput`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var InvalidPublicKeyException$: StaticErrorSchema = [-3, n0, _IPKE,
-  { [_aQE]: [`InvalidPublicKey`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPublicKeyException$, InvalidPublicKeyException);
-export var InvalidUserTypeException$: StaticErrorSchema = [-3, n0, _IUTE,
-  { [_aQE]: [`InvalidUserType`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUserTypeException$, InvalidUserTypeException);
-export var KeyPairMismatchException$: StaticErrorSchema = [-3, n0, _KPME,
-  { [_aQE]: [`KeyPairMismatch`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KeyPairMismatchException$, KeyPairMismatchException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAccessKeysRequest$: StaticStructureSchema = [3, n0, _LAKR,
   0,
   [_UN, _Ma, _MI],
@@ -2134,18 +2237,6 @@ export var LoginProfile$: StaticStructureSchema = [3, n0, _LP,
   [_UN, _CD, _PRR],
   [0, 4, 2], 2
 ];
-export var MalformedCertificateException$: StaticErrorSchema = [-3, n0, _MCE,
-  { [_aQE]: [`MalformedCertificate`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedCertificateException$, MalformedCertificateException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
 export var ManagedPolicyDetail$: StaticStructureSchema = [3, n0, _MPD,
   0,
   [_PN, _PI, _A, _Pa, _DVI, _ACt, _PBUC, _IA, _D, _CD, _UD, _PVL],
@@ -2156,35 +2247,11 @@ export var MFADevice$: StaticStructureSchema = [3, n0, _MFADe,
   [_UN, _SNer, _EDn],
   [0, 0, 4], 3
 ];
-export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
-  { [_aQE]: [`NoSuchEntity`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchEntityException$, NoSuchEntityException);
 export var OpenIDConnectProviderListEntry$: StaticStructureSchema = [3, n0, _OIDCPLE,
   0,
   [_A],
   [0]
 ];
-export var OpenIdIdpCommunicationErrorException$: StaticErrorSchema = [-3, n0, _OIICEE,
-  { [_aQE]: [`OpenIdIdpCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OpenIdIdpCommunicationErrorException$, OpenIdIdpCommunicationErrorException);
-export var OrganizationNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationNotFoundException$, OrganizationNotFoundException);
-export var OrganizationNotInAllFeaturesModeException$: StaticErrorSchema = [-3, n0, _ONIAFME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OrganizationNotInAllFeaturesModeException$, OrganizationNotInAllFeaturesModeException);
 export var OrganizationsDecisionDetail$: StaticStructureSchema = [3, n0, _ODD,
   0,
   [_ABO],
@@ -2195,12 +2262,6 @@ export var PasswordPolicy$: StaticStructureSchema = [3, n0, _PPa,
   [_MPL, _RS, _RNeq, _RUC, _RLC, _AUTCP, _EPx, _MPA, _PRP, _HE],
   [1, 2, 2, 2, 2, 2, 2, 1, 1, 2]
 ];
-export var PasswordPolicyViolationException$: StaticErrorSchema = [-3, n0, _PPVE,
-  { [_aQE]: [`PasswordPolicyViolation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PasswordPolicyViolationException$, PasswordPolicyViolationException);
 export var PermissionsBoundaryDecisionDetail$: StaticStructureSchema = [3, n0, _PBDD,
   0,
   [_ABPB],
@@ -2216,12 +2277,6 @@ export var PolicyDetail$: StaticStructureSchema = [3, n0, _PDo,
   [_PN, _PD],
   [0, 0]
 ];
-export var PolicyEvaluationException$: StaticErrorSchema = [-3, n0, _PEE,
-  { [_aQE]: [`PolicyEvaluation`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyEvaluationException$, PolicyEvaluationException);
 export var PolicyGrantingServiceAccess$: StaticStructureSchema = [3, n0, _PGSAo,
   0,
   [_PN, _PT, _PA, _ETn, _EN],
@@ -2232,12 +2287,6 @@ export var PolicyGroup$: StaticStructureSchema = [3, n0, _PGo,
   [_GN, _GI],
   [0, 0]
 ];
-export var PolicyNotAttachableException$: StaticErrorSchema = [-3, n0, _PNAE,
-  { [_aQE]: [`PolicyNotAttachable`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PolicyNotAttachableException$, PolicyNotAttachableException);
 export var PolicyParameter$: StaticStructureSchema = [3, n0, _PPo,
   0,
   [_N, _Va, _Ty],
@@ -2308,12 +2357,6 @@ export var RemoveUserFromGroupRequest$: StaticStructureSchema = [3, n0, _RUFGR,
   [_GN, _UN],
   [0, 0], 2
 ];
-export var ReportGenerationLimitExceededException$: StaticErrorSchema = [-3, n0, _RGLEE,
-  { [_aQE]: [`ReportGenerationLimitExceeded`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReportGenerationLimitExceededException$, ReportGenerationLimitExceededException);
 export var ResetServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _RSSCR,
   0,
   [_SSCI, _UN],
@@ -2379,29 +2422,11 @@ export var ServerCertificateMetadata$: StaticStructureSchema = [3, n0, _SCM,
   [_Pa, _SCN, _SCI, _A, _UDp, _Ex],
   [0, 0, 0, 0, 4, 4], 4
 ];
-export var ServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _SANEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceAccessNotEnabledException$, ServiceAccessNotEnabledException);
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_aQE]: [`ServiceFailure`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
 export var ServiceLastAccessed$: StaticStructureSchema = [3, n0, _SLAe,
   0,
   [_SN, _SNe, _LA, _LAE, _LAR, _TAE, _TALA],
   [0, 0, 4, 0, 0, 1, () => TrackedActionsLastAccessed], 2
 ];
-export var ServiceNotSupportedException$: StaticErrorSchema = [-3, n0, _SNSE,
-  { [_aQE]: [`NotSupportedService`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceNotSupportedException$, ServiceNotSupportedException);
 export var ServiceSpecificCredential$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_CD, _SN, _SSCI, _UN, _S, _EDx, _SUN, _SP, _SCA, _SCS],
@@ -2507,18 +2532,6 @@ export var TrackedActionLastAccessed$: StaticStructureSchema = [3, n0, _TALAr,
   [_ANc, _LAEa, _LATa, _LARa],
   [0, 0, 4, 0]
 ];
-export var UnmodifiableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_aQE]: [`UnmodifiableEntity`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnmodifiableEntityException$, UnmodifiableEntityException);
-export var UnrecognizedPublicKeyEncodingException$: StaticErrorSchema = [-3, n0, _UPKEE,
-  { [_aQE]: [`UnrecognizedPublicKeyEncoding`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnrecognizedPublicKeyEncodingException$, UnrecognizedPublicKeyEncodingException);
 export var UntagInstanceProfileRequest$: StaticStructureSchema = [3, n0, _UIPR,
   0,
   [_IPN, _TK],
@@ -2695,8 +2708,6 @@ export var VirtualMFADevice$: StaticStructureSchema = [3, n0, _VMFAD,
   [0, [() => BootstrapDatum, 0], [() => BootstrapDatum, 0], () => User$, 4, () => tagListType], 1
 ];
 var __Unit = "unit" as const;
-export var IAMServiceException$: StaticErrorSchema = [-3, _sm, "IAMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IAMServiceException$, IAMServiceException);
 var AccessDetails: StaticListSchema = [1, n0, _ADc,
   0, () => AccessDetail$
 ];

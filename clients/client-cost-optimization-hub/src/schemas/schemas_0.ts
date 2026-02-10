@@ -153,9 +153,9 @@ const _eSP = "estimatedSavingsPercentage";
 const _eTDS = "estimatedTotalDedupedSavings";
 const _eV = "ebsVolume";
 const _en = "end";
-const _f = "filter";
+const _f = "fields";
 const _fN = "fieldName";
-const _fi = "fields";
+const _fi = "filter";
 const _g = "group";
 const _gB = "groupBy";
 const _gr = "granularity";
@@ -206,18 +206,18 @@ const _pIFS = "packetsInFromSource";
 const _pO = "paymentOption";
 const _pe = "performance";
 const _pr = "pricing";
-const _r = "regions";
+const _r = "reason";
 const _rA = "resourceArns";
 const _rAe = "resourceArn";
 const _rC = "recommendationCount";
 const _rDI = "rdsDbInstance";
 const _rDIS = "rdsDbInstanceStorage";
-const _rI = "resourceIds";
+const _rI = "resourceId";
 const _rID = "reservedInstancesDiscount";
 const _rIR = "reservedInstancesRegion";
-const _rIe = "recommendationIds";
-const _rIec = "recommendationId";
-const _rIes = "resourceId";
+const _rIe = "resourceIds";
+const _rIec = "recommendationIds";
+const _rIeco = "recommendationId";
 const _rLPID = "recommendationLookbackPeriodInDays";
 const _rN = "restartNeeded";
 const _rP = "rollbackPossible";
@@ -227,9 +227,9 @@ const _rRIe = "redshiftReservedInstances";
 const _rRS = "recommendedResourceSummary";
 const _rRT = "recommendedResourceType";
 const _rT = "resourceTypes";
-const _re = "region";
-const _rea = "reason";
-const _s = "status";
+const _re = "regions";
+const _reg = "region";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.costoptimizationhub";
 const _sEM = "savingsEstimationMode";
 const _sFE = "sizeFlexEligible";
 const _sIG = "sizeInGb";
@@ -241,13 +241,13 @@ const _sT = "storageType";
 const _sTt = "storageThroughput";
 const _sa = "savings";
 const _sc = "score";
-const _se = "service";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.costoptimizationhub";
+const _se = "server";
+const _ser = "service";
 const _so = "source";
 const _sp = "spend";
-const _st = "storage";
+const _st = "status";
 const _sta = "start";
+const _sto = "storage";
 const _t = "throughput";
 const _tP = "timePeriod";
 const _ta = "tags";
@@ -284,15 +284,52 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CostOptimizationHubServiceException$: StaticErrorSchema = [-3, _s, "CostOptimizationHubServiceException", 0, [], []];
+_s_registry.registerError(CostOptimizationHubServiceException$, CostOptimizationHubServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI],
+  [0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionDetails], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountEnrollmentStatus$: StaticStructureSchema = [3, n0, _AES,
   0,
-  [_aI, _s, _lUT, _cT],
+  [_aI, _st, _lUT, _cT],
   [0, 0, 4, 4]
 ];
 export var AuroraDbClusterStorage$: StaticStructureSchema = [3, n0, _ADCS,
@@ -337,7 +374,7 @@ export var DynamoDbReservedCapacity$: StaticStructureSchema = [3, n0, _DDRC,
 ];
 export var DynamoDbReservedCapacityConfiguration$: StaticStructureSchema = [3, n0, _DDRCC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nOCUTP, _cU],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nOCUTP, _cU],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var EbsVolume$: StaticStructureSchema = [3, n0, _EV,
@@ -347,7 +384,7 @@ export var EbsVolume$: StaticStructureSchema = [3, n0, _EV,
 ];
 export var EbsVolumeConfiguration$: StaticStructureSchema = [3, n0, _EVC,
   0,
-  [_st, _pe, _aSt],
+  [_sto, _pe, _aSt],
   [() => StorageConfiguration$, () => BlockStoragePerformanceConfiguration$, 0]
 ];
 export var Ec2AutoScalingGroup$: StaticStructureSchema = [3, n0, _EASG,
@@ -387,7 +424,7 @@ export var Ec2ReservedInstances$: StaticStructureSchema = [3, n0, _ERI,
 ];
 export var Ec2ReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _ERIC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _oC, _iF, _iT, _cG, _p, _ten, _sFE],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _oC, _iF, _iT, _cG, _p, _ten, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
 ];
 export var EcsService$: StaticStructureSchema = [3, n0, _ES,
@@ -412,7 +449,7 @@ export var ElastiCacheReservedInstances$: StaticStructureSchema = [3, n0, _ECRI,
 ];
 export var ElastiCacheReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _ECRIC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _cG, _sFE],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _cG, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
 ];
 export var EstimatedDiscounts$: StaticStructureSchema = [3, n0, _ED,
@@ -422,7 +459,7 @@ export var EstimatedDiscounts$: StaticStructureSchema = [3, n0, _ED,
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_rN, _rP, _iE, _aIc, _r, _rT, _aT, _ta, _rI, _rA, _rIe],
+  [_rN, _rP, _iE, _aIc, _re, _rT, _aT, _ta, _rIe, _rA, _rIec],
   [2, 2, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => TagList, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var GetPreferencesRequest$: StaticStructureSchema = [3, n0, _GPR,
@@ -437,12 +474,12 @@ export var GetPreferencesResponse$: StaticStructureSchema = [3, n0, _GPRe,
 ];
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_rIec],
+  [_rIeco],
   [0], 1
 ];
 export var GetRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_rIec, _rIes, _rAe, _aI, _cCu, _rLPID, _cCLPID, _eSP, _eSOCCLP, _cRT, _rRT, _re, _so, _lRT, _eMS, _eMC, _iEm, _rN, _aTc, _rP, _cRD, _rRD, _ta],
+  [_rIeco, _rI, _rAe, _aI, _cCu, _rLPID, _cCLPID, _eSP, _eSOCCLP, _cRT, _rRT, _reg, _so, _lRT, _eMS, _eMC, _iEm, _rN, _aTc, _rP, _cRD, _rRD, _ta],
   [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 4, 1, 1, 0, 2, 0, 2, () => ResourceDetails$, () => ResourceDetails$, () => TagList]
 ];
 export var InstanceConfiguration$: StaticStructureSchema = [3, n0, _IC,
@@ -450,12 +487,6 @@ export var InstanceConfiguration$: StaticStructureSchema = [3, n0, _IC,
   [_ty],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LambdaFunction$: StaticStructureSchema = [3, n0, _LF,
   0,
   [_co, _cC],
@@ -488,7 +519,7 @@ export var ListEnrollmentStatusesResponse$: StaticStructureSchema = [3, n0, _LES
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_f, _oB, _iAR, _mR, _nT],
+  [_fi, _oB, _iAR, _mR, _nT],
   [() => Filter$, () => OrderBy$, 2, 1, 0]
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
@@ -498,7 +529,7 @@ export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListRecommendationSummariesRequest$: StaticStructureSchema = [3, n0, _LRSR,
   0,
-  [_gB, _f, _mR, _me, _nT],
+  [_gB, _fi, _mR, _me, _nT],
   [0, () => Filter$, 1, 64 | 0, 0], 1
 ];
 export var ListRecommendationSummariesResponse$: StaticStructureSchema = [3, n0, _LRSRi,
@@ -513,7 +544,7 @@ export var MemoryDbReservedInstances$: StaticStructureSchema = [3, n0, _MDRI,
 ];
 export var MemoryDbReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _MDRIC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _iF, _sFE, _cG],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _iF, _sFE, _cG],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0]
 ];
 export var MetricsByTime$: StaticStructureSchema = [3, n0, _MBT,
@@ -543,7 +574,7 @@ export var OpenSearchReservedInstances$: StaticStructureSchema = [3, n0, _OSRI,
 ];
 export var OpenSearchReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _OSRIC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _cG, _sFE],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iT, _cG, _sFE],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
 ];
 export var OrderBy$: StaticStructureSchema = [3, n0, _OB,
@@ -583,12 +614,12 @@ export var RdsReservedInstances$: StaticStructureSchema = [3, n0, _RRI,
 ];
 export var RdsReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _RRIC,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG, _lM, _dE, _dEa, _dO],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG, _lM, _dE, _dEa, _dO],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_rIec, _aI, _re, _rIes, _rAe, _cRT, _rRT, _eMS, _eSP, _eMC, _cCu, _iEm, _rN, _aTc, _rP, _cRS, _rRS, _lRT, _rLPID, _so, _ta],
+  [_rIeco, _aI, _reg, _rI, _rAe, _cRT, _rRT, _eMS, _eSP, _eMC, _cCu, _iEm, _rN, _aTc, _rP, _cRS, _rRS, _lRT, _rLPID, _so, _ta],
   [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 2, 0, 2, 0, 0, 4, 1, 0, () => TagList]
 ];
 export var RecommendationSummary$: StaticStructureSchema = [3, n0, _RS,
@@ -603,7 +634,7 @@ export var RedshiftReservedInstances$: StaticStructureSchema = [3, n0, _RRIe,
 ];
 export var RedshiftReservedInstancesConfiguration$: StaticStructureSchema = [3, n0, _RRICe,
   0,
-  [_aS, _se, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG],
+  [_aS, _ser, _te, _pO, _rIR, _uC, _mRC, _nUTP, _nOITP, _iF, _iT, _sFE, _cG],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0]
 ];
 export var ReservedInstancesCostCalculation$: StaticStructureSchema = [3, n0, _RICC,
@@ -621,12 +652,6 @@ export var ResourceCostCalculation$: StaticStructureSchema = [3, n0, _RCC,
   [_u, _pr],
   [() => UsageList, () => ResourcePricing$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rIes],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePricing$: StaticStructureSchema = [3, n0, _RP,
   0,
   [_eCBD, _eNUAC, _eD, _eCAD],
@@ -667,12 +692,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
   [_k, _v],
   [0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_sta, _en],
@@ -680,12 +699,12 @@ export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
 ];
 export var UpdateEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _UESR,
   0,
-  [_s, _iMA],
+  [_st, _iMA],
   [0, 2], 1
 ];
 export var UpdateEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _UESRp,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var UpdatePreferencesRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -703,19 +722,11 @@ export var Usage$: StaticStructureSchema = [3, n0, _U,
   [_uT, _uA, _op, _pCr, _un],
   [0, 1, 0, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rea, _fi],
-  [0, 0, () => ValidationExceptionDetails], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionDetail$: StaticStructureSchema = [3, n0, _VED,
   0,
   [_fN, _m],
   [0, 0], 2
 ];
-export var CostOptimizationHubServiceException$: StaticErrorSchema = [-3, _sm, "CostOptimizationHubServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CostOptimizationHubServiceException$, CostOptimizationHubServiceException);
 var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc,
   0, () => AccountEnrollmentStatus$
 ];

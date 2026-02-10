@@ -869,7 +869,7 @@ const _rL = "rateLimit";
 const _re = "required";
 const _res = "resource";
 const _ret = "retrieval";
-const _s = "system";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagent";
 const _sA = "startedAt";
 const _sB = "sortBy";
 const _sBN = "s3BucketName";
@@ -907,14 +907,14 @@ const _sV = "stringValue";
 const _sVC = "s3VectorsConfiguration";
 const _s_ = "s3";
 const _sc = "scope";
-const _se = "severity";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagent";
+const _se = "server";
+const _sev = "severity";
 const _so = "source";
 const _sq = "sql";
 const _st = "status";
 const _sta = "statistics";
 const _sto = "storage";
+const _sy = "system";
 const _t = "type";
 const _tC = "toolConfiguration";
 const _tCe = "textContent";
@@ -999,6 +999,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockAgentServiceException$: StaticErrorSchema = [-3, _s, "BedrockAgentServiceException", 0, [], []];
+_s_registry.registerError(BedrockAgentServiceException$, BedrockAgentServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _fL],
+  [0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var BasePromptTemplate: StaticSimpleSchema = [0, n0, _BPT, 8, 0];
 var ByteContentBlob: StaticSimpleSchema = [0, n0, _BCB, 8, 21];
 var CollaborationInstruction: StaticSimpleSchema = [0, n0, _CI, 8, 0];
@@ -1025,12 +1080,6 @@ var TextPrompt: StaticSimpleSchema = [0, n0, _TP, 8, 0];
 var UserAgent: StaticSimpleSchema = [0, n0, _UA, 8, 0];
 var UserAgentHeader: StaticSimpleSchema = [0, n0, _UAH, 8, 0];
 var VectorBucketArn: StaticSimpleSchema = [0, n0, _VBA, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var ActionGroupSummary$: StaticStructureSchema = [3, n0, _AGS,
   0,
   [_aGI, _aGN, _aGS, _uA, _d],
@@ -1183,7 +1232,7 @@ export var CachePointBlock$: StaticStructureSchema = [3, n0, _CPB,
 ];
 export var ChatPromptTemplateConfiguration$: StaticStructureSchema = [3, n0, _CPTC,
   8,
-  [_me, _s, _iV, _tC],
+  [_me, _sy, _iV, _tC],
   [[() => Messages, 0], [() => SystemContentBlocks, 0], [() => PromptInputVariablesList, 0], [() => ToolConfiguration$, 0]], 1
 ];
 export var ChunkingConfiguration$: StaticStructureSchema = [3, n0, _CC,
@@ -1201,12 +1250,6 @@ export var ConditionFlowNodeConfiguration$: StaticStructureSchema = [3, n0, _CFN
   [_co],
   [[() => FlowConditions, 0]], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConfluenceCrawlerConfiguration$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_fC],
@@ -1619,7 +1662,7 @@ export var FlowSummary$: StaticStructureSchema = [3, n0, _FS,
 ];
 export var FlowValidation$: StaticStructureSchema = [3, n0, _FV,
   0,
-  [_m, _se, _det, _t],
+  [_m, _sev, _det, _t],
   [0, 0, [() => FlowValidationDetails$, 0], 0], 2
 ];
 export var FlowVersionSummary$: StaticStructureSchema = [3, n0, _FVS,
@@ -1852,12 +1895,6 @@ export var IntermediateStorage$: StaticStructureSchema = [3, n0, _IS,
   [_sL],
   [() => S3Location$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidLoopBoundaryFlowValidationDetails$: StaticStructureSchema = [3, n0, _ILBFVD,
   0,
   [_con, _so, _tar],
@@ -2443,12 +2480,6 @@ export var RedshiftServerlessConfiguration$: StaticStructureSchema = [3, n0, _RS
   [_wA, _aCu],
   [0, () => RedshiftServerlessAuthConfiguration$], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetrievalFlowNodeConfiguration$: StaticStructureSchema = [3, n0, _RFNC,
   0,
   [_sCer],
@@ -2514,12 +2545,6 @@ export var ServerSideEncryptionConfiguration$: StaticStructureSchema = [3, n0, _
   [_kKA],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionSummaryConfiguration$: StaticStructureSchema = [3, n0, _SSCe,
   0,
   [_mRS],
@@ -2615,12 +2640,6 @@ export var TextPromptTemplateConfiguration$: StaticStructureSchema = [3, n0, _TP
   [_tex, _cP, _iV],
   [[() => TextPrompt, 0], () => CachePointBlock$, [() => PromptInputVariablesList, 0]], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_to, _tCo],
@@ -2826,12 +2845,6 @@ export var ValidateFlowDefinitionResponse$: StaticStructureSchema = [3, n0, _VFD
   [_val],
   [[() => FlowValidations, 0]], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _fL],
-  [0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -2892,8 +2905,6 @@ export var WebSourceConfiguration$: StaticStructureSchema = [3, n0, _WSC,
   [_uC],
   [() => UrlConfiguration$], 1
 ];
-export var BedrockAgentServiceException$: StaticErrorSchema = [-3, _sm, "BedrockAgentServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockAgentServiceException$, BedrockAgentServiceException);
 var ActionGroupSummaries: StaticListSchema = [1, n0, _AGSc,
   0, () => ActionGroupSummary$
 ];

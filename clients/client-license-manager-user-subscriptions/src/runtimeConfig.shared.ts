@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultLicenseManagerUserSubscriptionsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { LicenseManagerUserSubscriptionsClientConfig } from "./LicenseManagerUserSubscriptionsClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: LicenseManagerUserSubscriptionsClientCo
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.licensemanagerusersubscriptions",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "LicenseManagerUserSubscriptions",
     },

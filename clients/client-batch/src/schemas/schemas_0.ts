@@ -299,7 +299,7 @@ const _ar = "arns";
 const _arg = "args";
 const _at = "attempts";
 const _bP = "bidPercentage";
-const _c = "container";
+const _c = "client";
 const _cA = "createdAt";
 const _cAp = "cpuArchitecture";
 const _cE = "computeEnvironment";
@@ -328,11 +328,11 @@ const _cRom = "computeReservation";
 const _cRon = "consumableResources";
 const _cT = "clientToken";
 const _cU = "capacityUnit";
-const _cl = "client";
-const _co = "containers";
+const _co = "container";
 const _com = "command";
-const _con = "context";
+const _con = "containers";
 const _cond = "condition";
+const _cont = "context";
 const _d = "devices";
 const _dC = "desiredvCpus";
 const _dO = "dependsOn";
@@ -492,7 +492,7 @@ const _rT = "resourceType";
 const _re = "resources";
 const _req = "requests";
 const _rev = "revision";
-const _s = "size";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.batch";
 const _sA = "startedAt";
 const _sAN = "serviceAccountName";
 const _sAt = "stoppedAt";
@@ -529,10 +529,10 @@ const _sRe = "serviceRole";
 const _sS = "statusSummary";
 const _sSLUA = "statusSummaryLastUpdatedAt";
 const _sV = "sourceVolume";
-const _se = "secrets";
-const _sec = "secret";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.batch";
+const _se = "server";
+const _sec = "secrets";
+const _secr = "secret";
+const _si = "size";
 const _st = "state";
 const _sta = "status";
 const _su = "subnets";
@@ -583,19 +583,44 @@ import { BatchServiceException } from "../models/BatchServiceException";
 import { ClientException, ServerException } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BatchServiceException$: StaticErrorSchema = [-3, _s, "BatchServiceException", 0, [], []];
+_s_registry.registerError(BatchServiceException$, BatchServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ClientException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClientException$, ClientException);
+export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServerException$, ServerException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ArrayProperties$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_s],
+  [_si],
   [1]
 ];
 export var ArrayPropertiesDetail$: StaticStructureSchema = [3, n0, _APD,
   0,
-  [_sS, _sSLUA, _s, _i],
+  [_sS, _sSLUA, _si, _i],
   [128 | 1, 1, 1, 1]
 ];
 export var ArrayPropertiesSummary$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_s, _i, _sS, _sSLUA],
+  [_si, _i, _sS, _sSLUA],
   [1, 1, 128 | 1, 1]
 ];
 export var AttemptContainerDetail$: StaticStructureSchema = [3, n0, _ACD,
@@ -605,12 +630,12 @@ export var AttemptContainerDetail$: StaticStructureSchema = [3, n0, _ACD,
 ];
 export var AttemptDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_c, _sA, _sAt, _sR, _tP],
+  [_co, _sA, _sAt, _sR, _tP],
   [() => AttemptContainerDetail$, 1, 1, 0, () => ListAttemptEcsTaskDetails]
 ];
 export var AttemptEcsTaskDetails$: StaticStructureSchema = [3, n0, _AETD,
   0,
-  [_cIA, _tA, _co],
+  [_cIA, _tA, _con],
   [0, 0, () => ListAttemptTaskContainerDetails]
 ];
 export var AttemptTaskContainerDetails$: StaticStructureSchema = [3, n0, _ATCD,
@@ -633,15 +658,9 @@ export var CapacityLimit$: StaticStructureSchema = [3, n0, _CL,
   [_mC, _cU],
   [1, 0]
 ];
-export var ClientException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClientException$, ClientException);
 export var ComputeEnvironmentDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
-  [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _con],
+  [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _cont],
   [0, 0, 1, 0, 128 | 0, 0, 0, 0, 0, () => ComputeResource$, 0, () => UpdatePolicy$, () => EksConfiguration$, 0, 0, 0], 2
 ];
 export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
@@ -676,7 +695,7 @@ export var ConsumableResourceSummary$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var ContainerDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _se, _nC, _fPC, _eS, _rP, _rC, _eEC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _sec, _nC, _fPC, _eS, _rP, _rC, _eEC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, () => Ulimits, 2, 0, 1, 0, 0, 0, 0, 0, () => NetworkInterfaceList, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$, 2]
 ];
 export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
@@ -686,7 +705,7 @@ export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var ContainerProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _se, _nC, _fPC, _eEC, _eS, _rP, _rC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _sec, _nC, _fPC, _eEC, _eS, _rP, _rC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, 2, () => Ulimits, 0, 0, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, 2, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$]
 ];
 export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -696,7 +715,7 @@ export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _CCER,
   0,
-  [_cEN, _ty, _st, _uC, _cR, _sRe, _t, _eCk, _con],
+  [_cEN, _ty, _st, _uC, _cR, _sRe, _t, _eCk, _cont],
   [0, 0, 0, 1, () => ComputeResource$, 0, 128 | 0, () => EksConfiguration$, 0], 2
 ];
 export var CreateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _CCERr,
@@ -911,12 +930,12 @@ export var EcsPropertiesOverride$: StaticStructureSchema = [3, n0, _EPO,
 ];
 export var EcsTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
   0,
-  [_co, _cIA, _tA, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
+  [_con, _cIA, _tA, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
   [() => ListTaskContainerDetails, 0, 0, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2]
 ];
 export var EcsTaskProperties$: StaticStructureSchema = [3, n0, _ETP,
   0,
-  [_co, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
+  [_con, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
   [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2], 1
 ];
 export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
@@ -936,7 +955,7 @@ export var EksAttemptContainerDetail$: StaticStructureSchema = [3, n0, _EACD,
 ];
 export var EksAttemptDetail$: StaticStructureSchema = [3, n0, _EAD,
   0,
-  [_co, _iC, _eCAk, _pN, _pNo, _nN, _sA, _sAt, _sR],
+  [_con, _iC, _eCAk, _pN, _pNo, _nN, _sA, _sAt, _sR],
   [() => EksAttemptContainerDetails, () => EksAttemptContainerDetails, 0, 0, 0, 0, 1, 1, 0]
 ];
 export var EksConfiguration$: StaticStructureSchema = [3, n0, _ECk,
@@ -1001,17 +1020,17 @@ export var EksPersistentVolumeClaim$: StaticStructureSchema = [3, n0, _EPVC,
 ];
 export var EksPodProperties$: StaticStructureSchema = [3, n0, _EPP,
   0,
-  [_sAN, _hN, _dP, _iPS, _co, _iC, _vo, _met, _sPN],
+  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _met, _sPN],
   [0, 2, 0, () => ImagePullSecrets, () => EksContainers, () => EksContainers, () => EksVolumes, () => EksMetadata$, 2]
 ];
 export var EksPodPropertiesDetail$: StaticStructureSchema = [3, n0, _EPPD,
   0,
-  [_sAN, _hN, _dP, _iPS, _co, _iC, _vo, _pN, _nN, _met, _sPN],
+  [_sAN, _hN, _dP, _iPS, _con, _iC, _vo, _pN, _nN, _met, _sPN],
   [0, 2, 0, () => ImagePullSecrets, () => EksContainerDetails, () => EksContainerDetails, () => EksVolumes, 0, 0, () => EksMetadata$, 2]
 ];
 export var EksPodPropertiesOverride$: StaticStructureSchema = [3, n0, _EPPO,
   0,
-  [_co, _iC, _met],
+  [_con, _iC, _met],
   [() => EksContainerOverrideList, () => EksContainerOverrideList, () => EksMetadata$]
 ];
 export var EksProperties$: StaticStructureSchema = [3, n0, _EPk,
@@ -1036,7 +1055,7 @@ export var EksSecret$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var EksVolume$: StaticStructureSchema = [3, n0, _EV,
   0,
-  [_n, _hP, _eD, _sec, _pVC],
+  [_n, _hP, _eD, _secr, _pVC],
   [0, () => EksHostPath$, () => EksEmptyDir$, () => EksSecret$, () => EksPersistentVolumeClaim$], 1
 ];
 export var EphemeralStorage$: StaticStructureSchema = [3, n0, _ESp,
@@ -1106,7 +1125,7 @@ export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
 ];
 export var JobDetail$: StaticStructureSchema = [3, n0, _JDob,
   0,
-  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPc, _at, _sR, _cA, _rS, _sAt, _dO, _par, _c, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
+  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPc, _at, _sR, _cA, _rS, _sAt, _dO, _par, _co, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
   [0, 0, 0, 0, 1, 0, 0, 0, 1, () => AttemptDetails, 0, 1, () => RetryStrategy$, 1, () => JobDependencyList, 128 | 0, () => ContainerDetail$, () => NodeDetails$, () => NodeProperties$, () => ArrayPropertiesDetail$, () => JobTimeout$, 128 | 0, 2, 64 | 0, () => EksPropertiesDetail$, () => EksAttemptDetails, () => EcsPropertiesDetail$, 2, 2, () => ConsumableResourceProperties$], 6
 ];
 export var JobQueueDetail$: StaticStructureSchema = [3, n0, _JQD,
@@ -1121,7 +1140,7 @@ export var JobStateTimeLimitAction$: StaticStructureSchema = [3, n0, _JSTLA,
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jI, _jN, _jA, _cA, _sta, _sR, _sA, _sAt, _c, _aP, _nP, _jD],
+  [_jI, _jN, _jA, _cA, _sta, _sR, _sA, _sAt, _co, _aP, _nP, _jD],
   [0, 0, 0, 1, 0, 0, 1, 1, () => ContainerSummary$, () => ArrayPropertiesSummary$, () => NodePropertiesSummary$, 0], 2
 ];
 export var JobTimeout$: StaticStructureSchema = [3, n0, _JT,
@@ -1271,7 +1290,7 @@ export var NodePropertyOverride$: StaticStructureSchema = [3, n0, _NPO,
 ];
 export var NodeRangeProperty$: StaticStructureSchema = [3, n0, _NRP,
   0,
-  [_tN, _c, _iT, _eP, _ePk, _cRP],
+  [_tN, _co, _iT, _eP, _ePk, _cRP],
   [0, () => ContainerProperties$, 64 | 0, () => EcsProperties$, () => EksProperties$, () => ConsumableResourceProperties$], 1
 ];
 export var RegisterJobDefinitionRequest$: StaticStructureSchema = [3, n0, _RJDR,
@@ -1319,12 +1338,6 @@ export var Secret$: StaticStructureSchema = [3, n0, _S,
   [_n, _vF],
   [0, 0], 2
 ];
-export var ServerException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServerException$, ServerException);
 export var ServiceEnvironmentDetail$: StaticStructureSchema = [3, n0, _SED,
   0,
   [_sEN, _sEA, _sET, _cL, _st, _sta, _t],
@@ -1407,7 +1420,7 @@ export var TaskContainerDependency$: StaticStructureSchema = [3, n0, _TCD,
 ];
 export var TaskContainerDetails$: StaticStructureSchema = [3, n0, _TCDa,
   0,
-  [_com, _dO, _en, _es, _fC, _im, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _se, _ul, _us, _eC, _r, _lSN, _nI],
+  [_com, _dO, _en, _es, _fC, _im, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us, _eC, _r, _lSN, _nI],
   [64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, 0, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0, 1, 0, 0, () => NetworkInterfaceList]
 ];
 export var TaskContainerOverrides$: StaticStructureSchema = [3, n0, _TCO,
@@ -1417,12 +1430,12 @@ export var TaskContainerOverrides$: StaticStructureSchema = [3, n0, _TCO,
 ];
 export var TaskContainerProperties$: StaticStructureSchema = [3, n0, _TCP,
   0,
-  [_im, _com, _dO, _en, _es, _fC, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _se, _ul, _us],
+  [_im, _com, _dO, _en, _es, _fC, _lP, _lC, _mP, _n, _p, _rRF, _rC, _rR, _sec, _ul, _us],
   [0, 64 | 0, () => TaskContainerDependencyList, () => EnvironmentVariables, 2, () => FirelensConfiguration$, () => LinuxParameters$, () => LogConfiguration$, () => MountPoints, 0, 2, 2, () => RepositoryCredentials$, () => ResourceRequirements, () => SecretList, () => Ulimits, 0], 1
 ];
 export var TaskPropertiesOverride$: StaticStructureSchema = [3, n0, _TPO,
   0,
-  [_co],
+  [_con],
   [() => ListTaskContainerOverrides]
 ];
 export var TerminateJobRequest$: StaticStructureSchema = [3, n0, _TJR,
@@ -1447,7 +1460,7 @@ export var TerminateServiceJobResponse$: StaticStructureSchema = [3, n0, _TSJRe,
 ];
 export var Tmpfs$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_cP, _s, _mO],
+  [_cP, _si, _mO],
   [0, 1, 64 | 0], 2
 ];
 export var Ulimit$: StaticStructureSchema = [3, n0, _U,
@@ -1467,7 +1480,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _UCER,
   0,
-  [_cE, _st, _uC, _cR, _sRe, _uP, _con],
+  [_cE, _st, _uC, _cR, _sRe, _uP, _cont],
   [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0], 1
 ];
 export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _UCERp,
@@ -1525,8 +1538,6 @@ export var Volume$: StaticStructureSchema = [3, n0, _V,
   [_h, _n, _eVC],
   [() => Host$, 0, () => EFSVolumeConfiguration$]
 ];
-export var BatchServiceException$: StaticErrorSchema = [-3, _sm, "BatchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BatchServiceException$, BatchServiceException);
 var AttemptDetails: StaticListSchema = [1, n0, _ADt,
   0, () => AttemptDetail$
 ];

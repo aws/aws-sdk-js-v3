@@ -39,8 +39,8 @@ const _eP = "eventPayload";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerruntimehttp2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerruntimehttp2";
+const _se = "server";
 const _st = "streaming";
 const n0 = "com.amazonaws.sagemakerruntimehttp2";
 
@@ -65,25 +65,56 @@ import {
 import { SageMakerRuntimeHTTP2ServiceException } from "../models/SageMakerRuntimeHTTP2ServiceException";
 
 /* eslint no-var: 0 */
-var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerRuntimeHTTP2ServiceException$: StaticErrorSchema = [-3, _s, "SageMakerRuntimeHTTP2ServiceException", 0, [], []];
+_s_registry.registerError(SageMakerRuntimeHTTP2ServiceException$, SageMakerRuntimeHTTP2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var InputValidationError$: StaticErrorSchema = [-3, n0, _IVE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _EC],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(InputValidationError$, InputValidationError);
+n0_registry.registerError(InputValidationError$, InputValidationError);
 export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
+  { [_e]: _se, [_hE]: 500 },
   [_M, _EC],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
+n0_registry.registerError(InternalServerError$, InternalServerError);
 export var InternalStreamFailure$: StaticErrorSchema = [-3, n0, _ISF,
-  { [_e]: _s },
+  { [_e]: _se },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(InternalStreamFailure$, InternalStreamFailure);
+n0_registry.registerError(InternalStreamFailure$, InternalStreamFailure);
+export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
+  { [_e]: _c, [_hE]: 424 },
+  [_M, _OSC, _OM, _LSA, _EC],
+  [0, 1, 0, 0, 0]
+];
+n0_registry.registerError(ModelError$, ModelError);
+export var ModelStreamError$: StaticErrorSchema = [-3, n0, _MSE,
+  { [_e]: _c },
+  [_M, _EC],
+  [0, 0]
+];
+n0_registry.registerError(ModelStreamError$, ModelStreamError);
+export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M, _EC],
+  [0, 0]
+];
+n0_registry.registerError(ServiceUnavailableError$, ServiceUnavailableError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
 export var InvokeEndpointWithBidirectionalStreamInput$: StaticStructureSchema = [3, n0, _IEWBSI,
   0,
   [_EN, _B, _TV, _MIP, _MQS],
@@ -94,18 +125,6 @@ export var InvokeEndpointWithBidirectionalStreamOutput$: StaticStructureSchema =
   [_B, _IPV],
   [[() => ResponseStreamEvent$, 16], [0, { [_hH]: _XAIPV }]], 1
 ];
-export var ModelError$: StaticErrorSchema = [-3, n0, _ME,
-  { [_e]: _c, [_hE]: 424 },
-  [_M, _OSC, _OM, _LSA, _EC],
-  [0, 1, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ModelError$, ModelError);
-export var ModelStreamError$: StaticErrorSchema = [-3, n0, _MSE,
-  { [_e]: _c },
-  [_M, _EC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ModelStreamError$, ModelStreamError);
 export var RequestPayloadPart$: StaticStructureSchema = [3, n0, _RPP,
   0,
   [_By, _DT, _CS, _P],
@@ -116,14 +135,6 @@ export var ResponsePayloadPart$: StaticStructureSchema = [3, n0, _RPPe,
   [_By, _DT, _CS, _P],
   [[() => SensitiveBlob, { [_eP]: 1 }], [0, { [_eH]: 1 }], [0, { [_eH]: 1 }], [0, { [_eH]: 1 }]]
 ];
-export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M, _EC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableError$, ServiceUnavailableError);
-export var SageMakerRuntimeHTTP2ServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerRuntimeHTTP2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SageMakerRuntimeHTTP2ServiceException$, SageMakerRuntimeHTTP2ServiceException);
 export var RequestStreamEvent$: StaticUnionSchema = [4, n0, _RSE,
   { [_st]: 1 },
   [_PP],

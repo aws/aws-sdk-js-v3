@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeBuildHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeBuildClientConfig } from "./CodeBuildClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeBuildClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codebuild",
+      errorTypeRegistries,
       version: "2016-10-06",
       serviceTarget: "CodeBuild_20161006",
     },

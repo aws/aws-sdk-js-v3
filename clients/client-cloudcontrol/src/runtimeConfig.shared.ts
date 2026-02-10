@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudControlHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudControlClientConfig } from "./CloudControlClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudControlClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudcontrol",
+      errorTypeRegistries,
       version: "2021-09-30",
       serviceTarget: "CloudApiService",
     },

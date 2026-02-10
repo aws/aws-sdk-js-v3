@@ -150,14 +150,14 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _V = "Value";
 const _VAO = "VpcAttachmentOptions";
-const _VE = "VpcEndpoints";
+const _VE = "ValidationException";
 const _VEI = "VpcEndpointId";
 const _VEL = "VpcEndpointsList";
 const _VEM = "VpcEndpointManagement";
 const _VEO = "VpcEndpointOwner";
 const _VES = "VpcEndpointService";
-const _VEa = "ValidationException";
-const _VEp = "VpcEndpoint";
+const _VEp = "VpcEndpoints";
+const _VEpc = "VpcEndpoint";
 const _VI = "VpcId";
 const _VM = "ValidationMessage";
 const _VML = "ValidationMessageList";
@@ -176,8 +176,8 @@ const _iV = "isValid";
 const _m = "message";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.osis";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.osis";
+const _se = "server";
 const n0 = "com.amazonaws.osis";
 
 // smithy-typescript generated code
@@ -198,12 +198,73 @@ import {
 import { OSISServiceException } from "../models/OSISServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var OSISServiceException$: StaticErrorSchema = [-3, _s, "OSISServiceException", 0, [], []];
+_s_registry.registerError(OSISServiceException$, OSISServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DisabledOperationException$, DisabledOperationException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BufferOptions$: StaticStructureSchema = [3, n0, _BO,
   0,
   [_PBE],
@@ -224,12 +285,6 @@ export var CloudWatchLogDestination$: StaticStructureSchema = [3, n0, _CWLD,
   [_LG],
   [0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreatePipelineEndpointRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
   [_PA, _VO],
@@ -280,12 +335,6 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   [],
   []
 ];
-export var DisabledOperationException$: StaticErrorSchema = [-3, n0, _DOE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DisabledOperationException$, DisabledOperationException);
 export var EncryptionAtRestOptions$: StaticStructureSchema = [3, n0, _EARO,
   0,
   [_KKA],
@@ -331,24 +380,6 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_RA, _Po],
   [0, 0]
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InvalidPaginationTokenException$: StaticErrorSchema = [-3, n0, _IPTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationTokenException$, InvalidPaginationTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListPipelineBlueprintsRequest$: StaticStructureSchema = [3, n0, _LPBR,
   0,
   [],
@@ -406,7 +437,7 @@ export var LogPublishingOptions$: StaticStructureSchema = [3, n0, _LPO,
 ];
 export var Pipeline$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_PN, _PA, _MU, _MUa, _S, _SR, _PCB, _CA, _LUA, _IEU, _LPO, _VE, _BO, _EARO, _VES, _SVE, _De, _T, _PRA],
+  [_PN, _PA, _MU, _MUa, _S, _SR, _PCB, _CA, _LUA, _IEU, _LPO, _VEp, _BO, _EARO, _VES, _SVE, _De, _T, _PRA],
   [0, 0, 1, 1, 0, () => PipelineStatusReason$, 0, 4, 4, 64 | 0, () => LogPublishingOptions$, () => VpcEndpointsList, () => BufferOptions$, () => EncryptionAtRestOptions$, 0, () => ServiceVpcEndpointsList, () => PipelineDestinationList, () => TagList, 0]
 ];
 export var PipelineBlueprint$: StaticStructureSchema = [3, n0, _PB,
@@ -459,18 +490,6 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   [_RA, _Po],
   [0, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RevokePipelineEndpointConnectionsRequest$: StaticStructureSchema = [3, n0, _RPECR,
   0,
   [_PA, _EIn],
@@ -551,12 +570,6 @@ export var ValidatePipelineResponse$: StaticStructureSchema = [3, n0, _VPRa,
   [_iV, _Er],
   [2, () => ValidationMessageList]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationMessage$: StaticStructureSchema = [3, n0, _VM,
   0,
   [_M],
@@ -567,7 +580,7 @@ export var VpcAttachmentOptions$: StaticStructureSchema = [3, n0, _VAO,
   [_ATV, _CB],
   [2, 0], 1
 ];
-export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
+export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEpc,
   0,
   [_VEI, _VI, _VO],
   [0, 0, () => VpcOptions$]
@@ -577,8 +590,6 @@ export var VpcOptions$: StaticStructureSchema = [3, n0, _VO,
   [_SI, _SGI, _VAO, _VEM],
   [64 | 0, 64 | 0, () => VpcAttachmentOptions$, 0], 1
 ];
-export var OSISServiceException$: StaticErrorSchema = [-3, _sm, "OSISServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OSISServiceException$, OSISServiceException);
 var ChangeProgressStageList: StaticListSchema = [1, n0, _CPSL,
   0, () => ChangeProgressStage$
 ];

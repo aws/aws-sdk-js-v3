@@ -136,9 +136,9 @@ const _rG = "resourceGroup";
 const _rT = "resourceType";
 const _rTS = "resourceTagStatus";
 const _re = "resource";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.servicecatalogappregistry";
 const _sC = "serviceCode";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.servicecatalogappregistry";
+const _se = "server";
 const _st = "state";
 const _sta = "status";
 const _t = "tags";
@@ -169,6 +169,55 @@ import {
 import { ServiceCatalogAppRegistryServiceException } from "../models/ServiceCatalogAppRegistryServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ServiceCatalogAppRegistryServiceException$: StaticErrorSchema = [-3, _s, "ServiceCatalogAppRegistryServiceException", 0, [], []];
+_s_registry.registerError(ServiceCatalogAppRegistryServiceException$, ServiceCatalogAppRegistryServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC],
+  [0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
   [_i, _a, _n, _d, _cT, _lUT, _t, _aT],
@@ -224,12 +273,6 @@ export var AttributeGroupSummary$: StaticStructureSchema = [3, n0, _AGS,
   [_i, _a, _n, _d, _cT, _lUT, _cB],
   [0, 0, 0, 0, 5, 5, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
   [_n, _d, _t, _cTl],
@@ -330,12 +373,6 @@ export var Integrations$: StaticStructureSchema = [3, n0, _I,
   [_rG, _aTRG],
   [() => ResourceGroup$, () => ResourceGroup$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListApplicationsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_nT, _mR],
@@ -426,23 +463,11 @@ export var ResourceIntegrations$: StaticStructureSchema = [3, n0, _RIe,
   [_rG],
   [() => ResourceGroup$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcesListItem$: StaticStructureSchema = [3, n0, _RLI,
   0,
   [_rA, _eM, _sta, _rT],
   [0, 0, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SyncResourceRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
   [_rT, _re],
@@ -468,12 +493,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tKa],
@@ -504,15 +523,7 @@ export var UpdateAttributeGroupResponse$: StaticStructureSchema = [3, n0, _UAGRp
   [_aG],
   [() => AttributeGroup$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var ServiceCatalogAppRegistryServiceException$: StaticErrorSchema = [-3, _sm, "ServiceCatalogAppRegistryServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ServiceCatalogAppRegistryServiceException$, ServiceCatalogAppRegistryServiceException);
 var ApplicationSummaries: StaticListSchema = [1, n0, _ASp,
   0, () => ApplicationSummary$
 ];

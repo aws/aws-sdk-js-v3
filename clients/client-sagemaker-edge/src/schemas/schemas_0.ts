@@ -65,6 +65,25 @@ import { InternalServiceException } from "../models/errors";
 import { SagemakerEdgeServiceException } from "../models/SagemakerEdgeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SagemakerEdgeServiceException$: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
+_s_registry.registerError(SagemakerEdgeServiceException$, SagemakerEdgeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Checksum$: StaticStructureSchema = [3, n0, _C,
   0,
   [_T, _S],
@@ -115,12 +134,6 @@ export var GetDeviceRegistrationResult$: StaticStructureSchema = [3, n0, _GDRRe,
   [_DRe, _CTTL],
   [0, 0]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
 export var Model$: StaticStructureSchema = [3, n0, _Mo,
   0,
   [_MN, _MV, _LST, _LI, _MM],
@@ -132,8 +145,6 @@ export var SendHeartbeatRequest$: StaticStructureSchema = [3, n0, _SHR,
   [0, 0, 0, () => EdgeMetrics, () => Models, () => DeploymentResult$], 3
 ];
 var __Unit = "unit" as const;
-export var SagemakerEdgeServiceException$: StaticErrorSchema = [-3, _s, "SagemakerEdgeServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(SagemakerEdgeServiceException$, SagemakerEdgeServiceException);
 var Definitions: StaticListSchema = [1, n0, _De,
   0, () => Definition$
 ];

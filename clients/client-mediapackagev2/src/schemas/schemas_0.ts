@@ -287,8 +287,8 @@ const _jN = "jsonName";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _oEN = "originEndpointName";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackagev2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackagev2";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _xact = "x-amzn-client-token";
@@ -317,12 +317,61 @@ import {
 import { MediaPackageV2ServiceException } from "../models/MediaPackageV2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaPackageV2ServiceException$: StaticErrorSchema = [-3, _s, "MediaPackageV2ServiceException", 0, [], []];
+_s_registry.registerError(MediaPackageV2ServiceException$, MediaPackageV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _CET],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RTNF],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M, _VET],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CancelHarvestJobRequest$: StaticStructureSchema = [3, n0, _CHJR,
   0,
   [_CGN, _CN, _OEN, _HJN, _ET],
@@ -348,12 +397,6 @@ export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   [_A, _CN, _CGN, _CA, _MA, _D, _IT],
   [0, 0, 0, 4, 4, 0, 0], 5
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _CET],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
   [_CGN, _CT, _D, _T],
@@ -654,12 +697,6 @@ export var InputSwitchConfiguration$: StaticStructureSchema = [3, n0, _ISC,
   [_MQCSIS, _PIr],
   [2, 1]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListChannelGroupsRequest$: StaticStructureSchema = [3, n0, _LCGR,
   0,
   [_MR, _NT],
@@ -780,12 +817,6 @@ export var ResetOriginEndpointStateResponse$: StaticStructureSchema = [3, n0, _R
   [_CGN, _CN, _OEN, _A, _RA],
   [0, 0, 0, 0, 4], 5
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RTNF],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DestinationConfig$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_BN, _DPe],
@@ -811,12 +842,6 @@ export var Segment$: StaticStructureSchema = [3, n0, _Se,
   [_SDS, _SN, _TUARG, _IIOS, _TIDS, _Sc, _E],
   [1, 0, 2, 2, 2, () => Scte$, () => Encryption$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
   [_ECC, _RI, _DSrm, _RAo, _U, _CAe],
@@ -832,12 +857,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RAe, _T],
   [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
@@ -873,15 +892,7 @@ export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp
   [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _ET, _T, _DM],
   [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_M, _VET],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var MediaPackageV2ServiceException$: StaticErrorSchema = [-3, _sm, "MediaPackageV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaPackageV2ServiceException$, MediaPackageV2ServiceException);
 var CdnIdentifierSecretArns = 64 | 0;
 var ChannelGroupsList: StaticListSchema = [1, n0, _CGL,
   0, () => ChannelGroupListConfiguration$

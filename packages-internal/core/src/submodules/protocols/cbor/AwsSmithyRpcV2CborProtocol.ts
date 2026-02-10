@@ -1,5 +1,5 @@
 import { loadSmithyRpcV2CborErrorCode, SmithyRpcV2CborProtocol } from "@smithy/core/cbor";
-import { type TypeRegistry, NormalizedSchema } from "@smithy/core/schema";
+import { NormalizedSchema, TypeRegistry } from "@smithy/core/schema";
 import type {
   EndpointBearer,
   HandlerExecutionContext,
@@ -18,23 +18,17 @@ import { ProtocolLib } from "../ProtocolLib";
  * @public
  */
 export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
-  /**
-   * @override
-   */
-  protected declare compositeErrorRegistry: TypeRegistry;
   private readonly awsQueryCompatible: boolean;
   private readonly mixin: ProtocolLib;
 
   public constructor({
     defaultNamespace,
     awsQueryCompatible,
-    errorTypeRegistries,
   }: {
     defaultNamespace: string;
     awsQueryCompatible?: boolean;
-    errorTypeRegistries?: TypeRegistry[];
   }) {
-    super({ defaultNamespace, errorTypeRegistries });
+    super({ defaultNamespace });
     this.awsQueryCompatible = !!awsQueryCompatible;
     this.mixin = new ProtocolLib(this.awsQueryCompatible);
   }
@@ -86,7 +80,7 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
 
     const ns = NormalizedSchema.of(errorSchema);
     const message = dataObject.message ?? dataObject.Message ?? "Unknown";
-    const ErrorCtor = this.compositeErrorRegistry.getErrorCtor(errorSchema) ?? Error;
+    const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
     const output = {} as any;

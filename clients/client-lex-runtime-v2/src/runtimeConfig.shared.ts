@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultLexRuntimeV2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.lexruntimev2",
+      errorTypeRegistries,
       version: "2020-08-07",
       serviceTarget: "AWSDeepSenseRunTimeServiceApi2_0",
     },

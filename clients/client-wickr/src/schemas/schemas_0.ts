@@ -323,18 +323,18 @@ const _pWAN = "permittedWickrAwsNetworks";
 const _pWEN = "permittedWickrEnterpriseNetworks";
 const _pe = "pending";
 const _qR = "quickResponses";
-const _r = "reason";
+const _r = "reasons";
 const _rE = "revocationEndpoint";
 const _rRC = "readReceiptConfig";
 const _rT = "refreshToken";
 const _rTS = "responseTypesSupported";
 const _rU = "redirectUri";
 const _rUe = "redirectUrl";
-const _re = "rejected";
-const _rea = "reasons";
+const _re = "reason";
 const _reg = "region";
+const _rej = "rejected";
 const _rem = "remaining";
-const _s = "suspend";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.wickr";
 const _sD = "sortDirection";
 const _sF = "sortFields";
 const _sG = "securityGroup";
@@ -349,14 +349,14 @@ const _sT = "statusText";
 const _sTBM = "ssoTokenBufferMinutes";
 const _sTt = "startTime";
 const _sc = "scopes";
-const _se = "settings";
+const _se = "server";
 const _sec = "secret";
-const _ser = "server";
+const _set = "settings";
 const _sh = "shredder";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.wickr";
 const _st = "status";
 const _sta = "standing";
-const _su = "successful";
+const _su = "suspend";
+const _suc = "successful";
 const _sus = "suspended";
 const _sy = "symbols";
 const _t = "type";
@@ -401,16 +401,65 @@ import {
 import { WickrServiceException } from "../models/WickrServiceException";
 
 /* eslint no-var: 0 */
-var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var WickrServiceException$: StaticErrorSchema = [-3, _s, "WickrServiceException", 0, [], []];
+_s_registry.registerError(WickrServiceException$, WickrServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BadRequestError$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestError$, BadRequestError);
+n0_registry.registerError(BadRequestError$, BadRequestError);
+export var ForbiddenError$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenError$, ForbiddenError);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var RateLimitError$: StaticErrorSchema = [-3, n0, _RLE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RateLimitError$, RateLimitError);
+export var ResourceNotFoundError$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundError$, ResourceNotFoundError);
+export var UnauthorizedError$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedError$, UnauthorizedError);
+export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 422 },
+  [_r],
+  [() => ErrorDetailList]
+];
+n0_registry.registerError(ValidationError$, ValidationError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var BasicDeviceObject$: StaticStructureSchema = [3, n0, _BDO,
   0,
-  [_aI, _cr, _lL, _sT, _s, _t],
+  [_aI, _cr, _lL, _sT, _su, _t],
   [0, 0, 0, 0, 2, 0]
 ];
 export var BatchCreateUserRequest$: StaticStructureSchema = [3, n0, _BCUR,
@@ -425,7 +474,7 @@ export var BatchCreateUserRequestItem$: StaticStructureSchema = [3, n0, _BCURI,
 ];
 export var BatchCreateUserResponse$: StaticStructureSchema = [3, n0, _BCURa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, [() => Users, 0], () => BatchUserErrorResponseItems]
 ];
 export var BatchDeleteUserRequest$: StaticStructureSchema = [3, n0, _BDUR,
@@ -435,12 +484,12 @@ export var BatchDeleteUserRequest$: StaticStructureSchema = [3, n0, _BDUR,
 ];
 export var BatchDeleteUserResponse$: StaticStructureSchema = [3, n0, _BDURa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, () => BatchUserSuccessResponseItems, () => BatchUserErrorResponseItems]
 ];
 export var BatchDeviceErrorResponseItem$: StaticStructureSchema = [3, n0, _BDERI,
   0,
-  [_aI, _fi, _r],
+  [_aI, _fi, _re],
   [0, 0, 0], 1
 ];
 export var BatchDeviceSuccessResponseItem$: StaticStructureSchema = [3, n0, _BDSRI,
@@ -455,7 +504,7 @@ export var BatchLookupUserUnameRequest$: StaticStructureSchema = [3, n0, _BLUUR,
 ];
 export var BatchLookupUserUnameResponse$: StaticStructureSchema = [3, n0, _BLUURa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, () => BatchUnameSuccessResponseItems, () => BatchUnameErrorResponseItems]
 ];
 export var BatchReinviteUserRequest$: StaticStructureSchema = [3, n0, _BRUR,
@@ -465,7 +514,7 @@ export var BatchReinviteUserRequest$: StaticStructureSchema = [3, n0, _BRUR,
 ];
 export var BatchReinviteUserResponse$: StaticStructureSchema = [3, n0, _BRURa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, () => BatchUserSuccessResponseItems, () => BatchUserErrorResponseItems]
 ];
 export var BatchResetDevicesForUserRequest$: StaticStructureSchema = [3, n0, _BRDFUR,
@@ -475,22 +524,22 @@ export var BatchResetDevicesForUserRequest$: StaticStructureSchema = [3, n0, _BR
 ];
 export var BatchResetDevicesForUserResponse$: StaticStructureSchema = [3, n0, _BRDFURa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, () => BatchDeviceSuccessResponseItems, () => BatchDeviceErrorResponseItems]
 ];
 export var BatchToggleUserSuspendStatusRequest$: StaticStructureSchema = [3, n0, _BTUSSR,
   0,
-  [_nI, _s, _uI, _cT],
-  [[0, 1], [2, { [_hQ]: _s }], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 3
+  [_nI, _su, _uI, _cT],
+  [[0, 1], [2, { [_hQ]: _su }], 64 | 0, [0, { [_hH]: _XCT, [_iT]: 1 }]], 3
 ];
 export var BatchToggleUserSuspendStatusResponse$: StaticStructureSchema = [3, n0, _BTUSSRa,
   0,
-  [_m, _su, _f],
+  [_m, _suc, _f],
   [0, () => BatchUserSuccessResponseItems, () => BatchUserErrorResponseItems]
 ];
 export var BatchUnameErrorResponseItem$: StaticStructureSchema = [3, n0, _BUERI,
   0,
-  [_una, _fi, _r],
+  [_una, _fi, _re],
   [0, 0, 0], 1
 ];
 export var BatchUnameSuccessResponseItem$: StaticStructureSchema = [3, n0, _BUSRI,
@@ -500,7 +549,7 @@ export var BatchUnameSuccessResponseItem$: StaticStructureSchema = [3, n0, _BUSR
 ];
 export var BatchUserErrorResponseItem$: StaticStructureSchema = [3, n0, _BUERIa,
   0,
-  [_uIs, _fi, _r],
+  [_uIs, _fi, _re],
   [0, 0, 0], 1
 ];
 export var BatchUserSuccessResponseItem$: StaticStructureSchema = [3, n0, _BUSRIa,
@@ -615,15 +664,9 @@ export var DeleteSecurityGroupResponse$: StaticStructureSchema = [3, n0, _DSGRe,
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
-  [_fi, _r],
+  [_fi, _re],
   [0, 0]
 ];
-export var ForbiddenError$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenError$, ForbiddenError);
 export var GetBotRequest$: StaticStructureSchema = [3, n0, _GBR,
   0,
   [_nI, _bI],
@@ -681,7 +724,7 @@ export var GetNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _GNSR,
 ];
 export var GetNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _GNSRe,
   0,
-  [_se],
+  [_set],
   [() => SettingsList], 1
 ];
 export var GetOidcInfoRequest$: StaticStructureSchema = [3, n0, _GOIR,
@@ -721,7 +764,7 @@ export var GetUsersCountRequest$: StaticStructureSchema = [3, n0, _GUCR,
 ];
 export var GetUsersCountResponse$: StaticStructureSchema = [3, n0, _GUCRe,
   0,
-  [_pe, _ac, _re, _rem, _to],
+  [_pe, _ac, _rej, _rem, _to],
   [1, 1, 1, 1, 1], 5
 ];
 export var GuestUser$: StaticStructureSchema = [3, n0, _GU,
@@ -734,12 +777,6 @@ export var GuestUserHistoryCount$: StaticStructureSchema = [3, n0, _GUHC,
   [_mon, _cou],
   [0, 0], 2
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var ListBlockedGuestUsersRequest$: StaticStructureSchema = [3, n0, _LBGUR,
   0,
   [_nI, _mR, _sD, _sF, _us, _a, _nT],
@@ -850,12 +887,6 @@ export var PermittedWickrEnterpriseNetwork$: StaticStructureSchema = [3, n0, _PW
   [_do, _nI],
   [0, 0], 2
 ];
-export var RateLimitError$: StaticErrorSchema = [-3, n0, _RLE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RateLimitError$, RateLimitError);
 export var ReadReceiptConfig$: StaticStructureSchema = [3, n0, _RRC,
   0,
   [_st],
@@ -881,12 +912,6 @@ export var RegisterOidcConfigTestResponse$: StaticStructureSchema = [3, n0, _ROC
   [_tE, _uE, _rTS, _sS, _i, _aE, _eSE, _lE, _gTS, _rE, _tEAMS, _mMRT],
   [0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 2]
 ];
-export var ResourceNotFoundError$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundError$, ResourceNotFoundError);
 export var SecurityGroup$: StaticStructureSchema = [3, n0, _SG,
   0,
   [_aM, _bM, _id, _iD, _n, _mo, _sGS, _aDG],
@@ -912,15 +937,9 @@ export var ShredderSettings$: StaticStructureSchema = [3, n0, _SSh,
   [_cPM, _in],
   [2, 1]
 ];
-export var UnauthorizedError$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedError$, UnauthorizedError);
 export var UpdateBotRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_nI, _bI, _dN, _gI, _ch, _s],
+  [_nI, _bI, _dN, _gI, _ch, _su],
   [[0, 1], [0, 1], 0, 0, [() => SensitiveString, 0], 2], 2
 ];
 export var UpdateBotResponse$: StaticStructureSchema = [3, n0, _UBRp,
@@ -960,12 +979,12 @@ export var UpdateNetworkResponse$: StaticStructureSchema = [3, n0, _UNRp,
 ];
 export var UpdateNetworkSettingsRequest$: StaticStructureSchema = [3, n0, _UNSR,
   0,
-  [_nI, _se],
+  [_nI, _set],
   [[0, 1], () => NetworkSettings$], 2
 ];
 export var UpdateNetworkSettingsResponse$: StaticStructureSchema = [3, n0, _UNSRp,
   0,
-  [_se],
+  [_set],
   [() => SettingsList], 1
 ];
 export var UpdateSecurityGroupRequest$: StaticStructureSchema = [3, n0, _USGR,
@@ -998,19 +1017,11 @@ export var User$: StaticStructureSchema = [3, n0, _U,
   [_uIs, _fN, _lN, _us, _sGe, _iA, _sus, _st, _oE, _sI, _t, _cel, _cCou, _cF, _iIE, _iU, _iC, _cV, _una],
   [0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 64 | 0, 2, 2, 1, 2, 0, 0, 0, 0, 1, 2, 2, 0, 2, 0]
 ];
-export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 422 },
-  [_rea],
-  [() => ErrorDetailList]
-];
-TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
 export var WickrAwsNetworks$: StaticStructureSchema = [3, n0, _WAN,
   0,
   [_reg, _nI],
   [0, 0], 2
 ];
-export var WickrServiceException$: StaticErrorSchema = [-3, _sm, "WickrServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WickrServiceException$, WickrServiceException);
 var AppIds = 64 | 0;
 var BatchCreateUserRequestItems: StaticListSchema = [1, n0, _BCURIa,
   0, [() => BatchCreateUserRequestItem$,

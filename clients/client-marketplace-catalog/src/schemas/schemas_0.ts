@@ -231,8 +231,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacecatalog";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacecatalog";
+const _se = "server";
 const n0 = "com.amazonaws.marketplacecatalog";
 
 // smithy-typescript generated code
@@ -259,12 +259,67 @@ import {
 import { MarketplaceCatalogServiceException } from "../models/MarketplaceCatalogServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MarketplaceCatalogServiceException$: StaticErrorSchema = [-3, _s, "MarketplaceCatalogServiceException", 0, [], []];
+_s_registry.registerError(MarketplaceCatalogServiceException$, MarketplaceCatalogServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 423 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceNotSupportedException$: StaticErrorSchema = [-3, n0, _RNSE,
+  { [_e]: _c, [_hE]: 415 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotSupportedException$, ResourceNotSupportedException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 422 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AmiProductEntityIdFilter$: StaticStructureSchema = [3, n0, _APEIF,
   0,
   [_VL],
@@ -495,12 +550,6 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_P],
   [0]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
 export var ListChangeSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
   [_C, _FL, _So, _MR, _NT],
@@ -821,24 +870,6 @@ export var ResaleAuthorizationSummary$: StaticStructureSchema = [3, n0, _RAS,
   [_N, _PI, _PN, _MAI, _MLN, _RAID, _RLN, _S, _OES, _CD, _AED],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 423 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceNotSupportedException$: StaticErrorSchema = [-3, n0, _RNSE,
-  { [_e]: _c, [_hE]: 415 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotSupportedException$, ResourceNotSupportedException);
 export var SaaSProductEntityIdFilter$: StaticStructureSchema = [3, n0, _SSPEIF,
   0,
   [_VL],
@@ -879,12 +910,6 @@ export var SaaSProductVisibilityFilter$: StaticStructureSchema = [3, n0, _SSPVF,
   [_VL],
   [64 | 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Sort$: StaticStructureSchema = [3, n0, _So,
   0,
   [_SB, _SO],
@@ -915,12 +940,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -931,14 +950,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 422 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var MarketplaceCatalogServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceCatalogServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MarketplaceCatalogServiceException$, MarketplaceCatalogServiceException);
 var AmiProductEntityIdFilterValueList = 64 | 0;
 var AmiProductTitleFilterValueList = 64 | 0;
 var AmiProductVisibilityFilterValueList = 64 | 0;

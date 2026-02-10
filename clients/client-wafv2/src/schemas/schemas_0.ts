@@ -103,11 +103,11 @@ const _DAPIK = "DeleteAPIKey";
 const _DAPIKR = "DeleteAPIKeyRequest";
 const _DAPIKRe = "DeleteAPIKeyResponse";
 const _DB = "DefaultBehavior";
-const _DF = "DisallowedFeature";
+const _DF = "DisallowedFeatures";
 const _DFMRG = "DeleteFirewallManagerRuleGroups";
 const _DFMRGR = "DeleteFirewallManagerRuleGroupsRequest";
 const _DFMRGRe = "DeleteFirewallManagerRuleGroupsResponse";
-const _DFi = "DisallowedFeatures";
+const _DFi = "DisallowedFeature";
 const _DIPS = "DeleteIPSet";
 const _DIPSR = "DeleteIPSetRequest";
 const _DIPSRe = "DeleteIPSetResponse";
@@ -302,7 +302,7 @@ const _LWACLR = "ListWebACLsRequest";
 const _LWACLRi = "ListWebACLsResponse";
 const _La = "Labels";
 const _Li = "Limit";
-const _M = "Method";
+const _M = "Message";
 const _MBFM = "ManagedByFirewallManager";
 const _MI = "MaxItems";
 const _MKIPV = "ManagedKeysIPV4";
@@ -328,7 +328,7 @@ const _MRSV = "ManagedRuleSetVersion";
 const _MRSa = "ManagedRuleSets";
 const _MS = "MatchScope";
 const _MSR = "MobileSdkRelease";
-const _Me = "Message";
+const _Me = "Method";
 const _N = "Name";
 const _NA = "NoneAction";
 const _NLT = "NextLockToken";
@@ -342,7 +342,7 @@ const _OAv = "OverriddenAction";
 const _OH = "OversizeHandling";
 const _OS = "OrStatement";
 const _OSDDSPC = "OnSourceDDoSProtectionConfig";
-const _P = "Priority";
+const _P = "Parameter";
 const _PC = "PositionalConstraint";
 const _PD = "ProductDescription";
 const _PF = "PasswordField";
@@ -366,13 +366,13 @@ const _PT = "ProductTitle";
 const _PTa = "PayloadType";
 const _PTu = "PublishTimestamp";
 const _PV = "PublishedVersions";
-const _Pa = "Parameter";
 const _Pl = "Platform";
 const _Po = "Policy";
 const _Pos = "Position";
+const _Pr = "Priority";
 const _QA = "QueryArgument";
 const _QS = "QueryString";
-const _R = "Rules";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RAO = "RuleActionOverrides";
 const _RAOu = "RuleActionOverride";
@@ -439,10 +439,10 @@ const _RT = "ResourceType";
 const _RV = "ReleaseVersion";
 const _RVe = "RecommendedVersion";
 const _Re = "Requirement";
-const _Rea = "Reason";
 const _Reg = "Regex";
 const _Req = "Request";
-const _Ru = "Rule";
+const _Ru = "Rules";
+const _Rul = "Rule";
 const _S = "Statements";
 const _SC = "StatusCode";
 const _SCS = "SizeConstraintStatement";
@@ -458,10 +458,10 @@ const _SR = "SampledRequests";
 const _SRE = "SampledRequestsEnabled";
 const _SS = "SearchString";
 const _SSu = "SuccessStrings";
-const _ST = "SolveTimestamp";
+const _ST = "SourceType";
 const _STA = "SnsTopicArn";
 const _STB = "SensitivityToBlock";
-const _STo = "SourceType";
+const _STo = "SolveTimestamp";
 const _STt = "StartTime";
 const _SV = "SuccessValues";
 const _Sc = "Scope";
@@ -552,8 +552,8 @@ const _XMS = "XssMatchStatement";
 const _c = "client";
 const _e = "error";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.wafv2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.wafv2";
+const _se = "server";
 const n0 = "com.amazonaws.wafv2";
 
 // smithy-typescript generated code
@@ -591,6 +591,139 @@ import {
 import { WAFV2ServiceException } from "../models/WAFV2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WAFV2ServiceException$: StaticErrorSchema = [-3, _s, "WAFV2ServiceException", 0, [], []];
+_s_registry.registerError(WAFV2ServiceException$, WAFV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var WAFAssociatedItemException$: StaticErrorSchema = [-3, n0, _WAFAIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFAssociatedItemException$, WAFAssociatedItemException);
+export var WAFConfigurationWarningException$: StaticErrorSchema = [-3, n0, _WAFCWE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFConfigurationWarningException$, WAFConfigurationWarningException);
+export var WAFDuplicateItemException$: StaticErrorSchema = [-3, n0, _WAFDIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFDuplicateItemException$, WAFDuplicateItemException);
+export var WAFExpiredManagedRuleGroupVersionException$: StaticErrorSchema = [-3, n0, _WAFEMRGVE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFExpiredManagedRuleGroupVersionException$, WAFExpiredManagedRuleGroupVersionException);
+export var WAFFeatureNotIncludedInPricingPlanException$: StaticErrorSchema = [-3, n0, _WAFFNIIPPE,
+  { [_e]: _c },
+  [_M, _DF],
+  [0, () => DisallowedFeatures]
+];
+n0_registry.registerError(WAFFeatureNotIncludedInPricingPlanException$, WAFFeatureNotIncludedInPricingPlanException);
+export var WAFInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFIEE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFInternalErrorException$, WAFInternalErrorException);
+export var WAFInvalidOperationException$: StaticErrorSchema = [-3, n0, _WAFIOE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFInvalidOperationException$, WAFInvalidOperationException);
+export var WAFInvalidParameterException$: StaticErrorSchema = [-3, n0, _WAFIPE,
+  { [_e]: _c },
+  [_m, _F, _P, _R],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(WAFInvalidParameterException$, WAFInvalidParameterException);
+export var WAFInvalidPermissionPolicyException$: StaticErrorSchema = [-3, n0, _WAFIPPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFInvalidPermissionPolicyException$, WAFInvalidPermissionPolicyException);
+export var WAFInvalidResourceException$: StaticErrorSchema = [-3, n0, _WAFIRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFInvalidResourceException$, WAFInvalidResourceException);
+export var WAFLimitsExceededException$: StaticErrorSchema = [-3, n0, _WAFLEE,
+  { [_e]: _c },
+  [_M, _ST],
+  [0, 0]
+];
+n0_registry.registerError(WAFLimitsExceededException$, WAFLimitsExceededException);
+export var WAFLogDestinationPermissionIssueException$: StaticErrorSchema = [-3, n0, _WAFLDPIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFLogDestinationPermissionIssueException$, WAFLogDestinationPermissionIssueException);
+export var WAFNonexistentItemException$: StaticErrorSchema = [-3, n0, _WAFNIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFNonexistentItemException$, WAFNonexistentItemException);
+export var WAFOptimisticLockException$: StaticErrorSchema = [-3, n0, _WAFOLE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFOptimisticLockException$, WAFOptimisticLockException);
+export var WAFServiceLinkedRoleErrorException$: StaticErrorSchema = [-3, n0, _WAFSLREE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(WAFServiceLinkedRoleErrorException$, WAFServiceLinkedRoleErrorException);
+export var WAFSubscriptionNotFoundException$: StaticErrorSchema = [-3, n0, _WAFSNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFSubscriptionNotFoundException$, WAFSubscriptionNotFoundException);
+export var WAFTagOperationException$: StaticErrorSchema = [-3, n0, _WAFTOE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFTagOperationException$, WAFTagOperationException);
+export var WAFTagOperationInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFTOIEE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFTagOperationInternalErrorException$, WAFTagOperationInternalErrorException);
+export var WAFUnavailableEntityException$: StaticErrorSchema = [-3, n0, _WAFUEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFUnavailableEntityException$, WAFUnavailableEntityException);
+export var WAFUnsupportedAggregateKeyTypeException$: StaticErrorSchema = [-3, n0, _WAFUAKTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WAFUnsupportedAggregateKeyTypeException$, WAFUnsupportedAggregateKeyTypeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActionCondition$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_A],
@@ -703,7 +836,7 @@ export var CaptchaConfig$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var CaptchaResponse$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_RC, _ST, _FR],
+  [_RC, _STo, _FR],
   [1, 1, 0]
 ];
 export var ChallengeAction$: StaticStructureSchema = [3, n0, _CAh,
@@ -718,12 +851,12 @@ export var ChallengeConfig$: StaticStructureSchema = [3, n0, _CCh,
 ];
 export var ChallengeResponse$: StaticStructureSchema = [3, n0, _CRh,
   0,
-  [_RC, _ST, _FR],
+  [_RC, _STo, _FR],
   [1, 1, 0]
 ];
 export var CheckCapacityRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_Sc, _R],
+  [_Sc, _Ru],
   [0, () => Rules], 2
 ];
 export var CheckCapacityResponse$: StaticStructureSchema = [3, n0, _CCRh,
@@ -793,7 +926,7 @@ export var CreateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _CRPS
 ];
 export var CreateRuleGroupRequest$: StaticStructureSchema = [3, n0, _CRGR,
   0,
-  [_N, _Sc, _C, _VC, _D, _R, _T, _CRB],
+  [_N, _Sc, _C, _VC, _D, _Ru, _T, _CRB],
   [0, 0, 1, () => VisibilityConfig$, 0, () => Rules, () => TagList, () => CustomResponseBodies], 4
 ];
 export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
@@ -803,7 +936,7 @@ export var CreateRuleGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
 ];
 export var CreateWebACLRequest$: StaticStructureSchema = [3, n0, _CWACLR,
   0,
-  [_N, _Sc, _DA, _VC, _D, _R, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
+  [_N, _Sc, _DA, _VC, _D, _Ru, _DPC, _T, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
   [0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, () => TagList, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 4
 ];
 export var CreateWebACLResponse$: StaticStructureSchema = [3, n0, _CWACLRr,
@@ -953,10 +1086,10 @@ export var DescribeManagedRuleGroupRequest$: StaticStructureSchema = [3, n0, _DM
 ];
 export var DescribeManagedRuleGroupResponse$: StaticStructureSchema = [3, n0, _DMRGRe,
   0,
-  [_VNe, _STA, _C, _R, _LN, _ALv, _CL],
+  [_VNe, _STA, _C, _Ru, _LN, _ALv, _CL],
   [0, 0, 1, () => RuleSummaries, 0, () => LabelSummaries, () => LabelSummaries]
 ];
-export var DisallowedFeature$: StaticStructureSchema = [3, n0, _DF,
+export var DisallowedFeature$: StaticStructureSchema = [3, n0, _DFi,
   0,
   [_Fe, _RPPe],
   [0, 0]
@@ -983,7 +1116,7 @@ export var ExcludedRule$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var FieldToMatch$: StaticStructureSchema = [3, n0, _FTM,
   0,
-  [_SH, _SQA, _AQA, _UP, _QS, _B, _M, _JB, _H, _Coo, _HO, _JAF, _JAFi, _UF],
+  [_SH, _SQA, _AQA, _UP, _QS, _B, _Me, _JB, _H, _Coo, _HO, _JAF, _JAFi, _UF],
   [() => SingleHeader$, () => SingleQueryArgument$, () => AllQueryArguments$, () => UriPath$, () => QueryString$, () => Body$, () => Method$, () => JsonBody$, () => Headers$, () => Cookies$, () => HeaderOrder$, () => JA3Fingerprint$, () => JA4Fingerprint$, () => UriFragment$]
 ];
 export var FieldToProtect$: StaticStructureSchema = [3, n0, _FTP,
@@ -998,7 +1131,7 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
 ];
 export var FirewallManagerRuleGroup$: StaticStructureSchema = [3, n0, _FMRG,
   0,
-  [_N, _P, _FMS, _OA, _VC],
+  [_N, _Pr, _FMS, _OA, _VC],
   [0, 1, () => FirewallManagerStatement$, () => OverrideAction$, () => VisibilityConfig$], 5
 ];
 export var FirewallManagerStatement$: StaticStructureSchema = [3, n0, _FMS,
@@ -1168,7 +1301,7 @@ export var HTTPHeader$: StaticStructureSchema = [3, n0, _HTTPH,
 ];
 export var HTTPRequest$: StaticStructureSchema = [3, n0, _HTTPR,
   0,
-  [_CIP, _Cou, _URI, _M, _HTTPV, _H],
+  [_CIP, _Cou, _URI, _Me, _HTTPV, _H],
   [0, 0, 0, 0, 0, () => HTTPHeaders]
 ];
 export var ImmunityTimeProperty$: StaticStructureSchema = [3, n0, _ITP,
@@ -1406,7 +1539,7 @@ export var ManagedRuleSetVersion$: StaticStructureSchema = [3, n0, _MRSV,
   [_ARGA, _C, _FL, _PTu, _LUT, _ET],
   [0, 1, 1, 4, 4, 4]
 ];
-export var Method$: StaticStructureSchema = [3, n0, _M,
+export var Method$: StaticStructureSchema = [3, n0, _Me,
   0,
   [],
   []
@@ -1631,9 +1764,9 @@ export var ResponseInspectionStatusCode$: StaticStructureSchema = [3, n0, _RISC,
   [_SCu, _FC],
   [64 | 1, 64 | 1], 2
 ];
-export var Rule$: StaticStructureSchema = [3, n0, _Ru,
+export var Rule$: StaticStructureSchema = [3, n0, _Rul,
   0,
-  [_N, _P, _St, _VC, _A, _OA, _RL, _CC, _CCh],
+  [_N, _Pr, _St, _VC, _A, _OA, _RL, _CC, _CCh],
   [0, 1, () => Statement$, () => VisibilityConfig$, () => RuleAction$, () => OverrideAction$, () => Labels, () => CaptchaConfig$, () => ChallengeConfig$], 4
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAu,
@@ -1648,7 +1781,7 @@ export var RuleActionOverride$: StaticStructureSchema = [3, n0, _RAOu,
 ];
 export var RuleGroup$: StaticStructureSchema = [3, n0, _RG,
   0,
-  [_N, _Id, _C, _ARN, _VC, _D, _R, _LN, _CRB, _ALv, _CL],
+  [_N, _Id, _C, _ARN, _VC, _D, _Ru, _LN, _CRB, _ALv, _CL],
   [0, 0, 1, 0, () => VisibilityConfig$, 0, () => Rules, 0, () => CustomResponseBodies, () => LabelSummaries, () => LabelSummaries], 5
 ];
 export var RuleGroupReferenceStatement$: StaticStructureSchema = [3, n0, _RGRS,
@@ -1718,7 +1851,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TextTransformation$: StaticStructureSchema = [3, n0, _TTe,
   0,
-  [_P, _Ty],
+  [_Pr, _Ty],
   [1, 0], 2
 ];
 export var TimeWindow$: StaticStructureSchema = [3, n0, _TW,
@@ -1768,7 +1901,7 @@ export var UpdateRegexPatternSetResponse$: StaticStructureSchema = [3, n0, _URPS
 ];
 export var UpdateRuleGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
-  [_N, _Sc, _Id, _VC, _LT, _D, _R, _CRB],
+  [_N, _Sc, _Id, _VC, _LT, _D, _Ru, _CRB],
   [0, 0, 0, () => VisibilityConfig$, 0, 0, () => Rules, () => CustomResponseBodies], 5
 ];
 export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
@@ -1778,7 +1911,7 @@ export var UpdateRuleGroupResponse$: StaticStructureSchema = [3, n0, _URGRp,
 ];
 export var UpdateWebACLRequest$: StaticStructureSchema = [3, n0, _UWACLR,
   0,
-  [_N, _Sc, _Id, _DA, _VC, _LT, _D, _R, _DPC, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
+  [_N, _Sc, _Id, _DA, _VC, _LT, _D, _Ru, _DPC, _CRB, _CC, _CCh, _TD, _ACs, _OSDDSPC, _ACp],
   [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, 0, () => Rules, () => DataProtectionConfig$, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 6
 ];
 export var UpdateWebACLResponse$: StaticStructureSchema = [3, n0, _UWACLRp,
@@ -1811,129 +1944,9 @@ export var VisibilityConfig$: StaticStructureSchema = [3, n0, _VC,
   [_SRE, _CWME, _MN],
   [2, 2, 0], 3
 ];
-export var WAFAssociatedItemException$: StaticErrorSchema = [-3, n0, _WAFAIE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFAssociatedItemException$, WAFAssociatedItemException);
-export var WAFConfigurationWarningException$: StaticErrorSchema = [-3, n0, _WAFCWE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFConfigurationWarningException$, WAFConfigurationWarningException);
-export var WAFDuplicateItemException$: StaticErrorSchema = [-3, n0, _WAFDIE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFDuplicateItemException$, WAFDuplicateItemException);
-export var WAFExpiredManagedRuleGroupVersionException$: StaticErrorSchema = [-3, n0, _WAFEMRGVE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFExpiredManagedRuleGroupVersionException$, WAFExpiredManagedRuleGroupVersionException);
-export var WAFFeatureNotIncludedInPricingPlanException$: StaticErrorSchema = [-3, n0, _WAFFNIIPPE,
-  { [_e]: _c },
-  [_Me, _DFi],
-  [0, () => DisallowedFeatures]
-];
-TypeRegistry.for(n0).registerError(WAFFeatureNotIncludedInPricingPlanException$, WAFFeatureNotIncludedInPricingPlanException);
-export var WAFInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFIEE,
-  { [_e]: _s },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFInternalErrorException$, WAFInternalErrorException);
-export var WAFInvalidOperationException$: StaticErrorSchema = [-3, n0, _WAFIOE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFInvalidOperationException$, WAFInvalidOperationException);
-export var WAFInvalidParameterException$: StaticErrorSchema = [-3, n0, _WAFIPE,
-  { [_e]: _c },
-  [_m, _F, _Pa, _Rea],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(WAFInvalidParameterException$, WAFInvalidParameterException);
-export var WAFInvalidPermissionPolicyException$: StaticErrorSchema = [-3, n0, _WAFIPPE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFInvalidPermissionPolicyException$, WAFInvalidPermissionPolicyException);
-export var WAFInvalidResourceException$: StaticErrorSchema = [-3, n0, _WAFIRE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFInvalidResourceException$, WAFInvalidResourceException);
-export var WAFLimitsExceededException$: StaticErrorSchema = [-3, n0, _WAFLEE,
-  { [_e]: _c },
-  [_Me, _STo],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(WAFLimitsExceededException$, WAFLimitsExceededException);
-export var WAFLogDestinationPermissionIssueException$: StaticErrorSchema = [-3, n0, _WAFLDPIE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFLogDestinationPermissionIssueException$, WAFLogDestinationPermissionIssueException);
-export var WAFNonexistentItemException$: StaticErrorSchema = [-3, n0, _WAFNIE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFNonexistentItemException$, WAFNonexistentItemException);
-export var WAFOptimisticLockException$: StaticErrorSchema = [-3, n0, _WAFOLE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFOptimisticLockException$, WAFOptimisticLockException);
-export var WAFServiceLinkedRoleErrorException$: StaticErrorSchema = [-3, n0, _WAFSLREE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFServiceLinkedRoleErrorException$, WAFServiceLinkedRoleErrorException);
-export var WAFSubscriptionNotFoundException$: StaticErrorSchema = [-3, n0, _WAFSNFE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFSubscriptionNotFoundException$, WAFSubscriptionNotFoundException);
-export var WAFTagOperationException$: StaticErrorSchema = [-3, n0, _WAFTOE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFTagOperationException$, WAFTagOperationException);
-export var WAFTagOperationInternalErrorException$: StaticErrorSchema = [-3, n0, _WAFTOIEE,
-  { [_e]: _s },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFTagOperationInternalErrorException$, WAFTagOperationInternalErrorException);
-export var WAFUnavailableEntityException$: StaticErrorSchema = [-3, n0, _WAFUEE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFUnavailableEntityException$, WAFUnavailableEntityException);
-export var WAFUnsupportedAggregateKeyTypeException$: StaticErrorSchema = [-3, n0, _WAFUAKTE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WAFUnsupportedAggregateKeyTypeException$, WAFUnsupportedAggregateKeyTypeException);
 export var WebACL$: StaticStructureSchema = [3, n0, _WACL,
   0,
-  [_N, _Id, _ARN, _DA, _VC, _D, _R, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp],
+  [_N, _Id, _ARN, _DA, _VC, _D, _Ru, _DPC, _C, _PPFMRG, _PPFMRGo, _MBFM, _LN, _CRB, _CC, _CCh, _TD, _ACs, _RBFM, _OSDDSPC, _ACp],
   [0, 0, 0, () => DefaultAction$, () => VisibilityConfig$, 0, () => Rules, () => DataProtectionConfig$, 1, () => FirewallManagerRuleGroups, () => FirewallManagerRuleGroups, 2, 0, () => CustomResponseBodies, () => CaptchaConfig$, () => ChallengeConfig$, 64 | 0, () => AssociationConfig$, 2, () => OnSourceDDoSProtectionConfig$, () => ApplicationConfig$], 5
 ];
 export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
@@ -1946,8 +1959,6 @@ export var XssMatchStatement$: StaticStructureSchema = [3, n0, _XMS,
   [_FTM, _TT],
   [() => FieldToMatch$, () => TextTransformations], 2
 ];
-export var WAFV2ServiceException$: StaticErrorSchema = [-3, _sm, "WAFV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WAFV2ServiceException$, WAFV2ServiceException);
 var AddressFields: StaticListSchema = [1, n0, _AFd,
   0, () => AddressField$
 ];
@@ -1971,7 +1982,7 @@ var CustomHTTPHeaders: StaticListSchema = [1, n0, _CHTTPHu,
 var DataProtections: StaticListSchema = [1, n0, _DPa,
   0, () => DataProtection$
 ];
-var DisallowedFeatures: StaticListSchema = [1, n0, _DFi,
+var DisallowedFeatures: StaticListSchema = [1, n0, _DF,
   0, () => DisallowedFeature$
 ];
 var ExcludedRules: StaticListSchema = [1, n0, _ERx,
@@ -2051,7 +2062,7 @@ var RuleActionOverrides: StaticListSchema = [1, n0, _RAO,
 var RuleGroupSummaries: StaticListSchema = [1, n0, _RGSu,
   0, () => RuleGroupSummary$
 ];
-var Rules: StaticListSchema = [1, n0, _R,
+var Rules: StaticListSchema = [1, n0, _Ru,
   0, () => Rule$
 ];
 var RuleSummaries: StaticListSchema = [1, n0, _RSul,

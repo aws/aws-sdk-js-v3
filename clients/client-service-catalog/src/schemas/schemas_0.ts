@@ -592,6 +592,67 @@ import {
 import { ServiceCatalogServiceException } from "../models/ServiceCatalogServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ServiceCatalogServiceException$: StaticErrorSchema = [-3, _s, "ServiceCatalogServiceException", 0, [], []];
+_s_registry.registerError(ServiceCatalogServiceException$, ServiceCatalogServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateResourceException$, DuplicateResourceException);
+export var InvalidParametersException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParametersException$, InvalidParametersException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationNotSupportedException$, OperationNotSupportedException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TagOptionNotMigratedException$: StaticErrorSchema = [-3, n0, _TONME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TagOptionNotMigratedException$, TagOptionNotMigratedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptPortfolioShareInput$: StaticStructureSchema = [3, n0, _APSI,
   0,
   [_PI, _AL, _PST],
@@ -1092,12 +1153,6 @@ export var DisassociateTagOptionFromResourceOutput$: StaticStructureSchema = [3,
   [],
   []
 ];
-export var DuplicateResourceException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateResourceException$, DuplicateResourceException);
 export var EnableAWSOrganizationsAccessInput$: StaticStructureSchema = [3, n0, _EAWSOAI,
   0,
   [],
@@ -1173,18 +1228,6 @@ export var ImportAsProvisionedProductOutput$: StaticStructureSchema = [3, n0, _I
   [_RD],
   [() => RecordDetail$]
 ];
-export var InvalidParametersException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParametersException$, InvalidParametersException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var LastSync$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_LST, _LSS, _LSSM, _LSST, _LSSPAI],
@@ -1200,12 +1243,6 @@ export var LaunchPathSummary$: StaticStructureSchema = [3, n0, _LPS,
   [_Id, _CSo, _Ta, _N],
   [0, () => ConstraintSummaries, () => Tags, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAcceptedPortfolioSharesInput$: StaticStructureSchema = [3, n0, _LAPSI,
   0,
   [_AL, _PTa, _PS, _PST],
@@ -1426,12 +1463,6 @@ export var NotifyUpdateProvisionedProductEngineWorkflowResultOutput$: StaticStru
   [],
   []
 ];
-export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotSupportedException$, OperationNotSupportedException);
 export var OrganizationNode$: StaticStructureSchema = [3, n0, _ON,
   0,
   [_T, _V],
@@ -1597,18 +1628,6 @@ export var ResourceDetail$: StaticStructureSchema = [3, n0, _RDeso,
   [_Id, _ARN, _N, _D, _CT],
   [0, 0, 0, 0, 4]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTargetDefinition$: StaticStructureSchema = [3, n0, _RTD,
   0,
   [_At, _N, _RR],
@@ -1709,12 +1728,6 @@ export var TagOptionDetail$: StaticStructureSchema = [3, n0, _TOD,
   [_K, _V, _A, _Id, _O],
   [0, 0, 2, 0, 0]
 ];
-export var TagOptionNotMigratedException$: StaticErrorSchema = [-3, n0, _TONME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagOptionNotMigratedException$, TagOptionNotMigratedException);
 export var TagOptionSummary$: StaticStructureSchema = [3, n0, _TOS,
   0,
   [_K, _Va],
@@ -1840,8 +1853,6 @@ export var UsageInstruction$: StaticStructureSchema = [3, n0, _UIs,
   [_T, _V],
   [0, 0]
 ];
-export var ServiceCatalogServiceException$: StaticErrorSchema = [-3, _s, "ServiceCatalogServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ServiceCatalogServiceException$, ServiceCatalogServiceException);
 var AccountIds = 64 | 0;
 var AddTags: StaticListSchema = [1, n0, _AT,
   0, () => Tag$

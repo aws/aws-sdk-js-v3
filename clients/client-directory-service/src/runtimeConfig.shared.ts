@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDirectoryServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DirectoryServiceClientConfig } from "./DirectoryServiceClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DirectoryServiceClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.directoryservice",
+      errorTypeRegistries,
       xmlNamespace: "http://directoryservice.amazonaws.com/doc/2015-04-16/",
       version: "2015-04-16",
       serviceTarget: "DirectoryService_20150416",

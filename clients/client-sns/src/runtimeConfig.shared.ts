@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSNSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SNSClientConfig } from "./SNSClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SNSClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.sns",
+      errorTypeRegistries,
       xmlNamespace: "http://sns.amazonaws.com/doc/2010-03-31/",
       version: "2010-03-31",
       serviceTarget: "AmazonSimpleNotificationService",

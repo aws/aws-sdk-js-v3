@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultMemoryDBHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { MemoryDBClientConfig } from "./MemoryDBClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: MemoryDBClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.memorydb",
+      errorTypeRegistries,
       xmlNamespace: "http://memorydb.amazonaws.com/doc/2021-01-01/",
       version: "2021-01-01",
       serviceTarget: "AmazonMemoryDB",

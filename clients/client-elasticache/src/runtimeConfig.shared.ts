@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultElastiCacheHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ElastiCacheClientConfig } from "./ElastiCacheClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ElastiCacheClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.elasticache",
+      errorTypeRegistries,
       xmlNamespace: "http://elasticache.amazonaws.com/doc/2015-02-02/",
       version: "2015-02-02",
       serviceTarget: "AmazonElastiCacheV9",

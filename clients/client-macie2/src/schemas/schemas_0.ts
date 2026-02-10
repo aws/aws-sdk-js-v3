@@ -707,7 +707,7 @@ const _rep = "replicated";
 const _res = "result";
 const _ro = "row";
 const _roo = "root";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.macie2";
 const _sA = "sharedAccess";
 const _sB = "sortBy";
 const _sBu = "s3Bucket";
@@ -747,13 +747,13 @@ const _s_ = "s3";
 const _sa = "sample";
 const _sc = "scoping";
 const _sco = "score";
-const _se = "sensitive";
-const _ser = "server";
+const _se = "server";
+const _sen = "sensitive";
 const _sev = "severity";
 const _si = "size";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.macie2";
-const _st = "statistics";
-const _sta = "start";
+const _st = "status";
+const _sta = "statistics";
+const _star = "start";
 const _su = "suppressed";
 const _t = "tags";
 const _tBC = "totalBytesClassified";
@@ -818,6 +818,67 @@ import {
 import { Macie2ServiceException } from "../models/Macie2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var Macie2ServiceException$: StaticErrorSchema = [-3, _s, "Macie2ServiceException", 0, [], []];
+_s_registry.registerError(Macie2ServiceException$, Macie2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_m],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptInvitationRequest$: StaticStructureSchema = [3, n0, _AIR,
   0,
   [_iI, _aAI, _mA],
@@ -833,12 +894,6 @@ export var AccessControlList$: StaticStructureSchema = [3, n0, _ACL,
   [_aPRA, _aPWA],
   [[2, { [_jN]: _aPRA }], [2, { [_jN]: _aPWA }]]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountDetail$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_aI, _em],
@@ -851,8 +906,8 @@ export var AccountLevelPermissions$: StaticStructureSchema = [3, n0, _ALP,
 ];
 export var AdminAccount$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_aI, _s],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _s }]]
+  [_aI, _st],
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _st }]]
 ];
 export var AllowListCriteria$: StaticStructureSchema = [3, n0, _ALC,
   0,
@@ -881,13 +936,13 @@ export var AssumedRole$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var AutomatedDiscoveryAccount$: StaticStructureSchema = [3, n0, _ADA,
   0,
-  [_aI, _s],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _s }]]
+  [_aI, _st],
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _st }]]
 ];
 export var AutomatedDiscoveryAccountUpdate$: StaticStructureSchema = [3, n0, _ADAU,
   0,
-  [_aI, _s],
-  [[0, { [_jN]: _aI }], [0, { [_jN]: _s }]]
+  [_aI, _st],
+  [[0, { [_jN]: _aI }], [0, { [_jN]: _st }]]
 ];
 export var AutomatedDiscoveryAccountUpdateError$: StaticStructureSchema = [3, n0, _ADAUE,
   0,
@@ -996,8 +1051,8 @@ export var BucketSortCriteria$: StaticStructureSchema = [3, n0, _BSC,
 ];
 export var BucketStatisticsBySensitivity$: StaticStructureSchema = [3, n0, _BSBS,
   0,
-  [_cE, _nC, _nSo, _se],
-  [[() => SensitivityAggregations$, { [_jN]: _cE }], [() => SensitivityAggregations$, { [_jN]: _nC }], [() => SensitivityAggregations$, { [_jN]: _nSo }], [() => SensitivityAggregations$, { [_jN]: _se }]]
+  [_cE, _nC, _nSo, _sen],
+  [[() => SensitivityAggregations$, { [_jN]: _cE }], [() => SensitivityAggregations$, { [_jN]: _nC }], [() => SensitivityAggregations$, { [_jN]: _nSo }], [() => SensitivityAggregations$, { [_jN]: _sen }]]
 ];
 export var Cell$: StaticStructureSchema = [3, n0, _C,
   0,
@@ -1016,8 +1071,8 @@ export var ClassificationExportConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var ClassificationResult$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_aO, _cDI, _mT, _sDe, _sCi, _s],
-  [[2, { [_jN]: _aO }], [() => CustomDataIdentifiers$, { [_jN]: _cDI }], [0, { [_jN]: _mT }], [() => SensitiveData, { [_jN]: _sDe }], [1, { [_jN]: _sCi }], [() => ClassificationResultStatus$, { [_jN]: _s }]]
+  [_aO, _cDI, _mT, _sDe, _sCi, _st],
+  [[2, { [_jN]: _aO }], [() => CustomDataIdentifiers$, { [_jN]: _cDI }], [0, { [_jN]: _mT }], [() => SensitiveData, { [_jN]: _sDe }], [1, { [_jN]: _sCi }], [() => ClassificationResultStatus$, { [_jN]: _st }]]
 ];
 export var ClassificationResultStatus$: StaticStructureSchema = [3, n0, _CRS,
   0,
@@ -1029,12 +1084,6 @@ export var ClassificationScopeSummary$: StaticStructureSchema = [3, n0, _CSS,
   [_i, _n],
   [[0, { [_jN]: _i }], [0, { [_jN]: _n }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAllowListRequest$: StaticStructureSchema = [3, n0, _CALR,
   0,
   [_cr, _n, _cT, _d, _t],
@@ -1222,8 +1271,8 @@ export var DescribeClassificationJobRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DescribeClassificationJobResponse$: StaticStructureSchema = [3, n0, _DCJRe,
   0,
-  [_aLI, _cT, _cA, _cDII, _d, _iR, _jA, _jI, _jS, _jT, _lRES, _lRT, _mDII, _mDIS, _n, _sJD, _sP, _sF, _st, _t, _uPD],
-  [[64 | 0, { [_jN]: _aLI }], [0, { [_iT]: 1, [_jN]: _cT }], [5, { [_jN]: _cA }], [64 | 0, { [_jN]: _cDII }], [0, { [_jN]: _d }], [2, { [_jN]: _iR }], [0, { [_jN]: _jA }], [0, { [_jN]: _jI }], [0, { [_jN]: _jS }], [0, { [_jN]: _jT }], [() => LastRunErrorStatus$, { [_jN]: _lRES }], [5, { [_jN]: _lRT }], [64 | 0, { [_jN]: _mDII }], [0, { [_jN]: _mDIS }], [0, { [_jN]: _n }], [() => S3JobDefinition$, { [_jN]: _sJD }], [1, { [_jN]: _sP }], [() => JobScheduleFrequency$, { [_jN]: _sF }], [() => Statistics$, { [_jN]: _st }], [128 | 0, { [_jN]: _t }], [() => UserPausedDetails$, { [_jN]: _uPD }]]
+  [_aLI, _cT, _cA, _cDII, _d, _iR, _jA, _jI, _jS, _jT, _lRES, _lRT, _mDII, _mDIS, _n, _sJD, _sP, _sF, _sta, _t, _uPD],
+  [[64 | 0, { [_jN]: _aLI }], [0, { [_iT]: 1, [_jN]: _cT }], [5, { [_jN]: _cA }], [64 | 0, { [_jN]: _cDII }], [0, { [_jN]: _d }], [2, { [_jN]: _iR }], [0, { [_jN]: _jA }], [0, { [_jN]: _jI }], [0, { [_jN]: _jS }], [0, { [_jN]: _jT }], [() => LastRunErrorStatus$, { [_jN]: _lRES }], [5, { [_jN]: _lRT }], [64 | 0, { [_jN]: _mDII }], [0, { [_jN]: _mDIS }], [0, { [_jN]: _n }], [() => S3JobDefinition$, { [_jN]: _sJD }], [1, { [_jN]: _sP }], [() => JobScheduleFrequency$, { [_jN]: _sF }], [() => Statistics$, { [_jN]: _sta }], [128 | 0, { [_jN]: _t }], [() => UserPausedDetails$, { [_jN]: _uPD }]]
 ];
 export var DescribeOrganizationConfigurationRequest$: StaticStructureSchema = [3, n0, _DOCR,
   0,
@@ -1302,8 +1351,8 @@ export var DomainDetails$: StaticStructureSchema = [3, n0, _DDo,
 ];
 export var EnableMacieRequest$: StaticStructureSchema = [3, n0, _EMR,
   0,
-  [_cT, _fPF, _s],
-  [[0, { [_iT]: 1, [_jN]: _cT }], [0, { [_jN]: _fPF }], [0, { [_jN]: _s }]]
+  [_cT, _fPF, _st],
+  [[0, { [_iT]: 1, [_jN]: _cT }], [0, { [_jN]: _fPF }], [0, { [_jN]: _st }]]
 ];
 export var EnableMacieResponse$: StaticStructureSchema = [3, n0, _EMRn,
   0,
@@ -1372,8 +1421,8 @@ export var GetAllowListRequest$: StaticStructureSchema = [3, n0, _GALR,
 ];
 export var GetAllowListResponse$: StaticStructureSchema = [3, n0, _GALRe,
   0,
-  [_a, _cA, _cr, _d, _i, _n, _s, _t, _uA],
-  [[0, { [_jN]: _a }], [5, { [_jN]: _cA }], [() => AllowListCriteria$, { [_jN]: _cr }], [0, { [_jN]: _d }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [() => AllowListStatus$, { [_jN]: _s }], [128 | 0, { [_jN]: _t }], [5, { [_jN]: _uA }]]
+  [_a, _cA, _cr, _d, _i, _n, _st, _t, _uA],
+  [[0, { [_jN]: _a }], [5, { [_jN]: _cA }], [() => AllowListCriteria$, { [_jN]: _cr }], [0, { [_jN]: _d }], [0, { [_jN]: _i }], [0, { [_jN]: _n }], [() => AllowListStatus$, { [_jN]: _st }], [128 | 0, { [_jN]: _t }], [5, { [_jN]: _uA }]]
 ];
 export var GetAutomatedDiscoveryConfigurationRequest$: StaticStructureSchema = [3, n0, _GADCR,
   0,
@@ -1382,8 +1431,8 @@ export var GetAutomatedDiscoveryConfigurationRequest$: StaticStructureSchema = [
 ];
 export var GetAutomatedDiscoveryConfigurationResponse$: StaticStructureSchema = [3, n0, _GADCRe,
   0,
-  [_aEOM, _cSI, _dA, _fEA, _lUA, _sITI, _s],
-  [[0, { [_jN]: _aEOM }], [0, { [_jN]: _cSI }], [5, { [_jN]: _dA }], [5, { [_jN]: _fEA }], [5, { [_jN]: _lUA }], [0, { [_jN]: _sITI }], [0, { [_jN]: _s }]]
+  [_aEOM, _cSI, _dA, _fEA, _lUA, _sITI, _st],
+  [[0, { [_jN]: _aEOM }], [0, { [_jN]: _cSI }], [5, { [_jN]: _dA }], [5, { [_jN]: _fEA }], [5, { [_jN]: _lUA }], [0, { [_jN]: _sITI }], [0, { [_jN]: _st }]]
 ];
 export var GetBucketStatisticsRequest$: StaticStructureSchema = [3, n0, _GBSR,
   0,
@@ -1482,8 +1531,8 @@ export var GetMacieSessionRequest$: StaticStructureSchema = [3, n0, _GMSR,
 ];
 export var GetMacieSessionResponse$: StaticStructureSchema = [3, n0, _GMSRe,
   0,
-  [_cA, _fPF, _sR, _s, _uA],
-  [[5, { [_jN]: _cA }], [0, { [_jN]: _fPF }], [0, { [_jN]: _sR }], [0, { [_jN]: _s }], [5, { [_jN]: _uA }]]
+  [_cA, _fPF, _sR, _st, _uA],
+  [[5, { [_jN]: _cA }], [0, { [_jN]: _fPF }], [0, { [_jN]: _sR }], [0, { [_jN]: _st }], [5, { [_jN]: _uA }]]
 ];
 export var GetMasterAccountRequest$: StaticStructureSchema = [3, n0, _GMAR,
   0,
@@ -1512,8 +1561,8 @@ export var GetResourceProfileRequest$: StaticStructureSchema = [3, n0, _GRPR,
 ];
 export var GetResourceProfileResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
-  [_pUA, _sS, _sSO, _st],
-  [[5, { [_jN]: _pUA }], [1, { [_jN]: _sS }], [2, { [_jN]: _sSO }], [() => ResourceStatistics$, { [_jN]: _st }]]
+  [_pUA, _sS, _sSO, _sta],
+  [[5, { [_jN]: _pUA }], [1, { [_jN]: _sS }], [2, { [_jN]: _sSO }], [() => ResourceStatistics$, { [_jN]: _sta }]]
 ];
 export var GetRevealConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
@@ -1542,8 +1591,8 @@ export var GetSensitiveDataOccurrencesRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetSensitiveDataOccurrencesResponse$: StaticStructureSchema = [3, n0, _GSDORe,
   0,
-  [_e, _sDO, _s],
-  [[0, { [_jN]: _e }], [() => SensitiveDataOccurrences, { [_jN]: _sDO }], [0, { [_jN]: _s }]]
+  [_e, _sDO, _st],
+  [[0, { [_jN]: _e }], [() => SensitiveDataOccurrences, { [_jN]: _sDO }], [0, { [_jN]: _st }]]
 ];
 export var GetSensitivityInspectionTemplateRequest$: StaticStructureSchema = [3, n0, _GSITR,
   0,
@@ -1585,12 +1634,6 @@ export var IamUser$: StaticStructureSchema = [3, n0, _IU,
   [_aI, _a, _pI, _uN],
   [[0, { [_jN]: _aI }], [0, { [_jN]: _a }], [0, { [_jN]: _pI }], [0, { [_jN]: _uN }]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Invitation$: StaticStructureSchema = [3, n0, _I,
   0,
   [_aI, _iI, _iA, _rS],
@@ -1893,8 +1936,8 @@ export var PutFindingsPublicationConfigurationResponse$: StaticStructureSchema =
 ];
 export var Range$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_en, _sta, _sCta],
-  [[1, { [_jN]: _en }], [1, { [_jN]: _sta }], [1, { [_jN]: _sCta }]]
+  [_en, _star, _sCta],
+  [[1, { [_jN]: _en }], [1, { [_jN]: _star }], [1, { [_jN]: _sCta }]]
 ];
 export var _Record$: StaticStructureSchema = [3, n0, _Re,
   0,
@@ -1906,16 +1949,10 @@ export var ReplicationDetails$: StaticStructureSchema = [3, n0, _RD,
   [_rep, _rE, _rAep],
   [[2, { [_jN]: _rep }], [2, { [_jN]: _rE }], [64 | 0, { [_jN]: _rAep }]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceProfileArtifact$: StaticStructureSchema = [3, n0, _RPA,
   0,
-  [_a, _cRS, _se],
-  [[0, { [_jN]: _a }], [0, { [_jN]: _cRS }], [2, { [_jN]: _se }]], 2
+  [_a, _cRS, _sen],
+  [[0, { [_jN]: _a }], [0, { [_jN]: _cRS }], [2, { [_jN]: _sen }]], 2
 ];
 export var ResourcesAffected$: StaticStructureSchema = [3, n0, _RA,
   0,
@@ -1934,8 +1971,8 @@ export var RetrievalConfiguration$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RevealConfiguration$: StaticStructureSchema = [3, n0, _RCe,
   0,
-  [_s, _kKI],
-  [[0, { [_jN]: _s }], [0, { [_jN]: _kKI }]], 1
+  [_st, _kKI],
+  [[0, { [_jN]: _st }], [0, { [_jN]: _kKI }]], 1
 ];
 export var S3Bucket$: StaticStructureSchema = [3, n0, _SB,
   0,
@@ -2087,12 +2124,6 @@ export var ServiceLimit$: StaticStructureSchema = [3, n0, _SL,
   [_iSL, _uni, _va],
   [[2, { [_jN]: _iSL }], [0, { [_jN]: _uni }], [1, { [_jN]: _va }]]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionContext$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_at, _sI],
@@ -2183,18 +2214,6 @@ export var TestCustomDataIdentifierResponse$: StaticStructureSchema = [3, n0, _T
   [_mC],
   [[1, { [_jN]: _mC }]]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_e]: _c, [_hE]: 422 },
-  [_m],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UnprocessedAccount$: StaticStructureSchema = [3, n0, _UA,
   0,
   [_aI, _eC, _eM],
@@ -2222,8 +2241,8 @@ export var UpdateAllowListResponse$: StaticStructureSchema = [3, n0, _UALRp,
 ];
 export var UpdateAutomatedDiscoveryConfigurationRequest$: StaticStructureSchema = [3, n0, _UADCR,
   0,
-  [_s, _aEOM],
-  [[0, { [_jN]: _s }], [0, { [_jN]: _aEOM }]], 1
+  [_st, _aEOM],
+  [[0, { [_jN]: _st }], [0, { [_jN]: _aEOM }]], 1
 ];
 export var UpdateAutomatedDiscoveryConfigurationResponse$: StaticStructureSchema = [3, n0, _UADCRp,
   0,
@@ -2262,8 +2281,8 @@ export var UpdateFindingsFilterResponse$: StaticStructureSchema = [3, n0, _UFFRp
 ];
 export var UpdateMacieSessionRequest$: StaticStructureSchema = [3, n0, _UMSR,
   0,
-  [_fPF, _s],
-  [[0, { [_jN]: _fPF }], [0, { [_jN]: _s }]]
+  [_fPF, _st],
+  [[0, { [_jN]: _fPF }], [0, { [_jN]: _st }]]
 ];
 export var UpdateMacieSessionResponse$: StaticStructureSchema = [3, n0, _UMSRp,
   0,
@@ -2272,8 +2291,8 @@ export var UpdateMacieSessionResponse$: StaticStructureSchema = [3, n0, _UMSRp,
 ];
 export var UpdateMemberSessionRequest$: StaticStructureSchema = [3, n0, _UMSRpd,
   0,
-  [_i, _s],
-  [[0, 1], [0, { [_jN]: _s }]], 2
+  [_i, _st],
+  [[0, 1], [0, { [_jN]: _st }]], 2
 ];
 export var UpdateMemberSessionResponse$: StaticStructureSchema = [3, n0, _UMSRpda,
   0,
@@ -2375,19 +2394,11 @@ export var UserPausedDetails$: StaticStructureSchema = [3, n0, _UPD,
   [_jEA, _jIEHEA, _jPA],
   [[5, { [_jN]: _jEA }], [0, { [_jN]: _jIEHEA }], [5, { [_jN]: _jPA }]]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
   0,
   [_dOW],
   [[0, { [_jN]: _dOW }]]
 ];
-export var Macie2ServiceException$: StaticErrorSchema = [-3, _sm, "Macie2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Macie2ServiceException$, Macie2ServiceException);
 var __listOf__string = 64 | 0;
 var __listOfAdminAccount: StaticListSchema = [1, n0, _lOAA,
   0, [() => AdminAccount$,

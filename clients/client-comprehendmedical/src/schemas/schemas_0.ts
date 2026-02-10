@@ -170,8 +170,8 @@ const _VE = "ValidationException";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.comprehendmedical";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.comprehendmedical";
+const _se = "server";
 const n0 = "com.amazonaws.comprehendmedical";
 
 // smithy-typescript generated code
@@ -191,6 +191,67 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ComprehendMedicalServiceException$: StaticErrorSchema = [-3, _s, "ComprehendMedicalServiceException", 0, [], []];
+_s_registry.registerError(ComprehendMedicalServiceException$, ComprehendMedicalServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidEncodingException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidEncodingException$, InvalidEncodingException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TextSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TextSizeLimitExceededException$, TextSizeLimitExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Attribute$: StaticStructureSchema = [3, n0, _A,
   0,
   [_T, _S, _RS, _RT, _I, _BO, _EO, _Te, _C, _Tr],
@@ -351,24 +412,6 @@ export var InputDataConfig$: StaticStructureSchema = [3, n0, _IDC,
   [_SB, _SK],
   [0, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidEncodingException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEncodingException$, InvalidEncodingException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListEntitiesDetectionV2JobsRequest$: StaticStructureSchema = [3, n0, _LEDVJR,
   0,
   [_F, _NT, _MR],
@@ -424,12 +467,6 @@ export var OutputDataConfig$: StaticStructureSchema = [3, n0, _ODC,
   [_SB, _SK],
   [0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RxNormAttribute$: StaticStructureSchema = [3, n0, _RNA,
   0,
   [_T, _S, _RS, _I, _BO, _EO, _Te, _Tr],
@@ -450,12 +487,6 @@ export var RxNormTrait$: StaticStructureSchema = [3, n0, _RNT,
   [_N, _S],
   [0, 1]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SNOMEDCTAttribute$: StaticStructureSchema = [3, n0, _SNOMEDCTA,
   0,
   [_C, _T, _S, _RS, _RT, _I, _BO, _EO, _Te, _Tr, _SNOMEDCTC],
@@ -581,18 +612,6 @@ export var StopSNOMEDCTInferenceJobResponse$: StaticStructureSchema = [3, n0, _S
   [_JI],
   [0]
 ];
-export var TextSizeLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TextSizeLimitExceededException$, TextSizeLimitExceededException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var Trait$: StaticStructureSchema = [3, n0, _Tra,
   0,
   [_N, _S],
@@ -603,14 +622,6 @@ export var UnmappedAttribute$: StaticStructureSchema = [3, n0, _UAn,
   [_T, _A],
   [0, () => Attribute$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ComprehendMedicalServiceException$: StaticErrorSchema = [-3, _sm, "ComprehendMedicalServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ComprehendMedicalServiceException$, ComprehendMedicalServiceException);
 var AttributeList: StaticListSchema = [1, n0, _AL,
   0, () => Attribute$
 ];

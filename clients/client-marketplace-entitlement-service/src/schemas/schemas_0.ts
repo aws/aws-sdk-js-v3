@@ -25,8 +25,8 @@ const _V = "Value";
 const _c = "client";
 const _e = "error";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.marketplaceentitlementservice";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplaceentitlementservice";
+const _se = "server";
 const n0 = "com.amazonaws.marketplaceentitlementservice";
 
 // smithy-typescript generated code
@@ -43,6 +43,37 @@ import { InternalServiceErrorException, InvalidParameterException, ThrottlingExc
 import { MarketplaceEntitlementServiceServiceException } from "../models/MarketplaceEntitlementServiceServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MarketplaceEntitlementServiceServiceException$: StaticErrorSchema = [-3, _s, "MarketplaceEntitlementServiceServiceException", 0, [], []];
+_s_registry.registerError(MarketplaceEntitlementServiceServiceException$, MarketplaceEntitlementServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Entitlement$: StaticStructureSchema = [3, n0, _E,
   0,
   [_PC, _D, _CI, _CAWSAI, _V, _ED],
@@ -63,26 +94,6 @@ export var GetEntitlementsResult$: StaticStructureSchema = [3, n0, _GERe,
   [_En, _NT],
   [() => EntitlementList, 0]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var MarketplaceEntitlementServiceServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceEntitlementServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MarketplaceEntitlementServiceServiceException$, MarketplaceEntitlementServiceServiceException);
 var EntitlementList: StaticListSchema = [1, n0, _EL,
   0, () => Entitlement$
 ];

@@ -167,8 +167,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.internetmonitor";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.internetmonitor";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.internetmonitor";
 
@@ -198,34 +198,95 @@ import {
 import { InternetMonitorServiceException } from "../models/InternetMonitorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var InternetMonitorServiceException$: StaticErrorSchema = [-3, _s, "InternetMonitorServiceException", 0, [], []];
+_s_registry.registerError(InternetMonitorServiceException$, InternetMonitorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AvailabilityMeasurement$: StaticStructureSchema = [3, n0, _AM,
-  0,
-  [_ES, _POTTI, _POCLI],
-  [1, 1, 1]
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var ClientLocation$: StaticStructureSchema = [3, n0, _CL,
-  0,
-  [_ASN, _ASNu, _C, _Ci, _L, _Lo, _S, _M],
-  [0, 1, 0, 0, 1, 1, 0, 0], 6
-];
+n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AvailabilityMeasurement$: StaticStructureSchema = [3, n0, _AM,
+  0,
+  [_ES, _POTTI, _POCLI],
+  [1, 1, 1]
+];
+export var ClientLocation$: StaticStructureSchema = [3, n0, _CL,
+  0,
+  [_ASN, _ASNu, _C, _Ci, _L, _Lo, _S, _M],
+  [0, 1, 0, 0, 1, 1, 0, 0], 6
+];
 export var CreateMonitorInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
   [_MN, _R, _CT, _T, _MCNTM, _IMLD, _TPTM, _HEC],
@@ -316,18 +377,6 @@ export var ImpactedLocation$: StaticStructureSchema = [3, n0, _ILm,
   [_ASN, _ASNu, _C, _St, _S, _M, _Ci, _L, _Lo, _CC, _SC, _SL, _CB, _IH, _IP],
   [0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, () => NetworkImpairment$, () => InternetHealth$, 64 | 0], 4
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InternetEventSummary$: StaticStructureSchema = [3, n0, _IES,
   0,
   [_EI, _EA, _SA, _CL, _ET, _ESv, _EAn],
@@ -343,12 +392,6 @@ export var InternetMeasurementsLogDelivery$: StaticStructureSchema = [3, n0, _IM
   [_SCo],
   [() => S3Config$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListHealthEventsInput$: StaticStructureSchema = [3, n0, _LHEI,
   0,
   [_MN, _ST, _ETn, _NT, _MR, _ESv, _LAI],
@@ -409,12 +452,6 @@ export var NetworkImpairment$: StaticStructureSchema = [3, n0, _NI,
   [_Ne, _AP, _NET],
   [() => NetworkList, () => NetworkList, 0], 3
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PerformanceMeasurement$: StaticStructureSchema = [3, n0, _PM,
   0,
   [_ES, _POTTI, _POCLI, _RTT],
@@ -425,12 +462,6 @@ export var QueryField$: StaticStructureSchema = [3, n0, _QF,
   [_Na, _Ty],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoundTripTime$: StaticStructureSchema = [3, n0, _RTT,
   0,
   [_P_, _P__, _P___],
@@ -471,18 +502,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
@@ -503,14 +522,6 @@ export var UpdateMonitorOutput$: StaticStructureSchema = [3, n0, _UMO,
   [_MA, _St],
   [0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var InternetMonitorServiceException$: StaticErrorSchema = [-3, _sm, "InternetMonitorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(InternetMonitorServiceException$, InternetMonitorServiceException);
 var FilterList = 64 | 0;
 var FilterParameters: StaticListSchema = [1, n0, _FPi,
   0, () => FilterParameter$

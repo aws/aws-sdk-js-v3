@@ -437,8 +437,8 @@ const _c = "client";
 const _e = "error";
 const _h = "http";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralselling";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralselling";
+const _se = "server";
 const n0 = "com.amazonaws.partnercentralselling";
 
 // smithy-typescript generated code
@@ -465,6 +465,61 @@ import {
 import { PartnerCentralSellingServiceException } from "../models/PartnerCentralSellingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PartnerCentralSellingServiceException$: StaticErrorSchema = [-3, _s, "PartnerCentralSellingServiceException", 0, [], []];
+_s_registry.registerError(PartnerCentralSellingServiceException$, PartnerCentralSellingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _EL],
+  [0, 0, () => ValidationExceptionErrorList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AddressPart: StaticSimpleSchema = [0, n0, _AP, 8, 0];
 var Alias: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var Amount: StaticSimpleSchema = [0, n0, _Am, 8, 0];
@@ -490,12 +545,6 @@ export var AcceptEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _
   [_C, _I],
   [0, 0], 2
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Account$: StaticStructureSchema = [3, n0, _Ac,
   0,
   [_CN, _In, _OI, _WU, _AAI, _Ad, _D],
@@ -596,12 +645,6 @@ export var AwsTeamMember$: StaticStructureSchema = [3, n0, _ATM,
   [_E, _FN, _LN, _BT],
   [[() => Email, 0], [() => Name, 0], [() => Name, 0], 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Contact$: StaticStructureSchema = [3, n0, _Con,
   0,
   [_E, _FN, _LN, _BT, _P],
@@ -817,12 +860,6 @@ export var GetSellingSystemSettingsResponse$: StaticStructureSchema = [3, n0, _G
   [_C, _RSJRA],
   [0, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
   [_M, _Rec, _Pay],
@@ -1108,12 +1145,6 @@ export var RelatedEntityIdentifiers$: StaticStructureSchema = [3, n0, _REIel,
   [_AMO, _AMOS, _So, _APws],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSnapshotJobSummary$: StaticStructureSchema = [3, n0, _RSJSe,
   0,
   [_Id, _Ar, _EIn, _St],
@@ -1129,12 +1160,6 @@ export var SenderContact$: StaticStructureSchema = [3, n0, _SCen,
   [_E, _FN, _LN, _BT, _P],
   [[() => SenderContactEmail, 0], [() => Name, 0], [() => Name, 0], [() => JobTitle, 0], [() => PhoneNumber, 0]], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SoftwareRevenue$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_DMe, _Va, _EDf, _ED],
@@ -1215,12 +1240,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1256,20 +1275,12 @@ export var UpdateOpportunityResponse$: StaticStructureSchema = [3, n0, _UORp,
   [_Id, _LMD],
   [0, 5], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R, _EL],
-  [0, 0, () => ValidationExceptionErrorList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionError$: StaticStructureSchema = [3, n0, _VEE,
   0,
   [_M, _Cod, _FNi],
   [0, 0, 0], 2
 ];
 var __Unit = "unit" as const;
-export var PartnerCentralSellingServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralSellingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PartnerCentralSellingServiceException$, PartnerCentralSellingServiceException);
 var ApnPrograms = 64 | 0;
 var AwsAccountIdOrAliasList: StaticListSchema = [1, n0, _AAIOAL,
   0, [() => AwsAccount,

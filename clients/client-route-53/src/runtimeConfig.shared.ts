@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRoute53HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { Route53ClientConfig } from "./Route53Client";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: Route53ClientConfig) => {
     protocol: config?.protocol ?? AwsRestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.route53",
+      errorTypeRegistries,
       xmlNamespace: "https://route53.amazonaws.com/doc/2013-04-01/",
       version: "2013-04-01",
       serviceTarget: "AWSDnsV20130401",

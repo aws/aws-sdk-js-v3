@@ -823,8 +823,8 @@ const _ZCS = "ZeroCapacityStrategy";
 const _ZF = "ZipFile";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.gamelift";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.gamelift";
+const _se = "server";
 const n0 = "com.amazonaws.gamelift";
 
 // smithy-typescript generated code
@@ -859,6 +859,115 @@ import {
 import { GameLiftServiceException } from "../models/GameLiftServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GameLiftServiceException$: StaticErrorSchema = [-3, _s, "GameLiftServiceException", 0, [], []];
+_s_registry.registerError(GameLiftServiceException$, GameLiftServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var FleetCapacityExceededException$: StaticErrorSchema = [-3, n0, _FCEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FleetCapacityExceededException$, FleetCapacityExceededException);
+export var GameSessionFullException$: StaticErrorSchema = [-3, n0, _GSFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(GameSessionFullException$, GameSessionFullException);
+export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidFleetStatusException$: StaticErrorSchema = [-3, n0, _IFSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidFleetStatusException$, InvalidFleetStatusException);
+export var InvalidGameSessionStatusException$: StaticErrorSchema = [-3, n0, _IGSSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGameSessionStatusException$, InvalidGameSessionStatusException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var NotReadyException$: StaticErrorSchema = [-3, n0, _NRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotReadyException$, NotReadyException);
+export var OutOfCapacityException$: StaticErrorSchema = [-3, n0, _OOCE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OutOfCapacityException$, OutOfCapacityException);
+export var TaggingFailedException$: StaticErrorSchema = [-3, n0, _TFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TaggingFailedException$, TaggingFailedException);
+export var TerminalRoutingStrategyException$: StaticErrorSchema = [-3, n0, _TRSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TerminalRoutingStrategyException$, TerminalRoutingStrategyException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var UnsupportedRegionException$: StaticErrorSchema = [-3, n0, _URE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedRegionException$, UnsupportedRegionException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
 var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
 var PlayerId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
@@ -923,12 +1032,6 @@ export var Compute$: StaticStructureSchema = [3, n0, _Co,
   [_FI, _FA, _CN, _CA, _IA, _DN, _CS, _L, _CT, _OS, _T, _GLSSE, _GLAE, _II, _CAo, _GSCGDA],
   [0, 0, 0, 0, [() => IpAddress, 0], 0, 0, 0, 4, 0, 0, 0, 0, 0, () => ContainerAttributes, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionPortRange$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_FP, _TP],
@@ -1664,12 +1767,6 @@ export var FleetCapacity$: StaticStructureSchema = [3, n0, _FCl,
   [_FI, _FA, _IT, _IC, _L, _GSCGC, _MCC],
   [0, 0, 0, () => EC2InstanceCounts$, 0, () => GameServerContainerGroupCounts$, () => ManagedCapacityConfiguration$]
 ];
-export var FleetCapacityExceededException$: StaticErrorSchema = [-3, n0, _FCEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FleetCapacityExceededException$, FleetCapacityExceededException);
 export var FleetDeployment$: StaticStructureSchema = [3, n0, _FD,
   0,
   [_DI, _FI, _GSBA, _RGSBA, _PIBA, _RPIBA, _DS, _DC, _CT],
@@ -1740,12 +1837,6 @@ export var GameSessionDetail$: StaticStructureSchema = [3, n0, _GSDame,
   [_GSa, _PP],
   [[() => GameSession$, 0], 0]
 ];
-export var GameSessionFullException$: StaticErrorSchema = [-3, n0, _GSFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GameSessionFullException$, GameSessionFullException);
 export var GameSessionPlacement$: StaticStructureSchema = [3, n0, _GSP,
   0,
   [_PIla, _GSQN, _St, _GP, _MPSC, _GSN, _GSIa, _GSA, _GSR, _PL, _STt, _ET, _IA, _DN, _Po, _PPS, _GSDa, _MD, _PCO],
@@ -1801,12 +1892,6 @@ export var GetInstanceAccessOutput$: StaticStructureSchema = [3, n0, _GIAO,
   [_IAn],
   [[() => InstanceAccess$, 0]]
 ];
-export var IdempotentParameterMismatchException$: StaticErrorSchema = [-3, n0, _IPME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotentParameterMismatchException$, IdempotentParameterMismatchException);
 export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   0,
   [_FI, _FA, _II, _IA, _DN, _OS, _T, _St, _CT, _L],
@@ -1827,30 +1912,6 @@ export var InstanceDefinition$: StaticStructureSchema = [3, n0, _IDn,
   [_IT, _WC],
   [0, 0], 1
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidFleetStatusException$: StaticErrorSchema = [-3, n0, _IFSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidFleetStatusException$, InvalidFleetStatusException);
-export var InvalidGameSessionStatusException$: StaticErrorSchema = [-3, n0, _IGSSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGameSessionStatusException$, InvalidGameSessionStatusException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var IpPermission$: StaticStructureSchema = [3, n0, _IPp,
   0,
   [_FP, _TP, _IR, _P],
@@ -1861,12 +1922,6 @@ export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS,
   [_LTI, _LTN, _V],
   [0, 0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAliasesInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_RST, _N, _Li, _NTe],
@@ -2052,24 +2107,6 @@ export var MatchmakingTicket$: StaticStructureSchema = [3, n0, _MT,
   [_TI, _CNon, _CAonf, _St, _SR, _SM, _STt, _ET, _Pl, _GSCI, _EWT],
   [0, 0, 0, 0, 0, 0, 4, 4, [() => PlayerList, 0], [() => GameSessionConnectionInfo$, 0], 1]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
-export var NotReadyException$: StaticErrorSchema = [-3, n0, _NRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotReadyException$, NotReadyException);
-export var OutOfCapacityException$: StaticErrorSchema = [-3, n0, _OOCE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OutOfCapacityException$, OutOfCapacityException);
 export var PingBeacon$: StaticStructureSchema = [3, n0, _PB,
   0,
   [_UDPE],
@@ -2310,12 +2347,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   [_K, _Va],
   [0, 0], 2
 ];
-export var TaggingFailedException$: StaticErrorSchema = [-3, n0, _TFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TaggingFailedException$, TaggingFailedException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _Ta],
@@ -2336,12 +2367,6 @@ export var TargetTrackingConfiguration$: StaticStructureSchema = [3, n0, _TTC,
   [_TV],
   [1], 1
 ];
-export var TerminalRoutingStrategyException$: StaticErrorSchema = [-3, n0, _TRSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TerminalRoutingStrategyException$, TerminalRoutingStrategyException);
 export var TerminateGameSessionInput$: StaticStructureSchema = [3, n0, _TGSI,
   0,
   [_GSIa, _TM],
@@ -2357,18 +2382,6 @@ export var UDPEndpoint$: StaticStructureSchema = [3, n0, _UDPE,
   [_Do, _Po],
   [0, 1]
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnsupportedRegionException$: StaticErrorSchema = [-3, n0, _URE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedRegionException$, UnsupportedRegionException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -2545,8 +2558,6 @@ export var VpcPeeringConnectionStatus$: StaticStructureSchema = [3, n0, _VPCS,
   [0, 0]
 ];
 var __Unit = "unit" as const;
-export var GameLiftServiceException$: StaticErrorSchema = [-3, _sm, "GameLiftServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GameLiftServiceException$, GameLiftServiceException);
 var AliasList: StaticListSchema = [1, n0, _ALli,
   0, () => Alias$
 ];

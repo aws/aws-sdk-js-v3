@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCognitoSyncHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CognitoSyncClientConfig } from "./CognitoSyncClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CognitoSyncClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cognitosync",
+      errorTypeRegistries,
       xmlNamespace: "http://cognito-sync.amazonaws.com/doc/2014-06-30/",
       version: "2014-06-30",
       serviceTarget: "AWSCognitoSyncService",

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSOAdminHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSOAdminClientConfig } from "./SSOAdminClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSOAdminClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssoadmin",
+      errorTypeRegistries,
       version: "2020-07-20",
       serviceTarget: "SWBExternalService",
     },

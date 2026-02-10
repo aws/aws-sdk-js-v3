@@ -255,10 +255,10 @@ const _rCev = "revealCards";
 const _rI = "resourceId";
 const _rP = "revokePermissions";
 const _rT = "resourceType";
-const _s = "submissions";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.qapps";
 const _sA = "sessionArn";
-const _sC = "sharingConfiguration";
-const _sCe = "serviceCode";
+const _sC = "serviceCode";
+const _sCh = "sharingConfiguration";
 const _sD = "sessionData";
 const _sI = "sessionId";
 const _sIu = "submissionId";
@@ -270,8 +270,8 @@ const _sV = "stringValue";
 const _sc = "scope";
 const _sch = "schema";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.qapps";
 const _st = "status";
+const _su = "submissions";
 const _t = "title";
 const _tI = "textInput";
 const _tK = "tagKeys";
@@ -314,12 +314,73 @@ import {
 import { QAppsServiceException } from "../models/QAppsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var QAppsServiceException$: StaticErrorSchema = [-3, _s, "QAppsServiceException", 0, [], []];
+_s_registry.registerError(QAppsServiceException$, QAppsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ContentTooLargeException$: StaticErrorSchema = [-3, n0, _CTLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ContentTooLargeException$, ContentTooLargeException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 3
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AppDefinition$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_aDV, _ca, _cE],
@@ -367,7 +428,7 @@ export var BatchUpdateCategoryInput$: StaticStructureSchema = [3, n0, _BUCI,
 ];
 export var CardStatus$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cS, _cV, _s],
+  [_cS, _cV, _su],
   [0, 0, () => SubmissionList], 2
 ];
 export var CardValue$: StaticStructureSchema = [3, n0, _CV,
@@ -385,18 +446,6 @@ export var CategoryInput$: StaticStructureSchema = [3, n0, _CI,
   [_i, _t, _co],
   [0, 0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var ContentTooLargeException$: StaticErrorSchema = [-3, n0, _CTLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ContentTooLargeException$, ContentTooLargeException);
 export var ConversationMessage$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_b, _ty],
@@ -534,7 +583,7 @@ export var GetQAppSessionMetadataInput$: StaticStructureSchema = [3, n0, _GQASMI
 ];
 export var GetQAppSessionMetadataOutput$: StaticStructureSchema = [3, n0, _GQASMO,
   0,
-  [_sI, _sA, _sC, _sN, _sO],
+  [_sI, _sA, _sCh, _sN, _sO],
   [0, 0, () => SessionSharingConfiguration$, 0, 2], 3
 ];
 export var GetQAppSessionOutput$: StaticStructureSchema = [3, n0, _GQASO,
@@ -552,12 +601,6 @@ export var ImportDocumentOutput$: StaticStructureSchema = [3, n0, _IDO,
   [_fI],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LibraryItemMember$: StaticStructureSchema = [3, n0, _LIM,
   0,
   [_lII, _aI, _aV, _cat, _st, _cAr, _cB, _rC, _uA, _uB, _iRBU, _uC, _iV],
@@ -668,18 +711,6 @@ export var QQueryCardInput$: StaticStructureSchema = [3, n0, _QQCI,
   [_t, _i, _ty, _pro, _oS, _aF],
   [0, 0, 0, 0, 0, () => AttributeFilter$], 4
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sCe, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionSharingConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   0,
   [_en, _aR, _rCev],
@@ -730,18 +761,6 @@ export var TextInputCardInput$: StaticStructureSchema = [3, n0, _TICI,
   [_t, _i, _ty, _pl, _dV],
   [0, 0, 0, 0, 0], 3
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 3
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rARN, _tK],
@@ -794,12 +813,12 @@ export var UpdateQAppSessionInput$: StaticStructureSchema = [3, n0, _UQASI,
 ];
 export var UpdateQAppSessionMetadataInput$: StaticStructureSchema = [3, n0, _UQASMI,
   0,
-  [_iI, _sI, _sC, _sN],
+  [_iI, _sI, _sCh, _sN],
   [[0, { [_hH]: _ii }], 0, () => SessionSharingConfiguration$, 0], 3
 ];
 export var UpdateQAppSessionMetadataOutput$: StaticStructureSchema = [3, n0, _UQASMO,
   0,
-  [_sI, _sA, _sC, _sN],
+  [_sI, _sA, _sCh, _sN],
   [0, 0, () => SessionSharingConfiguration$, 0], 3
 ];
 export var UpdateQAppSessionOutput$: StaticStructureSchema = [3, n0, _UQASO,
@@ -817,15 +836,7 @@ export var UserAppItem$: StaticStructureSchema = [3, n0, _UAI,
   [_aI, _aA, _t, _cAr, _d, _cE, _st, _iV],
   [0, 0, 0, 5, 0, 2, 0, 2], 4
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var QAppsServiceException$: StaticErrorSchema = [-3, _sm, "QAppsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(QAppsServiceException$, QAppsServiceException);
 var AppRequiredCapabilities = 64 | 0;
 var AttributeFilters: StaticListSchema = [1, n0, _AFt,
   0, () => AttributeFilter$

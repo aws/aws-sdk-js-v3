@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWAFV2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WAFV2ClientConfig } from "./WAFV2Client";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WAFV2ClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.wafv2",
+      errorTypeRegistries,
       xmlNamespace: "http://waf.amazonaws.com/doc/2019-07-29/",
       version: "2019-07-29",
       serviceTarget: "AWSWAF_20190729",

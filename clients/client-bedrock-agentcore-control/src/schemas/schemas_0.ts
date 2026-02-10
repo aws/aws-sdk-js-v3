@@ -731,7 +731,7 @@ const _po = "policy";
 const _pol = "policies";
 const _pr = "prefix";
 const _pro = "properties";
-const _r = "runtime";
+const _r = "reason";
 const _rA = "roleArn";
 const _rAI = "restApiId";
 const _rAe = "resourceArn";
@@ -744,12 +744,12 @@ const _rT = "responseTypes";
 const _rTF = "rawTextFragment";
 const _rTa = "rawText";
 const _re = "recording";
-const _rea = "reason";
 const _ref = "reflection";
 const _req = "required";
 const _res = "resource";
-const _ru = "rule";
-const _s = "status";
+const _ru = "runtime";
+const _rul = "rule";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentcorecontrol";
 const _sA = "secretArn";
 const _sC = "samplingConfig";
 const _sCO = "semanticConsolidationOverride";
@@ -779,9 +779,9 @@ const _sVt = "stringValue";
 const _s_ = "s3";
 const _sc = "scopes";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentcorecontrol";
-const _st = "stage";
-const _sta = "statement";
+const _st = "status";
+const _sta = "stage";
+const _stat = "statement";
 const _str = "strategies";
 const _su = "subnets";
 const _t = "tags";
@@ -855,6 +855,103 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BedrockAgentCoreControlServiceException$: StaticErrorSchema = [-3, _s, "BedrockAgentCoreControlServiceException", 0, [], []];
+_s_registry.registerError(BedrockAgentCoreControlServiceException$, BedrockAgentCoreControlServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DecryptionFailure$: StaticErrorSchema = [-3, n0, _DF,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(DecryptionFailure$, DecryptionFailure);
+export var EncryptionFailure$: StaticErrorSchema = [-3, n0, _EF,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(EncryptionFailure$, EncryptionFailure);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceException$, ServiceException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottledException$, ThrottledException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKeyType: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
@@ -869,25 +966,19 @@ var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AgentRuntime$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_aRA, _aRI, _aRV, _aRN, _d, _lUA, _s],
+  [_aRA, _aRI, _aRV, _aRN, _d, _lUA, _st],
   [0, 0, 0, 0, [() => Description, 0], 5, 0], 7
 ];
 export var AgentRuntimeEndpoint$: StaticStructureSchema = [3, n0, _ARE,
   0,
-  [_n, _aREA, _aRA, _s, _i, _cA, _lUA, _lV, _tV, _d],
+  [_n, _aREA, _aRA, _st, _i, _cA, _lUA, _lV, _tV, _d],
   [[() => EndpointName, 0], 0, 0, 0, 0, 5, 5, 0, 0, 0], 7
 ];
 export var ApiGatewayTargetConfiguration$: StaticStructureSchema = [3, n0, _AGTC,
   0,
-  [_rAI, _st, _aGTC],
+  [_rAI, _sta, _aGTC],
   [0, 0, () => ApiGatewayToolConfiguration$], 3
 ];
 export var ApiGatewayToolConfiguration$: StaticStructureSchema = [3, n0, _AGTCp,
@@ -937,7 +1028,7 @@ export var BrowserNetworkConfiguration$: StaticStructureSchema = [3, n0, _BNC,
 ];
 export var BrowserProfileSummary$: StaticStructureSchema = [3, n0, _BPS,
   0,
-  [_pI, _pA, _n, _s, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
+  [_pI, _pA, _n, _st, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 5, 0, 0], 6
 ];
 export var BrowserSigningConfigInput$: StaticStructureSchema = [3, n0, _BSCI,
@@ -952,7 +1043,7 @@ export var BrowserSigningConfigOutput$: StaticStructureSchema = [3, n0, _BSCO,
 ];
 export var BrowserSummary$: StaticStructureSchema = [3, n0, _BS,
   0,
-  [_bI, _bA, _s, _cA, _n, _d, _lUA],
+  [_bI, _bA, _st, _cA, _n, _d, _lUA],
   [0, 0, 0, 5, 0, [() => Description, 0], 5], 4
 ];
 export var CategoricalScaleDefinition$: StaticStructureSchema = [3, n0, _CSD,
@@ -962,7 +1053,7 @@ export var CategoricalScaleDefinition$: StaticStructureSchema = [3, n0, _CSD,
 ];
 export var CedarPolicy$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_sta],
+  [_stat],
   [0], 1
 ];
 export var CloudWatchLogsInputConfig$: StaticStructureSchema = [3, n0, _CWLIC,
@@ -977,7 +1068,7 @@ export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
 ];
 export var CodeConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_co, _r, _eP],
+  [_co, _ru, _eP],
   [() => Code$, 0, 64 | 0], 3
 ];
 export var CodeInterpreterNetworkConfiguration$: StaticStructureSchema = [3, n0, _CINC,
@@ -987,21 +1078,9 @@ export var CodeInterpreterNetworkConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var CodeInterpreterSummary$: StaticStructureSchema = [3, n0, _CIS,
   0,
-  [_cII, _cIA, _s, _cA, _n, _d, _lUA],
+  [_cII, _cIA, _st, _cA, _n, _d, _lUA],
   [0, 0, 0, 5, 0, [() => Description, 0], 5], 4
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContainerConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_cU],
@@ -1014,7 +1093,7 @@ export var CreateAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, _CARERr,
   0,
-  [_tV, _aREA, _aRA, _s, _cA, _aRI, _eN],
+  [_tV, _aREA, _aRA, _st, _cA, _aRI, _eN],
   [0, 0, 0, 0, 5, 0, [() => EndpointName, 0]], 5
 ];
 export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
@@ -1024,7 +1103,7 @@ export var CreateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _CARR,
 ];
 export var CreateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _CARRr,
   0,
-  [_aRA, _aRI, _aRV, _cA, _s, _wID],
+  [_aRA, _aRI, _aRV, _cA, _st, _wID],
   [0, 0, 0, 5, 0, () => WorkloadIdentityDetails$], 5
 ];
 export var CreateApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _CAKCPR,
@@ -1044,7 +1123,7 @@ export var CreateBrowserProfileRequest$: StaticStructureSchema = [3, n0, _CBPR,
 ];
 export var CreateBrowserProfileResponse$: StaticStructureSchema = [3, n0, _CBPRr,
   0,
-  [_pI, _pA, _cA, _s],
+  [_pI, _pA, _cA, _st],
   [0, 0, 5, 0], 4
 ];
 export var CreateBrowserRequest$: StaticStructureSchema = [3, n0, _CBR,
@@ -1054,7 +1133,7 @@ export var CreateBrowserRequest$: StaticStructureSchema = [3, n0, _CBR,
 ];
 export var CreateBrowserResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
-  [_bI, _bA, _cA, _s],
+  [_bI, _bA, _cA, _st],
   [0, 0, 5, 0], 4
 ];
 export var CreateCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _CCIR,
@@ -1064,7 +1143,7 @@ export var CreateCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _CCIR,
 ];
 export var CreateCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _CCIRr,
   0,
-  [_cII, _cIA, _cA, _s],
+  [_cII, _cIA, _cA, _st],
   [0, 0, 5, 0], 4
 ];
 export var CreateEvaluatorRequest$: StaticStructureSchema = [3, n0, _CER,
@@ -1074,7 +1153,7 @@ export var CreateEvaluatorRequest$: StaticStructureSchema = [3, n0, _CER,
 ];
 export var CreateEvaluatorResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
-  [_eA, _eI, _cA, _s],
+  [_eA, _eI, _cA, _st],
   [0, 0, 4, 0], 4
 ];
 export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
@@ -1084,7 +1163,7 @@ export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
 ];
 export var CreateGatewayResponse$: StaticStructureSchema = [3, n0, _CGRr,
   0,
-  [_gA, _gI, _cA, _uA, _s, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
+  [_gA, _gI, _cA, _uA, _st, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
   [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 8
 ];
 export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
@@ -1094,7 +1173,7 @@ export var CreateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _CGTR,
 ];
 export var CreateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _CGTRr,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
@@ -1119,12 +1198,12 @@ export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
-  [_oECN, _ru, _dSC, _ev, _eERA, _eOC, _cTl, _d, _t],
+  [_oECN, _rul, _dSC, _ev, _eERA, _eOC, _cTl, _d, _t],
   [0, () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 2, [0, 4], [() => EvaluationConfigDescription, 0], 128 | 0], 6
 ];
 export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _COECRr,
   0,
-  [_oECA, _oECI, _cA, _s, _eS, _oC, _fR],
+  [_oECA, _oECI, _cA, _st, _eS, _oC, _fR],
   [0, 0, 4, 0, 0, () => OutputConfig$, 0], 5
 ];
 export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
@@ -1134,7 +1213,7 @@ export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
 ];
 export var CreatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _CPERr,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _s, _sR, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
@@ -1144,7 +1223,7 @@ export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreatePolicyResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var CreateWorkloadIdentityRequest$: StaticStructureSchema = [3, n0, _CWIR,
@@ -1187,12 +1266,6 @@ export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _C
   [_oD, _cI],
   [() => Oauth2Discovery$, 0], 1
 ];
-export var DecryptionFailure$: StaticErrorSchema = [-3, n0, _DF,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(DecryptionFailure$, DecryptionFailure);
 export var DeleteAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _DARER,
   0,
   [_aRI, _eN, _cTl],
@@ -1200,7 +1273,7 @@ export var DeleteAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DeleteAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, _DARERe,
   0,
-  [_s, _aRI, _eN],
+  [_st, _aRI, _eN],
   [0, 0, [() => EndpointName, 0]], 1
 ];
 export var DeleteAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _DARR,
@@ -1210,7 +1283,7 @@ export var DeleteAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _DARR,
 ];
 export var DeleteAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _DARRe,
   0,
-  [_s, _aRI],
+  [_st, _aRI],
   [0, 0], 1
 ];
 export var DeleteApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _DAKCPR,
@@ -1230,7 +1303,7 @@ export var DeleteBrowserProfileRequest$: StaticStructureSchema = [3, n0, _DBPR,
 ];
 export var DeleteBrowserProfileResponse$: StaticStructureSchema = [3, n0, _DBPRe,
   0,
-  [_pI, _pA, _s, _lUA, _lSA],
+  [_pI, _pA, _st, _lUA, _lSA],
   [0, 0, 0, 5, 5], 4
 ];
 export var DeleteBrowserRequest$: StaticStructureSchema = [3, n0, _DBR,
@@ -1240,7 +1313,7 @@ export var DeleteBrowserRequest$: StaticStructureSchema = [3, n0, _DBR,
 ];
 export var DeleteBrowserResponse$: StaticStructureSchema = [3, n0, _DBRe,
   0,
-  [_bI, _s, _lUA],
+  [_bI, _st, _lUA],
   [0, 0, 5], 3
 ];
 export var DeleteCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _DCIR,
@@ -1250,7 +1323,7 @@ export var DeleteCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _DCIR,
 ];
 export var DeleteCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _DCIRe,
   0,
-  [_cII, _s, _lUA],
+  [_cII, _st, _lUA],
   [0, 0, 5], 3
 ];
 export var DeleteEvaluatorRequest$: StaticStructureSchema = [3, n0, _DER,
@@ -1260,7 +1333,7 @@ export var DeleteEvaluatorRequest$: StaticStructureSchema = [3, n0, _DER,
 ];
 export var DeleteEvaluatorResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_eA, _eI, _s],
+  [_eA, _eI, _st],
   [0, 0, 0], 3
 ];
 export var DeleteGatewayRequest$: StaticStructureSchema = [3, n0, _DGR,
@@ -1270,7 +1343,7 @@ export var DeleteGatewayRequest$: StaticStructureSchema = [3, n0, _DGR,
 ];
 export var DeleteGatewayResponse$: StaticStructureSchema = [3, n0, _DGRe,
   0,
-  [_gI, _s, _sR],
+  [_gI, _st, _sR],
   [0, 0, 64 | 0], 2
 ];
 export var DeleteGatewayTargetRequest$: StaticStructureSchema = [3, n0, _DGTR,
@@ -1280,7 +1353,7 @@ export var DeleteGatewayTargetRequest$: StaticStructureSchema = [3, n0, _DGTR,
 ];
 export var DeleteGatewayTargetResponse$: StaticStructureSchema = [3, n0, _DGTRe,
   0,
-  [_gA, _tI, _s, _sR],
+  [_gA, _tI, _st, _sR],
   [0, 0, 0, 64 | 0], 3
 ];
 export var DeleteMemoryInput$: StaticStructureSchema = [3, n0, _DMI,
@@ -1290,7 +1363,7 @@ export var DeleteMemoryInput$: StaticStructureSchema = [3, n0, _DMI,
 ];
 export var DeleteMemoryOutput$: StaticStructureSchema = [3, n0, _DMO,
   0,
-  [_mIe, _s],
+  [_mIe, _st],
   [0, 0], 1
 ];
 export var DeleteMemoryStrategyInput$: StaticStructureSchema = [3, n0, _DMSI,
@@ -1315,7 +1388,7 @@ export var DeleteOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _DOECRe,
   0,
-  [_oECA, _oECI, _s],
+  [_oECA, _oECI, _st],
   [0, 0, 0], 3
 ];
 export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
@@ -1325,7 +1398,7 @@ export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
 ];
 export var DeletePolicyEngineResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _s, _sR, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
@@ -1335,7 +1408,7 @@ export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
 ];
 export var DeletePolicyResponse$: StaticStructureSchema = [3, n0, _DPRe,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
@@ -1358,12 +1431,6 @@ export var DeleteWorkloadIdentityResponse$: StaticStructureSchema = [3, n0, _DWI
   [],
   []
 ];
-export var EncryptionFailure$: StaticErrorSchema = [-3, n0, _EF,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(EncryptionFailure$, EncryptionFailure);
 export var EpisodicConsolidationOverride$: StaticStructureSchema = [3, n0, _ECO,
   0,
   [_aTP, _mI],
@@ -1416,7 +1483,7 @@ export var EpisodicReflectionOverride$: StaticStructureSchema = [3, n0, _ERO,
 ];
 export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_eA, _eI, _eNv, _eT, _s, _cA, _uA, _d, _le, _lFM],
+  [_eA, _eI, _eNv, _eT, _st, _cA, _uA, _d, _le, _lFM],
   [0, 0, 0, 0, 0, 4, 4, [() => EvaluatorDescription, 0], 0, 2], 7
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
@@ -1446,12 +1513,12 @@ export var GatewayPolicyEngineConfiguration$: StaticStructureSchema = [3, n0, _G
 ];
 export var GatewaySummary$: StaticStructureSchema = [3, n0, _GS,
   0,
-  [_gI, _n, _s, _cA, _uA, _aT, _pT, _d],
+  [_gI, _n, _st, _cA, _uA, _aT, _pT, _d],
   [0, [() => GatewayName, 0], 0, 5, 5, 0, 0, [() => GatewayDescription, 0]], 7
 ];
 export var GatewayTarget$: StaticStructureSchema = [3, n0, _GT,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GARER,
@@ -1461,7 +1528,7 @@ export var GetAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _GAR
 ];
 export var GetAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, _GARERe,
   0,
-  [_aREA, _aRA, _s, _cA, _lUA, _n, _i, _lV, _tV, _d, _fR],
+  [_aREA, _aRA, _st, _cA, _lUA, _n, _i, _lV, _tV, _d, _fR],
   [0, 0, 0, 5, 5, [() => EndpointName, 0], 0, 0, 0, 0, 0], 7
 ];
 export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
@@ -1471,7 +1538,7 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _s, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC],
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC],
   [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$], 10
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
@@ -1491,7 +1558,7 @@ export var GetBrowserProfileRequest$: StaticStructureSchema = [3, n0, _GBPR,
 ];
 export var GetBrowserProfileResponse$: StaticStructureSchema = [3, n0, _GBPRe,
   0,
-  [_pI, _pA, _n, _s, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
+  [_pI, _pA, _n, _st, _cA, _lUA, _d, _lSA, _lSBSI, _lSBI],
   [0, 0, 0, 0, 5, 5, [() => Description, 0], 5, 0, 0], 6
 ];
 export var GetBrowserRequest$: StaticStructureSchema = [3, n0, _GBR,
@@ -1501,7 +1568,7 @@ export var GetBrowserRequest$: StaticStructureSchema = [3, n0, _GBR,
 ];
 export var GetBrowserResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_bI, _bA, _n, _nC, _s, _cA, _lUA, _d, _eRA, _re, _bS, _fR],
+  [_bI, _bA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _re, _bS, _fR],
   [0, 0, 0, () => BrowserNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigOutput$, 0], 7
 ];
 export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
@@ -1511,7 +1578,7 @@ export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
 ];
 export var GetCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
-  [_cII, _cIA, _n, _nC, _s, _cA, _lUA, _d, _eRA, _fR],
+  [_cII, _cIA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _fR],
   [0, 0, 0, () => CodeInterpreterNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, 0], 7
 ];
 export var GetEvaluatorRequest$: StaticStructureSchema = [3, n0, _GER,
@@ -1521,7 +1588,7 @@ export var GetEvaluatorRequest$: StaticStructureSchema = [3, n0, _GER,
 ];
 export var GetEvaluatorResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_eA, _eI, _eNv, _eC, _le, _s, _cA, _uA, _d, _lFM],
+  [_eA, _eI, _eNv, _eC, _le, _st, _cA, _uA, _d, _lFM],
   [0, 0, 0, [() => EvaluatorConfig$, 0], 0, 0, 4, 4, [() => EvaluatorDescription, 0], 2], 8
 ];
 export var GetGatewayRequest$: StaticStructureSchema = [3, n0, _GGR,
@@ -1531,7 +1598,7 @@ export var GetGatewayRequest$: StaticStructureSchema = [3, n0, _GGR,
 ];
 export var GetGatewayResponse$: StaticStructureSchema = [3, n0, _GGRe,
   0,
-  [_gA, _gI, _cA, _uA, _s, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
+  [_gA, _gI, _cA, _uA, _st, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
   [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 8
 ];
 export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
@@ -1541,7 +1608,7 @@ export var GetGatewayTargetRequest$: StaticStructureSchema = [3, n0, _GGTR,
 ];
 export var GetGatewayTargetResponse$: StaticStructureSchema = [3, n0, _GGTRe,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var GetMemoryInput$: StaticStructureSchema = [3, n0, _GMI,
@@ -1571,7 +1638,7 @@ export var GetOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _GOECRe,
   0,
-  [_oECA, _oECI, _oECN, _ru, _dSC, _ev, _s, _eS, _cA, _uA, _d, _oC, _eERA, _fR],
+  [_oECA, _oECI, _oECN, _rul, _dSC, _ev, _st, _eS, _cA, _uA, _d, _oC, _eERA, _fR],
   [0, 0, 0, () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], () => OutputConfig$, 0, 0], 10
 ];
 export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
@@ -1581,7 +1648,7 @@ export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
 ];
 export var GetPolicyEngineResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _s, _sR, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
 ];
 export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
@@ -1591,7 +1658,7 @@ export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
 ];
 export var GetPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _GPGRe,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _s, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
@@ -1601,7 +1668,7 @@ export var GetPolicyRequest$: StaticStructureSchema = [3, n0, _GPR,
 ];
 export var GetPolicyResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
@@ -1674,12 +1741,6 @@ export var InterceptorInputConfiguration$: StaticStructureSchema = [3, n0, _IIC,
   [_pRH],
   [2], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvocationConfiguration$: StaticStructureSchema = [3, n0, _ICn,
   0,
   [_tA, _pDBN],
@@ -1927,17 +1988,17 @@ export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_a, _i, _n, _eED, _s, _cA, _uA, _d, _eKA, _mERA, _fR, _str],
+  [_a, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _str],
   [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0]], 7
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sI, _n, _ty, _na, _d, _con, _cA, _uA, _s],
+  [_sI, _n, _ty, _na, _d, _con, _cA, _uA, _st],
   [0, 0, 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 4
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
   0,
-  [_cA, _uA, _a, _i, _s],
+  [_cA, _uA, _a, _i, _st],
   [4, 4, 0, 0, 0], 2
 ];
 export var MessageBasedTrigger$: StaticStructureSchema = [3, n0, _MBT,
@@ -2017,7 +2078,7 @@ export var OAuthCredentialProvider$: StaticStructureSchema = [3, n0, _OACP,
 ];
 export var OnlineEvaluationConfigSummary$: StaticStructureSchema = [3, n0, _OECS,
   0,
-  [_oECA, _oECI, _oECN, _s, _eS, _cA, _uA, _d, _fR],
+  [_oECA, _oECI, _oECN, _st, _eS, _cA, _uA, _d, _fR],
   [0, 0, 0, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], 0], 7
 ];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
@@ -2027,17 +2088,17 @@ export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
 ];
 export var Policy$: StaticStructureSchema = [3, n0, _Po,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _s, _sR, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _s, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var PolicyGenerationAsset$: StaticStructureSchema = [3, n0, _PGA,
@@ -2065,18 +2126,6 @@ export var RecordingConfig$: StaticStructureSchema = [3, n0, _RC,
   [_en, _sL],
   [2, () => S3Location$]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_sC, _fi, _sCe],
@@ -2157,18 +2206,6 @@ export var SemanticOverrideExtractionConfigurationInput$: StaticStructureSchema 
   [_aTP, _mI],
   [[() => Prompt, 0], 0], 2
 ];
-export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SessionConfig$: StaticStructureSchema = [3, n0, _SCe,
   0,
   [_sTM],
@@ -2201,7 +2238,7 @@ export var StartPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _SPGR,
 ];
 export var StartPolicyGenerationResponse$: StaticStructureSchema = [3, n0, _SPGRt,
   0,
-  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _s, _sR, _f],
+  [_pEI, _pGI, _n, _pGA, _res, _cA, _uA, _st, _sR, _f],
   [0, 0, 0, 0, () => Resource$, 5, 5, 0, 64 | 0, 0], 9
 ];
 export var StrategyConfiguration$: StaticStructureSchema = [3, n0, _SCt,
@@ -2251,21 +2288,9 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TargetSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tI, _n, _s, _cA, _uA, _d],
+  [_tI, _n, _st, _cA, _uA, _d],
   [0, [() => TargetName, 0], 0, 5, 5, [() => TargetDescription, 0]], 5
 ];
-export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeBasedTrigger$: StaticStructureSchema = [3, n0, _TBT,
   0,
   [_iST],
@@ -2291,12 +2316,6 @@ export var ToolDefinition$: StaticStructureSchema = [3, n0, _TDo,
   [_n, _d, _iS, _oS],
   [0, 0, () => SchemaDefinition$, () => SchemaDefinition$], 3
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -2314,7 +2333,7 @@ export var UpdateAgentRuntimeEndpointRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, _UARERp,
   0,
-  [_aREA, _aRA, _s, _cA, _lUA, _lV, _tV],
+  [_aREA, _aRA, _st, _cA, _lUA, _lV, _tV],
   [0, 0, 0, 5, 5, 0, 0], 5
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
@@ -2324,7 +2343,7 @@ export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
-  [_aRA, _aRI, _aRV, _cA, _lUA, _s, _wID],
+  [_aRA, _aRI, _aRV, _cA, _lUA, _st, _wID],
   [0, 0, 0, 5, 5, 0, () => WorkloadIdentityDetails$], 6
 ];
 export var UpdateApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _UAKCPR,
@@ -2344,7 +2363,7 @@ export var UpdateEvaluatorRequest$: StaticStructureSchema = [3, n0, _UER,
 ];
 export var UpdateEvaluatorResponse$: StaticStructureSchema = [3, n0, _UERp,
   0,
-  [_eA, _eI, _uA, _s],
+  [_eA, _eI, _uA, _st],
   [0, 0, 4, 0], 4
 ];
 export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
@@ -2354,7 +2373,7 @@ export var UpdateGatewayRequest$: StaticStructureSchema = [3, n0, _UGR,
 ];
 export var UpdateGatewayResponse$: StaticStructureSchema = [3, n0, _UGRp,
   0,
-  [_gA, _gI, _cA, _uA, _s, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
+  [_gA, _gI, _cA, _uA, _st, _n, _pT, _aT, _gU, _sR, _d, _rA, _pC, _aC, _kKA, _iCn, _pEC, _wID, _eL],
   [0, 0, 5, 5, 0, [() => GatewayName, 0], 0, 0, 0, 64 | 0, [() => GatewayDescription, 0], 0, () => GatewayProtocolConfiguration$, () => AuthorizerConfiguration$, 0, () => GatewayInterceptorConfigurations, () => GatewayPolicyEngineConfiguration$, () => WorkloadIdentityDetails$, 0], 8
 ];
 export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
@@ -2364,7 +2383,7 @@ export var UpdateGatewayTargetRequest$: StaticStructureSchema = [3, n0, _UGTR,
 ];
 export var UpdateGatewayTargetResponse$: StaticStructureSchema = [3, n0, _UGTRp,
   0,
-  [_gA, _tI, _cA, _uA, _s, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
+  [_gA, _tI, _cA, _uA, _st, _n, _tC, _cPC, _sR, _d, _lSAa, _mC],
   [0, 0, 5, 5, 0, [() => TargetName, 0], [() => TargetConfiguration$, 0], [() => CredentialProviderConfigurations, 0], 64 | 0, [() => TargetDescription, 0], 5, () => MetadataConfiguration$], 8
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
@@ -2389,12 +2408,12 @@ export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, 
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,
-  [_oECI, _cTl, _d, _ru, _dSC, _ev, _eERA, _eS],
+  [_oECI, _cTl, _d, _rul, _dSC, _ev, _eERA, _eS],
   [[0, 1], [0, 4], [() => EvaluationConfigDescription, 0], () => Rule$, () => DataSourceConfig$, () => EvaluatorList, 0, 0], 1
 ];
 export var UpdateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0, _UOECRp,
   0,
-  [_oECA, _oECI, _uA, _s, _eS, _fR],
+  [_oECA, _oECI, _uA, _st, _eS, _fR],
   [0, 0, 4, 0, 0, 0], 5
 ];
 export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
@@ -2404,7 +2423,7 @@ export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
 ];
 export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _s, _sR, _d],
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
   [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -2414,7 +2433,7 @@ export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
-  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _s, _sR, _d],
+  [_pIo, _n, _pEI, _de, _cA, _uA, _pAo, _st, _sR, _d],
   [0, 0, 0, () => PolicyDefinition$, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 9
 ];
 export var UpdateWorkloadIdentityRequest$: StaticStructureSchema = [3, n0, _UWIR,
@@ -2457,12 +2476,6 @@ export var UserPreferenceOverrideExtractionConfigurationInput$: StaticStructureS
   [_aTP, _mI],
   [[() => Prompt, 0], 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rea, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -2483,8 +2496,6 @@ export var WorkloadIdentityType$: StaticStructureSchema = [3, n0, _WIT,
   [_n, _wIA],
   [0, 0], 2
 ];
-export var BedrockAgentCoreControlServiceException$: StaticErrorSchema = [-3, _sm, "BedrockAgentCoreControlServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BedrockAgentCoreControlServiceException$, BedrockAgentCoreControlServiceException);
 var AgentRuntimeEndpoints: StaticListSchema = [1, n0, _AREg,
   0, [() => AgentRuntimeEndpoint$,
     0]

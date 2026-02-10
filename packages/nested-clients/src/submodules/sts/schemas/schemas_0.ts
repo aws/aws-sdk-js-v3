@@ -80,6 +80,79 @@ import {
 import { STSServiceException } from "../models/STSServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
+_s_registry.registerError(STSServiceException$, STSServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ExpiredTokenException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _ETE,
+  { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
+export var IDPCommunicationErrorException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _IDPCEE,
+  { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
+export var IDPRejectedClaimException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _IDPRCE,
+  { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
+export var InvalidIdentityTokenException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _IITE,
+  { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _MPDE,
+  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var PackedPolicyTooLargeException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _PPTLE,
+  { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
+export var RegionDisabledException$: StaticErrorSchema = [
+  -3,
+  n0,
+  _RDE,
+  { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0],
+];
+n0_registry.registerError(RegionDisabledException$, RegionDisabledException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [_s_registry, n0_registry];
 var accessKeySecretType: StaticSimpleSchema = [0, n0, _aKST, 8, 0];
 var clientTokenType: StaticSimpleSchema = [0, n0, _cTT, 8, 0];
 export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU, 0, [_ARI, _A], [0, 0], 2];
@@ -126,74 +199,9 @@ export var Credentials$: StaticStructureSchema = [
   [0, [() => accessKeySecretType, 0], 0, 4],
   4,
 ];
-export var ExpiredTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _ETE,
-  { [_aQE]: [`ExpiredTokenException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(ExpiredTokenException$, ExpiredTokenException);
-export var IDPCommunicationErrorException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPCEE,
-  { [_aQE]: [`IDPCommunicationError`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IDPCommunicationErrorException$, IDPCommunicationErrorException);
-export var IDPRejectedClaimException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IDPRCE,
-  { [_aQE]: [`IDPRejectedClaim`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(IDPRejectedClaimException$, IDPRejectedClaimException);
-export var InvalidIdentityTokenException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _IITE,
-  { [_aQE]: [`InvalidIdentityToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(InvalidIdentityTokenException$, InvalidIdentityTokenException);
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _MPDE,
-  { [_aQE]: [`MalformedPolicyDocument`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var PackedPolicyTooLargeException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _PPTLE,
-  { [_aQE]: [`PackedPolicyTooLarge`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(PackedPolicyTooLargeException$, PackedPolicyTooLargeException);
 export var PolicyDescriptorType$: StaticStructureSchema = [3, n0, _PDT, 0, [_a], [0]];
 export var ProvidedContext$: StaticStructureSchema = [3, n0, _PCr, 0, [_PAr, _CA], [0, 0]];
-export var RegionDisabledException$: StaticErrorSchema = [
-  -3,
-  n0,
-  _RDE,
-  { [_aQE]: [`RegionDisabledException`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0],
-];
-TypeRegistry.for(n0).registerError(RegionDisabledException$, RegionDisabledException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta, 0, [_K, _V], [0, 0], 2];
-export var STSServiceException$: StaticErrorSchema = [-3, _s, "STSServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(STSServiceException$, STSServiceException);
 var policyDescriptorListType: StaticListSchema = [1, n0, _pDLT, 0, () => PolicyDescriptorType$];
 var ProvidedContextsListType: StaticListSchema = [1, n0, _PCLT, 0, () => ProvidedContext$];
 var tagKeyListType = 64 | 0;

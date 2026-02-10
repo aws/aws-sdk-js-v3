@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultRoute53GlobalResolverHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { Route53GlobalResolverClientConfig } from "./Route53GlobalResolverClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: Route53GlobalResolverClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.route53globalresolver",
+      errorTypeRegistries,
       version: "2022-09-27",
       serviceTarget: "EC2DNSGlobalResolverCustomerAPI",
     },

@@ -386,7 +386,7 @@ const _pe = "permission";
 const _po = "policy";
 const _pr = "properties";
 const _qP = "queuePolicy";
-const _r = "resources";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rAe = "resourceArns";
@@ -407,12 +407,12 @@ const _rTS = "resourceTypeStatistics";
 const _rTe = "resourceTags";
 const _rTec = "recommendationType";
 const _rTes = "resourceTypes";
-const _re = "resource";
+const _re = "resources";
 const _rea = "reasons";
-const _reas = "reason";
 const _reg = "regions";
-const _res = "result";
-const _s = "status";
+const _res = "resource";
+const _resu = "result";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.accessanalyzer";
 const _sA = "startedAt";
 const _sB = "s3Bucket";
 const _sCPR = "serviceControlPolicyRestriction";
@@ -430,11 +430,11 @@ const _sT = "startTime";
 const _sTn = "snsTopic";
 const _sV = "sharedVia";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.accessanalyzer";
 const _so = "sources";
 const _sor = "sort";
 const _sp = "span";
-const _st = "start";
+const _st = "status";
+const _sta = "start";
 const _su = "substring";
 const _t = "type";
 const _tA = "topAccounts";
@@ -497,26 +497,87 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var AccessCheckPolicyDocument: StaticSimpleSchema = [0, n0, _ACPD, 8, 0];
-export var Access$: StaticStructureSchema = [3, n0, _A,
-  0,
-  [_a, _r],
-  [64 | 0, 64 | 0]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var AccessAnalyzerServiceException$: StaticErrorSchema = [-3, _s, "AccessAnalyzerServiceException", 0, [], []];
+_s_registry.registerError(AccessAnalyzerServiceException$, AccessAnalyzerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var AccessCheckPolicyDocument: StaticSimpleSchema = [0, n0, _ACPD, 8, 0];
+export var Access$: StaticStructureSchema = [3, n0, _A,
+  0,
+  [_a, _re],
+  [64 | 0, 64 | 0]
+];
 export var AccessPreview$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_i, _aA, _co, _cA, _s, _sR],
+  [_i, _aA, _co, _cA, _st, _sR],
   [0, 0, () => ConfigurationsMap, 5, 0, () => AccessPreviewStatusReason$], 5
 ];
 export var AccessPreviewFinding$: StaticStructureSchema = [3, n0, _APF,
   0,
-  [_i, _rT, _cA, _cT, _s, _rOA, _eFI, _eFS, _p, _ac, _con, _re, _iP, _e, _so, _rCPR],
+  [_i, _rT, _cA, _cT, _st, _rOA, _eFI, _eFS, _p, _ac, _con, _res, _iP, _e, _so, _rCPR],
   [0, 0, 5, 0, 0, 0, 0, 0, 128 | 0, 64 | 0, 128 | 0, 0, 2, 0, () => FindingSourceList, 0], 6
 ];
 export var AccessPreviewStatusReason$: StaticStructureSchema = [3, n0, _APSR,
@@ -526,7 +587,7 @@ export var AccessPreviewStatusReason$: StaticStructureSchema = [3, n0, _APSR,
 ];
 export var AccessPreviewSummary$: StaticStructureSchema = [3, n0, _APS,
   0,
-  [_i, _aA, _cA, _s, _sR],
+  [_i, _aA, _cA, _st, _sR],
   [0, 0, 5, 0, () => AccessPreviewStatusReason$], 4
 ];
 export var AnalysisRule$: StaticStructureSchema = [3, n0, _AR,
@@ -541,7 +602,7 @@ export var AnalysisRuleCriteria$: StaticStructureSchema = [3, n0, _ARC,
 ];
 export var AnalyzedResource$: StaticStructureSchema = [3, n0, _ARn,
   0,
-  [_rA, _rT, _cA, _aAn, _uA, _iP, _rOA, _a, _sV, _s, _e],
+  [_rA, _rT, _cA, _aAn, _uA, _iP, _rOA, _a, _sV, _st, _e],
   [0, 0, 5, 5, 5, 2, 0, 64 | 0, 64 | 0, 0, 0], 7
 ];
 export var AnalyzedResourceSummary$: StaticStructureSchema = [3, n0, _ARS,
@@ -551,7 +612,7 @@ export var AnalyzedResourceSummary$: StaticStructureSchema = [3, n0, _ARS,
 ];
 export var AnalyzerSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_ar, _n, _t, _cA, _s, _lRA, _lRAA, _ta, _sR, _conf],
+  [_ar, _n, _t, _cA, _st, _lRA, _lRAA, _ta, _sR, _conf],
   [0, 0, 0, 5, 0, 0, 5, 128 | 0, () => StatusReason$, () => AnalyzerConfiguration$], 5
 ];
 export var ApplyArchiveRuleRequest$: StaticStructureSchema = [3, n0, _AARR,
@@ -581,7 +642,7 @@ export var CheckAccessNotGrantedRequest$: StaticStructureSchema = [3, n0, _CANGR
 ];
 export var CheckAccessNotGrantedResponse$: StaticStructureSchema = [3, n0, _CANGRh,
   0,
-  [_res, _m, _rea],
+  [_resu, _m, _rea],
   [0, 0, () => ReasonSummaryList]
 ];
 export var CheckNoNewAccessRequest$: StaticStructureSchema = [3, n0, _CNNAR,
@@ -591,7 +652,7 @@ export var CheckNoNewAccessRequest$: StaticStructureSchema = [3, n0, _CNNAR,
 ];
 export var CheckNoNewAccessResponse$: StaticStructureSchema = [3, n0, _CNNARh,
   0,
-  [_res, _m, _rea],
+  [_resu, _m, _rea],
   [0, 0, () => ReasonSummaryList]
 ];
 export var CheckNoPublicAccessRequest$: StaticStructureSchema = [3, n0, _CNPAR,
@@ -601,7 +662,7 @@ export var CheckNoPublicAccessRequest$: StaticStructureSchema = [3, n0, _CNPAR,
 ];
 export var CheckNoPublicAccessResponse$: StaticStructureSchema = [3, n0, _CNPARh,
   0,
-  [_res, _m, _rea],
+  [_resu, _m, _rea],
   [0, 0, () => ReasonSummaryList]
 ];
 export var CloudTrailDetails$: StaticStructureSchema = [3, n0, _CTD,
@@ -614,12 +675,6 @@ export var CloudTrailProperties$: StaticStructureSchema = [3, n0, _CTP,
   [_tP, _sT, _eT],
   [() => TrailPropertiesList, 5, 5], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccessPreviewRequest$: StaticStructureSchema = [3, n0, _CAPR,
   0,
   [_aA, _co, _cTl],
@@ -697,7 +752,7 @@ export var ExternalAccessFindingsStatistics$: StaticStructureSchema = [3, n0, _E
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_i, _rT, _con, _cA, _aAn, _uA, _s, _rOA, _p, _ac, _re, _iP, _e, _so, _rCPR],
+  [_i, _rT, _con, _cA, _aAn, _uA, _st, _rOA, _p, _ac, _res, _iP, _e, _so, _rCPR],
   [0, 0, 128 | 0, 5, 5, 5, 0, 0, 128 | 0, 64 | 0, 0, 2, 0, () => FindingSourceList, 0], 8
 ];
 export var FindingAggregationAccountDetails$: StaticStructureSchema = [3, n0, _FAAD,
@@ -717,12 +772,12 @@ export var FindingSourceDetail$: StaticStructureSchema = [3, n0, _FSD,
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FSi,
   0,
-  [_i, _rT, _con, _cA, _aAn, _uA, _s, _rOA, _p, _ac, _re, _iP, _e, _so, _rCPR],
+  [_i, _rT, _con, _cA, _aAn, _uA, _st, _rOA, _p, _ac, _res, _iP, _e, _so, _rCPR],
   [0, 0, 128 | 0, 5, 5, 5, 0, 0, 128 | 0, 64 | 0, 0, 2, 0, () => FindingSourceList, 0], 8
 ];
 export var FindingSummaryV2$: StaticStructureSchema = [3, n0, _FSV,
   0,
-  [_aAn, _cA, _i, _rT, _rOA, _s, _uA, _e, _re, _fT],
+  [_aAn, _cA, _i, _rT, _rOA, _st, _uA, _e, _res, _fT],
   [5, 5, 0, 0, 0, 0, 5, 0, 0, 0], 7
 ];
 export var GeneratedPolicy$: StaticStructureSchema = [3, n0, _GP,
@@ -762,7 +817,7 @@ export var GetAnalyzedResourceRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAnalyzedResourceResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_re],
+  [_res],
   [() => AnalyzedResource$]
 ];
 export var GetAnalyzerRequest$: StaticStructureSchema = [3, n0, _GAR,
@@ -792,7 +847,7 @@ export var GetFindingRecommendationRequest$: StaticStructureSchema = [3, n0, _GF
 ];
 export var GetFindingRecommendationResponse$: StaticStructureSchema = [3, n0, _GFRRet,
   0,
-  [_sA, _rA, _rTec, _s, _cAo, _nT, _e, _rS],
+  [_sA, _rA, _rTec, _st, _cAo, _nT, _e, _rS],
   [5, 0, 0, 0, 5, 0, () => RecommendationError$, () => RecommendedStepList], 4
 ];
 export var GetFindingRequest$: StaticStructureSchema = [3, n0, _GFR,
@@ -822,7 +877,7 @@ export var GetFindingV2Request$: StaticStructureSchema = [3, n0, _GFVR,
 ];
 export var GetFindingV2Response$: StaticStructureSchema = [3, n0, _GFVRe,
   0,
-  [_aAn, _cA, _i, _rT, _rOA, _s, _uA, _fD, _e, _nT, _re, _fT],
+  [_aAn, _cA, _i, _rT, _rOA, _st, _uA, _fD, _e, _nT, _res, _fT],
   [5, 5, 0, 0, 0, 0, 5, () => FindingDetailsList, 0, 0, 0, 0], 8
 ];
 export var GetGeneratedPolicyRequest$: StaticStructureSchema = [3, n0, _GGPR,
@@ -875,26 +930,14 @@ export var InternalAccessResourceTypeDetails$: StaticStructureSchema = [3, n0, _
   [_tAF, _tRF, _tAFo],
   [1, 1, 1]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InternetConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [],
   []
 ];
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var JobDetails$: StaticStructureSchema = [3, n0, _JD,
   0,
-  [_jI, _s, _sO, _cO, _jE],
+  [_jI, _st, _sO, _cO, _jE],
   [0, 0, 5, 5, () => JobError$], 3
 ];
 export var JobError$: StaticStructureSchema = [3, n0, _JE,
@@ -1014,7 +1057,7 @@ export var Location$: StaticStructureSchema = [3, n0, _L,
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
-  [_jI, _pA, _s, _sO, _cO],
+  [_jI, _pA, _st, _sO, _cO],
   [0, 0, 0, 5, 5], 4
 ];
 export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
@@ -1047,12 +1090,6 @@ export var RecommendationError$: StaticStructureSchema = [3, n0, _RE,
   [_cod, _m],
   [0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTypeDetails$: StaticStructureSchema = [3, n0, _RTD,
   0,
   [_tAP, _tACA, _tAE],
@@ -1093,12 +1130,6 @@ export var SecretsManagerSecretConfiguration$: StaticStructureSchema = [3, n0, _
   [_kKI, _sPe],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnsTopicConfiguration$: StaticStructureSchema = [3, n0, _STC,
   0,
   [_tPo],
@@ -1111,7 +1142,7 @@ export var SortCriteria$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var Span$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_st, _en],
+  [_sta, _en],
   [() => Position$, () => Position$], 2
 ];
 export var SqsQueueConfiguration$: StaticStructureSchema = [3, n0, _SQC,
@@ -1141,7 +1172,7 @@ export var StatusReason$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var Substring$: StaticStructureSchema = [3, n0, _Su,
   0,
-  [_st, _le],
+  [_sta, _le],
   [1, 1], 2
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -1154,12 +1185,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Trail$: StaticStructureSchema = [3, n0, _T,
   0,
   [_cTA, _reg, _aRl],
@@ -1170,12 +1195,6 @@ export var TrailProperties$: StaticStructureSchema = [3, n0, _TP,
   [_cTA, _reg, _aRl],
   [0, 64 | 0, 2], 1
 ];
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_e]: _c, [_hE]: 422 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -1248,7 +1267,7 @@ export var UpdateArchiveRuleRequest$: StaticStructureSchema = [3, n0, _UARR,
 ];
 export var UpdateFindingsRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_aA, _s, _id, _rA, _cTl],
+  [_aA, _st, _id, _rA, _cTl],
   [0, 0, 64 | 0, 0, [0, 4]], 2
 ];
 export var ValidatePolicyFinding$: StaticStructureSchema = [3, n0, _VPF,
@@ -1266,12 +1285,6 @@ export var ValidatePolicyResponse$: StaticStructureSchema = [3, n0, _VPRa,
   [_fin, _nT],
   [() => ValidatePolicyFindingList, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _reas, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -1283,8 +1296,6 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   [0], 1
 ];
 var __Unit = "unit" as const;
-export var AccessAnalyzerServiceException$: StaticErrorSchema = [-3, _sm, "AccessAnalyzerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AccessAnalyzerServiceException$, AccessAnalyzerServiceException);
 var AccessList: StaticListSchema = [1, n0, _AL,
   0, () => Access$
 ];

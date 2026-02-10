@@ -91,8 +91,8 @@ const _h = "http";
 const _hQ = "httpQuery";
 const _m = "message";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanagerlinuxsubscriptions";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanagerlinuxsubscriptions";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.licensemanagerlinuxsubscriptions";
@@ -118,6 +118,43 @@ import {
 } from "../models/LicenseManagerLinuxSubscriptionsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LicenseManagerLinuxSubscriptionsServiceException$: StaticErrorSchema = [-3, _s, "LicenseManagerLinuxSubscriptionsServiceException", 0, [], []];
+_s_registry.registerError(LicenseManagerLinuxSubscriptionsServiceException$, LicenseManagerLinuxSubscriptionsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DeregisterSubscriptionProviderRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
   [_SPA],
@@ -158,12 +195,6 @@ export var Instance$: StaticStructureSchema = [3, n0, _I,
   [_AI, _IID, _IT, _AID, _S, _R, _UO, _PC, _LUT, _SN, _OV, _SPCT, _SPUT, _DS, _RWSP],
   [0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LinuxSubscriptionsDiscoverySettings$: StaticStructureSchema = [3, n0, _LSDS,
   0,
   [_SR, _OI],
@@ -224,12 +255,6 @@ export var RegisterSubscriptionProviderResponse$: StaticStructureSchema = [3, n0
   [_SPS, _SPA, _SPSu],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Subscription$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_N, _Ty, _IC],
@@ -245,12 +270,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -271,14 +290,6 @@ export var UpdateServiceSettingsResponse$: StaticStructureSchema = [3, n0, _USSR
   [_LSD, _LSDS, _S, _SM, _HR],
   [0, () => LinuxSubscriptionsDiscoverySettings$, 0, 128 | 0, 64 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var LicenseManagerLinuxSubscriptionsServiceException$: StaticErrorSchema = [-3, _sm, "LicenseManagerLinuxSubscriptionsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LicenseManagerLinuxSubscriptionsServiceException$, LicenseManagerLinuxSubscriptionsServiceException);
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
 ];

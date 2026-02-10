@@ -284,7 +284,7 @@ const _pO = "paymentOption";
 const _q = "quantities";
 const _qC = "quotaCode";
 const _qu = "quantity";
-const _r = "region";
+const _r = "reason";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rII = "reservedInstancesId";
@@ -292,8 +292,8 @@ const _rIOI = "reservedInstancesOfferingId";
 const _rT = "resourceType";
 const _rTa = "rateType";
 const _rTat = "rateTimestamp";
-const _re = "reason";
-const _s = "status";
+const _re = "region";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bcmpricingcalculator";
 const _sARTS = "standaloneAccountRateTypeSelections";
 const _sC = "serviceCode";
 const _sCD = "serviceCostDifferences";
@@ -302,8 +302,8 @@ const _sPA = "savingsPlanArns";
 const _sPI = "savingsPlanId";
 const _sPOI = "savingsPlanOfferingId";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bcmpricingcalculator";
-const _st = "start";
+const _st = "status";
+const _sta = "start";
 const _t = "tags";
 const _tC = "totalCost";
 const _tCD = "totalCostDifference";
@@ -343,12 +343,67 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BCMPricingCalculatorServiceException$: StaticErrorSchema = [-3, _s, "BCMPricingCalculatorServiceException", 0, [], []];
+_s_registry.registerError(BCMPricingCalculatorServiceException$, BCMPricingCalculatorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`AccessDeniedCode`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictCode`, 409], [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DataUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(DataUnavailableException$, DataUnavailableException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundCode`, 404], [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_aQE]: [`ServiceQuotaCode`, 402], [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`ThrottlingCode`, 429], [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddReservedInstanceAction$: StaticStructureSchema = [3, n0, _ARIA,
   0,
   [_rIOI, _iC],
@@ -421,7 +476,7 @@ export var BatchCreateWorkloadEstimateUsageError$: StaticStructureSchema = [3, n
 ];
 export var BatchCreateWorkloadEstimateUsageItem$: StaticStructureSchema = [3, n0, _BCWEUI,
   0,
-  [_sC, _uT, _o, _l, _i, _uAI, _g, _qu, _cos, _cu, _s, _hU, _k],
+  [_sC, _uT, _o, _l, _i, _uAI, _g, _qu, _cos, _cu, _st, _hU, _k],
   [0, 0, 0, 0, 0, 0, 0, () => WorkloadEstimateUsageQuantity$, 1, 0, 0, () => HistoricalUsageEntity$, 0], 3
 ];
 export var BatchCreateWorkloadEstimateUsageRequest$: StaticStructureSchema = [3, n0, _BCWEUR,
@@ -541,7 +596,7 @@ export var BatchUpdateWorkloadEstimateUsageResponse$: StaticStructureSchema = [3
 ];
 export var BillEstimateCommitmentSummary$: StaticStructureSchema = [3, n0, _BECS,
   0,
-  [_i, _pAT, _oI, _uAI, _r, _tL, _pO, _uP, _mP],
+  [_i, _pAT, _oI, _uAI, _re, _tL, _pO, _uP, _mP],
   [0, 0, 0, 0, 0, 0, 0, () => CostAmount$, () => CostAmount$]
 ];
 export var BillEstimateCostSummary$: StaticStructureSchema = [3, n0, _BECSi,
@@ -566,12 +621,12 @@ export var BillEstimateLineItemSummary$: StaticStructureSchema = [3, n0, _BELIS,
 ];
 export var BillEstimateSummary$: StaticStructureSchema = [3, n0, _BES,
   0,
-  [_i, _n, _s, _bI, _cAr, _eA],
+  [_i, _n, _st, _bI, _cAr, _eA],
   [0, 0, 0, () => BillInterval$, 4, 4], 1
 ];
 export var BillInterval$: StaticStructureSchema = [3, n0, _BI,
   0,
-  [_st, _en],
+  [_sta, _en],
   [4, 4]
 ];
 export var BillScenarioCommitmentModificationItem$: StaticStructureSchema = [3, n0, _BSCMI,
@@ -581,7 +636,7 @@ export var BillScenarioCommitmentModificationItem$: StaticStructureSchema = [3, 
 ];
 export var BillScenarioSummary$: StaticStructureSchema = [3, n0, _BSS,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [_i, _n, _bI, _st, _cAr, _eA, _fM, _gSP, _cCGSPA],
   [0, 0, () => BillInterval$, 0, 4, 4, 0, 0, 0], 1
 ];
 export var BillScenarioUsageModificationItem$: StaticStructureSchema = [3, n0, _BSUMI,
@@ -589,12 +644,6 @@ export var BillScenarioUsageModificationItem$: StaticStructureSchema = [3, n0, _
   [_sC, _uT, _o, _l, _aZ, _i, _g, _uAI, _q, _hU],
   [0, 0, 0, 0, 0, 0, 0, 0, () => UsageQuantities, () => HistoricalUsageEntity$], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictCode`, 409], [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CostAmount$: StaticStructureSchema = [3, n0, _CA,
   0,
   [_am, _cu],
@@ -612,7 +661,7 @@ export var CreateBillEstimateRequest$: StaticStructureSchema = [3, n0, _CBER,
 ];
 export var CreateBillEstimateResponse$: StaticStructureSchema = [3, n0, _CBERr,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [_i, _n, _st, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
   [0, 0, 0, 0, () => BillInterval$, () => BillEstimateCostSummary$, 4, 4, 0, 0, 4], 1
 ];
 export var CreateBillScenarioRequest$: StaticStructureSchema = [3, n0, _CBSR,
@@ -622,7 +671,7 @@ export var CreateBillScenarioRequest$: StaticStructureSchema = [3, n0, _CBSR,
 ];
 export var CreateBillScenarioResponse$: StaticStructureSchema = [3, n0, _CBSRr,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [_i, _n, _bI, _st, _cAr, _eA, _fM, _gSP, _cCGSPA],
   [0, 0, () => BillInterval$, 0, 4, 4, 0, 0, 0], 1
 ];
 export var CreateWorkloadEstimateRequest$: StaticStructureSchema = [3, n0, _CWER,
@@ -632,15 +681,9 @@ export var CreateWorkloadEstimateRequest$: StaticStructureSchema = [3, n0, _CWER
 ];
 export var CreateWorkloadEstimateResponse$: StaticStructureSchema = [3, n0, _CWERr,
   0,
-  [_i, _n, _cAr, _eA, _rTa, _rTat, _s, _tC, _cC, _fM],
+  [_i, _n, _cAr, _eA, _rTa, _rTat, _st, _tC, _cC, _fM],
   [0, 0, 4, 4, 0, 4, 0, 1, 0, 0], 1
 ];
-export var DataUnavailableException$: StaticErrorSchema = [-3, n0, _DUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(DataUnavailableException$, DataUnavailableException);
 export var DeleteBillEstimateRequest$: StaticStructureSchema = [3, n0, _DBER,
   0,
   [_ide],
@@ -693,7 +736,7 @@ export var GetBillEstimateRequest$: StaticStructureSchema = [3, n0, _GBER,
 ];
 export var GetBillEstimateResponse$: StaticStructureSchema = [3, n0, _GBERe,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [_i, _n, _st, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
   [0, 0, 0, 0, () => BillInterval$, () => BillEstimateCostSummary$, 4, 4, 0, 0, 4], 1
 ];
 export var GetBillScenarioRequest$: StaticStructureSchema = [3, n0, _GBSR,
@@ -703,7 +746,7 @@ export var GetBillScenarioRequest$: StaticStructureSchema = [3, n0, _GBSR,
 ];
 export var GetBillScenarioResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [_i, _n, _bI, _st, _cAr, _eA, _fM, _gSP, _cCGSPA],
   [0, 0, () => BillInterval$, 0, 4, 4, 0, 0, 0], 1
 ];
 export var GetPreferencesRequest$: StaticStructureSchema = [3, n0, _GPR,
@@ -723,7 +766,7 @@ export var GetWorkloadEstimateRequest$: StaticStructureSchema = [3, n0, _GWER,
 ];
 export var GetWorkloadEstimateResponse$: StaticStructureSchema = [3, n0, _GWERe,
   0,
-  [_i, _n, _cAr, _eA, _rTa, _rTat, _s, _tC, _cC, _fM],
+  [_i, _n, _cAr, _eA, _rTa, _rTat, _st, _tC, _cC, _fM],
   [0, 0, 4, 4, 0, 4, 0, 1, 0, 0], 1
 ];
 export var HistoricalUsageEntity$: StaticStructureSchema = [3, n0, _HUE,
@@ -731,12 +774,6 @@ export var HistoricalUsageEntity$: StaticStructureSchema = [3, n0, _HUE,
   [_sC, _uT, _o, _uAI, _bI, _fE, _l],
   [0, 0, 0, 0, () => BillInterval$, () => Expression$, 0], 6
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListBillEstimateCommitmentsRequest$: StaticStructureSchema = [3, n0, _LBECR,
   0,
   [_bEI, _nT, _mR],
@@ -882,18 +919,6 @@ export var NegateSavingsPlanAction$: StaticStructureSchema = [3, n0, _NSPA,
   [_sPI],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundCode`, 404], [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_aQE]: [`ServiceQuotaCode`, 402], [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_ar, _t],
@@ -904,12 +929,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`ThrottlingCode`, 429], [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_ar, _tK],
@@ -927,7 +946,7 @@ export var UpdateBillEstimateRequest$: StaticStructureSchema = [3, n0, _UBER,
 ];
 export var UpdateBillEstimateResponse$: StaticStructureSchema = [3, n0, _UBERp,
   0,
-  [_i, _n, _s, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
+  [_i, _n, _st, _fM, _bI, _cS, _cAr, _eA, _gSP, _cCGSPA, _cCGSPED],
   [0, 0, 0, 0, () => BillInterval$, () => BillEstimateCostSummary$, 4, 4, 0, 0, 4], 1
 ];
 export var UpdateBillScenarioRequest$: StaticStructureSchema = [3, n0, _UBSR,
@@ -937,7 +956,7 @@ export var UpdateBillScenarioRequest$: StaticStructureSchema = [3, n0, _UBSR,
 ];
 export var UpdateBillScenarioResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,
-  [_i, _n, _bI, _s, _cAr, _eA, _fM, _gSP, _cCGSPA],
+  [_i, _n, _bI, _st, _cAr, _eA, _fM, _gSP, _cCGSPA],
   [0, 0, () => BillInterval$, 0, 4, 4, 0, 0, 0], 1
 ];
 export var UpdatePreferencesRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -957,7 +976,7 @@ export var UpdateWorkloadEstimateRequest$: StaticStructureSchema = [3, n0, _UWER
 ];
 export var UpdateWorkloadEstimateResponse$: StaticStructureSchema = [3, n0, _UWERp,
   0,
-  [_i, _n, _cAr, _eA, _rTa, _rTat, _s, _tC, _cC, _fM],
+  [_i, _n, _cAr, _eA, _rTa, _rTat, _st, _tC, _cC, _fM],
   [0, 0, 4, 4, 0, 4, 0, 1, 0, 0], 1
 ];
 export var UsageAmount$: StaticStructureSchema = [3, n0, _UA,
@@ -975,12 +994,6 @@ export var UsageQuantityResult$: StaticStructureSchema = [3, n0, _UQR,
   [_am, _un],
   [1, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -988,12 +1001,12 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var WorkloadEstimateSummary$: StaticStructureSchema = [3, n0, _WES,
   0,
-  [_i, _n, _cAr, _eA, _rTa, _rTat, _s, _tC, _cC, _fM],
+  [_i, _n, _cAr, _eA, _rTa, _rTat, _st, _tC, _cC, _fM],
   [0, 0, 4, 4, 0, 4, 0, 1, 0, 0], 1
 ];
 export var WorkloadEstimateUsageItem$: StaticStructureSchema = [3, n0, _WEUI,
   0,
-  [_sC, _uT, _o, _l, _i, _uAI, _g, _qu, _cos, _cu, _s, _hU],
+  [_sC, _uT, _o, _l, _i, _uAI, _g, _qu, _cos, _cu, _st, _hU],
   [0, 0, 0, 0, 0, 0, 0, () => WorkloadEstimateUsageQuantity$, 1, 0, 0, () => HistoricalUsageEntity$], 3
 ];
 export var WorkloadEstimateUsageQuantity$: StaticStructureSchema = [3, n0, _WEUQ,
@@ -1001,8 +1014,6 @@ export var WorkloadEstimateUsageQuantity$: StaticStructureSchema = [3, n0, _WEUQ
   [_un, _am],
   [0, 1]
 ];
-export var BCMPricingCalculatorServiceException$: StaticErrorSchema = [-3, _sm, "BCMPricingCalculatorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BCMPricingCalculatorServiceException$, BCMPricingCalculatorServiceException);
 var BatchCreateBillScenarioCommitmentModificationEntries: StaticListSchema = [1, n0, _BCBSCMEat,
   0, () => BatchCreateBillScenarioCommitmentModificationEntry$
 ];

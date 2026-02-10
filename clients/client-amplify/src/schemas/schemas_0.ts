@@ -192,9 +192,9 @@ const _cT = "createTime";
 const _cTo = "commitTime";
 const _cVDNSR = "certificateVerificationDNSRecord";
 const _ce = "certificate";
-const _co = "condition";
-const _cod = "code";
-const _con = "context";
+const _co = "code";
+const _con = "condition";
+const _cont = "context";
 const _d = "description";
 const _dA = "deploymentArtifacts";
 const _dAA = "domainAssociationArn";
@@ -249,7 +249,7 @@ const _pr = "prefix";
 const _r = "repository";
 const _rA = "resourceArn";
 const _rCM = "repositoryCloneMethod";
-const _s = "stage";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.amplify";
 const _sA = "stackArn";
 const _sB = "sourceBranch";
 const _sD = "subDomains";
@@ -263,9 +263,9 @@ const _sU = "sourceUrl";
 const _sUT = "sourceUrlType";
 const _sc = "screenshots";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.amplify";
 const _so = "source";
-const _st = "status";
+const _st = "stage";
+const _sta = "status";
 const _ste = "steps";
 const _su = "summary";
 const _t = "tags";
@@ -315,6 +315,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AmplifyServiceException$: StaticErrorSchema = [-3, _s, "AmplifyServiceException", 0, [], []];
+_s_registry.registerError(AmplifyServiceException$, AmplifyServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var DependentServiceFailureException$: StaticErrorSchema = [-3, n0, _DSFE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependentServiceFailureException$, DependentServiceFailureException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_co, _m],
+  [0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 var BasicAuthCredentials: StaticSimpleSchema = [0, n0, _BAC, 8, 0];
 var BuildSpec: StaticSimpleSchema = [0, n0, _BS, 8, 0];
@@ -331,7 +386,7 @@ export var Artifact$: StaticStructureSchema = [3, n0, _Ar,
 ];
 export var AutoBranchCreationConfig$: StaticStructureSchema = [3, n0, _ABCC,
   0,
-  [_s, _f, _eAB, _eV, _bAC, _eBA, _ePM, _bS, _ePRP, _pREN],
+  [_st, _f, _eAB, _eV, _bAC, _eBA, _ePM, _bS, _ePRP, _pREN],
   [0, 0, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, [() => BuildSpec, 0], 2, 0]
 ];
 export var Backend$: StaticStructureSchema = [3, n0, _B,
@@ -344,15 +399,9 @@ export var BackendEnvironment$: StaticStructureSchema = [3, n0, _BE,
   [_bEA, _eN, _cT, _uT, _sN, _dA],
   [0, 0, 4, 4, 0, 0], 4
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Branch$: StaticStructureSchema = [3, n0, _Br,
   0,
-  [_bA, _bN, _d, _s, _dN, _eNn, _cT, _uT, _eV, _eAB, _cD, _f, _aJI, _tNOJ, _eBA, _tt, _ePRP, _t, _eSP, _ePM, _tU, _bAC, _bS, _aR, _pREN, _dB, _sB, _bEA, _b, _cRA],
+  [_bA, _bN, _d, _st, _dN, _eNn, _cT, _uT, _eV, _eAB, _cD, _f, _aJI, _tNOJ, _eBA, _tt, _ePRP, _t, _eSP, _ePM, _tU, _bAC, _bS, _aR, _pREN, _dB, _sB, _bEA, _b, _cRA],
   [0, 0, 0, 0, 0, 2, 4, 4, 128 | 0, 2, 64 | 0, 0, 0, 0, 2, 0, 2, 128 | 0, 2, 2, 0, [() => BasicAuthCredentials, 0], [() => BuildSpec, 0], 64 | 0, 0, 0, 0, 0, () => Backend$, 0], 17
 ];
 export var CacheConfig$: StaticStructureSchema = [3, n0, _CC,
@@ -392,7 +441,7 @@ export var CreateBackendEnvironmentResult$: StaticStructureSchema = [3, n0, _CBE
 ];
 export var CreateBranchRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_aI, _bN, _d, _s, _f, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _t, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
+  [_aI, _bN, _d, _st, _f, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _t, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
   [[0, 1], 0, 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, 128 | 0, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0], 2
 ];
 export var CreateBranchResult$: StaticStructureSchema = [3, n0, _CBRr,
@@ -432,7 +481,7 @@ export var CreateWebhookResult$: StaticStructureSchema = [3, n0, _CWRr,
 ];
 export var CustomRule$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_so, _ta, _st, _co],
+  [_so, _ta, _sta, _con],
   [0, 0, 0, 0], 2
 ];
 export var DeleteAppRequest$: StaticStructureSchema = [3, n0, _DAR,
@@ -495,12 +544,6 @@ export var DeleteWebhookResult$: StaticStructureSchema = [3, n0, _DWRe,
   [_w],
   [() => Webhook$], 1
 ];
-export var DependentServiceFailureException$: StaticErrorSchema = [-3, n0, _DSFE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependentServiceFailureException$, DependentServiceFailureException);
 export var DomainAssociation$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_dAA, _dNo, _eASD, _dS, _sR, _sD, _aSDCP, _aSDIAMR, _uS, _cVDNSR, _ce],
@@ -586,12 +629,6 @@ export var GetWebhookResult$: StaticStructureSchema = [3, n0, _GWRe,
   [_w],
   [() => Webhook$], 1
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
   [_su, _ste],
@@ -604,15 +641,9 @@ export var JobConfig$: StaticStructureSchema = [3, n0, _JC,
 ];
 export var JobSummary$: StaticStructureSchema = [3, n0, _JS,
   0,
-  [_jA, _jI, _cI, _cM, _cTo, _sT, _st, _jT, _eT, _sU, _sUT],
+  [_jA, _jI, _cI, _cM, _cTo, _sT, _sta, _jT, _eT, _sU, _sUT],
   [0, 0, 0, 0, 4, 4, 0, 0, 4, 0, 0], 8
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAppsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_nT, _mR],
@@ -693,23 +724,11 @@ export var ListWebhooksResult$: StaticStructureSchema = [3, n0, _LWRi,
   [_we, _nT],
   [() => Webhooks, 0], 1
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var ProductionBranch$: StaticStructureSchema = [3, n0, _PB,
   0,
-  [_lDT, _st, _tU, _bN],
+  [_lDT, _sta, _tU, _bN],
   [4, 0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_cod, _m],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartDeploymentRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_aI, _bN, _jI, _sU, _sUT],
@@ -732,7 +751,7 @@ export var StartJobResult$: StaticStructureSchema = [3, n0, _SJRt,
 ];
 export var Step$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sNt, _sT, _st, _eT, _lU, _aUr, _tAU, _tCU, _sc, _sR, _con],
+  [_sNt, _sT, _sta, _eT, _lU, _aUr, _tAU, _tCU, _sc, _sR, _cont],
   [0, 4, 0, 4, 0, 0, 0, 0, 128 | 0, 0, 0], 4
 ];
 export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJRto,
@@ -765,12 +784,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -793,7 +806,7 @@ export var UpdateAppResult$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateBranchRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_aI, _bN, _d, _f, _s, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
+  [_aI, _bN, _d, _f, _st, _eNn, _eAB, _eSP, _eV, _bAC, _eBA, _ePM, _bS, _tt, _dN, _ePRP, _pREN, _bEA, _b, _cRA],
   [[0, 1], [0, 1], 0, 0, 0, 2, 2, 2, 128 | 0, [() => BasicAuthCredentials, 0], 2, 2, [() => BuildSpec, 0], 0, 0, 2, 0, 0, () => Backend$, 0], 2
 ];
 export var UpdateBranchResult$: StaticStructureSchema = [3, n0, _UBRp,
@@ -831,8 +844,6 @@ export var Webhook$: StaticStructureSchema = [3, n0, _W,
   [_wA, _wI, _wU, _bN, _d, _cT, _uT, _aI],
   [0, 0, 0, 0, 0, 4, 4, 0], 7
 ];
-export var AmplifyServiceException$: StaticErrorSchema = [-3, _sm, "AmplifyServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AmplifyServiceException$, AmplifyServiceException);
 var Apps: StaticListSchema = [1, n0, _Ap,
   0, [() => App$,
     0]

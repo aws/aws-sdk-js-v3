@@ -396,7 +396,7 @@ const _dWT = "deploymentWaitType";
 const _de = "deployed";
 const _dep = "deployments";
 const _di = "diagnostics";
-const _e = "enabled";
+const _e = "error";
 const _eC = "errorCode";
 const _eI = "externalId";
 const _eIL = "elbInfoList";
@@ -409,8 +409,8 @@ const _eTS = "ec2TagSet";
 const _eTSL = "ec2TagSetList";
 const _eTa = "eTag";
 const _eTn = "endTime";
-const _en = "end";
-const _er = "error";
+const _en = "enabled";
+const _end = "end";
 const _ev = "events";
 const _fA = "functionAlias";
 const _fEB = "fileExistsBehavior";
@@ -492,7 +492,7 @@ const _rTe = "registerTime";
 const _rTev = "revisionType";
 const _re = "revision";
 const _rep = "repository";
-const _s = "sha256";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codedeploy";
 const _sB = "sortBy";
 const _sBu = "s3Bucket";
 const _sKP = "s3KeyPrefix";
@@ -503,7 +503,7 @@ const _sNe = "serviceName";
 const _sO = "sortOrder";
 const _sRA = "serviceRoleArn";
 const _sT = "startTime";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codedeploy";
+const _sh = "sha256";
 const _st = "status";
 const _sta = "start";
 const _str = "string";
@@ -671,6 +671,679 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CodeDeployServiceException$: StaticErrorSchema = [-3, _s, "CodeDeployServiceException", 0, [], []];
+_s_registry.registerError(CodeDeployServiceException$, CodeDeployServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AlarmsLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AlarmsLimitExceededException$, AlarmsLimitExceededException);
+export var ApplicationAlreadyExistsException$: StaticErrorSchema = [-3, n0, _AAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApplicationAlreadyExistsException$, ApplicationAlreadyExistsException);
+export var ApplicationDoesNotExistException$: StaticErrorSchema = [-3, n0, _ADNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApplicationDoesNotExistException$, ApplicationDoesNotExistException);
+export var ApplicationLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEEp,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApplicationLimitExceededException$, ApplicationLimitExceededException);
+export var ApplicationNameRequiredException$: StaticErrorSchema = [-3, n0, _ANRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApplicationNameRequiredException$, ApplicationNameRequiredException);
+export var ArnNotSupportedException$: StaticErrorSchema = [-3, n0, _ANSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ArnNotSupportedException$, ArnNotSupportedException);
+export var BatchLimitExceededException$: StaticErrorSchema = [-3, n0, _BLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BatchLimitExceededException$, BatchLimitExceededException);
+export var BucketNameFilterRequiredException$: StaticErrorSchema = [-3, n0, _BNFRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BucketNameFilterRequiredException$, BucketNameFilterRequiredException);
+export var DeploymentAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _DACE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentAlreadyCompletedException$, DeploymentAlreadyCompletedException);
+export var DeploymentConfigAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DCAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentConfigAlreadyExistsException$, DeploymentConfigAlreadyExistsException);
+export var DeploymentConfigDoesNotExistException$: StaticErrorSchema = [-3, n0, _DCDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentConfigDoesNotExistException$, DeploymentConfigDoesNotExistException);
+export var DeploymentConfigInUseException$: StaticErrorSchema = [-3, n0, _DCIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentConfigInUseException$, DeploymentConfigInUseException);
+export var DeploymentConfigLimitExceededException$: StaticErrorSchema = [-3, n0, _DCLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentConfigLimitExceededException$, DeploymentConfigLimitExceededException);
+export var DeploymentConfigNameRequiredException$: StaticErrorSchema = [-3, n0, _DCNRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentConfigNameRequiredException$, DeploymentConfigNameRequiredException);
+export var DeploymentDoesNotExistException$: StaticErrorSchema = [-3, n0, _DDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentDoesNotExistException$, DeploymentDoesNotExistException);
+export var DeploymentGroupAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DGAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentGroupAlreadyExistsException$, DeploymentGroupAlreadyExistsException);
+export var DeploymentGroupDoesNotExistException$: StaticErrorSchema = [-3, n0, _DGDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentGroupDoesNotExistException$, DeploymentGroupDoesNotExistException);
+export var DeploymentGroupLimitExceededException$: StaticErrorSchema = [-3, n0, _DGLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentGroupLimitExceededException$, DeploymentGroupLimitExceededException);
+export var DeploymentGroupNameRequiredException$: StaticErrorSchema = [-3, n0, _DGNRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentGroupNameRequiredException$, DeploymentGroupNameRequiredException);
+export var DeploymentIdRequiredException$: StaticErrorSchema = [-3, n0, _DIRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentIdRequiredException$, DeploymentIdRequiredException);
+export var DeploymentIsNotInReadyStateException$: StaticErrorSchema = [-3, n0, _DINIRSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentIsNotInReadyStateException$, DeploymentIsNotInReadyStateException);
+export var DeploymentLimitExceededException$: StaticErrorSchema = [-3, n0, _DLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentLimitExceededException$, DeploymentLimitExceededException);
+export var DeploymentNotStartedException$: StaticErrorSchema = [-3, n0, _DNSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentNotStartedException$, DeploymentNotStartedException);
+export var DeploymentTargetDoesNotExistException$: StaticErrorSchema = [-3, n0, _DTDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentTargetDoesNotExistException$, DeploymentTargetDoesNotExistException);
+export var DeploymentTargetIdRequiredException$: StaticErrorSchema = [-3, n0, _DTIRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentTargetIdRequiredException$, DeploymentTargetIdRequiredException);
+export var DeploymentTargetListSizeExceededException$: StaticErrorSchema = [-3, n0, _DTLSEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeploymentTargetListSizeExceededException$, DeploymentTargetListSizeExceededException);
+export var DescriptionTooLongException$: StaticErrorSchema = [-3, n0, _DTLE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DescriptionTooLongException$, DescriptionTooLongException);
+export var ECSServiceMappingLimitExceededException$: StaticErrorSchema = [-3, n0, _ECSSMLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ECSServiceMappingLimitExceededException$, ECSServiceMappingLimitExceededException);
+export var GitHubAccountTokenDoesNotExistException$: StaticErrorSchema = [-3, n0, _GHATDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GitHubAccountTokenDoesNotExistException$, GitHubAccountTokenDoesNotExistException);
+export var GitHubAccountTokenNameRequiredException$: StaticErrorSchema = [-3, n0, _GHATNRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GitHubAccountTokenNameRequiredException$, GitHubAccountTokenNameRequiredException);
+export var IamArnRequiredException$: StaticErrorSchema = [-3, n0, _IARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IamArnRequiredException$, IamArnRequiredException);
+export var IamSessionArnAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _ISAARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IamSessionArnAlreadyRegisteredException$, IamSessionArnAlreadyRegisteredException);
+export var IamUserArnAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _IUAARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IamUserArnAlreadyRegisteredException$, IamUserArnAlreadyRegisteredException);
+export var IamUserArnRequiredException$: StaticErrorSchema = [-3, n0, _IUARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IamUserArnRequiredException$, IamUserArnRequiredException);
+export var InstanceDoesNotExistException$: StaticErrorSchema = [-3, n0, _IDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceDoesNotExistException$, InstanceDoesNotExistException);
+export var InstanceIdRequiredException$: StaticErrorSchema = [-3, n0, _IIRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceIdRequiredException$, InstanceIdRequiredException);
+export var InstanceLimitExceededException$: StaticErrorSchema = [-3, n0, _ILEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceLimitExceededException$, InstanceLimitExceededException);
+export var InstanceNameAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _INARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceNameAlreadyRegisteredException$, InstanceNameAlreadyRegisteredException);
+export var InstanceNameRequiredException$: StaticErrorSchema = [-3, n0, _INRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceNameRequiredException$, InstanceNameRequiredException);
+export var InstanceNotRegisteredException$: StaticErrorSchema = [-3, n0, _INREn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InstanceNotRegisteredException$, InstanceNotRegisteredException);
+export var InvalidAlarmConfigException$: StaticErrorSchema = [-3, n0, _IACE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAlarmConfigException$, InvalidAlarmConfigException);
+export var InvalidApplicationNameException$: StaticErrorSchema = [-3, n0, _IANE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidApplicationNameException$, InvalidApplicationNameException);
+export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArnException$, InvalidArnException);
+export var InvalidAutoRollbackConfigException$: StaticErrorSchema = [-3, n0, _IARCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAutoRollbackConfigException$, InvalidAutoRollbackConfigException);
+export var InvalidAutoScalingGroupException$: StaticErrorSchema = [-3, n0, _IASGE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAutoScalingGroupException$, InvalidAutoScalingGroupException);
+export var InvalidBlueGreenDeploymentConfigurationException$: StaticErrorSchema = [-3, n0, _IBGDCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidBlueGreenDeploymentConfigurationException$, InvalidBlueGreenDeploymentConfigurationException);
+export var InvalidBucketNameFilterException$: StaticErrorSchema = [-3, n0, _IBNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidBucketNameFilterException$, InvalidBucketNameFilterException);
+export var InvalidComputePlatformException$: StaticErrorSchema = [-3, n0, _ICPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidComputePlatformException$, InvalidComputePlatformException);
+export var InvalidDeployedStateFilterException$: StaticErrorSchema = [-3, n0, _IDSFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeployedStateFilterException$, InvalidDeployedStateFilterException);
+export var InvalidDeploymentConfigNameException$: StaticErrorSchema = [-3, n0, _IDCNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentConfigNameException$, InvalidDeploymentConfigNameException);
+export var InvalidDeploymentGroupNameException$: StaticErrorSchema = [-3, n0, _IDGNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentGroupNameException$, InvalidDeploymentGroupNameException);
+export var InvalidDeploymentIdException$: StaticErrorSchema = [-3, n0, _IDIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentIdException$, InvalidDeploymentIdException);
+export var InvalidDeploymentInstanceTypeException$: StaticErrorSchema = [-3, n0, _IDITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentInstanceTypeException$, InvalidDeploymentInstanceTypeException);
+export var InvalidDeploymentStatusException$: StaticErrorSchema = [-3, n0, _IDSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentStatusException$, InvalidDeploymentStatusException);
+export var InvalidDeploymentStyleException$: StaticErrorSchema = [-3, n0, _IDSEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentStyleException$, InvalidDeploymentStyleException);
+export var InvalidDeploymentTargetIdException$: StaticErrorSchema = [-3, n0, _IDTIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentTargetIdException$, InvalidDeploymentTargetIdException);
+export var InvalidDeploymentWaitTypeException$: StaticErrorSchema = [-3, n0, _IDWTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDeploymentWaitTypeException$, InvalidDeploymentWaitTypeException);
+export var InvalidEC2TagCombinationException$: StaticErrorSchema = [-3, n0, _IECTCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEC2TagCombinationException$, InvalidEC2TagCombinationException);
+export var InvalidEC2TagException$: StaticErrorSchema = [-3, n0, _IECTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEC2TagException$, InvalidEC2TagException);
+export var InvalidECSServiceException$: StaticErrorSchema = [-3, n0, _IECSSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidECSServiceException$, InvalidECSServiceException);
+export var InvalidExternalIdException$: StaticErrorSchema = [-3, n0, _IEIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidExternalIdException$, InvalidExternalIdException);
+export var InvalidFileExistsBehaviorException$: StaticErrorSchema = [-3, n0, _IFEBE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidFileExistsBehaviorException$, InvalidFileExistsBehaviorException);
+export var InvalidGitHubAccountTokenException$: StaticErrorSchema = [-3, n0, _IGHATE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidGitHubAccountTokenException$, InvalidGitHubAccountTokenException);
+export var InvalidGitHubAccountTokenNameException$: StaticErrorSchema = [-3, n0, _IGHATNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidGitHubAccountTokenNameException$, InvalidGitHubAccountTokenNameException);
+export var InvalidIamSessionArnException$: StaticErrorSchema = [-3, n0, _IISAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidIamSessionArnException$, InvalidIamSessionArnException);
+export var InvalidIamUserArnException$: StaticErrorSchema = [-3, n0, _IIUAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidIamUserArnException$, InvalidIamUserArnException);
+export var InvalidIgnoreApplicationStopFailuresValueException$: StaticErrorSchema = [-3, n0, _IIASFVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidIgnoreApplicationStopFailuresValueException$, InvalidIgnoreApplicationStopFailuresValueException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidInstanceNameException$: StaticErrorSchema = [-3, n0, _IINE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInstanceNameException$, InvalidInstanceNameException);
+export var InvalidInstanceStatusException$: StaticErrorSchema = [-3, n0, _IISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInstanceStatusException$, InvalidInstanceStatusException);
+export var InvalidInstanceTypeException$: StaticErrorSchema = [-3, n0, _IITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInstanceTypeException$, InvalidInstanceTypeException);
+export var InvalidKeyPrefixFilterException$: StaticErrorSchema = [-3, n0, _IKPFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidKeyPrefixFilterException$, InvalidKeyPrefixFilterException);
+export var InvalidLifecycleEventHookExecutionIdException$: StaticErrorSchema = [-3, n0, _ILEHEIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLifecycleEventHookExecutionIdException$, InvalidLifecycleEventHookExecutionIdException);
+export var InvalidLifecycleEventHookExecutionStatusException$: StaticErrorSchema = [-3, n0, _ILEHESE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLifecycleEventHookExecutionStatusException$, InvalidLifecycleEventHookExecutionStatusException);
+export var InvalidLoadBalancerInfoException$: StaticErrorSchema = [-3, n0, _ILBIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLoadBalancerInfoException$, InvalidLoadBalancerInfoException);
+export var InvalidMinimumHealthyHostValueException$: StaticErrorSchema = [-3, n0, _IMHHVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidMinimumHealthyHostValueException$, InvalidMinimumHealthyHostValueException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidOnPremisesTagCombinationException$: StaticErrorSchema = [-3, n0, _IOPTCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOnPremisesTagCombinationException$, InvalidOnPremisesTagCombinationException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidRegistrationStatusException$: StaticErrorSchema = [-3, n0, _IRSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRegistrationStatusException$, InvalidRegistrationStatusException);
+export var InvalidRevisionException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRevisionException$, InvalidRevisionException);
+export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IREn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRoleException$, InvalidRoleException);
+export var InvalidSortByException$: StaticErrorSchema = [-3, n0, _ISBE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSortByException$, InvalidSortByException);
+export var InvalidSortOrderException$: StaticErrorSchema = [-3, n0, _ISOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSortOrderException$, InvalidSortOrderException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagException$, InvalidTagException);
+export var InvalidTagFilterException$: StaticErrorSchema = [-3, n0, _ITFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagFilterException$, InvalidTagFilterException);
+export var InvalidTagsToAddException$: StaticErrorSchema = [-3, n0, _ITTAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagsToAddException$, InvalidTagsToAddException);
+export var InvalidTargetFilterNameException$: StaticErrorSchema = [-3, n0, _ITFNE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTargetFilterNameException$, InvalidTargetFilterNameException);
+export var InvalidTargetGroupPairException$: StaticErrorSchema = [-3, n0, _ITGPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTargetGroupPairException$, InvalidTargetGroupPairException);
+export var InvalidTargetInstancesException$: StaticErrorSchema = [-3, n0, _ITIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTargetInstancesException$, InvalidTargetInstancesException);
+export var InvalidTimeRangeException$: StaticErrorSchema = [-3, n0, _ITRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTimeRangeException$, InvalidTimeRangeException);
+export var InvalidTrafficRoutingConfigurationException$: StaticErrorSchema = [-3, n0, _ITRCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTrafficRoutingConfigurationException$, InvalidTrafficRoutingConfigurationException);
+export var InvalidTriggerConfigException$: StaticErrorSchema = [-3, n0, _ITCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTriggerConfigException$, InvalidTriggerConfigException);
+export var InvalidUpdateOutdatedInstancesOnlyValueException$: StaticErrorSchema = [-3, n0, _IUOIOVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUpdateOutdatedInstancesOnlyValueException$, InvalidUpdateOutdatedInstancesOnlyValueException);
+export var InvalidZonalDeploymentConfigurationException$: StaticErrorSchema = [-3, n0, _IZDCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidZonalDeploymentConfigurationException$, InvalidZonalDeploymentConfigurationException);
+export var LifecycleEventAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _LEACE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LifecycleEventAlreadyCompletedException$, LifecycleEventAlreadyCompletedException);
+export var LifecycleHookLimitExceededException$: StaticErrorSchema = [-3, n0, _LHLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LifecycleHookLimitExceededException$, LifecycleHookLimitExceededException);
+export var MultipleIamArnsProvidedException$: StaticErrorSchema = [-3, n0, _MIAPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MultipleIamArnsProvidedException$, MultipleIamArnsProvidedException);
+export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OperationNotSupportedException$, OperationNotSupportedException);
+export var ResourceArnRequiredException$: StaticErrorSchema = [-3, n0, _RARE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceArnRequiredException$, ResourceArnRequiredException);
+export var ResourceValidationException$: StaticErrorSchema = [-3, n0, _RVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceValidationException$, ResourceValidationException);
+export var RevisionDoesNotExistException$: StaticErrorSchema = [-3, n0, _RDNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RevisionDoesNotExistException$, RevisionDoesNotExistException);
+export var RevisionRequiredException$: StaticErrorSchema = [-3, n0, _RRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RevisionRequiredException$, RevisionRequiredException);
+export var RoleRequiredException$: StaticErrorSchema = [-3, n0, _RREo,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RoleRequiredException$, RoleRequiredException);
+export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagLimitExceededException$, TagLimitExceededException);
+export var TagRequiredException$: StaticErrorSchema = [-3, n0, _TRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagRequiredException$, TagRequiredException);
+export var TagSetListLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagSetListLimitExceededException$, TagSetListLimitExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TriggerTargetsLimitExceededException$: StaticErrorSchema = [-3, n0, _TTLEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TriggerTargetsLimitExceededException$, TriggerTargetsLimitExceededException);
+export var UnsupportedActionForDeploymentTypeException$: StaticErrorSchema = [-3, n0, _UAFDTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedActionForDeploymentTypeException$, UnsupportedActionForDeploymentTypeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddTagsToOnPremisesInstancesInput$: StaticStructureSchema = [3, n0, _ATTOPII,
   0,
   [_t, _iN],
@@ -683,58 +1356,22 @@ export var Alarm$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AlarmConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_e, _iPAF, _a],
+  [_en, _iPAF, _a],
   [2, 2, () => AlarmList]
 ];
-export var AlarmsLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlarmsLimitExceededException$, AlarmsLimitExceededException);
-export var ApplicationAlreadyExistsException$: StaticErrorSchema = [-3, n0, _AAEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApplicationAlreadyExistsException$, ApplicationAlreadyExistsException);
-export var ApplicationDoesNotExistException$: StaticErrorSchema = [-3, n0, _ADNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApplicationDoesNotExistException$, ApplicationDoesNotExistException);
 export var ApplicationInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_aI, _aN, _cT, _lTGH, _gHAN, _cP],
   [0, 0, 4, 2, 0, 0]
 ];
-export var ApplicationLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEEp,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApplicationLimitExceededException$, ApplicationLimitExceededException);
-export var ApplicationNameRequiredException$: StaticErrorSchema = [-3, n0, _ANRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApplicationNameRequiredException$, ApplicationNameRequiredException);
 export var AppSpecContent$: StaticStructureSchema = [3, n0, _ASC,
   0,
-  [_co, _s],
+  [_co, _sh],
   [0, 0]
 ];
-export var ArnNotSupportedException$: StaticErrorSchema = [-3, n0, _ANSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ArnNotSupportedException$, ArnNotSupportedException);
 export var AutoRollbackConfiguration$: StaticStructureSchema = [3, n0, _ARC,
   0,
-  [_e, _ev],
+  [_en, _ev],
   [2, 64 | 0]
 ];
 export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
@@ -812,12 +1449,6 @@ export var BatchGetOnPremisesInstancesOutput$: StaticStructureSchema = [3, n0, _
   [_iIn],
   [() => InstanceInfoList]
 ];
-export var BatchLimitExceededException$: StaticErrorSchema = [-3, n0, _BLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BatchLimitExceededException$, BatchLimitExceededException);
 export var BlueGreenDeploymentConfiguration$: StaticStructureSchema = [3, n0, _BGDC,
   0,
   [_tBIODS, _dRO, _gFPO],
@@ -828,12 +1459,6 @@ export var BlueInstanceTerminationOption$: StaticStructureSchema = [3, n0, _BITO
   [_ac, _tWTIM],
   [0, 1]
 ];
-export var BucketNameFilterRequiredException$: StaticErrorSchema = [-3, n0, _BNFRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BucketNameFilterRequiredException$, BucketNameFilterRequiredException);
 export var CloudFormationTarget$: StaticStructureSchema = [3, n0, _CFT,
   0,
   [_dI, _tIa, _lUA, _lE, _st, _rT, _tVW],
@@ -924,111 +1549,21 @@ export var DeleteResourcesByExternalIdOutput$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var DeploymentAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _DACE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentAlreadyCompletedException$, DeploymentAlreadyCompletedException);
-export var DeploymentConfigAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DCAEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentConfigAlreadyExistsException$, DeploymentConfigAlreadyExistsException);
-export var DeploymentConfigDoesNotExistException$: StaticErrorSchema = [-3, n0, _DCDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentConfigDoesNotExistException$, DeploymentConfigDoesNotExistException);
 export var DeploymentConfigInfo$: StaticStructureSchema = [3, n0, _DCI,
   0,
   [_dCI, _dCN, _mHH, _cT, _cP, _tRC, _zC],
   [0, 0, () => MinimumHealthyHosts$, 4, 0, () => TrafficRoutingConfig$, () => ZonalConfig$]
 ];
-export var DeploymentConfigInUseException$: StaticErrorSchema = [-3, n0, _DCIUE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentConfigInUseException$, DeploymentConfigInUseException);
-export var DeploymentConfigLimitExceededException$: StaticErrorSchema = [-3, n0, _DCLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentConfigLimitExceededException$, DeploymentConfigLimitExceededException);
-export var DeploymentConfigNameRequiredException$: StaticErrorSchema = [-3, n0, _DCNRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentConfigNameRequiredException$, DeploymentConfigNameRequiredException);
-export var DeploymentDoesNotExistException$: StaticErrorSchema = [-3, n0, _DDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentDoesNotExistException$, DeploymentDoesNotExistException);
-export var DeploymentGroupAlreadyExistsException$: StaticErrorSchema = [-3, n0, _DGAEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentGroupAlreadyExistsException$, DeploymentGroupAlreadyExistsException);
-export var DeploymentGroupDoesNotExistException$: StaticErrorSchema = [-3, n0, _DGDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentGroupDoesNotExistException$, DeploymentGroupDoesNotExistException);
 export var DeploymentGroupInfo$: StaticStructureSchema = [3, n0, _DGI,
   0,
   [_aN, _dGIe, _dGNe, _dCN, _eTF, _oPITF, _aSG, _sRA, _tR, _tC, _aC, _aRC, _dS, _oIS, _bGDC, _lBI, _lSD, _lAD, _eTS, _oPTS, _cP, _eS, _tHE],
   [0, 0, 0, 0, () => EC2TagFilterList, () => TagFilterList, () => AutoScalingGroupList, 0, () => RevisionLocation$, () => TriggerConfigList, () => AlarmConfiguration$, () => AutoRollbackConfiguration$, () => DeploymentStyle$, 0, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, () => LastDeploymentInfo$, () => LastDeploymentInfo$, () => EC2TagSet$, () => OnPremisesTagSet$, 0, () => ECSServiceList, 2]
 ];
-export var DeploymentGroupLimitExceededException$: StaticErrorSchema = [-3, n0, _DGLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentGroupLimitExceededException$, DeploymentGroupLimitExceededException);
-export var DeploymentGroupNameRequiredException$: StaticErrorSchema = [-3, n0, _DGNRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentGroupNameRequiredException$, DeploymentGroupNameRequiredException);
-export var DeploymentIdRequiredException$: StaticErrorSchema = [-3, n0, _DIRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentIdRequiredException$, DeploymentIdRequiredException);
 export var DeploymentInfo$: StaticStructureSchema = [3, n0, _DI,
   0,
   [_aN, _dGNe, _dCN, _dI, _pR, _re, _st, _eIr, _cT, _sT, _cTo, _dO, _d, _cr, _iASF, _aRC, _uOIO, _rI, _dS, _tIar, _iTWTS, _bGDC, _lBI, _aDSI, _fEB, _dSM, _cP, _eI, _rD, _oAC],
   [0, 0, 0, 0, () => RevisionLocation$, () => RevisionLocation$, 0, () => ErrorInformation$, 4, 4, 4, () => DeploymentOverview$, 0, 0, 2, () => AutoRollbackConfiguration$, 2, () => RollbackInfo$, () => DeploymentStyle$, () => TargetInstances$, 2, () => BlueGreenDeploymentConfiguration$, () => LoadBalancerInfo$, 0, 0, 64 | 0, 0, 0, () => RelatedDeployments$, () => AlarmConfiguration$]
 ];
-export var DeploymentIsNotInReadyStateException$: StaticErrorSchema = [-3, n0, _DINIRSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentIsNotInReadyStateException$, DeploymentIsNotInReadyStateException);
-export var DeploymentLimitExceededException$: StaticErrorSchema = [-3, n0, _DLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentLimitExceededException$, DeploymentLimitExceededException);
-export var DeploymentNotStartedException$: StaticErrorSchema = [-3, n0, _DNSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentNotStartedException$, DeploymentNotStartedException);
 export var DeploymentOverview$: StaticStructureSchema = [3, n0, _DO,
   0,
   [_P, _IP, _S, _F, _Sk, _R],
@@ -1049,35 +1584,11 @@ export var DeploymentTarget$: StaticStructureSchema = [3, n0, _DT,
   [_dTT, _iT, _lT, _eT, _cFT],
   [0, () => InstanceTarget$, () => LambdaTarget$, () => ECSTarget$, () => CloudFormationTarget$]
 ];
-export var DeploymentTargetDoesNotExistException$: StaticErrorSchema = [-3, n0, _DTDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentTargetDoesNotExistException$, DeploymentTargetDoesNotExistException);
-export var DeploymentTargetIdRequiredException$: StaticErrorSchema = [-3, n0, _DTIRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentTargetIdRequiredException$, DeploymentTargetIdRequiredException);
-export var DeploymentTargetListSizeExceededException$: StaticErrorSchema = [-3, n0, _DTLSEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeploymentTargetListSizeExceededException$, DeploymentTargetListSizeExceededException);
 export var DeregisterOnPremisesInstanceInput$: StaticStructureSchema = [3, n0, _DOPII,
   0,
   [_iNn],
   [0], 1
 ];
-export var DescriptionTooLongException$: StaticErrorSchema = [-3, n0, _DTLE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DescriptionTooLongException$, DescriptionTooLongException);
 export var Diagnostics$: StaticStructureSchema = [3, n0, _D,
   0,
   [_eC, _sN, _m, _lTo],
@@ -1098,12 +1609,6 @@ export var ECSService$: StaticStructureSchema = [3, n0, _ECSS,
   [_sNe, _cN],
   [0, 0]
 ];
-export var ECSServiceMappingLimitExceededException$: StaticErrorSchema = [-3, n0, _ECSSMLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ECSServiceMappingLimitExceededException$, ECSServiceMappingLimitExceededException);
 export var ECSTarget$: StaticStructureSchema = [3, n0, _ECST,
   0,
   [_dI, _tIa, _tA, _lUA, _lE, _st, _tSI],
@@ -1209,18 +1714,6 @@ export var GetOnPremisesInstanceOutput$: StaticStructureSchema = [3, n0, _GOPIO,
   [_iInst],
   [() => InstanceInfo$]
 ];
-export var GitHubAccountTokenDoesNotExistException$: StaticErrorSchema = [-3, n0, _GHATDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GitHubAccountTokenDoesNotExistException$, GitHubAccountTokenDoesNotExistException);
-export var GitHubAccountTokenNameRequiredException$: StaticErrorSchema = [-3, n0, _GHATNRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GitHubAccountTokenNameRequiredException$, GitHubAccountTokenNameRequiredException);
 export var GitHubLocation$: StaticStructureSchema = [3, n0, _GHL,
   0,
   [_rep, _cI],
@@ -1231,71 +1724,11 @@ export var GreenFleetProvisioningOption$: StaticStructureSchema = [3, n0, _GFPO,
   [_ac],
   [0]
 ];
-export var IamArnRequiredException$: StaticErrorSchema = [-3, n0, _IARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IamArnRequiredException$, IamArnRequiredException);
-export var IamSessionArnAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _ISAARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IamSessionArnAlreadyRegisteredException$, IamSessionArnAlreadyRegisteredException);
-export var IamUserArnAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _IUAARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IamUserArnAlreadyRegisteredException$, IamUserArnAlreadyRegisteredException);
-export var IamUserArnRequiredException$: StaticErrorSchema = [-3, n0, _IUARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IamUserArnRequiredException$, IamUserArnRequiredException);
-export var InstanceDoesNotExistException$: StaticErrorSchema = [-3, n0, _IDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceDoesNotExistException$, InstanceDoesNotExistException);
-export var InstanceIdRequiredException$: StaticErrorSchema = [-3, n0, _IIRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceIdRequiredException$, InstanceIdRequiredException);
 export var InstanceInfo$: StaticStructureSchema = [3, n0, _II,
   0,
   [_iNn, _iSA, _iUA, _iA, _rTe, _dTer, _t],
   [0, 0, 0, 0, 4, 4, () => TagList]
 ];
-export var InstanceLimitExceededException$: StaticErrorSchema = [-3, n0, _ILEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceLimitExceededException$, InstanceLimitExceededException);
-export var InstanceNameAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _INARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceNameAlreadyRegisteredException$, InstanceNameAlreadyRegisteredException);
-export var InstanceNameRequiredException$: StaticErrorSchema = [-3, n0, _INRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceNameRequiredException$, InstanceNameRequiredException);
-export var InstanceNotRegisteredException$: StaticErrorSchema = [-3, n0, _INREn,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InstanceNotRegisteredException$, InstanceNotRegisteredException);
 export var InstanceSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_dI, _iIns, _st, _lUA, _lE, _iTn],
@@ -1306,336 +1739,6 @@ export var InstanceTarget$: StaticStructureSchema = [3, n0, _IT,
   [_dI, _tIa, _tA, _st, _lUA, _lE, _iL],
   [0, 0, 0, 0, 4, () => LifecycleEventList, 0]
 ];
-export var InvalidAlarmConfigException$: StaticErrorSchema = [-3, n0, _IACE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAlarmConfigException$, InvalidAlarmConfigException);
-export var InvalidApplicationNameException$: StaticErrorSchema = [-3, n0, _IANE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidApplicationNameException$, InvalidApplicationNameException);
-export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArnException$, InvalidArnException);
-export var InvalidAutoRollbackConfigException$: StaticErrorSchema = [-3, n0, _IARCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAutoRollbackConfigException$, InvalidAutoRollbackConfigException);
-export var InvalidAutoScalingGroupException$: StaticErrorSchema = [-3, n0, _IASGE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAutoScalingGroupException$, InvalidAutoScalingGroupException);
-export var InvalidBlueGreenDeploymentConfigurationException$: StaticErrorSchema = [-3, n0, _IBGDCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidBlueGreenDeploymentConfigurationException$, InvalidBlueGreenDeploymentConfigurationException);
-export var InvalidBucketNameFilterException$: StaticErrorSchema = [-3, n0, _IBNFE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidBucketNameFilterException$, InvalidBucketNameFilterException);
-export var InvalidComputePlatformException$: StaticErrorSchema = [-3, n0, _ICPE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidComputePlatformException$, InvalidComputePlatformException);
-export var InvalidDeployedStateFilterException$: StaticErrorSchema = [-3, n0, _IDSFE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeployedStateFilterException$, InvalidDeployedStateFilterException);
-export var InvalidDeploymentConfigNameException$: StaticErrorSchema = [-3, n0, _IDCNE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentConfigNameException$, InvalidDeploymentConfigNameException);
-export var InvalidDeploymentGroupNameException$: StaticErrorSchema = [-3, n0, _IDGNE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentGroupNameException$, InvalidDeploymentGroupNameException);
-export var InvalidDeploymentIdException$: StaticErrorSchema = [-3, n0, _IDIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentIdException$, InvalidDeploymentIdException);
-export var InvalidDeploymentInstanceTypeException$: StaticErrorSchema = [-3, n0, _IDITE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentInstanceTypeException$, InvalidDeploymentInstanceTypeException);
-export var InvalidDeploymentStatusException$: StaticErrorSchema = [-3, n0, _IDSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentStatusException$, InvalidDeploymentStatusException);
-export var InvalidDeploymentStyleException$: StaticErrorSchema = [-3, n0, _IDSEn,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentStyleException$, InvalidDeploymentStyleException);
-export var InvalidDeploymentTargetIdException$: StaticErrorSchema = [-3, n0, _IDTIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentTargetIdException$, InvalidDeploymentTargetIdException);
-export var InvalidDeploymentWaitTypeException$: StaticErrorSchema = [-3, n0, _IDWTE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDeploymentWaitTypeException$, InvalidDeploymentWaitTypeException);
-export var InvalidEC2TagCombinationException$: StaticErrorSchema = [-3, n0, _IECTCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEC2TagCombinationException$, InvalidEC2TagCombinationException);
-export var InvalidEC2TagException$: StaticErrorSchema = [-3, n0, _IECTE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEC2TagException$, InvalidEC2TagException);
-export var InvalidECSServiceException$: StaticErrorSchema = [-3, n0, _IECSSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidECSServiceException$, InvalidECSServiceException);
-export var InvalidExternalIdException$: StaticErrorSchema = [-3, n0, _IEIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidExternalIdException$, InvalidExternalIdException);
-export var InvalidFileExistsBehaviorException$: StaticErrorSchema = [-3, n0, _IFEBE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidFileExistsBehaviorException$, InvalidFileExistsBehaviorException);
-export var InvalidGitHubAccountTokenException$: StaticErrorSchema = [-3, n0, _IGHATE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGitHubAccountTokenException$, InvalidGitHubAccountTokenException);
-export var InvalidGitHubAccountTokenNameException$: StaticErrorSchema = [-3, n0, _IGHATNE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGitHubAccountTokenNameException$, InvalidGitHubAccountTokenNameException);
-export var InvalidIamSessionArnException$: StaticErrorSchema = [-3, n0, _IISAE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidIamSessionArnException$, InvalidIamSessionArnException);
-export var InvalidIamUserArnException$: StaticErrorSchema = [-3, n0, _IIUAE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidIamUserArnException$, InvalidIamUserArnException);
-export var InvalidIgnoreApplicationStopFailuresValueException$: StaticErrorSchema = [-3, n0, _IIASFVE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidIgnoreApplicationStopFailuresValueException$, InvalidIgnoreApplicationStopFailuresValueException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var InvalidInstanceNameException$: StaticErrorSchema = [-3, n0, _IINE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInstanceNameException$, InvalidInstanceNameException);
-export var InvalidInstanceStatusException$: StaticErrorSchema = [-3, n0, _IISE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInstanceStatusException$, InvalidInstanceStatusException);
-export var InvalidInstanceTypeException$: StaticErrorSchema = [-3, n0, _IITE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInstanceTypeException$, InvalidInstanceTypeException);
-export var InvalidKeyPrefixFilterException$: StaticErrorSchema = [-3, n0, _IKPFE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidKeyPrefixFilterException$, InvalidKeyPrefixFilterException);
-export var InvalidLifecycleEventHookExecutionIdException$: StaticErrorSchema = [-3, n0, _ILEHEIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLifecycleEventHookExecutionIdException$, InvalidLifecycleEventHookExecutionIdException);
-export var InvalidLifecycleEventHookExecutionStatusException$: StaticErrorSchema = [-3, n0, _ILEHESE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLifecycleEventHookExecutionStatusException$, InvalidLifecycleEventHookExecutionStatusException);
-export var InvalidLoadBalancerInfoException$: StaticErrorSchema = [-3, n0, _ILBIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLoadBalancerInfoException$, InvalidLoadBalancerInfoException);
-export var InvalidMinimumHealthyHostValueException$: StaticErrorSchema = [-3, n0, _IMHHVE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidMinimumHealthyHostValueException$, InvalidMinimumHealthyHostValueException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidOnPremisesTagCombinationException$: StaticErrorSchema = [-3, n0, _IOPTCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOnPremisesTagCombinationException$, InvalidOnPremisesTagCombinationException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidRegistrationStatusException$: StaticErrorSchema = [-3, n0, _IRSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRegistrationStatusException$, InvalidRegistrationStatusException);
-export var InvalidRevisionException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRevisionException$, InvalidRevisionException);
-export var InvalidRoleException$: StaticErrorSchema = [-3, n0, _IREn,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRoleException$, InvalidRoleException);
-export var InvalidSortByException$: StaticErrorSchema = [-3, n0, _ISBE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSortByException$, InvalidSortByException);
-export var InvalidSortOrderException$: StaticErrorSchema = [-3, n0, _ISOE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSortOrderException$, InvalidSortOrderException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
-export var InvalidTagFilterException$: StaticErrorSchema = [-3, n0, _ITFE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagFilterException$, InvalidTagFilterException);
-export var InvalidTagsToAddException$: StaticErrorSchema = [-3, n0, _ITTAE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagsToAddException$, InvalidTagsToAddException);
-export var InvalidTargetFilterNameException$: StaticErrorSchema = [-3, n0, _ITFNE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTargetFilterNameException$, InvalidTargetFilterNameException);
-export var InvalidTargetGroupPairException$: StaticErrorSchema = [-3, n0, _ITGPE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTargetGroupPairException$, InvalidTargetGroupPairException);
-export var InvalidTargetInstancesException$: StaticErrorSchema = [-3, n0, _ITIE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTargetInstancesException$, InvalidTargetInstancesException);
-export var InvalidTimeRangeException$: StaticErrorSchema = [-3, n0, _ITRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTimeRangeException$, InvalidTimeRangeException);
-export var InvalidTrafficRoutingConfigurationException$: StaticErrorSchema = [-3, n0, _ITRCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTrafficRoutingConfigurationException$, InvalidTrafficRoutingConfigurationException);
-export var InvalidTriggerConfigException$: StaticErrorSchema = [-3, n0, _ITCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTriggerConfigException$, InvalidTriggerConfigException);
-export var InvalidUpdateOutdatedInstancesOnlyValueException$: StaticErrorSchema = [-3, n0, _IUOIOVE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUpdateOutdatedInstancesOnlyValueException$, InvalidUpdateOutdatedInstancesOnlyValueException);
-export var InvalidZonalDeploymentConfigurationException$: StaticErrorSchema = [-3, n0, _IZDCE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidZonalDeploymentConfigurationException$, InvalidZonalDeploymentConfigurationException);
 export var LambdaFunctionInfo$: StaticStructureSchema = [3, n0, _LFI,
   0,
   [_fN, _fA, _cV, _tV, _tVW],
@@ -1656,18 +1759,6 @@ export var LifecycleEvent$: StaticStructureSchema = [3, n0, _LE,
   [_lEN, _di, _sT, _eTn, _st],
   [0, () => Diagnostics$, 4, 4, 0]
 ];
-export var LifecycleEventAlreadyCompletedException$: StaticErrorSchema = [-3, n0, _LEACE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LifecycleEventAlreadyCompletedException$, LifecycleEventAlreadyCompletedException);
-export var LifecycleHookLimitExceededException$: StaticErrorSchema = [-3, n0, _LHLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LifecycleHookLimitExceededException$, LifecycleHookLimitExceededException);
 export var ListApplicationRevisionsInput$: StaticStructureSchema = [3, n0, _LARI,
   0,
   [_aN, _sB, _sO, _sBu, _sKP, _de, _nT],
@@ -1783,23 +1874,11 @@ export var MinimumHealthyHostsPerZone$: StaticStructureSchema = [3, n0, _MHHPZ,
   [_ty, _v],
   [0, 1]
 ];
-export var MultipleIamArnsProvidedException$: StaticErrorSchema = [-3, n0, _MIAPE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MultipleIamArnsProvidedException$, MultipleIamArnsProvidedException);
 export var OnPremisesTagSet$: StaticStructureSchema = [3, n0, _OPTS,
   0,
   [_oPTSL],
   [() => OnPremisesTagSetList]
 ];
-export var OperationNotSupportedException$: StaticErrorSchema = [-3, n0, _ONSE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationNotSupportedException$, OperationNotSupportedException);
 export var PutLifecycleEventHookExecutionStatusInput$: StaticStructureSchema = [3, n0, _PLEHESI,
   0,
   [_dI, _lEHEI, _st],
@@ -1812,7 +1891,7 @@ export var PutLifecycleEventHookExecutionStatusOutput$: StaticStructureSchema = 
 ];
 export var RawString$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_co, _s],
+  [_co, _sh],
   [0, 0]
 ];
 export var RegisterApplicationRevisionInput$: StaticStructureSchema = [3, n0, _RARI,
@@ -1835,24 +1914,6 @@ export var RemoveTagsFromOnPremisesInstancesInput$: StaticStructureSchema = [3, 
   [_t, _iN],
   [() => TagList, 64 | 0], 2
 ];
-export var ResourceArnRequiredException$: StaticErrorSchema = [-3, n0, _RARE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceArnRequiredException$, ResourceArnRequiredException);
-export var ResourceValidationException$: StaticErrorSchema = [-3, n0, _RVE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceValidationException$, ResourceValidationException);
-export var RevisionDoesNotExistException$: StaticErrorSchema = [-3, n0, _RDNEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RevisionDoesNotExistException$, RevisionDoesNotExistException);
 export var RevisionInfo$: StaticStructureSchema = [3, n0, _RI,
   0,
   [_rL, _gRI],
@@ -1863,18 +1924,6 @@ export var RevisionLocation$: StaticStructureSchema = [3, n0, _RL,
   [_rTev, _sL, _gHL, _str, _aSC],
   [0, () => S3Location$, () => GitHubLocation$, () => RawString$, () => AppSpecContent$]
 ];
-export var RevisionRequiredException$: StaticErrorSchema = [-3, n0, _RRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RevisionRequiredException$, RevisionRequiredException);
-export var RoleRequiredException$: StaticErrorSchema = [-3, n0, _RREo,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RoleRequiredException$, RoleRequiredException);
 export var RollbackInfo$: StaticStructureSchema = [3, n0, _RIo,
   0,
   [_rDI, _rTDI, _rM],
@@ -1910,18 +1959,6 @@ export var TagFilter$: StaticStructureSchema = [3, n0, _TFa,
   [_K, _V, _T],
   [0, 0, 0]
 ];
-export var TagLimitExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagLimitExceededException$, TagLimitExceededException);
-export var TagRequiredException$: StaticErrorSchema = [-3, n0, _TRE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagRequiredException$, TagRequiredException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RA, _Ta],
@@ -1932,12 +1969,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var TagSetListLimitExceededException$: StaticErrorSchema = [-3, n0, _TSLLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagSetListLimitExceededException$, TagSetListLimitExceededException);
 export var TargetGroupInfo$: StaticStructureSchema = [3, n0, _TGI,
   0,
   [_n],
@@ -1953,12 +1984,6 @@ export var TargetInstances$: StaticStructureSchema = [3, n0, _TI,
   [_tFa, _aSG, _eTS],
   [() => EC2TagFilterList, 64 | 0, () => EC2TagSet$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeBasedCanary$: StaticStructureSchema = [3, n0, _TBC,
   0,
   [_cPa, _cIa],
@@ -1971,7 +1996,7 @@ export var TimeBasedLinear$: StaticStructureSchema = [3, n0, _TBL,
 ];
 export var TimeRange$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_sta, _en],
+  [_sta, _end],
   [4, 4]
 ];
 export var TrafficRoute$: StaticStructureSchema = [3, n0, _TRr,
@@ -1989,18 +2014,6 @@ export var TriggerConfig$: StaticStructureSchema = [3, n0, _TC,
   [_tNr, _tTA, _tE],
   [0, 0, 64 | 0]
 ];
-export var TriggerTargetsLimitExceededException$: StaticErrorSchema = [-3, n0, _TTLEE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TriggerTargetsLimitExceededException$, TriggerTargetsLimitExceededException);
-export var UnsupportedActionForDeploymentTypeException$: StaticErrorSchema = [-3, n0, _UAFDTE,
-  { [_er]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedActionForDeploymentTypeException$, UnsupportedActionForDeploymentTypeException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
@@ -2032,8 +2045,6 @@ export var ZonalConfig$: StaticStructureSchema = [3, n0, _ZC,
   [1, 1, () => MinimumHealthyHostsPerZone$]
 ];
 var __Unit = "unit" as const;
-export var CodeDeployServiceException$: StaticErrorSchema = [-3, _sm, "CodeDeployServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeDeployServiceException$, CodeDeployServiceException);
 var AlarmList: StaticListSchema = [1, n0, _AL,
   0, () => Alarm$
 ];

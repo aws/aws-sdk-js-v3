@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDataExchangeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DataExchangeClientConfig } from "./DataExchangeClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DataExchangeClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.dataexchange",
+      errorTypeRegistries,
       version: "2017-07-25",
       serviceTarget: "DataExchange",
     },

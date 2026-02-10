@@ -172,7 +172,7 @@ const _pTP = "promoteToPrimary";
 const _rA = "removableAttributes";
 const _rAe = "resourceArn";
 const _rTVI = "revertToVersionId";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.medicalimaging";
 const _sA = "submittedAt";
 const _sC = "searchCriteria";
 const _sF = "sortField";
@@ -182,8 +182,8 @@ const _sISP = "sourceImageSetProperties";
 const _sO = "sortOrder";
 const _sT = "storageTier";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.medicalimaging";
 const _so = "sort";
+const _st = "streaming";
 const _t = "tags";
 const _tK = "tagKeys";
 const _uA = "updatedAt";
@@ -218,6 +218,61 @@ import {
 import { MedicalImagingServiceException } from "../models/MedicalImagingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MedicalImagingServiceException$: StaticErrorSchema = [-3, _s, "MedicalImagingServiceException", 0, [], []];
+_s_registry.registerError(MedicalImagingServiceException$, MedicalImagingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CopiableAttributes: StaticSimpleSchema = [0, n0, _CA, 8, 0];
 var DICOMAccessionNumber: StaticSimpleSchema = [0, n0, _DICOMAN, 8, 0];
 var DICOMAttribute: StaticSimpleSchema = [0, n0, _DICOMA, 8, 21];
@@ -234,20 +289,8 @@ var DICOMStudyDescription: StaticSimpleSchema = [0, n0, _DICOMSDt, 8, 0];
 var DICOMStudyId: StaticSimpleSchema = [0, n0, _DICOMSI, 8, 0];
 var DICOMStudyInstanceUID: StaticSimpleSchema = [0, n0, _DICOMSIUIDt, 8, 0];
 var DICOMStudyTime: StaticSimpleSchema = [0, n0, _DICOMST, 8, 0];
-var ImageSetMetadataBlob: StaticSimpleSchema = [0, n0, _ISMB, { [_s]: 1 }, 42];
-var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_s]: 1 }, 42];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+var ImageSetMetadataBlob: StaticSimpleSchema = [0, n0, _ISMB, { [_st]: 1 }, 42];
+var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_st]: 1 }, 42];
 export var CopyDestinationImageSet$: StaticStructureSchema = [3, n0, _CDIS,
   0,
   [_iSI, _lVI],
@@ -413,12 +456,6 @@ export var ImageSetsMetadataSummary$: StaticStructureSchema = [3, n0, _ISMS,
   [_iSI, _v, _cA, _uA, _lAAa, _sT, _DICOMT, _iP],
   [0, 1, 4, 4, 4, 0, [() => DICOMTags$, 0], 2], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDatastoresRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_dS, _nT, _mR],
@@ -469,12 +506,6 @@ export var Overrides$: StaticStructureSchema = [3, n0, _O,
   [_fo],
   [2]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchCriteria$: StaticStructureSchema = [3, n0, _SC,
   8,
   [_fi, _so],
@@ -495,12 +526,6 @@ export var SearchImageSetsResponse$: StaticStructureSchema = [3, n0, _SISRe,
   [_iSMS, _so, _nT],
   [[() => ImageSetsMetadataSummaries, 0], () => Sort$, 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Sort$: StaticStructureSchema = [3, n0, _S,
   0,
   [_sO, _sF],
@@ -526,12 +551,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -552,14 +571,6 @@ export var UpdateImageSetMetadataResponse$: StaticStructureSchema = [3, n0, _UIS
   [_dI, _iSI, _lVI, _iSS, _iSWS, _cA, _uA, _m],
   [0, 0, 0, 0, 0, 4, 4, 0], 4
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var MedicalImagingServiceException$: StaticErrorSchema = [-3, _sm, "MedicalImagingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MedicalImagingServiceException$, MedicalImagingServiceException);
 var DatastoreSummaries: StaticListSchema = [1, n0, _DSa,
   0, () => DatastoreSummary$
 ];

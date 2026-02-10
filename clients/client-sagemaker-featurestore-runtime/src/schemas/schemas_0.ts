@@ -48,8 +48,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerfeaturestoreruntime";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakerfeaturestoreruntime";
+const _se = "server";
 const n0 = "com.amazonaws.sagemakerfeaturestoreruntime";
 
 // smithy-typescript generated code
@@ -66,12 +66,49 @@ import {
 import { SageMakerFeatureStoreRuntimeServiceException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerFeatureStoreRuntimeServiceException$: StaticErrorSchema = [-3, _s, "SageMakerFeatureStoreRuntimeServiceException", 0, [], []];
+_s_registry.registerError(SageMakerFeatureStoreRuntimeServiceException$, SageMakerFeatureStoreRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessForbidden$: StaticErrorSchema = [-3, n0, _AF,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessForbidden$, AccessForbidden);
+n0_registry.registerError(AccessForbidden$, AccessForbidden);
+export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailure$, InternalFailure);
+export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFound$, ResourceNotFound);
+export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailable$, ServiceUnavailable);
+export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationError$, ValidationError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BatchGetRecordError$: StaticStructureSchema = [3, n0, _BGRE,
   0,
   [_FGN, _RIVAS, _EC, _EM],
@@ -117,43 +154,17 @@ export var GetRecordResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_Re, _EA],
   [() => _Record, 0]
 ];
-export var InternalFailure$: StaticErrorSchema = [-3, n0, _IF,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailure$, InternalFailure);
 export var PutRecordRequest$: StaticStructureSchema = [3, n0, _PRR,
   0,
   [_FGN, _Re, _TS, _TD],
   [[0, 1], () => _Record, 64 | 0, () => TtlDuration$], 2
 ];
-export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
-export var ServiceUnavailable$: StaticErrorSchema = [-3, n0, _SU,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailable$, ServiceUnavailable);
 export var TtlDuration$: StaticStructureSchema = [3, n0, _TD,
   0,
   [_U, _V],
   [0, 1], 2
 ];
-export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationError$, ValidationError);
 var __Unit = "unit" as const;
-export var SageMakerFeatureStoreRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerFeatureStoreRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SageMakerFeatureStoreRuntimeServiceException$, SageMakerFeatureStoreRuntimeServiceException);
 var BatchGetRecordErrors: StaticListSchema = [1, n0, _BGREa,
   0, () => BatchGetRecordError$
 ];

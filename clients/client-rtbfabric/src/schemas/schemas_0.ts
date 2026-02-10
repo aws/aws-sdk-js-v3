@@ -179,12 +179,12 @@ const _rC = "reasonCode";
 const _rEM = "responderErrorMasking";
 const _rL = "rateLimiter";
 const _rLP = "responseLoggingPercentage";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rtbfabric";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
 const _sa = "sampling";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rtbfabric";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tLC = "totalLinksCount";
@@ -221,6 +221,61 @@ import {
 import { RTBFabricServiceException } from "../models/RTBFabricServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RTBFabricServiceException$: StaticErrorSchema = [-3, _s, "RTBFabricServiceException", 0, [], []];
+_s_registry.registerError(RTBFabricServiceException$, RTBFabricServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Base64EncodedCertificateChain: StaticSimpleSchema = [0, n0, _BECC, 8, 0];
 export var AcceptLinkRequest$: StaticStructureSchema = [3, n0, _ALR,
   0,
@@ -229,26 +284,14 @@ export var AcceptLinkRequest$: StaticStructureSchema = [3, n0, _ALR,
 ];
 export var AcceptLinkResponse$: StaticStructureSchema = [3, n0, _ALRc,
   0,
-  [_gI, _pGI, _s, _cA, _uA, _lI, _d, _fM, _pFM, _a],
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a],
   [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$], 6
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AutoScalingGroupsConfiguration$: StaticStructureSchema = [3, n0, _ASGC,
   0,
   [_aSGN, _rA],
   [64 | 0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _CIELR,
   0,
   [_gI, _lS, _cT, _a, _t],
@@ -256,7 +299,7 @@ export var CreateInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _CIELRr,
   0,
-  [_gI, _lI, _s, _dN],
+  [_gI, _lI, _st, _dN],
   [0, 0, 0, 0], 4
 ];
 export var CreateLinkRequest$: StaticStructureSchema = [3, n0, _CLR,
@@ -266,7 +309,7 @@ export var CreateLinkRequest$: StaticStructureSchema = [3, n0, _CLR,
 ];
 export var CreateLinkResponse$: StaticStructureSchema = [3, n0, _CLRr,
   0,
-  [_gI, _pGI, _s, _cA, _uA, _lI, _d, _fM, _pFM, _a, _cPI],
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _cPI],
   [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 0], 6
 ];
 export var CreateOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _COELR,
@@ -276,7 +319,7 @@ export var CreateOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _COELRr,
   0,
-  [_gI, _lI, _s],
+  [_gI, _lI, _st],
   [0, 0, 0], 3
 ];
 export var CreateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _CRGR,
@@ -286,7 +329,7 @@ export var CreateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _CRGR
 ];
 export var CreateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRr,
   0,
-  [_gI, _dN, _s],
+  [_gI, _dN, _st],
   [0, 0, 0], 3
 ];
 export var CreateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _CRGRre,
@@ -296,7 +339,7 @@ export var CreateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _CRGR
 ];
 export var CreateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _CRGRrea,
   0,
-  [_gI, _s],
+  [_gI, _st],
   [0, 0], 2
 ];
 export var DeleteInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _DIELR,
@@ -306,7 +349,7 @@ export var DeleteInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DeleteInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _DIELRe,
   0,
-  [_lI, _s],
+  [_lI, _st],
   [0, 0], 2
 ];
 export var DeleteLinkRequest$: StaticStructureSchema = [3, n0, _DLR,
@@ -316,7 +359,7 @@ export var DeleteLinkRequest$: StaticStructureSchema = [3, n0, _DLR,
 ];
 export var DeleteLinkResponse$: StaticStructureSchema = [3, n0, _DLRe,
   0,
-  [_lI, _s],
+  [_lI, _st],
   [0, 0], 2
 ];
 export var DeleteOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _DOELR,
@@ -326,7 +369,7 @@ export var DeleteOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DeleteOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _DOELRe,
   0,
-  [_lI, _s],
+  [_lI, _st],
   [0, 0], 2
 ];
 export var DeleteRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _DRGR,
@@ -336,7 +379,7 @@ export var DeleteRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _DRGR
 ];
 export var DeleteRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _DRGRe,
   0,
-  [_gI, _s],
+  [_gI, _st],
   [0, 0], 2
 ];
 export var DeleteResponderGatewayRequest$: StaticStructureSchema = [3, n0, _DRGRel,
@@ -346,7 +389,7 @@ export var DeleteResponderGatewayRequest$: StaticStructureSchema = [3, n0, _DRGR
 ];
 export var DeleteResponderGatewayResponse$: StaticStructureSchema = [3, n0, _DRGRele,
   0,
-  [_gI, _s],
+  [_gI, _st],
   [0, 0], 2
 ];
 export var EksEndpointsConfiguration$: StaticStructureSchema = [3, n0, _EEC,
@@ -371,7 +414,7 @@ export var GetInboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GIEL
 ];
 export var GetInboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GIELRe,
   0,
-  [_gI, _lI, _s, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS],
+  [_gI, _lI, _st, _dN, _fM, _pFM, _a, _cA, _uA, _t, _lS],
   [0, 0, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 4, 4, 128 | 0, () => LinkLogSettings$], 4
 ];
 export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
@@ -381,7 +424,7 @@ export var GetLinkRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLinkResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_gI, _pGI, _s, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t, _lS],
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t, _lS],
   [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 128 | 0, () => LinkLogSettings$], 6
 ];
 export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOELR,
@@ -391,7 +434,7 @@ export var GetOutboundExternalLinkRequest$: StaticStructureSchema = [3, n0, _GOE
 ];
 export var GetOutboundExternalLinkResponse$: StaticStructureSchema = [3, n0, _GOELRe,
   0,
-  [_gI, _lI, _s, _pE, _cA, _uA, _t, _lS],
+  [_gI, _lI, _st, _pE, _cA, _uA, _t, _lS],
   [0, 0, 0, 0, 4, 4, 128 | 0, () => LinkLogSettings$], 4
 ];
 export var GetRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
@@ -401,7 +444,7 @@ export var GetRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _GRGR,
 ];
 export var GetRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRe,
   0,
-  [_s, _dN, _vI, _sI, _sGI, _gI, _de, _cA, _uA, _t, _aLC, _tLC],
+  [_st, _dN, _vI, _sI, _sGI, _gI, _de, _cA, _uA, _t, _aLC, _tLC],
   [0, 0, 0, 64 | 0, 64 | 0, 0, 0, 4, 4, 128 | 0, 1, 1], 6
 ];
 export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
@@ -411,7 +454,7 @@ export var GetResponderGatewayRequest$: StaticStructureSchema = [3, n0, _GRGRet,
 ];
 export var GetResponderGatewayResponse$: StaticStructureSchema = [3, n0, _GRGRete,
   0,
-  [_vI, _sI, _sGI, _s, _p, _pr, _gI, _de, _cA, _uA, _dN, _tSC, _mEC, _t, _aLC, _tLC, _iLC],
+  [_vI, _sI, _sGI, _st, _p, _pr, _gI, _de, _cA, _uA, _dN, _tSC, _mEC, _t, _aLC, _tLC, _iLC],
   [0, 64 | 0, 64 | 0, 0, 1, 0, 0, 0, 4, 4, 0, [() => TrustStoreConfiguration$, 0], [() => ManagedEndpointConfiguration$, 0], 128 | 0, 1, 1, 1], 7
 ];
 export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
@@ -419,12 +462,6 @@ export var HeaderTagAction$: StaticStructureSchema = [3, n0, _HTA,
   [_n, _va],
   [0, 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LinkApplicationLogConfiguration$: StaticStructureSchema = [3, n0, _LALC,
   0,
   [_sa],
@@ -457,7 +494,7 @@ export var ListLinksResponse$: StaticStructureSchema = [3, n0, _LLRi,
 ];
 export var ListLinksResponseStructure$: StaticStructureSchema = [3, n0, _LLRS,
   0,
-  [_gI, _pGI, _s, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t],
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a, _t],
   [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$, 128 | 0], 6
 ];
 export var ListRequesterGatewaysRequest$: StaticStructureSchema = [3, n0, _LRGR,
@@ -522,26 +559,14 @@ export var RejectLinkRequest$: StaticStructureSchema = [3, n0, _RLR,
 ];
 export var RejectLinkResponse$: StaticStructureSchema = [3, n0, _RLRe,
   0,
-  [_gI, _pGI, _s, _cA, _uA, _lI, _d, _fM, _pFM, _a],
+  [_gI, _pGI, _st, _cA, _uA, _lI, _d, _fM, _pFM, _a],
   [0, 0, 0, 4, 4, 0, 0, () => ModuleConfigurationList, () => ModuleConfigurationList, () => LinkAttributes$], 6
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponderErrorMaskingForHttpCode$: StaticStructureSchema = [3, n0, _REMFHC,
   0,
   [_hC, _ac, _lT, _rLP],
   [0, 0, 64 | 0, 1], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rAe, _t],
@@ -552,12 +577,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrustStoreConfiguration$: StaticStructureSchema = [3, n0, _TSC,
   0,
   [_cAC],
@@ -580,7 +599,7 @@ export var UpdateLinkModuleFlowRequest$: StaticStructureSchema = [3, n0, _ULMFR,
 ];
 export var UpdateLinkModuleFlowResponse$: StaticStructureSchema = [3, n0, _ULMFRp,
   0,
-  [_gI, _lI, _s],
+  [_gI, _lI, _st],
   [0, 0, 0], 3
 ];
 export var UpdateLinkRequest$: StaticStructureSchema = [3, n0, _ULR,
@@ -590,7 +609,7 @@ export var UpdateLinkRequest$: StaticStructureSchema = [3, n0, _ULR,
 ];
 export var UpdateLinkResponse$: StaticStructureSchema = [3, n0, _ULRp,
   0,
-  [_lI, _s],
+  [_lI, _st],
   [0, 0], 2
 ];
 export var UpdateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _URGR,
@@ -600,7 +619,7 @@ export var UpdateRequesterGatewayRequest$: StaticStructureSchema = [3, n0, _URGR
 ];
 export var UpdateRequesterGatewayResponse$: StaticStructureSchema = [3, n0, _URGRp,
   0,
-  [_gI, _s],
+  [_gI, _st],
   [0, 0], 2
 ];
 export var UpdateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _URGRpd,
@@ -610,17 +629,9 @@ export var UpdateResponderGatewayRequest$: StaticStructureSchema = [3, n0, _URGR
 ];
 export var UpdateResponderGatewayResponse$: StaticStructureSchema = [3, n0, _URGRpda,
   0,
-  [_gI, _s],
+  [_gI, _st],
   [0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var RTBFabricServiceException$: StaticErrorSchema = [-3, _sm, "RTBFabricServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RTBFabricServiceException$, RTBFabricServiceException);
 var AutoScalingGroupNameList = 64 | 0;
 var CertificateAuthorityCertificates: StaticListSchema = [1, n0, _CAC,
   0, [() => Base64EncodedCertificateChain,

@@ -138,7 +138,7 @@ const _pro = "profiles";
 const _rA = "roleArns";
 const _rAe = "resourceArn";
 const _rIP = "requireInstanceProperties";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rolesanywhere";
 const _sA = "seenAt";
 const _sAu = "subjectArn";
 const _sD = "sourceData";
@@ -146,7 +146,7 @@ const _sI = "subjectId";
 const _sN = "serialNumber";
 const _sP = "sessionPolicy";
 const _sT = "sourceType";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rolesanywhere";
+const _so = "source";
 const _sp = "specifiers";
 const _spe = "specifier";
 const _su = "subjects";
@@ -185,14 +185,45 @@ import {
 import { RolesAnywhereServiceException } from "../models/RolesAnywhereServiceException";
 
 /* eslint no-var: 0 */
-var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
-var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var RolesAnywhereServiceException$: StaticErrorSchema = [-3, _s, "RolesAnywhereServiceException", 0, [], []];
+_s_registry.registerError(RolesAnywhereServiceException$, RolesAnywhereServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var TagKey: StaticSimpleSchema = [0, n0, _TK, 8, 0];
+var TagValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var AttributeMapping$: StaticStructureSchema = [3, n0, _AM,
   0,
   [_cF, _mR],
@@ -205,7 +236,7 @@ export var CreateProfileRequest$: StaticStructureSchema = [3, n0, _CPR,
 ];
 export var CreateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _CTAR,
   0,
-  [_n, _s, _en, _t, _nS],
+  [_n, _so, _en, _t, _nS],
   [0, () => Source$, 2, [() => TagList, 0], () => NotificationSettings], 2
 ];
 export var CredentialSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -338,12 +369,6 @@ export var ResetNotificationSettingsResponse$: StaticStructureSchema = [3, n0, _
   [_tAr],
   [() => TrustAnchorDetail$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScalarCrlRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_cI],
@@ -399,15 +424,9 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TrustAnchorDetail$: StaticStructureSchema = [3, n0, _TAD,
   0,
-  [_tAI, _tAA, _n, _s, _en, _cAr, _uA, _nS],
+  [_tAI, _tAA, _n, _so, _en, _cAr, _uA, _nS],
   [0, 0, 0, () => Source$, 2, 5, 5, () => NotificationSettingDetails]
 ];
 export var TrustAnchorDetailResponse$: StaticStructureSchema = [3, n0, _TADR,
@@ -437,17 +456,9 @@ export var UpdateProfileRequest$: StaticStructureSchema = [3, n0, _UPR,
 ];
 export var UpdateTrustAnchorRequest$: StaticStructureSchema = [3, n0, _UTAR,
   0,
-  [_tAI, _n, _s],
+  [_tAI, _n, _so],
   [[0, 1], 0, () => Source$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var RolesAnywhereServiceException$: StaticErrorSchema = [-3, _sm, "RolesAnywhereServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RolesAnywhereServiceException$, RolesAnywhereServiceException);
 var AttributeMappings: StaticListSchema = [1, n0, _AMt,
   0, () => AttributeMapping$
 ];

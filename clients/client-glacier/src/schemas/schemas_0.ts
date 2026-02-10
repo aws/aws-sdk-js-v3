@@ -203,11 +203,11 @@ const _aIr = "archiveId";
 const _aR = "acceptRanges";
 const _aS = "archiveSize";
 const _b = "body";
-const _c = "checksum";
+const _c = "client";
 const _cI = "capacityId";
 const _cR = "contentRange";
 const _cT = "contentType";
-const _cl = "client";
+const _ch = "checksum";
 const _co = "code";
 const _com = "completed";
 const _cs = "csv";
@@ -227,11 +227,11 @@ const _ma = "marker";
 const _p = "policy";
 const _pS = "partSize";
 const _r = "range";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.glacier";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.glacier";
-const _st = "status";
-const _sta = "statuscode";
+const _st = "streaming";
+const _sta = "status";
+const _stat = "statuscode";
 const _t = "type";
 const _uI = "uploadId";
 const _vN = "vaultName";
@@ -273,7 +273,74 @@ import {
 import { GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
-var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var GlacierServiceException$: StaticErrorSchema = [-3, _s, "GlacierServiceException", 0, [], []];
+_s_registry.registerError(GlacierServiceException$, GlacierServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MissingParameterValueException$: StaticErrorSchema = [-3, n0, _MPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(MissingParameterValueException$, MissingParameterValueException);
+export var NoLongerSupportedException$: StaticErrorSchema = [-3, n0, _NLSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(NoLongerSupportedException$, NoLongerSupportedException);
+export var PolicyEnforcedException$: StaticErrorSchema = [-3, n0, _PEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(PolicyEnforcedException$, PolicyEnforcedException);
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 500 },
+  [_t, _co, _m],
+  [0, 0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var _Stream: StaticSimpleSchema = [0, n0, _S, { [_st]: 1 }, 42];
 export var AbortMultipartUploadInput$: StaticStructureSchema = [3, n0, _AMUI,
   0,
   [_aI, _vN, _uI],
@@ -291,12 +358,12 @@ export var AddTagsToVaultInput$: StaticStructureSchema = [3, n0, _ATTVI,
 ];
 export var ArchiveCreationOutput$: StaticStructureSchema = [3, n0, _ACO,
   0,
-  [_l, _c, _aIr],
+  [_l, _ch, _aIr],
   [[0, { [_hH]: _L }], [0, { [_hH]: _xasth }], [0, { [_hH]: _xaai }]]
 ];
 export var CompleteMultipartUploadInput$: StaticStructureSchema = [3, n0, _CMUI,
   0,
-  [_aI, _vN, _uI, _aS, _c],
+  [_aI, _vN, _uI, _aS, _ch],
   [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xaas }], [0, { [_hH]: _xasth }]], 3
 ];
 export var CompleteVaultLockInput$: StaticStructureSchema = [3, n0, _CVLI,
@@ -391,7 +458,7 @@ export var GetJobOutputInput$: StaticStructureSchema = [3, n0, _GJOI,
 ];
 export var GetJobOutputOutput$: StaticStructureSchema = [3, n0, _GJOO,
   0,
-  [_b, _c, _st, _cR, _aR, _cT, _aD],
+  [_b, _ch, _sta, _cR, _aR, _cT, _aD],
   [[() => _Stream, 16], [0, { [_hH]: _xasth }], [1, 32], [0, { [_hH]: _CR }], [0, { [_hH]: _AR }], [0, { [_hH]: _CT }], [0, { [_hH]: _xaad }]]
 ];
 export var GetVaultAccessPolicyInput$: StaticStructureSchema = [3, n0, _GVAPI,
@@ -474,18 +541,6 @@ export var InputSerialization$: StaticStructureSchema = [3, n0, _IS,
   [_cs],
   [() => CSVInput$]
 ];
-export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
 export var InventoryRetrievalJobDescription$: StaticStructureSchema = [3, n0, _IRJD,
   0,
   [_F, _SD, _EDn, _Li, _M],
@@ -501,16 +556,10 @@ export var JobParameters$: StaticStructureSchema = [3, n0, _JP,
   [_F, _Ty, _AI, _D, _SNST, _RBR, _Ti, _IRP, _SP, _OL],
   [0, 0, 0, 0, 0, 0, 0, () => InventoryRetrievalJobInput$, () => SelectParameters$, () => OutputLocation$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListJobsInput$: StaticStructureSchema = [3, n0, _LJI,
   0,
-  [_aI, _vN, _li, _ma, _sta, _com],
-  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }], [0, { [_hQ]: _sta }], [0, { [_hQ]: _com }]], 2
+  [_aI, _vN, _li, _ma, _stat, _com],
+  [[0, 1], [0, 1], [1, { [_hQ]: _li }], [0, { [_hQ]: _ma }], [0, { [_hQ]: _stat }], [0, { [_hQ]: _com }]], 2
 ];
 export var ListJobsOutput$: StaticStructureSchema = [3, n0, _LJO,
   0,
@@ -567,18 +616,6 @@ export var ListVaultsOutput$: StaticStructureSchema = [3, n0, _LVO,
   [_VL, _M],
   [() => VaultList, 0]
 ];
-export var MissingParameterValueException$: StaticErrorSchema = [-3, n0, _MPVE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(MissingParameterValueException$, MissingParameterValueException);
-export var NoLongerSupportedException$: StaticErrorSchema = [-3, n0, _NLSE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(NoLongerSupportedException$, NoLongerSupportedException);
 export var OutputLocation$: StaticStructureSchema = [3, n0, _OL,
   0,
   [_S_],
@@ -594,12 +631,6 @@ export var PartListElement$: StaticStructureSchema = [3, n0, _PLE,
   [_RIB, _SHATH],
   [0, 0]
 ];
-export var PolicyEnforcedException$: StaticErrorSchema = [-3, n0, _PEE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(PolicyEnforcedException$, PolicyEnforcedException);
 export var ProvisionedCapacityDescription$: StaticStructureSchema = [3, n0, _PCD,
   0,
   [_CI, _SD, _ED],
@@ -620,18 +651,6 @@ export var RemoveTagsFromVaultInput$: StaticStructureSchema = [3, n0, _RTFVI,
   [_aI, _vN, _TK],
   [[0, 1], [0, 1], 64 | 0], 2
 ];
-export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _cl, [_hE]: 408 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_BN, _Pr, _E, _CACL, _ACL, _Ta, _UM, _SCt],
@@ -642,12 +661,6 @@ export var SelectParameters$: StaticStructureSchema = [3, n0, _SP,
   [_IS, _ETx, _Ex, _OS],
   [() => InputSerialization$, 0, 0, () => OutputSerialization$]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 500 },
-  [_t, _co, _m],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetDataRetrievalPolicyInput$: StaticStructureSchema = [3, n0, _SDRPI,
   0,
   [_aI, _P],
@@ -665,7 +678,7 @@ export var SetVaultNotificationsInput$: StaticStructureSchema = [3, n0, _SVNI,
 ];
 export var UploadArchiveInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_vN, _aI, _aD, _c, _b],
+  [_vN, _aI, _aD, _ch, _b],
   [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]], 2
 ];
 export var UploadListElement$: StaticStructureSchema = [3, n0, _ULE,
@@ -675,12 +688,12 @@ export var UploadListElement$: StaticStructureSchema = [3, n0, _ULE,
 ];
 export var UploadMultipartPartInput$: StaticStructureSchema = [3, n0, _UMPI,
   0,
-  [_aI, _vN, _uI, _c, _r, _b],
+  [_aI, _vN, _uI, _ch, _r, _b],
   [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]], 3
 ];
 export var UploadMultipartPartOutput$: StaticStructureSchema = [3, n0, _UMPO,
   0,
-  [_c],
+  [_ch],
   [[0, { [_hH]: _xasth }]]
 ];
 export var VaultAccessPolicy$: StaticStructureSchema = [3, n0, _VAP,
@@ -699,8 +712,6 @@ export var VaultNotificationConfig$: StaticStructureSchema = [3, n0, _VNC,
   [0, 64 | 0]
 ];
 var __Unit = "unit" as const;
-export var GlacierServiceException$: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GlacierServiceException$, GlacierServiceException);
 var AccessControlPolicyList: StaticListSchema = [1, n0, _ACPL,
   0, () => Grant$
 ];

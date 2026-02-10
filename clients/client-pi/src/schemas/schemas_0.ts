@@ -84,7 +84,7 @@ const _LT = "ListTags";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
-const _M = "Metric";
+const _M = "Message";
 const _MD = "MetricDimensions";
 const _MDG = "MetricDimensionGroups";
 const _MDL = "MetricDimensionsList";
@@ -97,7 +97,7 @@ const _MQe = "MetricQuery";
 const _MR = "MaxResults";
 const _MS = "MarkdownString";
 const _MT = "MetricTypes";
-const _Me = "Message";
+const _Me = "Metric";
 const _Met = "Metrics";
 const _NAE = "NotAuthorizedException";
 const _NT = "NextToken";
@@ -141,8 +141,8 @@ const _URRn = "UntagResourceResponse";
 const _V = "Value";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pi";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pi";
+const _se = "server";
 const n0 = "com.amazonaws.pi";
 
 // smithy-typescript generated code
@@ -160,6 +160,37 @@ import { InternalServiceError, InvalidArgumentException, NotAuthorizedException 
 import { PIServiceException } from "../models/PIServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PIServiceException$: StaticErrorSchema = [-3, _s, "PIServiceException", 0, [], []];
+_s_registry.registerError(PIServiceException$, PIServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceError$, InternalServiceError);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var MarkdownString: StaticSimpleSchema = [0, n0, _MS, 8, 0];
 export var AnalysisReport$: StaticStructureSchema = [3, n0, _AR,
   0,
@@ -203,7 +234,7 @@ export var DeletePerformanceAnalysisReportResponse$: StaticStructureSchema = [3,
 ];
 export var DescribeDimensionKeysRequest$: StaticStructureSchema = [3, n0, _DDKR,
   0,
-  [_ST, _I, _STt, _ET, _M, _GB, _PIS, _AM, _PB, _F, _MR, _NT],
+  [_ST, _I, _STt, _ET, _Me, _GB, _PIS, _AM, _PB, _F, _MR, _NT],
   [0, 0, 4, 4, 0, () => DimensionGroup$, 1, 64 | 0, () => DimensionGroup$, 128 | 0, 1, 0], 6
 ];
 export var DescribeDimensionKeysResponse$: StaticStructureSchema = [3, n0, _DDKRe,
@@ -286,18 +317,6 @@ export var Insight$: StaticStructureSchema = [3, n0, _Ins,
   [_II, _IT, _C, _STt, _ET, _Se, _SI, _De, _R, _ID, _BD],
   [0, 0, 0, 4, 4, 0, [() => InsightList, 0], [() => MarkdownString, 0], [() => RecommendationList, 0], () => DataList, () => DataList], 1
 ];
-export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
 export var ListAvailableResourceDimensionsRequest$: StaticStructureSchema = [3, n0, _LARDR,
   0,
   [_ST, _I, _Met, _MR, _NT, _AA],
@@ -340,7 +359,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var MetricDimensionGroups$: StaticStructureSchema = [3, n0, _MDG,
   0,
-  [_M, _Gr],
+  [_Me, _Gr],
   [0, () => DimensionGroupDetailList]
 ];
 export var MetricKeyDataPoints$: StaticStructureSchema = [3, n0, _MKDP,
@@ -350,18 +369,12 @@ export var MetricKeyDataPoints$: StaticStructureSchema = [3, n0, _MKDP,
 ];
 export var MetricQuery$: StaticStructureSchema = [3, n0, _MQe,
   0,
-  [_M, _GB, _F],
+  [_Me, _GB, _F],
   [0, () => DimensionGroup$, 128 | 0], 1
 ];
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
 export var PerformanceInsightsMetric$: StaticStructureSchema = [3, n0, _PIM,
   0,
-  [_M, _DN, _Di, _F, _V],
+  [_Me, _DN, _Di, _F, _V],
   [0, 0, 128 | 0, 128 | 0, 1]
 ];
 export var Recommendation$: StaticStructureSchema = [3, n0, _Re,
@@ -376,12 +389,12 @@ export var ResponsePartitionKey$: StaticStructureSchema = [3, n0, _RPK,
 ];
 export var ResponseResourceMetric$: StaticStructureSchema = [3, n0, _RRM,
   0,
-  [_M, _De, _U],
+  [_Me, _De, _U],
   [0, 0, 0]
 ];
 export var ResponseResourceMetricKey$: StaticStructureSchema = [3, n0, _RRMK,
   0,
-  [_M, _Di],
+  [_Me, _Di],
   [0, 128 | 0], 1
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
@@ -409,8 +422,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var PIServiceException$: StaticErrorSchema = [-3, _sm, "PIServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PIServiceException$, PIServiceException);
 var AdditionalMetricsList = 64 | 0;
 var AnalysisReportSummaryList: StaticListSchema = [1, n0, _ARSL,
   0, () => AnalysisReportSummary$

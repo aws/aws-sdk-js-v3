@@ -54,10 +54,10 @@ const _mA = "metricAttribution";
 const _mT = "mediaType";
 const _p = "properties";
 const _rI = "recommendationId";
-const _s = "sensitive";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.personalizeevents";
 const _sA = "sentAt";
 const _sI = "sessionId";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.personalizeevents";
+const _se = "sensitive";
 const _t = "timestamp";
 const _tI = "trackingId";
 const _u = "users";
@@ -78,13 +78,44 @@ import { InvalidInputException, ResourceInUseException, ResourceNotFoundExceptio
 import { PersonalizeEventsServiceException } from "../models/PersonalizeEventsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PersonalizeEventsServiceException$: StaticErrorSchema = [-3, _s, "PersonalizeEventsServiceException", 0, [], []];
+_s_registry.registerError(PersonalizeEventsServiceException$, PersonalizeEventsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ActionId: StaticSimpleSchema = [0, n0, _AI, 8, 0];
 var ItemId: StaticSimpleSchema = [0, n0, _II, 8, 0];
-var SynthesizedJsonActionInteractionProperties: StaticSimpleSchema = [0, n0, _SJAIP, { [_mT]: _a, [_s]: 1 }, 0];
-var SynthesizedJsonActionProperties: StaticSimpleSchema = [0, n0, _SJAP, { [_mT]: _a, [_s]: 1 }, 0];
-var SynthesizedJsonEventPropertiesJSON: StaticSimpleSchema = [0, n0, _SJEPJSON, { [_mT]: _a, [_s]: 1 }, 0];
-var SynthesizedJsonItemProperties: StaticSimpleSchema = [0, n0, _SJIP, { [_mT]: _a, [_s]: 1 }, 0];
-var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a, [_s]: 1 }, 0];
+var SynthesizedJsonActionInteractionProperties: StaticSimpleSchema = [0, n0, _SJAIP, { [_mT]: _a, [_se]: 1 }, 0];
+var SynthesizedJsonActionProperties: StaticSimpleSchema = [0, n0, _SJAP, { [_mT]: _a, [_se]: 1 }, 0];
+var SynthesizedJsonEventPropertiesJSON: StaticSimpleSchema = [0, n0, _SJEPJSON, { [_mT]: _a, [_se]: 1 }, 0];
+var SynthesizedJsonItemProperties: StaticSimpleSchema = [0, n0, _SJIP, { [_mT]: _a, [_se]: 1 }, 0];
+var SynthesizedJsonUserProperties: StaticSimpleSchema = [0, n0, _SJUP, { [_mT]: _a, [_se]: 1 }, 0];
 var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -101,12 +132,6 @@ export var Event$: StaticStructureSchema = [3, n0, _E,
   [_eT, _sA, _eI, _eV, _iI, _p, _rI, _i, _mA],
   [0, 4, 0, 1, [() => ItemId, 0], [() => SynthesizedJsonEventPropertiesJSON, 0], 0, [() => Impression, 0], () => MetricAttribution$], 2
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var Item$: StaticStructureSchema = [3, n0, _I,
   0,
   [_iI, _p],
@@ -142,26 +167,12 @@ export var PutUsersRequest$: StaticStructureSchema = [3, n0, _PUR,
   [_dA, _u],
   [0, [() => UserList, 0]], 2
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var User$: StaticStructureSchema = [3, n0, _U,
   0,
   [_uI, _p],
   [0, [() => SynthesizedJsonUserProperties, 0]], 1
 ];
 var __Unit = "unit" as const;
-export var PersonalizeEventsServiceException$: StaticErrorSchema = [-3, _sm, "PersonalizeEventsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PersonalizeEventsServiceException$, PersonalizeEventsServiceException);
 var ActionImpression: StaticListSchema = [1, n0, _AIct,
   0, [() => ActionId,
     0]

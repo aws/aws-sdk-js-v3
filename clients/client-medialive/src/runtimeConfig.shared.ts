@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultMediaLiveHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { MediaLiveClientConfig } from "./MediaLiveClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: MediaLiveClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.medialive",
+      errorTypeRegistries,
       version: "2017-10-14",
       serviceTarget: "MediaLive",
     },

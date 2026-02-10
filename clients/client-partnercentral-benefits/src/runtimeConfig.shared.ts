@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPartnerCentralBenefitsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PartnerCentralBenefitsClientConfig } from "./PartnerCentralBenefitsClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: PartnerCentralBenefitsClientConfig) => 
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.partnercentralbenefits",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "PartnerCentralBenefitsService",
     },

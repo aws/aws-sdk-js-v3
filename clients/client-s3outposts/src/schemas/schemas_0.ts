@@ -56,8 +56,8 @@ const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _oI = "outpostId";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3outposts";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3outposts";
+const _se = "server";
 const n0 = "com.amazonaws.s3outposts";
 
 // smithy-typescript generated code
@@ -76,18 +76,61 @@ import {
 import { S3OutpostsServiceException } from "../models/S3OutpostsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var S3OutpostsServiceException$: StaticErrorSchema = [-3, _s, "S3OutpostsServiceException", 0, [], []];
+_s_registry.registerError(S3OutpostsServiceException$, S3OutpostsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var OutpostOfflineException$: StaticErrorSchema = [-3, n0, _OOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OutpostOfflineException$, OutpostOfflineException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateEndpointRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_OI, _SI, _SGI, _AT, _COIP],
@@ -113,12 +156,6 @@ export var FailedReason$: StaticStructureSchema = [3, n0, _FR,
   [_EC, _M],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListEndpointsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
   [_NT, _MR],
@@ -159,33 +196,7 @@ export var Outpost$: StaticStructureSchema = [3, n0, _Ou,
   [_OA, _SOA, _OI, _OIw, _CIB],
   [0, 0, 0, 0, 1]
 ];
-export var OutpostOfflineException$: StaticErrorSchema = [-3, n0, _OOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OutpostOfflineException$, OutpostOfflineException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var S3OutpostsServiceException$: StaticErrorSchema = [-3, _sm, "S3OutpostsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3OutpostsServiceException$, S3OutpostsServiceException);
 var Endpoints: StaticListSchema = [1, n0, _En,
   0, () => Endpoint$
 ];

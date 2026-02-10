@@ -50,9 +50,9 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediastoredata";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediastoredata";
+const _st = "streaming";
 const _xasc = "x-amz-storage-class";
 const _xaua = "x-amz-upload-availability";
 const n0 = "com.amazonaws.mediastoredata";
@@ -76,13 +76,44 @@ import {
 import { MediaStoreDataServiceException } from "../models/MediaStoreDataServiceException";
 
 /* eslint no-var: 0 */
-var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var MediaStoreDataServiceException$: StaticErrorSchema = [-3, _s, "MediaStoreDataServiceException", 0, [], []];
+_s_registry.registerError(MediaStoreDataServiceException$, MediaStoreDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ContainerNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
   { [_e]: _c, [_hE]: 404 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ContainerNotFoundException$, ContainerNotFoundException);
+n0_registry.registerError(ContainerNotFoundException$, ContainerNotFoundException);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ObjectNotFoundException$, ObjectNotFoundException);
+export var RequestedRangeNotSatisfiableException$: StaticErrorSchema = [-3, n0, _RRNSE,
+  { [_e]: _c, [_hE]: 416 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RequestedRangeNotSatisfiableException$, RequestedRangeNotSatisfiableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var PayloadBlob: StaticSimpleSchema = [0, n0, _PB, { [_st]: 1 }, 42];
 export var DeleteObjectRequest$: StaticStructureSchema = [3, n0, _DOR,
   0,
   [_P],
@@ -113,12 +144,6 @@ export var GetObjectResponse$: StaticStructureSchema = [3, n0, _GORe,
   [_SC, _B, _CC, _CR, _CL, _CT, _ET, _LM],
   [[1, 32], [() => PayloadBlob, 16], [0, { [_hH]: _CC_ }], [0, { [_hH]: _CR_ }], [1, { [_hH]: _CL_ }], [0, { [_hH]: _CT_ }], [0, { [_hH]: _ET }], [4, { [_hH]: _LM_ }]], 1
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
 export var Item$: StaticStructureSchema = [3, n0, _I,
   0,
   [_N, _T, _ET, _LM, _CT, _CL],
@@ -134,12 +159,6 @@ export var ListItemsResponse$: StaticStructureSchema = [3, n0, _LIRi,
   [_It, _NT],
   [() => ItemList, 0]
 ];
-export var ObjectNotFoundException$: StaticErrorSchema = [-3, n0, _ONFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ObjectNotFoundException$, ObjectNotFoundException);
 export var PutObjectRequest$: StaticStructureSchema = [3, n0, _POR,
   0,
   [_B, _P, _CT, _CC, _SCt, _UA],
@@ -150,14 +169,6 @@ export var PutObjectResponse$: StaticStructureSchema = [3, n0, _PORu,
   [_CSHA, _ET, _SCt],
   [0, 0, 0]
 ];
-export var RequestedRangeNotSatisfiableException$: StaticErrorSchema = [-3, n0, _RRNSE,
-  { [_e]: _c, [_hE]: 416 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestedRangeNotSatisfiableException$, RequestedRangeNotSatisfiableException);
-export var MediaStoreDataServiceException$: StaticErrorSchema = [-3, _sm, "MediaStoreDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaStoreDataServiceException$, MediaStoreDataServiceException);
 var ItemList: StaticListSchema = [1, n0, _IL,
   0, () => Item$
 ];

@@ -234,8 +234,8 @@ const _WTO = "WarmThroughputObject";
 const _c = "client";
 const _e = "error";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kinesis";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kinesis";
+const _se = "server";
 const _st = "streaming";
 const n0 = "com.amazonaws.kinesis";
 
@@ -271,12 +271,115 @@ import {
 import { KinesisServiceException } from "../models/KinesisServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var KinesisServiceException$: StaticErrorSchema = [-3, _s, "KinesisServiceException", 0, [], []];
+_s_registry.registerError(KinesisServiceException$, KinesisServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredIteratorException$, ExpiredIteratorException);
+export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var KMSAccessDeniedException$: StaticErrorSchema = [-3, n0, _KMSADE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSAccessDeniedException$, KMSAccessDeniedException);
+export var KMSDisabledException$: StaticErrorSchema = [-3, n0, _KMSDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSDisabledException$, KMSDisabledException);
+export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInvalidStateException$, KMSInvalidStateException);
+export var KMSNotFoundException$: StaticErrorSchema = [-3, n0, _KMSNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSNotFoundException$, KMSNotFoundException);
+export var KMSOptInRequired$: StaticErrorSchema = [-3, n0, _KMSOIR,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSOptInRequired$, KMSOptInRequired);
+export var KMSThrottlingException$: StaticErrorSchema = [-3, n0, _KMSTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSThrottlingException$, KMSThrottlingException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
   0,
   [_T, _SN, _SARN, _SI],
@@ -392,18 +495,6 @@ export var EnhancedMonitoringOutput$: StaticStructureSchema = [3, n0, _EMO,
   [_SN, _CSLM, _DSLM, _SARN],
   [0, 64 | 0, 64 | 0, 0]
 ];
-export var ExpiredIteratorException$: StaticErrorSchema = [-3, n0, _EIE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredIteratorException$, ExpiredIteratorException);
-export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
 export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
   0,
   [_SIha, _L, _SARN, _SI],
@@ -444,60 +535,6 @@ export var IncreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, 
   [_RPH, _SN, _SARN, _SI],
   [1, 0, 0, 0], 1
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var KMSAccessDeniedException$: StaticErrorSchema = [-3, n0, _KMSADE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSAccessDeniedException$, KMSAccessDeniedException);
-export var KMSDisabledException$: StaticErrorSchema = [-3, n0, _KMSDE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSDisabledException$, KMSDisabledException);
-export var KMSInvalidStateException$: StaticErrorSchema = [-3, n0, _KMSISE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInvalidStateException$, KMSInvalidStateException);
-export var KMSNotFoundException$: StaticErrorSchema = [-3, n0, _KMSNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSNotFoundException$, KMSNotFoundException);
-export var KMSOptInRequired$: StaticErrorSchema = [-3, n0, _KMSOIR,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSOptInRequired$, KMSOptInRequired);
-export var KMSThrottlingException$: StaticErrorSchema = [-3, n0, _KMSTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSThrottlingException$, KMSThrottlingException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListShardsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
   [_SN, _NT, _ESSI, _MR, _SCT, _SF, _SARN, _SI],
@@ -563,12 +600,6 @@ export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [3
   [_St, _SA, _EA, _EAEA],
   [0, 4, 4, 4], 1
 ];
-export var ProvisionedThroughputExceededException$: StaticErrorSchema = [-3, n0, _PTEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ProvisionedThroughputExceededException$, ProvisionedThroughputExceededException);
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
   [_D, _PK, _SN, _EHKx, _SNFO, _SARN, _SI],
@@ -624,18 +655,6 @@ export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI,
   [_TK, _SN, _SARN, _SI],
   [64 | 0, 0, 0, 0], 1
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_SSN, _ESN],
@@ -761,20 +780,12 @@ export var UpdateStreamWarmThroughputOutput$: StaticStructureSchema = [3, n0, _U
   [_SARN, _SN, _WT],
   [0, 0, () => WarmThroughputObject$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WarmThroughputObject$: StaticStructureSchema = [3, n0, _WTO,
   0,
   [_TMB, _CMB],
   [1, 1]
 ];
 var __Unit = "unit" as const;
-export var KinesisServiceException$: StaticErrorSchema = [-3, _sm, "KinesisServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KinesisServiceException$, KinesisServiceException);
 var ChildShardList: StaticListSchema = [1, n0, _CSL,
   0, () => ChildShard$
 ];

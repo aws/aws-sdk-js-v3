@@ -123,11 +123,11 @@ const _rA = "resourceArn";
 const _rD = "returnData";
 const _rDe = "returnDistance";
 const _rM = "returnMetadata";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3vectors";
 const _sC = "segmentCount";
 const _sI = "segmentIndex";
 const _sT = "sseType";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3vectors";
+const _se = "server";
 const _t = "tags";
 const _tK = "topK";
 const _tKa = "tagKeys";
@@ -167,18 +167,97 @@ import {
 import { S3VectorsServiceException } from "../models/S3VectorsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var S3VectorsServiceException$: StaticErrorSchema = [-3, _s, "S3VectorsServiceException", 0, [], []];
+_s_registry.registerError(S3VectorsServiceException$, S3VectorsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var KmsDisabledException$: StaticErrorSchema = [-3, n0, _KDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(KmsDisabledException$, KmsDisabledException);
+export var KmsInvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _KIKUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(KmsInvalidKeyUsageException$, KmsInvalidKeyUsageException);
+export var KmsInvalidStateException$: StaticErrorSchema = [-3, n0, _KISE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(KmsInvalidStateException$, KmsInvalidStateException);
+export var KmsNotFoundException$: StaticErrorSchema = [-3, n0, _KNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(KmsNotFoundException$, KmsNotFoundException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(RequestTimeoutException$, RequestTimeoutException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m, _fL],
+  [0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateIndexInput$: StaticStructureSchema = [3, n0, _CII,
   0,
   [_iN, _dT, _d, _dM, _vBN, _vBA, _mC, _eC, _t],
@@ -299,36 +378,6 @@ export var IndexSummary$: StaticStructureSchema = [3, n0, _IS,
   [_vBN, _iN, _iA, _cT],
   [0, 0, 0, 4], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var KmsDisabledException$: StaticErrorSchema = [-3, n0, _KDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(KmsDisabledException$, KmsDisabledException);
-export var KmsInvalidKeyUsageException$: StaticErrorSchema = [-3, n0, _KIKUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(KmsInvalidKeyUsageException$, KmsInvalidKeyUsageException);
-export var KmsInvalidStateException$: StaticErrorSchema = [-3, n0, _KISE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(KmsInvalidStateException$, KmsInvalidStateException);
-export var KmsNotFoundException$: StaticErrorSchema = [-3, n0, _KNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(KmsNotFoundException$, KmsNotFoundException);
 export var ListIndexesInput$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_vBN, _vBA, _mR, _nT, _pr],
@@ -379,12 +428,6 @@ export var MetadataConfiguration$: StaticStructureSchema = [3, n0, _MC,
   [_nFMK],
   [64 | 0], 1
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutInputVector$: StaticStructureSchema = [3, n0, _PIV,
   0,
   [_ke, _da, _me],
@@ -425,24 +468,6 @@ export var QueryVectorsOutput$: StaticStructureSchema = [3, n0, _QVO,
   [_v, _dM],
   [() => QueryVectorsOutputList, 0], 2
 ];
-export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _c, [_hE]: 408 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -453,12 +478,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tKa],
@@ -469,12 +488,6 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_m, _fL],
-  [0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_pa, _m],
@@ -490,8 +503,6 @@ export var VectorBucketSummary$: StaticStructureSchema = [3, n0, _VBS,
   [_vBN, _vBA, _cT],
   [0, 0, 4], 3
 ];
-export var S3VectorsServiceException$: StaticErrorSchema = [-3, _sm, "S3VectorsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3VectorsServiceException$, S3VectorsServiceException);
 var DeleteVectorsInputList = 64 | 0;
 var Float32VectorData = 64 | 1;
 var GetVectorsInputList = 64 | 0;

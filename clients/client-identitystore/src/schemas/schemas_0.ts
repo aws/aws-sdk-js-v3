@@ -152,8 +152,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.identitystore";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.identitystore";
+const _se = "server";
 const n0 = "com.amazonaws.identitystore";
 
 // smithy-typescript generated code
@@ -180,17 +180,66 @@ import {
 import { IdentitystoreServiceException } from "../models/IdentitystoreServiceException";
 
 /* eslint no-var: 0 */
-var ExternalIdIdentifier: StaticSimpleSchema = [0, n0, _EII, 8, 0];
-var ExternalIdIssuer: StaticSimpleSchema = [0, n0, _EIIx, 8, 0];
-var GroupDisplayName: StaticSimpleSchema = [0, n0, _GDN, 8, 0];
-var SensitiveStringType: StaticSimpleSchema = [0, n0, _SST, 8, 0];
-var UserName: StaticSimpleSchema = [0, n0, _UN, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var IdentitystoreServiceException$: StaticErrorSchema = [-3, _s, "IdentitystoreServiceException", 0, [], []];
+_s_registry.registerError(IdentitystoreServiceException$, IdentitystoreServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M, _RI, _R],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _R],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RI, _RAS],
+  [0, 0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_RT, _RIe, _R, _M, _RI],
+  [0, 0, 0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RI, _RAS, _R],
+  [0, 0, [1, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI, _R],
+  [0, 0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ExternalIdIdentifier: StaticSimpleSchema = [0, n0, _EII, 8, 0];
+var ExternalIdIssuer: StaticSimpleSchema = [0, n0, _EIIx, 8, 0];
+var GroupDisplayName: StaticSimpleSchema = [0, n0, _GDN, 8, 0];
+var SensitiveStringType: StaticSimpleSchema = [0, n0, _SST, 8, 0];
+var UserName: StaticSimpleSchema = [0, n0, _UN, 8, 0];
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
   [_SA, _L, _Re, _PC, _C, _F, _T, _P],
@@ -201,12 +250,6 @@ export var AttributeOperation$: StaticStructureSchema = [3, n0, _AO,
   [_AP, _AV],
   [0, 15], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _R],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGroupMembershipRequest$: StaticStructureSchema = [3, n0, _CGMR,
   0,
   [_ISI, _GI, _MI],
@@ -357,12 +400,6 @@ export var GroupMembershipExistenceResult$: StaticStructureSchema = [3, n0, _GME
   [_GI, _MI, _ME],
   [0, () => MemberId$, 2]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RI, _RAS],
-  [0, 0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IsMemberInGroupsRequest$: StaticStructureSchema = [3, n0, _IMIGR,
   0,
   [_ISI, _MI, _GIr],
@@ -428,29 +465,11 @@ export var Photo$: StaticStructureSchema = [3, n0, _Pho,
   [_V, _T, _Di, _P],
   [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_RT, _RIe, _R, _M, _RI],
-  [0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Role$: StaticStructureSchema = [3, n0, _Rol,
   0,
   [_V, _T, _P],
   [[() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 2]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RI, _RAS, _R],
-  [0, 0, [1, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UniqueAttribute$: StaticStructureSchema = [3, n0, _UAn,
   0,
   [_AP, _AV],
@@ -481,14 +500,6 @@ export var User$: StaticStructureSchema = [3, n0, _Us,
   [_ISI, _UI, _UN, _EI, _N, _DN, _NN, _PU, _E, _Ad, _PN, _UT, _Ti, _PL, _Lo, _Tim, _US, _Ph, _W, _B, _Ro, _CA, _CB, _UA, _UB, _Ex],
   [0, 0, [() => UserName, 0], [() => ExternalIds, 0], [() => Name$, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Emails, 0], [() => Addresses, 0], [() => PhoneNumbers, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], 0, [() => Photos, 0], [() => SensitiveStringType, 0], [() => SensitiveStringType, 0], [() => Roles, 0], 4, 0, 4, 0, 128 | 15], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI, _R],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var IdentitystoreServiceException$: StaticErrorSchema = [-3, _sm, "IdentitystoreServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IdentitystoreServiceException$, IdentitystoreServiceException);
 var Addresses: StaticListSchema = [1, n0, _Ad,
   0, [() => Address$,
     0]

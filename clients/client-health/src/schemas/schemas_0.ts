@@ -87,10 +87,10 @@ const _aZv = "availabilityZones";
 const _ac = "actionability";
 const _acc = "accounts";
 const _act = "actionabilities";
-const _c = "count";
+const _c = "client";
 const _ca = "category";
-const _cl = "client";
-const _co = "code";
+const _co = "count";
+const _cod = "code";
 const _dTRL = "dateTimeRangeList";
 const _e = "error";
 const _eA = "entityArn";
@@ -137,7 +137,7 @@ const _oEF = "organizationEntityFilters";
 const _p = "personas";
 const _r = "region";
 const _re = "regions";
-const _s = "statuses";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.health";
 const _sC = "statusCode";
 const _sCt = "statusCodes";
 const _sS = "successfulSet";
@@ -145,7 +145,7 @@ const _sT = "startTime";
 const _sTt = "startTimes";
 const _se = "service";
 const _ser = "services";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.health";
+const _st = "statuses";
 const _t = "tags";
 const _tF = "tagFilter";
 const _to = "to";
@@ -165,9 +165,40 @@ import { ConcurrentModificationException, InvalidPaginationToken, UnsupportedLoc
 import { HealthServiceException } from "../models/HealthServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var HealthServiceException$: StaticErrorSchema = [-3, _s, "HealthServiceException", 0, [], []];
+_s_registry.registerError(HealthServiceException$, HealthServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPaginationToken$, InvalidPaginationToken);
+export var UnsupportedLocale$: StaticErrorSchema = [-3, n0, _UL,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedLocale$, UnsupportedLocale);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountEntityAggregate$: StaticStructureSchema = [3, n0, _AEA,
   0,
-  [_aI, _c, _s],
+  [_aI, _co, _st],
   [0, 1, 128 | 1]
 ];
 export var AffectedEntity$: StaticStructureSchema = [3, n0, _AE,
@@ -175,12 +206,6 @@ export var AffectedEntity$: StaticStructureSchema = [3, n0, _AE,
   [_eA, _eAv, _eV, _eU, _aAI, _lUT, _sC, _t, _eM],
   [0, 0, 0, 0, 0, 4, 0, 128 | 0, 128 | 0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var DateTimeRange$: StaticStructureSchema = [3, n0, _DTR,
   0,
   [_f, _to],
@@ -308,7 +333,7 @@ export var EntityAccountFilter$: StaticStructureSchema = [3, n0, _EAF,
 ];
 export var EntityAggregate$: StaticStructureSchema = [3, n0, _EA,
   0,
-  [_eAv, _c, _s],
+  [_eAv, _co, _st],
   [0, 1, 128 | 1]
 ];
 export var EntityFilter$: StaticStructureSchema = [3, n0, _EF,
@@ -328,7 +353,7 @@ export var EventAccountFilter$: StaticStructureSchema = [3, n0, _EAFv,
 ];
 export var EventAggregate$: StaticStructureSchema = [3, n0, _EAv,
   0,
-  [_aV, _c],
+  [_aV, _co],
   [0, 1]
 ];
 export var EventDescription$: StaticStructureSchema = [3, n0, _ED,
@@ -353,7 +378,7 @@ export var EventFilter$: StaticStructureSchema = [3, n0, _EFv,
 ];
 export var EventType$: StaticStructureSchema = [3, n0, _ET,
   0,
-  [_se, _co, _ca, _ac, _p],
+  [_se, _cod, _ca, _ac, _p],
   [0, 0, 0, 0, 64 | 0]
 ];
 export var EventTypeFilter$: StaticStructureSchema = [3, n0, _ETF,
@@ -361,12 +386,6 @@ export var EventTypeFilter$: StaticStructureSchema = [3, n0, _ETF,
   [_eTCve, _ser, _eTCven, _act, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
-export var InvalidPaginationToken$: StaticErrorSchema = [-3, n0, _IPT,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationToken$, InvalidPaginationToken);
 export var OrganizationAffectedEntitiesErrorItem$: StaticStructureSchema = [3, n0, _OAEEI,
   0,
   [_aAI, _eAv, _eN, _eMr],
@@ -374,7 +393,7 @@ export var OrganizationAffectedEntitiesErrorItem$: StaticStructureSchema = [3, n
 ];
 export var OrganizationEntityAggregate$: StaticStructureSchema = [3, n0, _OEA,
   0,
-  [_eAv, _c, _s, _acc],
+  [_eAv, _co, _st, _acc],
   [0, 1, 128 | 1, () => AccountEntityAggregatesList]
 ];
 export var OrganizationEvent$: StaticStructureSchema = [3, n0, _OE,
@@ -397,15 +416,7 @@ export var OrganizationEventFilter$: StaticStructureSchema = [3, n0, _OEF,
   [_act, _eTCve, _aAIw, _ser, _re, _sT, _eTn, _lUT, _eAnt, _eVn, _eTCven, _eSCv, _p],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => DateTimeRange$, () => DateTimeRange$, () => DateTimeRange$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
-export var UnsupportedLocale$: StaticErrorSchema = [-3, n0, _UL,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedLocale$, UnsupportedLocale);
 var __Unit = "unit" as const;
-export var HealthServiceException$: StaticErrorSchema = [-3, _sm, "HealthServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(HealthServiceException$, HealthServiceException);
 var AccountEntityAggregatesList: StaticListSchema = [1, n0, _AEAL,
   0, () => AccountEntityAggregate$
 ];

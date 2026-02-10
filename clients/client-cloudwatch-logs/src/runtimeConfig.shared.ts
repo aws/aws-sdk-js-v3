@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudWatchLogsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudWatchLogsClientConfig } from "./CloudWatchLogsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudWatchLogsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudwatchlogs",
+      errorTypeRegistries,
       xmlNamespace: "http://monitoring.amazonaws.com/doc/2014-03-28/",
       version: "2014-03-28",
       serviceTarget: "Logs_20140328",

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSESHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SESClientConfig } from "./SESClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SESClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ses",
+      errorTypeRegistries,
       xmlNamespace: "http://ses.amazonaws.com/doc/2010-12-01/",
       version: "2010-12-01",
       serviceTarget: "SimpleEmailService",

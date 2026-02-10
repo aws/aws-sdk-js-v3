@@ -64,8 +64,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacemetering";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.marketplacemetering";
+const _se = "server";
 const n0 = "com.amazonaws.marketplacemetering";
 
 // smithy-typescript generated code
@@ -95,6 +95,127 @@ import {
 import { MarketplaceMeteringServiceException } from "../models/MarketplaceMeteringServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MarketplaceMeteringServiceException$: StaticErrorSchema = [-3, _s, "MarketplaceMeteringServiceException", 0, [], []];
+_s_registry.registerError(MarketplaceMeteringServiceException$, MarketplaceMeteringServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CustomerNotEntitledException$: StaticErrorSchema = [-3, n0, _CNEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomerNotEntitledException$, CustomerNotEntitledException);
+export var DisabledApiException$: StaticErrorSchema = [-3, n0, _DAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DisabledApiException$, DisabledApiException);
+export var DuplicateRequestException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicateRequestException$, DuplicateRequestException);
+export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExpiredTokenException$, ExpiredTokenException);
+export var IdempotencyConflictException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IdempotencyConflictException$, IdempotencyConflictException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidCustomerIdentifierException$: StaticErrorSchema = [-3, n0, _ICIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidCustomerIdentifierException$, InvalidCustomerIdentifierException);
+export var InvalidEndpointRegionException$: StaticErrorSchema = [-3, n0, _IERE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEndpointRegionException$, InvalidEndpointRegionException);
+export var InvalidProductCodeException$: StaticErrorSchema = [-3, n0, _IPCE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidProductCodeException$, InvalidProductCodeException);
+export var InvalidPublicKeyVersionException$: StaticErrorSchema = [-3, n0, _IPKVE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPublicKeyVersionException$, InvalidPublicKeyVersionException);
+export var InvalidRegionException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRegionException$, InvalidRegionException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagException$, InvalidTagException);
+export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTokenException$, InvalidTokenException);
+export var InvalidUsageAllocationsException$: StaticErrorSchema = [-3, n0, _IUAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUsageAllocationsException$, InvalidUsageAllocationsException);
+export var InvalidUsageDimensionException$: StaticErrorSchema = [-3, n0, _IUDE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUsageDimensionException$, InvalidUsageDimensionException);
+export var PlatformNotSupportedException$: StaticErrorSchema = [-3, n0, _PNSE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PlatformNotSupportedException$, PlatformNotSupportedException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TimestampOutOfBoundsException$: StaticErrorSchema = [-3, n0, _TOOBE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TimestampOutOfBoundsException$, TimestampOutOfBoundsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BatchMeterUsageRequest$: StaticStructureSchema = [3, n0, _BMUR,
   0,
   [_UR, _PC],
@@ -105,96 +226,6 @@ export var BatchMeterUsageResult$: StaticStructureSchema = [3, n0, _BMURa,
   [_R, _URn],
   [() => UsageRecordResultList, () => UsageRecordList]
 ];
-export var CustomerNotEntitledException$: StaticErrorSchema = [-3, n0, _CNEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomerNotEntitledException$, CustomerNotEntitledException);
-export var DisabledApiException$: StaticErrorSchema = [-3, n0, _DAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DisabledApiException$, DisabledApiException);
-export var DuplicateRequestException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateRequestException$, DuplicateRequestException);
-export var ExpiredTokenException$: StaticErrorSchema = [-3, n0, _ETE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredTokenException$, ExpiredTokenException);
-export var IdempotencyConflictException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotencyConflictException$, IdempotencyConflictException);
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidCustomerIdentifierException$: StaticErrorSchema = [-3, n0, _ICIE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCustomerIdentifierException$, InvalidCustomerIdentifierException);
-export var InvalidEndpointRegionException$: StaticErrorSchema = [-3, n0, _IERE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEndpointRegionException$, InvalidEndpointRegionException);
-export var InvalidProductCodeException$: StaticErrorSchema = [-3, n0, _IPCE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidProductCodeException$, InvalidProductCodeException);
-export var InvalidPublicKeyVersionException$: StaticErrorSchema = [-3, n0, _IPKVE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPublicKeyVersionException$, InvalidPublicKeyVersionException);
-export var InvalidRegionException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRegionException$, InvalidRegionException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
-export var InvalidTokenException$: StaticErrorSchema = [-3, n0, _ITEn,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTokenException$, InvalidTokenException);
-export var InvalidUsageAllocationsException$: StaticErrorSchema = [-3, n0, _IUAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUsageAllocationsException$, InvalidUsageAllocationsException);
-export var InvalidUsageDimensionException$: StaticErrorSchema = [-3, n0, _IUDE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUsageDimensionException$, InvalidUsageDimensionException);
 export var MeterUsageRequest$: StaticStructureSchema = [3, n0, _MUR,
   0,
   [_PC, _T, _UD, _UQ, _DR, _UA, _CT],
@@ -205,12 +236,6 @@ export var MeterUsageResult$: StaticStructureSchema = [3, n0, _MURe,
   [_MRI],
   [0]
 ];
-export var PlatformNotSupportedException$: StaticErrorSchema = [-3, n0, _PNSE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PlatformNotSupportedException$, PlatformNotSupportedException);
 export var RegisterUsageRequest$: StaticStructureSchema = [3, n0, _RUR,
   0,
   [_PC, _PKV, _N],
@@ -236,18 +261,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TimestampOutOfBoundsException$: StaticErrorSchema = [-3, n0, _TOOBE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TimestampOutOfBoundsException$, TimestampOutOfBoundsException);
 export var UsageAllocation$: StaticStructureSchema = [3, n0, _UAs,
   0,
   [_AUQ, _Tag],
@@ -263,8 +276,6 @@ export var UsageRecordResult$: StaticStructureSchema = [3, n0, _URR,
   [_URs, _MRI, _St],
   [() => UsageRecord$, 0, 0]
 ];
-export var MarketplaceMeteringServiceException$: StaticErrorSchema = [-3, _sm, "MarketplaceMeteringServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MarketplaceMeteringServiceException$, MarketplaceMeteringServiceException);
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];

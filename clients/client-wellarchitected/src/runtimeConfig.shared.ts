@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWellArchitectedHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WellArchitectedClientConfig } from "./WellArchitectedClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WellArchitectedClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.wellarchitected",
+      errorTypeRegistries,
       version: "2020-03-31",
       serviceTarget: "WellArchitectedApiServiceLambda",
     },

@@ -139,12 +139,12 @@ const _cP = "cmafPackage";
 const _dM = "dashManifests";
 const _dN = "domainName";
 const _dP = "dashPackage";
-const _e = "encryption";
+const _e = "error";
 const _eAL = "egressAccessLogs";
 const _eCC = "encryptionContractConfiguration";
 const _eE = "egressEndpoints";
 const _eM = "encryptionMethod";
-const _er = "error";
+const _en = "encryption";
 const _h = "http";
 const _hE = "httpError";
 const _hM = "hlsManifests";
@@ -185,7 +185,7 @@ const _pT = "periodTriggers";
 const _rA = "roleArn";
 const _rEXK = "repeatExtXKey";
 const _rI = "resourceId";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackagevod";
 const _sA = "sourceArn";
 const _sDS = "segmentDurationSeconds";
 const _sI = "systemIds";
@@ -197,7 +197,7 @@ const _sRAe = "secretsRoleArn";
 const _sS = "streamSelection";
 const _sTF = "segmentTemplateFormat";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediapackagevod";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _u = "url";
@@ -225,6 +225,55 @@ import {
 import { MediaPackageVodServiceException } from "../models/MediaPackageVodServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaPackageVodServiceException$: StaticErrorSchema = [-3, _s, "MediaPackageVodServiceException", 0, [], []];
+_s_registry.registerError(MediaPackageVodServiceException$, MediaPackageVodServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
+  { [_e]: _c, [_hE]: 422 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnprocessableEntityException$, UnprocessableEntityException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssetShallow$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_A, _CA, _I, _PGI, _RI, _SA, _SRA, _T],
@@ -243,7 +292,7 @@ export var CmafEncryption$: StaticStructureSchema = [3, n0, _CE,
 export var CmafPackage$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_HM, _E, _IECIS, _SDS],
-  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => CmafEncryption$, { [_jN]: _e }], [2, { [_jN]: _iECIS }], [1, { [_jN]: _sDS }]], 1
+  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => CmafEncryption$, { [_jN]: _en }], [2, { [_jN]: _iECIS }], [1, { [_jN]: _sDS }]], 1
 ];
 export var ConfigureLogsRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
@@ -298,7 +347,7 @@ export var DashManifest$: StaticStructureSchema = [3, n0, _DM,
 export var DashPackage$: StaticStructureSchema = [3, n0, _DP,
   0,
   [_DMa, _E, _IECIS, _IIOS, _PT, _SDS, _STF],
-  [[() => __listOfDashManifest, { [_jN]: _dM }], [() => DashEncryption$, { [_jN]: _e }], [2, { [_jN]: _iECIS }], [2, { [_jN]: _iIOS }], [64 | 0, { [_jN]: _pT }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }]], 1
+  [[() => __listOfDashManifest, { [_jN]: _dM }], [() => DashEncryption$, { [_jN]: _en }], [2, { [_jN]: _iECIS }], [2, { [_jN]: _iIOS }], [64 | 0, { [_jN]: _pT }], [1, { [_jN]: _sDS }], [0, { [_jN]: _sTF }]], 1
 ];
 export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
@@ -368,19 +417,13 @@ export var EgressAccessLogs$: StaticStructureSchema = [3, n0, _EAL,
 export var EgressEndpoint$: StaticStructureSchema = [3, n0, _EEg,
   0,
   [_PCI, _S, _U],
-  [[0, { [_jN]: _pCI }], [0, { [_jN]: _s }], [0, { [_jN]: _u }]]
+  [[0, { [_jN]: _pCI }], [0, { [_jN]: _st }], [0, { [_jN]: _u }]]
 ];
 export var EncryptionContractConfiguration$: StaticStructureSchema = [3, n0, _ECC,
   0,
   [_PSA, _PSV],
   [[0, { [_jN]: _pSA }], [0, { [_jN]: _pSV }]], 2
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_er]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var HlsEncryption$: StaticStructureSchema = [3, n0, _HE,
   0,
   [_SKP, _CIV, _EM],
@@ -394,14 +437,8 @@ export var HlsManifest$: StaticStructureSchema = [3, n0, _HMl,
 export var HlsPackage$: StaticStructureSchema = [3, n0, _HP,
   0,
   [_HM, _E, _IDS, _SDS, _UARG],
-  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => HlsEncryption$, { [_jN]: _e }], [2, { [_jN]: _iDS }], [1, { [_jN]: _sDS }], [2, { [_jN]: _uARG }]], 1
+  [[() => __listOfHlsManifest, { [_jN]: _hM }], [() => HlsEncryption$, { [_jN]: _en }], [2, { [_jN]: _iDS }], [1, { [_jN]: _sDS }], [2, { [_jN]: _uARG }]], 1
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_er]: _se, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListAssetsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_MR, _NT, _PGI],
@@ -455,14 +492,8 @@ export var MssManifest$: StaticStructureSchema = [3, n0, _MM,
 export var MssPackage$: StaticStructureSchema = [3, n0, _MP,
   0,
   [_MMs, _E, _SDS],
-  [[() => __listOfMssManifest, { [_jN]: _mM }], [() => MssEncryption$, { [_jN]: _e }], [1, { [_jN]: _sDS }]], 1
+  [[() => __listOfMssManifest, { [_jN]: _mM }], [() => MssEncryption$, { [_jN]: _en }], [1, { [_jN]: _sDS }]], 1
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PackagingConfiguration$: StaticStructureSchema = [3, n0, _PCa,
   0,
   [_A, _CP, _CA, _DP, _HP, _I, _MP, _PGI, _T],
@@ -473,12 +504,6 @@ export var PackagingGroup$: StaticStructureSchema = [3, n0, _PGa,
   [_AAC, _A, _Au, _CA, _DN, _EAL, _I, _T],
   [[1, { [_jN]: _aAC }], [0, { [_jN]: _a }], [() => Authorization$, { [_jN]: _au }], [0, { [_jN]: _cA }], [0, { [_jN]: _dN }], [() => EgressAccessLogs$, { [_jN]: _eAL }], [0, { [_jN]: _i }], [128 | 0, { [_jN]: _t }]]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_er]: _se, [_hE]: 503 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
   [_RAo, _SI, _U, _ECC],
@@ -494,18 +519,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RA, _T],
   [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_er]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnprocessableEntityException$: StaticErrorSchema = [-3, n0, _UEE,
-  { [_er]: _c, [_hE]: 422 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(UnprocessableEntityException$, UnprocessableEntityException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -522,8 +535,6 @@ export var UpdatePackagingGroupResponse$: StaticStructureSchema = [3, n0, _UPGRp
   [[1, { [_jN]: _aAC }], [0, { [_jN]: _a }], [() => Authorization$, { [_jN]: _au }], [0, { [_jN]: _cA }], [0, { [_jN]: _dN }], [() => EgressAccessLogs$, { [_jN]: _eAL }], [0, { [_jN]: _i }], [128 | 0, { [_jN]: _t }]]
 ];
 var __Unit = "unit" as const;
-export var MediaPackageVodServiceException$: StaticErrorSchema = [-3, _sm, "MediaPackageVodServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaPackageVodServiceException$, MediaPackageVodServiceException);
 var __listOf__PeriodTriggersElement = 64 | 0;
 var __listOf__string = 64 | 0;
 var __listOfAssetShallow: StaticListSchema = [1, n0, _lOAS,

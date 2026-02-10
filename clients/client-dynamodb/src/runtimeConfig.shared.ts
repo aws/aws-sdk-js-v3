@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultDynamoDBHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { DynamoDBClientConfig } from "./DynamoDBClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.dynamodb",
+      errorTypeRegistries,
       xmlNamespace: "http://dynamodb.amazonaws.com/doc/2012-08-10/",
       version: "2012-08-10",
       serviceTarget: "DynamoDB_20120810",

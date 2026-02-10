@@ -26,8 +26,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssmguiconnect";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssmguiconnect";
+const _se = "server";
 const n0 = "com.amazonaws.ssmguiconnect";
 
 // smithy-typescript generated code
@@ -46,18 +46,61 @@ import {
 import { SSMGuiConnectServiceException } from "../models/SSMGuiConnectServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SSMGuiConnectServiceException$: StaticErrorSchema = [-3, _s, "SSMGuiConnectServiceException", 0, [], []];
+_s_registry.registerError(SSMGuiConnectServiceException$, SSMGuiConnectServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ConnectionRecordingPreferences$: StaticStructureSchema = [3, n0, _CRP,
   0,
   [_RD, _KMSKA],
@@ -78,40 +121,16 @@ export var GetConnectionRecordingPreferencesResponse$: StaticStructureSchema = [
   [_CT, _CRP],
   [0, () => ConnectionRecordingPreferences$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var RecordingDestinations$: StaticStructureSchema = [3, n0, _RD,
   0,
   [_SB],
   [() => S3Buckets], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Bucket$: StaticStructureSchema = [3, n0, _SBu,
   0,
   [_BO, _BN],
   [0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateConnectionRecordingPreferencesRequest$: StaticStructureSchema = [3, n0, _UCRPR,
   0,
   [_CRP, _CT],
@@ -122,15 +141,7 @@ export var UpdateConnectionRecordingPreferencesResponse$: StaticStructureSchema 
   [_CT, _CRP],
   [0, () => ConnectionRecordingPreferences$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var SSMGuiConnectServiceException$: StaticErrorSchema = [-3, _sm, "SSMGuiConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSMGuiConnectServiceException$, SSMGuiConnectServiceException);
 var S3Buckets: StaticListSchema = [1, n0, _SB,
   0, () => S3Bucket$
 ];

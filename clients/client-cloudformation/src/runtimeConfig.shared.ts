@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudFormationHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudFormationClientConfig } from "./CloudFormationClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudFormationClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudformation",
+      errorTypeRegistries,
       xmlNamespace: "http://cloudformation.amazonaws.com/doc/2010-05-15/",
       version: "2010-05-15",
       serviceTarget: "CloudFormation",

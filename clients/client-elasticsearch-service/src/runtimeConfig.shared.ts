@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultElasticsearchServiceHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ElasticsearchServiceClientConfig } from "./ElasticsearchServiceClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ElasticsearchServiceClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.elasticsearchservice",
+      errorTypeRegistries,
       xmlNamespace: "http://es.amazonaws.com/doc/2015-01-01/",
       version: "2015-01-01",
       serviceTarget: "AmazonElasticsearchService2015",

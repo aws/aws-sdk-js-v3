@@ -34,11 +34,11 @@ const _BUEWEa = "BatchUpdateExclusionWindowsErrors";
 const _BUEWI = "BatchUpdateExclusionWindowsInput";
 const _BUEWO = "BatchUpdateExclusionWindowsOutput";
 const _C = "Canary";
-const _CE = "CanaryEntity";
+const _CE = "ConflictException";
 const _CET = "ChangeEventType";
+const _CEa = "CanaryEntity";
 const _CEh = "ChangeEvent";
 const _CEha = "ChangeEvents";
-const _CEo = "ConflictException";
 const _CI = "CalendarInterval";
 const _CN = "CanaryName";
 const _CO = "ComparisonOperator";
@@ -295,12 +295,55 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ApplicationSignalsServiceException$: StaticErrorSchema = [-3, _s, "ApplicationSignalsServiceException", 0, [], []];
+_s_registry.registerError(ApplicationSignalsServiceException$, ApplicationSignalsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_RT, _RI, _M],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AttributeFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_AFN, _AFV],
@@ -356,7 +399,7 @@ export var CalendarInterval$: StaticStructureSchema = [3, n0, _CI,
   [_ST, _DU, _Du],
   [4, 0, 1], 3
 ];
-export var CanaryEntity$: StaticStructureSchema = [3, n0, _CE,
+export var CanaryEntity$: StaticStructureSchema = [3, n0, _CEa,
   0,
   [_CN],
   [0], 1
@@ -366,12 +409,6 @@ export var ChangeEvent$: StaticStructureSchema = [3, n0, _CEh,
   [_Ti, _AI, _Re, _En, _CET, _EI, _UN, _EN],
   [4, 0, 0, 128 | 0, 0, 0, 0, 0], 6
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateServiceLevelObjectiveInput$: StaticStructureSchema = [3, n0, _CSLOI,
   0,
   [_N, _D, _SC, _RBSC, _G, _Ta, _BRCu],
@@ -632,12 +669,6 @@ export var RequestBasedServiceLevelIndicatorMetricConfig$: StaticStructureSchema
   [_KA, _ON, _MT, _TRCM, _MRCM, _DC],
   [128 | 0, 0, 0, () => MetricDataQueries, () => MonitoredRequestCountMetricDataQueries$, () => DependencyConfig$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_RT, _RI, _M],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RollingInterval$: StaticStructureSchema = [3, n0, _RIo,
   0,
   [_DU, _Du],
@@ -723,12 +754,6 @@ export var ServiceOperationEntity$: StaticStructureSchema = [3, n0, _SOE,
   [_Se, _O, _MT],
   [() => ServiceEntity$, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceState$: StaticStructureSchema = [3, n0, _SServ,
   0,
   [_Se, _LCE, _AFt],
@@ -764,12 +789,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -790,20 +809,12 @@ export var UpdateServiceLevelObjectiveOutput$: StaticStructureSchema = [3, n0, _
   [_Sl],
   [() => ServiceLevelObjective$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Window$: StaticStructureSchema = [3, n0, _W,
   0,
   [_DU, _Du],
   [0, 1], 2
 ];
 var __Unit = "unit" as const;
-export var ApplicationSignalsServiceException$: StaticErrorSchema = [-3, _s, "ApplicationSignalsServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ApplicationSignalsServiceException$, ApplicationSignalsServiceException);
 var AttributeFilters: StaticListSchema = [1, n0, _AFt,
   0, () => AttributeFilter$
 ];

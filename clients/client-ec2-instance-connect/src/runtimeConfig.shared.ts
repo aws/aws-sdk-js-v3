@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEC2InstanceConnectHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { EC2InstanceConnectClientConfig } from "./EC2InstanceConnectClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: EC2InstanceConnectClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ec2instanceconnect",
+      errorTypeRegistries,
       version: "2018-04-02",
       serviceTarget: "AWSEC2InstanceConnectService",
     },

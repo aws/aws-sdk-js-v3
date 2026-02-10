@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeGuruProfilerHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeGuruProfilerClientConfig } from "./CodeGuruProfilerClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CodeGuruProfilerClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codeguruprofiler",
+      errorTypeRegistries,
       version: "2019-07-18",
       serviceTarget: "CodeGuruProfiler",
     },

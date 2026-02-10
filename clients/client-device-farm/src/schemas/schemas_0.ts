@@ -505,7 +505,7 @@ const _rem = "remaining";
 const _res = "result";
 const _ru = "run";
 const _run = "runs";
-const _s = "stopped";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devicefarm";
 const _sA = "sessionArn";
 const _sAR = "skipAppResign";
 const _sC = "statusCode";
@@ -518,9 +518,9 @@ const _sa = "samples";
 const _se = "server";
 const _see = "seed";
 const _sk = "skipped";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.devicefarm";
-const _st = "status";
-const _sta = "started";
+const _st = "stopped";
+const _sta = "status";
+const _star = "started";
 const _su = "suite";
 const _sui = "suites";
 const _t = "type";
@@ -595,6 +595,91 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DeviceFarmServiceException$: StaticErrorSchema = [-3, _s, "DeviceFarmServiceException", 0, [], []];
+_s_registry.registerError(DeviceFarmServiceException$, DeviceFarmServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ArgumentException$: StaticErrorSchema = [-3, n0, _AE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ArgumentException$, ArgumentException);
+export var CannotDeleteException$: StaticErrorSchema = [-3, n0, _CDE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CannotDeleteException$, CannotDeleteException);
+export var IdempotencyException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IdempotencyException$, IdempotencyException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotEligibleException$: StaticErrorSchema = [-3, n0, _NEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotEligibleException$, NotEligibleException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceAccountException$: StaticErrorSchema = [-3, n0, _SAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceAccountException$, ServiceAccountException);
+export var TagOperationException$: StaticErrorSchema = [-3, n0, _TOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TagOperationException$, TagOperationException);
+export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TagPolicyException$, TagPolicyException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var SensitiveURL: StaticSimpleSchema = [0, n0, _SURL, 8, 0];
 export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
@@ -602,26 +687,14 @@ export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
   [_aAN, _uD, _uRAD, _mJTM, _tM, _mS, _dJTM, _sAR],
   [0, 128 | 1, 128 | 1, 1, () => TrialMinutes$, 128 | 1, 1, 2]
 ];
-export var ArgumentException$: StaticErrorSchema = [-3, n0, _AE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ArgumentException$, ArgumentException);
 export var Artifact$: StaticStructureSchema = [3, n0, _A,
   0,
   [_a, _n, _t, _ex, _u],
   [0, 0, 0, 0, 0]
 ];
-export var CannotDeleteException$: StaticErrorSchema = [-3, n0, _CDE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CannotDeleteException$, CannotDeleteException);
 export var Counters$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_to, _p, _f, _w, _er, _s, _sk],
+  [_to, _p, _f, _w, _er, _st, _sk],
   [1, 1, 1, 1, 1, 1, 1]
 ];
 export var CPU$: StaticStructureSchema = [3, n0, _CPU,
@@ -831,7 +904,7 @@ export var DeviceFilter$: StaticStructureSchema = [3, n0, _DF,
 ];
 export var DeviceInstance$: StaticStructureSchema = [3, n0, _DI,
   0,
-  [_a, _dA, _l, _st, _ud, _iP],
+  [_a, _dA, _l, _sta, _ud, _iP],
   [0, 0, 64 | 0, 0, 0, () => InstanceProfile$]
 ];
 export var DeviceMinutes$: StaticStructureSchema = [3, n0, _DM,
@@ -1054,12 +1127,6 @@ export var GetVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _GVPCECR
   [_vCp],
   [() => VPCEConfiguration$]
 ];
-export var IdempotencyException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotencyException$, IdempotencyException);
 export var IncompatibilityMessage$: StaticStructureSchema = [3, n0, _IM,
   0,
   [_m, _t],
@@ -1080,29 +1147,11 @@ export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
   [_a, _pC, _eAPFC, _rAU, _n, _d],
   [0, 2, 64 | 0, 2, 0, 0]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_a, _n, _t, _cr, _st, _res, _sta, _s, _cou, _m, _de, _iA, _dM, _vE, _vCi],
+  [_a, _n, _t, _cr, _sta, _res, _star, _st, _cou, _m, _de, _iA, _dM, _vE, _vCi],
   [0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, () => Device$, 0, () => DeviceMinutes$, 0, 2]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListArtifactsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
   [_a, _t, _nT],
@@ -1295,7 +1344,7 @@ export var ListTestGridSessionArtifactsResult$: StaticStructureSchema = [3, n0, 
 ];
 export var ListTestGridSessionsRequest$: StaticStructureSchema = [3, n0, _LTGSR,
   0,
-  [_pA, _st, _cTA, _cTB, _eTA, _eTB, _mRa, _nT],
+  [_pA, _sta, _cTA, _cTB, _eTA, _eTB, _mRa, _nT],
   [0, 0, 4, 4, 4, 4, 1, 0], 1
 ];
 export var ListTestGridSessionsResult$: StaticStructureSchema = [3, n0, _LTGSRi,
@@ -1358,18 +1407,6 @@ export var NetworkProfile$: StaticStructureSchema = [3, n0, _NP,
   [_a, _n, _d, _t, _uBB, _dBB, _uDM, _dDM, _uJM, _dJM, _uLP, _dLP],
   [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
-export var NotEligibleException$: StaticErrorSchema = [-3, n0, _NEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotEligibleException$, NotEligibleException);
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Offering$: StaticStructureSchema = [3, n0, _O,
   0,
   [_id, _d, _t, _pl, _rC],
@@ -1432,7 +1469,7 @@ export var RemoteAccessEndpoints$: StaticStructureSchema = [3, n0, _RAE,
 ];
 export var RemoteAccessSession$: StaticStructureSchema = [3, n0, _RAS,
   0,
-  [_a, _n, _cr, _st, _res, _m, _sta, _s, _de, _iA, _bM, _dM, _en, _dU, _iM, _sAR, _vC, _dPe, _aU, _end],
+  [_a, _n, _cr, _sta, _res, _m, _star, _st, _de, _iA, _bM, _dM, _en, _dU, _iM, _sAR, _vC, _dPe, _aU, _end],
   [0, 0, 4, 0, 0, 0, 4, 4, () => Device$, 0, 0, () => DeviceMinutes$, 0, 0, 0, 2, () => VpcConfig$, () => DeviceProxy$, 0, [() => RemoteAccessEndpoints$, 0]]
 ];
 export var RenewOfferingRequest$: StaticStructureSchema = [3, n0, _ROR,
@@ -1457,7 +1494,7 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var Run$: StaticStructureSchema = [3, n0, _Run,
   0,
-  [_a, _n, _t, _pl, _cr, _st, _res, _sta, _s, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _dSR, _vC, _eRA, _eV],
+  [_a, _n, _t, _pl, _cr, _sta, _res, _star, _st, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _dSR, _vC, _eRA, _eV],
   [0, 0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, 1, 1, 0, () => DeviceMinutes$, () => NetworkProfile$, () => DeviceProxy$, 0, 0, 1, 0, 1, 1, 0, 0, () => Radios$, () => Location$, () => CustomerArtifactPaths$, 0, 2, 0, () => DeviceSelectionResult$, () => VpcConfig$, 0, () => EnvironmentVariables]
 ];
 export var Sample$: StaticStructureSchema = [3, n0, _S,
@@ -1485,12 +1522,6 @@ export var ScheduleRunTest$: StaticStructureSchema = [3, n0, _SRT,
   [_t, _tPA, _tSA, _fil, _pa],
   [0, 0, 0, 0, 128 | 0], 1
 ];
-export var ServiceAccountException$: StaticErrorSchema = [-3, n0, _SAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceAccountException$, ServiceAccountException);
 export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
   [_a],
@@ -1523,7 +1554,7 @@ export var StopRunResult$: StaticStructureSchema = [3, n0, _SRRto,
 ];
 export var Suite$: StaticStructureSchema = [3, n0, _Su,
   0,
-  [_a, _n, _t, _cr, _st, _res, _sta, _s, _cou, _m, _dM],
+  [_a, _n, _t, _cr, _sta, _res, _star, _st, _cou, _m, _dM],
   [0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, () => DeviceMinutes$]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
@@ -1531,18 +1562,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 2
 ];
-export var TagOperationException$: StaticErrorSchema = [-3, n0, _TOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TagOperationException$, TagOperationException);
-export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RARN, _T],
@@ -1555,7 +1574,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var Test$: StaticStructureSchema = [3, n0, _Te,
   0,
-  [_a, _n, _t, _cr, _st, _res, _sta, _s, _cou, _m, _dM],
+  [_a, _n, _t, _cr, _sta, _res, _star, _st, _cou, _m, _dM],
   [0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, () => DeviceMinutes$]
 ];
 export var TestGridProject$: StaticStructureSchema = [3, n0, _TGP,
@@ -1565,12 +1584,12 @@ export var TestGridProject$: StaticStructureSchema = [3, n0, _TGP,
 ];
 export var TestGridSession$: StaticStructureSchema = [3, n0, _TGS,
   0,
-  [_a, _st, _cr, _ende, _bMi, _sP],
+  [_a, _sta, _cr, _ende, _bMi, _sP],
   [0, 0, 4, 4, 1, 0]
 ];
 export var TestGridSessionAction$: StaticStructureSchema = [3, n0, _TGSA,
   0,
-  [_act, _sta, _du, _sC, _rM],
+  [_act, _star, _du, _sC, _rM],
   [0, 4, 1, 0, 0]
 ];
 export var TestGridSessionArtifact$: StaticStructureSchema = [3, n0, _TGSAe,
@@ -1583,12 +1602,6 @@ export var TestGridVpcConfig$: StaticStructureSchema = [3, n0, _TGVC,
   [_sGI, _sIu, _vI],
   [64 | 0, 64 | 0, 0], 3
 ];
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var TrialMinutes$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_to, _rem],
@@ -1691,7 +1704,7 @@ export var UpdateVPCEConfigurationResult$: StaticStructureSchema = [3, n0, _UVPC
 ];
 export var Upload$: StaticStructureSchema = [3, n0, _U,
   0,
-  [_a, _n, _cr, _t, _st, _u, _meta, _cT, _m, _cat],
+  [_a, _n, _cr, _t, _sta, _u, _meta, _cT, _m, _cat],
   [0, 0, 4, 0, 0, [() => SensitiveURL, 0], 0, 0, 0, 0]
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
@@ -1704,8 +1717,6 @@ export var VPCEConfiguration$: StaticStructureSchema = [3, n0, _VPCEC,
   [_a, _vCN, _vSN, _sDN, _vCD],
   [0, 0, 0, 0, 0]
 ];
-export var DeviceFarmServiceException$: StaticErrorSchema = [-3, _sm, "DeviceFarmServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DeviceFarmServiceException$, DeviceFarmServiceException);
 var AmazonResourceNames = 64 | 0;
 var AndroidPaths = 64 | 0;
 var Artifacts: StaticListSchema = [1, n0, _Ar,

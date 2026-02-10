@@ -347,8 +347,8 @@ const _dVM = "dashboardValidationMessages";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudwatch";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudwatch";
+const _se = "server";
 const n0 = "com.amazonaws.cloudwatch";
 
 // smithy-typescript generated code
@@ -380,6 +380,103 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudWatchServiceException$: StaticErrorSchema = [-3, _s, "CloudWatchServiceException", 0, [], []];
+_s_registry.registerError(CloudWatchServiceException$, CloudWatchServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_aQE]: [`ConcurrentModificationException`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DashboardInvalidInputError$: StaticErrorSchema = [-3, n0, _DIIE,
+  { [_aQE]: [`InvalidParameterInput`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _dVM],
+  [0, () => DashboardValidationMessages]
+];
+n0_registry.registerError(DashboardInvalidInputError$, DashboardInvalidInputError);
+export var DashboardNotFoundError$: StaticErrorSchema = [-3, n0, _DNFE,
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DashboardNotFoundError$, DashboardNotFoundError);
+export var InternalServiceFault$: StaticErrorSchema = [-3, n0, _ISF,
+  { [_aQE]: [`InternalServiceError`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceFault$, InternalServiceFault);
+export var InvalidFormatFault$: StaticErrorSchema = [-3, n0, _IFF,
+  { [_aQE]: [`InvalidFormat`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidFormatFault$, InvalidFormatFault);
+export var InvalidNextToken$: StaticErrorSchema = [-3, n0, _INT,
+  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextToken$, InvalidNextToken);
+export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
+  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededFault$, LimitExceededFault);
+export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
+  { [_aQE]: [`MissingParameter`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
+export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFound$, ResourceNotFound);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_RT, _RI, _M],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AlarmContributor$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_CI, _CA, _SR, _STT],
@@ -405,35 +502,11 @@ export var CompositeAlarm$: StaticStructureSchema = [3, n0, _CAo,
   [_AE, _AA, _AAl, _ACUT, _ADl, _AN, _AR, _IDA, _OKA, _SR, _SRD, _SUT, _SV, _STT, _ASB, _ASR, _AS, _ASWP, _ASEP],
   [2, 64 | 0, 0, 4, 0, 0, 0, 64 | 0, 64 | 0, 0, 0, 4, 0, 4, 0, 0, 0, 1, 1]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_aQE]: [`ConcurrentModificationException`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DashboardEntry$: StaticStructureSchema = [3, n0, _DE,
   0,
   [_DN, _DA, _LM, _Si],
   [0, 0, 4, 1]
 ];
-export var DashboardInvalidInputError$: StaticErrorSchema = [-3, n0, _DIIE,
-  { [_aQE]: [`InvalidParameterInput`, 400], [_e]: _c, [_hE]: 400 },
-  [_m, _dVM],
-  [0, () => DashboardValidationMessages]
-];
-TypeRegistry.for(n0).registerError(DashboardInvalidInputError$, DashboardInvalidInputError);
-export var DashboardNotFoundError$: StaticErrorSchema = [-3, n0, _DNFE,
-  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DashboardNotFoundError$, DashboardNotFoundError);
 export var DashboardValidationMessage$: StaticStructureSchema = [3, n0, _DVM,
   0,
   [_DP, _M],
@@ -679,53 +752,11 @@ export var InsightRuleMetricDatapoint$: StaticStructureSchema = [3, n0, _IRMD,
   [_T, _UC, _MCV, _SC, _A, _Su, _Mi, _Ma],
   [4, 1, 1, 1, 1, 1, 1, 1], 1
 ];
-export var InternalServiceFault$: StaticErrorSchema = [-3, n0, _ISF,
-  { [_aQE]: [`InternalServiceError`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceFault$, InternalServiceFault);
-export var InvalidFormatFault$: StaticErrorSchema = [-3, n0, _IFF,
-  { [_aQE]: [`InvalidFormat`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidFormatFault$, InvalidFormatFault);
-export var InvalidNextToken$: StaticErrorSchema = [-3, n0, _INT,
-  { [_aQE]: [`InvalidNextToken`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextToken$, InvalidNextToken);
-export var InvalidParameterCombinationException$: StaticErrorSchema = [-3, n0, _IPCE,
-  { [_aQE]: [`InvalidParameterCombination`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterCombinationException$, InvalidParameterCombinationException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_aQE]: [`InvalidParameterValue`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
 export var LabelOptions$: StaticStructureSchema = [3, n0, _LO,
   0,
   [_Ti],
   [0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceededException`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
-  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededFault$, LimitExceededFault);
 export var ListDashboardsInput$: StaticStructureSchema = [3, n0, _LDI,
   0,
   [_DNP, _NT],
@@ -856,12 +887,6 @@ export var MetricStreamStatisticsMetric$: StaticStructureSchema = [3, n0, _MSSM,
   [_N, _MN],
   [0, 0], 2
 ];
-export var MissingRequiredParameterException$: StaticErrorSchema = [-3, n0, _MRPE,
-  { [_aQE]: [`MissingParameter`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MissingRequiredParameterException$, MissingRequiredParameterException);
 export var PartialFailure$: StaticStructureSchema = [3, n0, _PF,
   0,
   [_FR, _ETx, _FC, _FD],
@@ -937,18 +962,6 @@ export var Range$: StaticStructureSchema = [3, n0, _R,
   [_ST, _ET],
   [4, 4], 2
 ];
-export var ResourceNotFound$: StaticErrorSchema = [-3, n0, _RNF,
-  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFound$, ResourceNotFound);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_RT, _RI, _M],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SetAlarmStateInput$: StaticStructureSchema = [3, n0, _SASI,
   0,
   [_AN, _SV, _SR, _SRD],
@@ -1010,8 +1023,6 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
   []
 ];
 var __Unit = "unit" as const;
-export var CloudWatchServiceException$: StaticErrorSchema = [-3, _sm, "CloudWatchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudWatchServiceException$, CloudWatchServiceException);
 var AlarmContributors: StaticListSchema = [1, n0, _ACl,
   0, () => AlarmContributor$
 ];

@@ -143,15 +143,15 @@ const _LSBR = "ListS3BucketsRequest";
 const _LSBRi = "ListS3BucketsResponse";
 const _LT = "LimitType";
 const _LWA = "LoginWithAmazon";
-const _M = "Mode";
+const _M = "Message";
 const _MFAM = "MFAMode";
 const _MIS = "ModelIntrospectionSchema";
 const _ML = "MinimumLength";
 const _MR = "MaxResults";
 const _MT = "MfaTypes";
-const _Me = "Message";
 const _Mf = "Mfa";
-const _Mo = "Models";
+const _Mo = "Mode";
+const _Mod = "Models";
 const _N = "Name";
 const _NCI = "NativeClientId";
 const _NFE = "NotFoundException";
@@ -279,14 +279,14 @@ const _jN = "jsonName";
 const _ki = "key_id";
 const _lAC = "loginAuthConfig";
 const _lT = "limitType";
-const _m = "mode";
+const _m = "message";
 const _mIS = "modelIntrospectionSchema";
 const _mL = "minimumLength";
 const _mR = "maxResults";
 const _mT = "mfaTypes";
-const _me = "message";
 const _mf = "mfa";
-const _mo = "models";
+const _mo = "mode";
+const _mod = "models";
 const _n = "name";
 const _nCI = "nativeClientId";
 const _nT = "nextToken";
@@ -309,16 +309,16 @@ const _rSIURI = "redirectSignInURIs";
 const _rSOURI = "redirectSignOutURIs";
 const _rSUA = "requiredSignUpAttributes";
 const _rT = "resourceType";
-const _s = "settings";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.amplifybackend";
 const _sI = "sessionId";
 const _sIM = "signInMethod";
 const _sM = "smsMessage";
 const _sN = "serviceName";
 const _sPS = "socialProviderSettings";
 const _sS = "smsSettings";
-const _se = "service";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.amplifybackend";
+const _se = "server";
+const _ser = "service";
+const _set = "settings";
 const _st = "status";
 const _t = "ttl";
 const _tEN = "targetEnvironmentName";
@@ -347,6 +347,43 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AmplifyBackendServiceException$: StaticErrorSchema = [-3, _s, "AmplifyBackendServiceException", 0, [], []];
+_s_registry.registerError(AmplifyBackendServiceException$, AmplifyBackendServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var GatewayTimeoutException$: StaticErrorSchema = [-3, n0, _GTE,
+  { [_e]: _se, [_hE]: 504 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(GatewayTimeoutException$, GatewayTimeoutException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RT],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _rT }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_LT, _M],
+  [[0, { [_jN]: _lT }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BackendAPIAppSyncAuthSettings$: StaticStructureSchema = [3, n0, _BAPIASAS,
   0,
   [_CUPI, _D, _ET, _OIDATTL, _OIDCI, _OIDITTL, _OIDIURL, _OIDPN],
@@ -354,8 +391,8 @@ export var BackendAPIAppSyncAuthSettings$: StaticStructureSchema = [3, n0, _BAPI
 ];
 export var BackendAPIAuthType$: StaticStructureSchema = [3, n0, _BAPIAT,
   0,
-  [_M, _S],
-  [[0, { [_jN]: _m }], [() => BackendAPIAppSyncAuthSettings$, { [_jN]: _s }]]
+  [_Mo, _S],
+  [[0, { [_jN]: _mo }], [() => BackendAPIAppSyncAuthSettings$, { [_jN]: _set }]]
 ];
 export var BackendAPIConflictResolution$: StaticStructureSchema = [3, n0, _BAPICR,
   0,
@@ -365,7 +402,7 @@ export var BackendAPIConflictResolution$: StaticStructureSchema = [3, n0, _BAPIC
 export var BackendAPIResourceConfig$: StaticStructureSchema = [3, n0, _BAPIRC,
   0,
   [_AAT, _AN, _CR, _DAT, _Se, _TS],
-  [[() => ListOfBackendAPIAuthType, { [_jN]: _aAT }], [0, { [_jN]: _aN }], [() => BackendAPIConflictResolution$, { [_jN]: _cR }], [() => BackendAPIAuthType$, { [_jN]: _dAT }], [0, { [_jN]: _se }], [0, { [_jN]: _tS }]]
+  [[() => ListOfBackendAPIAuthType, { [_jN]: _aAT }], [0, { [_jN]: _aN }], [() => BackendAPIConflictResolution$, { [_jN]: _cR }], [() => BackendAPIAuthType$, { [_jN]: _dAT }], [0, { [_jN]: _ser }], [0, { [_jN]: _tS }]]
 ];
 export var BackendAuthAppleProviderConfig$: StaticStructureSchema = [3, n0, _BAAPC,
   8,
@@ -387,12 +424,6 @@ export var BackendStoragePermissions$: StaticStructureSchema = [3, n0, _BSP,
   [_A, _UA],
   [[64 | 0, { [_jN]: _a }], [64 | 0, { [_jN]: _uA }]], 1
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CloneBackendRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_AI, _BEN, _TEN],
@@ -426,7 +457,7 @@ export var CreateBackendAuthIdentityPoolConfig$: StaticStructureSchema = [3, n0,
 export var CreateBackendAuthMFAConfig$: StaticStructureSchema = [3, n0, _CBAMFAC,
   0,
   [_MFAM, _S],
-  [0, [() => Settings$, { [_jN]: _s }]], 1
+  [0, [() => Settings$, { [_jN]: _set }]], 1
 ];
 export var CreateBackendAuthOAuthConfig$: StaticStructureSchema = [3, n0, _CBAOAC,
   0,
@@ -446,7 +477,7 @@ export var CreateBackendAuthRequest$: StaticStructureSchema = [3, n0, _CBAR,
 export var CreateBackendAuthResourceConfig$: StaticStructureSchema = [3, n0, _CBARC,
   0,
   [_AR, _Se, _UPC, _IPC],
-  [[0, { [_jN]: _aR }], [0, { [_jN]: _se }], [() => CreateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => CreateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
+  [[0, { [_jN]: _aR }], [0, { [_jN]: _ser }], [() => CreateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => CreateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
 ];
 export var CreateBackendAuthResponse$: StaticStructureSchema = [3, n0, _CBARr,
   0,
@@ -563,12 +594,6 @@ export var EmailSettings$: StaticStructureSchema = [3, n0, _ES,
   [_EM, _ESm],
   [[0, { [_jN]: _eM }], [0, { [_jN]: _eSm }]]
 ];
-export var GatewayTimeoutException$: StaticErrorSchema = [-3, n0, _GTE,
-  { [_e]: _ser, [_hE]: 504 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(GatewayTimeoutException$, GatewayTimeoutException);
 export var GenerateBackendAPIModelsRequest$: StaticStructureSchema = [3, n0, _GBAPIMR,
   0,
   [_AI, _BEN, _RN],
@@ -586,8 +611,8 @@ export var GetBackendAPIModelsRequest$: StaticStructureSchema = [3, n0, _GBAPIMR
 ];
 export var GetBackendAPIModelsResponse$: StaticStructureSchema = [3, n0, _GBAPIMReta,
   0,
-  [_Mo, _St, _MIS],
-  [[0, { [_jN]: _mo }], [0, { [_jN]: _st }], [0, { [_jN]: _mIS }]]
+  [_Mod, _St, _MIS],
+  [[0, { [_jN]: _mod }], [0, { [_jN]: _st }], [0, { [_jN]: _mIS }]]
 ];
 export var GetBackendAPIRequest$: StaticStructureSchema = [3, n0, _GBAPIR,
   0,
@@ -699,12 +724,6 @@ export var LoginAuthConfigReqObj$: StaticStructureSchema = [3, n0, _LACRO,
   [_ACIPI, _ACR, _AUPI, _AUPWCI],
   [[0, { [_jN]: _acipi }], [0, { [_jN]: _acr }], [0, { [_jN]: _aupi }], [0, { [_jN]: _aupwci }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_Me, _RT],
-  [[0, { [_jN]: _me }], [0, { [_jN]: _rT }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var RemoveAllBackendsRequest$: StaticStructureSchema = [3, n0, _RABR,
   0,
   [_AI, _CAA],
@@ -750,12 +769,6 @@ export var SocialProviderSettings$: StaticStructureSchema = [3, n0, _SPS,
   [_F, _G, _LWA, _SIWA],
   [[() => BackendAuthSocialProviderConfig$, 0], [() => BackendAuthSocialProviderConfig$, 0], [() => BackendAuthSocialProviderConfig$, 0], [() => BackendAuthAppleProviderConfig$, 0]]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_LT, _Me],
-  [[0, { [_jN]: _lT }], [0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UpdateBackendAPIRequest$: StaticStructureSchema = [3, n0, _UBAPIR,
   0,
   [_AI, _BEN, _RN, _RC],
@@ -779,7 +792,7 @@ export var UpdateBackendAuthIdentityPoolConfig$: StaticStructureSchema = [3, n0,
 export var UpdateBackendAuthMFAConfig$: StaticStructureSchema = [3, n0, _UBAMFAC,
   0,
   [_MFAM, _S],
-  [0, [() => Settings$, { [_jN]: _s }]]
+  [0, [() => Settings$, { [_jN]: _set }]]
 ];
 export var UpdateBackendAuthOAuthConfig$: StaticStructureSchema = [3, n0, _UBAOAC,
   0,
@@ -799,7 +812,7 @@ export var UpdateBackendAuthRequest$: StaticStructureSchema = [3, n0, _UBAR,
 export var UpdateBackendAuthResourceConfig$: StaticStructureSchema = [3, n0, _UBARC,
   0,
   [_AR, _Se, _UPC, _IPC],
-  [[0, { [_jN]: _aR }], [0, { [_jN]: _se }], [() => UpdateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => UpdateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
+  [[0, { [_jN]: _aR }], [0, { [_jN]: _ser }], [() => UpdateBackendAuthUserPoolConfig$, { [_jN]: _uPC }], [() => UpdateBackendAuthIdentityPoolConfig$, { [_jN]: _iPC }]], 3
 ];
 export var UpdateBackendAuthResponse$: StaticStructureSchema = [3, n0, _UBARp,
   0,
@@ -851,8 +864,6 @@ export var UpdateBackendStorageResponse$: StaticStructureSchema = [3, n0, _UBSRp
   [_AI, _BEN, _JI, _St],
   [[0, { [_jN]: _aI }], [0, { [_jN]: _bEN }], [0, { [_jN]: _jI }], [0, { [_jN]: _st }]]
 ];
-export var AmplifyBackendServiceException$: StaticErrorSchema = [-3, _sm, "AmplifyBackendServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AmplifyBackendServiceException$, AmplifyBackendServiceException);
 var ListOf__string = 64 | 0;
 var ListOfAdditionalConstraintsElement = 64 | 0;
 var ListOfAuthenticatedElement = 64 | 0;

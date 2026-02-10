@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBCMDashboardsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BCMDashboardsClientConfig } from "./BCMDashboardsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BCMDashboardsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.bcmdashboards",
+      errorTypeRegistries,
       version: "2025-08-18",
       serviceTarget: "AWSBCMDashboardsService",
     },

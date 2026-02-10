@@ -230,13 +230,13 @@ const _EPN = "E164PhoneNumber";
 const _ET = "ExpirationTimestamp";
 const _ETV = "ExampleTextValue";
 const _EUOO = "EndUserOptedOut";
-const _F = "Filters";
+const _F = "Fields";
 const _FP = "FieldPath";
 const _FPi = "FieldPaths";
 const _FR = "FieldRequirement";
 const _FT = "FieldType";
 const _Fe = "Feedback";
-const _Fi = "Fields";
+const _Fi = "Filters";
 const _GPCCRS = "GetProtectConfigurationCountryRuleSet";
 const _GPCCRSR = "GetProtectConfigurationCountryRuleSetRequest";
 const _GPCCRSRe = "GetProtectConfigurationCountryRuleSetResult";
@@ -409,10 +409,10 @@ const _RFVI = "RegistrationFieldValueInformation";
 const _RFVIL = "RegistrationFieldValueInformationList";
 const _RI = "ResourceId";
 const _RIL = "RegistrationInformationList";
-const _RIe = "RegistrationId";
-const _RIeg = "RegistrationIds";
-const _RIegi = "RegistrationInformation";
-const _RIeq = "RequestId";
+const _RIe = "RequestId";
+const _RIeg = "RegistrationId";
+const _RIegi = "RegistrationIds";
+const _RIegis = "RegistrationInformation";
 const _RNFE = "ResourceNotFoundException";
 const _RPN = "ReleasePhoneNumber";
 const _RPNR = "ReleasePhoneNumberRequest";
@@ -579,8 +579,8 @@ const _VNe = "VersionNumbers";
 const _Va = "Values";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoicev2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoicev2";
+const _se = "server";
 const n0 = "com.amazonaws.pinpointsmsvoicev2";
 
 // smithy-typescript generated code
@@ -605,12 +605,61 @@ import {
 import { PinpointSMSVoiceV2ServiceException } from "../models/PinpointSMSVoiceV2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PinpointSMSVoiceV2ServiceException$: StaticErrorSchema = [-3, _s, "PinpointSMSVoiceV2ServiceException", 0, [], []];
+_s_registry.registerError(PinpointSMSVoiceV2ServiceException$, PinpointSMSVoiceV2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c },
   [_M, _R],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M, _R, _RT, _RI],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M, _RIe],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M, _RT, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountAttribute$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_N, _V],
@@ -666,12 +715,6 @@ export var ConfigurationSetInformation$: StaticStructureSchema = [3, n0, _CSI,
   [_CSA, _CSN, _ED, _CTr, _DMT, _DSI, _DMFE, _PCI],
   [0, 0, () => EventDestinationList, 4, 0, 0, 2, 0], 4
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M, _R, _RT, _RI],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateConfigurationSetRequest$: StaticStructureSchema = [3, n0, _CCSR,
   0,
   [_CSN, _T, _CT],
@@ -724,12 +767,12 @@ export var CreateProtectConfigurationResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateRegistrationAssociationRequest$: StaticStructureSchema = [3, n0, _CRAR,
   0,
-  [_RIe, _RI],
+  [_RIeg, _RI],
   [0, 0], 2
 ];
 export var CreateRegistrationAssociationResult$: StaticStructureSchema = [3, n0, _CRARr,
   0,
-  [_RA, _RIe, _RTe, _RAe, _RI, _RT, _ICC, _PN],
+  [_RA, _RIeg, _RTe, _RAe, _RI, _RT, _ICC, _PN],
   [0, 0, 0, 0, 0, 0, 0, 0], 6
 ];
 export var CreateRegistrationAttachmentRequest$: StaticStructureSchema = [3, n0, _CRARre,
@@ -749,17 +792,17 @@ export var CreateRegistrationRequest$: StaticStructureSchema = [3, n0, _CRR,
 ];
 export var CreateRegistrationResult$: StaticStructureSchema = [3, n0, _CRRr,
   0,
-  [_RA, _RIe, _RTe, _RS, _CVN, _CTr, _AAd, _T],
+  [_RA, _RIeg, _RTe, _RS, _CVN, _CTr, _AAd, _T],
   [0, 0, 0, 0, 1, 4, 128 | 0, () => TagList], 6
 ];
 export var CreateRegistrationVersionRequest$: StaticStructureSchema = [3, n0, _CRVR,
   0,
-  [_RIe],
+  [_RIeg],
   [0], 1
 ];
 export var CreateRegistrationVersionResult$: StaticStructureSchema = [3, n0, _CRVRr,
   0,
-  [_RA, _RIe, _VN, _RVS, _RVSH],
+  [_RA, _RIeg, _VN, _RVS, _RVSH],
   [0, 0, 1, 0, () => RegistrationVersionStatusHistory$], 5
 ];
 export var CreateVerifiedDestinationNumberRequest$: StaticStructureSchema = [3, n0, _CVDNR,
@@ -904,22 +947,22 @@ export var DeleteRegistrationAttachmentResult$: StaticStructureSchema = [3, n0, 
 ];
 export var DeleteRegistrationFieldValueRequest$: StaticStructureSchema = [3, n0, _DRFVR,
   0,
-  [_RIe, _FP],
+  [_RIeg, _FP],
   [0, 0], 2
 ];
 export var DeleteRegistrationFieldValueResult$: StaticStructureSchema = [3, n0, _DRFVRe,
   0,
-  [_RA, _RIe, _VN, _FP, _SC, _TV, _RAI],
+  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAI],
   [0, 0, 1, 0, 64 | 0, 0, 0], 4
 ];
 export var DeleteRegistrationRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_RIe],
+  [_RIeg],
   [0], 1
 ];
 export var DeleteRegistrationResult$: StaticStructureSchema = [3, n0, _DRRe,
   0,
-  [_RA, _RIe, _RTe, _RS, _CVN, _CTr, _AVN, _LDVN, _AAd],
+  [_RA, _RIeg, _RTe, _RS, _CVN, _CTr, _AVN, _LDVN, _AAd],
   [0, 0, 0, 0, 1, 4, 1, 1, 128 | 0], 6
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
@@ -984,7 +1027,7 @@ export var DescribeAccountLimitsResult$: StaticStructureSchema = [3, n0, _DALRe,
 ];
 export var DescribeConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _DCSRes,
   0,
-  [_CSNo, _F, _NT, _MR],
+  [_CSNo, _Fi, _NT, _MR],
   [64 | 0, () => ConfigurationSetFilterList, 0, 1]
 ];
 export var DescribeConfigurationSetsResult$: StaticStructureSchema = [3, n0, _DCSResc,
@@ -994,7 +1037,7 @@ export var DescribeConfigurationSetsResult$: StaticStructureSchema = [3, n0, _DC
 ];
 export var DescribeKeywordsRequest$: StaticStructureSchema = [3, n0, _DKRes,
   0,
-  [_OI, _Ke, _F, _NT, _MR],
+  [_OI, _Ke, _Fi, _NT, _MR],
   [0, 64 | 0, () => KeywordFilterList, 0, 1], 1
 ];
 export var DescribeKeywordsResult$: StaticStructureSchema = [3, n0, _DKResc,
@@ -1004,7 +1047,7 @@ export var DescribeKeywordsResult$: StaticStructureSchema = [3, n0, _DKResc,
 ];
 export var DescribeOptedOutNumbersRequest$: StaticStructureSchema = [3, n0, _DOONRes,
   0,
-  [_OOLN, _OONp, _F, _NT, _MR],
+  [_OOLN, _OONp, _Fi, _NT, _MR],
   [0, 64 | 0, () => OptedOutFilterList, 0, 1], 1
 ];
 export var DescribeOptedOutNumbersResult$: StaticStructureSchema = [3, n0, _DOONResc,
@@ -1024,7 +1067,7 @@ export var DescribeOptOutListsResult$: StaticStructureSchema = [3, n0, _DOOLResc
 ];
 export var DescribePhoneNumbersRequest$: StaticStructureSchema = [3, n0, _DPNR,
   0,
-  [_PNI, _F, _NT, _MR, _O],
+  [_PNI, _Fi, _NT, _MR, _O],
   [64 | 0, () => PhoneNumberFilterList, 0, 1, 0]
 ];
 export var DescribePhoneNumbersResult$: StaticStructureSchema = [3, n0, _DPNRe,
@@ -1034,7 +1077,7 @@ export var DescribePhoneNumbersResult$: StaticStructureSchema = [3, n0, _DPNRe,
 ];
 export var DescribePoolsRequest$: StaticStructureSchema = [3, n0, _DPRes,
   0,
-  [_PIo, _F, _NT, _MR, _O],
+  [_PIo, _Fi, _NT, _MR, _O],
   [64 | 0, () => PoolFilterList, 0, 1, 0]
 ];
 export var DescribePoolsResult$: StaticStructureSchema = [3, n0, _DPResc,
@@ -1044,7 +1087,7 @@ export var DescribePoolsResult$: StaticStructureSchema = [3, n0, _DPResc,
 ];
 export var DescribeProtectConfigurationsRequest$: StaticStructureSchema = [3, n0, _DPCRes,
   0,
-  [_PCIr, _F, _NT, _MR],
+  [_PCIr, _Fi, _NT, _MR],
   [64 | 0, () => ProtectConfigurationFilterList, 0, 1]
 ];
 export var DescribeProtectConfigurationsResult$: StaticStructureSchema = [3, n0, _DPCResc,
@@ -1054,7 +1097,7 @@ export var DescribeProtectConfigurationsResult$: StaticStructureSchema = [3, n0,
 ];
 export var DescribeRegistrationAttachmentsRequest$: StaticStructureSchema = [3, n0, _DRARes,
   0,
-  [_RAIe, _F, _NT, _MR],
+  [_RAIe, _Fi, _NT, _MR],
   [64 | 0, () => RegistrationAttachmentFilterList, 0, 1]
 ];
 export var DescribeRegistrationAttachmentsResult$: StaticStructureSchema = [3, n0, _DRAResc,
@@ -1074,12 +1117,12 @@ export var DescribeRegistrationFieldDefinitionsResult$: StaticStructureSchema = 
 ];
 export var DescribeRegistrationFieldValuesRequest$: StaticStructureSchema = [3, n0, _DRFVRes,
   0,
-  [_RIe, _VN, _SP, _FPi, _NT, _MR],
+  [_RIeg, _VN, _SP, _FPi, _NT, _MR],
   [0, 1, 0, 64 | 0, 0, 1], 1
 ];
 export var DescribeRegistrationFieldValuesResult$: StaticStructureSchema = [3, n0, _DRFVResc,
   0,
-  [_RA, _RIe, _VN, _RFV, _NT],
+  [_RA, _RIeg, _VN, _RFV, _NT],
   [0, 0, 1, () => RegistrationFieldValueInformationList, 0], 4
 ];
 export var DescribeRegistrationSectionDefinitionsRequest$: StaticStructureSchema = [3, n0, _DRSDR,
@@ -1094,7 +1137,7 @@ export var DescribeRegistrationSectionDefinitionsResult$: StaticStructureSchema 
 ];
 export var DescribeRegistrationsRequest$: StaticStructureSchema = [3, n0, _DRRes,
   0,
-  [_RIeg, _F, _NT, _MR],
+  [_RIegi, _Fi, _NT, _MR],
   [64 | 0, () => RegistrationFilterList, 0, 1]
 ];
 export var DescribeRegistrationsResult$: StaticStructureSchema = [3, n0, _DRResc,
@@ -1104,7 +1147,7 @@ export var DescribeRegistrationsResult$: StaticStructureSchema = [3, n0, _DRResc
 ];
 export var DescribeRegistrationTypeDefinitionsRequest$: StaticStructureSchema = [3, n0, _DRTDR,
   0,
-  [_RTeg, _F, _NT, _MR],
+  [_RTeg, _Fi, _NT, _MR],
   [64 | 0, () => RegistrationTypeFilterList, 0, 1]
 ];
 export var DescribeRegistrationTypeDefinitionsResult$: StaticStructureSchema = [3, n0, _DRTDRe,
@@ -1114,17 +1157,17 @@ export var DescribeRegistrationTypeDefinitionsResult$: StaticStructureSchema = [
 ];
 export var DescribeRegistrationVersionsRequest$: StaticStructureSchema = [3, n0, _DRVR,
   0,
-  [_RIe, _VNe, _F, _NT, _MR],
+  [_RIeg, _VNe, _Fi, _NT, _MR],
   [0, 64 | 1, () => RegistrationVersionFilterList, 0, 1], 1
 ];
 export var DescribeRegistrationVersionsResult$: StaticStructureSchema = [3, n0, _DRVRe,
   0,
-  [_RA, _RIe, _RV, _NT],
+  [_RA, _RIeg, _RV, _NT],
   [0, 0, () => RegistrationVersionInformationList, 0], 3
 ];
 export var DescribeSenderIdsRequest$: StaticStructureSchema = [3, n0, _DSIR,
   0,
-  [_SIe, _F, _NT, _MR, _O],
+  [_SIe, _Fi, _NT, _MR, _O],
   [() => SenderIdList, () => SenderIdFilterList, 0, 1, 0]
 ];
 export var DescribeSenderIdsResult$: StaticStructureSchema = [3, n0, _DSIRe,
@@ -1144,7 +1187,7 @@ export var DescribeSpendLimitsResult$: StaticStructureSchema = [3, n0, _DSLRe,
 ];
 export var DescribeVerifiedDestinationNumbersRequest$: StaticStructureSchema = [3, n0, _DVDNRes,
   0,
-  [_VDNIe, _DPNe, _F, _NT, _MR],
+  [_VDNIe, _DPNe, _Fi, _NT, _MR],
   [64 | 0, 64 | 0, () => VerifiedDestinationNumberFilterList, 0, 1]
 ];
 export var DescribeVerifiedDestinationNumbersResult$: StaticStructureSchema = [3, n0, _DVDNResc,
@@ -1174,12 +1217,12 @@ export var DisassociateProtectConfigurationResult$: StaticStructureSchema = [3, 
 ];
 export var DiscardRegistrationVersionRequest$: StaticStructureSchema = [3, n0, _DRVRi,
   0,
-  [_RIe],
+  [_RIeg],
   [0], 1
 ];
 export var DiscardRegistrationVersionResult$: StaticStructureSchema = [3, n0, _DRVRis,
   0,
-  [_RA, _RIe, _VN, _RVS, _RVSH],
+  [_RA, _RIeg, _VN, _RVS, _RVSH],
   [0, 0, 1, 0, () => RegistrationVersionStatusHistory$], 5
 ];
 export var EventDestination$: StaticStructureSchema = [3, n0, _EDv,
@@ -1207,12 +1250,6 @@ export var GetResourcePolicyResult$: StaticStructureSchema = [3, n0, _GRPRe,
   [_RAe, _P, _CTr],
   [0, 0, 4]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M, _RIeq],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KeywordFilter$: StaticStructureSchema = [3, n0, _KF,
   0,
   [_N, _Va],
@@ -1230,7 +1267,7 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
 ];
 export var ListPoolOriginationIdentitiesRequest$: StaticStructureSchema = [3, n0, _LPOIR,
   0,
-  [_PI, _F, _NT, _MR],
+  [_PI, _Fi, _NT, _MR],
   [0, () => PoolOriginationIdentitiesFilterList, 0, 1], 1
 ];
 export var ListPoolOriginationIdentitiesResult$: StaticStructureSchema = [3, n0, _LPOIRi,
@@ -1240,7 +1277,7 @@ export var ListPoolOriginationIdentitiesResult$: StaticStructureSchema = [3, n0,
 ];
 export var ListProtectConfigurationRuleSetNumberOverridesRequest$: StaticStructureSchema = [3, n0, _LPCRSNOR,
   0,
-  [_PCI, _F, _NT, _MR],
+  [_PCI, _Fi, _NT, _MR],
   [0, () => ListProtectConfigurationRuleSetNumberOverrideFilter, 0, 1], 1
 ];
 export var ListProtectConfigurationRuleSetNumberOverridesResult$: StaticStructureSchema = [3, n0, _LPCRSNORi,
@@ -1250,12 +1287,12 @@ export var ListProtectConfigurationRuleSetNumberOverridesResult$: StaticStructur
 ];
 export var ListRegistrationAssociationsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
-  [_RIe, _F, _NT, _MR],
+  [_RIeg, _Fi, _NT, _MR],
   [0, () => RegistrationAssociationFilterList, 0, 1], 1
 ];
 export var ListRegistrationAssociationsResult$: StaticStructureSchema = [3, n0, _LRARi,
   0,
-  [_RA, _RIe, _RTe, _RAegi, _NT],
+  [_RA, _RIeg, _RTe, _RAegi, _NT],
   [0, 0, 0, () => RegistrationAssociationMetadataList, 0], 4
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -1295,7 +1332,7 @@ export var PhoneNumberFilter$: StaticStructureSchema = [3, n0, _PNF,
 ];
 export var PhoneNumberInformation$: StaticStructureSchema = [3, n0, _PNIh,
   0,
-  [_PNA, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIe],
+  [_PNA, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _SMOOE, _OOLN, _DPE, _CTr, _PNIho, _TWCA, _TWCR, _ISEn, _PI, _RIeg],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 2, 0, 2, 4, 0, 0, 0, 2, 0, 0], 13
 ];
 export var PoolFilter$: StaticStructureSchema = [3, n0, _PF,
@@ -1380,12 +1417,12 @@ export var PutProtectConfigurationRuleSetNumberOverrideResult$: StaticStructureS
 ];
 export var PutRegistrationFieldValueRequest$: StaticStructureSchema = [3, n0, _PRFVR,
   0,
-  [_RIe, _FP, _SC, _TV, _RAI],
+  [_RIeg, _FP, _SC, _TV, _RAI],
   [0, 0, 64 | 0, 0, 0], 2
 ];
 export var PutRegistrationFieldValueResult$: StaticStructureSchema = [3, n0, _PRFVRu,
   0,
-  [_RA, _RIe, _VN, _FP, _SC, _TV, _RAI],
+  [_RA, _RIeg, _VN, _FP, _SC, _TV, _RAI],
   [0, 0, 1, 0, 64 | 0, 0, 0], 4
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
@@ -1443,9 +1480,9 @@ export var RegistrationFilter$: StaticStructureSchema = [3, n0, _RF,
   [_N, _Va],
   [0, 64 | 0], 2
 ];
-export var RegistrationInformation$: StaticStructureSchema = [3, n0, _RIegi,
+export var RegistrationInformation$: StaticStructureSchema = [3, n0, _RIegis,
   0,
-  [_RA, _RIe, _RTe, _RS, _CVN, _CTr, _AVN, _LDVN, _AAd],
+  [_RA, _RIeg, _RTe, _RS, _CVN, _CTr, _AVN, _LDVN, _AAd],
   [0, 0, 0, 0, 1, 4, 1, 1, 128 | 0], 6
 ];
 export var RegistrationSectionDefinition$: StaticStructureSchema = [3, n0, _RSDe,
@@ -1495,7 +1532,7 @@ export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
 ];
 export var ReleasePhoneNumberResult$: StaticStructureSchema = [3, n0, _RPNRe,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _RIe, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _RIeg, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 0, 4]
 ];
 export var ReleaseSenderIdRequest$: StaticStructureSchema = [3, n0, _RSIR,
@@ -1505,17 +1542,17 @@ export var ReleaseSenderIdRequest$: StaticStructureSchema = [3, n0, _RSIR,
 ];
 export var ReleaseSenderIdResult$: StaticStructureSchema = [3, n0, _RSIRe,
   0,
-  [_SIA, _SI, _ICC, _MTe, _MLP, _Reg, _RIe],
+  [_SIA, _SI, _ICC, _MTe, _MLP, _Reg, _RIeg],
   [0, 0, 0, 64 | 0, 0, 2, 0], 6
 ];
 export var RequestPhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNReq,
   0,
-  [_ICC, _MT, _NCu, _NTu, _OOLN, _PI, _RIe, _ISEn, _DPE, _T, _CT],
+  [_ICC, _MT, _NCu, _NTu, _OOLN, _PI, _RIeg, _ISEn, _DPE, _T, _CT],
   [0, 0, 64 | 0, 0, 0, 0, 0, 2, 2, () => TagList, [0, 4]], 4
 ];
 export var RequestPhoneNumberResult$: StaticStructureSchema = [3, n0, _RPNRequ,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _PI, _RIe, _T, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _PI, _RIeg, _T, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 2, 2, 0, 0, () => TagList, 4]
 ];
 export var RequestSenderIdRequest$: StaticStructureSchema = [3, n0, _RSIReq,
@@ -1528,12 +1565,6 @@ export var RequestSenderIdResult$: StaticStructureSchema = [3, n0, _RSIRequ,
   [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _T],
   [0, 0, 0, 64 | 0, 0, 2, 2, () => TagList], 7
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M, _RT, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SelectOptionDescription$: StaticStructureSchema = [3, n0, _SODe,
   0,
   [_Op, _Ti, _D],
@@ -1566,7 +1597,7 @@ export var SenderIdFilter$: StaticStructureSchema = [3, n0, _SIF,
 ];
 export var SenderIdInformation$: StaticStructureSchema = [3, n0, _SII,
   0,
-  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIe],
+  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg],
   [0, 0, 0, 64 | 0, 0, 2, 2, 0], 7
 ];
 export var SendMediaMessageRequest$: StaticStructureSchema = [3, n0, _SMMR,
@@ -1599,12 +1630,6 @@ export var SendVoiceMessageResult$: StaticStructureSchema = [3, n0, _SVMRe,
   [_MI],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SetAccountDefaultProtectConfigurationRequest$: StaticStructureSchema = [3, n0, _SADPCR,
   0,
   [_PCI],
@@ -1687,12 +1712,12 @@ export var SpendLimit$: StaticStructureSchema = [3, n0, _SLp,
 ];
 export var SubmitRegistrationVersionRequest$: StaticStructureSchema = [3, n0, _SRVR,
   0,
-  [_RIe, _AR],
+  [_RIeg, _AR],
   [0, 2], 1
 ];
 export var SubmitRegistrationVersionResult$: StaticStructureSchema = [3, n0, _SRVRu,
   0,
-  [_RA, _RIe, _VN, _RVS, _RVSH, _AR],
+  [_RA, _RIeg, _VN, _RVS, _RVSH, _AR],
   [0, 0, 1, 0, () => RegistrationVersionStatusHistory$, 2], 6
 ];
 export var SupportedAssociation$: StaticStructureSchema = [3, n0, _SAu,
@@ -1720,12 +1745,6 @@ export var TextValidation$: StaticStructureSchema = [3, n0, _TVe,
   [_MLi, _MLax, _Pa],
   [1, 1, 0], 3
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
@@ -1753,7 +1772,7 @@ export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,
 ];
 export var UpdatePhoneNumberResult$: StaticStructureSchema = [3, n0, _UPNRp,
   0,
-  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _RIe, _CTr],
+  [_PNA, _PNIho, _PN, _S, _ICC, _MT, _NCu, _NTu, _MLP, _TWE, _TWCA, _TWCR, _SMOOE, _OOLN, _ISEn, _DPE, _RIeg, _CTr],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 2, 0, 0, 2, 0, 2, 2, 0, 4]
 ];
 export var UpdatePoolRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -1793,15 +1812,9 @@ export var UpdateSenderIdRequest$: StaticStructureSchema = [3, n0, _USIR,
 ];
 export var UpdateSenderIdResult$: StaticStructureSchema = [3, n0, _USIRp,
   0,
-  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIe],
+  [_SIA, _SI, _ICC, _MTe, _MLP, _DPE, _Reg, _RIeg],
   [0, 0, 0, 64 | 0, 0, 2, 2, 0], 7
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_M, _R, _Fi],
-  [0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
@@ -1827,8 +1840,6 @@ export var VerifyDestinationNumberResult$: StaticStructureSchema = [3, n0, _VDNR
   [_VDNA, _VDNI, _DPN, _S, _CTr],
   [0, 0, 0, 0, 4], 5
 ];
-export var PinpointSMSVoiceV2ServiceException$: StaticErrorSchema = [-3, _sm, "PinpointSMSVoiceV2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PinpointSMSVoiceV2ServiceException$, PinpointSMSVoiceV2ServiceException);
 var AccountAttributeList: StaticListSchema = [1, n0, _AAL,
   0, () => AccountAttribute$
 ];

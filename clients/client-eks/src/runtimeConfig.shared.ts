@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEKSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { EKSClientConfig } from "./EKSClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: EKSClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.eks",
+      errorTypeRegistries,
       version: "2017-11-01",
       serviceTarget: "AWSWesleyFrontend",
     },

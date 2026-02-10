@@ -41,8 +41,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appconfigdata";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appconfigdata";
+const _se = "server";
 const n0 = "com.amazonaws.appconfigdata";
 
 // smithy-typescript generated code
@@ -65,13 +65,44 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
+const _s_registry = TypeRegistry.for(_s);
+export var AppConfigDataServiceException$: StaticErrorSchema = [-3, _s, "AppConfigDataServiceException", 0, [], []];
+_s_registry.registerError(AppConfigDataServiceException$, AppConfigDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_M, _R, _D],
   [0, 0, () => BadRequestDetails$]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RT, _RB],
+  [0, 0, 128 | 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveBlob: StaticSimpleSchema = [0, n0, _SB, 8, 21];
 export var GetLatestConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR,
   0,
   [_CT],
@@ -82,23 +113,11 @@ export var GetLatestConfigurationResponse$: StaticStructureSchema = [3, n0, _GLC
   [_NPCT, _NPIIS, _CTo, _C, _VL],
   [[0, { [_hH]: _NPCT_ }], [1, { [_hH]: _NPIIS_ }], [0, { [_hH]: _CT_ }], [() => SensitiveBlob, 16], [0, { [_hH]: _VL_ }]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidParameterDetail$: StaticStructureSchema = [3, n0, _IPD,
   0,
   [_P],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RT, _RB],
-  [0, 0, 128 | 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var StartConfigurationSessionRequest$: StaticStructureSchema = [3, n0, _SCSR,
   0,
   [_AI, _EI, _CPI, _RMPIIS],
@@ -109,14 +128,6 @@ export var StartConfigurationSessionResponse$: StaticStructureSchema = [3, n0, _
   [_ICT],
   [0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var AppConfigDataServiceException$: StaticErrorSchema = [-3, _sm, "AppConfigDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppConfigDataServiceException$, AppConfigDataServiceException);
 var InvalidParameterMap: StaticMapSchema = [2, n0, _IPM,
   0, 0, () => InvalidParameterDetail$
 ];

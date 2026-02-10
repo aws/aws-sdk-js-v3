@@ -345,8 +345,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _mT = "mediaType";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lookoutequipment";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lookoutequipment";
+const _se = "server";
 const n0 = "com.amazonaws.lookoutequipment";
 
 // smithy-typescript generated code
@@ -371,25 +371,68 @@ import {
 import { LookoutEquipmentServiceException } from "../models/LookoutEquipmentServiceException";
 
 /* eslint no-var: 0 */
-var SynthesizedJsonInlineDataSchema: StaticSimpleSchema = [0, n0, _SJIDS, { [_mT]: _a }, 0];
-var SynthesizedJsonModelMetrics: StaticSimpleSchema = [0, n0, _SJMM, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var LookoutEquipmentServiceException$: StaticErrorSchema = [-3, _s, "LookoutEquipmentServiceException", 0, [], []];
+_s_registry.registerError(LookoutEquipmentServiceException$, LookoutEquipmentServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var CategoricalValues$: StaticStructureSchema = [3, n0, _CV,
-  0,
-  [_S, _NOC],
-  [0, 1], 1
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SynthesizedJsonInlineDataSchema: StaticSimpleSchema = [0, n0, _SJIDS, { [_mT]: _a }, 0];
+var SynthesizedJsonModelMetrics: StaticSimpleSchema = [0, n0, _SJMM, { [_mT]: _a }, 0];
+export var CategoricalValues$: StaticStructureSchema = [3, n0, _CV,
+  0,
+  [_S, _NOC],
+  [0, 1], 1
+];
 export var CountPercent$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_C, _P],
@@ -690,12 +733,6 @@ export var InsufficientSensorData$: StaticStructureSchema = [3, n0, _ISD,
   [_MCSD, _SWSDR],
   [() => MissingCompleteSensorData$, () => SensorsWithShortDateRange$], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InvalidSensorData$: StaticStructureSchema = [3, n0, _ISDn,
   0,
   [_ASC, _TNOIV],
@@ -896,12 +933,6 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   [_RAe, _PRI],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetrainingSchedulerSummary$: StaticStructureSchema = [3, n0, _RSSet,
   0,
   [_MN, _MA, _S, _RSD, _RF, _LW],
@@ -922,12 +953,6 @@ export var SensorsWithShortDateRange$: StaticStructureSchema = [3, n0, _SWSDR,
   [_ASC],
   [1], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartDataIngestionJobRequest$: StaticStructureSchema = [3, n0, _SDIJR,
   0,
   [_DN, _IIC, _RA, _CT],
@@ -993,12 +1018,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnsupportedTimestamps$: StaticStructureSchema = [3, n0, _UT,
   0,
   [_TNOUT],
@@ -1044,15 +1063,7 @@ export var UpdateRetrainingSchedulerRequest$: StaticStructureSchema = [3, n0, _U
   [_MN, _RSD, _RF, _LW, _PM],
   [0, 4, 0, 0, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var LookoutEquipmentServiceException$: StaticErrorSchema = [-3, _sm, "LookoutEquipmentServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LookoutEquipmentServiceException$, LookoutEquipmentServiceException);
 var DataIngestionJobSummaries: StaticListSchema = [1, n0, _DIJSa,
   0, () => DataIngestionJobSummary$
 ];

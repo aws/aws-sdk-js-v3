@@ -175,12 +175,12 @@ const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pcs";
 const _sA = "secretArn";
-const _sC = "slurmConfiguration";
+const _sC = "serviceCode";
 const _sCS = "slurmCustomSettings";
 const _sCc = "scalingConfiguration";
-const _sCe = "serviceCode";
+const _sCl = "slurmConfiguration";
 const _sDITIS = "scaleDownIdleTimeInSeconds";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
@@ -191,7 +191,7 @@ const _sV = "secretVersion";
 const _sc = "scheduler";
 const _se = "server";
 const _si = "size";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pcs";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _ty = "type";
@@ -221,13 +221,62 @@ import {
 import { PCSServiceException } from "../models/PCSServiceException";
 
 /* eslint no-var: 0 */
-var SharedSecret: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var PCSServiceException$: StaticErrorSchema = [-3, _s, "PCSServiceException", 0, [], []];
+_s_registry.registerError(PCSServiceException$, PCSServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _sC, _rI, _rT, _qC],
+  [0, 0, 0, 0, 0], 2
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SharedSecret: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var Accounting$: StaticStructureSchema = [3, n0, _A,
   0,
   [_mo, _dPTID],
@@ -240,7 +289,7 @@ export var AccountingRequest$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_n, _i, _a, _s, _cA, _mA, _sc, _si, _ne, _sC, _en, _eI],
+  [_n, _i, _a, _st, _cA, _mA, _sc, _si, _ne, _sCl, _en, _eI],
   [0, 0, 0, 0, 5, 5, () => Scheduler$, 0, () => Networking$, () => ClusterSlurmConfiguration$, () => Endpoints, () => ErrorInfoList], 9
 ];
 export var ClusterSlurmConfiguration$: StaticStructureSchema = [3, n0, _CSC,
@@ -255,12 +304,12 @@ export var ClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var ClusterSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_n, _i, _a, _cA, _mA, _s],
+  [_n, _i, _a, _cA, _mA, _st],
   [0, 0, 0, 5, 5, 0], 6
 ];
 export var ComputeNodeGroup$: StaticStructureSchema = [3, n0, _CNG,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _s, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sC, _eI],
+  [_n, _i, _a, _cI, _cA, _mA, _st, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sCl, _eI],
   [0, 0, 0, 0, 5, 5, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => ScalingConfiguration$, () => InstanceList, 0, 0, () => SpotOptions$, () => ComputeNodeGroupSlurmConfiguration$, () => ErrorInfoList], 12
 ];
 export var ComputeNodeGroupConfiguration$: StaticStructureSchema = [3, n0, _CNGC,
@@ -280,18 +329,12 @@ export var ComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSchema = [
 ];
 export var ComputeNodeGroupSummary$: StaticStructureSchema = [3, n0, _CNGS,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _s],
+  [_n, _i, _a, _cI, _cA, _mA, _st],
   [0, 0, 0, 0, 5, 5, 0], 7
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_cN, _sc, _si, _ne, _sC, _cT, _t],
+  [_cN, _sc, _si, _ne, _sCl, _cT, _t],
   [0, () => SchedulerRequest$, 0, () => NetworkingRequest$, () => ClusterSlurmConfigurationRequest$, [0, 4], 128 | 0], 4
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
@@ -301,7 +344,7 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _CCNGR,
   0,
-  [_cIl, _cNGN, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sC, _cT, _t],
+  [_cIl, _cNGN, _sI, _cLT, _iIPA, _sCc, _iC, _aI, _pO, _sO, _sCl, _cT, _t],
   [0, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => ScalingConfigurationRequest$, () => InstanceList, 0, 0, () => SpotOptions$, () => ComputeNodeGroupSlurmConfigurationRequest$, [0, 4], 128 | 0], 7
 ];
 export var CreateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _CCNGRr,
@@ -311,7 +354,7 @@ export var CreateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _CCN
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_cIl, _qN, _cNGC, _sC, _cT, _t],
+  [_cIl, _qN, _cNGC, _sCl, _cT, _t],
   [0, 0, () => ComputeNodeGroupConfigurationList, () => QueueSlurmConfigurationRequest$, [0, 4], 128 | 0], 2
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
@@ -399,12 +442,6 @@ export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   [_iT],
   [0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JwtAuth$: StaticStructureSchema = [3, n0, _JA,
   0,
   [_jK],
@@ -467,7 +504,7 @@ export var NetworkingRequest$: StaticStructureSchema = [3, n0, _NR,
 ];
 export var Queue$: StaticStructureSchema = [3, n0, _Q,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _s, _cNGC, _sC, _eI],
+  [_n, _i, _a, _cI, _cA, _mA, _st, _cNGC, _sCl, _eI],
   [0, 0, 0, 0, 5, 5, 0, () => ComputeNodeGroupConfigurationList, () => QueueSlurmConfiguration$, () => ErrorInfoList], 8
 ];
 export var QueueSlurmConfiguration$: StaticStructureSchema = [3, n0, _QSC,
@@ -482,7 +519,7 @@ export var QueueSlurmConfigurationRequest$: StaticStructureSchema = [3, n0, _QSC
 ];
 export var QueueSummary$: StaticStructureSchema = [3, n0, _QS,
   0,
-  [_n, _i, _a, _cI, _cA, _mA, _s],
+  [_n, _i, _a, _cI, _cA, _mA, _st],
   [0, 0, 0, 0, 5, 5, 0], 7
 ];
 export var RegisterComputeNodeGroupInstanceRequest$: StaticStructureSchema = [3, n0, _RCNGIR,
@@ -495,12 +532,6 @@ export var RegisterComputeNodeGroupInstanceResponse$: StaticStructureSchema = [3
   [_nID, _sS, _en],
   [0, [() => SharedSecret, 0], () => Endpoints], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ScalingConfiguration$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_mIC, _mICa],
@@ -521,12 +552,6 @@ export var SchedulerRequest$: StaticStructureSchema = [3, n0, _SR,
   [_ty, _v],
   [0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _sCe, _rI, _rT, _qC],
-  [0, 0, 0, 0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SlurmAuthKey$: StaticStructureSchema = [3, n0, _SAK,
   0,
   [_sA, _sV],
@@ -562,12 +587,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -585,7 +604,7 @@ export var UpdateAccountingRequest$: StaticStructureSchema = [3, n0, _UAR,
 ];
 export var UpdateClusterRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_cIl, _cT, _sC],
+  [_cIl, _cT, _sCl],
   [0, [0, 4], () => UpdateClusterSlurmConfigurationRequest$], 1
 ];
 export var UpdateClusterResponse$: StaticStructureSchema = [3, n0, _UCRp,
@@ -600,7 +619,7 @@ export var UpdateClusterSlurmConfigurationRequest$: StaticStructureSchema = [3, 
 ];
 export var UpdateComputeNodeGroupRequest$: StaticStructureSchema = [3, n0, _UCNGR,
   0,
-  [_cIl, _cNGIo, _aI, _sI, _cLT, _pO, _sO, _sCc, _iIPA, _sC, _cT],
+  [_cIl, _cNGIo, _aI, _sI, _cLT, _pO, _sO, _sCc, _iIPA, _sCl, _cT],
   [0, 0, 0, 64 | 0, () => CustomLaunchTemplate$, 0, () => SpotOptions$, () => ScalingConfigurationRequest$, 0, () => UpdateComputeNodeGroupSlurmConfigurationRequest$, [0, 4]], 2
 ];
 export var UpdateComputeNodeGroupResponse$: StaticStructureSchema = [3, n0, _UCNGRp,
@@ -615,7 +634,7 @@ export var UpdateComputeNodeGroupSlurmConfigurationRequest$: StaticStructureSche
 ];
 export var UpdateQueueRequest$: StaticStructureSchema = [3, n0, _UQR,
   0,
-  [_cIl, _qI, _cNGC, _sC, _cT],
+  [_cIl, _qI, _cNGC, _sCl, _cT],
   [0, 0, () => ComputeNodeGroupConfigurationList, () => UpdateQueueSlurmConfigurationRequest$, [0, 4]], 2
 ];
 export var UpdateQueueResponse$: StaticStructureSchema = [3, n0, _UQRp,
@@ -633,19 +652,11 @@ export var UpdateSlurmRestRequest$: StaticStructureSchema = [3, n0, _USRR,
   [_mo],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var PCSServiceException$: StaticErrorSchema = [-3, _sm, "PCSServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PCSServiceException$, PCSServiceException);
 var ClusterList: StaticListSchema = [1, n0, _CL,
   0, () => ClusterSummary$
 ];

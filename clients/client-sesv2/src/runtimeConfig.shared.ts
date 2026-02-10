@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSESv2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SESv2ClientConfig } from "./SESv2Client";
 
 /**
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: SESv2ClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.sesv2",
+      errorTypeRegistries,
       version: "2019-09-27",
       serviceTarget: "SimpleEmailService_v2",
     },

@@ -121,26 +121,69 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var NotificationRuleName: StaticSimpleSchema = [0, n0, _NRN, 8, 0];
-var TargetAddress: StaticSimpleSchema = [0, n0, _TA, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var CodestarNotificationsServiceException$: StaticErrorSchema = [-3, _s, "CodestarNotificationsServiceException", 0, [], []];
+_s_registry.registerError(CodestarNotificationsServiceException$, CodestarNotificationsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var ConfigurationException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConfigurationException$, ConfigurationException);
+n0_registry.registerError(ConfigurationException$, ConfigurationException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var NotificationRuleName: StaticSimpleSchema = [0, n0, _NRN, 8, 0];
+var TargetAddress: StaticSimpleSchema = [0, n0, _TA, 8, 0];
 export var CreateNotificationRuleRequest$: StaticStructureSchema = [3, n0, _CNRR,
   0,
   [_N, _ETI, _R, _T, _DT, _CRT, _Ta, _S],
@@ -186,18 +229,6 @@ export var EventTypeSummary$: StaticStructureSchema = [3, n0, _ETS,
   [_ETIv, _SN, _ETN, _RT],
   [0, 0, 0, 0]
 ];
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListEventTypesFilter$: StaticStructureSchema = [3, n0, _LETF,
   0,
   [_N, _V],
@@ -258,18 +289,6 @@ export var NotificationRuleSummary$: StaticStructureSchema = [3, n0, _NRS,
   [_I, _A],
   [0, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SubscribeRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_A, _Tar, _CRT],
@@ -330,14 +349,6 @@ export var UpdateNotificationRuleResult$: StaticStructureSchema = [3, n0, _UNRRp
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var CodestarNotificationsServiceException$: StaticErrorSchema = [-3, _s, "CodestarNotificationsServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(CodestarNotificationsServiceException$, CodestarNotificationsServiceException);
 var EventTypeBatch: StaticListSchema = [1, n0, _ETB,
   0, () => EventTypeSummary$
 ];

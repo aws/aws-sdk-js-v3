@@ -30,9 +30,9 @@ const _UDR = "UploadDocumentsRequest";
 const _UDRp = "UploadDocumentsResponse";
 const _a = "adds";
 const _b = "buckets";
-const _c = "count";
+const _c = "client";
 const _cT = "contentType";
-const _cl = "client";
+const _co = "count";
 const _cu = "cursor";
 const _d = "documents";
 const _de = "deletes";
@@ -67,16 +67,16 @@ const _qo = "q.options";
 const _qp = "q.parser";
 const _r = "return";
 const _ri = "rid";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudsearchdomain";
 const _sOS = "sumOfSquares";
 const _sc = "score";
 const _si = "size";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudsearchdomain";
 const _so = "sort";
 const _st = "status";
 const _sta = "start";
 const _stat = "stats";
 const _std = "stddev";
+const _str = "streaming";
 const _su = "sum";
 const _sug = "suggestion";
 const _sugg = "suggestions";
@@ -102,10 +102,35 @@ import { CloudSearchDomainServiceException } from "../models/CloudSearchDomainSe
 import { DocumentServiceException, SearchException } from "../models/errors";
 
 /* eslint no-var: 0 */
-var _Blob: StaticSimpleSchema = [0, n0, _B, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var CloudSearchDomainServiceException$: StaticErrorSchema = [-3, _s, "CloudSearchDomainServiceException", 0, [], []];
+_s_registry.registerError(CloudSearchDomainServiceException$, CloudSearchDomainServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DocumentServiceException$: StaticErrorSchema = [-3, n0, _DSE,
+  { [_e]: _c },
+  [_st, _m],
+  [0, 0]
+];
+n0_registry.registerError(DocumentServiceException$, DocumentServiceException);
+export var SearchException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SearchException$, SearchException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var _Blob: StaticSimpleSchema = [0, n0, _B, { [_str]: 1 }, 42];
 export var Bucket$: StaticStructureSchema = [3, n0, _Bu,
   0,
-  [_v, _c],
+  [_v, _co],
   [0, 1]
 ];
 export var BucketInfo$: StaticStructureSchema = [3, n0, _BI,
@@ -113,12 +138,6 @@ export var BucketInfo$: StaticStructureSchema = [3, n0, _BI,
   [_b],
   [() => BucketList]
 ];
-export var DocumentServiceException$: StaticErrorSchema = [-3, n0, _DSE,
-  { [_e]: _cl },
-  [_st, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(DocumentServiceException$, DocumentServiceException);
 export var DocumentServiceWarning$: StaticStructureSchema = [3, n0, _DSW,
   0,
   [_m],
@@ -126,7 +145,7 @@ export var DocumentServiceWarning$: StaticStructureSchema = [3, n0, _DSW,
 ];
 export var FieldStats$: StaticStructureSchema = [3, n0, _FS,
   0,
-  [_mi, _ma, _c, _mis, _su, _sOS, _me, _std],
+  [_mi, _ma, _co, _mis, _su, _sOS, _me, _std],
   [0, 0, 1, 1, 1, 1, 0, 1]
 ];
 export var Hit$: StaticStructureSchema = [3, n0, _H,
@@ -139,12 +158,6 @@ export var Hits$: StaticStructureSchema = [3, n0, _Hi,
   [_fo, _sta, _cu, _hi],
   [1, 1, 0, () => HitList]
 ];
-export var SearchException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_e]: _cl },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SearchException$, SearchException);
 export var SearchRequest$: StaticStructureSchema = [3, n0, _SR,
   0,
   [_q, _cu, _exp, _fa, _fQ, _hig, _p, _qO, _qP, _r, _si, _so, _sta, _stat],
@@ -195,8 +208,6 @@ export var UploadDocumentsResponse$: StaticStructureSchema = [3, n0, _UDRp,
   [_st, _a, _de, _w],
   [0, 1, 1, () => DocumentServiceWarnings]
 ];
-export var CloudSearchDomainServiceException$: StaticErrorSchema = [-3, _sm, "CloudSearchDomainServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudSearchDomainServiceException$, CloudSearchDomainServiceException);
 var BucketList: StaticListSchema = [1, n0, _BL,
   0, () => Bucket$
 ];

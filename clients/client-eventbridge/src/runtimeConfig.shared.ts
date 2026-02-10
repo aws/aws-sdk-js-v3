@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultEventBridgeHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { EventBridgeClientConfig } from "./EventBridgeClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: EventBridgeClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.eventbridge",
+      errorTypeRegistries,
       xmlNamespace: "http://events.amazonaws.com/doc/2015-10-07",
       version: "2015-10-07",
       serviceTarget: "AWSEvents",

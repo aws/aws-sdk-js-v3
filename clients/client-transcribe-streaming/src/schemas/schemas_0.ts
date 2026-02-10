@@ -18,9 +18,9 @@ const _CALWS = "CallAnalyticsLanguageWithScore";
 const _CATRS = "CallAnalyticsTranscriptResultStream";
 const _CD = "ChannelDefinition";
 const _CDh = "ChannelDefinitions";
-const _CE = "CategoryEvent";
+const _CE = "ConflictException";
+const _CEa = "CategoryEvent";
 const _CEo = "ConfigurationEvent";
-const _CEon = "ConflictException";
 const _CI = "ChannelId";
 const _CIT = "ContentIdentificationType";
 const _CNGR = "ClinicalNoteGenerationResult";
@@ -171,8 +171,8 @@ const _eP = "eventPayload";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.transcribestreaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.transcribestreaming";
+const _se = "server";
 const _st = "streaming";
 const _xari = "x-amzn-request-id";
 const _xatcit = "x-amzn-transcribe-content-identification-type";
@@ -224,6 +224,55 @@ import {
 import { TranscribeStreamingServiceException } from "../models/TranscribeStreamingServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var TranscribeStreamingServiceException$: StaticErrorSchema = [-3, _s, "TranscribeStreamingServiceException", 0, [], []];
+_s_registry.registerError(TranscribeStreamingServiceException$, TranscribeStreamingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Pronouns: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var Alternative$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -235,12 +284,6 @@ export var AudioEvent$: StaticStructureSchema = [3, n0, _AE,
   [_AC],
   [[21, { [_eP]: 1 }]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CallAnalyticsEntity$: StaticStructureSchema = [3, n0, _CAE,
   0,
   [_BOM, _EOM, _C, _Ty, _Co, _Con],
@@ -256,7 +299,7 @@ export var CallAnalyticsLanguageWithScore$: StaticStructureSchema = [3, n0, _CAL
   [_LC, _Sc],
   [0, 1]
 ];
-export var CategoryEvent$: StaticStructureSchema = [3, n0, _CE,
+export var CategoryEvent$: StaticStructureSchema = [3, n0, _CEa,
   0,
   [_MC, _MD],
   [64 | 0, () => MatchedCategoryDetails]
@@ -286,12 +329,6 @@ export var ConfigurationEvent$: StaticStructureSchema = [3, n0, _CEo,
   [_CDh, _PCAS],
   [() => ChannelDefinitions, () => PostCallAnalyticsSettings$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEon,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Entity$: StaticStructureSchema = [3, n0, _Ent,
   0,
   [_ST, _ET, _C, _Ty, _Co, _Con],
@@ -307,12 +344,6 @@ export var GetMedicalScribeStreamResponse$: StaticStructureSchema = [3, n0, _GMS
   [_MSSD],
   [() => MedicalScribeStreamDetails$]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var IssueDetected$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_CO],
@@ -328,12 +359,6 @@ export var LanguageWithScore$: StaticStructureSchema = [3, n0, _LWS,
   [_LC, _Sc],
   [0, 1]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var MedicalAlternative$: StaticStructureSchema = [3, n0, _MA,
   0,
   [_T, _I, _E],
@@ -439,23 +464,11 @@ export var PostCallAnalyticsSettings$: StaticStructureSchema = [3, n0, _PCAS,
   [_OL, _DARA, _CRO, _OEKMSKI],
   [0, 0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Result$: StaticStructureSchema = [3, n0, _Re,
   0,
   [_RI, _ST, _ET, _IP, _Al, _CI, _LC, _LI],
   [0, 1, 1, 2, () => AlternativeList, 0, 0, () => LanguageIdentification]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartCallAnalyticsStreamTranscriptionRequest$: StaticStructureSchema = [3, n0, _SCASTR,
   0,
   [_MSRH, _MEe, _AS, _LC, _VN, _SI, _VFN, _VFMo, _LMN, _IL, _LO, _PL, _VNo, _VFNo, _EPRS, _PRS, _CIT, _CRT, _PET],
@@ -516,8 +529,6 @@ export var UtteranceEvent$: StaticStructureSchema = [3, n0, _UE,
   [_UI, _IP, _PR, _BOM, _EOM, _T, _I, _E, _Se, _IDs, _LC, _LI],
   [0, 2, 0, 1, 1, 0, () => CallAnalyticsItemList, () => CallAnalyticsEntityList, 0, () => IssuesDetected, 0, () => CallAnalyticsLanguageIdentification]
 ];
-export var TranscribeStreamingServiceException$: StaticErrorSchema = [-3, _sm, "TranscribeStreamingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TranscribeStreamingServiceException$, TranscribeStreamingServiceException);
 var AlternativeList: StaticListSchema = [1, n0, _AL,
   0, () => Alternative$
 ];
@@ -581,7 +592,7 @@ export var AudioStream$: StaticUnionSchema = [4, n0, _AS,
 ];
 export var CallAnalyticsTranscriptResultStream$: StaticUnionSchema = [4, n0, _CATRS,
   { [_st]: 1 },
-  [_UE, _CE, _BRE, _LEE, _IFE, _CEon, _SUE],
+  [_UE, _CEa, _BRE, _LEE, _IFE, _CE, _SUE],
   [() => UtteranceEvent$, () => CategoryEvent$, [() => BadRequestException$, 0], [() => LimitExceededException$, 0], [() => InternalFailureException$, 0], [() => ConflictException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var MedicalScribeInputStream$: StaticUnionSchema = [4, n0, _MSIS,
@@ -591,17 +602,17 @@ export var MedicalScribeInputStream$: StaticUnionSchema = [4, n0, _MSIS,
 ];
 export var MedicalScribeResultStream$: StaticUnionSchema = [4, n0, _MSRS,
   { [_st]: 1 },
-  [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
+  [_TE, _BRE, _LEE, _IFE, _CE, _SUE],
   [() => MedicalScribeTranscriptEvent$, [() => BadRequestException$, 0], [() => LimitExceededException$, 0], [() => InternalFailureException$, 0], [() => ConflictException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var MedicalTranscriptResultStream$: StaticUnionSchema = [4, n0, _MTRS,
   { [_st]: 1 },
-  [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
+  [_TE, _BRE, _LEE, _IFE, _CE, _SUE],
   [() => MedicalTranscriptEvent$, [() => BadRequestException$, 0], [() => LimitExceededException$, 0], [() => InternalFailureException$, 0], [() => ConflictException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var TranscriptResultStream$: StaticUnionSchema = [4, n0, _TRS,
   { [_st]: 1 },
-  [_TE, _BRE, _LEE, _IFE, _CEon, _SUE],
+  [_TE, _BRE, _LEE, _IFE, _CE, _SUE],
   [() => TranscriptEvent$, [() => BadRequestException$, 0], [() => LimitExceededException$, 0], [() => InternalFailureException$, 0], [() => ConflictException$, 0], [() => ServiceUnavailableException$, 0]]
 ];
 export var GetMedicalScribeStream$: StaticOperationSchema = [9, n0, _GMSS,

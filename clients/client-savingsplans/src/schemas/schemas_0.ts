@@ -56,9 +56,9 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _VE = "ValidationException";
 const _aQE = "awsQueryError";
-const _c = "commitment";
+const _c = "client";
 const _cT = "clientToken";
-const _cl = "client";
+const _co = "commitment";
 const _cu = "currencies";
 const _cur = "currency";
 const _d = "durations";
@@ -94,7 +94,7 @@ const _rA = "resourceArn";
 const _rPA = "recurringPaymentAmount";
 const _rU = "returnableUntil";
 const _ra = "rate";
-const _s = "states";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.savingsplans";
 const _sC = "serviceCodes";
 const _sCe = "serviceCode";
 const _sP = "savingsPlans";
@@ -110,9 +110,9 @@ const _sPT = "savingsPlanTypes";
 const _sPTa = "savingsPlanType";
 const _sR = "searchResults";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.savingsplans";
-const _st = "start";
-const _sta = "state";
+const _st = "states";
+const _sta = "start";
+const _stat = "state";
 const _t = "tags";
 const _tDIS = "termDurationInSeconds";
 const _tK = "tagKeys";
@@ -143,9 +143,46 @@ import {
 import { SavingsplansServiceException } from "../models/SavingsplansServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SavingsplansServiceException$: StaticErrorSchema = [-3, _s, "SavingsplansServiceException", 0, [], []];
+_s_registry.registerError(SavingsplansServiceException$, SavingsplansServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateSavingsPlanRequest$: StaticStructureSchema = [3, n0, _CSPR,
   0,
-  [_sPOI, _c, _uPA, _pT, _cT, _t],
+  [_sPOI, _co, _uPA, _pT, _cT, _t],
   [0, 0, 0, 4, [0, 4], 128 | 0], 2
 ];
 export var CreateSavingsPlanResponse$: StaticStructureSchema = [3, n0, _CSPRr,
@@ -195,7 +232,7 @@ export var DescribeSavingsPlansOfferingsResponse$: StaticStructureSchema = [3, n
 ];
 export var DescribeSavingsPlansRequest$: StaticStructureSchema = [3, n0, _DSPR,
   0,
-  [_sPA, _sPIa, _nT, _mR, _s, _f],
+  [_sPA, _sPIa, _nT, _mR, _st, _f],
   [64 | 0, 64 | 0, 0, 1, 64 | 0, () => SavingsPlanFilterList]
 ];
 export var DescribeSavingsPlansResponse$: StaticStructureSchema = [3, n0, _DSPRe,
@@ -203,12 +240,6 @@ export var DescribeSavingsPlansResponse$: StaticStructureSchema = [3, n0, _DSPRe
   [_sP, _nT],
   [() => SavingsPlanList, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalServerException`, 500], [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -224,12 +255,6 @@ export var ParentSavingsPlanOffering$: StaticStructureSchema = [3, n0, _PSPO,
   [_oIf, _pOa, _pTla, _dS, _cur, _pD],
   [0, 0, 0, 1, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _cl, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ReturnSavingsPlanRequest$: StaticStructureSchema = [3, n0, _RSPR,
   0,
   [_sPI, _cT],
@@ -242,7 +267,7 @@ export var ReturnSavingsPlanResponse$: StaticStructureSchema = [3, n0, _RSPRe,
 ];
 export var SavingsPlan$: StaticStructureSchema = [3, n0, _SP,
   0,
-  [_oIf, _sPI, _sPAa, _des, _st, _en, _sta, _r, _eIF, _sPTa, _pOa, _pTro, _cur, _c, _uPA, _rPA, _tDIS, _t, _rU],
+  [_oIf, _sPI, _sPAa, _des, _sta, _en, _stat, _r, _eIF, _sPTa, _pOa, _pTro, _cur, _co, _uPA, _rPA, _tDIS, _t, _rU],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 1, 128 | 0, 0]
 ];
 export var SavingsPlanFilter$: StaticStructureSchema = [3, n0, _SPF,
@@ -295,12 +320,6 @@ export var SavingsPlanRateProperty$: StaticStructureSchema = [3, n0, _SPRP,
   [_n, _va],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _cl, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
@@ -321,14 +340,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SavingsplansServiceException$: StaticErrorSchema = [-3, _sm, "SavingsplansServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SavingsplansServiceException$, SavingsplansServiceException);
 var CurrencyList = 64 | 0;
 var DurationsList = 64 | 1;
 var FilterValuesList = 64 | 0;

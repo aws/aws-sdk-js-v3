@@ -11,8 +11,8 @@ const _OSAO = "OnlySigv4AuthOptional";
 const _SAS = "SameAsService";
 const _SASO = "SameAsServiceOutput";
 const _h = "http";
-const _s = "service";
-const _sm = "smithy.ts.sdk.synthetic.example.weather";
+const _s = "smithy.ts.sdk.synthetic.example.weather";
+const _se = "service";
 const n0 = "example.weather";
 
 // smithy-typescript generated code
@@ -22,14 +22,23 @@ import type { StaticErrorSchema, StaticOperationSchema, StaticStructureSchema } 
 import { WeatherServiceException } from "../models/WeatherServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WeatherServiceException$: StaticErrorSchema = [-3, _s, "WeatherServiceException", 0, [], []];
+_s_registry.registerError(WeatherServiceException$, WeatherServiceException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+]
 export var SameAsServiceOutput$: StaticStructureSchema = [3, n0, _SASO,
   0,
-  [_s],
+  [_se],
   [0]
 ];
 var __Unit = "unit" as const;
-export var WeatherServiceException$: StaticErrorSchema = [-3, _sm, "WeatherServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WeatherServiceException$, WeatherServiceException);
 export var OnlyCustomAuth$: StaticOperationSchema = [9, n0, _OCA,
   { [_h]: ["GET", "/OnlyCustomAuth", 200] }, () => __Unit, () => __Unit
 ];

@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import type { ARCRegionSwitchClientConfig } from "./ARCRegionSwitchClient";
 import { defaultARCRegionSwitchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ARCRegionSwitchClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.arcregionswitch",
+      errorTypeRegistries,
       version: "2022-07-26",
       serviceTarget: "ArcRegionSwitch",
     },

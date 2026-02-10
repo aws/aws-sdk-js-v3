@@ -251,8 +251,8 @@ const _RDesp = "ResponseDetails";
 const _RE = "RevisionEntry";
 const _RH = "RequestHeaders";
 const _RHe = "ResponseHeaders";
-const _RI = "RevisionId";
-const _RIe = "ResourceId";
+const _RI = "ResourceId";
+const _RIe = "RevisionId";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "ReceiverPrincipal";
 const _RPe = "RevisionPublished";
@@ -337,8 +337,8 @@ const _mR = "maxResults";
 const _nT = "nextToken";
 const _o = "origin";
 const _rI = "revisionId";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.dataexchange";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.dataexchange";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _xadai = "x-amzn-dataexchange-asset-id";
@@ -371,6 +371,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DataExchangeServiceException$: StaticErrorSchema = [-3, _s, "DataExchangeServiceException", 0, [], []];
+_s_registry.registerError(DataExchangeServiceException$, DataExchangeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _LN, _LV],
+  [0, 0, 1], 1
+];
+n0_registry.registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _EC],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptDataGrantRequest$: StaticStructureSchema = [3, n0, _ADGR,
   0,
   [_DGA],
@@ -381,12 +436,6 @@ export var AcceptDataGrantResponse$: StaticStructureSchema = [3, n0, _ADGRc,
   [_N, _RP, _AS, _GDS, _DSI, _I, _A, _CA, _UA, _SP, _D, _AA, _EA],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 5, 5], 9
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var Action$: StaticStructureSchema = [3, n0, _Ac,
   0,
   [_ERTS],
@@ -409,7 +458,7 @@ export var AssetDetails$: StaticStructureSchema = [3, n0, _ADs,
 ];
 export var AssetEntry$: StaticStructureSchema = [3, n0, _AEs,
   0,
-  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _UA, _SI],
+  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RIe, _UA, _SI],
   [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 5, 0], 9
 ];
 export var AssetSourceEntry$: StaticStructureSchema = [3, n0, _ASE,
@@ -432,12 +481,6 @@ export var CancelJobRequest$: StaticStructureSchema = [3, n0, _CJR,
   [_JI],
   [[0, 1]], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RIe, _RT],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDataGrantRequest$: StaticStructureSchema = [3, n0, _CDGR,
   0,
   [_N, _GDS, _RP, _SDSI, _EA, _D, _T],
@@ -490,12 +533,12 @@ export var CreateRevisionResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateS3DataAccessFromS3BucketRequestDetails$: StaticStructureSchema = [3, n0, _CSDAFSBRD,
   0,
-  [_ASs, _DSI, _RI],
+  [_ASs, _DSI, _RIe],
   [() => S3DataAccessAssetSourceEntry$, 0, 0], 3
 ];
 export var CreateS3DataAccessFromS3BucketResponseDetails$: StaticStructureSchema = [3, n0, _CSDAFSBRDr,
   0,
-  [_ASs, _DSI, _RI],
+  [_ASs, _DSI, _RIe],
   [() => S3DataAccessAssetSourceEntry$, 0, 0], 3
 ];
 export var DatabaseLFTagPolicy$: StaticStructureSchema = [3, n0, _DLFTP,
@@ -525,7 +568,7 @@ export var DataUpdateRequestDetails$: StaticStructureSchema = [3, n0, _DURD,
 ];
 export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
-  [_AIs, _DSI, _RI],
+  [_AIs, _DSI, _RIe],
   [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteDataGrantRequest$: StaticStructureSchema = [3, n0, _DDGR,
@@ -545,7 +588,7 @@ export var DeleteEventActionRequest$: StaticStructureSchema = [3, n0, _DEAR,
 ];
 export var DeleteRevisionRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
-  [_DSI, _RI],
+  [_DSI, _RIe],
   [[0, 1], [0, 1]], 2
 ];
 export var DeprecationRequestDetails$: StaticStructureSchema = [3, n0, _DRD,
@@ -570,22 +613,22 @@ export var EventActionEntry$: StaticStructureSchema = [3, n0, _EAE,
 ];
 export var ExportAssetsToS3RequestDetails$: StaticStructureSchema = [3, n0, _EATSRD,
   0,
-  [_ADss, _DSI, _RI, _E],
+  [_ADss, _DSI, _RIe, _E],
   [() => ListOfAssetDestinationEntry, 0, 0, () => ExportServerSideEncryption$], 3
 ];
 export var ExportAssetsToS3ResponseDetails$: StaticStructureSchema = [3, n0, _EATSRDx,
   0,
-  [_ADss, _DSI, _RI, _E],
+  [_ADss, _DSI, _RIe, _E],
   [() => ListOfAssetDestinationEntry, 0, 0, () => ExportServerSideEncryption$], 3
 ];
 export var ExportAssetToSignedUrlRequestDetails$: StaticStructureSchema = [3, n0, _EATSURD,
   0,
-  [_AIs, _DSI, _RI],
+  [_AIs, _DSI, _RIe],
   [0, 0, 0], 3
 ];
 export var ExportAssetToSignedUrlResponseDetails$: StaticStructureSchema = [3, n0, _EATSURDx,
   0,
-  [_AIs, _DSI, _RI, _SU, _SUEA],
+  [_AIs, _DSI, _RIe, _SU, _SUEA],
   [0, 0, 0, 0, 5], 3
 ];
 export var ExportRevisionsToS3RequestDetails$: StaticStructureSchema = [3, n0, _ERTSRD,
@@ -605,12 +648,12 @@ export var ExportServerSideEncryption$: StaticStructureSchema = [3, n0, _ESSE,
 ];
 export var GetAssetRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
-  [_AIs, _DSI, _RI],
+  [_AIs, _DSI, _RIe],
   [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var GetAssetResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _SI, _UA],
+  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RIe, _SI, _UA],
   [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
 ];
 export var GetDataGrantRequest$: StaticStructureSchema = [3, n0, _GDGR,
@@ -665,7 +708,7 @@ export var GetReceivedDataGrantResponse$: StaticStructureSchema = [3, n0, _GRDGR
 ];
 export var GetRevisionRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_DSI, _RI],
+  [_DSI, _RIe],
   [[0, 1], [0, 1]], 2
 ];
 export var GetRevisionResponse$: StaticStructureSchema = [3, n0, _GRRe,
@@ -675,12 +718,12 @@ export var GetRevisionResponse$: StaticStructureSchema = [3, n0, _GRRe,
 ];
 export var ImportAssetFromApiGatewayApiRequestDetails$: StaticStructureSchema = [3, n0, _IAFAGARD,
   0,
-  [_AI, _AN, _ASMH, _DSI, _PT, _RI, _S, _AD, _AK],
+  [_AI, _AN, _ASMH, _DSI, _PT, _RIe, _S, _AD, _AK],
   [0, 0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var ImportAssetFromApiGatewayApiResponseDetails$: StaticStructureSchema = [3, n0, _IAFAGARDm,
   0,
-  [_AI, _AN, _ASMH, _ASUU, _ASUUEA, _DSI, _PT, _RI, _S, _AD, _AK],
+  [_AI, _AN, _ASMH, _ASUU, _ASUUEA, _DSI, _PT, _RIe, _S, _AD, _AK],
   [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0], 9
 ];
 export var ImportAssetFromSignedUrlJobErrorDetails$: StaticStructureSchema = [3, n0, _IAFSUJED,
@@ -690,50 +733,44 @@ export var ImportAssetFromSignedUrlJobErrorDetails$: StaticStructureSchema = [3,
 ];
 export var ImportAssetFromSignedUrlRequestDetails$: StaticStructureSchema = [3, n0, _IAFSURD,
   0,
-  [_ANs, _DSI, _MH, _RI],
+  [_ANs, _DSI, _MH, _RIe],
   [0, 0, 0, 0], 4
 ];
 export var ImportAssetFromSignedUrlResponseDetails$: StaticStructureSchema = [3, n0, _IAFSURDm,
   0,
-  [_ANs, _DSI, _RI, _MH, _SU, _SUEA],
+  [_ANs, _DSI, _RIe, _MH, _SU, _SUEA],
   [0, 0, 0, 0, 0, 5], 3
 ];
 export var ImportAssetsFromLakeFormationTagPolicyRequestDetails$: StaticStructureSchema = [3, n0, _IAFLFTPRD,
   0,
-  [_CI, _RAo, _DSI, _RI, _Da, _Ta],
+  [_CI, _RAo, _DSI, _RIe, _Da, _Ta],
   [0, 0, 0, 0, () => DatabaseLFTagPolicyAndPermissions$, () => TableLFTagPolicyAndPermissions$], 4
 ];
 export var ImportAssetsFromLakeFormationTagPolicyResponseDetails$: StaticStructureSchema = [3, n0, _IAFLFTPRDm,
   0,
-  [_CI, _RAo, _DSI, _RI, _Da, _Ta],
+  [_CI, _RAo, _DSI, _RIe, _Da, _Ta],
   [0, 0, 0, 0, () => DatabaseLFTagPolicyAndPermissions$, () => TableLFTagPolicyAndPermissions$], 4
 ];
 export var ImportAssetsFromRedshiftDataSharesRequestDetails$: StaticStructureSchema = [3, n0, _IAFRDSRD,
   0,
-  [_ASss, _DSI, _RI],
+  [_ASss, _DSI, _RIe],
   [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0], 3
 ];
 export var ImportAssetsFromRedshiftDataSharesResponseDetails$: StaticStructureSchema = [3, n0, _IAFRDSRDm,
   0,
-  [_ASss, _DSI, _RI],
+  [_ASss, _DSI, _RIe],
   [() => ListOfRedshiftDataShareAssetSourceEntry, 0, 0], 3
 ];
 export var ImportAssetsFromS3RequestDetails$: StaticStructureSchema = [3, n0, _IAFSRD,
   0,
-  [_ASss, _DSI, _RI],
+  [_ASss, _DSI, _RIe],
   [() => ListOfAssetSourceEntry, 0, 0], 3
 ];
 export var ImportAssetsFromS3ResponseDetails$: StaticStructureSchema = [3, n0, _IAFSRDm,
   0,
-  [_ASss, _DSI, _RI],
+  [_ASss, _DSI, _RIe],
   [() => ListOfAssetSourceEntry, 0, 0], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobEntry$: StaticStructureSchema = [3, n0, _JE,
   0,
   [_A, _CA, _De, _I, _St, _Ty, _UA, _Er],
@@ -741,7 +778,7 @@ export var JobEntry$: StaticStructureSchema = [3, n0, _JE,
 ];
 export var JobError$: StaticStructureSchema = [3, n0, _JEo,
   0,
-  [_Co, _M, _De, _LN, _LV, _RIe, _RT],
+  [_Co, _M, _De, _LN, _LV, _RI, _RT],
   [0, 0, () => Details$, 0, 1, 0, 0], 2
 ];
 export var KmsKeyToGrant$: StaticStructureSchema = [3, n0, _KKTG,
@@ -821,7 +858,7 @@ export var ListEventActionsResponse$: StaticStructureSchema = [3, n0, _LEARi,
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
-  [_DSI, _MR, _NT, _RI],
+  [_DSI, _MR, _NT, _RIe],
   [[0, { [_hQ]: _dSI }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _rI }]]
 ];
 export var ListJobsResponse$: StaticStructureSchema = [3, n0, _LJRi,
@@ -841,7 +878,7 @@ export var ListReceivedDataGrantsResponse$: StaticStructureSchema = [3, n0, _LRD
 ];
 export var ListRevisionAssetsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
-  [_DSI, _RI, _MR, _NT],
+  [_DSI, _RIe, _MR, _NT],
   [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListRevisionAssetsResponse$: StaticStructureSchema = [3, n0, _LRARi,
@@ -894,12 +931,6 @@ export var RequestDetails$: StaticStructureSchema = [3, n0, _RDeq,
   [_EATSU, _EATS, _ERTSx, _IAFSU, _IAFS, _IAFRDS, _IAFAGA, _CSDAFSB, _IAFLFTP],
   [() => ExportAssetToSignedUrlRequestDetails$, () => ExportAssetsToS3RequestDetails$, () => ExportRevisionsToS3RequestDetails$, () => ImportAssetFromSignedUrlRequestDetails$, () => ImportAssetsFromS3RequestDetails$, () => ImportAssetsFromRedshiftDataSharesRequestDetails$, () => ImportAssetFromApiGatewayApiRequestDetails$, () => CreateS3DataAccessFromS3BucketRequestDetails$, () => ImportAssetsFromLakeFormationTagPolicyRequestDetails$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RIe, _RT],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResponseDetails$: StaticStructureSchema = [3, n0, _RDesp,
   0,
   [_EATSU, _EATS, _ERTSx, _IAFSU, _IAFS, _IAFRDS, _IAFAGA, _CSDAFSB, _IAFLFTP],
@@ -907,7 +938,7 @@ export var ResponseDetails$: StaticStructureSchema = [3, n0, _RDesp,
 ];
 export var RevisionDestinationEntry$: StaticStructureSchema = [3, n0, _RDE,
   0,
-  [_B, _RI, _KP],
+  [_B, _RIe, _KP],
   [0, 0, 0], 2
 ];
 export var RevisionEntry$: StaticStructureSchema = [3, n0, _RE,
@@ -922,7 +953,7 @@ export var RevisionPublished$: StaticStructureSchema = [3, n0, _RPe,
 ];
 export var RevokeRevisionRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
-  [_DSI, _RI, _RC],
+  [_DSI, _RIe, _RC],
   [[0, 1], [0, 1], 0], 3
 ];
 export var RevokeRevisionResponse$: StaticStructureSchema = [3, n0, _RRRe,
@@ -967,7 +998,7 @@ export var ScopeDetails$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var SendApiAssetRequest$: StaticStructureSchema = [3, n0, _SAAR,
   0,
-  [_AIs, _DSI, _RI, _Bo, _QSP, _RH, _Me, _Pa],
+  [_AIs, _DSI, _RIe, _Bo, _QSP, _RH, _Me, _Pa],
   [[0, { [_hH]: _xadai }], [0, { [_hH]: _xaddsi }], [0, { [_hH]: _xadri }], [0, 16], [128 | 0, 64], [128 | 0, { [_hPH]: _xadh }], [0, { [_hH]: _xadhm }], [0, { [_hH]: _xadp }]], 3
 ];
 export var SendApiAssetResponse$: StaticStructureSchema = [3, n0, _SAARe,
@@ -985,12 +1016,6 @@ export var SendDataSetNotificationResponse$: StaticStructureSchema = [3, n0, _SD
   [],
   []
 ];
-export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _LN, _LV],
-  [0, 0, 1], 1
-];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
 export var StartJobRequest$: StaticStructureSchema = [3, n0, _SJR,
   0,
   [_JI],
@@ -1016,12 +1041,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RAe, _T],
   [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TKa],
@@ -1029,12 +1048,12 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 ];
 export var UpdateAssetRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_AIs, _DSI, _N, _RI],
+  [_AIs, _DSI, _N, _RIe],
   [[0, 1], [0, 1], 0, [0, 1]], 4
 ];
 export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
-  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RI, _SI, _UA],
+  [_A, _ADs, _AT, _CA, _DSI, _I, _N, _RIe, _SI, _UA],
   [0, () => AssetDetails$, 0, 5, 0, 0, 0, 0, 0, 5]
 ];
 export var UpdateDataSetRequest$: StaticStructureSchema = [3, n0, _UDSR,
@@ -1059,7 +1078,7 @@ export var UpdateEventActionResponse$: StaticStructureSchema = [3, n0, _UEARp,
 ];
 export var UpdateRevisionRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_DSI, _RI, _C, _F],
+  [_DSI, _RIe, _C, _F],
   [[0, 1], [0, 1], 0, 2], 2
 ];
 export var UpdateRevisionResponse$: StaticStructureSchema = [3, n0, _URRpd,
@@ -1067,15 +1086,7 @@ export var UpdateRevisionResponse$: StaticStructureSchema = [3, n0, _URRpd,
   [_A, _C, _CA, _DSI, _F, _I, _SI, _UA, _RC, _R, _RA],
   [0, 0, 5, 0, 2, 0, 0, 5, 0, 2, 5]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _EC],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var DataExchangeServiceException$: StaticErrorSchema = [-3, _sm, "DataExchangeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataExchangeServiceException$, DataExchangeServiceException);
 var AcceptanceStateFilterValues = 64 | 0;
 var ListOf__string = 64 | 0;
 var ListOfAssetDestinationEntry: StaticListSchema = [1, n0, _LOADE,

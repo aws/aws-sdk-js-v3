@@ -122,7 +122,7 @@ const _rI = "resourceId";
 const _rPMA = "resourcePendingMaintenanceAction";
 const _rPMAe = "resourcePendingMaintenanceActions";
 const _rT = "resourceType";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.docdbelastic";
 const _sA = "snapshotArn";
 const _sC = "shardCapacity";
 const _sCT = "snapshotCreationTime";
@@ -134,9 +134,9 @@ const _sN = "snapshotName";
 const _sT = "snapshotType";
 const _se = "server";
 const _sh = "shards";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.docdbelastic";
 const _sn = "snapshot";
 const _sna = "snapshots";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tSN = "targetSnapshotName";
@@ -166,13 +166,62 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var DocDBElasticServiceException$: StaticErrorSchema = [-3, _s, "DocDBElasticServiceException", 0, [], []];
+_s_registry.registerError(DocDBElasticServiceException$, DocDBElasticServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Password: StaticSimpleSchema = [0, n0, _P, 8, 0];
 export var ApplyPendingMaintenanceActionInput$: StaticStructureSchema = [3, n0, _APMAI,
   0,
   [_rA, _aA, _oIT, _aO],
@@ -185,30 +234,24 @@ export var ApplyPendingMaintenanceActionOutput$: StaticStructureSchema = [3, n0,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_cN, _cA, _s, _cE, _cT, _aUN, _aT, _sC, _sCh, _vSGI, _sI, _pMW, _kKI, _sh, _bRP, _pBW, _sIC],
+  [_cN, _cA, _st, _cE, _cT, _aUN, _aT, _sC, _sCh, _vSGI, _sI, _pMW, _kKI, _sh, _bRP, _pBW, _sIC],
   [0, 0, 0, 0, 0, 0, 0, 1, 1, 64 | 0, 64 | 0, 0, 0, () => ShardList, 1, 0, 1], 13
 ];
 export var ClusterInList$: StaticStructureSchema = [3, n0, _CIL,
   0,
-  [_cN, _cA, _s],
+  [_cN, _cA, _st],
   [0, 0, 0], 3
 ];
 export var ClusterSnapshot$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_sI, _sN, _sA, _sCT, _cA, _cCT, _s, _vSGI, _aUN, _kKI, _sT],
+  [_sI, _sN, _sA, _sCT, _cA, _cCT, _st, _vSGI, _aUN, _kKI, _sT],
   [64 | 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0], 10
 ];
 export var ClusterSnapshotInList$: StaticStructureSchema = [3, n0, _CSIL,
   0,
-  [_sN, _sA, _cA, _s, _sCT],
+  [_sN, _sA, _cA, _st, _sCT],
   [0, 0, 0, 0, 0], 5
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CopyClusterSnapshotInput$: StaticStructureSchema = [3, n0, _CCSI,
   0,
   [_sA, _tSN, _kKI, _cTo, _t],
@@ -289,12 +332,6 @@ export var GetPendingMaintenanceActionOutput$: StaticStructureSchema = [3, n0, _
   [_rPMA],
   [() => ResourcePendingMaintenanceAction$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListClustersInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_nT, _mR],
@@ -340,12 +377,6 @@ export var PendingMaintenanceActionDetails$: StaticStructureSchema = [3, n0, _PM
   [_a, _aAAD, _fAD, _oIS, _cAD, _d],
   [0, 0, 0, 0, 0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePendingMaintenanceAction$: StaticStructureSchema = [3, n0, _RPMA,
   0,
   [_rA, _pMAD],
@@ -361,15 +392,9 @@ export var RestoreClusterFromSnapshotOutput$: StaticStructureSchema = [3, n0, _R
   [_cl],
   [() => Cluster$], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Shard$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sIh, _cT, _s],
+  [_sIh, _cT, _st],
   [0, 0, 0], 3
 ];
 export var StartClusterInput$: StaticStructureSchema = [3, n0, _SCI,
@@ -402,12 +427,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -428,19 +447,11 @@ export var UpdateClusterOutput$: StaticStructureSchema = [3, n0, _UCO,
   [_cl],
   [() => Cluster$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var DocDBElasticServiceException$: StaticErrorSchema = [-3, _sm, "DocDBElasticServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DocDBElasticServiceException$, DocDBElasticServiceException);
 var ClusterList: StaticListSchema = [1, n0, _CL,
   0, () => ClusterInList$
 ];

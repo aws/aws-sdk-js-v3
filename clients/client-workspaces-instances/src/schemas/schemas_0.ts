@@ -173,7 +173,7 @@ const _PSr = "ProvisionStates";
 const _PT = "PlatformType";
 const _Pr = "Primary";
 const _QC = "QuotaCode";
-const _R = "Regions";
+const _R = "Reason";
 const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
 const _RI = "ResourceId";
@@ -183,8 +183,8 @@ const _RL = "RegionList";
 const _RN = "RegionName";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
-const _Re = "Region";
-const _Rea = "Reason";
+const _Re = "Regions";
+const _Reg = "Region";
 const _SC = "ServiceCode";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
@@ -236,8 +236,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesinstances";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesinstances";
+const _se = "server";
 const n0 = "com.amazonaws.workspacesinstances";
 
 // smithy-typescript generated code
@@ -262,18 +262,67 @@ import {
 import { WorkspacesInstancesServiceException } from "../models/WorkspacesInstancesServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var WorkspacesInstancesServiceException$: StaticErrorSchema = [-3, _s, "WorkspacesInstancesServiceException", 0, [], []];
+_s_registry.registerError(WorkspacesInstancesServiceException$, WorkspacesInstancesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI, _RT, _SC, _QC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _SC, _QC, _RAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _FL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ClientToken: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 var Ipv4Address: StaticSimpleSchema = [0, n0, _IA, 8, 0];
 var Ipv6Address: StaticSimpleSchema = [0, n0, _IAp, 8, 0];
 var KmsKeyId: StaticSimpleSchema = [0, n0, _KKI, 8, 0];
 var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 var UserData: StaticSimpleSchema = [0, n0, _UD, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssociateVolumeRequest$: StaticStructureSchema = [3, n0, _AVR,
   0,
   [_WII, _VI, _D],
@@ -304,12 +353,6 @@ export var CapacityReservationTarget$: StaticStructureSchema = [3, n0, _CRT,
   [_CRI, _CRRGA],
   [0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionTrackingSpecificationRequest$: StaticStructureSchema = [3, n0, _CTSR,
   0,
   [_TET, _UST, _UT],
@@ -465,12 +508,6 @@ export var InstanceTypeInfo$: StaticStructureSchema = [3, n0, _ITI,
   [_ITn, _SIC],
   [0, () => SupportedInstanceConfigurations]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Ipv4PrefixSpecificationRequest$: StaticStructureSchema = [3, n0, _IPSR,
   0,
   [_IPpv],
@@ -503,7 +540,7 @@ export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRegionsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_R, _NT],
+  [_Re, _NT],
   [() => RegionList, [() => NextToken, 0]], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -546,28 +583,16 @@ export var PrivateIpAddressSpecification$: StaticStructureSchema = [3, n0, _PIAS
   [_Pr, _PIA],
   [2, [() => Ipv4Address, 0]]
 ];
-export var Region$: StaticStructureSchema = [3, n0, _Re,
+export var Region$: StaticStructureSchema = [3, n0, _Reg,
   0,
   [_RN],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RunInstancesMonitoringEnabled$: StaticStructureSchema = [3, n0, _RIME,
   0,
   [_Ena],
   [2]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI, _RT, _SC, _QC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpotMarketOptions$: StaticStructureSchema = [3, n0, _SMO,
   0,
   [_BDMl, _IIB, _MP, _SIT, _VUU],
@@ -598,12 +623,6 @@ export var TagSpecification$: StaticStructureSchema = [3, n0, _TSa,
   [_RT, _Ta],
   [0, () => TagList]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _SC, _QC, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_WII, _TK],
@@ -614,15 +633,9 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _FL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_N, _Rea, _M],
+  [_N, _R, _M],
   [0, 0, 0], 3
 ];
 export var WorkspaceInstance$: StaticStructureSchema = [3, n0, _WIo,
@@ -635,8 +648,6 @@ export var WorkspaceInstanceError$: StaticStructureSchema = [3, n0, _WIEo,
   [_EC, _EM],
   [0, 0]
 ];
-export var WorkspacesInstancesServiceException$: StaticErrorSchema = [-3, _sm, "WorkspacesInstancesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WorkspacesInstancesServiceException$, WorkspacesInstancesServiceException);
 var BlockDeviceMappings: StaticListSchema = [1, n0, _BDM,
   0, [() => BlockDeviceMappingRequest$,
     0]

@@ -151,8 +151,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _l = "locations";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.gameliftstreams";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.gameliftstreams";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.gameliftstreams";
 
@@ -179,14 +179,63 @@ import {
 import { GameLiftStreamsServiceException } from "../models/GameLiftStreamsServiceException";
 
 /* eslint no-var: 0 */
-var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
-var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var GameLiftStreamsServiceException$: StaticErrorSchema = [-3, _s, "GameLiftStreamsServiceException", 0, [], []];
+_s_registry.registerError(GameLiftStreamsServiceException$, GameLiftStreamsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
+var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
 export var AddStreamGroupLocationsInput$: StaticStructureSchema = [3, n0, _ASGLI,
   0,
   [_I, _LC],
@@ -212,12 +261,6 @@ export var AssociateApplicationsOutput$: StaticStructureSchema = [3, n0, _AAO,
   [_A, _AA],
   [0, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApplicationInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
   [_D, _RE, _EP, _ASU, _ALP, _ALOU, _T, _CT],
@@ -318,12 +361,6 @@ export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
   [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListApplicationsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_NT, _MR],
@@ -399,23 +436,11 @@ export var ReplicationStatus$: StaticStructureSchema = [3, n0, _RSe,
   [_Lo, _S],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_Ty, _V],
   [0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
   0,
   [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC],
@@ -451,12 +476,6 @@ export var TerminateStreamSessionInput$: StaticStructureSchema = [3, n0, _TSSI,
   [_I, _SSI],
   [[0, 1], [0, 1]], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -487,15 +506,7 @@ export var UpdateStreamGroupOutput$: StaticStructureSchema = [3, n0, _USGO,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
   [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var GameLiftStreamsServiceException$: StaticErrorSchema = [-3, _sm, "GameLiftStreamsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GameLiftStreamsServiceException$, GameLiftStreamsServiceException);
 var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ApplicationSummary$
 ];

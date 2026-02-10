@@ -19,8 +19,8 @@ const _m = "message";
 const _pL = "predictedLabel";
 const _pS = "predictedScores";
 const _pV = "predictedValue";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.machinelearning";
+const _se = "server";
 const n0 = "com.amazonaws.machinelearning";
 
 // smithy-typescript generated code
@@ -37,24 +37,49 @@ import {
 import { MachineLearningServiceException } from "../models/MachineLearningServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MachineLearningServiceException$: StaticErrorSchema = [-3, _s, "MachineLearningServiceException", 0, [], []];
+_s_registry.registerError(MachineLearningServiceException$, MachineLearningServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
+  { [_e]: _se, [_hE]: 500 },
   [_m, _c],
   [0, 1]
 ];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
+n0_registry.registerError(InternalServerException$, InternalServerException);
 export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
   { [_e]: _cl, [_hE]: 400 },
   [_m, _c],
   [0, 1]
 ];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
 export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
   { [_e]: _cl, [_hE]: 417 },
   [_m, _c],
   [0, 1]
 ];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PredictorNotMountedException$: StaticErrorSchema = [-3, n0, _PNME,
+  { [_e]: _cl, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PredictorNotMountedException$, PredictorNotMountedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _cl, [_hE]: 404 },
+  [_m, _c],
+  [0, 1]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var PredictInput$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_MLMI, _R, _PE],
@@ -65,25 +90,11 @@ export var Prediction$: StaticStructureSchema = [3, n0, _P,
   [_pL, _pV, _pS, _d],
   [0, 1, 128 | 1, 128 | 0]
 ];
-export var PredictorNotMountedException$: StaticErrorSchema = [-3, n0, _PNME,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PredictorNotMountedException$, PredictorNotMountedException);
 export var PredictOutput$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_P],
   [() => Prediction$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_m, _c],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var MachineLearningServiceException$: StaticErrorSchema = [-3, _sm, "MachineLearningServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MachineLearningServiceException$, MachineLearningServiceException);
 var DetailsMap = 128 | 0;
 var _Record = 128 | 0;
 var ScoreValuePerLabelMap = 128 | 1;

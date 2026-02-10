@@ -33,9 +33,9 @@ const _nS = "nextSteps";
 const _nT = "nextToken";
 const _r = "reason";
 const _rA = "recommendedActions";
-const _s = "server";
-const _se = "severity";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.bcmrecommendedactions";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bcmrecommendedactions";
+const _se = "server";
+const _sev = "severity";
 const _t = "type";
 const _v = "values";
 const n0 = "com.amazonaws.bcmrecommendedactions";
@@ -59,23 +59,48 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BCMRecommendedActionsServiceException$: StaticErrorSchema = [-3, _s, "BCMRecommendedActionsServiceException", 0, [], []];
+_s_registry.registerError(BCMRecommendedActionsServiceException$, BCMRecommendedActionsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`BCMRecommendedActionsAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`BCMRecommendedActionsInternalServer`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`BCMRecommendedActionsThrottling`, 429], [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`BCMRecommendedActionsValidation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ActionFilter$: StaticStructureSchema = [3, n0, _AF,
   0,
   [_k, _mO, _v],
   [0, 0, 64 | 0], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`BCMRecommendedActionsInternalServer`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRecommendedActionsRequest$: StaticStructureSchema = [3, n0, _LRAR,
   0,
   [_f, _mR, _nT],
@@ -88,7 +113,7 @@ export var ListRecommendedActionsResponse$: StaticStructureSchema = [3, n0, _LRA
 ];
 export var RecommendedAction$: StaticStructureSchema = [3, n0, _RA,
   0,
-  [_i, _t, _aI, _se, _fe, _co, _nS, _lUTS],
+  [_i, _t, _aI, _sev, _fe, _co, _nS, _lUTS],
   [0, 0, 0, 0, 0, 128 | 0, 64 | 0, 0]
 ];
 export var RequestFilter$: StaticStructureSchema = [3, n0, _RF,
@@ -96,25 +121,11 @@ export var RequestFilter$: StaticStructureSchema = [3, n0, _RF,
   [_a],
   [() => ActionFilterList]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`BCMRecommendedActionsThrottling`, 429], [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`BCMRecommendedActionsValidation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var BCMRecommendedActionsServiceException$: StaticErrorSchema = [-3, _sm, "BCMRecommendedActionsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BCMRecommendedActionsServiceException$, BCMRecommendedActionsServiceException);
 var ActionFilterList: StaticListSchema = [1, n0, _AFL,
   0, () => ActionFilter$
 ];

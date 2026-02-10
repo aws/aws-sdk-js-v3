@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCodeartifactHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CodeartifactClientConfig } from "./CodeartifactClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: CodeartifactClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.codeartifact",
+      errorTypeRegistries,
       version: "2018-09-22",
       serviceTarget: "CodeArtifactControlPlaneService",
     },

@@ -39,17 +39,48 @@ import { ApiGatewayManagementApiServiceException } from "../models/ApiGatewayMan
 import { ForbiddenException, GoneException, LimitExceededException, PayloadTooLargeException } from "../models/errors";
 
 /* eslint no-var: 0 */
-export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
-  0,
-  [_CI],
-  [[0, 1]], 1
-];
+const _s_registry = TypeRegistry.for(_s);
+export var ApiGatewayManagementApiServiceException$: StaticErrorSchema = [-3, _s, "ApiGatewayManagementApiServiceException", 0, [], []];
+_s_registry.registerError(ApiGatewayManagementApiServiceException$, ApiGatewayManagementApiServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
   { [_e]: _c, [_hE]: 403 },
   [],
   []
 ];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
+  { [_e]: _c, [_hE]: 410 },
+  [],
+  []
+];
+n0_registry.registerError(GoneException$, GoneException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [],
+  []
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var PayloadTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
+  { [_e]: _c, [_hE]: 413 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(PayloadTooLargeException$, PayloadTooLargeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var DeleteConnectionRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_CI],
+  [[0, 1]], 1
+];
 export var GetConnectionRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
   [_CI],
@@ -60,37 +91,17 @@ export var GetConnectionResponse$: StaticStructureSchema = [3, n0, _GCRe,
   [_CA, _I, _LAA],
   [[5, { [_jN]: _cA }], [() => Identity$, { [_jN]: _i }], [5, { [_jN]: _lAA }]]
 ];
-export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
-  { [_e]: _c, [_hE]: 410 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(GoneException$, GoneException);
 export var Identity$: StaticStructureSchema = [3, n0, _I,
   0,
   [_SI, _UA],
   [[0, { [_jN]: _sI }], [0, { [_jN]: _uA }]], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var PayloadTooLargeException$: StaticErrorSchema = [-3, n0, _PTLE,
-  { [_e]: _c, [_hE]: 413 },
-  [_M],
-  [[0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(PayloadTooLargeException$, PayloadTooLargeException);
 export var PostToConnectionRequest$: StaticStructureSchema = [3, n0, _PTCR,
   0,
   [_D, _CI],
   [[21, 16], [0, 1]], 2
 ];
 var __Unit = "unit" as const;
-export var ApiGatewayManagementApiServiceException$: StaticErrorSchema = [-3, _s, "ApiGatewayManagementApiServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ApiGatewayManagementApiServiceException$, ApiGatewayManagementApiServiceException);
 export var DeleteConnection$: StaticOperationSchema = [9, n0, _DC,
   { [_h]: ["DELETE", "/@connections/{ConnectionId}", 204] }, () => DeleteConnectionRequest$, () => __Unit
 ];

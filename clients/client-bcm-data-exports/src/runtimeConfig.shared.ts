@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBCMDataExportsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BCMDataExportsClientConfig } from "./BCMDataExportsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BCMDataExportsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.bcmdataexports",
+      errorTypeRegistries,
       version: "2023-11-26",
       serviceTarget: "AWSBillingAndCostManagementDataExports",
     },

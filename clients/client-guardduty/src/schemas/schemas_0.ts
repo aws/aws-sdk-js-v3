@@ -1461,7 +1461,7 @@ const _res = "resource";
 const _reso = "resources";
 const _resu = "result";
 const _ro = "role";
-const _s = "session";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.guardduty";
 const _sA = "snapshotArn";
 const _sAN = "serviceAccountName";
 const _sAt = "startedAt";
@@ -1524,14 +1524,14 @@ const _sV = "schemaVersion";
 const _sVD = "scannedVolumeDetails";
 const _sVDk = "skippedVolumeDetails";
 const _sc = "scans";
-const _se = "severity";
+const _se = "server";
 const _seq = "sequence";
 const _ser = "service";
-const _serv = "server";
+const _ses = "session";
+const _sev = "severity";
 const _sh = "sha256";
 const _sho = "shortened";
 const _si = "signals";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.guardduty";
 const _so = "sources";
 const _sou = "source";
 const _ss = "ssl";
@@ -1631,6 +1631,49 @@ import {
 import { GuardDutyServiceException } from "../models/GuardDutyServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GuardDutyServiceException$: StaticErrorSchema = [-3, _s, "GuardDutyServiceException", 0, [], []];
+_s_registry.registerError(GuardDutyServiceException$, GuardDutyServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _T],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _T],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _T],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _T],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _T],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AcceptAdministratorInvitationRequest$: StaticStructureSchema = [3, n0, _AAIR,
@@ -1658,12 +1701,6 @@ export var AccessControlList$: StaticStructureSchema = [3, n0, _ACL,
   [_APRA, _APWA],
   [[2, { [_jN]: _aPRA }], [2, { [_jN]: _aPWA }]]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _T],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccessKey$: StaticStructureSchema = [3, n0, _AK,
   0,
   [_PI, _UN, _UT],
@@ -1707,7 +1744,7 @@ export var Action$: StaticStructureSchema = [3, n0, _Ac,
 export var Actor$: StaticStructureSchema = [3, n0, _Act,
   0,
   [_I, _Us, _S, _P],
-  [[0, { [_jN]: _i }], [() => User$, { [_jN]: _us }], [() => Session$, { [_jN]: _s }], [() => ActorProcess$, { [_jN]: _p }]], 1
+  [[0, { [_jN]: _i }], [() => User$, { [_jN]: _us }], [() => Session$, { [_jN]: _ses }], [() => ActorProcess$, { [_jN]: _p }]], 1
 ];
 export var ActorProcess$: StaticStructureSchema = [3, n0, _AP,
   0,
@@ -1779,12 +1816,6 @@ export var AwsApiCallAction$: StaticStructureSchema = [3, n0, _AACA,
   [_Ap, _CT, _DD, _EC, _UA, _RID, _SN, _RAD, _AR],
   [[0, { [_jN]: _ap }], [0, { [_jN]: _cT }], [() => DomainDetails$, { [_jN]: _dD }], [0, { [_jN]: _eC }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [0, { [_jN]: _sN }], [() => RemoteAccountDetails$, { [_jN]: _rAD }], [128 | 0, { [_jN]: _aR }]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _T],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BlockPublicAccess$: StaticStructureSchema = [3, n0, _BPA,
   0,
   [_IPA, _RPB, _BPAl, _BPP],
@@ -1820,12 +1851,6 @@ export var Condition$: StaticStructureSchema = [3, n0, _Co,
   [_Eq, _Ne, _G, _Gt, _L, _Lt, _Equ, _NE, _GT, _GTOE, _LT, _LTOE, _Ma, _NM],
   [[64 | 0, { [_jN]: _eq }], [64 | 0, { [_jN]: _ne }], [1, { [_jN]: _g }], [1, { [_jN]: _gt }], [1, { [_jN]: _l }], [1, { [_jN]: _lt }], [64 | 0, { [_jN]: _equ }], [64 | 0, { [_jN]: _nE }], [1, { [_jN]: _gT }], [1, { [_jN]: _gTOE }], [1, { [_jN]: _lT }], [1, { [_jN]: _lTOE }], [64 | 0, { [_jN]: _ma }], [64 | 0, { [_jN]: _nM }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _T],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Container$: StaticStructureSchema = [3, n0, _Con,
   0,
   [_CR, _I, _N, _Im, _IP, _VM, _SC],
@@ -2029,7 +2054,7 @@ export var DataSourcesFreeTrial$: StaticStructureSchema = [3, n0, _DSFTa,
 export var DateStatistics$: StaticStructureSchema = [3, n0, _DSa,
   0,
   [_Da, _LGA, _Se, _TF],
-  [[4, { [_jN]: _da }], [4, { [_jN]: _lGA }], [1, { [_jN]: _se }], [1, { [_jN]: _tF }]]
+  [[4, { [_jN]: _da }], [4, { [_jN]: _lGA }], [1, { [_jN]: _sev }], [1, { [_jN]: _tF }]]
 ];
 export var DeclineInvitationsRequest$: StaticStructureSchema = [3, n0, _DIR,
   0,
@@ -2384,7 +2409,7 @@ export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_AIc, _Ar, _CAr, _I, _Reg, _Res, _SV, _Se, _T, _UAp, _Conf, _D, _Par, _Ser, _Ti, _AASA],
-  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _reg }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _se }], [0, { [_jN]: _ty }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
+  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _reg }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _ty }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
 ];
 export var FindingCriteria$: StaticStructureSchema = [3, n0, _FCin,
   0,
@@ -2619,7 +2644,7 @@ export var GetUsageStatisticsResponse$: StaticStructureSchema = [3, n0, _GUSRe,
 export var HighestSeverityThreatDetails$: StaticStructureSchema = [3, n0, _HSTD,
   0,
   [_Se, _TN, _Coun],
-  [[0, { [_jN]: _se }], [0, { [_jN]: _tN }], [1, { [_jN]: _cou }]]
+  [[0, { [_jN]: _sev }], [0, { [_jN]: _tN }], [1, { [_jN]: _cou }]]
 ];
 export var HostPath$: StaticStructureSchema = [3, n0, _HP,
   0,
@@ -2656,12 +2681,6 @@ export var InstanceDetails$: StaticStructureSchema = [3, n0, _IDn,
   [_AZ, _IIP, _ID, _IIm, _IIn, _IS, _IT, _OA, _LTau, _NI, _Pl, _PC, _Ta],
   [[0, { [_jN]: _aZ }], [() => IamInstanceProfile$, { [_jN]: _iIP }], [0, { [_jN]: _iD }], [0, { [_jN]: _iIm }], [0, { [_jN]: _iIn }], [0, { [_jN]: _iS }], [0, { [_jN]: _iT }], [0, { [_jN]: _oA }], [0, { [_jN]: _lTau }], [() => NetworkInterfaces, { [_jN]: _nI }], [0, { [_jN]: _pl }], [() => ProductCodes, { [_jN]: _pC }], [() => Tags, { [_jN]: _ta }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _serv, [_hE]: 500 },
-  [_M, _T],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
   [_AIc, _II, _RS, _IA],
@@ -3272,12 +3291,6 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   [_IAn],
   [[0, { [_jN]: _iAn }]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _T],
-  [[0, { [_jN]: _m }], [0, { [_jN]: _t }]]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceStatistics$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_AIc, _LGA, _RI, _RT, _TF],
@@ -3411,7 +3424,7 @@ export var ScanResultThreat$: StaticStructureSchema = [3, n0, _SRTc,
 export var ScanThreatName$: StaticStructureSchema = [3, n0, _STN,
   0,
   [_N, _Se, _ICt, _FPi],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _se }], [1, { [_jN]: _iCt }], [() => FilePaths, { [_jN]: _fPi }]]
+  [[0, { [_jN]: _n }], [0, { [_jN]: _sev }], [1, { [_jN]: _iCt }], [() => FilePaths, { [_jN]: _fPi }]]
 ];
 export var SecurityContext$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -3456,12 +3469,12 @@ export var Session$: StaticStructureSchema = [3, n0, _S,
 export var SeverityStatistics$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_LGA, _Se, _TF],
-  [[4, { [_jN]: _lGA }], [1, { [_jN]: _se }], [1, { [_jN]: _tF }]]
+  [[4, { [_jN]: _lGA }], [1, { [_jN]: _sev }], [1, { [_jN]: _tF }]]
 ];
 export var Signal$: StaticStructureSchema = [3, n0, _Sig,
   0,
   [_U, _T, _N, _CAr, _UAp, _FSA, _LSA, _Coun, _D, _Se, _RUe, _AIct, _EIn, _SIi],
-  [[0, { [_jN]: _u }], [0, { [_jN]: _ty }], [0, { [_jN]: _n }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [4, { [_jN]: _fSA }], [4, { [_jN]: _lSA }], [1, { [_jN]: _cou }], [0, { [_jN]: _d }], [1, { [_jN]: _se }], [64 | 0, { [_jN]: _rUe }], [64 | 0, { [_jN]: _aIct }], [64 | 0, { [_jN]: _eIn }], [() => Indicators, { [_jN]: _sIi }]], 8
+  [[0, { [_jN]: _u }], [0, { [_jN]: _ty }], [0, { [_jN]: _n }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [4, { [_jN]: _fSA }], [4, { [_jN]: _lSA }], [1, { [_jN]: _cou }], [0, { [_jN]: _d }], [1, { [_jN]: _sev }], [64 | 0, { [_jN]: _rUe }], [64 | 0, { [_jN]: _aIct }], [64 | 0, { [_jN]: _eIn }], [() => Indicators, { [_jN]: _sIi }]], 8
 ];
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo,
   0,
@@ -3769,8 +3782,6 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   [[64 | 0, { [_jN]: _sIub }], [0, { [_jN]: _vIp }], [() => SecurityGroups, { [_jN]: _sG }]]
 ];
 var __Unit = "unit" as const;
-export var GuardDutyServiceException$: StaticErrorSchema = [-3, _sm, "GuardDutyServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GuardDutyServiceException$, GuardDutyServiceException);
 var AccountDetails: StaticListSchema = [1, n0, _ADc,
   0, [() => AccountDetail$,
     0]

@@ -131,11 +131,11 @@ const _rA = "resourceArn";
 const _rDN = "rootDeviceName";
 const _rT = "resourceType";
 const _re = "reboot";
-const _s = "software";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.snowdevicemanagement";
 const _sA = "startedAt";
 const _sG = "securityGroups";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.snowdevicemanagement";
+const _so = "software";
 const _st = "state";
 const _sta = "status";
 const _t = "total";
@@ -176,12 +176,55 @@ import {
 import { SnowDeviceManagementServiceException } from "../models/SnowDeviceManagementServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SnowDeviceManagementServiceException$: StaticErrorSchema = [-3, _s, "SnowDeviceManagementServiceException", 0, [], []];
+_s_registry.registerError(SnowDeviceManagementServiceException$, SnowDeviceManagementServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CancelTaskInput$: StaticStructureSchema = [3, n0, _CTI,
   0,
   [_tI],
@@ -229,7 +272,7 @@ export var DescribeDeviceInput$: StaticStructureSchema = [3, n0, _DDI,
 ];
 export var DescribeDeviceOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
-  [_lROA, _lUA, _tag, _mDI, _mDA, _dT, _aWJ, _dS, _pNI, _dC, _s],
+  [_lROA, _lUA, _tag, _mDI, _mDA, _dT, _aWJ, _dS, _pNI, _dC, _so],
   [4, 4, 128 | 0, 0, 0, 0, 0, 0, () => PhysicalNetworkInterfaceList, () => CapacityList, () => SoftwareInformation$]
 ];
 export var DescribeExecutionInput$: StaticStructureSchema = [3, n0, _DEI,
@@ -287,12 +330,6 @@ export var InstanceSummary$: StaticStructureSchema = [3, n0, _ISn,
   [_in, _lUA],
   [() => Instance$, 4]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDeviceResourcesInput$: StaticStructureSchema = [3, n0, _LDRI,
   0,
   [_mDI, _ty, _mR, _nT],
@@ -353,12 +390,6 @@ export var Reboot$: StaticStructureSchema = [3, n0, _R,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_rT, _ar, _id],
@@ -369,12 +400,6 @@ export var SecurityGroupIdentifier$: StaticStructureSchema = [3, n0, _SGI,
   [_gI, _gN],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SoftwareInformation$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_iV, _iVn, _iS],
@@ -390,12 +415,6 @@ export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   [_tI, _tA, _st, _tag],
   [0, 0, 0, 128 | 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Unlock$: StaticStructureSchema = [3, n0, _U,
   0,
   [],
@@ -406,15 +425,7 @@ export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   [_rA, _tK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var SnowDeviceManagementServiceException$: StaticErrorSchema = [-3, _sm, "SnowDeviceManagementServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SnowDeviceManagementServiceException$, SnowDeviceManagementServiceException);
 var CapacityList: StaticListSchema = [1, n0, _CL,
   0, () => Capacity$
 ];

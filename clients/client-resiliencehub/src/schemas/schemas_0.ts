@@ -360,7 +360,7 @@ const _dSa = "dataSource";
 const _dSi = "disruptionScore";
 const _dT = "driftType";
 const _dTi = "diffType";
-const _e = "entries";
+const _e = "error";
 const _eA = "experimentArn";
 const _eC = "excludedCount";
 const _eCA = "eksClusterArn";
@@ -387,7 +387,7 @@ const _eTI = "experimentTemplateId";
 const _eTn = "entityType";
 const _eTv = "eventType";
 const _eV = "expectedValue";
-const _er = "error";
+const _en = "entries";
 const _ex = "excluded";
 const _f = "field";
 const _fD = "forceDelete";
@@ -458,14 +458,14 @@ const _rED = "resourceErrorsDetails";
 const _rEe = "resourceErrors";
 const _rGN = "resourceGroupName";
 const _rGNe = "resourceGroupNames";
-const _rI = "recommendationId";
+const _rI = "resourceId";
 const _rIS = "rtoInSecs";
 const _rISp = "rpoInSecs";
-const _rIe = "referenceId";
+const _rIe = "recommendationId";
 const _rIec = "recommendationIds";
-const _rIes = "resourceId";
-const _rIeso = "resolutionId";
-const _rIesou = "resourceIdentifier";
+const _rIef = "referenceId";
+const _rIes = "resolutionId";
+const _rIeso = "resourceIdentifier";
 const _rM = "resourceMappings";
 const _rN = "resourceName";
 const _rNe = "resourceNames";
@@ -487,7 +487,7 @@ const _re = "recommendation";
 const _rea = "reason";
 const _res = "resources";
 const _ro = "rows";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehub";
 const _sA = "sourceArn";
 const _sACI = "sourceAppComponentIds";
 const _sAo = "sourceArns";
@@ -503,8 +503,8 @@ const _sTe = "serviceType";
 const _sTo = "sourceType";
 const _sc = "score";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehub";
-const _so = "sorts";
+const _so = "source";
+const _sor = "sorts";
 const _st = "status";
 const _su = "summary";
 const _t = "type";
@@ -548,6 +548,61 @@ import {
 import { ResiliencehubServiceException } from "../models/ResiliencehubServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ResiliencehubServiceException$: StaticErrorSchema = [-3, _s, "ResiliencehubServiceException", 0, [], []];
+_s_registry.registerError(ResiliencehubServiceException$, ResiliencehubServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, 1]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _AGRE,
   0,
   [_gRI],
@@ -555,7 +610,7 @@ export var AcceptGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _
 ];
 export var AcceptResourceGroupingRecommendationsRequest$: StaticStructureSchema = [3, n0, _ARGRR,
   0,
-  [_aA, _e],
+  [_aA, _en],
   [0, () => AcceptGroupingRecommendationEntries], 2
 ];
 export var AcceptResourceGroupingRecommendationsResponse$: StaticStructureSchema = [3, n0, _ARGRRc,
@@ -563,12 +618,6 @@ export var AcceptResourceGroupingRecommendationsResponse$: StaticStructureSchema
   [_aA, _fE],
   [0, () => FailedGroupingRecommendationEntries], 2
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_er]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AddDraftAppVersionResourceMappingsRequest$: StaticStructureSchema = [3, n0, _ADAVRMR,
   0,
   [_aA, _rM],
@@ -581,12 +630,12 @@ export var AddDraftAppVersionResourceMappingsResponse$: StaticStructureSchema = 
 ];
 export var Alarm$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aAl, _s],
+  [_aAl, _so],
   [0, 0]
 ];
 export var AlarmRecommendation$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_rI, _rIe, _n, _t, _d, _aCN, _i, _p, _aCNp, _rS],
+  [_rIe, _rIef, _n, _t, _d, _aCN, _i, _p, _aCNp, _rS],
   [0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0], 4
 ];
 export var App$: StaticStructureSchema = [3, n0, _Ap,
@@ -656,7 +705,7 @@ export var BatchUpdateRecommendationStatusResponse$: StaticStructureSchema = [3,
 ];
 export var BatchUpdateRecommendationStatusSuccessfulEntry$: StaticStructureSchema = [3, n0, _BURSSE,
   0,
-  [_eI, _rIe, _ex, _it, _aCI, _eR],
+  [_eI, _rIef, _ex, _it, _aCI, _eR],
   [0, 0, 2, () => UpdateRecommendationStatusItem$, 0, 0], 3
 ];
 export var ComplianceDrift$: StaticStructureSchema = [3, n0, _CD,
@@ -676,15 +725,9 @@ export var Condition$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ConfigRecommendation$: StaticStructureSchema = [3, n0, _CRo,
   0,
-  [_oT, _n, _rIe, _co, _aCN, _com, _rCe, _d, _sC, _hA],
+  [_oT, _n, _rIef, _co, _aCN, _com, _rCe, _d, _sC, _hA],
   [0, 0, 0, () => Cost$, 0, () => AssessmentCompliance, () => RecommendationCompliance, 0, 64 | 0, 0], 3
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_er]: _c, [_hE]: 409 },
-  [_m, _rIes, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Cost$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_a, _cu, _fr],
@@ -857,12 +900,12 @@ export var DescribeAppVersionResourceResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeAppVersionResourcesResolutionStatusRequest$: StaticStructureSchema = [3, n0, _DAVRRSR,
   0,
-  [_aA, _aV, _rIeso],
+  [_aA, _aV, _rIes],
   [0, 0, 0], 2
 ];
 export var DescribeAppVersionResourcesResolutionStatusResponse$: StaticStructureSchema = [3, n0, _DAVRRSRe,
   0,
-  [_aA, _aV, _rIeso, _st, _eM],
+  [_aA, _aV, _rIes, _st, _eM],
   [0, 0, 0, 0, 0], 4
 ];
 export var DescribeAppVersionResponse$: StaticStructureSchema = [3, n0, _DAVRe,
@@ -990,12 +1033,6 @@ export var ImportResourcesToDraftAppVersionResponse$: StaticStructureSchema = [3
   [_aA, _aV, _st, _sAo, _tSe, _eSk],
   [0, 0, 0, 64 | 0, () => TerraformSourceList, () => EksSourceList], 3
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAlarmRecommendationsRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
   [_aAs, _nT, _mR],
@@ -1098,12 +1135,12 @@ export var ListAppVersionResourceMappingsResponse$: StaticStructureSchema = [3, 
 ];
 export var ListAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _LAVRR,
   0,
-  [_aA, _aV, _rIeso, _nT, _mR],
+  [_aA, _aV, _rIes, _nT, _mR],
   [0, 0, 0, 0, 1], 2
 ];
 export var ListAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _LAVRRi,
   0,
-  [_pRh, _rIeso, _nT],
+  [_pRh, _rIes, _nT],
   [() => PhysicalResourceList, 0, 0], 2
 ];
 export var ListAppVersionsRequest$: StaticStructureSchema = [3, n0, _LAVR,
@@ -1118,7 +1155,7 @@ export var ListAppVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
 ];
 export var ListMetricsRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
-  [_nT, _mR, _fi, _dSa, _con, _so],
+  [_nT, _mR, _fi, _dSa, _con, _sor],
   [0, 1, () => FieldList, 0, () => ConditionList, () => SortList]
 ];
 export var ListMetricsResponse$: StaticStructureSchema = [3, n0, _LMRi,
@@ -1198,12 +1235,12 @@ export var ListTestRecommendationsResponse$: StaticStructureSchema = [3, n0, _LT
 ];
 export var ListUnsupportedAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _LUAVRR,
   0,
-  [_aA, _aV, _rIeso, _nT, _mR],
+  [_aA, _aV, _rIes, _nT, _mR],
   [0, 0, 0, 0, 1], 2
 ];
 export var ListUnsupportedAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _LUAVRRi,
   0,
-  [_uR, _rIeso, _nT],
+  [_uR, _rIes, _nT],
   [() => UnsupportedResourceList, 0, 0], 2
 ];
 export var LogicalResourceId$: StaticStructureSchema = [3, n0, _LRI,
@@ -1253,7 +1290,7 @@ export var RecommendationDisruptionCompliance$: StaticStructureSchema = [3, n0, 
 ];
 export var RecommendationItem$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_rIes, _tAI, _tRa, _aIl, _ex, _eR, _lDE, _dA],
+  [_rI, _tAI, _tRa, _aIl, _ex, _eR, _lDE, _dA],
   [0, 0, 0, 2, 2, 0, () => Experiment$, () => Alarm$]
 ];
 export var RecommendationTemplate$: StaticStructureSchema = [3, n0, _RT,
@@ -1268,7 +1305,7 @@ export var RejectGroupingRecommendationEntry$: StaticStructureSchema = [3, n0, _
 ];
 export var RejectResourceGroupingRecommendationsRequest$: StaticStructureSchema = [3, n0, _RRGRR,
   0,
-  [_aA, _e],
+  [_aA, _en],
   [0, () => RejectGroupingRecommendationEntries], 2
 ];
 export var RejectResourceGroupingRecommendationsResponse$: StaticStructureSchema = [3, n0, _RRGRRe,
@@ -1303,12 +1340,12 @@ export var ResolveAppVersionResourcesRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var ResolveAppVersionResourcesResponse$: StaticStructureSchema = [3, n0, _RAVRRe,
   0,
-  [_aA, _aV, _rIeso, _st],
+  [_aA, _aV, _rIes, _st],
   [0, 0, 0, 0], 4
 ];
 export var ResourceDrift$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_aA, _aV, _rIe, _rIesou, _dTi],
+  [_aA, _aV, _rIef, _rIeso, _dTi],
   [0, 0, 0, () => ResourceIdentifier$, 0]
 ];
 export var ResourceError$: StaticStructureSchema = [3, n0, _RE,
@@ -1331,12 +1368,6 @@ export var ResourceMapping$: StaticStructureSchema = [3, n0, _RM,
   [_mT, _pRI, _rN, _lSN, _aRANp, _rGN, _tSN, _eSN],
   [0, () => PhysicalResourceId$, 0, 0, 0, 0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _c, [_hE]: 404 },
-  [_m, _rIes, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_b, _pr],
@@ -1347,15 +1378,9 @@ export var ScoringComponentResiliencyScore$: StaticStructureSchema = [3, n0, _SC
   [_sc, _pS, _oC, _eC],
   [1, 1, 1, 1]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_er]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SopRecommendation$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_sTe, _rI, _rIe, _aCN, _d, _n, _i, _p, _rS],
+  [_sTe, _rIe, _rIef, _aCN, _d, _n, _i, _p, _rS],
   [0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 0], 3
 ];
 export var Sort$: StaticStructureSchema = [3, n0, _S,
@@ -1410,15 +1435,9 @@ export var TerraformSource$: StaticStructureSchema = [3, n0, _TS,
 ];
 export var TestRecommendation$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_rIe, _rI, _aCI, _aCN, _n, _int, _r, _t, _d, _i, _p, _dOA, _rS],
+  [_rIef, _rIe, _aCI, _aCN, _n, _int, _r, _t, _d, _i, _p, _dOA, _rS],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => RecommendationItemList, 0, 64 | 0, 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_er]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, 1]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UnsupportedResource$: StaticStructureSchema = [3, n0, _UR,
   0,
   [_lRI, _pRI, _rT, _uRS],
@@ -1476,12 +1495,12 @@ export var UpdateAppVersionResponse$: StaticStructureSchema = [3, n0, _UAVRp,
 ];
 export var UpdateRecommendationStatusItem$: StaticStructureSchema = [3, n0, _URSI,
   0,
-  [_rIes, _tAI, _tRa],
+  [_rI, _tAI, _tRa],
   [0, 0, 0]
 ];
 export var UpdateRecommendationStatusRequestEntry$: StaticStructureSchema = [3, n0, _URSRE,
   0,
-  [_eI, _rIe, _ex, _it, _aCI, _eR],
+  [_eI, _rIef, _ex, _it, _aCI, _eR],
   [0, 0, 2, () => UpdateRecommendationStatusItem$, 0, 0], 3
 ];
 export var UpdateResiliencyPolicyRequest$: StaticStructureSchema = [3, n0, _URPR,
@@ -1494,14 +1513,6 @@ export var UpdateResiliencyPolicyResponse$: StaticStructureSchema = [3, n0, _URP
   [_po],
   [[() => ResiliencyPolicy$, 0]], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_er]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ResiliencehubServiceException$: StaticErrorSchema = [-3, _sm, "ResiliencehubServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ResiliencehubServiceException$, ResiliencehubServiceException);
 var AcceptGroupingRecommendationEntries: StaticListSchema = [1, n0, _AGREc,
   0, () => AcceptGroupingRecommendationEntry$
 ];

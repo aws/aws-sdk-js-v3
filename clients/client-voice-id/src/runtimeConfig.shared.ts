@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultVoiceIDHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { VoiceIDClientConfig } from "./VoiceIDClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: VoiceIDClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.voiceid",
+      errorTypeRegistries,
       version: "2021-09-27",
       serviceTarget: "VoiceID",
     },

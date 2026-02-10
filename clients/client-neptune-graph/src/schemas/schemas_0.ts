@@ -225,10 +225,10 @@ const _rAe = "resourceArn";
 const _rC = "replicaCount";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "streaming";
-const _sC = "statementCount";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.neptunegraph";
+const _sC = "serviceCode";
 const _sCT = "snapshotCreateTime";
-const _sCe = "serviceCode";
+const _sCt = "statementCount";
 const _sEKKI = "s3ExportKmsKeyId";
 const _sEP = "s3ExportPath";
 const _sGI = "sourceGraphId";
@@ -241,10 +241,10 @@ const _sS = "skipSnapshot";
 const _sSI = "sourceSnapshotId";
 const _sT = "startTime";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.neptunegraph";
 const _so = "source";
-const _st = "status";
-const _sta = "state";
+const _st = "streaming";
+const _sta = "status";
+const _stat = "state";
 const _t = "tags";
 const _tEPV = "totalEdgePropertyValues";
 const _tES = "timeElapsedSeconds";
@@ -287,13 +287,68 @@ import {
 import { NeptuneGraphServiceException } from "../models/NeptuneGraphServiceException";
 
 /* eslint no-var: 0 */
-var QueryResponseBlob: StaticSimpleSchema = [0, n0, _QRB, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var NeptuneGraphServiceException$: StaticErrorSchema = [-3, _s, "NeptuneGraphServiceException", 0, [], []];
+_s_registry.registerError(NeptuneGraphServiceException$, NeptuneGraphServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _r],
+  [0, 0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnprocessableException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 422 },
+  [_m, _r],
+  [0, 0], 2
+];
+n0_registry.registerError(UnprocessableException$, UnprocessableException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var QueryResponseBlob: StaticSimpleSchema = [0, n0, _QRB, { [_st]: 1 }, 42];
 export var CancelExportTaskInput$: StaticStructureSchema = [3, n0, _CETI,
   0,
   [_tI],
@@ -301,7 +356,7 @@ export var CancelExportTaskInput$: StaticStructureSchema = [3, n0, _CETI,
 ];
 export var CancelExportTaskOutput$: StaticStructureSchema = [3, n0, _CETO,
   0,
-  [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR],
+  [_gI, _rA, _tIa, _sta, _f, _d, _kKI, _pT, _sR],
   [0, 0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var CancelImportTaskInput$: StaticStructureSchema = [3, n0, _CITI,
@@ -311,7 +366,7 @@ export var CancelImportTaskInput$: StaticStructureSchema = [3, n0, _CITI,
 ];
 export var CancelImportTaskOutput$: StaticStructureSchema = [3, n0, _CITO,
   0,
-  [_tIa, _so, _rA, _st, _gI, _f, _pT],
+  [_tIa, _so, _rA, _sta, _gI, _f, _pT],
   [0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var CancelQueryInput$: StaticStructureSchema = [3, n0, _CQI,
@@ -319,12 +374,6 @@ export var CancelQueryInput$: StaticStructureSchema = [3, n0, _CQI,
   [_gIr, _qI],
   [[0, { [_hL]: 1, [_hH]: _gIr }], [0, 1]], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _r],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGraphInput$: StaticStructureSchema = [3, n0, _CGI,
   0,
   [_gN, _pM, _t, _pC, _kKI, _vSC, _rC, _dP],
@@ -332,7 +381,7 @@ export var CreateGraphInput$: StaticStructureSchema = [3, n0, _CGI,
 ];
 export var CreateGraphOutput$: StaticStructureSchema = [3, n0, _CGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var CreateGraphSnapshotInput$: StaticStructureSchema = [3, n0, _CGSI,
@@ -342,7 +391,7 @@ export var CreateGraphSnapshotInput$: StaticStructureSchema = [3, n0, _CGSI,
 ];
 export var CreateGraphSnapshotOutput$: StaticStructureSchema = [3, n0, _CGSO,
   0,
-  [_i, _n, _a, _sGI, _sCT, _st, _kKI],
+  [_i, _n, _a, _sGI, _sCT, _sta, _kKI],
   [0, 0, 0, 0, 4, 0, 0], 3
 ];
 export var CreateGraphUsingImportTaskInput$: StaticStructureSchema = [3, n0, _CGUITI,
@@ -352,7 +401,7 @@ export var CreateGraphUsingImportTaskInput$: StaticStructureSchema = [3, n0, _CG
 ];
 export var CreateGraphUsingImportTaskOutput$: StaticStructureSchema = [3, n0, _CGUITO,
   0,
-  [_tIa, _so, _rA, _st, _gI, _f, _pT, _iO],
+  [_tIa, _so, _rA, _sta, _gI, _f, _pT, _iO],
   [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$], 4
 ];
 export var CreatePrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _CPGEI,
@@ -362,7 +411,7 @@ export var CreatePrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _CP
 ];
 export var CreatePrivateGraphEndpointOutput$: StaticStructureSchema = [3, n0, _CPGEO,
   0,
-  [_vI, _sI, _st, _vEI],
+  [_vI, _sI, _sta, _vEI],
   [0, 64 | 0, 0, 0], 3
 ];
 export var DeleteGraphInput$: StaticStructureSchema = [3, n0, _DGI,
@@ -372,7 +421,7 @@ export var DeleteGraphInput$: StaticStructureSchema = [3, n0, _DGI,
 ];
 export var DeleteGraphOutput$: StaticStructureSchema = [3, n0, _DGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var DeleteGraphSnapshotInput$: StaticStructureSchema = [3, n0, _DGSI,
@@ -382,7 +431,7 @@ export var DeleteGraphSnapshotInput$: StaticStructureSchema = [3, n0, _DGSI,
 ];
 export var DeleteGraphSnapshotOutput$: StaticStructureSchema = [3, n0, _DGSO,
   0,
-  [_i, _n, _a, _sGI, _sCT, _st, _kKI],
+  [_i, _n, _a, _sGI, _sCT, _sta, _kKI],
   [0, 0, 0, 0, 4, 0, 0], 3
 ];
 export var DeletePrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _DPGEI,
@@ -392,7 +441,7 @@ export var DeletePrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _DP
 ];
 export var DeletePrivateGraphEndpointOutput$: StaticStructureSchema = [3, n0, _DPGEO,
   0,
-  [_vI, _sI, _st, _vEI],
+  [_vI, _sI, _sta, _vEI],
   [0, 64 | 0, 0, 0], 3
 ];
 export var EdgeStructure$: StaticStructureSchema = [3, n0, _ES,
@@ -432,7 +481,7 @@ export var ExportTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
 ];
 export var ExportTaskSummary$: StaticStructureSchema = [3, n0, _ETS,
   0,
-  [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR],
+  [_gI, _rA, _tIa, _sta, _f, _d, _kKI, _pT, _sR],
   [0, 0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
 export var GetExportTaskInput$: StaticStructureSchema = [3, n0, _GETI,
@@ -442,7 +491,7 @@ export var GetExportTaskInput$: StaticStructureSchema = [3, n0, _GETI,
 ];
 export var GetExportTaskOutput$: StaticStructureSchema = [3, n0, _GETO,
   0,
-  [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR, _eTD, _eFx],
+  [_gI, _rA, _tIa, _sta, _f, _d, _kKI, _pT, _sR, _eTD, _eFx],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportTaskDetails$, () => ExportFilter$], 7
 ];
 export var GetGraphInput$: StaticStructureSchema = [3, n0, _GGI,
@@ -452,7 +501,7 @@ export var GetGraphInput$: StaticStructureSchema = [3, n0, _GGI,
 ];
 export var GetGraphOutput$: StaticStructureSchema = [3, n0, _GGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var GetGraphSnapshotInput$: StaticStructureSchema = [3, n0, _GGSI,
@@ -462,7 +511,7 @@ export var GetGraphSnapshotInput$: StaticStructureSchema = [3, n0, _GGSI,
 ];
 export var GetGraphSnapshotOutput$: StaticStructureSchema = [3, n0, _GGSO,
   0,
-  [_i, _n, _a, _sGI, _sCT, _st, _kKI],
+  [_i, _n, _a, _sGI, _sCT, _sta, _kKI],
   [0, 0, 0, 0, 4, 0, 0], 3
 ];
 export var GetGraphSummaryInput$: StaticStructureSchema = [3, n0, _GGSIe,
@@ -482,7 +531,7 @@ export var GetImportTaskInput$: StaticStructureSchema = [3, n0, _GITI,
 ];
 export var GetImportTaskOutput$: StaticStructureSchema = [3, n0, _GITO,
   0,
-  [_tIa, _so, _rA, _st, _gI, _f, _pT, _iO, _iTD, _aN, _sR],
+  [_tIa, _so, _rA, _sta, _gI, _f, _pT, _iO, _iTD, _aN, _sR],
   [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$, () => ImportTaskDetails$, 1, 0], 4
 ];
 export var GetPrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _GPGEI,
@@ -492,7 +541,7 @@ export var GetPrivateGraphEndpointInput$: StaticStructureSchema = [3, n0, _GPGEI
 ];
 export var GetPrivateGraphEndpointOutput$: StaticStructureSchema = [3, n0, _GPGEO,
   0,
-  [_vI, _sI, _st, _vEI],
+  [_vI, _sI, _sta, _vEI],
   [0, 64 | 0, 0, 0], 3
 ];
 export var GetQueryInput$: StaticStructureSchema = [3, n0, _GQI,
@@ -502,7 +551,7 @@ export var GetQueryInput$: StaticStructureSchema = [3, n0, _GQI,
 ];
 export var GetQueryOutput$: StaticStructureSchema = [3, n0, _GQO,
   0,
-  [_i, _qS, _w, _el, _sta],
+  [_i, _qS, _w, _el, _stat],
   [0, 0, 1, 1, 0]
 ];
 export var GraphDataSummary$: StaticStructureSchema = [3, n0, _GDS,
@@ -512,30 +561,24 @@ export var GraphDataSummary$: StaticStructureSchema = [3, n0, _GDS,
 ];
 export var GraphSnapshotSummary$: StaticStructureSchema = [3, n0, _GSS,
   0,
-  [_i, _n, _a, _sGI, _sCT, _st, _kKI],
+  [_i, _n, _a, _sGI, _sCT, _sta, _kKI],
   [0, 0, 0, 0, 4, 0, 0], 3
 ];
 export var GraphSummary$: StaticStructureSchema = [3, n0, _GS,
   0,
-  [_i, _n, _a, _st, _pM, _pC, _en, _rC, _kKI, _dP],
+  [_i, _n, _a, _sta, _pM, _pC, _en, _rC, _kKI, _dP],
   [0, 0, 0, 0, 1, 2, 0, 1, 0, 2], 3
 ];
 export var ImportTaskDetails$: StaticStructureSchema = [3, n0, _ITD,
   0,
-  [_st, _sT, _tES, _pP, _eC, _sC, _dEC, _eD],
+  [_sta, _sT, _tES, _pP, _eC, _sCt, _dEC, _eD],
   [0, 4, 1, 1, 1, 1, 1, 0], 7
 ];
 export var ImportTaskSummary$: StaticStructureSchema = [3, n0, _ITS,
   0,
-  [_tIa, _so, _rA, _st, _gI, _f, _pT],
+  [_tIa, _so, _rA, _sta, _gI, _f, _pT],
   [0, 0, 0, 0, 0, 0, 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListExportTasksInput$: StaticStructureSchema = [3, n0, _LETI,
   0,
   [_gIr, _nT, _mR],
@@ -588,8 +631,8 @@ export var ListPrivateGraphEndpointsOutput$: StaticStructureSchema = [3, n0, _LP
 ];
 export var ListQueriesInput$: StaticStructureSchema = [3, n0, _LQI,
   0,
-  [_gIr, _mR, _sta],
-  [[0, { [_hL]: 1, [_hH]: _gIr }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _sta }]], 2
+  [_gIr, _mR, _stat],
+  [[0, { [_hL]: 1, [_hH]: _gIr }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _stat }]], 2
 ];
 export var ListQueriesOutput$: StaticStructureSchema = [3, n0, _LQO,
   0,
@@ -618,12 +661,12 @@ export var NodeStructure$: StaticStructureSchema = [3, n0, _NS,
 ];
 export var PrivateGraphEndpointSummary$: StaticStructureSchema = [3, n0, _PGES,
   0,
-  [_vI, _sI, _st, _vEI],
+  [_vI, _sI, _sta, _vEI],
   [0, 64 | 0, 0, 0], 3
 ];
 export var QuerySummary$: StaticStructureSchema = [3, n0, _QS,
   0,
-  [_i, _qS, _w, _el, _sta],
+  [_i, _qS, _w, _el, _stat],
   [0, 0, 1, 1, 0]
 ];
 export var ResetGraphInput$: StaticStructureSchema = [3, n0, _RGI,
@@ -633,15 +676,9 @@ export var ResetGraphInput$: StaticStructureSchema = [3, n0, _RGI,
 ];
 export var ResetGraphOutput$: StaticStructureSchema = [3, n0, _RGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestoreGraphFromSnapshotInput$: StaticStructureSchema = [3, n0, _RGFSI,
   0,
   [_sIn, _gN, _pM, _dP, _t, _rC, _pC],
@@ -649,15 +686,9 @@ export var RestoreGraphFromSnapshotInput$: StaticStructureSchema = [3, n0, _RGFS
 ];
 export var RestoreGraphFromSnapshotOutput$: StaticStructureSchema = [3, n0, _RGFSO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sCe, _qC],
-  [0, 0, 0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartExportTaskInput$: StaticStructureSchema = [3, n0, _SETI,
   0,
   [_gIr, _rA, _f, _d, _kKI, _pT, _eFx, _t],
@@ -665,7 +696,7 @@ export var StartExportTaskInput$: StaticStructureSchema = [3, n0, _SETI,
 ];
 export var StartExportTaskOutput$: StaticStructureSchema = [3, n0, _SETO,
   0,
-  [_gI, _rA, _tIa, _st, _f, _d, _kKI, _pT, _sR, _eFx],
+  [_gI, _rA, _tIa, _sta, _f, _d, _kKI, _pT, _sR, _eFx],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => ExportFilter$], 7
 ];
 export var StartGraphInput$: StaticStructureSchema = [3, n0, _SGI,
@@ -675,7 +706,7 @@ export var StartGraphInput$: StaticStructureSchema = [3, n0, _SGI,
 ];
 export var StartGraphOutput$: StaticStructureSchema = [3, n0, _SGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var StartImportTaskInput$: StaticStructureSchema = [3, n0, _SITI,
@@ -685,7 +716,7 @@ export var StartImportTaskInput$: StaticStructureSchema = [3, n0, _SITI,
 ];
 export var StartImportTaskOutput$: StaticStructureSchema = [3, n0, _SITO,
   0,
-  [_tIa, _so, _rA, _st, _gI, _f, _pT, _iO],
+  [_tIa, _so, _rA, _sta, _gI, _f, _pT, _iO],
   [0, 0, 0, 0, 0, 0, 0, () => ImportOptions$], 4
 ];
 export var StopGraphInput$: StaticStructureSchema = [3, n0, _SGIt,
@@ -695,7 +726,7 @@ export var StopGraphInput$: StaticStructureSchema = [3, n0, _SGIt,
 ];
 export var StopGraphOutput$: StaticStructureSchema = [3, n0, _SGOt,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
@@ -708,18 +739,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnprocessableException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 422 },
-  [_m, _r],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(UnprocessableException$, UnprocessableException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rAe, _tK],
@@ -737,23 +756,15 @@ export var UpdateGraphInput$: StaticStructureSchema = [3, n0, _UGI,
 ];
 export var UpdateGraphOutput$: StaticStructureSchema = [3, n0, _UGO,
   0,
-  [_i, _n, _a, _st, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
+  [_i, _n, _a, _sta, _sR, _cT, _pM, _en, _pC, _vSC, _rC, _kKI, _sSI, _dP, _bN],
   [0, 0, 0, 0, 0, 4, 1, 0, 2, () => VectorSearchConfiguration$, 1, 0, 0, 2, 0], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorSearchConfiguration$: StaticStructureSchema = [3, n0, _VSC,
   0,
   [_di],
   [1], 1
 ];
 var __Unit = "unit" as const;
-export var NeptuneGraphServiceException$: StaticErrorSchema = [-3, _sm, "NeptuneGraphServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(NeptuneGraphServiceException$, NeptuneGraphServiceException);
 var EdgeLabels = 64 | 0;
 var EdgeProperties = 64 | 0;
 var EdgeStructures: StaticListSchema = [1, n0, _ESd,

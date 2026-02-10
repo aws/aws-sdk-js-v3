@@ -660,7 +660,7 @@ const _ep = "epss";
 const _epo = "epoch";
 const _er = "errors";
 const _ev = "evidences";
-const _f = "filter";
+const _f = "fields";
 const _fA = "failedAssociations";
 const _fAAFC = "fixAvailableActiveFindingsCount";
 const _fAC = "fixAvailableCount";
@@ -691,9 +691,9 @@ const _fTA = "findingTypeAggregation";
 const _fTI = "freeTrialInfo";
 const _fTu = "functionTags";
 const _fa = "failed";
-const _fi = "filters";
+const _fi = "filter";
 const _fie = "field";
-const _fiel = "fields";
+const _fil = "filters";
 const _fin = "findings";
 const _fo = "format";
 const _fr = "frequency";
@@ -824,7 +824,7 @@ const _pe = "permissions";
 const _pr = "product";
 const _pro = "protocol";
 const _prog = "progress";
-const _r = "resource";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rAe = "repositoryAggregation";
@@ -832,8 +832,8 @@ const _rD = "rescanDuration";
 const _rDS = "rescanDurationState";
 const _rF = "reportFormat";
 const _rFC = "resourceFilterCriteria";
-const _rI = "resourceIds";
-const _rIe = "resourceId";
+const _rI = "resourceId";
+const _rIe = "resourceIds";
 const _rIep = "reportId";
 const _rIu = "ruleId";
 const _rM = "resourceMetadata";
@@ -849,19 +849,19 @@ const _rTes = "resourceTags";
 const _rU = "referenceUrls";
 const _rUC = "runningUnitCount";
 const _rV = "relatedVulnerabilities";
-const _re = "repositories";
-const _rea = "reason";
+const _re = "resource";
 const _rec = "recommendation";
 const _reg = "registry";
 const _regi = "region";
 const _rel = "release";
 const _rem = "remediation";
-const _rep = "repository";
+const _rep = "repositories";
+const _repo = "repository";
 const _res = "resources";
 const _resp = "responses";
 const _ru = "runtime";
 const _run = "runtimes";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.inspector2";
 const _sA = "successfulAssociations";
 const _sAF = "scanAtFilters";
 const _sAFc = "scanArnFilters";
@@ -920,14 +920,14 @@ const _sV = "scoringVector";
 const _sc = "schedule";
 const _sca = "scans";
 const _sco = "score";
-const _se = "severity";
-const _ser = "server";
-const _serv = "service";
+const _se = "server";
+const _ser = "service";
+const _sev = "severity";
 const _sk = "skipped";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.inspector2";
 const _so = "source";
-const _st = "state";
-const _sta = "start";
+const _st = "status";
+const _sta = "state";
+const _star = "start";
 const _ste = "steps";
 const _t = "targets";
 const _tA = "targetAccounts";
@@ -1005,20 +1005,75 @@ import {
 import { Inspector2ServiceException } from "../models/Inspector2ServiceException";
 
 /* eslint no-var: 0 */
-var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
-var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
-var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
-var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
-var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var Inspector2ServiceException$: StaticErrorSchema = [-3, _s, "Inspector2ServiceException", 0, [], []];
+_s_registry.registerError(Inspector2ServiceException$, Inspector2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI],
+  [0, 0], 2
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _f],
+  [0, 0, () => ValidationExceptionFields], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
+var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
+var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
+var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
+var InstanceUrl: StaticSimpleSchema = [0, n0, _IU, 8, 0];
 export var Account$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _s, _rS],
+  [_aI, _st, _rS],
   [0, 0, () => ResourceStatus$], 3
 ];
 export var AccountAggregation$: StaticStructureSchema = [3, n0, _AA,
@@ -1033,7 +1088,7 @@ export var AccountAggregationResponse$: StaticStructureSchema = [3, n0, _AAR,
 ];
 export var AccountState$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _st, _rSe],
+  [_aI, _sta, _rSe],
   [0, () => State$, () => ResourceState$], 3
 ];
 export var AmiAggregation$: StaticStructureSchema = [3, n0, _AAm,
@@ -1048,7 +1103,7 @@ export var AmiAggregationResponse$: StaticStructureSchema = [3, n0, _AARm,
 ];
 export var AssociateConfigurationRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
-  [_sCA, _r],
+  [_sCA, _re],
   [0, () => CodeSecurityResource$], 2
 ];
 export var AssociateMemberRequest$: StaticStructureSchema = [3, n0, _AMR,
@@ -1078,12 +1133,12 @@ export var AwsEc2InstanceDetails$: StaticStructureSchema = [3, n0, _AEID,
 ];
 export var AwsEcrContainerAggregation$: StaticStructureSchema = [3, n0, _AECA,
   0,
-  [_rI, _iS, _re, _ar, _iT, _sO, _sB, _lIUA, _iUC],
+  [_rIe, _iS, _rep, _ar, _iT, _sO, _sB, _lIUA, _iUC],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0, () => DateFilterList, () => NumberFilterList]
 ];
 export var AwsEcrContainerAggregationResponse$: StaticStructureSchema = [3, n0, _AECAR,
   0,
-  [_rIe, _iSm, _rep, _arc, _iT, _aI, _sC, _lIUA, _iUC],
+  [_rI, _iSm, _repo, _arc, _iT, _aI, _sC, _lIUA, _iUC],
   [0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts$, 4, 1], 1
 ];
 export var AwsEcrContainerImageDetails$: StaticStructureSchema = [3, n0, _AECID,
@@ -1111,12 +1166,6 @@ export var AwsLambdaFunctionDetails$: StaticStructureSchema = [3, n0, _ALFD,
   [_fN, _ru, _cS, _v, _eRA, _la, _vC, _pT, _ar, _lMA],
   [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig$, 0, 64 | 0, 4], 5
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchAssociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _BACSSCR,
   0,
   [_aCR],
@@ -1249,7 +1298,7 @@ export var CisResultStatusFilter$: StaticStructureSchema = [3, n0, _CRSF,
 ];
 export var CisScan$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_sAc, _sCA, _s, _sN, _sD, _fC, _tC, _t, _sBc, _sL],
+  [_sAc, _sCA, _st, _sN, _sD, _fC, _tC, _t, _sBc, _sL],
   [0, 0, 0, 0, 4, 1, 1, () => CisTargets$, 0, 0], 2
 ];
 export var CisScanConfiguration$: StaticStructureSchema = [3, n0, _CSC,
@@ -1259,7 +1308,7 @@ export var CisScanConfiguration$: StaticStructureSchema = [3, n0, _CSC,
 ];
 export var CisScanResultDetails$: StaticStructureSchema = [3, n0, _CSRD,
   0,
-  [_sAc, _aI, _tRI, _p, _s, _sR, _cI, _ti, _cD, _rem, _le, _fAin],
+  [_sAc, _aI, _tRI, _p, _st, _sR, _cI, _ti, _cD, _rem, _le, _fAin],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var CisScanResultDetailsFilterCriteria$: StaticStructureSchema = [3, n0, _CSRDFC,
@@ -1289,7 +1338,7 @@ export var CisSecurityLevelFilter$: StaticStructureSchema = [3, n0, _CSLF,
 ];
 export var CisSessionMessage$: StaticStructureSchema = [3, n0, _CSM,
   0,
-  [_rIu, _s, _cRD],
+  [_rIu, _st, _cRD],
   [0, 0, 21], 3
 ];
 export var CisStringFilter$: StaticStructureSchema = [3, n0, _CSF,
@@ -1324,7 +1373,7 @@ export var ClusterDetails$: StaticStructureSchema = [3, n0, _CDl,
 ];
 export var ClusterForImageFilterCriteria$: StaticStructureSchema = [3, n0, _CFIFC,
   0,
-  [_rIe],
+  [_rI],
   [0], 1
 ];
 export var ClusterInformation$: StaticStructureSchema = [3, n0, _CI,
@@ -1344,12 +1393,12 @@ export var CodeLine$: StaticStructureSchema = [3, n0, _CL,
 ];
 export var CodeRepositoryAggregation$: StaticStructureSchema = [3, n0, _CRA,
   0,
-  [_pN, _pTr, _sO, _sB, _rI],
+  [_pN, _pTr, _sO, _sB, _rIe],
   [() => StringFilterList, () => StringFilterList, 0, 0, () => StringFilterList]
 ];
 export var CodeRepositoryAggregationResponse$: StaticStructureSchema = [3, n0, _CRAR,
   0,
-  [_pN, _pTro, _sC, _eAAFC, _fAAFC, _aI, _rIe],
+  [_pN, _pTro, _sC, _eAAFC, _fAAFC, _aI, _rI],
   [0, 0, () => SeverityCounts$, 1, 1, 0, 0], 1
 ];
 export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD,
@@ -1369,7 +1418,7 @@ export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [3, n0, _CRODS,
 ];
 export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [3, n0, _CSIS,
   0,
-  [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta],
+  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _ta],
   [0, 0, 0, 0, 0, 4, 4, 128 | 0], 7
 ];
 export var CodeSecurityScanConfiguration$: StaticStructureSchema = [3, n0, _CSSC,
@@ -1379,7 +1428,7 @@ export var CodeSecurityScanConfiguration$: StaticStructureSchema = [3, n0, _CSSC
 ];
 export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSchema = [3, n0, _CSSCAS,
   0,
-  [_r],
+  [_re],
   [() => CodeSecurityResource$]
 ];
 export var CodeSecurityScanConfigurationSummary$: StaticStructureSchema = [3, n0, _CSSCS,
@@ -1407,12 +1456,6 @@ export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP,
   [_ve, _pr, _v],
   [0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rIe, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContinuousIntegrationScanConfiguration$: StaticStructureSchema = [3, n0, _CISC,
   0,
   [_sE],
@@ -1430,7 +1473,7 @@ export var CoverageDateFilter$: StaticStructureSchema = [3, n0, _CDFo,
 ];
 export var CoverageFilterCriteria$: StaticStructureSchema = [3, n0, _CFC,
   0,
-  [_sSC, _sSR, _aI, _rIe, _rT, _sT, _eRN, _eIT, _eITc, _lFN, _lFT, _lFR, _lSAa, _sM, _iPA, _eILIUA, _eIIUC, _cRPN, _cRPT, _cRPTV, _lSCI],
+  [_sSC, _sSR, _aI, _rI, _rT, _sT, _eRN, _eIT, _eITc, _lFN, _lFT, _lFR, _lSAa, _sM, _iPA, _eILIUA, _eIIUC, _cRPN, _cRPT, _cRPTV, _lSCI],
   [() => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageDateFilterList, () => CoverageNumberFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList]
 ];
 export var CoverageMapFilter$: StaticStructureSchema = [3, n0, _CMF,
@@ -1450,7 +1493,7 @@ export var CoverageStringFilter$: StaticStructureSchema = [3, n0, _CSFo,
 ];
 export var CoveredResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_rT, _rIe, _aI, _sT, _sS, _rM, _lSAa, _sM],
+  [_rT, _rI, _aI, _sT, _sS, _rM, _lSAa, _sM],
   [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0], 4
 ];
 export var CreateCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSCR,
@@ -1475,7 +1518,7 @@ export var CreateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0
 ];
 export var CreateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _CCSIRr,
   0,
-  [_iA, _s, _aU],
+  [_iA, _st, _aU],
   [0, 0, [() => AuthorizationUrl, 0]], 2
 ];
 export var CreateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSSCR,
@@ -1490,7 +1533,7 @@ export var CreateCodeSecurityScanConfigurationResponse$: StaticStructureSchema =
 ];
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_act, _fCi, _na, _de, _ta, _rea],
+  [_act, _fCi, _na, _de, _ta, _r],
   [0, () => FilterCriteria$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr,
@@ -1545,7 +1588,7 @@ export var CvssScore$: StaticStructureSchema = [3, n0, _CSv,
 ];
 export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA,
   0,
-  [_me, _rea],
+  [_me, _r],
   [0, 0], 2
 ];
 export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
@@ -1570,7 +1613,7 @@ export var DelegatedAdmin$: StaticStructureSchema = [3, n0, _DA,
 ];
 export var DelegatedAdminAccount$: StaticStructureSchema = [3, n0, _DAA,
   0,
-  [_aI, _s],
+  [_aI, _st],
   [0, 0]
 ];
 export var DeleteCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _DCSCR,
@@ -1650,7 +1693,7 @@ export var DisableResponse$: StaticStructureSchema = [3, n0, _DRi,
 ];
 export var DisassociateConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
-  [_sCA, _r],
+  [_sCA, _re],
   [0, () => CodeSecurityResource$], 2
 ];
 export var DisassociateMemberRequest$: StaticStructureSchema = [3, n0, _DMR,
@@ -1715,7 +1758,7 @@ export var EcrRepositoryMetadata$: StaticStructureSchema = [3, n0, _ERM,
 ];
 export var EcrRescanDurationState$: StaticStructureSchema = [3, n0, _ERDS,
   0,
-  [_rD, _s, _uA, _pDRD, _pDRM],
+  [_rD, _st, _uA, _pDRD, _pDRM],
   [0, 0, 4, 0, 0]
 ];
 export var EnableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _EDAAR,
@@ -1750,7 +1793,7 @@ export var EpssDetails$: StaticStructureSchema = [3, n0, _ED,
 ];
 export var Evidence$: StaticStructureSchema = [3, n0, _Ev,
   0,
-  [_eR, _eD, _se],
+  [_eR, _eD, _sev],
   [0, 0, 0]
 ];
 export var ExploitabilityDetails$: StaticStructureSchema = [3, n0, _EDx,
@@ -1765,12 +1808,12 @@ export var ExploitObserved$: StaticStructureSchema = [3, n0, _EO,
 ];
 export var FailedAccount$: StaticStructureSchema = [3, n0, _FA,
   0,
-  [_aI, _eC, _eM, _s, _rS],
+  [_aI, _eC, _eM, _st, _rS],
   [0, 0, 0, 0, () => ResourceStatus$], 3
 ];
 export var FailedAssociationResult$: StaticStructureSchema = [3, n0, _FAR,
   0,
-  [_sCA, _r, _sCta, _sMt],
+  [_sCA, _re, _sCta, _sMt],
   [0, () => CodeSecurityResource$, 0, 0]
 ];
 export var FailedMemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [3, n0, _FMAEDISS,
@@ -1780,17 +1823,17 @@ export var FailedMemberAccountEc2DeepInspectionStatusState$: StaticStructureSche
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_arn, _oI, _na, _cr, _act, _cAr, _uA, _de, _rea, _ta],
+  [_arn, _oI, _na, _cr, _act, _cAr, _uA, _de, _r, _ta],
   [0, 0, 0, () => FilterCriteria$, 0, 4, 4, 0, 0, 128 | 0], 7
 ];
 export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_fAin, _aAI, _fT, _se, _fOA, _lOA, _uA, _fSi, _ti, _iSn, _rT, _rIe, _rTes, _eIII, _eIVI, _eISI, _eIPA, _eIA, _eIR, _eIRN, _eIT, _eIH, _eILIUA, _eIIUC, _pR, _nP, _cIo, _cTo, _vIu, _vS, _vSe, _vP, _rV, _fAix, _lFN, _lFL, _lFR, _lFLMA, _lFERA, _eA, _cVDN, _cVDT, _cVFP, _eS, _cRPN, _cRPT],
+  [_fAin, _aAI, _fT, _sev, _fOA, _lOA, _uA, _fSi, _ti, _iSn, _rT, _rI, _rTes, _eIII, _eIVI, _eISI, _eIPA, _eIA, _eIR, _eIRN, _eIT, _eIH, _eILIUA, _eIIUC, _pR, _nP, _cIo, _cTo, _vIu, _vS, _vSe, _vP, _rV, _fAix, _lFN, _lFL, _lFR, _lFLMA, _lFERA, _eA, _cVDN, _cVDT, _cVFP, _eS, _cRPN, _cRPT],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => NumberFilterList, () => PortRangeFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => PackageFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList]
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_fAin, _aAI, _ty, _de, _rem, _se, _fOA, _lOA, _s, _res, _ti, _uA, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
+  [_fAin, _aAI, _ty, _de, _rem, _sev, _fOA, _lOA, _st, _res, _ti, _uA, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
   [0, 0, 0, 0, () => Remediation$, 0, 4, 4, 0, () => ResourceList, 0, 4, 1, () => InspectorScoreDetails$, () => NetworkReachabilityDetails$, () => PackageVulnerabilityDetails$, 0, 0, () => ExploitabilityDetails$, () => CodeVulnerabilityDetails$, () => EpssDetails$], 10
 ];
 export var FindingDetail$: StaticStructureSchema = [3, n0, _FD,
@@ -1820,7 +1863,7 @@ export var FreeTrialAccountInfo$: StaticStructureSchema = [3, n0, _FTAI,
 ];
 export var FreeTrialInfo$: StaticStructureSchema = [3, n0, _FTI,
   0,
-  [_ty, _sta, _en, _s],
+  [_ty, _star, _en, _st],
   [0, 4, 4, 0], 4
 ];
 export var FreeTrialInfoError$: StaticStructureSchema = [3, n0, _FTIE,
@@ -1835,7 +1878,7 @@ export var GetCisScanReportRequest$: StaticStructureSchema = [3, n0, _GCSRR,
 ];
 export var GetCisScanReportResponse$: StaticStructureSchema = [3, n0, _GCSRRe,
   0,
-  [_u, _s],
+  [_u, _st],
   [0, 0]
 ];
 export var GetCisScanResultDetailsRequest$: StaticStructureSchema = [3, n0, _GCSRDR,
@@ -1850,7 +1893,7 @@ export var GetCisScanResultDetailsResponse$: StaticStructureSchema = [3, n0, _GC
 ];
 export var GetClustersForImageRequest$: StaticStructureSchema = [3, n0, _GCFIR,
   0,
-  [_f, _mR, _nT],
+  [_fi, _mR, _nT],
   [() => ClusterForImageFilterCriteria$, 1, 0], 1
 ];
 export var GetClustersForImageResponse$: StaticStructureSchema = [3, n0, _GCFIRe,
@@ -1865,7 +1908,7 @@ export var GetCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _GCSIRe,
   0,
-  [_iA, _na, _ty, _s, _sR, _cO, _lUO, _ta, _aU],
+  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _ta, _aU],
   [0, 0, 0, 0, 0, 4, 4, 128 | 0, [() => AuthorizationUrl, 0]], 7
 ];
 export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _GCSSCR,
@@ -1880,12 +1923,12 @@ export var GetCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3
 ];
 export var GetCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _GCSSR,
   0,
-  [_r, _sIc],
+  [_re, _sIc],
   [() => CodeSecurityResource$, 0], 2
 ];
 export var GetCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _GCSSRe,
   0,
-  [_sIc, _r, _aI, _s, _sR, _cAr, _uA, _lCI],
+  [_sIc, _re, _aI, _st, _sR, _cAr, _uA, _lCI],
   [0, () => CodeSecurityResource$, 0, 0, 0, 4, 4, 0]
 ];
 export var GetConfigurationRequest$: StaticStructureSchema = [3, n0, _GCR,
@@ -1915,7 +1958,7 @@ export var GetEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [3
 ];
 export var GetEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _GEDICRe,
   0,
-  [_pP, _oPP, _s, _eM],
+  [_pP, _oPP, _st, _eM],
   [64 | 0, 64 | 0, 0, 0]
 ];
 export var GetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _GEKR,
@@ -1935,7 +1978,7 @@ export var GetFindingsReportStatusRequest$: StaticStructureSchema = [3, n0, _GFR
 ];
 export var GetFindingsReportStatusResponse$: StaticStructureSchema = [3, n0, _GFRSRe,
   0,
-  [_rIep, _s, _eC, _eM, _des, _fCi],
+  [_rIep, _st, _eC, _eM, _des, _fCi],
   [0, 0, 0, 0, () => Destination$, () => FilterCriteria$]
 ];
 export var GetMemberRequest$: StaticStructureSchema = [3, n0, _GMR,
@@ -1955,17 +1998,17 @@ export var GetSbomExportRequest$: StaticStructureSchema = [3, n0, _GSER,
 ];
 export var GetSbomExportResponse$: StaticStructureSchema = [3, n0, _GSERe,
   0,
-  [_rIep, _fo, _s, _eC, _eM, _sDe, _fCi],
+  [_rIep, _fo, _st, _eC, _eM, _sDe, _fCi],
   [0, 0, 0, 0, 0, () => Destination$, () => ResourceFilterCriteria$]
 ];
 export var ImageLayerAggregation$: StaticStructureSchema = [3, n0, _ILA,
   0,
-  [_re, _rI, _lH, _sO, _sB],
+  [_rep, _rIe, _lH, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
 ];
 export var ImageLayerAggregationResponse$: StaticStructureSchema = [3, n0, _ILAR,
   0,
-  [_rep, _rIe, _lHa, _aI, _sC],
+  [_repo, _rI, _lHa, _aI, _sC],
   [0, 0, 0, 0, () => SeverityCounts$], 4
 ];
 export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
@@ -1973,20 +2016,14 @@ export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
   [_aC],
   [() => CvssScoreDetails$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LambdaFunctionAggregation$: StaticStructureSchema = [3, n0, _LFA,
   0,
-  [_rI, _fNu, _run, _fTu, _sO, _sB],
+  [_rIe, _fNu, _run, _fTu, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, 0, 0]
 ];
 export var LambdaFunctionAggregationResponse$: StaticStructureSchema = [3, n0, _LFAR,
   0,
-  [_rIe, _fN, _ru, _lT, _aI, _sC, _lMA],
+  [_rI, _fN, _ru, _lT, _aI, _sC, _lMA],
   [0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 4], 1
 ];
 export var LambdaFunctionMetadata$: StaticStructureSchema = [3, n0, _LFM,
@@ -1996,12 +2033,12 @@ export var LambdaFunctionMetadata$: StaticStructureSchema = [3, n0, _LFM,
 ];
 export var LambdaLayerAggregation$: StaticStructureSchema = [3, n0, _LLA,
   0,
-  [_fNu, _rI, _lAa, _sO, _sB],
+  [_fNu, _rIe, _lAa, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
 ];
 export var LambdaLayerAggregationResponse$: StaticStructureSchema = [3, n0, _LLAR,
   0,
-  [_fN, _rIe, _lAay, _aI, _sC],
+  [_fN, _rI, _lAay, _aI, _sC],
   [0, 0, 0, 0, () => SeverityCounts$], 4
 ];
 export var LambdaVpcConfig$: StaticStructureSchema = [3, n0, _LVC,
@@ -2011,7 +2048,7 @@ export var LambdaVpcConfig$: StaticStructureSchema = [3, n0, _LVC,
 ];
 export var ListAccountPermissionsRequest$: StaticStructureSchema = [3, n0, _LAPR,
   0,
-  [_serv, _mR, _nT],
+  [_ser, _mR, _nT],
   [0, 1, 0]
 ];
 export var ListAccountPermissionsResponse$: StaticStructureSchema = [3, n0, _LAPRi,
@@ -2136,7 +2173,7 @@ export var ListFiltersRequest$: StaticStructureSchema = [3, n0, _LFR,
 ];
 export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi,
   0,
-  [_fi, _nT],
+  [_fil, _nT],
   [() => FilterList, 0], 1
 ];
 export var ListFindingAggregationsRequest$: StaticStructureSchema = [3, n0, _LFARi,
@@ -2206,7 +2243,7 @@ export var MemberAccountEc2DeepInspectionStatus$: StaticStructureSchema = [3, n0
 ];
 export var MemberAccountEc2DeepInspectionStatusState$: StaticStructureSchema = [3, n0, _MAEDISS,
   0,
-  [_aI, _s, _eM],
+  [_aI, _st, _eM],
   [0, 0, 0], 1
 ];
 export var MonthlySchedule$: StaticStructureSchema = [3, n0, _MS,
@@ -2261,7 +2298,7 @@ export var PeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _PSC,
 ];
 export var Permission$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_serv, _o],
+  [_ser, _o],
   [0, 0], 2
 ];
 export var PortRange$: StaticStructureSchema = [3, n0, _PR,
@@ -2301,12 +2338,12 @@ export var Remediation$: StaticStructureSchema = [3, n0, _Re,
 ];
 export var RepositoryAggregation$: StaticStructureSchema = [3, n0, _RAe,
   0,
-  [_re, _sO, _sB],
+  [_rep, _sO, _sB],
   [() => StringFilterList, 0, 0]
 ];
 export var RepositoryAggregationResponse$: StaticStructureSchema = [3, n0, _RAR,
   0,
-  [_rep, _aI, _sC, _aIff],
+  [_repo, _aI, _sC, _aIff],
   [0, 0, () => SeverityCounts$, 1], 1
 ];
 export var ResetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _REKR,
@@ -2331,7 +2368,7 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
 ];
 export var ResourceFilterCriteria$: StaticStructureSchema = [3, n0, _RFC,
   0,
-  [_aI, _rIe, _rT, _eRN, _lFN, _eIT, _eITc, _lFT],
+  [_aI, _rI, _rT, _eRN, _lFN, _eIT, _eITc, _lFT],
   [() => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceMapFilterList, () => ResourceMapFilterList]
 ];
 export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF,
@@ -2339,12 +2376,6 @@ export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF,
   [_co, _k, _va],
   [0, 0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceScanMetadata$: StaticStructureSchema = [3, n0, _RSM,
   0,
   [_eRc, _eIc, _ec, _lF, _cR],
@@ -2367,7 +2398,7 @@ export var ResourceStringFilter$: StaticStructureSchema = [3, n0, _RSF,
 ];
 export var ScanStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sCta, _rea],
+  [_sCta, _r],
   [0, 0], 2
 ];
 export var ScopeSettings$: StaticStructureSchema = [3, n0, _SSc,
@@ -2410,12 +2441,6 @@ export var SendCisSessionTelemetryResponse$: StaticStructureSchema = [3, n0, _SC
   [],
   []
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rIe],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_al, _med, _h, _cri],
@@ -2443,17 +2468,17 @@ export var StartCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt,
 ];
 export var StartCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _SCSSR,
   0,
-  [_r, _cT],
+  [_re, _cT],
   [() => CodeSecurityResource$, [0, 4]], 1
 ];
 export var StartCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _SCSSRt,
   0,
-  [_sIc, _s],
+  [_sIc, _st],
   [0, 0]
 ];
 export var State$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_s, _eC, _eM],
+  [_st, _eC, _eM],
   [0, 0, 0], 3
 ];
 export var StatusCounts$: StaticStructureSchema = [3, n0, _SCt,
@@ -2473,7 +2498,7 @@ export var StopCisMessageProgress$: StaticStructureSchema = [3, n0, _SCMP,
 ];
 export var StopCisSessionMessage$: StaticStructureSchema = [3, n0, _SCSMt,
   0,
-  [_s, _prog, _rea, _cP, _bV, _bP],
+  [_st, _prog, _r, _cP, _bV, _bP],
   [0, () => StopCisMessageProgress$, 0, () => ComputePlatform$, 0, 0], 2
 ];
 export var StopCisSessionRequest$: StaticStructureSchema = [3, n0, _SCSRto,
@@ -2493,7 +2518,7 @@ export var StringFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SuccessfulAssociationResult$: StaticStructureSchema = [3, n0, _SAR,
   0,
-  [_sCA, _r],
+  [_sCA, _re],
   [0, () => CodeSecurityResource$]
 ];
 export var SuggestedFix$: StaticStructureSchema = [3, n0, _SFu,
@@ -2516,12 +2541,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Time$: StaticStructureSchema = [3, n0, _T,
   0,
   [_tOD, _tim],
@@ -2569,7 +2588,7 @@ export var UpdateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0
 ];
 export var UpdateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _UCSIRp,
   0,
-  [_iA, _s],
+  [_iA, _st],
   [0, 0], 2
 ];
 export var UpdateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSSCR,
@@ -2599,7 +2618,7 @@ export var UpdateEc2DeepInspectionConfigurationRequest$: StaticStructureSchema =
 ];
 export var UpdateEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _UEDICRp,
   0,
-  [_pP, _oPP, _s, _eM],
+  [_pP, _oPP, _st, _eM],
   [64 | 0, 64 | 0, 0, 0]
 ];
 export var UpdateEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _UEKR,
@@ -2614,7 +2633,7 @@ export var UpdateEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _UEKRp,
 ];
 export var UpdateFilterRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_fAil, _act, _de, _fCi, _na, _rea],
+  [_fAil, _act, _de, _fCi, _na, _r],
   [0, 0, 0, () => FilterCriteria$, 0, 0], 1
 ];
 export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRp,
@@ -2662,12 +2681,6 @@ export var UsageTotal$: StaticStructureSchema = [3, n0, _UT,
   [_aI, _us],
   [0, () => UsageList]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rea, _fiel],
-  [0, 0, () => ValidationExceptionFields], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_na, _m],
@@ -2688,8 +2701,6 @@ export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
   [_sTt, _day],
   [() => Time$, 64 | 0], 2
 ];
-export var Inspector2ServiceException$: StaticErrorSchema = [-3, _sm, "Inspector2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(Inspector2ServiceException$, Inspector2ServiceException);
 var AccountIdFilterList: StaticListSchema = [1, n0, _AIFL,
   0, () => CisStringFilter$
 ];

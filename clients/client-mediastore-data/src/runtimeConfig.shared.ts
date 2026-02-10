@@ -11,6 +11,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultMediaStoreDataHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { MediaStoreDataClientConfig } from "./MediaStoreDataClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -36,6 +37,7 @@ export const getRuntimeConfig = (config: MediaStoreDataClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.mediastoredata",
+      errorTypeRegistries,
       xmlNamespace: "https://object.mediastore.amazonaws.com/doc/2017-09-01",
       version: "2017-09-01",
       serviceTarget: "MediaStoreObject_20170901",

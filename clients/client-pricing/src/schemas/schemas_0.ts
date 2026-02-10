@@ -55,8 +55,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _mT = "mediaType";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pricing";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pricing";
+const _se = "server";
 const n0 = "com.amazonaws.pricing";
 
 // smithy-typescript generated code
@@ -82,13 +82,68 @@ import {
 import { PricingServiceException } from "../models/PricingServiceException";
 
 /* eslint no-var: 0 */
-var SynthesizedJsonPriceListJsonItem: StaticSimpleSchema = [0, n0, _SJPLJI, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var PricingServiceException$: StaticErrorSchema = [-3, _s, "PricingServiceException", 0, [], []];
+_s_registry.registerError(PricingServiceException$, PricingServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 401 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SynthesizedJsonPriceListJsonItem: StaticSimpleSchema = [0, n0, _SJPLJI, { [_mT]: _a }, 0];
 export var AttributeValue$: StaticStructureSchema = [3, n0, _AV,
   0,
   [_V],
@@ -104,12 +159,6 @@ export var DescribeServicesResponse$: StaticStructureSchema = [3, n0, _DSRe,
   [_S, _FV, _NT],
   [() => ServiceList, 0, 0]
 ];
-export var ExpiredNextTokenException$: StaticErrorSchema = [-3, n0, _ENTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredNextTokenException$, ExpiredNextTokenException);
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_T, _Fi, _V],
@@ -145,24 +194,6 @@ export var GetProductsResponse$: StaticStructureSchema = [3, n0, _GPRe,
   [_FV, _PL, _NT],
   [0, [() => PriceListJsonItems, 0], 0]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
 export var ListPriceListsRequest$: StaticStructureSchema = [3, n0, _LPLR,
   0,
   [_SC, _ED, _CC, _RC, _NT, _MR],
@@ -173,36 +204,16 @@ export var ListPriceListsResponse$: StaticStructureSchema = [3, n0, _LPLRi,
   [_PLr, _NT],
   [() => PriceLists, 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PriceList$: StaticStructureSchema = [3, n0, _PL,
   0,
   [_PLA, _RC, _CC, _FFi],
   [0, 0, 0, 64 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Service$: StaticStructureSchema = [3, n0, _Se,
   0,
   [_SC, _ANt],
   [0, 64 | 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var PricingServiceException$: StaticErrorSchema = [-3, _sm, "PricingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PricingServiceException$, PricingServiceException);
 var AttributeNameList = 64 | 0;
 var AttributeValueList: StaticListSchema = [1, n0, _AVL,
   0, () => AttributeValue$

@@ -235,7 +235,7 @@ const _rP = "requestPayload";
 const _rPe = "responsePayload";
 const _re = "ref";
 const _ru = "runtime";
-const _s = "secret";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codecatalyst";
 const _sB = "sortBy";
 const _sBN = "sourceBranchName";
 const _sC = "sessionConfiguration";
@@ -251,7 +251,7 @@ const _sTt = "startedTime";
 const _sTta = "startTime";
 const _sTu = "subscriptionType";
 const _sU = "streamUrl";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codecatalyst";
+const _se = "secret";
 const _st = "status";
 const _tV = "tokenValue";
 const _uA = "userAgent";
@@ -288,25 +288,62 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var AccessTokenSecret: StaticSimpleSchema = [0, n0, _ATS, 8, 0];
-var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var CodeCatalystServiceException$: StaticErrorSchema = [-3, _s, "CodeCatalystServiceException", 0, [], []];
+_s_registry.registerError(CodeCatalystServiceException$, CodeCatalystServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var AccessTokenSummary$: StaticStructureSchema = [3, n0, _ATSc,
-  0,
-  [_i, _n, _eT],
-  [0, 0, 5], 2
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var AccessTokenSecret: StaticSimpleSchema = [0, n0, _ATS, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+export var AccessTokenSummary$: StaticStructureSchema = [3, n0, _ATSc,
+  0,
+  [_i, _n, _eT],
+  [0, 0, 5], 2
+];
 export var CreateAccessTokenRequest$: StaticStructureSchema = [3, n0, _CATR,
   0,
   [_n, _eT],
@@ -314,7 +351,7 @@ export var CreateAccessTokenRequest$: StaticStructureSchema = [3, n0, _CATR,
 ];
 export var CreateAccessTokenResponse$: StaticStructureSchema = [3, n0, _CATRr,
   0,
-  [_s, _n, _eT, _aTI],
+  [_se, _n, _eT, _aTI],
   [[() => AccessTokenSecret, 0], 0, 5, 0], 4
 ];
 export var CreateDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _CDER,
@@ -697,18 +734,6 @@ export var RepositoryInput$: StaticStructureSchema = [3, n0, _RI,
   [_rN, _bN],
   [0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpaceSummary$: StaticStructureSchema = [3, n0, _SSp,
   0,
   [_n, _rNe, _dN, _d],
@@ -764,12 +789,6 @@ export var StopDevEnvironmentSessionResponse$: StaticStructureSchema = [3, n0, _
   [_sN, _pN, _i, _sI],
   [0, 0, 0, 0], 4
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateDevEnvironmentRequest$: StaticStructureSchema = [3, n0, _UDER,
   0,
   [_sN, _pN, _i, _a, _id, _iT, _iTM, _cT],
@@ -805,12 +824,6 @@ export var UserIdentity$: StaticStructureSchema = [3, n0, _UI,
   [_uT, _pIri, _uN, _aAI],
   [0, 0, 0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VerifySessionResponse$: StaticStructureSchema = [3, n0, _VSR,
   0,
   [_ide],
@@ -852,8 +865,6 @@ export var WorkflowSummary$: StaticStructureSchema = [3, n0, _WS,
   [0, 0, 0, 0, () => WorkflowDefinitionSummary$, 5, 5, 0, 0], 9
 ];
 var __Unit = "unit" as const;
-export var CodeCatalystServiceException$: StaticErrorSchema = [-3, _sm, "CodeCatalystServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeCatalystServiceException$, CodeCatalystServiceException);
 var AccessTokenSummaries: StaticListSchema = [1, n0, _ATScc,
   0, () => AccessTokenSummary$
 ];

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultServiceQuotasHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ServiceQuotasClientConfig } from "./ServiceQuotasClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ServiceQuotasClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.servicequotas",
+      errorTypeRegistries,
       version: "2019-06-24",
       serviceTarget: "ServiceQuotasV20190624",
     },

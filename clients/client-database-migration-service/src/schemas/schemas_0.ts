@@ -1193,13 +1193,176 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var DatabaseMigrationServiceServiceException$: StaticErrorSchema = [-3, _s, "DatabaseMigrationServiceServiceException", 0, [], []];
+_s_registry.registerError(DatabaseMigrationServiceServiceException$, DatabaseMigrationServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedFault$: StaticErrorSchema = [-3, n0, _ADF,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedFault$, AccessDeniedFault);
+n0_registry.registerError(AccessDeniedFault$, AccessDeniedFault);
+export var CollectorNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CollectorNotFoundFault$, CollectorNotFoundFault);
+export var FailedDependencyFault$: StaticErrorSchema = [-3, n0, _FDF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(FailedDependencyFault$, FailedDependencyFault);
+export var InsufficientResourceCapacityFault$: StaticErrorSchema = [-3, n0, _IRCF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientResourceCapacityFault$, InsufficientResourceCapacityFault);
+export var InvalidCertificateFault$: StaticErrorSchema = [-3, n0, _ICF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidCertificateFault$, InvalidCertificateFault);
+export var InvalidOperationFault$: StaticErrorSchema = [-3, n0, _IOF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidOperationFault$, InvalidOperationFault);
+export var InvalidResourceStateFault$: StaticErrorSchema = [-3, n0, _IRSF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidResourceStateFault$, InvalidResourceStateFault);
+export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSubnet$, InvalidSubnet);
+export var KMSAccessDeniedFault$: StaticErrorSchema = [-3, n0, _KMSADF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSAccessDeniedFault$, KMSAccessDeniedFault);
+export var KMSDisabledFault$: StaticErrorSchema = [-3, n0, _KMSDF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSDisabledFault$, KMSDisabledFault);
+export var KMSFault$: StaticErrorSchema = [-3, n0, _KMSF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSFault$, KMSFault);
+export var KMSInvalidStateFault$: StaticErrorSchema = [-3, n0, _KMSISF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSInvalidStateFault$, KMSInvalidStateFault);
+export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [-3, n0, _KMSKNAF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSKeyNotAccessibleFault$, KMSKeyNotAccessibleFault);
+export var KMSNotFoundFault$: StaticErrorSchema = [-3, n0, _KMSNFF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSNotFoundFault$, KMSNotFoundFault);
+export var KMSThrottlingFault$: StaticErrorSchema = [-3, n0, _KMSTF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(KMSThrottlingFault$, KMSThrottlingFault);
+export var ReplicationSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [-3, n0, _RSGDNCEAZ,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReplicationSubnetGroupDoesNotCoverEnoughAZs$, ReplicationSubnetGroupDoesNotCoverEnoughAZs);
+export var ResourceAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RAEF,
+  { [_e]: _c },
+  [_m, _rA],
+  [0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsFault$, ResourceAlreadyExistsFault);
+export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
+export var ResourceQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RQEF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceQuotaExceededFault$, ResourceQuotaExceededFault);
+export var S3AccessDeniedFault$: StaticErrorSchema = [-3, n0, _SADF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(S3AccessDeniedFault$, S3AccessDeniedFault);
+export var S3ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SRNFF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(S3ResourceNotFoundFault$, S3ResourceNotFoundFault);
+export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
+export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
+export var StorageQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(StorageQuotaExceededFault$, StorageQuotaExceededFault);
+export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
+export var UpgradeDependencyFailureFault$: StaticErrorSchema = [-3, n0, _UDFF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UpgradeDependencyFailureFault$, UpgradeDependencyFailureFault);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SecretString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccountQuota$: StaticStructureSchema = [3, n0, _AQ,
   0,
   [_AQN, _U, _M],
@@ -1285,12 +1448,6 @@ export var CollectorHealthCheck$: StaticStructureSchema = [3, n0, _CHC,
   [_CS, _LCSA, _WCSA, _WCGRBA],
   [0, 2, 2, 2]
 ];
-export var CollectorNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CollectorNotFoundFault$, CollectorNotFoundFault);
 export var CollectorResponse$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_CRI, _CN, _CV, _VS, _De, _SBN, _SARA, _CHC, _LDR, _RD, _CD, _MD, _ID],
@@ -2161,12 +2318,6 @@ export var ExportSqlDetails$: StaticStructureSchema = [3, n0, _ESD,
   [_SOK, _OURL],
   [0, 0]
 ];
-export var FailedDependencyFault$: StaticErrorSchema = [-3, n0, _FDF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FailedDependencyFault$, FailedDependencyFault);
 export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_N, _Va],
@@ -2227,36 +2378,6 @@ export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
   [_IPA, _AZ, _KKA, _PA, _NT, _IPN, _De, _IPCT, _SGI, _VSG],
   [0, 0, 0, 2, 0, 0, 0, 5, 0, 64 | 0]
 ];
-export var InsufficientResourceCapacityFault$: StaticErrorSchema = [-3, n0, _IRCF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientResourceCapacityFault$, InsufficientResourceCapacityFault);
-export var InvalidCertificateFault$: StaticErrorSchema = [-3, n0, _ICF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCertificateFault$, InvalidCertificateFault);
-export var InvalidOperationFault$: StaticErrorSchema = [-3, n0, _IOF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationFault$, InvalidOperationFault);
-export var InvalidResourceStateFault$: StaticErrorSchema = [-3, n0, _IRSF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateFault$, InvalidResourceStateFault);
-export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
 export var InventoryData$: StaticStructureSchema = [3, n0, _ID,
   0,
   [_NOD, _NOS],
@@ -2277,48 +2398,6 @@ export var KinesisSettings$: StaticStructureSchema = [3, n0, _KS,
   [_SAt, _MF, _SARA, _ITD, _IPV, _PIST, _ITAO, _ICD, _INAE, _NHP, _ULIV],
   [0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2]
 ];
-export var KMSAccessDeniedFault$: StaticErrorSchema = [-3, n0, _KMSADF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSAccessDeniedFault$, KMSAccessDeniedFault);
-export var KMSDisabledFault$: StaticErrorSchema = [-3, n0, _KMSDF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSDisabledFault$, KMSDisabledFault);
-export var KMSFault$: StaticErrorSchema = [-3, n0, _KMSF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSFault$, KMSFault);
-export var KMSInvalidStateFault$: StaticErrorSchema = [-3, n0, _KMSISF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSInvalidStateFault$, KMSInvalidStateFault);
-export var KMSKeyNotAccessibleFault$: StaticErrorSchema = [-3, n0, _KMSKNAF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSKeyNotAccessibleFault$, KMSKeyNotAccessibleFault);
-export var KMSNotFoundFault$: StaticErrorSchema = [-3, n0, _KMSNFF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSNotFoundFault$, KMSNotFoundFault);
-export var KMSThrottlingFault$: StaticErrorSchema = [-3, n0, _KMSTF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(KMSThrottlingFault$, KMSThrottlingFault);
 export var LakehouseSettings$: StaticStructureSchema = [3, n0, _LS,
   0,
   [_Ar],
@@ -2694,12 +2773,6 @@ export var ReplicationSubnetGroup$: StaticStructureSchema = [3, n0, _RSG,
   [_RSGIe, _RSGD, _VI, _SGS, _Su, _SNT, _IRO],
   [0, 0, 0, 0, [() => SubnetList, 0], 64 | 0, 2]
 ];
-export var ReplicationSubnetGroupDoesNotCoverEnoughAZs$: StaticErrorSchema = [-3, n0, _RSGDNCEAZ,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReplicationSubnetGroupDoesNotCoverEnoughAZs$, ReplicationSubnetGroupDoesNotCoverEnoughAZs);
 export var ReplicationTask$: StaticStructureSchema = [3, n0, _RTe,
   0,
   [_RTI, _SEA, _TEA, _RIA, _MT, _TM, _RTS, _S, _LFM, _SRt, _RTCD, _RTSD, _CSP, _CSPd, _RCec, _RTA, _RTSep, _TD, _TRIA],
@@ -2735,46 +2808,16 @@ export var ReplicationTaskStats$: StaticStructureSchema = [3, n0, _RTSep,
   [_FLPP, _ETM, _TL, _TLa, _TQ, _TE, _FSD, _SDt, _SDto, _FLSD, _FLFD],
   [1, 1, 1, 1, 1, 1, 4, 4, 4, 4, 4]
 ];
-export var ResourceAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RAEF,
-  { [_e]: _c },
-  [_m, _rA],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsFault$, ResourceAlreadyExistsFault);
-export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
 export var ResourcePendingMaintenanceActions$: StaticStructureSchema = [3, n0, _RPMA,
   0,
   [_RIe, _PMAD],
   [0, [() => PendingMaintenanceActionDetails, 0]]
 ];
-export var ResourceQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RQEF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceQuotaExceededFault$, ResourceQuotaExceededFault);
 export var RunFleetAdvisorLsaAnalysisResponse$: StaticStructureSchema = [3, n0, _RFALAR,
   0,
   [_LAI, _S],
   [0, 0]
 ];
-export var S3AccessDeniedFault$: StaticErrorSchema = [-3, n0, _SADF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(S3AccessDeniedFault$, S3AccessDeniedFault);
-export var S3ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SRNFF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(S3ResourceNotFoundFault$, S3ResourceNotFoundFault);
 export var S3Settings$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_SARA, _ETD, _CRD, _CDs, _BF, _BN, _CTo, _EM, _SSEKKI, _DFa, _ETnc, _DPSL, _RGL, _DPS, _PV, _ESna, _IOFFL, _CIO, _TCN, _PTIM, _CIAU, _DPE, _DPSa, _DPDa, _UCNSV, _CNSV, _PT, _CPd, _UTSTFFLT, _CAFO, _ACN, _CMBI, _CMFS, _CNV, _IHR, _MFS, _Rf, _DPT, _ATPC, _EBO, _GCG],
@@ -2805,18 +2848,6 @@ export var ServerShortInfoResponse$: StaticStructureSchema = [3, n0, _SSIRe,
   [_SIe, _IA, _SN],
   [0, 0, 0]
 ];
-export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
-export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
 export var SourceDataSetting$: StaticStructureSchema = [3, n0, _SDSo,
   0,
   [_CDCSP, _CDCST, _CDCSTt, _SNl],
@@ -2987,23 +3018,11 @@ export var StopReplicationTaskResponse$: StaticStructureSchema = [3, n0, _SRTRt,
   [_RTe],
   [() => ReplicationTask$]
 ];
-export var StorageQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SQEF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StorageQuotaExceededFault$, StorageQuotaExceededFault);
 export var Subnet$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_SIub, _SAZu, _SSub],
   [0, () => AvailabilityZone$, 0]
 ];
-export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
 export var SupportedEndpointType$: StaticStructureSchema = [3, n0, _SETu,
   0,
   [_EN, _SCDC, _ET, _RIEMV, _EDN],
@@ -3064,20 +3083,12 @@ export var UpdateSubscriptionsToEventBridgeResponse$: StaticStructureSchema = [3
   [_Res],
   [0]
 ];
-export var UpgradeDependencyFailureFault$: StaticErrorSchema = [-3, n0, _UDFF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UpgradeDependencyFailureFault$, UpgradeDependencyFailureFault);
 export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGM,
   0,
   [_VSGIp, _S],
   [0, 0]
 ];
 var __Unit = "unit" as const;
-export var DatabaseMigrationServiceServiceException$: StaticErrorSchema = [-3, _s, "DatabaseMigrationServiceServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(DatabaseMigrationServiceServiceException$, DatabaseMigrationServiceServiceException);
 var AccountQuotaList: StaticListSchema = [1, n0, _AQL,
   0, [() => AccountQuota$,
     { [_xN]: _AQ }]

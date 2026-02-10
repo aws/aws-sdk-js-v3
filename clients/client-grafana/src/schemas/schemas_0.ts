@@ -183,7 +183,7 @@ const _pLI = "prefixListIds";
 const _pT = "permissionType";
 const _pe = "permissions";
 const _qC = "quotaCode";
-const _r = "role";
+const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
@@ -191,8 +191,8 @@ const _rNAC = "removeNetworkAccessConfiguration";
 const _rT = "resourceType";
 const _rV = "roleValues";
 const _rVC = "removeVpcConfiguration";
-const _re = "reason";
-const _s = "saml";
+const _ro = "role";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.grafana";
 const _sA = "serviceAccounts";
 const _sAI = "serviceAccountId";
 const _sAT = "serviceAccountToken";
@@ -205,8 +205,8 @@ const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
 const _sSN = "stackSetName";
 const _sTL = "secondsToLive";
+const _sa = "saml";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.grafana";
 const _st = "status";
 const _t = "tags";
 const _tI = "tokenId";
@@ -257,6 +257,61 @@ import {
 import { GrafanaServiceException } from "../models/GrafanaServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var GrafanaServiceException$: StaticErrorSchema = [-3, _s, "GrafanaServiceException", 0, [], []];
+_s_registry.registerError(GrafanaServiceException$, GrafanaServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ApiKeyToken: StaticSimpleSchema = [0, n0, _AKT, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var IamRoleArn: StaticSimpleSchema = [0, n0, _IRA, 8, 0];
@@ -264,15 +319,9 @@ var OrganizationRoleName: StaticSimpleSchema = [0, n0, _ORN, 8, 0];
 var OverridableConfigurationJson: StaticSimpleSchema = [0, n0, _OCJ, { [_mT]: _a }, 0];
 var ServiceAccountTokenKey: StaticSimpleSchema = [0, n0, _SATK, 8, 0];
 var WorkspaceName: StaticSimpleSchema = [0, n0, _WN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AssertionAttributes$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_n, _l, _em, _g, _r, _o],
+  [_n, _l, _em, _g, _ro, _o],
   [0, 0, 0, 0, 0, 0]
 ];
 export var AssociateLicenseRequest$: StaticStructureSchema = [3, n0, _ALR,
@@ -287,7 +336,7 @@ export var AssociateLicenseResponse$: StaticStructureSchema = [3, n0, _ALRs,
 ];
 export var AuthenticationDescription$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_p, _s, _aS],
+  [_p, _sa, _aS],
   [64 | 0, [() => SamlAuthentication$, 0], () => AwsSsoAuthentication$], 1
 ];
 export var AuthenticationSummary$: StaticStructureSchema = [3, n0, _AS,
@@ -300,12 +349,6 @@ export var AwsSsoAuthentication$: StaticStructureSchema = [3, n0, _ASA,
   [_sCI],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateWorkspaceApiKeyRequest$: StaticStructureSchema = [3, n0, _CWAKR,
   0,
   [_kN, _kR, _sTL, _wI],
@@ -426,12 +469,6 @@ export var DisassociateLicenseResponse$: StaticStructureSchema = [3, n0, _DLRi,
   [_w],
   [[() => WorkspaceDescription$, 0]], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListPermissionsRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
   [_wI, _mR, _nT, _uT, _uI, _gI],
@@ -499,15 +536,9 @@ export var NetworkAccessConfiguration$: StaticStructureSchema = [3, n0, _NAC,
 ];
 export var PermissionEntry$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_u, _r],
+  [_u, _ro],
   [() => User$, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoleValues$: StaticStructureSchema = [3, n0, _RV,
   0,
   [_ed, _ad],
@@ -538,12 +569,6 @@ export var ServiceAccountTokenSummaryWithKey$: StaticStructureSchema = [3, n0, _
   [_i, _n, _k],
   [0, 0, [() => ServiceAccountTokenKey, 0]], 3
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
@@ -554,12 +579,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -577,7 +596,7 @@ export var UpdateError$: StaticStructureSchema = [3, n0, _UE,
 ];
 export var UpdateInstruction$: StaticStructureSchema = [3, n0, _UI,
   0,
-  [_ac, _r, _us],
+  [_ac, _ro, _us],
   [0, 0, () => UserList], 3
 ];
 export var UpdatePermissionsRequest$: StaticStructureSchema = [3, n0, _UPR,
@@ -625,12 +644,6 @@ export var User$: StaticStructureSchema = [3, n0, _U,
   [_i, _ty],
   [0, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _re, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -651,8 +664,6 @@ export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WS,
   [_cr, _en, _gV, _i, _mo, _st, _au, _d, _n, _nD, _t, _lT, _gT],
   [4, 0, 0, 0, 4, 0, () => AuthenticationSummary$, [() => Description, 0], [() => WorkspaceName, 0], 64 | 0, 128 | 0, 0, 0], 7
 ];
-export var GrafanaServiceException$: StaticErrorSchema = [-3, _sm, "GrafanaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GrafanaServiceException$, GrafanaServiceException);
 var AllowedOrganizations = 64 | 0;
 var AuthenticationProviders = 64 | 0;
 var DataSourceTypesList = 64 | 0;

@@ -163,8 +163,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.resourcegroups";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resourcegroups";
+const _se = "server";
 const n0 = "com.amazonaws.resourcegroups";
 
 // smithy-typescript generated code
@@ -189,17 +189,66 @@ import {
 import { ResourceGroupsServiceException } from "../models/ResourceGroupsServiceException";
 
 /* eslint no-var: 0 */
-export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
-  0,
-  [_GLEDS, _GLES, _GLESM],
-  [0, 0, 0]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var ResourceGroupsServiceException$: StaticErrorSchema = [-3, _s, "ResourceGroupsServiceException", 0, [], []];
+_s_registry.registerError(ResourceGroupsServiceException$, ResourceGroupsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
+  { [_e]: _c, [_hE]: 405 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(MethodNotAllowedException$, MethodNotAllowedException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_GLEDS, _GLES, _GLESM],
+  [0, 0, 0]
+];
 export var CancelTagSyncTaskInput$: StaticStructureSchema = [3, n0, _CTSTI,
   0,
   [_TA],
@@ -230,12 +279,6 @@ export var FailedResource$: StaticStructureSchema = [3, n0, _FR,
   [_RA, _EM, _EC],
   [0, 0, 0]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetAccountSettingsOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
   [_AS],
@@ -341,12 +384,6 @@ export var GroupResourcesOutput$: StaticStructureSchema = [3, n0, _GRO,
   [_Su, _F, _Pe],
   [64 | 0, () => FailedResourceList, () => PendingResourceList]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListGroupingStatusesFilter$: StaticStructureSchema = [3, n0, _LGSF,
   0,
   [_N, _V],
@@ -402,18 +439,6 @@ export var ListTagSyncTasksOutput$: StaticStructureSchema = [3, n0, _LTSTO,
   [_TST, _NT],
   [() => TagSyncTaskList, 0]
 ];
-export var MethodNotAllowedException$: StaticErrorSchema = [-3, n0, _MNAE,
-  { [_e]: _c, [_hE]: 405 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MethodNotAllowedException$, MethodNotAllowedException);
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PendingResource$: StaticStructureSchema = [3, n0, _PR,
   0,
   [_RA],
@@ -489,18 +514,6 @@ export var TagSyncTaskItem$: StaticStructureSchema = [3, n0, _TSTI,
   [_GA, _GN, _TA, _TK, _TV, _RQ, _RAo, _S, _EM, _CA],
   [0, 0, 0, 0, 0, () => ResourceQuery$, 0, 0, 0, 4]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UngroupResourcesInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_G, _RAe],
@@ -552,8 +565,6 @@ export var UpdateGroupQueryOutput$: StaticStructureSchema = [3, n0, _UGQO,
   [() => GroupQuery$]
 ];
 var __Unit = "unit" as const;
-export var ResourceGroupsServiceException$: StaticErrorSchema = [-3, _sm, "ResourceGroupsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ResourceGroupsServiceException$, ResourceGroupsServiceException);
 var FailedResourceList: StaticListSchema = [1, n0, _FRL,
   0, () => FailedResource$
 ];

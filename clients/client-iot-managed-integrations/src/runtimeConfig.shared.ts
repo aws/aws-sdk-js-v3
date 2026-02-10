@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultIoTManagedIntegrationsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { IoTManagedIntegrationsClientConfig } from "./IoTManagedIntegrationsClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: IoTManagedIntegrationsClientConfig) => 
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.iotmanagedintegrations",
+      errorTypeRegistries,
       version: "2025-03-03",
       serviceTarget: "IotManagedIntegrations",
     },

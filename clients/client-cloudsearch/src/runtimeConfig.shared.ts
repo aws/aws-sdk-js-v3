@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudSearchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudSearchClientConfig } from "./CloudSearchClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudSearchClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudsearch",
+      errorTypeRegistries,
       xmlNamespace: "http://cloudsearch.amazonaws.com/doc/2013-01-01/",
       version: "2013-01-01",
       serviceTarget: "A9SearchCloudConfigService2013",

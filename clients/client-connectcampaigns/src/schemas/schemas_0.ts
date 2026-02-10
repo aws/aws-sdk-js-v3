@@ -133,12 +133,12 @@ const _oCC = "outboundCallConfig";
 const _pDC = "progressiveDialerConfig";
 const _pDCr = "predictiveDialerConfig";
 const _pN = "phoneNumber";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaigns";
 const _sLRA = "serviceLinkedRoleArn";
 const _sR = "successfulRequests";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.connectcampaigns";
-const _st = "status";
+const _st = "state";
+const _sta = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _v = "value";
@@ -172,13 +172,74 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ConnectCampaignsServiceException$: StaticErrorSchema = [-3, _s, "ConnectCampaignsServiceException", 0, [], []];
+_s_registry.registerError(ConnectCampaignsServiceException$, ConnectCampaignsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _xAET],
   [0, [0, { [_hH]: _xaE }]], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_st, _m, _xAET],
+  [0, 0, [0, { [_hH]: _xaE }]], 2
+];
+n0_registry.registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _xAET],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
 export var AgentlessDialerConfig$: StaticStructureSchema = [3, n0, _ADC,
   0,
   [_dC],
@@ -204,12 +265,6 @@ export var CampaignSummary$: StaticStructureSchema = [3, n0, _CS,
   [_i, _a, _n, _cII],
   [0, 0, 0, 0], 4
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCampaignRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
   [_n, _cII, _dCi, _oCC, _t],
@@ -282,7 +337,7 @@ export var GetCampaignStateRequest$: StaticStructureSchema = [3, n0, _GCSR,
 ];
 export var GetCampaignStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var GetConnectInstanceConfigRequest$: StaticStructureSchema = [3, n0, _GCICR,
@@ -317,27 +372,9 @@ export var InstanceIdFilter$: StaticStructureSchema = [3, n0, _IIF,
 ];
 export var InstanceOnboardingJobStatus$: StaticStructureSchema = [3, n0, _IOJS,
   0,
-  [_cII, _st, _fC],
+  [_cII, _sta, _fC],
   [0, 0, 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidCampaignStateException$: StaticErrorSchema = [-3, n0, _ICSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_s, _m, _xAET],
-  [0, 0, [0, { [_hH]: _xaE }]], 2
-];
-TypeRegistry.for(n0).registerError(InvalidCampaignStateException$, InvalidCampaignStateException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
 export var ListCampaignsRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_mR, _nT, _f],
@@ -388,23 +425,11 @@ export var PutDialRequestBatchResponse$: StaticStructureSchema = [3, n0, _PDRBRu
   [_sR, _fR],
   [() => SuccessfulRequestList, () => FailedRequestList]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResumeCampaignRequest$: StaticStructureSchema = [3, n0, _RCR,
   0,
   [_i],
   [[0, 1]], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartCampaignRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_i],
@@ -427,7 +452,7 @@ export var StopCampaignRequest$: StaticStructureSchema = [3, n0, _SCRt,
 ];
 export var SuccessfulCampaignStateResponse$: StaticStructureSchema = [3, n0, _SCSR,
   0,
-  [_cI, _s],
+  [_cI, _st],
   [0, 0]
 ];
 export var SuccessfulRequest$: StaticStructureSchema = [3, n0, _SR,
@@ -440,12 +465,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_a, _t],
   [[0, 1], 128 | 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_a, _tK],
@@ -466,15 +485,7 @@ export var UpdateCampaignOutboundCallConfigRequest$: StaticStructureSchema = [3,
   [_i, _cCFI, _cSPN, _aMDC],
   [[0, 1], 0, 0, () => AnswerMachineDetectionConfig$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _xAET],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var ConnectCampaignsServiceException$: StaticErrorSchema = [-3, _sm, "ConnectCampaignsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ConnectCampaignsServiceException$, ConnectCampaignsServiceException);
 var CampaignIdList = 64 | 0;
 var CampaignSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => CampaignSummary$

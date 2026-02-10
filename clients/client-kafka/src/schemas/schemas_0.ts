@@ -617,7 +617,7 @@ const _re = "revision";
 const _rep = "replicators";
 const _repl = "replicas";
 const _rev = "revisions";
-const _s = "s3";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafka";
 const _sA = "secretArn";
 const _sAL = "secretArnList";
 const _sCGO = "synchroniseConsumerGroupOffsets";
@@ -638,11 +638,11 @@ const _sPt = "startingPosition";
 const _sS = "stepStatus";
 const _sT = "startTime";
 const _sV = "sourceVersion";
+const _s_ = "s3";
 const _sa = "sasl";
 const _sc = "scram";
-const _se = "serverless";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kafka";
+const _se = "server";
+const _ser = "serverless";
 const _st = "state";
 const _sta = "status";
 const _su = "subnets";
@@ -722,17 +722,126 @@ import {
 import { KafkaServiceException } from "../models/KafkaServiceException";
 
 /* eslint no-var: 0 */
-export var AmazonMskCluster$: StaticStructureSchema = [3, n0, _AMC,
-  0,
-  [_MCA],
-  [[0, { [_jN]: _mCA }]], 1
-];
+const _s_registry = TypeRegistry.for(_s);
+export var KafkaServiceException$: StaticErrorSchema = [-3, _s, "KafkaServiceException", 0, [], []];
+_s_registry.registerError(KafkaServiceException$, KafkaServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_IP, _M],
   [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ClusterConnectivityException$: StaticErrorSchema = [-3, n0, _CCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ClusterConnectivityException$, ClusterConnectivityException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ControllerMovedException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ControllerMovedException$, ControllerMovedException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GroupSubscribedToTopicException$: StaticErrorSchema = [-3, n0, _GSTTE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(GroupSubscribedToTopicException$, GroupSubscribedToTopicException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var KafkaRequestException$: StaticErrorSchema = [-3, n0, _KRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(KafkaRequestException$, KafkaRequestException);
+export var KafkaTimeoutException$: StaticErrorSchema = [-3, n0, _KTE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(KafkaTimeoutException$, KafkaTimeoutException);
+export var NotControllerException$: StaticErrorSchema = [-3, n0, _NCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotControllerException$, NotControllerException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ReassignmentInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ReassignmentInProgressException$, ReassignmentInProgressException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TopicExistsException$: StaticErrorSchema = [-3, n0, _TEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TopicExistsException$, TopicExistsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var UnknownTopicOrPartitionException$: StaticErrorSchema = [-3, n0, _UTOPE,
+  { [_e]: _c, [_hE]: 404 },
+  [_IP, _M],
+  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
+];
+n0_registry.registerError(UnknownTopicOrPartitionException$, UnknownTopicOrPartitionException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var AmazonMskCluster$: StaticStructureSchema = [3, n0, _AMC,
+  0,
+  [_MCA],
+  [[0, { [_jN]: _mCA }]], 1
+];
 export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BASSR,
   0,
   [_CA, _SAL],
@@ -766,7 +875,7 @@ export var BrokerEBSVolumeInfo$: StaticStructureSchema = [3, n0, _BEBSVI,
 export var BrokerLogs$: StaticStructureSchema = [3, n0, _BL,
   0,
   [_CWL, _F, _S],
-  [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s }]]
+  [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
 ];
 export var BrokerNodeGroupInfo$: StaticStructureSchema = [3, n0, _BNGI,
   0,
@@ -801,14 +910,8 @@ export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
   [_AOA, _CTl, _CA, _CN, _CT, _CV, _St, _SIt, _Ta, _P, _Se],
-  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _se }]]
+  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _ser }]]
 ];
-export var ClusterConnectivityException$: StaticErrorSchema = [-3, n0, _CCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ClusterConnectivityException$, ClusterConnectivityException);
 export var ClusterInfo$: StaticStructureSchema = [3, n0, _CIl,
   0,
   [_AOA, _BNGI, _R, _CAl, _CA, _CN, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _St, _SIt, _Ta, _ZCS, _ZCST, _SM, _CAS],
@@ -832,7 +935,7 @@ export var ClusterOperationStepInfo$: StaticStructureSchema = [3, n0, _COSI,
 export var ClusterOperationV2$: StaticStructureSchema = [3, n0, _COV,
   0,
   [_CA, _CTl, _ST, _ET, _EIr, _OA, _OS, _OT, _P, _Se],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _cTl }], [5, { [_jN]: _sT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [0, { [_jN]: _oT }], [() => ClusterOperationV2Provisioned$, { [_jN]: _p }], [() => ClusterOperationV2Serverless$, { [_jN]: _se }]]
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cTl }], [5, { [_jN]: _sT }], [5, { [_jN]: _eT }], [() => ErrorInfo$, { [_jN]: _eIr }], [0, { [_jN]: _oA }], [0, { [_jN]: _oS }], [0, { [_jN]: _oT }], [() => ClusterOperationV2Provisioned$, { [_jN]: _p }], [() => ClusterOperationV2Serverless$, { [_jN]: _ser }]]
 ];
 export var ClusterOperationV2Provisioned$: StaticStructureSchema = [3, n0, _COVP,
   0,
@@ -869,12 +972,6 @@ export var ConfigurationRevision$: StaticStructureSchema = [3, n0, _CR,
   [_CT, _Re, _D],
   [[5, { [_jN]: _cT }], [1, { [_jN]: _re }], [0, { [_jN]: _d }]], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectivityInfo$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_PA, _VC],
@@ -890,12 +987,6 @@ export var ConsumerGroupReplicationUpdate$: StaticStructureSchema = [3, n0, _CGR
   [_CGTE, _CGTR, _DACNCG, _SCGO],
   [[64 | 0, { [_jN]: _cGTE }], [64 | 0, { [_jN]: _cGTR }], [2, { [_jN]: _dACNCG }], [2, { [_jN]: _sCGO }]], 4
 ];
-export var ControllerMovedException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ControllerMovedException$, ControllerMovedException);
 export var ControllerNodeInfo$: StaticStructureSchema = [3, n0, _CNI,
   0,
   [_E],
@@ -914,7 +1005,7 @@ export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
 export var CreateClusterV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
   [_CN, _Ta, _P, _Se],
-  [[0, { [_jN]: _cN }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _se }]], 1
+  [[0, { [_jN]: _cN }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _ser }]], 1
 ];
 export var CreateClusterV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
@@ -1151,12 +1242,6 @@ export var Firehose$: StaticStructureSchema = [3, n0, _F,
   [_En, _DS],
   [[2, { [_jN]: _ena }], [0, { [_jN]: _dS }]], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetBootstrapBrokersRequest$: StaticStructureSchema = [3, n0, _GBBR,
   0,
   [_CA],
@@ -1187,23 +1272,11 @@ export var GetCompatibleKafkaVersionsResponse$: StaticStructureSchema = [3, n0, 
   [_CKVo],
   [[() => __listOfCompatibleKafkaVersion, { [_jN]: _cKV }]]
 ];
-export var GroupSubscribedToTopicException$: StaticErrorSchema = [-3, n0, _GSTTE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(GroupSubscribedToTopicException$, GroupSubscribedToTopicException);
 export var Iam$: StaticStructureSchema = [3, n0, _I,
   0,
   [_En],
   [[2, { [_jN]: _ena }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var JmxExporter$: StaticStructureSchema = [3, n0, _JE,
   0,
   [_EIB],
@@ -1234,18 +1307,6 @@ export var KafkaClusterSummary$: StaticStructureSchema = [3, n0, _KCS,
   [_AMC, _KCA],
   [[() => AmazonMskCluster$, { [_jN]: _aMC }], [0, { [_jN]: _kCA }]]
 ];
-export var KafkaRequestException$: StaticErrorSchema = [-3, n0, _KRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(KafkaRequestException$, KafkaRequestException);
-export var KafkaTimeoutException$: StaticErrorSchema = [-3, n0, _KTE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(KafkaTimeoutException$, KafkaTimeoutException);
 export var KafkaVersion$: StaticStructureSchema = [3, n0, _KV,
   0,
   [_V, _Sta],
@@ -1416,18 +1477,6 @@ export var NodeInfo$: StaticStructureSchema = [3, n0, _NI,
   [_ATCT, _BNI, _CNI, _IT, _NARN, _NTo, _ZNI],
   [[0, { [_jN]: _aTCT }], [() => BrokerNodeInfo$, { [_jN]: _bNI }], [() => ControllerNodeInfo$, { [_jN]: _cNI }], [0, { [_jN]: _iT }], [0, { [_jN]: _nARN }], [0, { [_jN]: _nTo }], [() => ZookeeperNodeInfo$, { [_jN]: _zNI }]]
 ];
-export var NotControllerException$: StaticErrorSchema = [-3, n0, _NCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotControllerException$, NotControllerException);
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OpenMonitoring$: StaticStructureSchema = [3, n0, _OM,
   0,
   [_Pr],
@@ -1478,12 +1527,6 @@ export var PutClusterPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   [_CV],
   [[0, { [_jN]: _cV }]]
 ];
-export var ReassignmentInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ReassignmentInProgressException$, ReassignmentInProgressException);
 export var Rebalancing$: StaticStructureSchema = [3, n0, _R,
   0,
   [_Sta],
@@ -1579,12 +1622,6 @@ export var ServerlessSasl$: StaticStructureSchema = [3, n0, _SSe,
   [_I],
   [[() => Iam$, { [_jN]: _i }]]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _ser, [_hE]: 503 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StateInfo$: StaticStructureSchema = [3, n0, _SIt,
   0,
   [_Cod, _M],
@@ -1605,18 +1642,6 @@ export var Tls$: StaticStructureSchema = [3, n0, _T,
   [_CAAL, _En],
   [[64 | 0, { [_jN]: _cAAL }], [2, { [_jN]: _ena }]]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var TopicExistsException$: StaticErrorSchema = [-3, n0, _TEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(TopicExistsException$, TopicExistsException);
 export var TopicInfo$: StaticStructureSchema = [3, n0, _TI,
   0,
   [_TA, _TN, _RF, _PC, _OOSRC],
@@ -1642,18 +1667,6 @@ export var Unauthenticated$: StaticStructureSchema = [3, n0, _U,
   [_En],
   [[2, { [_jN]: _ena }]]
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
-export var UnknownTopicOrPartitionException$: StaticErrorSchema = [-3, n0, _UTOPE,
-  { [_e]: _c, [_hE]: 404 },
-  [_IP, _M],
-  [[0, { [_jN]: _iP }], [0, { [_jN]: _m }]]
-];
-TypeRegistry.for(n0).registerError(UnknownTopicOrPartitionException$, UnknownTopicOrPartitionException);
 export var UnprocessedScramSecret$: StaticStructureSchema = [3, n0, _USSn,
   0,
   [_EC, _EMr, _SA],
@@ -1855,8 +1868,6 @@ export var ZookeeperNodeInfo$: StaticStructureSchema = [3, n0, _ZNI,
   [[0, { [_jN]: _aENII }], [0, { [_jN]: _cVIA }], [64 | 0, { [_jN]: _en }], [1, { [_jN]: _zIo }], [0, { [_jN]: _zV }]]
 ];
 var __Unit = "unit" as const;
-export var KafkaServiceException$: StaticErrorSchema = [-3, _sm, "KafkaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KafkaServiceException$, KafkaServiceException);
 var __listOf__double = 64 | 1;
 var __listOf__integer = 64 | 1;
 var __listOf__string = 64 | 0;

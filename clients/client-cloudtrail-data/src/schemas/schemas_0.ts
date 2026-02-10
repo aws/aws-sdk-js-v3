@@ -28,8 +28,8 @@ const _h = "http";
 const _hQ = "httpQuery";
 const _i = "id";
 const _m = "message";
-const _s = "successful";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudtraildata";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudtraildata";
+const _su = "successful";
 const n0 = "com.amazonaws.cloudtraildata";
 
 // smithy-typescript generated code
@@ -47,6 +47,55 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudTrailDataServiceException$: StaticErrorSchema = [-3, _s, "CloudTrailDataServiceException", 0, [], []];
+_s_registry.registerError(CloudTrailDataServiceException$, CloudTrailDataServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ChannelInsufficientPermission$: StaticErrorSchema = [-3, n0, _CIP,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ChannelInsufficientPermission$, ChannelInsufficientPermission);
+export var ChannelNotFound$: StaticErrorSchema = [-3, n0, _CNF,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ChannelNotFound$, ChannelNotFound);
+export var ChannelUnsupportedSchema$: StaticErrorSchema = [-3, n0, _CUS,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ChannelUnsupportedSchema$, ChannelUnsupportedSchema);
+export var DuplicatedAuditEventId$: StaticErrorSchema = [-3, n0, _DAEI,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DuplicatedAuditEventId$, DuplicatedAuditEventId);
+export var InvalidChannelARN$: StaticErrorSchema = [-3, n0, _ICARN,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidChannelARN$, InvalidChannelARN);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AuditEvent$: StaticStructureSchema = [3, n0, _AE,
   0,
   [_i, _eD, _eDC],
@@ -57,36 +106,6 @@ export var AuditEventResultEntry$: StaticStructureSchema = [3, n0, _AERE,
   [_i, _eID],
   [0, 0], 2
 ];
-export var ChannelInsufficientPermission$: StaticErrorSchema = [-3, n0, _CIP,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ChannelInsufficientPermission$, ChannelInsufficientPermission);
-export var ChannelNotFound$: StaticErrorSchema = [-3, n0, _CNF,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ChannelNotFound$, ChannelNotFound);
-export var ChannelUnsupportedSchema$: StaticErrorSchema = [-3, n0, _CUS,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ChannelUnsupportedSchema$, ChannelUnsupportedSchema);
-export var DuplicatedAuditEventId$: StaticErrorSchema = [-3, n0, _DAEI,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicatedAuditEventId$, DuplicatedAuditEventId);
-export var InvalidChannelARN$: StaticErrorSchema = [-3, n0, _ICARN,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidChannelARN$, InvalidChannelARN);
 export var PutAuditEventsRequest$: StaticStructureSchema = [3, n0, _PAER,
   0,
   [_aE, _cA, _eI],
@@ -94,7 +113,7 @@ export var PutAuditEventsRequest$: StaticStructureSchema = [3, n0, _PAER,
 ];
 export var PutAuditEventsResponse$: StaticStructureSchema = [3, n0, _PAERu,
   0,
-  [_s, _f],
+  [_su, _f],
   [() => AuditEventResultEntries, () => ResultErrorEntries], 2
 ];
 export var ResultErrorEntry$: StaticStructureSchema = [3, n0, _REE,
@@ -102,14 +121,6 @@ export var ResultErrorEntry$: StaticStructureSchema = [3, n0, _REE,
   [_i, _eC, _eM],
   [0, 0, 0], 3
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
-export var CloudTrailDataServiceException$: StaticErrorSchema = [-3, _sm, "CloudTrailDataServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudTrailDataServiceException$, CloudTrailDataServiceException);
 var AuditEventResultEntries: StaticListSchema = [1, n0, _AEREu,
   0, () => AuditEventResultEntry$
 ];

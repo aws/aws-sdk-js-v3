@@ -96,8 +96,8 @@ const _SUAT = "StartUserAccessTasks";
 const _SUATR = "StartUserAccessTasksRequest";
 const _SUATRt = "StartUserAccessTasksResponse";
 const _T = "Tag";
-const _TE = "TaskError";
-const _TEh = "ThrottlingException";
+const _TE = "ThrottlingException";
+const _TEa = "TaskError";
 const _TL = "TagList";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -184,15 +184,15 @@ const _rI = "resourceId";
 const _rS = "resultStatus";
 const _rT = "resourceType";
 const _rU = "redirectUri";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appfabric";
 const _sB = "s3Bucket";
 const _sC = "serviceCode";
 const _sN = "streamName";
 const _sR = "statusReason";
 const _sc = "schema";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appfabric";
-const _st = "state";
+const _st = "status";
+const _sta = "state";
 const _t = "tenant";
 const _tDN = "tenantDisplayName";
 const _tE = "taskError";
@@ -236,14 +236,63 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
-var SensitiveString2048: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var AppFabricServiceException$: StaticErrorSchema = [-3, _s, "AppFabricServiceException", 0, [], []];
+_s_registry.registerError(AppFabricServiceException$, AppFabricServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var SensitiveString2048: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var ApiKeyCredential$: StaticStructureSchema = [3, n0, _AKC,
   0,
   [_aK],
@@ -251,12 +300,12 @@ export var ApiKeyCredential$: StaticStructureSchema = [3, n0, _AKC,
 ];
 export var AppAuthorization$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_aAA, _aBA, _a, _t, _aT, _s, _cA, _uA, _p, _aU],
+  [_aAA, _aBA, _a, _t, _aT, _st, _cA, _uA, _p, _aU],
   [0, 0, 0, () => Tenant$, 0, 0, 5, 5, 0, 0], 8
 ];
 export var AppAuthorizationSummary$: StaticStructureSchema = [3, n0, _AAS,
   0,
-  [_aAA, _aBA, _a, _t, _s, _uA],
+  [_aAA, _aBA, _a, _t, _st, _uA],
   [0, 0, 0, () => Tenant$, 0, 5], 6
 ];
 export var AppBundle$: StaticStructureSchema = [3, n0, _AB,
@@ -294,12 +343,6 @@ export var BatchGetUserAccessTasksResponse$: StaticStructureSchema = [3, n0, _BG
   [_uARL],
   [[() => UserAccessResultsList, 0]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectAppAuthorizationRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
   [_aBI, _aAI, _aR],
@@ -437,12 +480,12 @@ export var GetIngestionResponse$: StaticStructureSchema = [3, n0, _GIRe,
 ];
 export var Ingestion$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_ar, _aBA, _a, _tI, _cA, _uA, _st, _iT],
+  [_ar, _aBA, _a, _tI, _cA, _uA, _sta, _iT],
   [0, 0, 0, 0, 5, 5, 0, 0], 8
 ];
 export var IngestionDestination$: StaticStructureSchema = [3, n0, _ID,
   0,
-  [_ar, _iA, _pC, _dC, _s, _sR, _cA, _uA],
+  [_ar, _iA, _pC, _dC, _st, _sR, _cA, _uA],
   [0, 0, () => ProcessingConfiguration$, () => DestinationConfiguration$, 0, 0, 5, 5], 4
 ];
 export var IngestionDestinationSummary$: StaticStructureSchema = [3, n0, _IDS,
@@ -452,15 +495,9 @@ export var IngestionDestinationSummary$: StaticStructureSchema = [3, n0, _IDS,
 ];
 export var IngestionSummary$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_ar, _a, _tI, _st],
+  [_ar, _a, _tI, _sta],
   [0, 0, 0, 0], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListAppAuthorizationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
   [_aBI, _mR, _nT],
@@ -516,23 +553,11 @@ export var Oauth2Credential$: StaticStructureSchema = [3, n0, _OC,
   [_cI, _cS],
   [0, [() => SensitiveString2048, 0]], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Bucket$: StaticStructureSchema = [3, n0, _SB,
   0,
   [_bN, _pr],
   [0, 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartIngestionRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
   [_iI, _aBI],
@@ -578,7 +603,7 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TaskError$: StaticStructureSchema = [3, n0, _TE,
+export var TaskError$: StaticStructureSchema = [3, n0, _TEa,
   0,
   [_eC, _eM],
   [0, 0]
@@ -588,12 +613,6 @@ export var Tenant$: StaticStructureSchema = [3, n0, _Te,
   [_tIe, _tDN],
   [0, 0], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -634,19 +653,11 @@ export var UserAccessTaskItem$: StaticStructureSchema = [3, n0, _UATI,
   [_a, _tI, _tIa, _e],
   [0, 0, 0, () => TaskError$], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var AppFabricServiceException$: StaticErrorSchema = [-3, _sm, "AppFabricServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppFabricServiceException$, AppFabricServiceException);
 var AppAuthorizationSummaryList: StaticListSchema = [1, n0, _AASL,
   0, () => AppAuthorizationSummary$
 ];

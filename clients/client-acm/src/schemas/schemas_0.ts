@@ -133,8 +133,8 @@ const _UCO = "UpdateCertificateOptions";
 const _UCOR = "UpdateCertificateOptionsRequest";
 const _V = "Value";
 const _VD = "ValidationDomain";
-const _VE = "ValidationEmails";
-const _VEa = "ValidationException";
+const _VE = "ValidationException";
+const _VEa = "ValidationEmails";
 const _VM = "ValidationMethod";
 const _VS = "ValidationStatus";
 const _aQE = "awsQueryError";
@@ -181,15 +181,118 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var PassphraseBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
-var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
-var PrivateKeyBlob: StaticSimpleSchema = [0, n0, _PKB, 8, 21];
+const _s_registry = TypeRegistry.for(_s);
+export var ACMServiceException$: StaticErrorSchema = [-3, _s, "ACMServiceException", 0, [], []];
+_s_registry.registerError(ACMServiceException$, ACMServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_aQE]: [`AccessDenied`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InvalidArgsException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArgsException$, InvalidArgsException);
+export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAEn,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidArnException$, InvalidArnException);
+export var InvalidDomainValidationOptionsException$: StaticErrorSchema = [-3, n0, _IDVOE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDomainValidationOptionsException$, InvalidDomainValidationOptionsException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidStateException$, InvalidStateException);
+export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagException$, InvalidTagException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var RequestInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestInProgressException$, RequestInProgressException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagPolicyException$, TagPolicyException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var PassphraseBlob: StaticSimpleSchema = [0, n0, _PB, 8, 21];
+var PrivateKey: StaticSimpleSchema = [0, n0, _PK, 8, 0];
+var PrivateKeyBlob: StaticSimpleSchema = [0, n0, _PKB, 8, 21];
 export var AddTagsToCertificateRequest$: StaticStructureSchema = [3, n0, _ATTCR,
   0,
   [_CA, _T],
@@ -210,12 +313,6 @@ export var CertificateSummary$: StaticStructureSchema = [3, n0, _CS,
   [_CA, _DN, _SANS, _HASAN, _St, _Ty, _KA, _KU, _EKU, _EO, _IU, _Ex, _RE, _NB, _NA, _CAr, _IA, _IAm, _RA, _MB],
   [0, 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 4, 4, 4, 4, 4, 4, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteCertificateRequest$: StaticStructureSchema = [3, n0, _DCR,
   0,
   [_CA],
@@ -233,7 +330,7 @@ export var DescribeCertificateResponse$: StaticStructureSchema = [3, n0, _DCRes,
 ];
 export var DomainValidation$: StaticStructureSchema = [3, n0, _DV,
   0,
-  [_DN, _VE, _VD, _VS, _RRe, _HR, _VM],
+  [_DN, _VEa, _VD, _VS, _RRe, _HR, _VM],
   [0, 64 | 0, 0, 0, () => ResourceRecord$, () => HttpRedirect$, 0], 1
 ];
 export var DomainValidationOption$: StaticStructureSchema = [3, n0, _DVOo,
@@ -296,53 +393,11 @@ export var ImportCertificateResponse$: StaticStructureSchema = [3, n0, _ICRm,
   [_CA],
   [0]
 ];
-export var InvalidArgsException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgsException$, InvalidArgsException);
-export var InvalidArnException$: StaticErrorSchema = [-3, n0, _IAEn,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArnException$, InvalidArnException);
-export var InvalidDomainValidationOptionsException$: StaticErrorSchema = [-3, n0, _IDVOE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDomainValidationOptionsException$, InvalidDomainValidationOptionsException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidStateException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidStateException$, InvalidStateException);
-export var InvalidTagException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagException$, InvalidTagException);
 export var KeyUsage$: StaticStructureSchema = [3, n0, _KUe,
   0,
   [_N],
   [0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
   [_CSe, _In, _NT, _MI, _SB, _SO],
@@ -393,29 +448,11 @@ export var RequestCertificateResponse$: StaticStructureSchema = [3, n0, _RCReq,
   [_CA],
   [0]
 ];
-export var RequestInProgressException$: StaticErrorSchema = [-3, n0, _RIPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestInProgressException$, RequestInProgressException);
 export var ResendValidationEmailRequest$: StaticStructureSchema = [3, n0, _RVER,
   0,
   [_CA, _D, _VD],
   [0, 0, 0], 3
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceRecord$: StaticStructureSchema = [3, n0, _RRe,
   0,
   [_N, _Ty, _V],
@@ -436,38 +473,12 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   [_K, _V],
   [0, 0], 1
 ];
-export var TagPolicyException$: StaticErrorSchema = [-3, n0, _TPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagPolicyException$, TagPolicyException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`Throttling`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UpdateCertificateOptionsRequest$: StaticStructureSchema = [3, n0, _UCOR,
   0,
   [_CA, _O],
   [0, () => CertificateOptions$], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VEa,
-  { [_aQE]: [`ValidationError`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var ACMServiceException$: StaticErrorSchema = [-3, _s, "ACMServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(ACMServiceException$, ACMServiceException);
 var CertificateStatuses = 64 | 0;
 var CertificateSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => CertificateSummary$

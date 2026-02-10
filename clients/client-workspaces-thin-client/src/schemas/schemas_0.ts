@@ -126,7 +126,7 @@ const _rAe = "releasedAt";
 const _rDC = "registeredDevicesCount";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesthinclient";
 const _sC = "serviceCode";
 const _sN = "serialNumber";
 const _sS = "softwareSet";
@@ -139,8 +139,8 @@ const _sTH = "startTimeHour";
 const _sTM = "startTimeMinute";
 const _sU = "supportedUntil";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.workspacesthinclient";
 const _so = "software";
+const _st = "status";
 const _t = "tags";
 const _tDS = "targetDeviceStatus";
 const _tK = "tagKeys";
@@ -173,23 +173,66 @@ import {
 import { WorkSpacesThinClientServiceException } from "../models/WorkSpacesThinClientServiceException";
 
 /* eslint no-var: 0 */
-var ActivationCode: StaticSimpleSchema = [0, n0, _AC, 8, 0];
-var DesktopEndpoint: StaticSimpleSchema = [0, n0, _DE, 8, 0];
-var DeviceName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
-var EnvironmentName: StaticSimpleSchema = [0, n0, _EN, 8, 0];
-var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var WorkSpacesThinClientServiceException$: StaticErrorSchema = [-3, _s, "WorkSpacesThinClientServiceException", 0, [], []];
+_s_registry.registerError(WorkSpacesThinClientServiceException$, WorkSpacesThinClientServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ActivationCode: StaticSimpleSchema = [0, n0, _AC, 8, 0];
+var DesktopEndpoint: StaticSimpleSchema = [0, n0, _DE, 8, 0];
+var DeviceName: StaticSimpleSchema = [0, n0, _DN, 8, 0];
+var EnvironmentName: StaticSimpleSchema = [0, n0, _EN, 8, 0];
+var UserId: StaticSimpleSchema = [0, n0, _UI, 8, 0];
 export var CreateEnvironmentRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
   [_dA, _n, _dE, _sSUS, _mW, _sSUM, _dSSI, _kKA, _cT, _t, _dCT],
@@ -232,12 +275,12 @@ export var DeregisterDeviceResponse$: StaticStructureSchema = [3, n0, _DDRere,
 ];
 export var Device$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_i, _sN, _n, _mo, _eI, _s, _cSSI, _cSSV, _dSSI, _pSSI, _pSSV, _sSUS, _sSCS, _sSUSo, _lCA, _lPA, _cA, _uA, _a, _kKA, _lUI],
+  [_i, _sN, _n, _mo, _eI, _st, _cSSI, _cSSV, _dSSI, _pSSI, _pSSV, _sSUS, _sSCS, _sSUSo, _lCA, _lPA, _cA, _uA, _a, _kKA, _lUI],
   [0, 0, [() => DeviceName, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, 0, [() => UserId, 0]]
 ];
 export var DeviceSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_i, _sN, _n, _mo, _eI, _s, _cSSI, _dSSI, _pSSI, _sSUS, _lCA, _lPA, _cA, _uA, _a, _lUI],
+  [_i, _sN, _n, _mo, _eI, _st, _cSSI, _dSSI, _pSSI, _sSUS, _lCA, _lPA, _cA, _uA, _a, _lUI],
   [0, 0, [() => DeviceName, 0], 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 0, [() => UserId, 0]]
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _E,
@@ -280,12 +323,6 @@ export var GetSoftwareSetResponse$: StaticStructureSchema = [3, n0, _GSSRe,
   [_sS],
   [() => SoftwareSet$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDevicesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_nT, _mR],
@@ -331,18 +368,6 @@ export var MaintenanceWindow$: StaticStructureSchema = [3, n0, _MW,
   [_ty, _sTH, _sTM, _eTH, _eTM, _dOTW, _aTO],
   [0, 1, 1, 1, 1, 64 | 0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Software$: StaticStructureSchema = [3, n0, _S,
   0,
   [_n, _v],
@@ -368,12 +393,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -414,19 +433,11 @@ export var UpdateSoftwareSetResponse$: StaticStructureSchema = [3, n0, _USSRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
 ];
-export var WorkSpacesThinClientServiceException$: StaticErrorSchema = [-3, _sm, "WorkSpacesThinClientServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(WorkSpacesThinClientServiceException$, WorkSpacesThinClientServiceException);
 var DayOfWeekList = 64 | 0;
 var DeviceList: StaticListSchema = [1, n0, _DL,
   0, [() => DeviceSummary$,

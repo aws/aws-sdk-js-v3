@@ -188,14 +188,14 @@ const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
 const _rDS = "resourceDriftStatuses";
 const _rT = "remediationTypes";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.controltower";
 const _sC = "serviceCode";
 const _sM = "statusMessage";
 const _sS = "statusSummary";
 const _sT = "startTime";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.controltower";
-const _st = "statuses";
+const _st = "status";
+const _sta = "statuses";
 const _t = "tags";
 const _tI = "targetIdentifier";
 const _tIa = "targetIdentifiers";
@@ -228,15 +228,64 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ControlTowerServiceException$: StaticErrorSchema = [-3, _s, "ControlTowerServiceException", 0, [], []];
+_s_registry.registerError(ControlTowerServiceException$, ControlTowerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BaselineOperation$: StaticStructureSchema = [3, n0, _BO,
   0,
-  [_oI, _oT, _s, _sT, _eT, _sM],
+  [_oI, _oT, _st, _sT, _eT, _sM],
   [0, 0, 0, 5, 5, 0]
 ];
 export var BaselineSummary$: StaticStructureSchema = [3, n0, _BS,
@@ -244,25 +293,19 @@ export var BaselineSummary$: StaticStructureSchema = [3, n0, _BS,
   [_a, _n, _d],
   [0, 0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ControlOperation$: StaticStructureSchema = [3, n0, _CO,
   0,
-  [_oT, _sT, _eT, _s, _sM, _oI, _cI, _tI, _eCI],
+  [_oT, _sT, _eT, _st, _sM, _oI, _cI, _tI, _eCI],
   [0, 5, 5, 0, 0, 0, 0, 0, 0]
 ];
 export var ControlOperationFilter$: StaticStructureSchema = [3, n0, _COF,
   0,
-  [_cIo, _tIa, _eCIn, _st, _cOT],
+  [_cIo, _tIa, _eCIn, _sta, _cOT],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var ControlOperationSummary$: StaticStructureSchema = [3, n0, _COS,
   0,
-  [_oT, _sT, _eT, _s, _sM, _oI, _cI, _tI, _eCI],
+  [_oT, _sT, _eT, _st, _sM, _oI, _cI, _tI, _eCI],
   [0, 5, 5, 0, 0, 0, 0, 0, 0]
 ];
 export var CreateLandingZoneInput$: StaticStructureSchema = [3, n0, _CLZI,
@@ -347,12 +390,12 @@ export var EnabledBaselineDriftTypes$: StaticStructureSchema = [3, n0, _EBDT,
 ];
 export var EnabledBaselineFilter$: StaticStructureSchema = [3, n0, _EBF,
   0,
-  [_tIa, _bIa, _pIa, _st, _iDS],
+  [_tIa, _bIa, _pIa, _sta, _iDS],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var EnabledBaselineInheritanceDrift$: StaticStructureSchema = [3, n0, _EBID,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var EnabledBaselineParameter$: StaticStructureSchema = [3, n0, _EBP,
@@ -382,12 +425,12 @@ export var EnabledControlDriftTypes$: StaticStructureSchema = [3, n0, _ECDT,
 ];
 export var EnabledControlFilter$: StaticStructureSchema = [3, n0, _ECF,
   0,
-  [_cIo, _st, _dSr, _pIa, _iDS, _rDS],
+  [_cIo, _sta, _dSr, _pIa, _iDS, _rDS],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0]
 ];
 export var EnabledControlInheritanceDrift$: StaticStructureSchema = [3, n0, _ECID,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var EnabledControlParameter$: StaticStructureSchema = [3, n0, _ECP,
@@ -402,7 +445,7 @@ export var EnabledControlParameterSummary$: StaticStructureSchema = [3, n0, _ECP
 ];
 export var EnabledControlResourceDrift$: StaticStructureSchema = [3, n0, _ECRD,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var EnabledControlSummary$: StaticStructureSchema = [3, n0, _ECS,
@@ -412,7 +455,7 @@ export var EnabledControlSummary$: StaticStructureSchema = [3, n0, _ECS,
 ];
 export var EnablementStatusSummary$: StaticStructureSchema = [3, n0, _ESS,
   0,
-  [_s, _lOI],
+  [_st, _lOI],
   [0, 0]
 ];
 export var GetBaselineInput$: StaticStructureSchema = [3, n0, _GBI,
@@ -485,35 +528,29 @@ export var GetLandingZoneOutput$: StaticStructureSchema = [3, n0, _GLZO,
   [_lZ],
   [() => LandingZoneDetail$], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LandingZoneDetail$: StaticStructureSchema = [3, n0, _LZD,
   0,
-  [_v, _ma, _rT, _a, _s, _lAV, _dS],
+  [_v, _ma, _rT, _a, _st, _lAV, _dS],
   [0, 15, 64 | 0, 0, 0, 0, () => LandingZoneDriftStatusSummary$], 2
 ];
 export var LandingZoneDriftStatusSummary$: StaticStructureSchema = [3, n0, _LZDSS,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var LandingZoneOperationDetail$: StaticStructureSchema = [3, n0, _LZOD,
   0,
-  [_oT, _oI, _s, _sT, _eT, _sM],
+  [_oT, _oI, _st, _sT, _eT, _sM],
   [0, 0, 0, 5, 5, 0]
 ];
 export var LandingZoneOperationFilter$: StaticStructureSchema = [3, n0, _LZOF,
   0,
-  [_ty, _st],
+  [_ty, _sta],
   [64 | 0, 64 | 0]
 ];
 export var LandingZoneOperationSummary$: StaticStructureSchema = [3, n0, _LZOS,
   0,
-  [_oT, _oI, _s],
+  [_oT, _oI, _st],
   [0, 0, 0]
 ];
 export var LandingZoneSummary$: StaticStructureSchema = [3, n0, _LZS,
@@ -626,18 +663,6 @@ export var ResetLandingZoneOutput$: StaticStructureSchema = [3, n0, _RLZO,
   [_oI],
   [0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -648,12 +673,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -694,14 +713,6 @@ export var UpdateLandingZoneOutput$: StaticStructureSchema = [3, n0, _ULZO,
   [_oI],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var ControlTowerServiceException$: StaticErrorSchema = [-3, _sm, "ControlTowerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ControlTowerServiceException$, ControlTowerServiceException);
 var Baselines: StaticListSchema = [1, n0, _B,
   0, () => BaselineSummary$
 ];

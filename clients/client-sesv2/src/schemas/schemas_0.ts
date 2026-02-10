@@ -496,10 +496,10 @@ const _MI = "MessageId";
 const _MIDS = "MessageInsightsDataSource";
 const _MIF = "MessageInsightsFilters";
 const _MP = "MissingPercentage";
-const _MR = "MaxResults";
+const _MR = "MessageRejected";
 const _MRE = "MultiRegionEndpoints";
 const _MREu = "MultiRegionEndpoint";
-const _MRe = "MessageRejected";
+const _MRa = "MaxResults";
 const _MSR = "MaxSendRate";
 const _MT = "MailType";
 const _MTL = "MessageTagList";
@@ -794,8 +794,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sesv2";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sesv2";
+const _se = "server";
 const n0 = "com.amazonaws.sesv2";
 
 // smithy-typescript generated code
@@ -827,6 +827,97 @@ import {
 import { SESv2ServiceException } from "../models/SESv2ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SESv2ServiceException$: StaticErrorSchema = [-3, _s, "SESv2ServiceException", 0, [], []];
+_s_registry.registerError(SESv2ServiceException$, SESv2ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccountSuspendedException$, AccountSuspendedException);
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MailFromDomainNotVerifiedException$, MailFromDomainNotVerifiedException);
+export var MessageRejected$: StaticErrorSchema = [-3, n0, _MR,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MessageRejected$, MessageRejected);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var SendingPausedException$: StaticErrorSchema = [-3, n0, _SPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SendingPausedException$, SendingPausedException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AdditionalContactEmailAddress: StaticSimpleSchema = [0, n0, _ACEA, 8, 0];
 var EmailSubject: StaticSimpleSchema = [0, n0, _ES, 8, 0];
 var InsightsEmailAddress: StaticSimpleSchema = [0, n0, _IEA, 8, 0];
@@ -838,18 +929,6 @@ export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
   [_MT, _WURL, _CL, _UCD, _ACEAd, _RD],
   [0, [() => WebsiteURL, 0], 0, [() => UseCaseDescription, 0], [() => AdditionalContactEmailAddresses, 0], () => ReviewDetails$]
 ];
-export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccountSuspendedException$, AccountSuspendedException);
-export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
 export var ArchivingOptions$: StaticStructureSchema = [3, n0, _AO,
   0,
   [_AA],
@@ -860,12 +939,6 @@ export var Attachment$: StaticStructureSchema = [3, n0, _A,
   [_RC, _FN, _CD, _CDo, _CI, _CTE, _CT],
   [21, 0, 0, 0, 0, 0, 0], 2
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchGetMetricDataQuery$: StaticStructureSchema = [3, n0, _BGMDQ,
   0,
   [_I, _N, _M, _SD, _ED, _D],
@@ -936,18 +1009,6 @@ export var Complaint$: StaticStructureSchema = [3, n0, _C,
   [_CST, _CFT],
   [0, 0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Contact$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_EA, _TP, _TDP, _UA, _LUT],
@@ -1693,18 +1754,6 @@ export var InsightsEvent$: StaticStructureSchema = [3, n0, _IE,
   [_Ti, _Ty, _Det],
   [4, 0, () => EventDetails$]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
 export var IspPlacement$: StaticStructureSchema = [3, n0, _IPsp,
   0,
   [_IN, _PSl],
@@ -1715,12 +1764,6 @@ export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   [_IRAa, _DSAe],
   [0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
   [_NT, _PS],
@@ -1931,12 +1974,6 @@ export var MailFromAttributes$: StaticStructureSchema = [3, n0, _MFA,
   [_MFD, _MFDS, _BOMF],
   [0, 0, 0], 3
 ];
-export var MailFromDomainNotVerifiedException$: StaticErrorSchema = [-3, n0, _MFDNVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MailFromDomainNotVerifiedException$, MailFromDomainNotVerifiedException);
 export var Message$: StaticStructureSchema = [3, n0, _Me,
   0,
   [_Su, _B, _He, _At],
@@ -1949,7 +1986,7 @@ export var MessageHeader$: StaticStructureSchema = [3, n0, _MH,
 ];
 export var MessageInsightsDataSource$: StaticStructureSchema = [3, n0, _MIDS,
   0,
-  [_SD, _ED, _Inc, _Ex, _MR],
+  [_SD, _ED, _Inc, _Ex, _MRa],
   [4, 4, [() => MessageInsightsFilters$, 0], [() => MessageInsightsFilters$, 0], 1], 2
 ];
 export var MessageInsightsFilters$: StaticStructureSchema = [3, n0, _MIF,
@@ -1957,12 +1994,6 @@ export var MessageInsightsFilters$: StaticStructureSchema = [3, n0, _MIF,
   [_FEA, _Des, _Su, _Is, _LDE, _LEEa],
   [[() => EmailAddressFilterList, 0], [() => EmailAddressFilterList, 0], [() => EmailSubjectFilterList, 0], 64 | 0, 64 | 0, 64 | 0]
 ];
-export var MessageRejected$: StaticErrorSchema = [-3, n0, _MRe,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MessageRejected$, MessageRejected);
 export var MessageTag$: StaticStructureSchema = [3, n0, _MTe,
   0,
   [_Na, _V],
@@ -1988,12 +2019,6 @@ export var MultiRegionEndpoint$: StaticStructureSchema = [3, n0, _MREu,
   [_EN, _S, _EIn, _Reg, _CTr, _LUT],
   [0, 0, 0, 64 | 0, 4, 4]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OverallVolume$: StaticStructureSchema = [3, n0, _OV,
   0,
   [_VS, _RRP, _DIP],
@@ -2314,12 +2339,6 @@ export var SendingOptions$: StaticStructureSchema = [3, n0, _SO,
   [_SEe],
   [2]
 ];
-export var SendingPausedException$: StaticErrorSchema = [-3, n0, _SPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SendingPausedException$, SendingPausedException);
 export var SendQuota$: StaticStructureSchema = [3, n0, _SQ,
   0,
   [_MHS, _MSR, _SLH],
@@ -2435,12 +2454,6 @@ export var TestRenderEmailTemplateResponse$: StaticStructureSchema = [3, n0, _TR
   [_RTen],
   [0], 1
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var Topic$: StaticStructureSchema = [3, n0, _Top,
   0,
   [_TNo, _DNi, _DSSe, _De],
@@ -2571,8 +2584,6 @@ export var VolumeStatistics$: StaticStructureSchema = [3, n0, _VS,
   [_IRC, _SRC, _PI, _PSr],
   [1, 1, 1, 1]
 ];
-export var SESv2ServiceException$: StaticErrorSchema = [-3, _sm, "SESv2ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SESv2ServiceException$, SESv2ServiceException);
 var AdditionalContactEmailAddresses: StaticListSchema = [1, n0, _ACEAd,
   8, [() => AdditionalContactEmailAddress,
     0]

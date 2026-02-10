@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWorkDocsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WorkDocsClientConfig } from "./WorkDocsClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WorkDocsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.workdocs",
+      errorTypeRegistries,
       xmlNamespace: "https://aws.amazon.com/api/v1/",
       version: "2016-05-01",
       serviceTarget: "AWSGorillaBoyService",

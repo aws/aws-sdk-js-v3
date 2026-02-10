@@ -183,7 +183,7 @@ const _qTA = "quantumTaskArn";
 const _r = "reason";
 const _rA = "roleArn";
 const _rAe = "resourceArn";
-const _s = "shots";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.braket";
 const _sA = "startedAt";
 const _sAt = "startAt";
 const _sC = "stoppingCondition";
@@ -195,7 +195,7 @@ const _sMC = "scriptModeConfig";
 const _sP = "s3Path";
 const _sU = "s3Uri";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.braket";
+const _sh = "shots";
 const _st = "status";
 const _t = "type";
 const _tK = "tagKeys";
@@ -235,13 +235,74 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var BraketServiceException$: StaticErrorSchema = [-3, _s, "BraketServiceException", 0, [], []];
+_s_registry.registerError(BraketServiceException$, BraketServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DeviceOfflineException$: StaticErrorSchema = [-3, n0, _DOE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeviceOfflineException$, DeviceOfflineException);
+export var DeviceRetiredException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeviceRetiredException$, DeviceRetiredException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _pSVF],
+  [0, 0, () => ProgramSetValidationFailuresList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var JsonValue: StaticSimpleSchema = [0, n0, _JV, { [_mT]: _a }, 0];
 export var ActionMetadata$: StaticStructureSchema = [3, n0, _AM,
   0,
   [_aT, _pC, _eC],
@@ -277,12 +338,6 @@ export var CancelQuantumTaskResponse$: StaticStructureSchema = [3, n0, _CQTRa,
   [_qTA, _cS],
   [0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContainerImage$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_u],
@@ -300,7 +355,7 @@ export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
 ];
 export var CreateQuantumTaskRequest$: StaticStructureSchema = [3, n0, _CQTRr,
   0,
-  [_dA, _s, _oSB, _oSKP, _ac, _cT, _dP, _ta, _jT, _as, _eCx],
+  [_dA, _sh, _oSB, _oSKP, _ac, _cT, _dP, _ta, _jT, _as, _eCx],
   [0, 1, 0, 0, [() => JsonValue, 0], [0, 4], [() => JsonValue, 0], 128 | 0, 0, () => Associations, () => ExperimentalCapabilities$], 5
 ];
 export var CreateQuantumTaskResponse$: StaticStructureSchema = [3, n0, _CQTRre,
@@ -338,23 +393,11 @@ export var DeviceConfig$: StaticStructureSchema = [3, n0, _DC,
   [_d],
   [0], 1
 ];
-export var DeviceOfflineException$: StaticErrorSchema = [-3, n0, _DOE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeviceOfflineException$, DeviceOfflineException);
 export var DeviceQueueInfo$: StaticStructureSchema = [3, n0, _DQI,
   0,
   [_q, _qS, _qP],
   [0, 0, 0], 2
 ];
-export var DeviceRetiredException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c, [_hE]: 410 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeviceRetiredException$, DeviceRetiredException);
 export var DeviceSummary$: StaticStructureSchema = [3, n0, _DSe,
   0,
   [_dA, _dN, _pN, _dT, _dS],
@@ -387,7 +430,7 @@ export var GetQuantumTaskRequest$: StaticStructureSchema = [3, n0, _GQTR,
 ];
 export var GetQuantumTaskResponse$: StaticStructureSchema = [3, n0, _GQTRe,
   0,
-  [_qTA, _st, _dA, _dP, _s, _oSB, _oSD, _cA, _fR, _eA, _ta, _jA, _qI, _as, _nSS, _aM, _eCx],
+  [_qTA, _st, _dA, _dP, _sh, _oSB, _oSD, _cA, _fR, _eA, _ta, _jA, _qI, _as, _nSS, _aM, _eCx],
   [0, 0, 0, [() => JsonValue, 0], 1, 0, 0, 5, 0, 5, 128 | 0, 0, () => QuantumTaskQueueInfo$, () => Associations, 1, () => ActionMetadata$, () => ExperimentalCapabilities$], 8
 ];
 export var HybridJobQueueInfo$: StaticStructureSchema = [3, n0, _HJQI,
@@ -405,12 +448,6 @@ export var InstanceConfig$: StaticStructureSchema = [3, n0, _IC,
   [_iT, _vSIG, _iCn],
   [0, 1, 1], 2
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
 export var JobCheckpointConfig$: StaticStructureSchema = [3, n0, _JCC,
   0,
   [_sU, _lP],
@@ -458,15 +495,9 @@ export var QuantumTaskQueueInfo$: StaticStructureSchema = [3, n0, _QTQI,
 ];
 export var QuantumTaskSummary$: StaticStructureSchema = [3, n0, _QTS,
   0,
-  [_qTA, _st, _dA, _s, _oSB, _oSD, _cA, _eA, _ta],
+  [_qTA, _st, _dA, _sh, _oSB, _oSD, _cA, _eA, _ta],
   [0, 0, 0, 1, 0, 0, 5, 5, 128 | 0], 7
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DataSource$: StaticStructureSchema = [3, n0, _SDS,
   0,
   [_sU],
@@ -537,12 +568,6 @@ export var SearchSpendingLimitsResponse$: StaticStructureSchema = [3, n0, _SSLRe
   [_sLp, _nT],
   [() => SpendingLimitSummaryList, 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpendingLimitSummary$: StaticStructureSchema = [3, n0, _SLS,
   0,
   [_sLA, _dA, _tP, _sL, _qSu, _tS, _cA, _uA, _ta],
@@ -558,12 +583,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   0,
   [_sAt, _eAn],
@@ -589,14 +608,6 @@ export var UpdateSpendingLimitResponse$: StaticStructureSchema = [3, n0, _USLRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _pSVF],
-  [0, 0, () => ProgramSetValidationFailuresList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var BraketServiceException$: StaticErrorSchema = [-3, _sm, "BraketServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BraketServiceException$, BraketServiceException);
 var Associations: StaticListSchema = [1, n0, _As,
   0, () => Association$
 ];

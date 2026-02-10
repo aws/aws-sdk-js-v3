@@ -16,7 +16,7 @@ const _Au = "Audio";
 const _BC = "BorderColor";
 const _BRE = "BadRequestException";
 const _BT = "BorderThickness";
-const _C = "Content";
+const _C = "Code";
 const _CAC = "ContentArtifactsConfiguration";
 const _CASC = "CallAnalyticsStreamCategories";
 const _CCC = "ContentConcatenationConfiguration";
@@ -63,7 +63,7 @@ const _CT = "CreatedTimestamp";
 const _CV = "CompositedVideo";
 const _CVAC = "CompositedVideoArtifactsConfiguration";
 const _CVCC = "CompositedVideoConcatenationConfiguration";
-const _Co = "Code";
+const _Co = "Content";
 const _D = "Disabled";
 const _DARA = "DataAccessRoleArn";
 const _DC = "DataChannel";
@@ -327,8 +327,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mr = "max-results";
 const _nt = "next-token";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkmediapipelines";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkmediapipelines";
+const _se = "server";
 const n0 = "com.amazonaws.chimesdkmediapipelines";
 
 // smithy-typescript generated code
@@ -356,6 +356,73 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ChimeSDKMediaPipelinesServiceException$: StaticErrorSchema = [-3, _s, "ChimeSDKMediaPipelinesServiceException", 0, [], []];
+_s_registry.registerError(ChimeSDKMediaPipelinesServiceException$, ChimeSDKMediaPipelinesServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 429 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 401 },
+  [_C, _M, _RI],
+  [0, 0, 0]
+];
+n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var Arn: StaticSimpleSchema = [0, n0, _A, 8, 0];
 var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
 var ExternalUserIdType: StaticSimpleSchema = [0, n0, _EUIT, 8, 0];
@@ -377,12 +444,12 @@ export var AmazonTranscribeProcessorConfiguration$: StaticStructureSchema = [3, 
 ];
 export var ArtifactsConcatenationConfiguration$: StaticStructureSchema = [3, n0, _ACC,
   0,
-  [_Au, _V, _C, _DC, _TM, _ME, _CV],
+  [_Au, _V, _Co, _DC, _TM, _ME, _CV],
   [() => AudioConcatenationConfiguration$, () => VideoConcatenationConfiguration$, () => ContentConcatenationConfiguration$, () => DataChannelConcatenationConfiguration$, () => TranscriptionMessagesConcatenationConfiguration$, () => MeetingEventsConcatenationConfiguration$, () => CompositedVideoConcatenationConfiguration$], 7
 ];
 export var ArtifactsConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_Au, _V, _C, _CV],
+  [_Au, _V, _Co, _CV],
   [() => AudioArtifactsConfiguration$, () => VideoArtifactsConfiguration$, () => ContentArtifactsConfiguration$, () => CompositedVideoArtifactsConfiguration$], 3
 ];
 export var AudioArtifactsConfiguration$: StaticStructureSchema = [3, n0, _AAC,
@@ -395,12 +462,6 @@ export var AudioConcatenationConfiguration$: StaticStructureSchema = [3, n0, _AC
   [_S],
   [0], 1
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ChannelDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_CI, _PR],
@@ -441,12 +502,6 @@ export var ConcatenationSource$: StaticStructureSchema = [3, n0, _CSo,
   [_T, _MCPSC],
   [0, [() => MediaCapturePipelineSourceConfiguration$, 0]], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContentArtifactsConfiguration$: StaticStructureSchema = [3, n0, _CAC,
   0,
   [_S, _MT],
@@ -552,12 +607,6 @@ export var DeleteMediaPipelineRequest$: StaticStructureSchema = [3, n0, _DMPR,
   [_MPI],
   [[0, 1]], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var FragmentSelector$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_FST, _TR],
@@ -833,12 +882,6 @@ export var MeetingEventsConcatenationConfiguration$: StaticStructureSchema = [3,
   [_S],
   [0], 1
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PostCallAnalyticsSettings$: StaticStructureSchema = [3, n0, _PCAS,
   0,
   [_OL, _DARA, _CRO, _OEKMSKI],
@@ -864,12 +907,6 @@ export var RecordingStreamConfiguration$: StaticStructureSchema = [3, n0, _RSCe,
   [_SAt],
   [0]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
 export var S3BucketSinkConfiguration$: StaticStructureSchema = [3, n0, _SBSC,
   0,
   [_De],
@@ -895,18 +932,6 @@ export var SentimentConfiguration$: StaticStructureSchema = [3, n0, _SCe,
   [_RN, _STe, _TPi],
   [0, 0, 1], 3
 ];
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SnsTopicSinkConfiguration$: StaticStructureSchema = [3, n0, _STSC,
   0,
   [_IT],
@@ -987,12 +1012,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c, [_hE]: 429 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
 export var TimestampRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_STt, _ET],
@@ -1003,12 +1022,6 @@ export var TranscriptionMessagesConcatenationConfiguration$: StaticStructureSche
   [_S],
   [0], 1
 ];
-export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
-  { [_e]: _c, [_hE]: 401 },
-  [_Co, _M, _RI],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TK],
@@ -1080,8 +1093,6 @@ export var VoiceToneAnalysisTask$: StaticStructureSchema = [3, n0, _VTAT,
   [0, 0, 5, 5]
 ];
 var __Unit = "unit" as const;
-export var ChimeSDKMediaPipelinesServiceException$: StaticErrorSchema = [-3, _sm, "ChimeSDKMediaPipelinesServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ChimeSDKMediaPipelinesServiceException$, ChimeSDKMediaPipelinesServiceException);
 var AttendeeIdList = 64 | 0;
 var CategoryNameList = 64 | 0;
 var ChannelDefinitions: StaticListSchema = [1, n0, _CDh,

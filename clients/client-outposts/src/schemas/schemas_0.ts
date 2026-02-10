@@ -227,9 +227,9 @@ const _Q = "Quantity";
 const _R = "Reason";
 const _RA = "ResourceArn";
 const _RE = "RackElevation";
-const _RI = "RackId";
+const _RI = "ResourceId";
 const _RIP = "RequestedInstancePools";
-const _RIe = "ResourceId";
+const _RIa = "RackId";
 const _RPP = "RackPhysicalProperties";
 const _RT = "ResourceType";
 const _S = "State";
@@ -304,9 +304,9 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _oLD = "outpostListDefinition";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.outposts";
 const _sLD = "siteListDefinition";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.outposts";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.outposts";
 
@@ -331,12 +331,55 @@ import {
 import { OutpostsServiceException } from "../models/OutpostsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var OutpostsServiceException$: StaticErrorSchema = [-3, _s, "OutpostsServiceException", 0, [], []];
+_s_registry.registerError(OutpostsServiceException$, OutpostsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Address$: StaticStructureSchema = [3, n0, _A,
   0,
   [_CN, _CPN, _AL, _C, _SOR, _PC, _CC, _ALd, _ALdd, _DOC, _Mu],
@@ -344,7 +387,7 @@ export var Address$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AssetInfo$: StaticStructureSchema = [3, n0, _AI,
   0,
-  [_AIs, _RI, _AT, _CA, _ALs],
+  [_AIs, _RIa, _AT, _CA, _ALs],
   [0, 0, 0, () => ComputeAttributes$, () => AssetLocation$]
 ];
 export var AssetInstance$: StaticStructureSchema = [3, n0, _AIss,
@@ -407,12 +450,6 @@ export var ComputeAttributes$: StaticStructureSchema = [3, n0, _CA,
   [_HI, _S, _IF, _ITC, _MV],
   [0, 0, 64 | 0, () => AssetInstanceCapacityList, 1]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RIe, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionDetails$: StaticStructureSchema = [3, n0, _CDon,
   0,
   [_CPK, _SPK, _SE, _CTA, _STA, _AIl],
@@ -588,12 +625,6 @@ export var InstanceTypeItem$: StaticStructureSchema = [3, n0, _ITI,
   [_IT, _VCPU],
   [0, 1]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LineItem$: StaticStructureSchema = [3, n0, _LIi,
   0,
   [_CII, _LII, _Q, _St, _SIh, _AIL, _PLII, _POI],
@@ -699,12 +730,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_Ta],
   [128 | 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Order$: StaticStructureSchema = [3, n0, _O,
   0,
   [_OIu, _OIr, _St, _LI, _PO, _OSD, _OFD, _PT, _OT],
@@ -725,12 +750,6 @@ export var RackPhysicalProperties$: StaticStructureSchema = [3, n0, _RPP,
   [_PDK, _PP, _PCo, _PFD, _UG, _UC, _FOCT, _OSp, _MSWL],
   [0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ShipmentInformation$: StaticStructureSchema = [3, n0, _SIh,
   0,
   [_STN, _SC],
@@ -836,14 +855,6 @@ export var UpdateSiteRackPhysicalPropertiesOutput$: StaticStructureSchema = [3, 
   [_Si],
   [() => Site$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var OutpostsServiceException$: StaticErrorSchema = [-3, _sm, "OutpostsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(OutpostsServiceException$, OutpostsServiceException);
 var AccountIdList = 64 | 0;
 var AssetIdList = 64 | 0;
 var AssetInstanceCapacityList: StaticListSchema = [1, n0, _AICL,

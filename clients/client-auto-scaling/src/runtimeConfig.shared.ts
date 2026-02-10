@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultAutoScalingHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { AutoScalingClientConfig } from "./AutoScalingClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: AutoScalingClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.autoscaling",
+      errorTypeRegistries,
       xmlNamespace: "http://autoscaling.amazonaws.com/doc/2011-01-01/",
       version: "2011-01-01",
       serviceTarget: "AutoScaling_2011_01_01",

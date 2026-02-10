@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultConnectParticipantHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ConnectParticipantClientConfig } from "./ConnectParticipantClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ConnectParticipantClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.connectparticipant",
+      errorTypeRegistries,
       version: "2018-09-07",
       serviceTarget: "AmazonConnectParticipantServiceLambda",
     },

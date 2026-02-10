@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultBatchHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { BatchClientConfig } from "./BatchClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: BatchClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.batch",
+      errorTypeRegistries,
       xmlNamespace: "http://batch.amazonaws.com/doc/2016-08-10/",
       version: "2016-08-10",
       serviceTarget: "AWSBatchV20160810",

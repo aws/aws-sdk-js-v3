@@ -152,8 +152,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codegurureviewer";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codegurureviewer";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.codegurureviewer";
 
@@ -179,12 +179,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CodeGuruReviewerServiceException$: StaticErrorSchema = [-3, _s, "CodeGuruReviewerServiceException", 0, [], []];
+_s_registry.registerError(CodeGuruReviewerServiceException$, CodeGuruReviewerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AssociateRepositoryRequest$: StaticStructureSchema = [3, n0, _ARR,
   0,
   [_R, _CRT, _T, _KMSKD],
@@ -230,12 +279,6 @@ export var CommitDiffSourceCodeType$: StaticStructureSchema = [3, n0, _CDSCT,
   [_SC, _DC, _MBC],
   [0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateCodeReviewRequest$: StaticStructureSchema = [3, n0, _CCRR,
   0,
   [_N, _RAA, _Ty, _CRT],
@@ -291,12 +334,6 @@ export var EventInfo$: StaticStructureSchema = [3, n0, _EI,
   [_N, _S],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KMSKeyDetails$: StaticStructureSchema = [3, n0, _KMSKD,
   0,
   [_KMSKI, _EO],
@@ -362,12 +399,6 @@ export var MetricsSummary$: StaticStructureSchema = [3, n0, _MS,
   [_MLOCC, _SLOCC, _FC],
   [1, 1, 1]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PutRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _PRFR,
   0,
   [_CRA, _RI, _Re],
@@ -423,12 +454,6 @@ export var RequestMetadata$: StaticStructureSchema = [3, n0, _RMe,
   [_RIeq, _Req, _EI, _VN],
   [0, 0, () => EventInfo$, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuleMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_RIu, _RNu, _SD, _LD, _RT],
@@ -469,12 +494,6 @@ export var ThirdPartySourceRepository$: StaticStructureSchema = [3, n0, _TPSR,
   [_N, _CAo, _O],
   [0, 0, 0], 3
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _TK],
@@ -485,14 +504,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var CodeGuruReviewerServiceException$: StaticErrorSchema = [-3, _sm, "CodeGuruReviewerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeGuruReviewerServiceException$, CodeGuruReviewerServiceException);
 var AnalysisTypes = 64 | 0;
 var CodeReviewSummaries: StaticListSchema = [1, n0, _CRSo,
   0, () => CodeReviewSummary$

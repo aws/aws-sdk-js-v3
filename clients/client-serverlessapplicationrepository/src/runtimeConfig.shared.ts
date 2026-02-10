@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultServerlessApplicationRepositoryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ServerlessApplicationRepositoryClientConfig } from "./ServerlessApplicationRepositoryClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ServerlessApplicationRepositoryClientCo
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.serverlessapplicationrepository",
+      errorTypeRegistries,
       version: "2017-09-08",
       serviceTarget: "ServerlessApplicationRepository",
     },

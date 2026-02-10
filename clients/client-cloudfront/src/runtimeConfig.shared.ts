@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudFrontHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudFrontClientConfig } from "./CloudFrontClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudFrontClientConfig) => {
     protocol: config?.protocol ?? AwsRestXmlProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudfront",
+      errorTypeRegistries,
       xmlNamespace: "http://cloudfront.amazonaws.com/doc/2020-05-31/",
       version: "2020-05-31",
       serviceTarget: "Cloudfront2020_05_31",

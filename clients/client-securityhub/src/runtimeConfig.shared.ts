@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSecurityHubHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SecurityHubClientConfig } from "./SecurityHubClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SecurityHubClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.securityhub",
+      errorTypeRegistries,
       version: "2018-10-26",
       serviceTarget: "SecurityHubAPIService",
     },

@@ -1311,6 +1311,877 @@ import {
 import { RedshiftServiceException } from "../models/RedshiftServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RedshiftServiceException$: StaticErrorSchema = [-3, _s, "RedshiftServiceException", 0, [], []];
+_s_registry.registerError(RedshiftServiceException$, RedshiftServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessToClusterDeniedFault$: StaticErrorSchema = [-3, n0, _ATCDF,
+  { [_aQE]: [`AccessToClusterDenied`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessToClusterDeniedFault$, AccessToClusterDeniedFault);
+export var AccessToSnapshotDeniedFault$: StaticErrorSchema = [-3, n0, _ATSDF,
+  { [_aQE]: [`AccessToSnapshotDenied`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessToSnapshotDeniedFault$, AccessToSnapshotDeniedFault);
+export var AuthenticationProfileAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _APAEF,
+  { [_aQE]: [`AuthenticationProfileAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthenticationProfileAlreadyExistsFault$, AuthenticationProfileAlreadyExistsFault);
+export var AuthenticationProfileNotFoundFault$: StaticErrorSchema = [-3, n0, _APNFF,
+  { [_aQE]: [`AuthenticationProfileNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthenticationProfileNotFoundFault$, AuthenticationProfileNotFoundFault);
+export var AuthenticationProfileQuotaExceededFault$: StaticErrorSchema = [-3, n0, _APQEF,
+  { [_aQE]: [`AuthenticationProfileQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthenticationProfileQuotaExceededFault$, AuthenticationProfileQuotaExceededFault);
+export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AAEF,
+  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthorizationAlreadyExistsFault$, AuthorizationAlreadyExistsFault);
+export var AuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _ANFF,
+  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthorizationNotFoundFault$, AuthorizationNotFoundFault);
+export var AuthorizationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _AQEF,
+  { [_aQE]: [`AuthorizationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AuthorizationQuotaExceededFault$, AuthorizationQuotaExceededFault);
+export var BatchDeleteRequestSizeExceededFault$: StaticErrorSchema = [-3, n0, _BDRSEF,
+  { [_aQE]: [`BatchDeleteRequestSizeExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BatchDeleteRequestSizeExceededFault$, BatchDeleteRequestSizeExceededFault);
+export var BatchModifyClusterSnapshotsLimitExceededFault$: StaticErrorSchema = [-3, n0, _BMCSLEF,
+  { [_aQE]: [`BatchModifyClusterSnapshotsLimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BatchModifyClusterSnapshotsLimitExceededFault$, BatchModifyClusterSnapshotsLimitExceededFault);
+export var BucketNotFoundFault$: StaticErrorSchema = [-3, n0, _BNFF,
+  { [_aQE]: [`BucketNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BucketNotFoundFault$, BucketNotFoundFault);
+export var ClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CAEF,
+  { [_aQE]: [`ClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterAlreadyExistsFault$, ClusterAlreadyExistsFault);
+export var ClusterNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF,
+  { [_aQE]: [`ClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterNotFoundFault$, ClusterNotFoundFault);
+export var ClusterOnLatestRevisionFault$: StaticErrorSchema = [-3, n0, _COLRF,
+  { [_aQE]: [`ClusterOnLatestRevision`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterOnLatestRevisionFault$, ClusterOnLatestRevisionFault);
+export var ClusterParameterGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CPGAEF,
+  { [_aQE]: [`ClusterParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterParameterGroupAlreadyExistsFault$, ClusterParameterGroupAlreadyExistsFault);
+export var ClusterParameterGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CPGNFF,
+  { [_aQE]: [`ClusterParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterParameterGroupNotFoundFault$, ClusterParameterGroupNotFoundFault);
+export var ClusterParameterGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CPGQEF,
+  { [_aQE]: [`ClusterParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterParameterGroupQuotaExceededFault$, ClusterParameterGroupQuotaExceededFault);
+export var ClusterQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CQEF,
+  { [_aQE]: [`ClusterQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterQuotaExceededFault$, ClusterQuotaExceededFault);
+export var ClusterSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEF,
+  { [_aQE]: [`ClusterSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSecurityGroupAlreadyExistsFault$, ClusterSecurityGroupAlreadyExistsFault);
+export var ClusterSecurityGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFF,
+  { [_aQE]: [`ClusterSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSecurityGroupNotFoundFault$, ClusterSecurityGroupNotFoundFault);
+export var ClusterSecurityGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEF,
+  { [_aQE]: [`QuotaExceeded.ClusterSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSecurityGroupQuotaExceededFault$, ClusterSecurityGroupQuotaExceededFault);
+export var ClusterSnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSAEF,
+  { [_aQE]: [`ClusterSnapshotAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSnapshotAlreadyExistsFault$, ClusterSnapshotAlreadyExistsFault);
+export var ClusterSnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _CSNFF,
+  { [_aQE]: [`ClusterSnapshotNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSnapshotNotFoundFault$, ClusterSnapshotNotFoundFault);
+export var ClusterSnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSQEF,
+  { [_aQE]: [`ClusterSnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSnapshotQuotaExceededFault$, ClusterSnapshotQuotaExceededFault);
+export var ClusterSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEFl,
+  { [_aQE]: [`ClusterSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSubnetGroupAlreadyExistsFault$, ClusterSubnetGroupAlreadyExistsFault);
+export var ClusterSubnetGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFFl,
+  { [_aQE]: [`ClusterSubnetGroupNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSubnetGroupNotFoundFault$, ClusterSubnetGroupNotFoundFault);
+export var ClusterSubnetGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEFl,
+  { [_aQE]: [`ClusterSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSubnetGroupQuotaExceededFault$, ClusterSubnetGroupQuotaExceededFault);
+export var ClusterSubnetQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSQEFl,
+  { [_aQE]: [`ClusterSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ClusterSubnetQuotaExceededFault$, ClusterSubnetQuotaExceededFault);
+export var ConflictPolicyUpdateFault$: StaticErrorSchema = [-3, n0, _CPUF,
+  { [_aQE]: [`ConflictPolicyUpdateFault`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictPolicyUpdateFault$, ConflictPolicyUpdateFault);
+export var CopyToRegionDisabledFault$: StaticErrorSchema = [-3, n0, _CTRDF,
+  { [_aQE]: [`CopyToRegionDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CopyToRegionDisabledFault$, CopyToRegionDisabledFault);
+export var CustomCnameAssociationFault$: StaticErrorSchema = [-3, n0, _CCAF,
+  { [_aQE]: [`CustomCnameAssociationFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomCnameAssociationFault$, CustomCnameAssociationFault);
+export var CustomDomainAssociationNotFoundFault$: StaticErrorSchema = [-3, n0, _CDANFF,
+  { [_aQE]: [`CustomDomainAssociationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(CustomDomainAssociationNotFoundFault$, CustomDomainAssociationNotFoundFault);
+export var DependentServiceAccessDeniedFault$: StaticErrorSchema = [-3, n0, _DSADF,
+  { [_aQE]: [`DependentServiceAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependentServiceAccessDeniedFault$, DependentServiceAccessDeniedFault);
+export var DependentServiceRequestThrottlingFault$: StaticErrorSchema = [-3, n0, _DSRTF,
+  { [_aQE]: [`DependentServiceRequestThrottlingFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependentServiceRequestThrottlingFault$, DependentServiceRequestThrottlingFault);
+export var DependentServiceUnavailableFault$: StaticErrorSchema = [-3, n0, _DSUF,
+  { [_aQE]: [`DependentServiceUnavailableFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DependentServiceUnavailableFault$, DependentServiceUnavailableFault);
+export var EndpointAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _EAEF,
+  { [_aQE]: [`EndpointAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointAlreadyExistsFault$, EndpointAlreadyExistsFault);
+export var EndpointAuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _EAAEF,
+  { [_aQE]: [`EndpointAuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointAuthorizationAlreadyExistsFault$, EndpointAuthorizationAlreadyExistsFault);
+export var EndpointAuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _EANFF,
+  { [_aQE]: [`EndpointAuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointAuthorizationNotFoundFault$, EndpointAuthorizationNotFoundFault);
+export var EndpointAuthorizationsPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _EAPCLEF,
+  { [_aQE]: [`EndpointAuthorizationsPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointAuthorizationsPerClusterLimitExceededFault$, EndpointAuthorizationsPerClusterLimitExceededFault);
+export var EndpointNotFoundFault$: StaticErrorSchema = [-3, n0, _ENFF,
+  { [_aQE]: [`EndpointNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointNotFoundFault$, EndpointNotFoundFault);
+export var EndpointsPerAuthorizationLimitExceededFault$: StaticErrorSchema = [-3, n0, _EPALEF,
+  { [_aQE]: [`EndpointsPerAuthorizationLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointsPerAuthorizationLimitExceededFault$, EndpointsPerAuthorizationLimitExceededFault);
+export var EndpointsPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _EPCLEF,
+  { [_aQE]: [`EndpointsPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EndpointsPerClusterLimitExceededFault$, EndpointsPerClusterLimitExceededFault);
+export var EventSubscriptionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _ESQEF,
+  { [_aQE]: [`EventSubscriptionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EventSubscriptionQuotaExceededFault$, EventSubscriptionQuotaExceededFault);
+export var HsmClientCertificateAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _HCCAEF,
+  { [_aQE]: [`HsmClientCertificateAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmClientCertificateAlreadyExistsFault$, HsmClientCertificateAlreadyExistsFault);
+export var HsmClientCertificateNotFoundFault$: StaticErrorSchema = [-3, n0, _HCCNFF,
+  { [_aQE]: [`HsmClientCertificateNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmClientCertificateNotFoundFault$, HsmClientCertificateNotFoundFault);
+export var HsmClientCertificateQuotaExceededFault$: StaticErrorSchema = [-3, n0, _HCCQEF,
+  { [_aQE]: [`HsmClientCertificateQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmClientCertificateQuotaExceededFault$, HsmClientCertificateQuotaExceededFault);
+export var HsmConfigurationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _HCAEF,
+  { [_aQE]: [`HsmConfigurationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmConfigurationAlreadyExistsFault$, HsmConfigurationAlreadyExistsFault);
+export var HsmConfigurationNotFoundFault$: StaticErrorSchema = [-3, n0, _HCNFF,
+  { [_aQE]: [`HsmConfigurationNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmConfigurationNotFoundFault$, HsmConfigurationNotFoundFault);
+export var HsmConfigurationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _HCQEF,
+  { [_aQE]: [`HsmConfigurationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(HsmConfigurationQuotaExceededFault$, HsmConfigurationQuotaExceededFault);
+export var IncompatibleOrderableOptions$: StaticErrorSchema = [-3, n0, _IOO,
+  { [_aQE]: [`IncompatibleOrderableOptions`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IncompatibleOrderableOptions$, IncompatibleOrderableOptions);
+export var InProgressTableRestoreQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IPTRQEF,
+  { [_aQE]: [`InProgressTableRestoreQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InProgressTableRestoreQuotaExceededFault$, InProgressTableRestoreQuotaExceededFault);
+export var InsufficientClusterCapacityFault$: StaticErrorSchema = [-3, n0, _ICCF,
+  { [_aQE]: [`InsufficientClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientClusterCapacityFault$, InsufficientClusterCapacityFault);
+export var InsufficientS3BucketPolicyFault$: StaticErrorSchema = [-3, n0, _ISBPF,
+  { [_aQE]: [`InsufficientS3BucketPolicyFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InsufficientS3BucketPolicyFault$, InsufficientS3BucketPolicyFault);
+export var IntegrationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _IAEF,
+  { [_aQE]: [`IntegrationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationAlreadyExistsFault$, IntegrationAlreadyExistsFault);
+export var IntegrationConflictOperationFault$: StaticErrorSchema = [-3, n0, _ICOF,
+  { [_aQE]: [`IntegrationConflictOperationFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationConflictOperationFault$, IntegrationConflictOperationFault);
+export var IntegrationConflictStateFault$: StaticErrorSchema = [-3, n0, _ICSF,
+  { [_aQE]: [`IntegrationConflictStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationConflictStateFault$, IntegrationConflictStateFault);
+export var IntegrationNotFoundFault$: StaticErrorSchema = [-3, n0, _INFF,
+  { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationNotFoundFault$, IntegrationNotFoundFault);
+export var IntegrationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IQEF,
+  { [_aQE]: [`IntegrationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationQuotaExceededFault$, IntegrationQuotaExceededFault);
+export var IntegrationSourceNotFoundFault$: StaticErrorSchema = [-3, n0, _ISNFF,
+  { [_aQE]: [`IntegrationSourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationSourceNotFoundFault$, IntegrationSourceNotFoundFault);
+export var IntegrationTargetNotFoundFault$: StaticErrorSchema = [-3, n0, _ITNFF,
+  { [_aQE]: [`IntegrationTargetNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(IntegrationTargetNotFoundFault$, IntegrationTargetNotFoundFault);
+export var InvalidAuthenticationProfileRequestFault$: StaticErrorSchema = [-3, n0, _IAPRF,
+  { [_aQE]: [`InvalidAuthenticationProfileRequestFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAuthenticationProfileRequestFault$, InvalidAuthenticationProfileRequestFault);
+export var InvalidAuthorizationStateFault$: StaticErrorSchema = [-3, n0, _IASF,
+  { [_aQE]: [`InvalidAuthorizationState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidAuthorizationStateFault$, InvalidAuthorizationStateFault);
+export var InvalidClusterParameterGroupStateFault$: StaticErrorSchema = [-3, n0, _ICPGSF,
+  { [_aQE]: [`InvalidClusterParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterParameterGroupStateFault$, InvalidClusterParameterGroupStateFault);
+export var InvalidClusterSecurityGroupStateFault$: StaticErrorSchema = [-3, n0, _ICSGSF,
+  { [_aQE]: [`InvalidClusterSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterSecurityGroupStateFault$, InvalidClusterSecurityGroupStateFault);
+export var InvalidClusterSnapshotScheduleStateFault$: StaticErrorSchema = [-3, n0, _ICSSSF,
+  { [_aQE]: [`InvalidClusterSnapshotScheduleState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterSnapshotScheduleStateFault$, InvalidClusterSnapshotScheduleStateFault);
+export var InvalidClusterSnapshotStateFault$: StaticErrorSchema = [-3, n0, _ICSSF,
+  { [_aQE]: [`InvalidClusterSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterSnapshotStateFault$, InvalidClusterSnapshotStateFault);
+export var InvalidClusterStateFault$: StaticErrorSchema = [-3, n0, _ICSFn,
+  { [_aQE]: [`InvalidClusterState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterStateFault$, InvalidClusterStateFault);
+export var InvalidClusterSubnetGroupStateFault$: StaticErrorSchema = [-3, n0, _ICSGSFn,
+  { [_aQE]: [`InvalidClusterSubnetGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterSubnetGroupStateFault$, InvalidClusterSubnetGroupStateFault);
+export var InvalidClusterSubnetStateFault$: StaticErrorSchema = [-3, n0, _ICSSFn,
+  { [_aQE]: [`InvalidClusterSubnetStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterSubnetStateFault$, InvalidClusterSubnetStateFault);
+export var InvalidClusterTrackFault$: StaticErrorSchema = [-3, n0, _ICTF,
+  { [_aQE]: [`InvalidClusterTrack`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidClusterTrackFault$, InvalidClusterTrackFault);
+export var InvalidDataShareFault$: StaticErrorSchema = [-3, n0, _IDSF,
+  { [_aQE]: [`InvalidDataShareFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidDataShareFault$, InvalidDataShareFault);
+export var InvalidElasticIpFault$: StaticErrorSchema = [-3, n0, _IEIF,
+  { [_aQE]: [`InvalidElasticIpFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidElasticIpFault$, InvalidElasticIpFault);
+export var InvalidEndpointStateFault$: StaticErrorSchema = [-3, n0, _IESF,
+  { [_aQE]: [`InvalidEndpointState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidEndpointStateFault$, InvalidEndpointStateFault);
+export var InvalidHsmClientCertificateStateFault$: StaticErrorSchema = [-3, n0, _IHCCSF,
+  { [_aQE]: [`InvalidHsmClientCertificateStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidHsmClientCertificateStateFault$, InvalidHsmClientCertificateStateFault);
+export var InvalidHsmConfigurationStateFault$: StaticErrorSchema = [-3, n0, _IHCSF,
+  { [_aQE]: [`InvalidHsmConfigurationStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidHsmConfigurationStateFault$, InvalidHsmConfigurationStateFault);
+export var InvalidNamespaceFault$: StaticErrorSchema = [-3, n0, _INF,
+  { [_aQE]: [`InvalidNamespaceFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNamespaceFault$, InvalidNamespaceFault);
+export var InvalidPolicyFault$: StaticErrorSchema = [-3, n0, _IPF,
+  { [_aQE]: [`InvalidPolicyFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidPolicyFault$, InvalidPolicyFault);
+export var InvalidReservedNodeStateFault$: StaticErrorSchema = [-3, n0, _IRNSF,
+  { [_aQE]: [`InvalidReservedNodeState`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidReservedNodeStateFault$, InvalidReservedNodeStateFault);
+export var InvalidRestoreFault$: StaticErrorSchema = [-3, n0, _IRF,
+  { [_aQE]: [`InvalidRestore`, 406], [_e]: _c, [_hE]: 406 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRestoreFault$, InvalidRestoreFault);
+export var InvalidRetentionPeriodFault$: StaticErrorSchema = [-3, n0, _IRPF,
+  { [_aQE]: [`InvalidRetentionPeriodFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRetentionPeriodFault$, InvalidRetentionPeriodFault);
+export var InvalidS3BucketNameFault$: StaticErrorSchema = [-3, n0, _ISBNF,
+  { [_aQE]: [`InvalidS3BucketNameFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3BucketNameFault$, InvalidS3BucketNameFault);
+export var InvalidS3KeyPrefixFault$: StaticErrorSchema = [-3, n0, _ISKPF,
+  { [_aQE]: [`InvalidS3KeyPrefixFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3KeyPrefixFault$, InvalidS3KeyPrefixFault);
+export var InvalidScheduledActionFault$: StaticErrorSchema = [-3, n0, _ISAF,
+  { [_aQE]: [`InvalidScheduledAction`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidScheduledActionFault$, InvalidScheduledActionFault);
+export var InvalidScheduleFault$: StaticErrorSchema = [-3, n0, _ISF,
+  { [_aQE]: [`InvalidSchedule`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidScheduleFault$, InvalidScheduleFault);
+export var InvalidSnapshotCopyGrantStateFault$: StaticErrorSchema = [-3, n0, _ISCGSF,
+  { [_aQE]: [`InvalidSnapshotCopyGrantStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSnapshotCopyGrantStateFault$, InvalidSnapshotCopyGrantStateFault);
+export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS,
+  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSubnet$, InvalidSubnet);
+export var InvalidSubscriptionStateFault$: StaticErrorSchema = [-3, n0, _ISSF,
+  { [_aQE]: [`InvalidSubscriptionStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSubscriptionStateFault$, InvalidSubscriptionStateFault);
+export var InvalidTableRestoreArgumentFault$: StaticErrorSchema = [-3, n0, _ITRAF,
+  { [_aQE]: [`InvalidTableRestoreArgument`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTableRestoreArgumentFault$, InvalidTableRestoreArgumentFault);
+export var InvalidTagFault$: StaticErrorSchema = [-3, n0, _ITF,
+  { [_aQE]: [`InvalidTagFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTagFault$, InvalidTagFault);
+export var InvalidUsageLimitFault$: StaticErrorSchema = [-3, n0, _IULF,
+  { [_aQE]: [`InvalidUsageLimit`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidUsageLimitFault$, InvalidUsageLimitFault);
+export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [-3, n0, _IVPCNSF,
+  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
+export var Ipv6CidrBlockNotFoundFault$: StaticErrorSchema = [-3, n0, _ICBNFF,
+  { [_aQE]: [`Ipv6CidrBlockNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(Ipv6CidrBlockNotFoundFault$, Ipv6CidrBlockNotFoundFault);
+export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
+  { [_aQE]: [`LimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededFault$, LimitExceededFault);
+export var NumberOfNodesPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _NONPCLEF,
+  { [_aQE]: [`NumberOfNodesPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NumberOfNodesPerClusterLimitExceededFault$, NumberOfNodesPerClusterLimitExceededFault);
+export var NumberOfNodesQuotaExceededFault$: StaticErrorSchema = [-3, n0, _NONQEF,
+  { [_aQE]: [`NumberOfNodesQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NumberOfNodesQuotaExceededFault$, NumberOfNodesQuotaExceededFault);
+export var PartnerNotFoundFault$: StaticErrorSchema = [-3, n0, _PNFF,
+  { [_aQE]: [`PartnerNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(PartnerNotFoundFault$, PartnerNotFoundFault);
+export var RedshiftIdcApplicationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RIAAEF,
+  { [_aQE]: [`RedshiftIdcApplicationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RedshiftIdcApplicationAlreadyExistsFault$, RedshiftIdcApplicationAlreadyExistsFault);
+export var RedshiftIdcApplicationNotExistsFault$: StaticErrorSchema = [-3, n0, _RIANEF,
+  { [_aQE]: [`RedshiftIdcApplicationNotExists`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RedshiftIdcApplicationNotExistsFault$, RedshiftIdcApplicationNotExistsFault);
+export var RedshiftIdcApplicationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RIAQEF,
+  { [_aQE]: [`RedshiftIdcApplicationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RedshiftIdcApplicationQuotaExceededFault$, RedshiftIdcApplicationQuotaExceededFault);
+export var RedshiftInvalidParameterFault$: StaticErrorSchema = [-3, n0, _RIPF,
+  { [_aQE]: [`RedshiftInvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RedshiftInvalidParameterFault$, RedshiftInvalidParameterFault);
+export var ReservedNodeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RNAEF,
+  { [_aQE]: [`ReservedNodeAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeAlreadyExistsFault$, ReservedNodeAlreadyExistsFault);
+export var ReservedNodeAlreadyMigratedFault$: StaticErrorSchema = [-3, n0, _RNAMF,
+  { [_aQE]: [`ReservedNodeAlreadyMigrated`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeAlreadyMigratedFault$, ReservedNodeAlreadyMigratedFault);
+export var ReservedNodeExchangeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNENFF,
+  { [_aQE]: [`ReservedNodeExchangeNotFond`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeExchangeNotFoundFault$, ReservedNodeExchangeNotFoundFault);
+export var ReservedNodeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNNFF,
+  { [_aQE]: [`ReservedNodeNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeNotFoundFault$, ReservedNodeNotFoundFault);
+export var ReservedNodeOfferingNotFoundFault$: StaticErrorSchema = [-3, n0, _RNONFF,
+  { [_aQE]: [`ReservedNodeOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeOfferingNotFoundFault$, ReservedNodeOfferingNotFoundFault);
+export var ReservedNodeQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RNQEF,
+  { [_aQE]: [`ReservedNodeQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ReservedNodeQuotaExceededFault$, ReservedNodeQuotaExceededFault);
+export var ResizeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF,
+  { [_aQE]: [`ResizeNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResizeNotFoundFault$, ResizeNotFoundFault);
+export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFFe,
+  { [_aQE]: [`ResourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
+export var ScheduledActionAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SAAEF,
+  { [_aQE]: [`ScheduledActionAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScheduledActionAlreadyExistsFault$, ScheduledActionAlreadyExistsFault);
+export var ScheduledActionNotFoundFault$: StaticErrorSchema = [-3, n0, _SANFF,
+  { [_aQE]: [`ScheduledActionNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScheduledActionNotFoundFault$, ScheduledActionNotFoundFault);
+export var ScheduledActionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SAQEF,
+  { [_aQE]: [`ScheduledActionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScheduledActionQuotaExceededFault$, ScheduledActionQuotaExceededFault);
+export var ScheduledActionTypeUnsupportedFault$: StaticErrorSchema = [-3, n0, _SATUF,
+  { [_aQE]: [`ScheduledActionTypeUnsupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScheduledActionTypeUnsupportedFault$, ScheduledActionTypeUnsupportedFault);
+export var ScheduleDefinitionTypeUnsupportedFault$: StaticErrorSchema = [-3, n0, _SDTUF,
+  { [_aQE]: [`ScheduleDefinitionTypeUnsupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ScheduleDefinitionTypeUnsupportedFault$, ScheduleDefinitionTypeUnsupportedFault);
+export var SnapshotCopyAlreadyDisabledFault$: StaticErrorSchema = [-3, n0, _SCADF,
+  { [_aQE]: [`SnapshotCopyAlreadyDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyAlreadyDisabledFault$, SnapshotCopyAlreadyDisabledFault);
+export var SnapshotCopyAlreadyEnabledFault$: StaticErrorSchema = [-3, n0, _SCAEF,
+  { [_aQE]: [`SnapshotCopyAlreadyEnabledFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyAlreadyEnabledFault$, SnapshotCopyAlreadyEnabledFault);
+export var SnapshotCopyDisabledFault$: StaticErrorSchema = [-3, n0, _SCDF,
+  { [_aQE]: [`SnapshotCopyDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyDisabledFault$, SnapshotCopyDisabledFault);
+export var SnapshotCopyGrantAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SCGAEF,
+  { [_aQE]: [`SnapshotCopyGrantAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyGrantAlreadyExistsFault$, SnapshotCopyGrantAlreadyExistsFault);
+export var SnapshotCopyGrantNotFoundFault$: StaticErrorSchema = [-3, n0, _SCGNFF,
+  { [_aQE]: [`SnapshotCopyGrantNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyGrantNotFoundFault$, SnapshotCopyGrantNotFoundFault);
+export var SnapshotCopyGrantQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SCGQEF,
+  { [_aQE]: [`SnapshotCopyGrantQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotCopyGrantQuotaExceededFault$, SnapshotCopyGrantQuotaExceededFault);
+export var SnapshotScheduleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SSAEF,
+  { [_aQE]: [`SnapshotScheduleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotScheduleAlreadyExistsFault$, SnapshotScheduleAlreadyExistsFault);
+export var SnapshotScheduleNotFoundFault$: StaticErrorSchema = [-3, n0, _SSNFF,
+  { [_aQE]: [`SnapshotScheduleNotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotScheduleNotFoundFault$, SnapshotScheduleNotFoundFault);
+export var SnapshotScheduleQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SSQEF,
+  { [_aQE]: [`SnapshotScheduleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotScheduleQuotaExceededFault$, SnapshotScheduleQuotaExceededFault);
+export var SnapshotScheduleUpdateInProgressFault$: StaticErrorSchema = [-3, n0, _SSUIPF,
+  { [_aQE]: [`SnapshotScheduleUpdateInProgress`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SnapshotScheduleUpdateInProgressFault$, SnapshotScheduleUpdateInProgressFault);
+export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
+  { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
+export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF,
+  { [_aQE]: [`SNSNoAuthorization`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
+export var SNSTopicArnNotFoundFault$: StaticErrorSchema = [-3, n0, _SNSTANFF,
+  { [_aQE]: [`SNSTopicArnNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SNSTopicArnNotFoundFault$, SNSTopicArnNotFoundFault);
+export var SourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFF,
+  { [_aQE]: [`SourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SourceNotFoundFault$, SourceNotFoundFault);
+export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU,
+  { [_aQE]: [`SubnetAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
+export var SubscriptionAlreadyExistFault$: StaticErrorSchema = [-3, n0, _SAEF,
+  { [_aQE]: [`SubscriptionAlreadyExist`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubscriptionAlreadyExistFault$, SubscriptionAlreadyExistFault);
+export var SubscriptionCategoryNotFoundFault$: StaticErrorSchema = [-3, n0, _SCNFF,
+  { [_aQE]: [`SubscriptionCategoryNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubscriptionCategoryNotFoundFault$, SubscriptionCategoryNotFoundFault);
+export var SubscriptionEventIdNotFoundFault$: StaticErrorSchema = [-3, n0, _SEINFF,
+  { [_aQE]: [`SubscriptionEventIdNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubscriptionEventIdNotFoundFault$, SubscriptionEventIdNotFoundFault);
+export var SubscriptionNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFFu,
+  { [_aQE]: [`SubscriptionNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubscriptionNotFoundFault$, SubscriptionNotFoundFault);
+export var SubscriptionSeverityNotFoundFault$: StaticErrorSchema = [-3, n0, _SSNFFu,
+  { [_aQE]: [`SubscriptionSeverityNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SubscriptionSeverityNotFoundFault$, SubscriptionSeverityNotFoundFault);
+export var TableLimitExceededFault$: StaticErrorSchema = [-3, n0, _TLEF,
+  { [_aQE]: [`TableLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TableLimitExceededFault$, TableLimitExceededFault);
+export var TableRestoreNotFoundFault$: StaticErrorSchema = [-3, n0, _TRNFF,
+  { [_aQE]: [`TableRestoreNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TableRestoreNotFoundFault$, TableRestoreNotFoundFault);
+export var TagLimitExceededFault$: StaticErrorSchema = [-3, n0, _TLEFa,
+  { [_aQE]: [`TagLimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TagLimitExceededFault$, TagLimitExceededFault);
+export var UnauthorizedOperation$: StaticErrorSchema = [-3, n0, _UO,
+  { [_aQE]: [`UnauthorizedOperation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedOperation$, UnauthorizedOperation);
+export var UnauthorizedPartnerIntegrationFault$: StaticErrorSchema = [-3, n0, _UPIF,
+  { [_aQE]: [`UnauthorizedPartnerIntegration`, 401], [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedPartnerIntegrationFault$, UnauthorizedPartnerIntegrationFault);
+export var UnknownSnapshotCopyRegionFault$: StaticErrorSchema = [-3, n0, _USCRF,
+  { [_aQE]: [`UnknownSnapshotCopyRegionFault`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnknownSnapshotCopyRegionFault$, UnknownSnapshotCopyRegionFault);
+export var UnsupportedOperationFault$: StaticErrorSchema = [-3, n0, _UOF,
+  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationFault$, UnsupportedOperationFault);
+export var UnsupportedOptionFault$: StaticErrorSchema = [-3, n0, _UOFn,
+  { [_aQE]: [`UnsupportedOptionFault`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOptionFault$, UnsupportedOptionFault);
+export var UsageLimitAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _ULAEF,
+  { [_aQE]: [`UsageLimitAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UsageLimitAlreadyExistsFault$, UsageLimitAlreadyExistsFault);
+export var UsageLimitNotFoundFault$: StaticErrorSchema = [-3, n0, _ULNFF,
+  { [_aQE]: [`UsageLimitNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UsageLimitNotFoundFault$, UsageLimitNotFoundFault);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AcceptReservedNodeExchangeInputMessage$: StaticStructureSchema = [3, n0, _ARNEIM,
   0,
@@ -1322,18 +2193,6 @@ export var AcceptReservedNodeExchangeOutputMessage$: StaticStructureSchema = [3,
   [_ERN],
   [[() => ReservedNode$, 0]]
 ];
-export var AccessToClusterDeniedFault$: StaticErrorSchema = [-3, n0, _ATCDF,
-  { [_aQE]: [`AccessToClusterDenied`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessToClusterDeniedFault$, AccessToClusterDeniedFault);
-export var AccessToSnapshotDeniedFault$: StaticErrorSchema = [-3, n0, _ATSDF,
-  { [_aQE]: [`AccessToSnapshotDenied`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessToSnapshotDeniedFault$, AccessToSnapshotDeniedFault);
 export var AccountAttribute$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_AN, _AV],
@@ -1374,42 +2233,6 @@ export var AuthenticationProfile$: StaticStructureSchema = [3, n0, _AP,
   [_APN, _APC],
   [0, 0]
 ];
-export var AuthenticationProfileAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _APAEF,
-  { [_aQE]: [`AuthenticationProfileAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthenticationProfileAlreadyExistsFault$, AuthenticationProfileAlreadyExistsFault);
-export var AuthenticationProfileNotFoundFault$: StaticErrorSchema = [-3, n0, _APNFF,
-  { [_aQE]: [`AuthenticationProfileNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthenticationProfileNotFoundFault$, AuthenticationProfileNotFoundFault);
-export var AuthenticationProfileQuotaExceededFault$: StaticErrorSchema = [-3, n0, _APQEF,
-  { [_aQE]: [`AuthenticationProfileQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthenticationProfileQuotaExceededFault$, AuthenticationProfileQuotaExceededFault);
-export var AuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AAEF,
-  { [_aQE]: [`AuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthorizationAlreadyExistsFault$, AuthorizationAlreadyExistsFault);
-export var AuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _ANFF,
-  { [_aQE]: [`AuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthorizationNotFoundFault$, AuthorizationNotFoundFault);
-export var AuthorizationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _AQEF,
-  { [_aQE]: [`AuthorizationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthorizationQuotaExceededFault$, AuthorizationQuotaExceededFault);
 export var AuthorizeClusterSecurityGroupIngressMessage$: StaticStructureSchema = [3, n0, _ACSGIM,
   0,
   [_CSGN, _CIDRIP, _ECSGN, _ECSGOI],
@@ -1460,18 +2283,6 @@ export var BatchDeleteClusterSnapshotsResult$: StaticStructureSchema = [3, n0, _
   [_R, _E],
   [[() => SnapshotIdentifierList, 0], [() => BatchSnapshotOperationErrorList, 0]]
 ];
-export var BatchDeleteRequestSizeExceededFault$: StaticErrorSchema = [-3, n0, _BDRSEF,
-  { [_aQE]: [`BatchDeleteRequestSizeExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BatchDeleteRequestSizeExceededFault$, BatchDeleteRequestSizeExceededFault);
-export var BatchModifyClusterSnapshotsLimitExceededFault$: StaticErrorSchema = [-3, n0, _BMCSLEF,
-  { [_aQE]: [`BatchModifyClusterSnapshotsLimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BatchModifyClusterSnapshotsLimitExceededFault$, BatchModifyClusterSnapshotsLimitExceededFault);
 export var BatchModifyClusterSnapshotsMessage$: StaticStructureSchema = [3, n0, _BMCSM,
   0,
   [_SIL, _MSRP, _F],
@@ -1482,12 +2293,6 @@ export var BatchModifyClusterSnapshotsOutputMessage$: StaticStructureSchema = [3
   [_R, _E],
   [[() => SnapshotIdentifierList, 0], [() => BatchSnapshotOperationErrors, 0]]
 ];
-export var BucketNotFoundFault$: StaticErrorSchema = [-3, n0, _BNFF,
-  { [_aQE]: [`BucketNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BucketNotFoundFault$, BucketNotFoundFault);
 export var CancelResizeMessage$: StaticStructureSchema = [3, n0, _CRM,
   0,
   [_CIl],
@@ -1503,12 +2308,6 @@ export var Cluster$: StaticStructureSchema = [3, n0, _C,
   [_CIl, _NT, _CS, _CAS, _MS, _MU, _DBN, _En, _CCT, _ASRP, _MSRP, _CSGl, _VSG, _CPG, _CSGNl, _VIp, _AZ, _PMW, _PMV, _CV, _AVU, _NON, _PA, _Enc, _RS, _DTP, _HS, _CSCS, _CPK, _CN, _EIS, _CRN, _T, _KKI, _EVR, _IR, _PAe, _MTN, _ERNONO, _DMW, _SSI, _SSS, _ENSST, _ENSSTS, _NMWST, _RI, _AZRS, _CNA, _TSCIMB, _AC, _DIRA, _RNES, _CDN, _CDCA, _CDCED, _MPSA, _MPSKKI, _IAT, _MAZ, _MAZS, _LRS, _CAa, _ECFAO],
   [0, 0, 0, 0, 0, 0, 0, [() => Endpoint$, 0], 4, 1, 1, [() => ClusterSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => ClusterParameterGroupStatusList, 0], 0, 0, 0, 0, [() => PendingModifiedValues$, 0], 0, 2, 1, 2, 2, () => RestoreStatus$, () => DataTransferProgress$, () => HsmStatus$, () => ClusterSnapshotCopyStatus$, 0, () => ClusterNodesList, () => ElasticIpStatus$, 0, [() => TagList, 0], 0, 2, [() => ClusterIamRoleList, 0], 64 | 0, 0, 0, [() => DeferredMaintenanceWindowsList, 0], 0, 0, 4, 0, 4, () => ResizeInfo$, 0, 0, 1, () => AquaConfiguration$, 0, () => ReservedNodeExchangeStatus$, 0, 0, 4, 0, 0, 0, 0, () => SecondaryClusterInfo$, 0, 0, 0]
 ];
-export var ClusterAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CAEF,
-  { [_aQE]: [`ClusterAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterAlreadyExistsFault$, ClusterAlreadyExistsFault);
 export var ClusterAssociatedToSchedule$: StaticStructureSchema = [3, n0, _CATS,
   0,
   [_CIl, _SAS],
@@ -1544,29 +2343,11 @@ export var ClusterNode$: StaticStructureSchema = [3, n0, _CNl,
   [_NR, _PIPA, _PIPAu],
   [0, 0, 0]
 ];
-export var ClusterNotFoundFault$: StaticErrorSchema = [-3, n0, _CNFF,
-  { [_aQE]: [`ClusterNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterNotFoundFault$, ClusterNotFoundFault);
-export var ClusterOnLatestRevisionFault$: StaticErrorSchema = [-3, n0, _COLRF,
-  { [_aQE]: [`ClusterOnLatestRevision`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterOnLatestRevisionFault$, ClusterOnLatestRevisionFault);
 export var ClusterParameterGroup$: StaticStructureSchema = [3, n0, _CPGl,
   0,
   [_PGN, _PGF, _D, _T],
   [0, 0, 0, [() => TagList, 0]]
 ];
-export var ClusterParameterGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CPGAEF,
-  { [_aQE]: [`ClusterParameterGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterParameterGroupAlreadyExistsFault$, ClusterParameterGroupAlreadyExistsFault);
 export var ClusterParameterGroupDetails$: StaticStructureSchema = [3, n0, _CPGD,
   0,
   [_P, _M],
@@ -1577,18 +2358,6 @@ export var ClusterParameterGroupNameMessage$: StaticStructureSchema = [3, n0, _C
   [_PGN, _PGS],
   [0, 0]
 ];
-export var ClusterParameterGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CPGNFF,
-  { [_aQE]: [`ClusterParameterGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterParameterGroupNotFoundFault$, ClusterParameterGroupNotFoundFault);
-export var ClusterParameterGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CPGQEF,
-  { [_aQE]: [`ClusterParameterGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterParameterGroupQuotaExceededFault$, ClusterParameterGroupQuotaExceededFault);
 export var ClusterParameterGroupsMessage$: StaticStructureSchema = [3, n0, _CPGM,
   0,
   [_M, _PG],
@@ -1604,23 +2373,11 @@ export var ClusterParameterStatus$: StaticStructureSchema = [3, n0, _CPS,
   [_PN, _PAS, _PAED],
   [0, 0, 0]
 ];
-export var ClusterQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CQEF,
-  { [_aQE]: [`ClusterQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterQuotaExceededFault$, ClusterQuotaExceededFault);
 export var ClusterSecurityGroup$: StaticStructureSchema = [3, n0, _CSG,
   0,
   [_CSGN, _D, _ECSG, _IPR, _T],
   [0, 0, [() => EC2SecurityGroupList, 0], [() => IPRangeList, 0], [() => TagList, 0]]
 ];
-export var ClusterSecurityGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEF,
-  { [_aQE]: [`ClusterSecurityGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSecurityGroupAlreadyExistsFault$, ClusterSecurityGroupAlreadyExistsFault);
 export var ClusterSecurityGroupMembership$: StaticStructureSchema = [3, n0, _CSGM,
   0,
   [_CSGN, _St],
@@ -1631,80 +2388,26 @@ export var ClusterSecurityGroupMessage$: StaticStructureSchema = [3, n0, _CSGMl,
   [_M, _CSGl],
   [0, [() => ClusterSecurityGroups, 0]]
 ];
-export var ClusterSecurityGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFF,
-  { [_aQE]: [`ClusterSecurityGroupNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSecurityGroupNotFoundFault$, ClusterSecurityGroupNotFoundFault);
-export var ClusterSecurityGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEF,
-  { [_aQE]: [`QuotaExceeded.ClusterSecurityGroup`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSecurityGroupQuotaExceededFault$, ClusterSecurityGroupQuotaExceededFault);
 export var ClustersMessage$: StaticStructureSchema = [3, n0, _CM,
   0,
   [_M, _Cl],
   [0, [() => ClusterList, 0]]
 ];
-export var ClusterSnapshotAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSAEF,
-  { [_aQE]: [`ClusterSnapshotAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSnapshotAlreadyExistsFault$, ClusterSnapshotAlreadyExistsFault);
 export var ClusterSnapshotCopyStatus$: StaticStructureSchema = [3, n0, _CSCS,
   0,
   [_DR, _RP, _MSRP, _SCGN],
   [0, 1, 1, 0]
 ];
-export var ClusterSnapshotNotFoundFault$: StaticErrorSchema = [-3, n0, _CSNFF,
-  { [_aQE]: [`ClusterSnapshotNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSnapshotNotFoundFault$, ClusterSnapshotNotFoundFault);
-export var ClusterSnapshotQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSQEF,
-  { [_aQE]: [`ClusterSnapshotQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSnapshotQuotaExceededFault$, ClusterSnapshotQuotaExceededFault);
 export var ClusterSubnetGroup$: StaticStructureSchema = [3, n0, _CSGlu,
   0,
   [_CSGNl, _D, _VIp, _SGS, _Su, _T, _SCIAT],
   [0, 0, 0, 0, [() => SubnetList, 0], [() => TagList, 0], [() => ValueStringList, 0]]
 ];
-export var ClusterSubnetGroupAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _CSGAEFl,
-  { [_aQE]: [`ClusterSubnetGroupAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSubnetGroupAlreadyExistsFault$, ClusterSubnetGroupAlreadyExistsFault);
 export var ClusterSubnetGroupMessage$: StaticStructureSchema = [3, n0, _CSGMlu,
   0,
   [_M, _CSGlus],
   [0, [() => ClusterSubnetGroups, 0]]
 ];
-export var ClusterSubnetGroupNotFoundFault$: StaticErrorSchema = [-3, n0, _CSGNFFl,
-  { [_aQE]: [`ClusterSubnetGroupNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSubnetGroupNotFoundFault$, ClusterSubnetGroupNotFoundFault);
-export var ClusterSubnetGroupQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSGQEFl,
-  { [_aQE]: [`ClusterSubnetGroupQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSubnetGroupQuotaExceededFault$, ClusterSubnetGroupQuotaExceededFault);
-export var ClusterSubnetQuotaExceededFault$: StaticErrorSchema = [-3, n0, _CSQEFl,
-  { [_aQE]: [`ClusterSubnetQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ClusterSubnetQuotaExceededFault$, ClusterSubnetQuotaExceededFault);
 export var ClusterVersion$: StaticStructureSchema = [3, n0, _CV,
   0,
   [_CV, _CPGF, _D],
@@ -1715,12 +2418,6 @@ export var ClusterVersionsMessage$: StaticStructureSchema = [3, n0, _CVM,
   [_M, _CVl],
   [0, [() => ClusterVersionList, 0]]
 ];
-export var ConflictPolicyUpdateFault$: StaticErrorSchema = [-3, n0, _CPUF,
-  { [_aQE]: [`ConflictPolicyUpdateFault`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictPolicyUpdateFault$, ConflictPolicyUpdateFault);
 export var Connect$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_Au],
@@ -1736,12 +2433,6 @@ export var CopyClusterSnapshotResult$: StaticStructureSchema = [3, n0, _CCSR,
   [_S],
   [[() => Snapshot$, 0]]
 ];
-export var CopyToRegionDisabledFault$: StaticErrorSchema = [-3, n0, _CTRDF,
-  { [_aQE]: [`CopyToRegionDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CopyToRegionDisabledFault$, CopyToRegionDisabledFault);
 export var CreateAuthenticationProfileMessage$: StaticStructureSchema = [3, n0, _CAPM,
   0,
   [_APN, _APC],
@@ -1892,18 +2583,6 @@ export var CreateUsageLimitMessage$: StaticStructureSchema = [3, n0, _CULM,
   [_CIl, _FT, _LT, _Am, _Pe, _BA, _T],
   [0, 0, 0, 1, 0, 0, [() => TagList, 0]], 4
 ];
-export var CustomCnameAssociationFault$: StaticErrorSchema = [-3, n0, _CCAF,
-  { [_aQE]: [`CustomCnameAssociationFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomCnameAssociationFault$, CustomCnameAssociationFault);
-export var CustomDomainAssociationNotFoundFault$: StaticErrorSchema = [-3, n0, _CDANFF,
-  { [_aQE]: [`CustomDomainAssociationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(CustomDomainAssociationNotFoundFault$, CustomDomainAssociationNotFoundFault);
 export var CustomDomainAssociationsMessage$: StaticStructureSchema = [3, n0, _CDAM,
   0,
   [_M, _As],
@@ -2054,24 +2733,6 @@ export var DeleteUsageLimitMessage$: StaticStructureSchema = [3, n0, _DULM,
   [_ULI],
   [0], 1
 ];
-export var DependentServiceAccessDeniedFault$: StaticErrorSchema = [-3, n0, _DSADF,
-  { [_aQE]: [`DependentServiceAccessDenied`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependentServiceAccessDeniedFault$, DependentServiceAccessDeniedFault);
-export var DependentServiceRequestThrottlingFault$: StaticErrorSchema = [-3, n0, _DSRTF,
-  { [_aQE]: [`DependentServiceRequestThrottlingFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependentServiceRequestThrottlingFault$, DependentServiceRequestThrottlingFault);
-export var DependentServiceUnavailableFault$: StaticErrorSchema = [-3, n0, _DSUF,
-  { [_aQE]: [`DependentServiceUnavailableFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependentServiceUnavailableFault$, DependentServiceUnavailableFault);
 export var DeregisterNamespaceInputMessage$: StaticStructureSchema = [3, n0, _DNIM,
   0,
   [_NIa, _CIo],
@@ -2392,58 +3053,16 @@ export var EndpointAccessList$: StaticStructureSchema = [3, n0, _EAL,
   [_EAL, _M],
   [[() => EndpointAccesses, 0], 0]
 ];
-export var EndpointAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _EAEF,
-  { [_aQE]: [`EndpointAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointAlreadyExistsFault$, EndpointAlreadyExistsFault);
 export var EndpointAuthorization$: StaticStructureSchema = [3, n0, _EAn,
   0,
   [_Gr, _G, _CIl, _ATu, _CS, _St, _AAVPC, _AVPC, _ECn],
   [0, 0, 0, 4, 0, 0, 2, [() => VpcIdentifierList, 0], 1]
 ];
-export var EndpointAuthorizationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _EAAEF,
-  { [_aQE]: [`EndpointAuthorizationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointAuthorizationAlreadyExistsFault$, EndpointAuthorizationAlreadyExistsFault);
 export var EndpointAuthorizationList$: StaticStructureSchema = [3, n0, _EALn,
   0,
   [_EALn, _M],
   [[() => EndpointAuthorizations, 0], 0]
 ];
-export var EndpointAuthorizationNotFoundFault$: StaticErrorSchema = [-3, n0, _EANFF,
-  { [_aQE]: [`EndpointAuthorizationNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointAuthorizationNotFoundFault$, EndpointAuthorizationNotFoundFault);
-export var EndpointAuthorizationsPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _EAPCLEF,
-  { [_aQE]: [`EndpointAuthorizationsPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointAuthorizationsPerClusterLimitExceededFault$, EndpointAuthorizationsPerClusterLimitExceededFault);
-export var EndpointNotFoundFault$: StaticErrorSchema = [-3, n0, _ENFF,
-  { [_aQE]: [`EndpointNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointNotFoundFault$, EndpointNotFoundFault);
-export var EndpointsPerAuthorizationLimitExceededFault$: StaticErrorSchema = [-3, n0, _EPALEF,
-  { [_aQE]: [`EndpointsPerAuthorizationLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointsPerAuthorizationLimitExceededFault$, EndpointsPerAuthorizationLimitExceededFault);
-export var EndpointsPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _EPCLEF,
-  { [_aQE]: [`EndpointsPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EndpointsPerClusterLimitExceededFault$, EndpointsPerClusterLimitExceededFault);
 export var Event$: StaticStructureSchema = [3, n0, _Ev,
   0,
   [_SIou, _ST, _Me, _EC, _Se, _Da, _EIv],
@@ -2474,12 +3093,6 @@ export var EventSubscription$: StaticStructureSchema = [3, n0, _ES,
   [_CAI, _CSI, _STA, _St, _SCT, _ST, _SILo, _ECL, _Se, _Ena, _T],
   [0, 0, 0, 0, 4, 0, [() => SourceIdsList, 0], [() => EventCategoriesList, 0], 0, 2, [() => TagList, 0]]
 ];
-export var EventSubscriptionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _ESQEF,
-  { [_aQE]: [`EventSubscriptionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EventSubscriptionQuotaExceededFault$, EventSubscriptionQuotaExceededFault);
 export var EventSubscriptionsMessage$: StaticStructureSchema = [3, n0, _ESM,
   0,
   [_M, _ESL],
@@ -2550,57 +3163,21 @@ export var HsmClientCertificate$: StaticStructureSchema = [3, n0, _HCC,
   [_HCCI, _HCCPK, _T],
   [0, 0, [() => TagList, 0]]
 ];
-export var HsmClientCertificateAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _HCCAEF,
-  { [_aQE]: [`HsmClientCertificateAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmClientCertificateAlreadyExistsFault$, HsmClientCertificateAlreadyExistsFault);
 export var HsmClientCertificateMessage$: StaticStructureSchema = [3, n0, _HCCM,
   0,
   [_M, _HCCs],
   [0, [() => HsmClientCertificateList, 0]]
 ];
-export var HsmClientCertificateNotFoundFault$: StaticErrorSchema = [-3, n0, _HCCNFF,
-  { [_aQE]: [`HsmClientCertificateNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmClientCertificateNotFoundFault$, HsmClientCertificateNotFoundFault);
-export var HsmClientCertificateQuotaExceededFault$: StaticErrorSchema = [-3, n0, _HCCQEF,
-  { [_aQE]: [`HsmClientCertificateQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmClientCertificateQuotaExceededFault$, HsmClientCertificateQuotaExceededFault);
 export var HsmConfiguration$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_HCI, _D, _HIA, _HPN, _T],
   [0, 0, 0, 0, [() => TagList, 0]]
 ];
-export var HsmConfigurationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _HCAEF,
-  { [_aQE]: [`HsmConfigurationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmConfigurationAlreadyExistsFault$, HsmConfigurationAlreadyExistsFault);
 export var HsmConfigurationMessage$: StaticStructureSchema = [3, n0, _HCM,
   0,
   [_M, _HCs],
   [0, [() => HsmConfigurationList, 0]]
 ];
-export var HsmConfigurationNotFoundFault$: StaticErrorSchema = [-3, n0, _HCNFF,
-  { [_aQE]: [`HsmConfigurationNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmConfigurationNotFoundFault$, HsmConfigurationNotFoundFault);
-export var HsmConfigurationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _HCQEF,
-  { [_aQE]: [`HsmConfigurationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(HsmConfigurationQuotaExceededFault$, HsmConfigurationQuotaExceededFault);
 export var HsmStatus$: StaticStructureSchema = [3, n0, _HS,
   0,
   [_HCCI, _HCI, _St],
@@ -2616,284 +3193,26 @@ export var InboundIntegrationsMessage$: StaticStructureSchema = [3, n0, _IIM,
   [_M, _IIn],
   [0, [() => InboundIntegrationList, 0]]
 ];
-export var IncompatibleOrderableOptions$: StaticErrorSchema = [-3, n0, _IOO,
-  { [_aQE]: [`IncompatibleOrderableOptions`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IncompatibleOrderableOptions$, IncompatibleOrderableOptions);
-export var InProgressTableRestoreQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IPTRQEF,
-  { [_aQE]: [`InProgressTableRestoreQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InProgressTableRestoreQuotaExceededFault$, InProgressTableRestoreQuotaExceededFault);
-export var InsufficientClusterCapacityFault$: StaticErrorSchema = [-3, n0, _ICCF,
-  { [_aQE]: [`InsufficientClusterCapacity`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientClusterCapacityFault$, InsufficientClusterCapacityFault);
-export var InsufficientS3BucketPolicyFault$: StaticErrorSchema = [-3, n0, _ISBPF,
-  { [_aQE]: [`InsufficientS3BucketPolicyFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InsufficientS3BucketPolicyFault$, InsufficientS3BucketPolicyFault);
 export var Integration$: StaticStructureSchema = [3, n0, _In,
   0,
   [_IA, _IN, _SAo, _TA, _St, _E, _CTr, _D, _KMSKI, _AEC, _T],
   [0, 0, 0, 0, 0, [() => IntegrationErrorList, 0], 4, 0, 0, 128 | 0, [() => TagList, 0]]
 ];
-export var IntegrationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _IAEF,
-  { [_aQE]: [`IntegrationAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationAlreadyExistsFault$, IntegrationAlreadyExistsFault);
-export var IntegrationConflictOperationFault$: StaticErrorSchema = [-3, n0, _ICOF,
-  { [_aQE]: [`IntegrationConflictOperationFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationConflictOperationFault$, IntegrationConflictOperationFault);
-export var IntegrationConflictStateFault$: StaticErrorSchema = [-3, n0, _ICSF,
-  { [_aQE]: [`IntegrationConflictStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationConflictStateFault$, IntegrationConflictStateFault);
 export var IntegrationError$: StaticStructureSchema = [3, n0, _IE,
   0,
   [_ECr, _EMr],
   [0, 0], 1
 ];
-export var IntegrationNotFoundFault$: StaticErrorSchema = [-3, n0, _INFF,
-  { [_aQE]: [`IntegrationNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationNotFoundFault$, IntegrationNotFoundFault);
-export var IntegrationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _IQEF,
-  { [_aQE]: [`IntegrationQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationQuotaExceededFault$, IntegrationQuotaExceededFault);
 export var IntegrationsMessage$: StaticStructureSchema = [3, n0, _IM,
   0,
   [_M, _Int],
   [0, [() => IntegrationList, 0]]
 ];
-export var IntegrationSourceNotFoundFault$: StaticErrorSchema = [-3, n0, _ISNFF,
-  { [_aQE]: [`IntegrationSourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationSourceNotFoundFault$, IntegrationSourceNotFoundFault);
-export var IntegrationTargetNotFoundFault$: StaticErrorSchema = [-3, n0, _ITNFF,
-  { [_aQE]: [`IntegrationTargetNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IntegrationTargetNotFoundFault$, IntegrationTargetNotFoundFault);
-export var InvalidAuthenticationProfileRequestFault$: StaticErrorSchema = [-3, n0, _IAPRF,
-  { [_aQE]: [`InvalidAuthenticationProfileRequestFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAuthenticationProfileRequestFault$, InvalidAuthenticationProfileRequestFault);
-export var InvalidAuthorizationStateFault$: StaticErrorSchema = [-3, n0, _IASF,
-  { [_aQE]: [`InvalidAuthorizationState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidAuthorizationStateFault$, InvalidAuthorizationStateFault);
-export var InvalidClusterParameterGroupStateFault$: StaticErrorSchema = [-3, n0, _ICPGSF,
-  { [_aQE]: [`InvalidClusterParameterGroupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterParameterGroupStateFault$, InvalidClusterParameterGroupStateFault);
-export var InvalidClusterSecurityGroupStateFault$: StaticErrorSchema = [-3, n0, _ICSGSF,
-  { [_aQE]: [`InvalidClusterSecurityGroupState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterSecurityGroupStateFault$, InvalidClusterSecurityGroupStateFault);
-export var InvalidClusterSnapshotScheduleStateFault$: StaticErrorSchema = [-3, n0, _ICSSSF,
-  { [_aQE]: [`InvalidClusterSnapshotScheduleState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterSnapshotScheduleStateFault$, InvalidClusterSnapshotScheduleStateFault);
-export var InvalidClusterSnapshotStateFault$: StaticErrorSchema = [-3, n0, _ICSSF,
-  { [_aQE]: [`InvalidClusterSnapshotState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterSnapshotStateFault$, InvalidClusterSnapshotStateFault);
-export var InvalidClusterStateFault$: StaticErrorSchema = [-3, n0, _ICSFn,
-  { [_aQE]: [`InvalidClusterState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterStateFault$, InvalidClusterStateFault);
-export var InvalidClusterSubnetGroupStateFault$: StaticErrorSchema = [-3, n0, _ICSGSFn,
-  { [_aQE]: [`InvalidClusterSubnetGroupStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterSubnetGroupStateFault$, InvalidClusterSubnetGroupStateFault);
-export var InvalidClusterSubnetStateFault$: StaticErrorSchema = [-3, n0, _ICSSFn,
-  { [_aQE]: [`InvalidClusterSubnetStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterSubnetStateFault$, InvalidClusterSubnetStateFault);
-export var InvalidClusterTrackFault$: StaticErrorSchema = [-3, n0, _ICTF,
-  { [_aQE]: [`InvalidClusterTrack`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidClusterTrackFault$, InvalidClusterTrackFault);
-export var InvalidDataShareFault$: StaticErrorSchema = [-3, n0, _IDSF,
-  { [_aQE]: [`InvalidDataShareFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidDataShareFault$, InvalidDataShareFault);
-export var InvalidElasticIpFault$: StaticErrorSchema = [-3, n0, _IEIF,
-  { [_aQE]: [`InvalidElasticIpFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidElasticIpFault$, InvalidElasticIpFault);
-export var InvalidEndpointStateFault$: StaticErrorSchema = [-3, n0, _IESF,
-  { [_aQE]: [`InvalidEndpointState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidEndpointStateFault$, InvalidEndpointStateFault);
-export var InvalidHsmClientCertificateStateFault$: StaticErrorSchema = [-3, n0, _IHCCSF,
-  { [_aQE]: [`InvalidHsmClientCertificateStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidHsmClientCertificateStateFault$, InvalidHsmClientCertificateStateFault);
-export var InvalidHsmConfigurationStateFault$: StaticErrorSchema = [-3, n0, _IHCSF,
-  { [_aQE]: [`InvalidHsmConfigurationStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidHsmConfigurationStateFault$, InvalidHsmConfigurationStateFault);
-export var InvalidNamespaceFault$: StaticErrorSchema = [-3, n0, _INF,
-  { [_aQE]: [`InvalidNamespaceFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNamespaceFault$, InvalidNamespaceFault);
-export var InvalidPolicyFault$: StaticErrorSchema = [-3, n0, _IPF,
-  { [_aQE]: [`InvalidPolicyFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidPolicyFault$, InvalidPolicyFault);
-export var InvalidReservedNodeStateFault$: StaticErrorSchema = [-3, n0, _IRNSF,
-  { [_aQE]: [`InvalidReservedNodeState`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidReservedNodeStateFault$, InvalidReservedNodeStateFault);
-export var InvalidRestoreFault$: StaticErrorSchema = [-3, n0, _IRF,
-  { [_aQE]: [`InvalidRestore`, 406], [_e]: _c, [_hE]: 406 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRestoreFault$, InvalidRestoreFault);
-export var InvalidRetentionPeriodFault$: StaticErrorSchema = [-3, n0, _IRPF,
-  { [_aQE]: [`InvalidRetentionPeriodFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRetentionPeriodFault$, InvalidRetentionPeriodFault);
-export var InvalidS3BucketNameFault$: StaticErrorSchema = [-3, n0, _ISBNF,
-  { [_aQE]: [`InvalidS3BucketNameFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3BucketNameFault$, InvalidS3BucketNameFault);
-export var InvalidS3KeyPrefixFault$: StaticErrorSchema = [-3, n0, _ISKPF,
-  { [_aQE]: [`InvalidS3KeyPrefixFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3KeyPrefixFault$, InvalidS3KeyPrefixFault);
-export var InvalidScheduledActionFault$: StaticErrorSchema = [-3, n0, _ISAF,
-  { [_aQE]: [`InvalidScheduledAction`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidScheduledActionFault$, InvalidScheduledActionFault);
-export var InvalidScheduleFault$: StaticErrorSchema = [-3, n0, _ISF,
-  { [_aQE]: [`InvalidSchedule`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidScheduleFault$, InvalidScheduleFault);
-export var InvalidSnapshotCopyGrantStateFault$: StaticErrorSchema = [-3, n0, _ISCGSF,
-  { [_aQE]: [`InvalidSnapshotCopyGrantStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSnapshotCopyGrantStateFault$, InvalidSnapshotCopyGrantStateFault);
-export var InvalidSubnet$: StaticErrorSchema = [-3, n0, _IS,
-  { [_aQE]: [`InvalidSubnet`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSubnet$, InvalidSubnet);
-export var InvalidSubscriptionStateFault$: StaticErrorSchema = [-3, n0, _ISSF,
-  { [_aQE]: [`InvalidSubscriptionStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSubscriptionStateFault$, InvalidSubscriptionStateFault);
-export var InvalidTableRestoreArgumentFault$: StaticErrorSchema = [-3, n0, _ITRAF,
-  { [_aQE]: [`InvalidTableRestoreArgument`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTableRestoreArgumentFault$, InvalidTableRestoreArgumentFault);
-export var InvalidTagFault$: StaticErrorSchema = [-3, n0, _ITF,
-  { [_aQE]: [`InvalidTagFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTagFault$, InvalidTagFault);
-export var InvalidUsageLimitFault$: StaticErrorSchema = [-3, n0, _IULF,
-  { [_aQE]: [`InvalidUsageLimit`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidUsageLimitFault$, InvalidUsageLimitFault);
-export var InvalidVPCNetworkStateFault$: StaticErrorSchema = [-3, n0, _IVPCNSF,
-  { [_aQE]: [`InvalidVPCNetworkStateFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidVPCNetworkStateFault$, InvalidVPCNetworkStateFault);
 export var IPRange$: StaticStructureSchema = [3, n0, _IPRa,
   0,
   [_St, _CIDRIP, _T],
   [0, 0, [() => TagList, 0]]
 ];
-export var Ipv6CidrBlockNotFoundFault$: StaticErrorSchema = [-3, n0, _ICBNFF,
-  { [_aQE]: [`Ipv6CidrBlockNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(Ipv6CidrBlockNotFoundFault$, Ipv6CidrBlockNotFoundFault);
 export var LakeFormationQuery$: StaticStructureSchema = [3, n0, _LFQ,
   0,
   [_Au],
@@ -2904,12 +3223,6 @@ export var LakehouseConfiguration$: StaticStructureSchema = [3, n0, _LC,
   [_CIl, _LIAA, _LRS, _CAa],
   [0, 0, 0, 0]
 ];
-export var LimitExceededFault$: StaticErrorSchema = [-3, n0, _LEF,
-  { [_aQE]: [`LimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededFault$, LimitExceededFault);
 export var ListRecommendationsMessage$: StaticStructureSchema = [3, n0, _LRM,
   0,
   [_CIl, _NA, _MR, _M],
@@ -3110,18 +3423,6 @@ export var NodeConfigurationOptionsMessage$: StaticStructureSchema = [3, n0, _NC
   [_NCOL, _M],
   [[() => NodeConfigurationOptionList, 0], 0]
 ];
-export var NumberOfNodesPerClusterLimitExceededFault$: StaticErrorSchema = [-3, n0, _NONPCLEF,
-  { [_aQE]: [`NumberOfNodesPerClusterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NumberOfNodesPerClusterLimitExceededFault$, NumberOfNodesPerClusterLimitExceededFault);
-export var NumberOfNodesQuotaExceededFault$: StaticErrorSchema = [-3, n0, _NONQEF,
-  { [_aQE]: [`NumberOfNodesQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NumberOfNodesQuotaExceededFault$, NumberOfNodesQuotaExceededFault);
 export var OrderableClusterOption$: StaticStructureSchema = [3, n0, _OCO,
   0,
   [_CV, _CT, _NT, _AZv],
@@ -3152,12 +3453,6 @@ export var PartnerIntegrationOutputMessage$: StaticStructureSchema = [3, n0, _PI
   [_DN, _PNa],
   [0, 0]
 ];
-export var PartnerNotFoundFault$: StaticErrorSchema = [-3, n0, _PNFF,
-  { [_aQE]: [`PartnerNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PartnerNotFoundFault$, PartnerNotFoundFault);
 export var PauseClusterMessage$: StaticStructureSchema = [3, n0, _PCM,
   0,
   [_CIl],
@@ -3233,30 +3528,6 @@ export var RedshiftIdcApplication$: StaticStructureSchema = [3, n0, _RIA,
   [_IIA, _RIAN, _RIAA, _INd, _IDN, _IRA, _IMAA, _IOS, _ATIL, _SIe, _AT, _T, _STK],
   [0, 0, 0, 0, 0, 0, 0, 0, () => AuthorizedTokenIssuerList, () => ServiceIntegrationList, 0, [() => TagList, 0], [() => TagKeyList, 0]]
 ];
-export var RedshiftIdcApplicationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RIAAEF,
-  { [_aQE]: [`RedshiftIdcApplicationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RedshiftIdcApplicationAlreadyExistsFault$, RedshiftIdcApplicationAlreadyExistsFault);
-export var RedshiftIdcApplicationNotExistsFault$: StaticErrorSchema = [-3, n0, _RIANEF,
-  { [_aQE]: [`RedshiftIdcApplicationNotExists`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RedshiftIdcApplicationNotExistsFault$, RedshiftIdcApplicationNotExistsFault);
-export var RedshiftIdcApplicationQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RIAQEF,
-  { [_aQE]: [`RedshiftIdcApplicationQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RedshiftIdcApplicationQuotaExceededFault$, RedshiftIdcApplicationQuotaExceededFault);
-export var RedshiftInvalidParameterFault$: StaticErrorSchema = [-3, n0, _RIPF,
-  { [_aQE]: [`RedshiftInvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RedshiftInvalidParameterFault$, RedshiftInvalidParameterFault);
 export var ReferenceLink$: StaticStructureSchema = [3, n0, _RLe,
   0,
   [_Te, _L],
@@ -3282,62 +3553,26 @@ export var ReservedNode$: StaticStructureSchema = [3, n0, _RNe,
   [_RNI, _RNOI, _NT, _STt, _Du, _FP, _UP, _CCu, _NC, _Sta, _OT, _RCe, _RNOT],
   [0, 0, 0, 4, 1, 1, 1, 0, 1, 0, 0, [() => RecurringChargeList, 0], 0]
 ];
-export var ReservedNodeAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RNAEF,
-  { [_aQE]: [`ReservedNodeAlreadyExists`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeAlreadyExistsFault$, ReservedNodeAlreadyExistsFault);
-export var ReservedNodeAlreadyMigratedFault$: StaticErrorSchema = [-3, n0, _RNAMF,
-  { [_aQE]: [`ReservedNodeAlreadyMigrated`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeAlreadyMigratedFault$, ReservedNodeAlreadyMigratedFault);
 export var ReservedNodeConfigurationOption$: StaticStructureSchema = [3, n0, _RNCO,
   0,
   [_SRN, _TRNC, _TRNO],
   [[() => ReservedNode$, 0], 1, [() => ReservedNodeOffering$, 0]]
 ];
-export var ReservedNodeExchangeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNENFF,
-  { [_aQE]: [`ReservedNodeExchangeNotFond`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeExchangeNotFoundFault$, ReservedNodeExchangeNotFoundFault);
 export var ReservedNodeExchangeStatus$: StaticStructureSchema = [3, n0, _RNES,
   0,
   [_RNERI, _St, _RTeq, _SRNI, _SRNT, _SRNC, _TRNOI, _TRNT, _TRNC],
   [0, 0, 4, 0, 0, 1, 0, 0, 1]
 ];
-export var ReservedNodeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNNFF,
-  { [_aQE]: [`ReservedNodeNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeNotFoundFault$, ReservedNodeNotFoundFault);
 export var ReservedNodeOffering$: StaticStructureSchema = [3, n0, _RNOe,
   0,
   [_RNOI, _NT, _Du, _FP, _UP, _CCu, _OT, _RCe, _RNOT],
   [0, 0, 1, 1, 1, 0, 0, [() => RecurringChargeList, 0], 0]
 ];
-export var ReservedNodeOfferingNotFoundFault$: StaticErrorSchema = [-3, n0, _RNONFF,
-  { [_aQE]: [`ReservedNodeOfferingNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeOfferingNotFoundFault$, ReservedNodeOfferingNotFoundFault);
 export var ReservedNodeOfferingsMessage$: StaticStructureSchema = [3, n0, _RNOMe,
   0,
   [_M, _RNO],
   [0, [() => ReservedNodeOfferingList, 0]]
 ];
-export var ReservedNodeQuotaExceededFault$: StaticErrorSchema = [-3, n0, _RNQEF,
-  { [_aQE]: [`ReservedNodeQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReservedNodeQuotaExceededFault$, ReservedNodeQuotaExceededFault);
 export var ReservedNodesMessage$: StaticStructureSchema = [3, n0, _RNM,
   0,
   [_M, _RNes],
@@ -3363,23 +3598,11 @@ export var ResizeInfo$: StaticStructureSchema = [3, n0, _RI,
   [_RTes, _ACR],
   [0, 2]
 ];
-export var ResizeNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFF,
-  { [_aQE]: [`ResizeNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResizeNotFoundFault$, ResizeNotFoundFault);
 export var ResizeProgressMessage$: StaticStructureSchema = [3, n0, _RPM,
   0,
   [_TNT, _TNON, _TCT, _St, _ITC, _ITIP, _ITNS, _ARRIMBPS, _TRDIMB, _PIMB, _ETIS, _ETTCIS, _RTes, _Me, _TET, _DTPP],
   [0, 1, 0, 0, 64 | 0, 64 | 0, 64 | 0, 1, 1, 1, 1, 1, 0, 0, 0, 1]
 ];
-export var ResourceNotFoundFault$: StaticErrorSchema = [-3, n0, _RNFFe,
-  { [_aQE]: [`ResourceNotFoundFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundFault$, ResourceNotFoundFault);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_RA, _Pol],
@@ -3465,29 +3688,11 @@ export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAc,
   [_SAN, _TAa, _Sc, _IRa, _SAD, _Sta, _NI, _STt, _ET],
   [0, () => ScheduledActionType$, 0, 0, 0, 0, [() => ScheduledActionTimeList, 0], 4, 4]
 ];
-export var ScheduledActionAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SAAEF,
-  { [_aQE]: [`ScheduledActionAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScheduledActionAlreadyExistsFault$, ScheduledActionAlreadyExistsFault);
 export var ScheduledActionFilter$: StaticStructureSchema = [3, n0, _SAF,
   0,
   [_N, _V],
   [0, [() => ValueStringList, 0]], 2
 ];
-export var ScheduledActionNotFoundFault$: StaticErrorSchema = [-3, n0, _SANFF,
-  { [_aQE]: [`ScheduledActionNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScheduledActionNotFoundFault$, ScheduledActionNotFoundFault);
-export var ScheduledActionQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SAQEF,
-  { [_aQE]: [`ScheduledActionQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScheduledActionQuotaExceededFault$, ScheduledActionQuotaExceededFault);
 export var ScheduledActionsMessage$: StaticStructureSchema = [3, n0, _SAM,
   0,
   [_M, _SAch],
@@ -3498,18 +3703,6 @@ export var ScheduledActionType$: StaticStructureSchema = [3, n0, _SAT,
   [_RCes, _PC, _RCesu],
   [() => ResizeClusterMessage$, () => PauseClusterMessage$, () => ResumeClusterMessage$]
 ];
-export var ScheduledActionTypeUnsupportedFault$: StaticErrorSchema = [-3, n0, _SATUF,
-  { [_aQE]: [`ScheduledActionTypeUnsupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScheduledActionTypeUnsupportedFault$, ScheduledActionTypeUnsupportedFault);
-export var ScheduleDefinitionTypeUnsupportedFault$: StaticErrorSchema = [-3, n0, _SDTUF,
-  { [_aQE]: [`ScheduleDefinitionTypeUnsupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ScheduleDefinitionTypeUnsupportedFault$, ScheduleDefinitionTypeUnsupportedFault);
 export var SecondaryClusterInfo$: StaticStructureSchema = [3, n0, _SCIe,
   0,
   [_AZ, _CN],
@@ -3525,52 +3718,16 @@ export var Snapshot$: StaticStructureSchema = [3, n0, _S,
   [_SI, _CIl, _SCTn, _St, _Po, _AZ, _CCT, _MU, _CV, _EFV, _STn, _NT, _NON, _DBN, _VIp, _Enc, _KKI, _EWHSM, _AWRAc, _OA, _TBSIMB, _AIBSIMB, _BPIMB, _CBRIMBPS, _ESTC, _ETIS, _SR, _T, _RNT, _EVR, _MTN, _MSRP, _MSRD, _SRST, _MPSA, _MPSKKI, _SA],
   [0, 0, 4, 0, 1, 0, 4, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 2, [() => AccountsWithRestoreAccessList, 0], 0, 1, 1, 1, 1, 1, 1, 0, [() => TagList, 0], [() => RestorableNodeTypeList, 0], 2, 0, 1, 1, 4, 0, 0, 0]
 ];
-export var SnapshotCopyAlreadyDisabledFault$: StaticErrorSchema = [-3, n0, _SCADF,
-  { [_aQE]: [`SnapshotCopyAlreadyDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyAlreadyDisabledFault$, SnapshotCopyAlreadyDisabledFault);
-export var SnapshotCopyAlreadyEnabledFault$: StaticErrorSchema = [-3, n0, _SCAEF,
-  { [_aQE]: [`SnapshotCopyAlreadyEnabledFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyAlreadyEnabledFault$, SnapshotCopyAlreadyEnabledFault);
-export var SnapshotCopyDisabledFault$: StaticErrorSchema = [-3, n0, _SCDF,
-  { [_aQE]: [`SnapshotCopyDisabledFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyDisabledFault$, SnapshotCopyDisabledFault);
 export var SnapshotCopyGrant$: StaticStructureSchema = [3, n0, _SCG,
   0,
   [_SCGN, _KKI, _T],
   [0, 0, [() => TagList, 0]]
 ];
-export var SnapshotCopyGrantAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SCGAEF,
-  { [_aQE]: [`SnapshotCopyGrantAlreadyExistsFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyGrantAlreadyExistsFault$, SnapshotCopyGrantAlreadyExistsFault);
 export var SnapshotCopyGrantMessage$: StaticStructureSchema = [3, n0, _SCGM,
   0,
   [_M, _SCGn],
   [0, [() => SnapshotCopyGrantList, 0]]
 ];
-export var SnapshotCopyGrantNotFoundFault$: StaticErrorSchema = [-3, n0, _SCGNFF,
-  { [_aQE]: [`SnapshotCopyGrantNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyGrantNotFoundFault$, SnapshotCopyGrantNotFoundFault);
-export var SnapshotCopyGrantQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SCGQEF,
-  { [_aQE]: [`SnapshotCopyGrantQuotaExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotCopyGrantQuotaExceededFault$, SnapshotCopyGrantQuotaExceededFault);
 export var SnapshotErrorMessage$: StaticStructureSchema = [3, n0, _SEM,
   0,
   [_SI, _SCI, _FC, _FR],
@@ -3586,100 +3743,16 @@ export var SnapshotSchedule$: StaticStructureSchema = [3, n0, _SSna,
   [_SD, _SIc, _SDc, _T, _NI, _ACC, _ACs],
   [[() => ScheduleDefinitionList, 0], 0, 0, [() => TagList, 0], [() => ScheduledSnapshotTimeList, 0], 1, [() => AssociatedClusterList, 0]]
 ];
-export var SnapshotScheduleAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _SSAEF,
-  { [_aQE]: [`SnapshotScheduleAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotScheduleAlreadyExistsFault$, SnapshotScheduleAlreadyExistsFault);
-export var SnapshotScheduleNotFoundFault$: StaticErrorSchema = [-3, n0, _SSNFF,
-  { [_aQE]: [`SnapshotScheduleNotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotScheduleNotFoundFault$, SnapshotScheduleNotFoundFault);
-export var SnapshotScheduleQuotaExceededFault$: StaticErrorSchema = [-3, n0, _SSQEF,
-  { [_aQE]: [`SnapshotScheduleQuotaExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotScheduleQuotaExceededFault$, SnapshotScheduleQuotaExceededFault);
-export var SnapshotScheduleUpdateInProgressFault$: StaticErrorSchema = [-3, n0, _SSUIPF,
-  { [_aQE]: [`SnapshotScheduleUpdateInProgress`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SnapshotScheduleUpdateInProgressFault$, SnapshotScheduleUpdateInProgressFault);
 export var SnapshotSortingEntity$: StaticStructureSchema = [3, n0, _SSE,
   0,
   [_At, _SO],
   [0, 0], 1
 ];
-export var SNSInvalidTopicFault$: StaticErrorSchema = [-3, n0, _SNSITF,
-  { [_aQE]: [`SNSInvalidTopic`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SNSInvalidTopicFault$, SNSInvalidTopicFault);
-export var SNSNoAuthorizationFault$: StaticErrorSchema = [-3, n0, _SNSNAF,
-  { [_aQE]: [`SNSNoAuthorization`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SNSNoAuthorizationFault$, SNSNoAuthorizationFault);
-export var SNSTopicArnNotFoundFault$: StaticErrorSchema = [-3, n0, _SNSTANFF,
-  { [_aQE]: [`SNSTopicArnNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SNSTopicArnNotFoundFault$, SNSTopicArnNotFoundFault);
-export var SourceNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFF,
-  { [_aQE]: [`SourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SourceNotFoundFault$, SourceNotFoundFault);
 export var Subnet$: StaticStructureSchema = [3, n0, _Sub,
   0,
   [_SIubn, _SAZ, _SSu],
   [0, [() => AvailabilityZone$, 0], 0]
 ];
-export var SubnetAlreadyInUse$: StaticErrorSchema = [-3, n0, _SAIU,
-  { [_aQE]: [`SubnetAlreadyInUse`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubnetAlreadyInUse$, SubnetAlreadyInUse);
-export var SubscriptionAlreadyExistFault$: StaticErrorSchema = [-3, n0, _SAEF,
-  { [_aQE]: [`SubscriptionAlreadyExist`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubscriptionAlreadyExistFault$, SubscriptionAlreadyExistFault);
-export var SubscriptionCategoryNotFoundFault$: StaticErrorSchema = [-3, n0, _SCNFF,
-  { [_aQE]: [`SubscriptionCategoryNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubscriptionCategoryNotFoundFault$, SubscriptionCategoryNotFoundFault);
-export var SubscriptionEventIdNotFoundFault$: StaticErrorSchema = [-3, n0, _SEINFF,
-  { [_aQE]: [`SubscriptionEventIdNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubscriptionEventIdNotFoundFault$, SubscriptionEventIdNotFoundFault);
-export var SubscriptionNotFoundFault$: StaticErrorSchema = [-3, n0, _SNFFu,
-  { [_aQE]: [`SubscriptionNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubscriptionNotFoundFault$, SubscriptionNotFoundFault);
-export var SubscriptionSeverityNotFoundFault$: StaticErrorSchema = [-3, n0, _SSNFFu,
-  { [_aQE]: [`SubscriptionSeverityNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SubscriptionSeverityNotFoundFault$, SubscriptionSeverityNotFoundFault);
 export var SupportedOperation$: StaticStructureSchema = [3, n0, _SOu,
   0,
   [_ON],
@@ -3690,18 +3763,6 @@ export var SupportedPlatform$: StaticStructureSchema = [3, n0, _SPu,
   [_N],
   [0]
 ];
-export var TableLimitExceededFault$: StaticErrorSchema = [-3, n0, _TLEF,
-  { [_aQE]: [`TableLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TableLimitExceededFault$, TableLimitExceededFault);
-export var TableRestoreNotFoundFault$: StaticErrorSchema = [-3, n0, _TRNFF,
-  { [_aQE]: [`TableRestoreNotFoundFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TableRestoreNotFoundFault$, TableRestoreNotFoundFault);
 export var TableRestoreStatus$: StaticStructureSchema = [3, n0, _TRS,
   0,
   [_TRRI, _St, _Me, _RTeq, _PIMB, _TDIMB, _CIl, _SI, _SDN, _SSN, _STN, _TDN, _TSN, _NTN],
@@ -3727,47 +3788,11 @@ export var TaggedResourceListMessage$: StaticStructureSchema = [3, n0, _TRLM,
   [_TRa, _M],
   [[() => TaggedResourceList, 0], 0]
 ];
-export var TagLimitExceededFault$: StaticErrorSchema = [-3, n0, _TLEFa,
-  { [_aQE]: [`TagLimitExceededFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TagLimitExceededFault$, TagLimitExceededFault);
 export var TrackListMessage$: StaticStructureSchema = [3, n0, _TLM,
   0,
   [_MTa, _M],
   [[() => TrackList, 0], 0]
 ];
-export var UnauthorizedOperation$: StaticErrorSchema = [-3, n0, _UO,
-  { [_aQE]: [`UnauthorizedOperation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedOperation$, UnauthorizedOperation);
-export var UnauthorizedPartnerIntegrationFault$: StaticErrorSchema = [-3, n0, _UPIF,
-  { [_aQE]: [`UnauthorizedPartnerIntegration`, 401], [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedPartnerIntegrationFault$, UnauthorizedPartnerIntegrationFault);
-export var UnknownSnapshotCopyRegionFault$: StaticErrorSchema = [-3, n0, _USCRF,
-  { [_aQE]: [`UnknownSnapshotCopyRegionFault`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnknownSnapshotCopyRegionFault$, UnknownSnapshotCopyRegionFault);
-export var UnsupportedOperationFault$: StaticErrorSchema = [-3, n0, _UOF,
-  { [_aQE]: [`UnsupportedOperation`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationFault$, UnsupportedOperationFault);
-export var UnsupportedOptionFault$: StaticErrorSchema = [-3, n0, _UOFn,
-  { [_aQE]: [`UnsupportedOptionFault`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOptionFault$, UnsupportedOptionFault);
 export var UpdatePartnerStatusInputMessage$: StaticStructureSchema = [3, n0, _UPSIM,
   0,
   [_AI, _CIl, _DN, _PNa, _St, _SM],
@@ -3783,23 +3808,11 @@ export var UsageLimit$: StaticStructureSchema = [3, n0, _UL,
   [_ULI, _CIl, _FT, _LT, _Am, _Pe, _BA, _T],
   [0, 0, 0, 0, 1, 0, 0, [() => TagList, 0]]
 ];
-export var UsageLimitAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _ULAEF,
-  { [_aQE]: [`UsageLimitAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UsageLimitAlreadyExistsFault$, UsageLimitAlreadyExistsFault);
 export var UsageLimitList$: StaticStructureSchema = [3, n0, _ULL,
   0,
   [_ULs, _M],
   [[() => UsageLimits, 0], 0]
 ];
-export var UsageLimitNotFoundFault$: StaticErrorSchema = [-3, n0, _ULNFF,
-  { [_aQE]: [`UsageLimitNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UsageLimitNotFoundFault$, UsageLimitNotFoundFault);
 export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
   0,
   [_VEI, _VIp, _NIet],
@@ -3811,8 +3824,6 @@ export var VpcSecurityGroupMembership$: StaticStructureSchema = [3, n0, _VSGM,
   [0, 0]
 ];
 var __Unit = "unit" as const;
-export var RedshiftServiceException$: StaticErrorSchema = [-3, _s, "RedshiftServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(RedshiftServiceException$, RedshiftServiceException);
 var AccountsWithRestoreAccessList: StaticListSchema = [1, n0, _AWRAL,
   0, [() => AccountWithRestoreAccess$,
     { [_xN]: _AWRA }]

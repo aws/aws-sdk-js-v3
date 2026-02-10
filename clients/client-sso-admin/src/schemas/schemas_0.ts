@@ -401,8 +401,8 @@ const _Vi = "Visibility";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssoadmin";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssoadmin";
+const _se = "server";
 const n0 = "com.amazonaws.ssoadmin";
 
 // smithy-typescript generated code
@@ -428,6 +428,61 @@ import {
 import { SSOAdminServiceException } from "../models/SSOAdminServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SSOAdminServiceException$: StaticErrorSchema = [-3, _s, "SSOAdminServiceException", 0, [], []];
+_s_registry.registerError(SSOAdminServiceException$, SSOAdminServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessControlAttribute$: StaticStructureSchema = [3, n0, _ACA,
   0,
   [_K, _V],
@@ -438,12 +493,6 @@ export var AccessControlAttributeValue$: StaticStructureSchema = [3, n0, _ACAV,
   [_S],
   [64 | 0], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountAssignment$: StaticStructureSchema = [3, n0, _AA,
   0,
   [_AI, _PSA, _PT, _PI],
@@ -534,12 +583,6 @@ export var AuthorizedTokenIssuer$: StaticStructureSchema = [3, n0, _ATI,
   [_TTIA, _AAu],
   [0, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAccountAssignmentRequest$: StaticStructureSchema = [3, n0, _CAAR,
   0,
   [_IA, _TI, _TT, _PSA, _PT, _PI],
@@ -955,12 +998,6 @@ export var InstanceMetadata$: StaticStructureSchema = [3, n0, _IM,
   [_IA, _ISI, _OAI, _N, _CD, _St, _SR],
   [0, 0, 0, 0, 4, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JwtBearerGrant$: StaticStructureSchema = [3, n0, _JBG,
   0,
   [_ATIu],
@@ -1316,12 +1353,6 @@ export var RemoveRegionResponse$: StaticStructureSchema = [3, n0, _RRRe,
   [_St],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceServerConfig$: StaticStructureSchema = [3, n0, _RSC,
   0,
   [_Sco],
@@ -1337,12 +1368,6 @@ export var ScopeDetails$: StaticStructureSchema = [3, n0, _SDc,
   [_Sc, _AT],
   [0, 64 | 0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SignInOptions$: StaticStructureSchema = [3, n0, _SIO,
   0,
   [_O, _AU],
@@ -1363,12 +1388,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TokenExchangeGrant$: StaticStructureSchema = [3, n0, _TEG,
   0,
   [],
@@ -1444,15 +1463,7 @@ export var UpdateTrustedTokenIssuerResponse$: StaticStructureSchema = [3, n0, _U
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var SSOAdminServiceException$: StaticErrorSchema = [-3, _sm, "SSOAdminServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSOAdminServiceException$, SSOAdminServiceException);
 var AccessControlAttributeList: StaticListSchema = [1, n0, _ACAL,
   0, () => AccessControlAttribute$
 ];

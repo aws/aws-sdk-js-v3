@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSMQuickSetupHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSMQuickSetupClientConfig } from "./SSMQuickSetupClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSMQuickSetupClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssmquicksetup",
+      errorTypeRegistries,
       version: "2018-05-10",
       serviceTarget: "QuickSetup",
     },

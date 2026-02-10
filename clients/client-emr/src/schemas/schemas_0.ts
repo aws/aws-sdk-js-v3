@@ -151,9 +151,9 @@ const _EBDCL = "EbsBlockDeviceConfigList";
 const _EBDCb = "EbsBlockDeviceConfigs";
 const _EBDL = "EbsBlockDeviceList";
 const _EBDb = "EbsBlockDevices";
-const _EC = "EbsConfiguration";
+const _EC = "ErrorCode";
 const _ECIITT = "EC2InstanceIdsToTerminate";
-const _ECr = "ErrorCode";
+const _ECb = "EbsConfiguration";
 const _ED = "ErrorDetails";
 const _EDL = "ErrorDetailList";
 const _EDT = "EndDateTime";
@@ -624,8 +624,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.emr";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.emr";
+const _se = "server";
 const n0 = "com.amazonaws.emr";
 
 // smithy-typescript generated code
@@ -643,6 +643,37 @@ import { EMRServiceException } from "../models/EMRServiceException";
 import { InternalServerError, InternalServerException, InvalidRequestException } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EMRServiceException$: StaticErrorSchema = [-3, _s, "EMRServiceException", 0, [], []];
+_s_registry.registerError(EMRServiceException$, EMRServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_aQE]: [`InternalFailure`, 500], [_e]: _se, [_hE]: 500 },
+  [],
+  []
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_EC, _M],
+  [0, 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddInstanceFleetInput$: StaticStructureSchema = [3, n0, _AIFI,
   0,
   [_CI, _IF],
@@ -943,7 +974,7 @@ export var EbsBlockDeviceConfig$: StaticStructureSchema = [3, n0, _EBDC,
   [_VS, _VPI],
   [() => VolumeSpecification$, 1], 1
 ];
-export var EbsConfiguration$: StaticStructureSchema = [3, n0, _EC,
+export var EbsConfiguration$: StaticStructureSchema = [3, n0, _ECb,
   0,
   [_EBDCb, _EO],
   [() => EbsBlockDeviceConfigList, 2]
@@ -965,7 +996,7 @@ export var EMRContainersConfig$: StaticStructureSchema = [3, n0, _EMRCC,
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
   0,
-  [_ECr, _EDrr, _EM],
+  [_EC, _EDrr, _EM],
   [0, [1, n0, _EDrr, 0, 128 | 0], 0]
 ];
 export var ExecutionEngineConfig$: StaticStructureSchema = [3, n0, _EEC,
@@ -1110,7 +1141,7 @@ export var InstanceGroup$: StaticStructureSchema = [3, n0, _IGn,
 ];
 export var InstanceGroupConfig$: StaticStructureSchema = [3, n0, _IGC,
   0,
-  [_IR, _ITn, _IC, _N, _Ma, _BP, _Con, _EC, _ASP, _CAI],
+  [_IR, _ITn, _IC, _N, _Ma, _BP, _Con, _ECb, _ASP, _CAI],
   [0, 0, 1, 0, 0, 0, () => ConfigurationList, () => EbsConfiguration$, () => AutoScalingPolicy$, 0], 3
 ];
 export var InstanceGroupDetail$: StaticStructureSchema = [3, n0, _IGD,
@@ -1160,7 +1191,7 @@ export var InstanceTimeline$: StaticStructureSchema = [3, n0, _ITns,
 ];
 export var InstanceTypeConfig$: StaticStructureSchema = [3, n0, _ITCn,
   0,
-  [_ITn, _WC, _BP, _BPAPOODP, _EC, _Con, _CAI, _Pr],
+  [_ITn, _WC, _BP, _BPAPOODP, _ECb, _Con, _CAI, _Pr],
   [0, 1, 0, 1, () => EbsConfiguration$, () => ConfigurationList, 0, 1], 1
 ];
 export var InstanceTypeSpecification$: StaticStructureSchema = [3, n0, _ITSn,
@@ -1168,24 +1199,6 @@ export var InstanceTypeSpecification$: StaticStructureSchema = [3, n0, _ITSn,
   [_ITn, _WC, _BP, _BPAPOODP, _Con, _EBDb, _EO, _CAI, _Pr],
   [0, 1, 0, 1, () => ConfigurationList, () => EbsBlockDeviceList, 2, 0, 1]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_aQE]: [`InternalFailure`, 500], [_e]: _s, [_hE]: 500 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISEn,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_ECr, _M],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var JobFlowDetail$: StaticStructureSchema = [3, n0, _JFD,
   0,
   [_JFI, _N, _ESD, _Ins, _LU, _LEKKI, _AV, _S, _BA, _SPu, _VTAU, _JFR, _SR, _ASR, _SDB],
@@ -1737,8 +1750,6 @@ export var VolumeSpecification$: StaticStructureSchema = [3, n0, _VS,
   [0, 1, 1, 1], 2
 ];
 var __Unit = "unit" as const;
-export var EMRServiceException$: StaticErrorSchema = [-3, _sm, "EMRServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EMRServiceException$, EMRServiceException);
 var ApplicationList: StaticListSchema = [1, n0, _AL,
   0, () => Application$
 ];

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultVerifiedPermissionsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { VerifiedPermissionsClientConfig } from "./VerifiedPermissionsClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: VerifiedPermissionsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.verifiedpermissions",
+      errorTypeRegistries,
       version: "2021-12-01",
       serviceTarget: "VerifiedPermissions",
     },

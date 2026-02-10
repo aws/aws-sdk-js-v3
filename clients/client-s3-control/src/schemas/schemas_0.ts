@@ -324,8 +324,8 @@ const _ICA = "IdentityCenterArn";
 const _ICAA = "IdentityCenterApplicationArn";
 const _ICIA = "IdentityCenterInstanceArn";
 const _ID = "ID";
-const _IE = "IsEnabled";
-const _IEd = "IdempotencyException";
+const _IE = "IdempotencyException";
+const _IEs = "IsEnabled";
 const _INTE = "InvalidNextTokenException";
 const _IP = "IsPublic";
 const _IPA = "IgnorePublicAcls";
@@ -760,10 +760,10 @@ const _p = "permission";
 const _pr = "privilege";
 const _pri = "priority";
 const _rJS = "requestedJobStatus";
-const _s = "s3prefix";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3control";
 const _sUR = "statusUpdateReason";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3control";
+const _sp = "s3prefix";
 const _t = "target";
 const _tK = "tagKeys";
 const _tT = "targetType";
@@ -811,6 +811,91 @@ import {
 import { S3ControlServiceException } from "../models/S3ControlServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var S3ControlServiceException$: StaticErrorSchema = [-3, _s, "S3ControlServiceException", 0, [], []];
+_s_registry.registerError(S3ControlServiceException$, S3ControlServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var BucketAlreadyExists$: StaticErrorSchema = [-3, n0, _BAE,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(BucketAlreadyExists$, BucketAlreadyExists);
+export var BucketAlreadyOwnedByYou$: StaticErrorSchema = [-3, n0, _BAOBY,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(BucketAlreadyOwnedByYou$, BucketAlreadyOwnedByYou);
+export var IdempotencyException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IdempotencyException$, IdempotencyException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var JobStatusException$: StaticErrorSchema = [-3, n0, _JSE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(JobStatusException$, JobStatusException);
+export var NoSuchPublicAccessBlockConfiguration$: StaticErrorSchema = [-3, n0, _NSPABC,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoSuchPublicAccessBlockConfiguration$, NoSuchPublicAccessBlockConfiguration);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccessKeyId: StaticSimpleSchema = [0, n0, _AKI, 8, 0];
 var SecretAccessKey: StaticSimpleSchema = [0, n0, _SAK, 8, 0];
 var SessionToken: StaticSimpleSchema = [0, n0, _ST, 8, 0];
@@ -841,22 +926,22 @@ export var AccountLevel$: StaticStructureSchema = [3, n0, _AL,
 ];
 export var ActivityMetrics$: StaticStructureSchema = [3, n0, _AM,
   0,
-  [_IE],
+  [_IEs],
   [2]
 ];
 export var AdvancedCostOptimizationMetrics$: StaticStructureSchema = [3, n0, _ACOM,
   0,
-  [_IE],
+  [_IEs],
   [2]
 ];
 export var AdvancedDataProtectionMetrics$: StaticStructureSchema = [3, n0, _ADPM,
   0,
-  [_IE],
+  [_IEs],
   [2]
 ];
 export var AdvancedPerformanceMetrics$: StaticStructureSchema = [3, n0, _APM,
   0,
-  [_IE],
+  [_IEs],
   [2]
 ];
 export var AssociateAccessGrantsIdentityCenterRequest$: StaticStructureSchema = [3, n0, _AAGICR,
@@ -889,24 +974,6 @@ export var AwsLambdaTransformation$: StaticStructureSchema = [3, n0, _ALT,
   [_FA, _FP],
   [0, 0], 1
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var BucketAlreadyExists$: StaticErrorSchema = [-3, n0, _BAE,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(BucketAlreadyExists$, BucketAlreadyExists);
-export var BucketAlreadyOwnedByYou$: StaticErrorSchema = [-3, n0, _BAOBY,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(BucketAlreadyOwnedByYou$, BucketAlreadyOwnedByYou);
 export var BucketLevel$: StaticStructureSchema = [3, n0, _BL,
   0,
   [_AM, _PL, _ACOM, _ADPM, _DSCM, _APM],
@@ -914,7 +981,7 @@ export var BucketLevel$: StaticStructureSchema = [3, n0, _BL,
 ];
 export var CloudWatchMetrics$: StaticStructureSchema = [3, n0, _CWM,
   0,
-  [_IE],
+  [_IEs],
   [2], 1
 ];
 export var CreateAccessGrantRequest$: StaticStructureSchema = [3, n0, _CAGR,
@@ -1169,7 +1236,7 @@ export var Destination$: StaticStructureSchema = [3, n0, _Des,
 ];
 export var DetailedStatusCodesMetrics$: StaticStructureSchema = [3, n0, _DSCM,
   0,
-  [_IE],
+  [_IEs],
   [2]
 ];
 export var DissociateAccessGrantsIdentityCenterRequest$: StaticStructureSchema = [3, n0, _DAGICR,
@@ -1220,7 +1287,7 @@ export var GetAccessGrantResult$: StaticStructureSchema = [3, n0, _GAGRe,
 export var GetAccessGrantsInstanceForPrefixRequest$: StaticStructureSchema = [3, n0, _GAGIFPR,
   0,
   [_SP, _AI],
-  [[0, { [_hQ]: _s }], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
+  [[0, { [_hQ]: _sp }], [0, { [_hL]: 1, [_hH]: _xaai }]], 1
 ];
 export var GetAccessGrantsInstanceForPrefixResult$: StaticStructureSchema = [3, n0, _GAGIFPRe,
   0,
@@ -1502,35 +1569,11 @@ export var Grantee$: StaticStructureSchema = [3, n0, _G,
   [_GT, _GI],
   [0, 0]
 ];
-export var IdempotencyException$: StaticErrorSchema = [-3, n0, _IEd,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(IdempotencyException$, IdempotencyException);
 export var Include$: StaticStructureSchema = [3, n0, _I,
   0,
   [_Bu, _Reg],
   [[() => Buckets, 0], [() => Regions, 0]]
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var JobDescriptor$: StaticStructureSchema = [3, n0, _JD,
   0,
   [_JI, _CR, _D, _JA, _St, _Ma, _Op, _Pr, _PSr, _SUR, _FR, _Re, _CT, _TD, _RA, _SD, _SCu, _MG, _GMD],
@@ -1581,12 +1624,6 @@ export var JobReport$: StaticStructureSchema = [3, n0, _JR,
   [_Ena, _B, _F, _Pre, _RSe, _EBO],
   [2, 0, 0, 0, 0, 0], 1
 ];
-export var JobStatusException$: StaticErrorSchema = [-3, n0, _JSE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(JobStatusException$, JobStatusException);
 export var JobTimers$: StaticStructureSchema = [3, n0, _JT,
   0,
   [_ETIAS],
@@ -1749,7 +1786,7 @@ export var ListRegionalBucketsResult$: StaticStructureSchema = [3, n0, _LRBRi,
 ];
 export var ListStorageLensConfigurationEntry$: StaticStructureSchema = [3, n0, _LSLCE,
   0,
-  [_Id, _SLA, _HR, _IE],
+  [_Id, _SLA, _HR, _IEs],
   [0, 0, 0, 2], 3
 ];
 export var ListStorageLensConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSLCR,
@@ -1837,18 +1874,6 @@ export var NoncurrentVersionTransition$: StaticStructureSchema = [3, n0, _NVTo,
   [_ND, _SC],
   [1, 0]
 ];
-export var NoSuchPublicAccessBlockConfiguration$: StaticErrorSchema = [-3, n0, _NSPABC,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoSuchPublicAccessBlockConfiguration$, NoSuchPublicAccessBlockConfiguration);
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var NotSSEFilter$: StaticStructureSchema = [3, n0, _NSSEF,
   0,
   [],
@@ -1891,7 +1916,7 @@ export var PrefixLevel$: StaticStructureSchema = [3, n0, _PL,
 ];
 export var PrefixLevelStorageMetrics$: StaticStructureSchema = [3, n0, _PLSM,
   0,
-  [_IE, _SCe],
+  [_IEs, _SCe],
   [2, () => SelectionCriteria$]
 ];
 export var ProposedMultiRegionAccessPointPolicy$: StaticStructureSchema = [3, n0, _PMRAPP,
@@ -2236,7 +2261,7 @@ export var StorageLensAwsOrg$: StaticStructureSchema = [3, n0, _SLAO,
 ];
 export var StorageLensConfiguration$: StaticStructureSchema = [3, n0, _SLC,
   0,
-  [_Id, _AL, _IE, _I, _Ex, _DE, _EPDE, _AOw, _SLA, _PD],
+  [_Id, _AL, _IEs, _I, _Ex, _DE, _EPDE, _AOw, _SLA, _PD],
   [0, [() => AccountLevel$, 0], 2, [() => Include$, 0], [() => _Exclude$, 0], [() => StorageLensDataExport$, 0], [() => StorageLensExpandedPrefixesDataExport$, 0], () => StorageLensAwsOrg$, 0, 0], 3
 ];
 export var StorageLensDataExport$: StaticStructureSchema = [3, n0, _SLDE,
@@ -2286,7 +2311,7 @@ export var StorageLensGroupOrOperator$: StaticStructureSchema = [3, n0, _SLGOO,
 ];
 export var StorageLensTableDestination$: StaticStructureSchema = [3, n0, _SLTD,
   0,
-  [_IE, _Enc],
+  [_IEs, _Enc],
   [2, [() => StorageLensDataExportEncryption$, 0]], 1
 ];
 export var StorageLensTag$: StaticStructureSchema = [3, n0, _SLT,
@@ -2324,18 +2349,6 @@ export var TagResourceResult$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var Transition$: StaticStructureSchema = [3, n0, _Tra,
   0,
   [_Da, _Day, _SC],
@@ -2397,8 +2410,6 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   [0], 1
 ];
 var __Unit = "unit" as const;
-export var S3ControlServiceException$: StaticErrorSchema = [-3, _sm, "S3ControlServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3ControlServiceException$, S3ControlServiceException);
 var AccessGrantsInstancesList: StaticListSchema = [1, n0, _AGIL,
   0, [() => ListAccessGrantsInstanceEntry$,
     { [_xN]: _AGIc }]

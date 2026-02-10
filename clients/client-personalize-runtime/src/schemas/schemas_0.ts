@@ -23,9 +23,9 @@ const _PL = "PromotionList";
 const _RNFE = "ResourceNotFoundException";
 const _aI = "actionId";
 const _aL = "actionList";
-const _c = "context";
+const _c = "client";
 const _cA = "campaignArn";
-const _cl = "client";
+const _co = "context";
 const _e = "error";
 const _fA = "filterArn";
 const _fV = "filterValues";
@@ -46,8 +46,8 @@ const _pR = "personalizedRanking";
 const _r = "reason";
 const _rA = "recommenderArn";
 const _rI = "recommendationId";
-const _s = "score";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.personalizeruntime";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.personalizeruntime";
+const _sc = "score";
 const _uI = "userId";
 const n0 = "com.amazonaws.personalizeruntime";
 
@@ -66,6 +66,31 @@ import { InvalidInputException, ResourceNotFoundException } from "../models/erro
 import { PersonalizeRuntimeServiceException } from "../models/PersonalizeRuntimeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PersonalizeRuntimeServiceException$: StaticErrorSchema = [-3, _s, "PersonalizeRuntimeServiceException", 0, [], []];
+_s_registry.registerError(PersonalizeRuntimeServiceException$, PersonalizeRuntimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AttributeValue: StaticSimpleSchema = [0, n0, _AV, 8, 0];
 var FilterAttributeValue: StaticSimpleSchema = [0, n0, _FAV, 8, 0];
 export var GetActionRecommendationsRequest$: StaticStructureSchema = [3, n0, _GARR,
@@ -80,7 +105,7 @@ export var GetActionRecommendationsResponse$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetPersonalizedRankingRequest$: StaticStructureSchema = [3, n0, _GPRR,
   0,
-  [_cA, _iL, _uI, _c, _fA, _fV, _mC],
+  [_cA, _iL, _uI, _co, _fA, _fV, _mC],
   [0, 64 | 0, 0, [() => Context, 0], 0, [() => FilterValues, 0], [2, n0, _MC, 0, 0, 64 | 0]], 3
 ];
 export var GetPersonalizedRankingResponse$: StaticStructureSchema = [3, n0, _GPRRe,
@@ -90,7 +115,7 @@ export var GetPersonalizedRankingResponse$: StaticStructureSchema = [3, n0, _GPR
 ];
 export var GetRecommendationsRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_cA, _iI, _uI, _nR, _c, _fA, _fV, _rA, _p, _mC],
+  [_cA, _iI, _uI, _nR, _co, _fA, _fV, _rA, _p, _mC],
   [0, 0, 0, 1, [() => Context, 0], 0, [() => FilterValues, 0], 0, [() => PromotionList, 0], [2, n0, _MC, 0, 0, 64 | 0]]
 ];
 export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
@@ -98,20 +123,14 @@ export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_iLt, _rI],
   [[() => ItemList, 0], 0]
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var PredictedAction$: StaticStructureSchema = [3, n0, _PA,
   0,
-  [_aI, _s],
+  [_aI, _sc],
   [0, 1]
 ];
 export var PredictedItem$: StaticStructureSchema = [3, n0, _PI,
   0,
-  [_iI, _s, _pN, _me, _r],
+  [_iI, _sc, _pN, _me, _r],
   [0, 1, 0, [() => Metadata, 0], 64 | 0]
 ];
 export var Promotion$: StaticStructureSchema = [3, n0, _P,
@@ -119,14 +138,6 @@ export var Promotion$: StaticStructureSchema = [3, n0, _P,
   [_n, _pPI, _fA, _fV],
   [0, 1, 0, [() => FilterValues, 0]]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var PersonalizeRuntimeServiceException$: StaticErrorSchema = [-3, _sm, "PersonalizeRuntimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PersonalizeRuntimeServiceException$, PersonalizeRuntimeServiceException);
 var ActionList: StaticListSchema = [1, n0, _AL,
   0, () => PredictedAction$
 ];

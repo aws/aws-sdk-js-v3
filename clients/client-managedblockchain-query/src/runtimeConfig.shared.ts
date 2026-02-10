@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultManagedBlockchainQueryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { ManagedBlockchainQueryClientConfig } from "./ManagedBlockchainQueryClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ManagedBlockchainQueryClientConfig) => 
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.managedblockchainquery",
+      errorTypeRegistries,
       version: "2023-05-04",
       serviceTarget: "TietonChainQueryService",
     },

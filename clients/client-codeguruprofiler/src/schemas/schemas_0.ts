@@ -118,7 +118,7 @@ const _aP = "agentParameters";
 const _aPg = "agentProfile";
 const _an = "anomalies";
 const _ar = "arn";
-const _c = "channels";
+const _c = "client";
 const _cA = "createdAt";
 const _cE = "contentEncoding";
 const _cI = "channelId";
@@ -126,7 +126,7 @@ const _cP = "computePlatform";
 const _cT = "clientToken";
 const _cTA = "countersToAggregate";
 const _cTo = "contentType";
-const _cl = "client";
+const _ch = "channels";
 const _co = "configuration";
 const _com = "comment";
 const _d = "description";
@@ -154,11 +154,11 @@ const _l = "locale";
 const _lAOA = "latestAgentOrchestratedAt";
 const _lAP = "latestAggregatedProfile";
 const _lAPRA = "latestAgentProfileReportedAt";
-const _m = "metric";
+const _m = "message";
 const _mD = "maxDepth";
 const _mR = "maxResults";
-const _me = "metadata";
-const _mes = "message";
+const _me = "metric";
+const _met = "metadata";
 const _n = "name";
 const _nC = "notificationConfiguration";
 const _nT = "nextToken";
@@ -186,11 +186,11 @@ const _rS = "reportSummaries";
 const _rSe = "resolutionSteps";
 const _re = "resolution";
 const _rec = "recommendations";
-const _s = "start";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codeguruprofiler";
 const _sP = "shouldProfile";
 const _sT = "startTime";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codeguruprofiler";
+const _st = "start";
 const _t = "tags";
 const _tBV = "thresholdBreachValue";
 const _tF = "targetFrames";
@@ -231,9 +231,58 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CodeGuruProfilerServiceException$: StaticErrorSchema = [-3, _s, "CodeGuruProfilerServiceException", 0, [], []];
+_s_registry.registerError(CodeGuruProfilerServiceException$, CodeGuruProfilerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddNotificationChannelsRequest$: StaticStructureSchema = [3, n0, _ANCR,
   0,
-  [_pGN, _c],
+  [_pGN, _ch],
   [[0, 1], () => Channels], 2
 ];
 export var AddNotificationChannelsResponse$: StaticStructureSchema = [3, n0, _ANCRd,
@@ -253,12 +302,12 @@ export var AgentOrchestrationConfig$: StaticStructureSchema = [3, n0, _AOC,
 ];
 export var AggregatedProfileTime$: StaticStructureSchema = [3, n0, _APT,
   0,
-  [_s, _p],
+  [_st, _p],
   [5, 0]
 ];
 export var Anomaly$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_m, _r, _i],
+  [_me, _r, _i],
   [() => Metric$, 0, () => AnomalyInstances], 3
 ];
 export var AnomalyInstance$: StaticStructureSchema = [3, n0, _AI,
@@ -283,7 +332,7 @@ export var Channel$: StaticStructureSchema = [3, n0, _C,
 ];
 export var ConfigureAgentRequest$: StaticStructureSchema = [3, n0, _CAR,
   0,
-  [_pGN, _fII, _me],
+  [_pGN, _fII, _met],
   [[0, 1], 0, 128 | 0], 1
 ];
 export var ConfigureAgentResponse$: StaticStructureSchema = [3, n0, _CARo,
@@ -291,12 +340,6 @@ export var ConfigureAgentResponse$: StaticStructureSchema = [3, n0, _CARo,
   [_co],
   [[() => AgentConfiguration$, 16]], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _cl, [_hE]: 409 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateProfilingGroupRequest$: StaticStructureSchema = [3, n0, _CPGR,
   0,
   [_pGN, _cP, _cT, _aOC, _t],
@@ -392,12 +435,6 @@ export var GetRecommendationsResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_pGN, _pST, _pET, _rec, _an],
   [0, 5, 5, () => Recommendations, () => Anomalies], 5
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListFindingsReportsRequest$: StaticStructureSchema = [3, n0, _LFRR,
   0,
   [_pGN, _sT, _eT, _nT, _mR, _dRO],
@@ -450,7 +487,7 @@ export var Metric$: StaticStructureSchema = [3, n0, _Me,
 ];
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
-  [_c],
+  [_ch],
   [() => Channels]
 ];
 export var Pattern$: StaticStructureSchema = [3, n0, _P,
@@ -470,7 +507,7 @@ export var PostAgentProfileResponse$: StaticStructureSchema = [3, n0, _PAPRo,
 ];
 export var ProfileTime$: StaticStructureSchema = [3, n0, _PT,
   0,
-  [_s],
+  [_st],
   [5]
 ];
 export var ProfilingGroupDescription$: StaticStructureSchema = [3, n0, _PGD,
@@ -518,18 +555,6 @@ export var RemovePermissionResponse$: StaticStructureSchema = [3, n0, _RPRe,
   [_po, _rI],
   [0, 0], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _cl, [_hE]: 402 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SubmitFeedbackRequest$: StaticStructureSchema = [3, n0, _SFR,
   0,
   [_pGN, _aII, _ty, _com],
@@ -550,12 +575,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _cl, [_hE]: 429 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimestampStructure$: StaticStructureSchema = [3, n0, _TS,
   0,
   [_va],
@@ -586,14 +605,6 @@ export var UserFeedback$: StaticStructureSchema = [3, n0, _UF,
   [_ty],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_mes],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var CodeGuruProfilerServiceException$: StaticErrorSchema = [-3, _sm, "CodeGuruProfilerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeGuruProfilerServiceException$, CodeGuruProfilerServiceException);
 var Anomalies: StaticListSchema = [1, n0, _An,
   0, () => Anomaly$
 ];

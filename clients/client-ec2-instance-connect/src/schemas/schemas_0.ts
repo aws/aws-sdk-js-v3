@@ -28,8 +28,8 @@ const _aQE = "awsQueryError";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ec2instanceconnect";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ec2instanceconnect";
+const _se = "server";
 const n0 = "com.amazonaws.ec2instanceconnect";
 
 // smithy-typescript generated code
@@ -53,42 +53,91 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EC2InstanceConnectServiceException$: StaticErrorSchema = [-3, _s, "EC2InstanceConnectServiceException", 0, [], []];
+_s_registry.registerError(EC2InstanceConnectServiceException$, EC2InstanceConnectServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AuthException$: StaticErrorSchema = [-3, n0, _AE,
   { [_aQE]: [`Forbidden`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AuthException$, AuthException);
+n0_registry.registerError(AuthException$, AuthException);
 export var EC2InstanceNotFoundException$: StaticErrorSchema = [-3, n0, _ECINFE,
   { [_aQE]: [`EC2InstanceNotFound`, 404], [_e]: _c, [_hE]: 404 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceNotFoundException$, EC2InstanceNotFoundException);
+n0_registry.registerError(EC2InstanceNotFoundException$, EC2InstanceNotFoundException);
 export var EC2InstanceStateInvalidException$: StaticErrorSchema = [-3, n0, _ECISIE,
   { [_aQE]: [`EC2InstanceStateInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceStateInvalidException$, EC2InstanceStateInvalidException);
+n0_registry.registerError(EC2InstanceStateInvalidException$, EC2InstanceStateInvalidException);
 export var EC2InstanceTypeInvalidException$: StaticErrorSchema = [-3, n0, _ECITIE,
   { [_aQE]: [`EC2InstanceTypeInvalid`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceTypeInvalidException$, EC2InstanceTypeInvalidException);
+n0_registry.registerError(EC2InstanceTypeInvalidException$, EC2InstanceTypeInvalidException);
 export var EC2InstanceUnavailableException$: StaticErrorSchema = [-3, n0, _ECIUE,
-  { [_aQE]: [`EC2InstanceUnavailable`, 503], [_e]: _s, [_hE]: 503 },
+  { [_aQE]: [`EC2InstanceUnavailable`, 503], [_e]: _se, [_hE]: 503 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(EC2InstanceUnavailableException$, EC2InstanceUnavailableException);
+n0_registry.registerError(EC2InstanceUnavailableException$, EC2InstanceUnavailableException);
 export var InvalidArgsException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_aQE]: [`InvalidArguments`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(InvalidArgsException$, InvalidArgsException);
+n0_registry.registerError(InvalidArgsException$, InvalidArgsException);
+export var SerialConsoleAccessDisabledException$: StaticErrorSchema = [-3, n0, _SCADE,
+  { [_aQE]: [`SerialConsoleAccessDisabled`, 403], [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SerialConsoleAccessDisabledException$, SerialConsoleAccessDisabledException);
+export var SerialConsoleSessionLimitExceededException$: StaticErrorSchema = [-3, n0, _SCSLEE,
+  { [_aQE]: [`SerialConsoleSessionLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SerialConsoleSessionLimitExceededException$, SerialConsoleSessionLimitExceededException);
+export var SerialConsoleSessionUnavailableException$: StaticErrorSchema = [-3, n0, _SCSUE,
+  { [_aQE]: [`SerialConsoleSessionUnavailable`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SerialConsoleSessionUnavailableException$, SerialConsoleSessionUnavailableException);
+export var SerialConsoleSessionUnsupportedException$: StaticErrorSchema = [-3, n0, _SCSUEe,
+  { [_aQE]: [`SerialConsoleSessionUnsupported`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SerialConsoleSessionUnsupportedException$, SerialConsoleSessionUnsupportedException);
+export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
+  { [_aQE]: [`InternalServerError`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceException$, ServiceException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var SendSerialConsoleSSHPublicKeyRequest$: StaticStructureSchema = [3, n0, _SSCSSHPKR,
   0,
   [_II, _SSHPK, _SP],
@@ -109,44 +158,6 @@ export var SendSSHPublicKeyResponse$: StaticStructureSchema = [3, n0, _SSSHPKRe,
   [_RI, _S],
   [0, 2]
 ];
-export var SerialConsoleAccessDisabledException$: StaticErrorSchema = [-3, n0, _SCADE,
-  { [_aQE]: [`SerialConsoleAccessDisabled`, 403], [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SerialConsoleAccessDisabledException$, SerialConsoleAccessDisabledException);
-export var SerialConsoleSessionLimitExceededException$: StaticErrorSchema = [-3, n0, _SCSLEE,
-  { [_aQE]: [`SerialConsoleSessionLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SerialConsoleSessionLimitExceededException$, SerialConsoleSessionLimitExceededException);
-export var SerialConsoleSessionUnavailableException$: StaticErrorSchema = [-3, n0, _SCSUE,
-  { [_aQE]: [`SerialConsoleSessionUnavailable`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SerialConsoleSessionUnavailableException$, SerialConsoleSessionUnavailableException);
-export var SerialConsoleSessionUnsupportedException$: StaticErrorSchema = [-3, n0, _SCSUEe,
-  { [_aQE]: [`SerialConsoleSessionUnsupported`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SerialConsoleSessionUnsupportedException$, SerialConsoleSessionUnsupportedException);
-export var ServiceException$: StaticErrorSchema = [-3, n0, _SE,
-  { [_aQE]: [`InternalServerError`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceException$, ServiceException);
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var EC2InstanceConnectServiceException$: StaticErrorSchema = [-3, _sm, "EC2InstanceConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EC2InstanceConnectServiceException$, EC2InstanceConnectServiceException);
 export var SendSerialConsoleSSHPublicKey$: StaticOperationSchema = [9, n0, _SSCSSHPK,
   0, () => SendSerialConsoleSSHPublicKeyRequest$, () => SendSerialConsoleSSHPublicKeyResponse$
 ];

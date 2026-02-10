@@ -1041,7 +1041,7 @@ const _re = "region";
 const _res = "reservations";
 const _ri = "rist";
 const _rt = "rtp";
-const _s = "sources";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediaconnect";
 const _sA = "silentAudio";
 const _sAe = "secretArn";
 const _sAo = "sourceArn";
@@ -1079,8 +1079,8 @@ const _sTc = "scheduledTime";
 const _sTo = "sourceTags";
 const _sTt = "streamType";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediaconnect";
-const _so = "source";
+const _so = "sources";
+const _sou = "source";
 const _st = "state";
 const _sta = "status";
 const _stan = "standard";
@@ -1150,6 +1150,109 @@ import {
 import { MediaConnectServiceException } from "../models/MediaConnectServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaConnectServiceException$: StaticErrorSchema = [-3, _s, "MediaConnectServiceException", 0, [], []];
+_s_registry.registerError(MediaConnectServiceException$, MediaConnectServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AddFlowOutputs420Exception$: StaticErrorSchema = [-3, n0, _AFOE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(AddFlowOutputs420Exception$, AddFlowOutputs420Exception);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var CreateBridge420Exception$: StaticErrorSchema = [-3, n0, _CBE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(CreateBridge420Exception$, CreateBridge420Exception);
+export var CreateFlow420Exception$: StaticErrorSchema = [-3, n0, _CFE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(CreateFlow420Exception$, CreateFlow420Exception);
+export var CreateGateway420Exception$: StaticErrorSchema = [-3, n0, _CGE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(CreateGateway420Exception$, CreateGateway420Exception);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GrantFlowEntitlements420Exception$: StaticErrorSchema = [-3, n0, _GFEE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(GrantFlowEntitlements420Exception$, GrantFlowEntitlements420Exception);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var RouterInputServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RISQEE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(RouterInputServiceQuotaExceededException$, RouterInputServiceQuotaExceededException);
+export var RouterNetworkInterfaceServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RNISQEE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(RouterNetworkInterfaceServiceQuotaExceededException$, RouterNetworkInterfaceServiceQuotaExceededException);
+export var RouterOutputServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _ROSQEE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(RouterOutputServiceQuotaExceededException$, RouterOutputServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]], 1
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddBridgeFlowSourceRequest$: StaticStructureSchema = [3, n0, _ABFSR,
   0,
   [_FA, _N, _FVIA],
@@ -1188,12 +1291,12 @@ export var AddBridgeSourceRequest$: StaticStructureSchema = [3, n0, _ABSR,
 export var AddBridgeSourcesRequest$: StaticStructureSchema = [3, n0, _ABSRd,
   0,
   [_BA, _S],
-  [[0, 1], [() => __listOfAddBridgeSourceRequest, { [_jN]: _s }]], 2
+  [[0, 1], [() => __listOfAddBridgeSourceRequest, { [_jN]: _so }]], 2
 ];
 export var AddBridgeSourcesResponse$: StaticStructureSchema = [3, n0, _ABSRdd,
   0,
   [_BA, _S],
-  [[0, { [_jN]: _bA }], [() => __listOfBridgeSource, { [_jN]: _s }]]
+  [[0, { [_jN]: _bA }], [() => __listOfBridgeSource, { [_jN]: _so }]]
 ];
 export var AddEgressGatewayBridgeRequest$: StaticStructureSchema = [3, n0, _AEGBR,
   0,
@@ -1210,12 +1313,6 @@ export var AddFlowMediaStreamsResponse$: StaticStructureSchema = [3, n0, _AFMSRd
   [_FA, _MS],
   [[0, { [_jN]: _fA }], [() => __listOfMediaStream, { [_jN]: _mS }]]
 ];
-export var AddFlowOutputs420Exception$: StaticErrorSchema = [-3, n0, _AFOE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(AddFlowOutputs420Exception$, AddFlowOutputs420Exception);
 export var AddFlowOutputsRequest$: StaticStructureSchema = [3, n0, _AFOR,
   0,
   [_FA, _O],
@@ -1229,12 +1326,12 @@ export var AddFlowOutputsResponse$: StaticStructureSchema = [3, n0, _AFORd,
 export var AddFlowSourcesRequest$: StaticStructureSchema = [3, n0, _AFSR,
   0,
   [_FA, _S],
-  [[0, 1], [() => __listOfSetSourceRequest, { [_jN]: _s }]], 2
+  [[0, 1], [() => __listOfSetSourceRequest, { [_jN]: _so }]], 2
 ];
 export var AddFlowSourcesResponse$: StaticStructureSchema = [3, n0, _AFSRd,
   0,
   [_FA, _S],
-  [[0, { [_jN]: _fA }], [() => __listOfSource, { [_jN]: _s }]]
+  [[0, { [_jN]: _fA }], [() => __listOfSource, { [_jN]: _so }]]
 ];
 export var AddFlowVpcInterfacesRequest$: StaticStructureSchema = [3, n0, _AFVIR,
   0,
@@ -1276,12 +1373,6 @@ export var AutomaticEncryptionKeyConfiguration$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchGetRouterInputError$: StaticStructureSchema = [3, n0, _BGRIE,
   0,
   [_Ar, _C, _M],
@@ -1335,7 +1426,7 @@ export var BlackFrames$: StaticStructureSchema = [3, n0, _BF,
 export var Bridge$: StaticStructureSchema = [3, n0, _B,
   0,
   [_BA, _BS, _N, _PA, _BM, _EGB, _IGB, _O, _SFC, _S],
-  [[0, { [_jN]: _bA }], [0, { [_jN]: _bS }], [0, { [_jN]: _n }], [0, { [_jN]: _pA }], [() => __listOfMessageDetail, { [_jN]: _bM }], [() => EgressGatewayBridge$, { [_jN]: _eGB }], [() => IngressGatewayBridge$, { [_jN]: _iGB }], [() => __listOfBridgeOutput, { [_jN]: _o }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfBridgeSource, { [_jN]: _s }]], 4
+  [[0, { [_jN]: _bA }], [0, { [_jN]: _bS }], [0, { [_jN]: _n }], [0, { [_jN]: _pA }], [() => __listOfMessageDetail, { [_jN]: _bM }], [() => EgressGatewayBridge$, { [_jN]: _eGB }], [() => IngressGatewayBridge$, { [_jN]: _iGB }], [() => __listOfBridgeOutput, { [_jN]: _o }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfBridgeSource, { [_jN]: _so }]], 4
 ];
 export var BridgeFlowOutput$: StaticStructureSchema = [3, n0, _BFO,
   0,
@@ -1367,50 +1458,26 @@ export var BridgeSource$: StaticStructureSchema = [3, n0, _BSr,
   [_FS, _NS],
   [[() => BridgeFlowSource$, { [_jN]: _fS }], [() => BridgeNetworkSource$, { [_jN]: _nS }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
-export var CreateBridge420Exception$: StaticErrorSchema = [-3, n0, _CBE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(CreateBridge420Exception$, CreateBridge420Exception);
 export var CreateBridgeRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
   [_N, _PA, _S, _EGB, _IGB, _O, _SFC],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _pA }], [() => __listOfAddBridgeSourceRequest, { [_jN]: _s }], [() => AddEgressGatewayBridgeRequest$, { [_jN]: _eGB }], [() => AddIngressGatewayBridgeRequest$, { [_jN]: _iGB }], [() => __listOfAddBridgeOutputRequest, { [_jN]: _o }], [() => FailoverConfig$, { [_jN]: _sFC }]], 3
+  [[0, { [_jN]: _n }], [0, { [_jN]: _pA }], [() => __listOfAddBridgeSourceRequest, { [_jN]: _so }], [() => AddEgressGatewayBridgeRequest$, { [_jN]: _eGB }], [() => AddIngressGatewayBridgeRequest$, { [_jN]: _iGB }], [() => __listOfAddBridgeOutputRequest, { [_jN]: _o }], [() => FailoverConfig$, { [_jN]: _sFC }]], 3
 ];
 export var CreateBridgeResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
   [_B],
   [[() => Bridge$, { [_jN]: _b }]]
 ];
-export var CreateFlow420Exception$: StaticErrorSchema = [-3, n0, _CFE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(CreateFlow420Exception$, CreateFlow420Exception);
 export var CreateFlowRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
   [_N, _AZ, _En, _MS, _O, _So, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC, _EC, _FT],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _aZ }], [() => __listOfGrantEntitlementRequest, { [_jN]: _ent }], [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }], [() => __listOfAddOutputRequest, { [_jN]: _o }], [() => SetSourceRequest$, { [_jN]: _so }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSetSourceRequest, { [_jN]: _s }], [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }], [() => AddMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }], [128 | 0, { [_jN]: _fT }]], 1
+  [[0, { [_jN]: _n }], [0, { [_jN]: _aZ }], [() => __listOfGrantEntitlementRequest, { [_jN]: _ent }], [() => __listOfAddMediaStreamRequest, { [_jN]: _mS }], [() => __listOfAddOutputRequest, { [_jN]: _o }], [() => SetSourceRequest$, { [_jN]: _sou }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSetSourceRequest, { [_jN]: _so }], [() => __listOfVpcInterfaceRequest, { [_jN]: _vI }], [() => AddMaintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }], [128 | 0, { [_jN]: _fT }]], 1
 ];
 export var CreateFlowResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
   [_F],
   [[() => Flow$, { [_jN]: _f }]]
 ];
-export var CreateGateway420Exception$: StaticErrorSchema = [-3, n0, _CGE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(CreateGateway420Exception$, CreateGateway420Exception);
 export var CreateGatewayRequest$: StaticStructureSchema = [3, n0, _CGR,
   0,
   [_ECB, _N, _Ne],
@@ -1669,7 +1736,7 @@ export var FailoverRouterInputStreamDetails$: StaticStructureSchema = [3, n0, _F
 export var Flow$: StaticStructureSchema = [3, n0, _F,
   0,
   [_AZ, _En, _FA, _N, _O, _So, _Sta, _D, _EI, _MS, _SFC, _S, _VI, _Ma, _SMC, _FSl, _NC, _EC],
-  [[0, { [_jN]: _aZ }], [() => __listOfEntitlement, { [_jN]: _ent }], [0, { [_jN]: _fA }], [0, { [_jN]: _n }], [() => __listOfOutput, { [_jN]: _o }], [() => Source$, { [_jN]: _so }], [0, { [_jN]: _sta }], [0, { [_jN]: _d }], [0, { [_jN]: _eI }], [() => __listOfMediaStream, { [_jN]: _mS }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSource, { [_jN]: _s }], [() => __listOfVpcInterface, { [_jN]: _vI }], [() => Maintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }]], 7
+  [[0, { [_jN]: _aZ }], [() => __listOfEntitlement, { [_jN]: _ent }], [0, { [_jN]: _fA }], [0, { [_jN]: _n }], [() => __listOfOutput, { [_jN]: _o }], [() => Source$, { [_jN]: _sou }], [0, { [_jN]: _sta }], [0, { [_jN]: _d }], [0, { [_jN]: _eI }], [() => __listOfMediaStream, { [_jN]: _mS }], [() => FailoverConfig$, { [_jN]: _sFC }], [() => __listOfSource, { [_jN]: _so }], [() => __listOfVpcInterface, { [_jN]: _vI }], [() => Maintenance$, { [_jN]: _ma }], [() => MonitoringConfig$, { [_jN]: _sMC }], [0, { [_jN]: _fSl }], [() => NdiConfig$, { [_jN]: _nC }], [() => EncodingConfig$, { [_jN]: _eC }]], 7
 ];
 export var FlowTransitEncryption$: StaticStructureSchema = [3, n0, _FTE,
   0,
@@ -1686,12 +1753,6 @@ export var FmtpRequest$: StaticStructureSchema = [3, n0, _FR,
   [_CO, _Col, _EF, _Pa, _Ra, _SM, _Tc],
   [[0, { [_jN]: _cO }], [0, { [_jN]: _col }], [0, { [_jN]: _eF }], [0, { [_jN]: _pa }], [0, { [_jN]: _ra }], [0, { [_jN]: _sM }], [0, { [_jN]: _tc }]]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var FrameResolution$: StaticStructureSchema = [3, n0, _FRr,
   0,
   [_FH, _FW],
@@ -1777,12 +1838,6 @@ export var GrantEntitlementRequest$: StaticStructureSchema = [3, n0, _GER,
   [_Su, _DTSFP, _D, _E, _ES, _N, _ET],
   [[64 | 0, { [_jN]: _su }], [1, { [_jN]: _dTSFP }], [0, { [_jN]: _d }], [() => Encryption$, { [_jN]: _en }], [0, { [_jN]: _eS }], [0, { [_jN]: _n }], [128 | 0, { [_jN]: _eT }]], 1
 ];
-export var GrantFlowEntitlements420Exception$: StaticErrorSchema = [-3, n0, _GFEE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(GrantFlowEntitlements420Exception$, GrantFlowEntitlements420Exception);
 export var GrantFlowEntitlementsRequest$: StaticStructureSchema = [3, n0, _GFER,
   0,
   [_En, _FA],
@@ -1818,12 +1873,6 @@ export var InterfaceRequest$: StaticStructureSchema = [3, n0, _IR,
   [_N],
   [[0, { [_jN]: _n }]], 1
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListBridgesRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
   [_FAi, _MR, _NT],
@@ -2129,12 +2178,6 @@ export var NdiSourceSettings$: StaticStructureSchema = [3, n0, _NSS,
   [_SN],
   [[0, { [_jN]: _sN }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Offering$: StaticStructureSchema = [3, n0, _Of,
   0,
   [_CC, _Du, _DU, _OAf, _OD, _PPU, _PU, _RSe],
@@ -2290,12 +2333,6 @@ export var RouterInputMessage$: StaticStructureSchema = [3, n0, _RIM,
   [_C, _M],
   [[0, { [_jN]: _co }], [0, { [_jN]: _m }]], 2
 ];
-export var RouterInputServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RISQEE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(RouterInputServiceQuotaExceededException$, RouterInputServiceQuotaExceededException);
 export var RouterInputSourceMetadataDetails$: StaticStructureSchema = [3, n0, _RISMD,
   0,
   [_SMM, _Tim, _RIMo],
@@ -2316,12 +2353,6 @@ export var RouterNetworkInterface$: StaticStructureSchema = [3, n0, _RNIo,
   [_N, _Ar, _Id, _St, _NIT, _Co, _AOC, _AIC, _RN, _CA, _UA, _Ta],
   [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _nIT }], [() => RouterNetworkInterfaceConfiguration$, { [_jN]: _con }], [1, { [_jN]: _aOC }], [1, { [_jN]: _aIC }], [0, { [_jN]: _rN }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [128 | 0, { [_jN]: _ta }]], 12
 ];
-export var RouterNetworkInterfaceServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _RNISQEE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(RouterNetworkInterfaceServiceQuotaExceededException$, RouterNetworkInterfaceServiceQuotaExceededException);
 export var RouterOutput$: StaticStructureSchema = [3, n0, _ROo,
   0,
   [_N, _Ar, _Id, _St, _OTu, _Co, _RSo, _RN, _AZ, _MBa, _RS, _Ti, _CA, _UA, _Me, _Ta, _SD, _MT, _MC, _IA, _RIA, _MSTa, _MSa],
@@ -2332,12 +2363,6 @@ export var RouterOutputMessage$: StaticStructureSchema = [3, n0, _ROM,
   [_C, _M],
   [[0, { [_jN]: _co }], [0, { [_jN]: _m }]], 2
 ];
-export var RouterOutputServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _ROSQEE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(RouterOutputServiceQuotaExceededException$, RouterOutputServiceQuotaExceededException);
 export var RtpRouterInputConfiguration$: StaticStructureSchema = [3, n0, _RRICt,
   0,
   [_P, _FEC],
@@ -2353,12 +2378,6 @@ export var SecretsManagerEncryptionKeyConfiguration$: StaticStructureSchema = [3
   [_SAe, _RAo],
   [[0, { [_jN]: _sAe }], [0, { [_jN]: _rA }]], 2
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetGatewayBridgeSourceRequest$: StaticStructureSchema = [3, n0, _SGBSR,
   0,
   [_BA, _VIA],
@@ -2519,12 +2538,6 @@ export var ThumbnailDetails$: StaticStructureSchema = [3, n0, _TD,
   [_FA, _TM, _Th, _Timec, _Tim],
   [[0, { [_jN]: _fA }], [() => __listOfMessageDetail, { [_jN]: _tM }], [0, { [_jN]: _th }], [0, { [_jN]: _timec }], [5, { [_jN]: _tim }]], 2
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [[0, { [_jN]: _m }]], 1
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var Transport$: StaticStructureSchema = [3, n0, _Tr,
   0,
   [_Pr, _CAL, _MB, _ML, _MSB, _MLi, _RI, _SCP, _SIAe, _SL, _SLA, _SLP, _SI, _NSHQ, _NPN, _NSS],
@@ -2598,7 +2611,7 @@ export var UpdateBridgeSourceRequest$: StaticStructureSchema = [3, n0, _UBSR,
 export var UpdateBridgeSourceResponse$: StaticStructureSchema = [3, n0, _UBSRp,
   0,
   [_BA, _So],
-  [[0, { [_jN]: _bA }], [() => BridgeSource$, { [_jN]: _so }]]
+  [[0, { [_jN]: _bA }], [() => BridgeSource$, { [_jN]: _sou }]]
 ];
 export var UpdateBridgeStateRequest$: StaticStructureSchema = [3, n0, _UBSRpd,
   0,
@@ -2673,7 +2686,7 @@ export var UpdateFlowSourceRequest$: StaticStructureSchema = [3, n0, _UFSR,
 export var UpdateFlowSourceResponse$: StaticStructureSchema = [3, n0, _UFSRp,
   0,
   [_FA, _So],
-  [[0, { [_jN]: _fA }], [() => Source$, { [_jN]: _so }]]
+  [[0, { [_jN]: _fA }], [() => Source$, { [_jN]: _sou }]]
 ];
 export var UpdateGatewayBridgeSourceRequest$: StaticStructureSchema = [3, n0, _UGBSR,
   0,
@@ -2761,8 +2774,6 @@ export var WindowMaintenanceSchedule$: StaticStructureSchema = [3, n0, _WMS,
   [[5, { [_jN]: _star }], [5, { [_jN]: _end }], [5, { [_jN]: _sTc }]], 3
 ];
 var __Unit = "unit" as const;
-export var MediaConnectServiceException$: StaticErrorSchema = [-3, _sm, "MediaConnectServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaConnectServiceException$, MediaConnectServiceException);
 var __listOfAddBridgeOutputRequest: StaticListSchema = [1, n0, _lOABOR,
   0, [() => AddBridgeOutputRequest$,
     0]

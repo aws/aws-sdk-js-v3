@@ -19,10 +19,10 @@ const _CD = "CreateDate";
 const _CDR = "CreateDatasetRequest";
 const _CDRr = "CreateDatasetResponse";
 const _CDr = "CreateDataset";
-const _CE = "ConditionExpression";
+const _CE = "ConflictException";
 const _CEL = "ConditionExpressionList";
 const _CEh = "CheckExpression";
-const _CEo = "ConflictException";
+const _CEo = "ConditionExpression";
 const _CEon = "ConditionExpressions";
 const _CEr = "CronExpression";
 const _CF = "CompressionFormat";
@@ -354,8 +354,8 @@ const _n = "name";
 const _nT = "nextToken";
 const _pN = "projectName";
 const _rV = "recipeVersion";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.databrew";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.databrew";
+const _se = "server";
 const _tA = "targetArn";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.databrew";
@@ -382,13 +382,56 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var ClientSessionId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var DataBrewServiceException$: StaticErrorSchema = [-3, _s, "DataBrewServiceException", 0, [], []];
+_s_registry.registerError(DataBrewServiceException$, DataBrewServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ClientSessionId: StaticSimpleSchema = [0, n0, _CSI, 8, 0];
 export var AllowedStatistics$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_S],
@@ -414,17 +457,11 @@ export var ColumnStatisticsConfiguration$: StaticStructureSchema = [3, n0, _CSC,
   [_S, _Se],
   [() => StatisticsConfiguration$, () => ColumnSelectorList], 1
 ];
-export var ConditionExpression$: StaticStructureSchema = [3, n0, _CE,
+export var ConditionExpression$: StaticStructureSchema = [3, n0, _CEo,
   0,
   [_C, _TC, _V],
   [0, 0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDatasetRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_N, _I, _F, _FO, _PO, _T],
@@ -705,12 +742,6 @@ export var Input$: StaticStructureSchema = [3, n0, _I,
   [_SID, _DCID, _DID, _Me],
   [() => S3Location$, () => DataCatalogInputDefinition$, () => DatabaseInputDefinition$, () => Metadata$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Job$: StaticStructureSchema = [3, n0, _Jo,
   0,
   [_N, _AI, _CB, _CD, _DN, _EKA, _EM, _Ty, _LMB, _LMD, _LS, _MC, _MR, _O, _DCO, _DO, _PN, _RR, _RAe, _RA, _Ti, _T, _JS, _VC],
@@ -886,12 +917,6 @@ export var RecipeVersionErrorDetail$: StaticStructureSchema = [3, n0, _RVED,
   [_EC, _EMr, _RVe],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Rule$: StaticStructureSchema = [3, n0, _Rule,
   0,
   [_N, _CEh, _Di, _SM, _Th, _CSo],
@@ -932,12 +957,6 @@ export var SendProjectSessionActionResponse$: StaticStructureSchema = [3, n0, _S
   [_N, _Res, _AIc],
   [0, 0, 1], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartJobRunRequest$: StaticStructureSchema = [3, n0, _SJRR,
   0,
   [_N],
@@ -1078,19 +1097,11 @@ export var ValidationConfiguration$: StaticStructureSchema = [3, n0, _VCa,
   [_RAu, _VMa],
   [0, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ViewFrame$: StaticStructureSchema = [3, n0, _VF,
   0,
   [_SCI, _CR, _HC, _SRI, _RRo, _An],
   [1, 1, 64 | 0, 1, 1, 0], 1
 ];
-export var DataBrewServiceException$: StaticErrorSchema = [-3, _sm, "DataBrewServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DataBrewServiceException$, DataBrewServiceException);
 var AllowedStatisticList: StaticListSchema = [1, n0, _ASL,
   0, () => AllowedStatistics$
 ];

@@ -169,7 +169,7 @@ const _UATR = "UpdateAssessmentTargetRequest";
 const _UFE = "UnsupportedFeatureException";
 const _UFER = "UnsubscribeFromEventRequest";
 const _UFEn = "UnsubscribeFromEvent";
-const _a = "attributes";
+const _a = "agents";
 const _aA = "assetAttributes";
 const _aH = "agentHealths";
 const _aHC = "agentHealthCodes";
@@ -182,9 +182,9 @@ const _aIm = "amiId";
 const _aK = "attributeKeys";
 const _aP = "agentPreviews";
 const _aR = "assessmentRuns";
-const _aRA = "assessmentRunArn";
+const _aRA = "assessmentRunArns";
 const _aRAT = "assessmentRunArnsTruncated";
-const _aRAs = "assessmentRunArns";
+const _aRAs = "assessmentRunArn";
 const _aRAss = "assessmentRunAgents";
 const _aRC = "assessmentRunCount";
 const _aRN = "assessmentRunName";
@@ -202,8 +202,8 @@ const _aTs = "assessmentTargets";
 const _aTss = "assessmentTemplates";
 const _aTsse = "assetType";
 const _aV = "agentVersion";
-const _ag = "agents";
 const _ar = "arn";
+const _at = "attributes";
 const _bD = "beginDate";
 const _c = "client";
 const _cA = "createdAt";
@@ -283,7 +283,7 @@ const _rPA = "rulesPackageArns";
 const _rPAu = "rulesPackageArn";
 const _rT = "reportType";
 const _re = "retryable";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.inspector";
 const _sA = "startedAt";
 const _sAe = "serviceAttributes";
 const _sAt = "stopAction";
@@ -298,13 +298,13 @@ const _sTA = "snsTopicArn";
 const _sTR = "startTimeRange";
 const _sV = "schemaVersion";
 const _sc = "scopes";
-const _se = "service";
-const _ser = "server";
+const _se = "server";
+const _ser = "service";
 const _sev = "severity";
 const _seve = "severities";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.inspector";
-const _st = "states";
-const _sta = "status";
+const _st = "state";
+const _sta = "states";
+const _stat = "status";
 const _su = "subscriptions";
 const _t = "tags";
 const _tA = "topicArn";
@@ -346,15 +346,88 @@ import {
 import { InspectorServiceException } from "../models/InspectorServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var InspectorServiceException$: StaticErrorSchema = [-3, _s, "InspectorServiceException", 0, [], []];
+_s_registry.registerError(InspectorServiceException$, InspectorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _eC, _cR],
   [0, 0, 2], 3
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AgentsAlreadyRunningAssessmentException$: StaticErrorSchema = [-3, n0, _AARAE,
+  { [_e]: _c },
+  [_m, _a, _aT, _cR],
+  [0, () => AgentAlreadyRunningAssessmentList, 2, 2], 4
+];
+n0_registry.registerError(AgentsAlreadyRunningAssessmentException$, AgentsAlreadyRunningAssessmentException);
+export var AssessmentRunInProgressException$: StaticErrorSchema = [-3, n0, _ARIPE,
+  { [_e]: _c },
+  [_m, _aRA, _aRAT, _cR],
+  [0, 64 | 0, 2, 2], 4
+];
+n0_registry.registerError(AssessmentRunInProgressException$, AssessmentRunInProgressException);
+export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
+  { [_e]: _se },
+  [_m, _cR],
+  [0, 2], 2
+];
+n0_registry.registerError(InternalException$, InternalException);
+export var InvalidCrossAccountRoleException$: StaticErrorSchema = [-3, n0, _ICARE,
+  { [_e]: _c },
+  [_m, _eC, _cR],
+  [0, 0, 2], 3
+];
+n0_registry.registerError(InvalidCrossAccountRoleException$, InvalidCrossAccountRoleException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_m, _eC, _cR],
+  [0, 0, 2], 3
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_m, _eC, _cR],
+  [0, 0, 2], 3
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
+  { [_e]: _c },
+  [_m, _eC, _cR],
+  [0, 0, 2], 3
+];
+n0_registry.registerError(NoSuchEntityException$, NoSuchEntityException);
+export var PreviewGenerationInProgressException$: StaticErrorSchema = [-3, n0, _PGIPE,
+  { [_e]: _c },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(PreviewGenerationInProgressException$, PreviewGenerationInProgressException);
+export var ServiceTemporarilyUnavailableException$: StaticErrorSchema = [-3, n0, _STUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m, _cR],
+  [0, 2], 2
+];
+n0_registry.registerError(ServiceTemporarilyUnavailableException$, ServiceTemporarilyUnavailableException);
+export var UnsupportedFeatureException$: StaticErrorSchema = [-3, n0, _UFE,
+  { [_e]: _c },
+  [_m, _cR],
+  [0, 2], 2
+];
+n0_registry.registerError(UnsupportedFeatureException$, UnsupportedFeatureException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddAttributesToFindingsRequest$: StaticStructureSchema = [3, n0, _AATFR,
   0,
-  [_fA, _a],
+  [_fA, _at],
   [64 | 0, () => UserAttributeList], 2
 ];
 export var AddAttributesToFindingsResponse$: StaticStructureSchema = [3, n0, _AATFRd,
@@ -364,7 +437,7 @@ export var AddAttributesToFindingsResponse$: StaticStructureSchema = [3, n0, _AA
 ];
 export var AgentAlreadyRunningAssessment$: StaticStructureSchema = [3, n0, _AARA,
   0,
-  [_aI, _aRA],
+  [_aI, _aRAs],
   [0, 0], 2
 ];
 export var AgentFilter$: StaticStructureSchema = [3, n0, _AF,
@@ -377,33 +450,21 @@ export var AgentPreview$: StaticStructureSchema = [3, n0, _AP,
   [_aI, _h, _aSG, _aHg, _aV, _oS, _kV, _iA],
   [0, 0, 0, 0, 0, 0, 0, 0], 1
 ];
-export var AgentsAlreadyRunningAssessmentException$: StaticErrorSchema = [-3, n0, _AARAE,
-  { [_e]: _c },
-  [_m, _ag, _aT, _cR],
-  [0, () => AgentAlreadyRunningAssessmentList, 2, 2], 4
-];
-TypeRegistry.for(n0).registerError(AgentsAlreadyRunningAssessmentException$, AgentsAlreadyRunningAssessmentException);
 export var AssessmentRun$: StaticStructureSchema = [3, n0, _AR,
   0,
-  [_ar, _n, _aTA, _s, _dIS, _rPA, _uAFF, _cA, _sCA, _dC, _sC, _no, _fC, _sA, _cAo],
+  [_ar, _n, _aTA, _st, _dIS, _rPA, _uAFF, _cA, _sCA, _dC, _sC, _no, _fC, _sA, _cAo],
   [0, 0, 0, 0, 1, 64 | 0, () => UserAttributeList, 4, 4, 2, () => AssessmentRunStateChangeList, () => AssessmentRunNotificationList, 128 | 1, 4, 4], 13
 ];
 export var AssessmentRunAgent$: StaticStructureSchema = [3, n0, _ARA,
   0,
-  [_aI, _aRA, _aHg, _aHCg, _tM, _aHD, _aSG],
+  [_aI, _aRAs, _aHg, _aHCg, _tM, _aHD, _aSG],
   [0, 0, 0, 0, () => TelemetryMetadataList, 0, 0], 5
 ];
 export var AssessmentRunFilter$: StaticStructureSchema = [3, n0, _ARF,
   0,
-  [_nP, _st, _dR, _rPA, _sTR, _cTR, _sCTR],
+  [_nP, _sta, _dR, _rPA, _sTR, _cTR, _sCTR],
   [0, 64 | 0, () => DurationRange$, 64 | 0, () => TimestampRange$, () => TimestampRange$, () => TimestampRange$]
 ];
-export var AssessmentRunInProgressException$: StaticErrorSchema = [-3, n0, _ARIPE,
-  { [_e]: _c },
-  [_m, _aRAs, _aRAT, _cR],
-  [0, 64 | 0, 2, 2], 4
-];
-TypeRegistry.for(n0).registerError(AssessmentRunInProgressException$, AssessmentRunInProgressException);
 export var AssessmentRunNotification$: StaticStructureSchema = [3, n0, _ARN,
   0,
   [_d, _ev, _e, _m, _sTA, _sPSC],
@@ -411,7 +472,7 @@ export var AssessmentRunNotification$: StaticStructureSchema = [3, n0, _ARN,
 ];
 export var AssessmentRunStateChange$: StaticStructureSchema = [3, n0, _ARSC,
   0,
-  [_sCA, _s],
+  [_sCA, _st],
   [4, 0], 2
 ];
 export var AssessmentTarget$: StaticStructureSchema = [3, n0, _AT,
@@ -486,7 +547,7 @@ export var CreateResourceGroupResponse$: StaticStructureSchema = [3, n0, _CRGRr,
 ];
 export var DeleteAssessmentRunRequest$: StaticStructureSchema = [3, n0, _DARR,
   0,
-  [_aRA],
+  [_aRAs],
   [0], 1
 ];
 export var DeleteAssessmentTargetRequest$: StaticStructureSchema = [3, n0, _DATR,
@@ -501,7 +562,7 @@ export var DeleteAssessmentTemplateRequest$: StaticStructureSchema = [3, n0, _DA
 ];
 export var DescribeAssessmentRunsRequest$: StaticStructureSchema = [3, n0, _DARRe,
   0,
-  [_aRAs],
+  [_aRA],
   [64 | 0], 1
 ];
 export var DescribeAssessmentRunsResponse$: StaticStructureSchema = [3, n0, _DARRes,
@@ -586,12 +647,12 @@ export var EventSubscription$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var Exclusion$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_ar, _ti, _de, _r, _sc, _a],
+  [_ar, _ti, _de, _r, _sc, _at],
   [0, 0, 0, 0, () => ScopeList, () => AttributeList], 5
 ];
 export var ExclusionPreview$: StaticStructureSchema = [3, n0, _EP,
   0,
-  [_ti, _de, _r, _sc, _a],
+  [_ti, _de, _r, _sc, _at],
   [0, 0, 0, () => ScopeList, () => AttributeList], 4
 ];
 export var FailedItemDetails$: StaticStructureSchema = [3, n0, _FID,
@@ -601,22 +662,22 @@ export var FailedItemDetails$: StaticStructureSchema = [3, n0, _FID,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_ar, _a, _uAs, _cA, _uA, _sV, _se, _sAe, _aTsse, _aA, _i, _ti, _de, _r, _sev, _nS, _co, _iOC],
+  [_ar, _at, _uAs, _cA, _uA, _sV, _ser, _sAe, _aTsse, _aA, _i, _ti, _de, _r, _sev, _nS, _co, _iOC],
   [0, () => AttributeList, () => UserAttributeList, 4, 4, 1, 0, () => InspectorServiceAttributes$, 0, () => AssetAttributes$, 0, 0, 0, 0, 0, 1, 1, 2], 5
 ];
 export var FindingFilter$: StaticStructureSchema = [3, n0, _FF,
   0,
-  [_aIg, _aSGu, _rN, _seve, _rPA, _a, _uAs, _cTRr],
+  [_aIg, _aSGu, _rN, _seve, _rPA, _at, _uAs, _cTRr],
   [64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => AttributeList, () => AttributeList, () => TimestampRange$]
 ];
 export var GetAssessmentReportRequest$: StaticStructureSchema = [3, n0, _GARR,
   0,
-  [_aRA, _rFF, _rT],
+  [_aRAs, _rFF, _rT],
   [0, 0, 0], 3
 ];
 export var GetAssessmentReportResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_sta, _u],
+  [_stat, _u],
   [0, 0], 1
 ];
 export var GetExclusionsPreviewRequest$: StaticStructureSchema = [3, n0, _GEPR,
@@ -631,7 +692,7 @@ export var GetExclusionsPreviewResponse$: StaticStructureSchema = [3, n0, _GEPRe
 ];
 export var GetTelemetryMetadataRequest$: StaticStructureSchema = [3, n0, _GTMR,
   0,
-  [_aRA],
+  [_aRAs],
   [0], 1
 ];
 export var GetTelemetryMetadataResponse$: StaticStructureSchema = [3, n0, _GTMRe,
@@ -641,36 +702,12 @@ export var GetTelemetryMetadataResponse$: StaticStructureSchema = [3, n0, _GTMRe
 ];
 export var InspectorServiceAttributes$: StaticStructureSchema = [3, n0, _ISA,
   0,
-  [_sV, _aRA, _rPAu],
+  [_sV, _aRAs, _rPAu],
   [1, 0, 0], 1
 ];
-export var InternalException$: StaticErrorSchema = [-3, n0, _IE,
-  { [_e]: _ser },
-  [_m, _cR],
-  [0, 2], 2
-];
-TypeRegistry.for(n0).registerError(InternalException$, InternalException);
-export var InvalidCrossAccountRoleException$: StaticErrorSchema = [-3, n0, _ICARE,
-  { [_e]: _c },
-  [_m, _eC, _cR],
-  [0, 0, 2], 3
-];
-TypeRegistry.for(n0).registerError(InvalidCrossAccountRoleException$, InvalidCrossAccountRoleException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c },
-  [_m, _eC, _cR],
-  [0, 0, 2], 3
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_m, _eC, _cR],
-  [0, 0, 2], 3
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAssessmentRunAgentsRequest$: StaticStructureSchema = [3, n0, _LARAR,
   0,
-  [_aRA, _fi, _nT, _mR],
+  [_aRAs, _fi, _nT, _mR],
   [0, () => AgentFilter$, 0, 1], 1
 ];
 export var ListAssessmentRunAgentsResponse$: StaticStructureSchema = [3, n0, _LARARi,
@@ -685,7 +722,7 @@ export var ListAssessmentRunsRequest$: StaticStructureSchema = [3, n0, _LARR,
 ];
 export var ListAssessmentRunsResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
-  [_aRAs, _nT],
+  [_aRA, _nT],
   [64 | 0, 0], 1
 ];
 export var ListAssessmentTargetsRequest$: StaticStructureSchema = [3, n0, _LATR,
@@ -720,7 +757,7 @@ export var ListEventSubscriptionsResponse$: StaticStructureSchema = [3, n0, _LES
 ];
 export var ListExclusionsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
-  [_aRA, _nT, _mR],
+  [_aRAs, _nT, _mR],
   [0, 0, 1], 1
 ];
 export var ListExclusionsResponse$: StaticStructureSchema = [3, n0, _LERi,
@@ -730,7 +767,7 @@ export var ListExclusionsResponse$: StaticStructureSchema = [3, n0, _LERi,
 ];
 export var ListFindingsRequest$: StaticStructureSchema = [3, n0, _LFR,
   0,
-  [_aRAs, _fi, _nT, _mR],
+  [_aRA, _fi, _nT, _mR],
   [64 | 0, () => FindingFilter$, 0, 1]
 ];
 export var ListFindingsResponse$: StaticStructureSchema = [3, n0, _LFRi,
@@ -763,12 +800,6 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   [_nII, _sI, _vI, _pDN, _pIA, _pIAr, _pDNu, _pI, _iApv, _sG],
   [0, 0, 0, 0, 0, () => PrivateIpAddresses, 0, 0, 64 | 0, () => SecurityGroups]
 ];
-export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
-  { [_e]: _c },
-  [_m, _eC, _cR],
-  [0, 0, 2], 3
-];
-TypeRegistry.for(n0).registerError(NoSuchEntityException$, NoSuchEntityException);
 export var PreviewAgentsRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
   [_pAA, _nT, _mR],
@@ -779,12 +810,6 @@ export var PreviewAgentsResponse$: StaticStructureSchema = [3, n0, _PARr,
   [_aP, _nT],
   [() => AgentPreviewList, 0], 1
 ];
-export var PreviewGenerationInProgressException$: StaticErrorSchema = [-3, n0, _PGIPE,
-  { [_e]: _c },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(PreviewGenerationInProgressException$, PreviewGenerationInProgressException);
 export var PrivateIp$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_pDN, _pIA],
@@ -830,12 +855,6 @@ export var SecurityGroup$: StaticStructureSchema = [3, n0, _SG,
   [_gN, _gI],
   [0, 0]
 ];
-export var ServiceTemporarilyUnavailableException$: StaticErrorSchema = [-3, n0, _STUE,
-  { [_e]: _ser, [_hE]: 503 },
-  [_m, _cR],
-  [0, 2], 2
-];
-TypeRegistry.for(n0).registerError(ServiceTemporarilyUnavailableException$, ServiceTemporarilyUnavailableException);
 export var SetTagsForResourceRequest$: StaticStructureSchema = [3, n0, _STFRR,
   0,
   [_rAes, _t],
@@ -848,12 +867,12 @@ export var StartAssessmentRunRequest$: StaticStructureSchema = [3, n0, _SARR,
 ];
 export var StartAssessmentRunResponse$: StaticStructureSchema = [3, n0, _SARRt,
   0,
-  [_aRA],
+  [_aRAs],
   [0], 1
 ];
 export var StopAssessmentRunRequest$: StaticStructureSchema = [3, n0, _SARRto,
   0,
-  [_aRA, _sAt],
+  [_aRAs, _sAt],
   [0, 0], 1
 ];
 export var SubscribeToEventRequest$: StaticStructureSchema = [3, n0, _STER,
@@ -886,20 +905,12 @@ export var UnsubscribeFromEventRequest$: StaticStructureSchema = [3, n0, _UFER,
   [_rAes, _ev, _tA],
   [0, 0, 0], 3
 ];
-export var UnsupportedFeatureException$: StaticErrorSchema = [-3, n0, _UFE,
-  { [_e]: _c },
-  [_m, _cR],
-  [0, 2], 2
-];
-TypeRegistry.for(n0).registerError(UnsupportedFeatureException$, UnsupportedFeatureException);
 export var UpdateAssessmentTargetRequest$: StaticStructureSchema = [3, n0, _UATR,
   0,
   [_aTAs, _aTN, _rGA],
   [0, 0, 0], 2
 ];
 var __Unit = "unit" as const;
-export var InspectorServiceException$: StaticErrorSchema = [-3, _sm, "InspectorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(InspectorServiceException$, InspectorServiceException);
 var AddRemoveAttributesFindingArnList = 64 | 0;
 var AgentAlreadyRunningAssessmentList: StaticListSchema = [1, n0, _AARAL,
   0, () => AgentAlreadyRunningAssessment$

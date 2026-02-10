@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultKinesisVideoHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { KinesisVideoClientConfig } from "./KinesisVideoClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: KinesisVideoClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.kinesisvideo",
+      errorTypeRegistries,
       xmlNamespace: "https://kinesisvideo.amazonaws.com/doc/2017-09-30/",
       version: "2017-09-30",
       serviceTarget: "KinesisVideo_20170930",

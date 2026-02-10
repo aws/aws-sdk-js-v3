@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultPaymentCryptographyDataHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { PaymentCryptographyDataClientConfig } from "./PaymentCryptographyDataClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: PaymentCryptographyDataClientConfig) =>
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.paymentcryptographydata",
+      errorTypeRegistries,
       version: "2022-02-03",
       serviceTarget: "PaymentCryptographyDataPlane",
     },

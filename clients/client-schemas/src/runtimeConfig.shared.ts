@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSchemasHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SchemasClientConfig } from "./SchemasClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SchemasClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.schemas",
+      errorTypeRegistries,
       version: "2019-12-02",
       serviceTarget: "schemas",
     },

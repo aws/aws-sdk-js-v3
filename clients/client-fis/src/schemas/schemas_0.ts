@@ -239,7 +239,7 @@ const _rTe = "resourceTags";
 const _rTep = "reportType";
 const _rTes = "resolvedTargets";
 const _re = "reason";
-const _s = "source";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.fis";
 const _sA = "startAfter";
 const _sC = "s3Configuration";
 const _sCt = "stopConditions";
@@ -247,7 +247,7 @@ const _sL = "safetyLever";
 const _sM = "selectionMode";
 const _sR = "s3Reports";
 const _sT = "startTime";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.fis";
+const _so = "source";
 const _st = "state";
 const _sta = "status";
 const _t = "targets";
@@ -283,6 +283,43 @@ import {
 import { FisServiceException } from "../models/FisServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var FisServiceException$: StaticErrorSchema = [-3, _s, "FisServiceException", 0, [], []];
+_s_registry.registerError(FisServiceException$, FisServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_i, _a, _d, _p, _t, _ta],
@@ -303,12 +340,6 @@ export var ActionTarget$: StaticStructureSchema = [3, n0, _AT,
   [_rT],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateExperimentTemplateActionInput$: StaticStructureSchema = [3, n0, _CETAI,
   0,
   [_aI, _d, _p, _t, _sA],
@@ -341,7 +372,7 @@ export var CreateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateExperimentTemplateStopConditionInput$: StaticStructureSchema = [3, n0, _CETSCI,
   0,
-  [_s, _v],
+  [_so, _v],
   [0, 0], 1
 ];
 export var CreateExperimentTemplateTargetInput$: StaticStructureSchema = [3, n0, _CETTI,
@@ -471,7 +502,7 @@ export var ExperimentState$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var ExperimentStopCondition$: StaticStructureSchema = [3, n0, _ESC,
   0,
-  [_s, _v],
+  [_so, _v],
   [0, 0]
 ];
 export var ExperimentSummary$: StaticStructureSchema = [3, n0, _ESx,
@@ -571,7 +602,7 @@ export var ExperimentTemplateS3LogConfigurationInput$: StaticStructureSchema = [
 ];
 export var ExperimentTemplateStopCondition$: StaticStructureSchema = [3, n0, _ETSC,
   0,
-  [_s, _v],
+  [_so, _v],
   [0, 0]
 ];
 export var ExperimentTemplateSummary$: StaticStructureSchema = [3, n0, _ETS,
@@ -764,12 +795,6 @@ export var ResolvedTarget$: StaticStructureSchema = [3, n0, _RT,
   [_rT, _tN, _tI],
   [0, 0, 128 | 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFoundException`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SafetyLever$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_i, _a, _st],
@@ -780,12 +805,6 @@ export var SafetyLeverState$: StaticStructureSchema = [3, n0, _SLS,
   [_sta, _re],
   [0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_aQE]: [`ServiceQuotaExceededException`, 402], [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartExperimentExperimentOptionsInput$: StaticStructureSchema = [3, n0, _SEEOI,
   0,
   [_aM],
@@ -888,7 +907,7 @@ export var UpdateExperimentTemplateResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateExperimentTemplateStopConditionInput$: StaticStructureSchema = [3, n0, _UETSCI,
   0,
-  [_s, _v],
+  [_so, _v],
   [0, 0], 1
 ];
 export var UpdateExperimentTemplateTargetInput$: StaticStructureSchema = [3, n0, _UETTI,
@@ -921,14 +940,6 @@ export var UpdateTargetAccountConfigurationResponse$: StaticStructureSchema = [3
   [_tAC],
   [() => TargetAccountConfiguration$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_aQE]: [`ValidationException`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var FisServiceException$: StaticErrorSchema = [-3, _sm, "FisServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(FisServiceException$, FisServiceException);
 var ActionSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ActionSummary$
 ];

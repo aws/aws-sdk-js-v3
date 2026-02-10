@@ -873,9 +873,9 @@ const _rce = "response-content-encoding";
 const _rcl = "response-content-language";
 const _rct = "response-content-type";
 const _re = "response-expires";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.s3";
 const _sa = "start-after";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.s3";
+const _st = "streaming";
 const _uI = "uploadId";
 const _uim = "upload-id-marker";
 const _vI = "versionId";
@@ -1045,13 +1045,116 @@ import {
 import { S3ServiceException } from "../models/S3ServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var S3ServiceException$: StaticErrorSchema = [-3, _s, "S3ServiceException", 0, [], []];
+_s_registry.registerError(S3ServiceException$, S3ServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDenied$: StaticErrorSchema = [-3, n0, _AD,
+  { [_e]: _c, [_hE]: 403 },
+  [],
+  []
+];
+n0_registry.registerError(AccessDenied$, AccessDenied);
+export var BucketAlreadyExists$: StaticErrorSchema = [-3, n0, _BAE,
+  { [_e]: _c, [_hE]: 409 },
+  [],
+  []
+];
+n0_registry.registerError(BucketAlreadyExists$, BucketAlreadyExists);
+export var BucketAlreadyOwnedByYou$: StaticErrorSchema = [-3, n0, _BAOBY,
+  { [_e]: _c, [_hE]: 409 },
+  [],
+  []
+];
+n0_registry.registerError(BucketAlreadyOwnedByYou$, BucketAlreadyOwnedByYou);
+export var EncryptionTypeMismatch$: StaticErrorSchema = [-3, n0, _ETM,
+  { [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(EncryptionTypeMismatch$, EncryptionTypeMismatch);
+export var IdempotencyParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
+  { [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(IdempotencyParameterMismatch$, IdempotencyParameterMismatch);
+export var InvalidObjectState$: StaticErrorSchema = [-3, n0, _IOS,
+  { [_e]: _c, [_hE]: 403 },
+  [_SC, _AT],
+  [0, 0]
+];
+n0_registry.registerError(InvalidObjectState$, InvalidObjectState);
+export var InvalidRequest$: StaticErrorSchema = [-3, n0, _IR,
+  { [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(InvalidRequest$, InvalidRequest);
+export var InvalidWriteOffset$: StaticErrorSchema = [-3, n0, _IWO,
+  { [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(InvalidWriteOffset$, InvalidWriteOffset);
+export var NoSuchBucket$: StaticErrorSchema = [-3, n0, _NSB,
+  { [_e]: _c, [_hE]: 404 },
+  [],
+  []
+];
+n0_registry.registerError(NoSuchBucket$, NoSuchBucket);
+export var NoSuchKey$: StaticErrorSchema = [-3, n0, _NSK,
+  { [_e]: _c, [_hE]: 404 },
+  [],
+  []
+];
+n0_registry.registerError(NoSuchKey$, NoSuchKey);
+export var NoSuchUpload$: StaticErrorSchema = [-3, n0, _NSU,
+  { [_e]: _c, [_hE]: 404 },
+  [],
+  []
+];
+n0_registry.registerError(NoSuchUpload$, NoSuchUpload);
+export var NotFound$: StaticErrorSchema = [-3, n0, _NF,
+  { [_e]: _c },
+  [],
+  []
+];
+n0_registry.registerError(NotFound$, NotFound);
+export var ObjectAlreadyInActiveTierError$: StaticErrorSchema = [-3, n0, _OAIATE,
+  { [_e]: _c, [_hE]: 403 },
+  [],
+  []
+];
+n0_registry.registerError(ObjectAlreadyInActiveTierError$, ObjectAlreadyInActiveTierError);
+export var ObjectNotInActiveTierError$: StaticErrorSchema = [-3, n0, _ONIATE,
+  { [_e]: _c, [_hE]: 403 },
+  [],
+  []
+];
+n0_registry.registerError(ObjectNotInActiveTierError$, ObjectNotInActiveTierError);
+export var TooManyParts$: StaticErrorSchema = [-3, n0, _TMP,
+  { [_e]: _c, [_hE]: 400 },
+  [],
+  []
+];
+n0_registry.registerError(TooManyParts$, TooManyParts);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var CopySourceSSECustomerKey: StaticSimpleSchema = [0, n0, _CSSSECK, 8, 0];
 var NonEmptyKmsKeyArnString: StaticSimpleSchema = [0, n0, _NEKKAS, 8, 0];
 var SessionCredentialValue: StaticSimpleSchema = [0, n0, _SCV, 8, 0];
 var SSECustomerKey: StaticSimpleSchema = [0, n0, _SSECK, 8, 0];
 var SSEKMSEncryptionContext: StaticSimpleSchema = [0, n0, _SSEKMSEC, 8, 0];
 var SSEKMSKeyId: StaticSimpleSchema = [0, n0, _SSEKMSKI, 8, 0];
-var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_s]: 1 }, 42];
+var StreamingBlob: StaticSimpleSchema = [0, n0, _SB, { [_st]: 1 }, 42];
 export var AbacStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_S],
@@ -1087,12 +1190,6 @@ export var AccessControlTranslation$: StaticStructureSchema = [3, n0, _ACT,
   [_O],
   [0], 1
 ];
-export var AccessDenied$: StaticErrorSchema = [-3, n0, _AD,
-  { [_e]: _c, [_hE]: 403 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(AccessDenied$, AccessDenied);
 export var AnalyticsAndOperator$: StaticStructureSchema = [3, n0, _AAO,
   0,
   [_P, _T],
@@ -1123,18 +1220,6 @@ export var Bucket$: StaticStructureSchema = [3, n0, _B,
   [_N, _CD, _BR, _BA],
   [0, 4, 0, 0]
 ];
-export var BucketAlreadyExists$: StaticErrorSchema = [-3, n0, _BAE,
-  { [_e]: _c, [_hE]: 409 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(BucketAlreadyExists$, BucketAlreadyExists);
-export var BucketAlreadyOwnedByYou$: StaticErrorSchema = [-3, n0, _BAOBY,
-  { [_e]: _c, [_hE]: 409 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(BucketAlreadyOwnedByYou$, BucketAlreadyOwnedByYou);
 export var BucketInfo$: StaticStructureSchema = [3, n0, _BI,
   0,
   [_DR, _Ty],
@@ -1430,12 +1515,6 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   [_RKKID],
   [0]
 ];
-export var EncryptionTypeMismatch$: StaticErrorSchema = [-3, n0, _ETM,
-  { [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(EncryptionTypeMismatch$, EncryptionTypeMismatch);
 export var EndEvent$: StaticStructureSchema = [3, n0, _EE,
   0,
   [],
@@ -1836,12 +1915,6 @@ export var HeadObjectRequest$: StaticStructureSchema = [3, n0, _HOR,
   [_B, _K, _IM, _IMSf, _INM, _IUS, _Ra, _RCC, _RCD, _RCE, _RCL, _RCT, _RE, _VI, _SSECA, _SSECK, _SSECKMD, _RP, _PN, _EBO, _CMh],
   [[0, 1], [0, 1], [0, { [_hH]: _IM_ }], [4, { [_hH]: _IMS_ }], [0, { [_hH]: _INM_ }], [4, { [_hH]: _IUS_ }], [0, { [_hH]: _Ra }], [0, { [_hQ]: _rcc }], [0, { [_hQ]: _rcd }], [0, { [_hQ]: _rce }], [0, { [_hQ]: _rcl }], [0, { [_hQ]: _rct }], [6, { [_hQ]: _re }], [0, { [_hQ]: _vI }], [0, { [_hH]: _xasseca }], [() => SSECustomerKey, { [_hH]: _xasseck }], [0, { [_hH]: _xasseckM }], [0, { [_hH]: _xarp }], [1, { [_hQ]: _pN }], [0, { [_hH]: _xaebo }], [0, { [_hH]: _xacm }]], 2
 ];
-export var IdempotencyParameterMismatch$: StaticErrorSchema = [-3, n0, _IPM,
-  { [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(IdempotencyParameterMismatch$, IdempotencyParameterMismatch);
 export var IndexDocument$: StaticStructureSchema = [3, n0, _IDn,
   0,
   [_Su],
@@ -1872,24 +1945,6 @@ export var IntelligentTieringFilter$: StaticStructureSchema = [3, n0, _ITF,
   [_P, _Ta, _An],
   [0, () => Tag$, [() => IntelligentTieringAndOperator$, 0]]
 ];
-export var InvalidObjectState$: StaticErrorSchema = [-3, n0, _IOS,
-  { [_e]: _c, [_hE]: 403 },
-  [_SC, _AT],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InvalidObjectState$, InvalidObjectState);
-export var InvalidRequest$: StaticErrorSchema = [-3, n0, _IR,
-  { [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(InvalidRequest$, InvalidRequest);
-export var InvalidWriteOffset$: StaticErrorSchema = [-3, n0, _IWO,
-  { [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(InvalidWriteOffset$, InvalidWriteOffset);
 export var InventoryConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
   [_Des, _IE, _I, _IOV, _Sc, _F, _OF],
@@ -2165,30 +2220,6 @@ export var NoncurrentVersionTransition$: StaticStructureSchema = [3, n0, _NVTo,
   [_ND, _SC, _NNV],
   [1, 0, 1]
 ];
-export var NoSuchBucket$: StaticErrorSchema = [-3, n0, _NSB,
-  { [_e]: _c, [_hE]: 404 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(NoSuchBucket$, NoSuchBucket);
-export var NoSuchKey$: StaticErrorSchema = [-3, n0, _NSK,
-  { [_e]: _c, [_hE]: 404 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(NoSuchKey$, NoSuchKey);
-export var NoSuchUpload$: StaticErrorSchema = [-3, n0, _NSU,
-  { [_e]: _c, [_hE]: 404 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(NoSuchUpload$, NoSuchUpload);
-export var NotFound$: StaticErrorSchema = [-3, n0, _NF,
-  { [_e]: _c },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(NotFound$, NotFound);
 export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_TCo, _QCu, _LFCa, _EBC],
@@ -2204,12 +2235,6 @@ export var _Object$: StaticStructureSchema = [3, n0, _Obj,
   [_K, _LM, _ETa, _CA, _CT, _Si, _SC, _O, _RSe],
   [0, 4, 0, [64 | 0, { [_xF]: 1 }], 0, 1, 0, () => Owner$, () => RestoreStatus$]
 ];
-export var ObjectAlreadyInActiveTierError$: StaticErrorSchema = [-3, n0, _OAIATE,
-  { [_e]: _c, [_hE]: 403 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ObjectAlreadyInActiveTierError$, ObjectAlreadyInActiveTierError);
 export var ObjectIdentifier$: StaticStructureSchema = [3, n0, _OI,
   0,
   [_K, _VI, _ETa, _LMT, _Si],
@@ -2235,12 +2260,6 @@ export var ObjectLockRule$: StaticStructureSchema = [3, n0, _OLRb,
   [_DRe],
   [() => DefaultRetention$]
 ];
-export var ObjectNotInActiveTierError$: StaticErrorSchema = [-3, n0, _ONIATE,
-  { [_e]: _c, [_hE]: 403 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(ObjectNotInActiveTierError$, ObjectNotInActiveTierError);
 export var ObjectPart$: StaticStructureSchema = [3, n0, _OPb,
   0,
   [_PN, _Si, _CCRC, _CCRCC, _CCRCNVME, _CSHA, _CSHAh],
@@ -2716,12 +2735,6 @@ export var Tiering$: StaticStructureSchema = [3, n0, _Tier,
   [_D, _AT],
   [1, 0], 2
 ];
-export var TooManyParts$: StaticErrorSchema = [-3, n0, _TMP,
-  { [_e]: _c, [_hE]: 400 },
-  [],
-  []
-];
-TypeRegistry.for(n0).registerError(TooManyParts$, TooManyParts);
 export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TCop,
   0,
   [_TAo, _Ev, _I, _F],
@@ -2788,8 +2801,6 @@ export var WriteGetObjectResponseRequest$: StaticStructureSchema = [3, n0, _WGOR
   [[0, { [_hL]: 1, [_hH]: _xarr }], [0, { [_hH]: _xart }], [() => StreamingBlob, 16], [1, { [_hH]: _xafs }], [0, { [_hH]: _xafec }], [0, { [_hH]: _xafem }], [0, { [_hH]: _xafhar }], [0, { [_hH]: _xafhCC }], [0, { [_hH]: _xafhCD }], [0, { [_hH]: _xafhCE }], [0, { [_hH]: _xafhCL }], [1, { [_hH]: _CL__ }], [0, { [_hH]: _xafhCR }], [0, { [_hH]: _xafhCT }], [0, { [_hH]: _xafhxacc }], [0, { [_hH]: _xafhxacc_ }], [0, { [_hH]: _xafhxacc__ }], [0, { [_hH]: _xafhxacs }], [0, { [_hH]: _xafhxacs_ }], [2, { [_hH]: _xafhxadm }], [0, { [_hH]: _xafhE }], [4, { [_hH]: _xafhE_ }], [0, { [_hH]: _xafhxae }], [4, { [_hH]: _xafhLM }], [1, { [_hH]: _xafhxamm }], [128 | 0, { [_hPH]: _xam }], [0, { [_hH]: _xafhxaolm }], [0, { [_hH]: _xafhxaollh }], [5, { [_hH]: _xafhxaolrud }], [1, { [_hH]: _xafhxampc }], [0, { [_hH]: _xafhxars }], [0, { [_hH]: _xafhxarc }], [0, { [_hH]: _xafhxar }], [0, { [_hH]: _xafhxasse }], [0, { [_hH]: _xafhxasseca }], [() => SSEKMSKeyId, { [_hH]: _xafhxasseakki }], [0, { [_hH]: _xafhxasseckM }], [0, { [_hH]: _xafhxasc }], [1, { [_hH]: _xafhxatc }], [0, { [_hH]: _xafhxavi }], [2, { [_hH]: _xafhxassebke }]], 2
 ];
 var __Unit = "unit" as const;
-export var S3ServiceException$: StaticErrorSchema = [-3, _sm, "S3ServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(S3ServiceException$, S3ServiceException);
 var AllowedHeaders = 64 | 0;
 var AllowedMethods = 64 | 0;
 var AllowedOrigins = 64 | 0;
@@ -2941,7 +2952,7 @@ export var ObjectEncryption$: StaticUnionSchema = [4, n0, _OE,
   [[() => SSEKMSEncryption$, { [_xN]: _SK }]]
 ];
 export var SelectObjectContentEventStream$: StaticUnionSchema = [4, n0, _SOCES,
-  { [_s]: 1 },
+  { [_st]: 1 },
   [_Rec, _Sta, _Pr, _Cont, _End],
   [[() => RecordsEvent$, 0], [() => StatsEvent$, 0], [() => ProgressEvent$, 0], () => ContinuationEvent$, () => EndEvent$]
 ];

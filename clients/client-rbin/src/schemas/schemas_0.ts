@@ -71,8 +71,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.rbin";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.rbin";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.rbin";
 
@@ -90,12 +90,49 @@ import {
 import { RbinServiceException } from "../models/RbinServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var RbinServiceException$: StaticErrorSchema = [-3, _s, "RbinServiceException", 0, [], []];
+_s_registry.registerError(RbinServiceException$, RbinServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M, _R],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R],
+  [0, 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
   [_RP, _RT, _D, _T, _RTe, _LC, _ERT],
@@ -126,12 +163,6 @@ export var GetRuleResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_I, _D, _RT, _RP, _RTe, _S, _LC, _LS, _LET, _RA, _ERT],
   [0, 0, 0, () => RetentionPeriod$, () => ResourceTags, 0, () => LockConfiguration$, 0, 4, 0, () => ExcludeResourceTags]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRulesRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_RT, _MR, _NT, _RTe, _LS, _ERT],
@@ -167,12 +198,6 @@ export var LockRuleResponse$: StaticStructureSchema = [3, n0, _LRRoc,
   [_I, _D, _RT, _RP, _RTe, _S, _LC, _LS, _RA, _ERT],
   [0, 0, 0, () => RetentionPeriod$, () => ResourceTags, 0, () => LockConfiguration$, 0, 0, () => ExcludeResourceTags]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   0,
   [_RTK, _RTV],
@@ -188,12 +213,6 @@ export var RuleSummary$: StaticStructureSchema = [3, n0, _RS,
   [_I, _D, _RP, _LS, _RA],
   [0, 0, () => RetentionPeriod$, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -244,14 +263,6 @@ export var UpdateRuleResponse$: StaticStructureSchema = [3, n0, _URRpd,
   [_I, _RP, _D, _RT, _RTe, _S, _LS, _LET, _RA, _ERT],
   [0, () => RetentionPeriod$, 0, 0, () => ResourceTags, 0, 0, 4, 0, () => ExcludeResourceTags]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var RbinServiceException$: StaticErrorSchema = [-3, _sm, "RbinServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RbinServiceException$, RbinServiceException);
 var ExcludeResourceTags: StaticListSchema = [1, n0, _ERT,
   0, () => ResourceTag$
 ];

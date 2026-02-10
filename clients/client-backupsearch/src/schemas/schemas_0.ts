@@ -139,10 +139,10 @@ const _qC = "quotaCode";
 const _rAS = "retryAfterSeconds";
 const _rI = "resourceId";
 const _rT = "resourceType";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.backupsearch";
 const _sC = "serviceCode";
 const _sES = "s3ExportSpecification";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.backupsearch";
+const _se = "server";
 const _sp = "sparse";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.backupsearch";
@@ -171,25 +171,68 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
-var ObjectKey: StaticSimpleSchema = [0, n0, _OK, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var BackupSearchServiceException$: StaticErrorSchema = [-3, _s, "BackupSearchServiceException", 0, [], []];
+_s_registry.registerError(BackupSearchServiceException$, BackupSearchServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
-export var BackupCreationTimeFilter$: StaticStructureSchema = [3, n0, _BCTF,
-  0,
-  [_CA, _CB],
-  [4, 4]
-];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_m, _rI, _rT],
   [0, 0, 0], 3
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var FilePath: StaticSimpleSchema = [0, n0, _FP, 8, 0];
+var ObjectKey: StaticSimpleSchema = [0, n0, _OK, 8, 0];
+export var BackupCreationTimeFilter$: StaticStructureSchema = [3, n0, _BCTF,
+  0,
+  [_CA, _CB],
+  [4, 4]
+];
 export var CurrentSearchProgress$: StaticStructureSchema = [3, n0, _CSP,
   0,
   [_RPSC, _ISC, _IMC],
@@ -230,12 +273,6 @@ export var GetSearchResultExportJobOutput$: StaticStructureSchema = [3, n0, _GSR
   [_EJI, _EJA, _St, _CTr, _CTo, _SM, _ES, _SJA],
   [0, 0, 0, 4, 4, 0, () => ExportSpecification$, 0], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ItemFilters$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_SIF, _EBSIFt],
@@ -296,12 +333,6 @@ export var LongCondition$: StaticStructureSchema = [3, n0, _LC,
   [_V, _O],
   [1, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3ExportSpecification$: StaticStructureSchema = [3, n0, _SES,
   0,
   [_DB, _DP],
@@ -337,12 +368,6 @@ export var SearchScopeSummary$: StaticStructureSchema = [3, n0, _SSS,
   [_TRPTSC, _TITSC],
   [1, 1]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sC, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartSearchJobInput$: StaticStructureSchema = [3, n0, _SSJI,
   0,
   [_SS, _T, _N, _EKA, _CTl, _IF],
@@ -388,12 +413,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sC, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeCondition$: StaticStructureSchema = [3, n0, _TC,
   0,
   [_V, _O],
@@ -409,14 +428,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var BackupSearchServiceException$: StaticErrorSchema = [-3, _sm, "BackupSearchServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BackupSearchServiceException$, BackupSearchServiceException);
 var EBSItemFilters: StaticListSchema = [1, n0, _EBSIFt,
   0, () => EBSItemFilter$
 ];

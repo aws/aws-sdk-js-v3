@@ -236,7 +236,7 @@ const _PVIC = "PackageVersionInputConfig";
 const _PVOC = "PackageVersionOutputConfig";
 const _PVa = "PatchVersion";
 const _QC = "QuotaCode";
-const _R = "Region";
+const _R = "Reason";
 const _RA = "Retry-After";
 const _RAI = "RemoveApplicationInstance";
 const _RAIR = "RemoveApplicationInstanceRequest";
@@ -257,7 +257,7 @@ const _RRCS = "ReportedRuntimeContextState";
 const _RRCSe = "ReportedRuntimeContextStates";
 const _RT = "ResourceType";
 const _RTe = "RegisteredTime";
-const _Re = "Reason";
+const _Re = "Region";
 const _S = "Status";
 const _SAINI = "SignalApplicationInstanceNodeInstances";
 const _SAINIR = "SignalApplicationInstanceNodeInstancesRequest";
@@ -313,9 +313,9 @@ const _oA = "ownerAccount";
 const _pN = "packageName";
 const _pV = "packageVersion";
 const _pVa = "patchVersion";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.panorama";
 const _sF = "statusFilter";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.panorama";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.panorama";
 
@@ -342,13 +342,56 @@ import {
 import { PanoramaServiceException } from "../models/PanoramaServiceException";
 
 /* eslint no-var: 0 */
-var TemplateValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var PanoramaServiceException$: StaticErrorSchema = [-3, _s, "PanoramaServiceException", 0, [], []];
+_s_registry.registerError(PanoramaServiceException$, PanoramaServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT, _EI, _EA],
+  [0, 0, 0, 0, () => ConflictExceptionErrorArgumentList], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _QC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _EI, _EA, _F],
+  [0, 0, 0, () => ValidationExceptionErrorArgumentList, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var TemplateValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var AlternateSoftwareMetadata$: StaticStructureSchema = [3, n0, _ASM,
   0,
   [_V],
@@ -359,12 +402,6 @@ export var ApplicationInstance$: StaticStructureSchema = [3, n0, _AI,
   [_N, _AII, _DRCD, _DRCDN, _D, _S, _HS, _SD, _CT, _A, _T, _RCS],
   [0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 128 | 0, () => ReportedRuntimeContextStates]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT, _EI, _EA],
-  [0, 0, 0, 0, () => ConflictExceptionErrorArgumentList], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConflictExceptionErrorArgument$: StaticStructureSchema = [3, n0, _CEEA,
   0,
   [_N, _Va],
@@ -565,12 +602,6 @@ export var EthernetStatus$: StaticStructureSchema = [3, n0, _ES,
   [_IA, _CSo, _HA],
   [0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Job$: StaticStructureSchema = [3, n0, _Jo,
   0,
   [_JI, _DIe],
@@ -826,23 +857,11 @@ export var ReportedRuntimeContextState$: StaticStructureSchema = [3, n0, _RRCS,
   [_DS, _RCN, _DRS, _DRT],
   [0, 0, 0, 4], 4
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SLo,
   0,
-  [_BN, _OK, _R],
+  [_BN, _OK, _Re],
   [0, 0, 0], 2
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _QC, _SC, _RI, _RT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SignalApplicationInstanceNodeInstancesRequest$: StaticStructureSchema = [3, n0, _SAINIR,
   0,
   [_AII, _NSod],
@@ -893,12 +912,6 @@ export var UpdateDeviceMetadataResponse$: StaticStructureSchema = [3, n0, _UDMRp
   [_DIe],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Re, _EI, _EA, _F],
-  [0, 0, 0, () => ValidationExceptionErrorArgumentList, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionErrorArgument$: StaticStructureSchema = [3, n0, _VEEA,
   0,
   [_N, _Va],
@@ -909,8 +922,6 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_N, _M],
   [0, 0], 2
 ];
-export var PanoramaServiceException$: StaticErrorSchema = [-3, _sm, "PanoramaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PanoramaServiceException$, PanoramaServiceException);
 var AlternateSoftwares: StaticListSchema = [1, n0, _AS,
   0, () => AlternateSoftwareMetadata$
 ];

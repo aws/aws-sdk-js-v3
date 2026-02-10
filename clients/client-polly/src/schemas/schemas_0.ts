@@ -102,9 +102,9 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _m = "message";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.polly";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.polly";
+const _st = "streaming";
 const _xaR = "x-amzn-RequestCharacters";
 const n0 = "com.amazonaws.polly";
 
@@ -144,7 +144,146 @@ import {
 import { PollyServiceException } from "../models/PollyServiceException";
 
 /* eslint no-var: 0 */
-var AudioStream: StaticSimpleSchema = [0, n0, _AS, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var PollyServiceException$: StaticErrorSchema = [-3, _s, "PollyServiceException", 0, [], []];
+_s_registry.registerError(PollyServiceException$, PollyServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var EngineNotSupportedException$: StaticErrorSchema = [-3, n0, _ENSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EngineNotSupportedException$, EngineNotSupportedException);
+export var InvalidLexiconException$: StaticErrorSchema = [-3, n0, _ILE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLexiconException$, InvalidLexiconException);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidS3BucketException$: StaticErrorSchema = [-3, n0, _ISBE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3BucketException$, InvalidS3BucketException);
+export var InvalidS3KeyException$: StaticErrorSchema = [-3, n0, _ISKE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidS3KeyException$, InvalidS3KeyException);
+export var InvalidSampleRateException$: StaticErrorSchema = [-3, n0, _ISRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSampleRateException$, InvalidSampleRateException);
+export var InvalidSnsTopicArnException$: StaticErrorSchema = [-3, n0, _ISTAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSnsTopicArnException$, InvalidSnsTopicArnException);
+export var InvalidSsmlException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidSsmlException$, InvalidSsmlException);
+export var InvalidTaskIdException$: StaticErrorSchema = [-3, n0, _ITIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidTaskIdException$, InvalidTaskIdException);
+export var LanguageNotSupportedException$: StaticErrorSchema = [-3, n0, _LNSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LanguageNotSupportedException$, LanguageNotSupportedException);
+export var LexiconNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LexiconNotFoundException$, LexiconNotFoundException);
+export var LexiconSizeExceededException$: StaticErrorSchema = [-3, n0, _LSEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LexiconSizeExceededException$, LexiconSizeExceededException);
+export var MarksNotSupportedForFormatException$: StaticErrorSchema = [-3, n0, _MNSFFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MarksNotSupportedForFormatException$, MarksNotSupportedForFormatException);
+export var MaxLexemeLengthExceededException$: StaticErrorSchema = [-3, n0, _MLLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxLexemeLengthExceededException$, MaxLexemeLengthExceededException);
+export var MaxLexiconsNumberExceededException$: StaticErrorSchema = [-3, n0, _MLNEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxLexiconsNumberExceededException$, MaxLexiconsNumberExceededException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var SsmlMarksNotSupportedForTextTypeException$: StaticErrorSchema = [-3, n0, _SMNSFTTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SsmlMarksNotSupportedForTextTypeException$, SsmlMarksNotSupportedForTextTypeException);
+export var SynthesisTaskNotFoundException$: StaticErrorSchema = [-3, n0, _STNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(SynthesisTaskNotFoundException$, SynthesisTaskNotFoundException);
+export var TextLengthExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TextLengthExceededException$, TextLengthExceededException);
+export var UnsupportedPlsAlphabetException$: StaticErrorSchema = [-3, n0, _UPAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedPlsAlphabetException$, UnsupportedPlsAlphabetException);
+export var UnsupportedPlsLanguageException$: StaticErrorSchema = [-3, n0, _UPLE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedPlsLanguageException$, UnsupportedPlsLanguageException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var AudioStream: StaticSimpleSchema = [0, n0, _AS, { [_st]: 1 }, 42];
 var LexiconContent: StaticSimpleSchema = [0, n0, _LC, 8, 0];
 export var DeleteLexiconInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
@@ -166,12 +305,6 @@ export var DescribeVoicesOutput$: StaticStructureSchema = [3, n0, _DVO,
   [_V, _NT],
   [() => VoiceList, 0]
 ];
-export var EngineNotSupportedException$: StaticErrorSchema = [-3, n0, _ENSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EngineNotSupportedException$, EngineNotSupportedException);
 export var GetLexiconInput$: StaticStructureSchema = [3, n0, _GLI,
   0,
   [_N],
@@ -192,60 +325,6 @@ export var GetSpeechSynthesisTaskOutput$: StaticStructureSchema = [3, n0, _GSSTO
   [_ST],
   [() => SynthesisTask$]
 ];
-export var InvalidLexiconException$: StaticErrorSchema = [-3, n0, _ILE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidLexiconException$, InvalidLexiconException);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidS3BucketException$: StaticErrorSchema = [-3, n0, _ISBE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3BucketException$, InvalidS3BucketException);
-export var InvalidS3KeyException$: StaticErrorSchema = [-3, n0, _ISKE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidS3KeyException$, InvalidS3KeyException);
-export var InvalidSampleRateException$: StaticErrorSchema = [-3, n0, _ISRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSampleRateException$, InvalidSampleRateException);
-export var InvalidSnsTopicArnException$: StaticErrorSchema = [-3, n0, _ISTAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSnsTopicArnException$, InvalidSnsTopicArnException);
-export var InvalidSsmlException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidSsmlException$, InvalidSsmlException);
-export var InvalidTaskIdException$: StaticErrorSchema = [-3, n0, _ITIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTaskIdException$, InvalidTaskIdException);
-export var LanguageNotSupportedException$: StaticErrorSchema = [-3, n0, _LNSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LanguageNotSupportedException$, LanguageNotSupportedException);
 export var Lexicon$: StaticStructureSchema = [3, n0, _L,
   0,
   [_C, _N],
@@ -261,18 +340,6 @@ export var LexiconDescription$: StaticStructureSchema = [3, n0, _LD,
   [_N, _At],
   [0, () => LexiconAttributes$]
 ];
-export var LexiconNotFoundException$: StaticErrorSchema = [-3, n0, _LNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LexiconNotFoundException$, LexiconNotFoundException);
-export var LexiconSizeExceededException$: StaticErrorSchema = [-3, n0, _LSEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LexiconSizeExceededException$, LexiconSizeExceededException);
 export var ListLexiconsInput$: StaticStructureSchema = [3, n0, _LLI,
   0,
   [_NT],
@@ -293,24 +360,6 @@ export var ListSpeechSynthesisTasksOutput$: StaticStructureSchema = [3, n0, _LSS
   [_NT, _STy],
   [0, () => SynthesisTasks]
 ];
-export var MarksNotSupportedForFormatException$: StaticErrorSchema = [-3, n0, _MNSFFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MarksNotSupportedForFormatException$, MarksNotSupportedForFormatException);
-export var MaxLexemeLengthExceededException$: StaticErrorSchema = [-3, n0, _MLLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxLexemeLengthExceededException$, MaxLexemeLengthExceededException);
-export var MaxLexiconsNumberExceededException$: StaticErrorSchema = [-3, n0, _MLNEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MaxLexiconsNumberExceededException$, MaxLexiconsNumberExceededException);
 export var PutLexiconInput$: StaticStructureSchema = [3, n0, _PLI,
   0,
   [_N, _C],
@@ -321,18 +370,6 @@ export var PutLexiconOutput$: StaticStructureSchema = [3, n0, _PLO,
   [],
   []
 ];
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
-export var SsmlMarksNotSupportedForTextTypeException$: StaticErrorSchema = [-3, n0, _SMNSFTTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SsmlMarksNotSupportedForTextTypeException$, SsmlMarksNotSupportedForTextTypeException);
 export var StartSpeechSynthesisTaskInput$: StaticStructureSchema = [3, n0, _SSSTI,
   0,
   [_OF, _OSBN, _T, _VI, _E, _LCa, _LN, _OSKP, _SR, _STA, _SMT, _TT],
@@ -348,12 +385,6 @@ export var SynthesisTask$: StaticStructureSchema = [3, n0, _ST,
   [_E, _TI, _TS, _TSR, _OU, _CT, _RC, _STA, _LN, _OF, _SR, _SMT, _TT, _VI, _LCa],
   [0, 0, 0, 0, 0, 4, 1, 0, 64 | 0, 0, 0, 64 | 0, 0, 0, 0]
 ];
-export var SynthesisTaskNotFoundException$: StaticErrorSchema = [-3, n0, _STNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SynthesisTaskNotFoundException$, SynthesisTaskNotFoundException);
 export var SynthesizeSpeechInput$: StaticStructureSchema = [3, n0, _SSI,
   0,
   [_OF, _T, _VI, _E, _LCa, _LN, _SR, _SMT, _TT],
@@ -364,31 +395,11 @@ export var SynthesizeSpeechOutput$: StaticStructureSchema = [3, n0, _SSO,
   [_AS, _CTo, _RC],
   [[() => AudioStream, 16], [0, { [_hH]: _CT_ }], [1, { [_hH]: _xaR }]]
 ];
-export var TextLengthExceededException$: StaticErrorSchema = [-3, n0, _TLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TextLengthExceededException$, TextLengthExceededException);
-export var UnsupportedPlsAlphabetException$: StaticErrorSchema = [-3, n0, _UPAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedPlsAlphabetException$, UnsupportedPlsAlphabetException);
-export var UnsupportedPlsLanguageException$: StaticErrorSchema = [-3, n0, _UPLE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedPlsLanguageException$, UnsupportedPlsLanguageException);
 export var Voice$: StaticStructureSchema = [3, n0, _Vo,
   0,
   [_G, _I, _LCa, _LNa, _N, _ALC, _SE],
   [0, 0, 0, 0, 0, 64 | 0, 64 | 0]
 ];
-export var PollyServiceException$: StaticErrorSchema = [-3, _sm, "PollyServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PollyServiceException$, PollyServiceException);
 var EngineList = 64 | 0;
 var LanguageCodeList = 64 | 0;
 var LexiconDescriptionList: StaticListSchema = [1, n0, _LDL,

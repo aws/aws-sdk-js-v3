@@ -297,7 +297,7 @@ const _re = "replica";
 const _rep = "replicas";
 const _rt = "rtmp";
 const _rtm = "rtmps";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ivsrealtime";
 const _sA = "stageArn";
 const _sC = "storageConfiguration";
 const _sCA = "storageConfigurationArn";
@@ -313,10 +313,10 @@ const _sTS = "strictTransportSecurity";
 const _sV = "sdkVersion";
 const _s_ = "s3";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ivsrealtime";
-const _st = "storage";
+const _st = "state";
 const _sta = "stage";
 const _stag = "stages";
+const _sto = "storage";
 const _t = "tags";
 const _tC = "thumbnailConfiguration";
 const _tCh = "thumbnailConfigurations";
@@ -359,14 +359,63 @@ import {
 import { IVSRealTimeServiceException } from "../models/IVSRealTimeServiceException";
 
 /* eslint no-var: 0 */
-var ParticipantTokenString: StaticSimpleSchema = [0, n0, _PTS, 8, 0];
-var StreamKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var IVSRealTimeServiceException$: StaticErrorSchema = [-3, _s, "IVSRealTimeServiceException", 0, [], []];
+_s_registry.registerError(IVSRealTimeServiceException$, IVSRealTimeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
   [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV,
+  { [_e]: _c, [_hE]: 403 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(PendingVerification$, PendingVerification);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
+  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ParticipantTokenString: StaticSimpleSchema = [0, n0, _PTS, 8, 0];
+var StreamKey: StaticSimpleSchema = [0, n0, _SK, 8, 0];
 export var AutoParticipantRecordingConfiguration$: StaticStructureSchema = [3, n0, _APRC,
   0,
   [_sCA, _mT, _tC, _rRWS, _hC, _rPR],
@@ -379,7 +428,7 @@ export var ChannelDestinationConfiguration$: StaticStructureSchema = [3, n0, _CD
 ];
 export var Composition$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_a, _sA, _s, _l, _d, _t, _sT, _eT],
+  [_a, _sA, _st, _l, _d, _t, _sT, _eT],
   [0, 0, 0, () => LayoutConfiguration$, () => DestinationList, 128 | 0, 5, 5], 5
 ];
 export var CompositionRecordingHlsConfiguration$: StaticStructureSchema = [3, n0, _CRHC,
@@ -389,20 +438,14 @@ export var CompositionRecordingHlsConfiguration$: StaticStructureSchema = [3, n0
 ];
 export var CompositionSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_a, _sA, _d, _s, _t, _sT, _eT],
+  [_a, _sA, _d, _st, _t, _sT, _eT],
   [0, 0, () => DestinationSummaryList, 0, 128 | 0, 5, 5], 4
 ];
 export var CompositionThumbnailConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,
-  [_tIS, _st],
+  [_tIS, _sto],
   [1, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateEncoderConfigurationRequest$: StaticStructureSchema = [3, n0, _CECR,
   0,
   [_n, _v, _t],
@@ -505,7 +548,7 @@ export var DeleteStorageConfigurationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var Destination$: StaticStructureSchema = [3, n0, _D,
   0,
-  [_i, _s, _co, _sT, _eT, _de],
+  [_i, _st, _co, _sT, _eT, _de],
   [0, 0, () => DestinationConfiguration$, 5, 5, () => DestinationDetail$], 3
 ];
 export var DestinationConfiguration$: StaticStructureSchema = [3, n0, _DC,
@@ -520,7 +563,7 @@ export var DestinationDetail$: StaticStructureSchema = [3, n0, _DD,
 ];
 export var DestinationSummary$: StaticStructureSchema = [3, n0, _DS,
   0,
-  [_i, _s, _sT, _eT],
+  [_i, _st, _sT, _eT],
   [0, 0, 5, 5], 2
 ];
 export var DisconnectParticipantRequest$: StaticStructureSchema = [3, n0, _DPR,
@@ -650,20 +693,14 @@ export var ImportPublicKeyResponse$: StaticStructureSchema = [3, n0, _IPKRm,
 ];
 export var IngestConfiguration$: StaticStructureSchema = [3, n0, _IC,
   0,
-  [_a, _iP, _sK, _sA, _pI, _s, _n, _uI, _at, _t],
+  [_a, _iP, _sK, _sA, _pI, _st, _n, _uI, _at, _t],
   [0, 0, [() => StreamKey, 0], 0, 0, 0, 0, 0, 128 | 0, 128 | 0], 6
 ];
 export var IngestConfigurationSummary$: StaticStructureSchema = [3, n0, _ICS,
   0,
-  [_a, _iP, _sA, _pI, _s, _n, _uI],
+  [_a, _iP, _sA, _pI, _st, _n, _uI],
   [0, 0, 0, 0, 0, 0, 0], 5
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_g, _pi],
@@ -781,7 +818,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var Participant$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pI, _uI, _s, _fJT, _at, _pu, _iN, _oN, _oV, _bN, _bV, _sV, _rSBN, _rSP, _rS, _pr, _rT, _rSe, _sSA, _sSI],
+  [_pI, _uI, _st, _fJT, _at, _pu, _iN, _oN, _oV, _bN, _bV, _sV, _rSBN, _rSP, _rS, _pr, _rT, _rSe, _sSA, _sSI],
   [0, 0, 0, 5, 128 | 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var ParticipantRecordingHlsConfiguration$: StaticStructureSchema = [3, n0, _PRHC,
@@ -796,12 +833,12 @@ export var ParticipantReplica$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var ParticipantSummary$: StaticStructureSchema = [3, n0, _PS,
   0,
-  [_pI, _uI, _s, _fJT, _pu, _rS, _rT, _rSe, _sSA, _sSI],
+  [_pI, _uI, _st, _fJT, _pu, _rS, _rT, _rSe, _sSA, _sSI],
   [0, 0, 0, 5, 2, 0, 0, 0, 0, 0]
 ];
 export var ParticipantThumbnailConfiguration$: StaticStructureSchema = [3, n0, _PTC,
   0,
-  [_tIS, _st, _rM],
+  [_tIS, _sto, _rM],
   [1, 64 | 0, 0]
 ];
 export var ParticipantToken$: StaticStructureSchema = [3, n0, _PT,
@@ -814,12 +851,6 @@ export var ParticipantTokenConfiguration$: StaticStructureSchema = [3, n0, _PTCa
   [_du, _uI, _at, _ca],
   [1, 0, 128 | 0, 64 | 0]
 ];
-export var PendingVerification$: StaticErrorSchema = [-3, n0, _PV,
-  { [_e]: _c, [_hE]: 403 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(PendingVerification$, PendingVerification);
 export var PipConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_fPA, _oSV, _vFM, _gG, _pPA, _pB, _pO, _pP, _pW, _pH, _pOA],
@@ -840,12 +871,6 @@ export var RecordingConfiguration$: StaticStructureSchema = [3, n0, _RC,
   [_hC, _fo],
   [() => CompositionRecordingHlsConfiguration$, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
   0,
   [_sCA, _eCAn, _rC, _tCh],
@@ -861,12 +886,6 @@ export var S3StorageConfiguration$: StaticStructureSchema = [3, n0, _SSC,
   [_bNu],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Stage$: StaticStructureSchema = [3, n0, _S,
   0,
   [_a, _n, _aSI, _t, _aPRC, _en],
@@ -982,19 +1001,11 @@ export var UpdateStageResponse$: StaticStructureSchema = [3, n0, _USRp,
   [_sta],
   [() => Stage$]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_aCAO, _aCEH, _cC, _cSP, _sTS, _xCTO, _xFO, _xAET, _eM],
-  [[0, { [_hH]: _ACAO }], [0, { [_hH]: _ACEH }], [0, { [_hH]: _CC }], [0, { [_hH]: _CSP }], [0, { [_hH]: _STS }], [0, { [_hH]: _XCTO }], [0, { [_hH]: _XFO }], [0, { [_hH]: _xaE }], 0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Video$: StaticStructureSchema = [3, n0, _V,
   0,
   [_wi, _h, _fr, _b],
   [1, 1, 1, 1]
 ];
-export var IVSRealTimeServiceException$: StaticErrorSchema = [-3, _sm, "IVSRealTimeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IVSRealTimeServiceException$, IVSRealTimeServiceException);
 var CompositionSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => CompositionSummary$
 ];

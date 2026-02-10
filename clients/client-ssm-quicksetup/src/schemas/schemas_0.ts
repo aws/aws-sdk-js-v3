@@ -76,8 +76,8 @@ const _SSt = "StatusSummary";
 const _ST = "StartingToken";
 const _STt = "StatusType";
 const _T = "Type";
-const _TE = "TagEntry";
-const _TEh = "ThrottlingException";
+const _TE = "ThrottlingException";
+const _TEa = "TagEntry";
 const _TK = "TagKeys";
 const _TM = "TagsMap";
 const _TR = "TagResource";
@@ -100,8 +100,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssmquicksetup";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssmquicksetup";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.ssmquicksetup";
 
@@ -126,12 +126,55 @@ import {
 import { SSMQuickSetupServiceException } from "../models/SSMQuickSetupServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SSMQuickSetupServiceException$: StaticErrorSchema = [-3, _s, "SSMQuickSetupServiceException", 0, [], []];
+_s_registry.registerError(SSMQuickSetupServiceException$, SSMQuickSetupServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var ConfigurationDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
   [_T, _P, _TV, _LDERN, _LDARA, _I],
@@ -157,12 +200,6 @@ export var ConfigurationSummary$: StaticStructureSchema = [3, n0, _CS,
   [_I, _MA, _CDIo, _T, _TV, _R, _A, _CA, _FCP, _SS],
   [0, 0, 0, 0, 0, 0, 0, 5, 128 | 0, () => StatusSummariesList]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateConfigurationManagerInput$: StaticStructureSchema = [3, n0, _CCMI,
   0,
   [_CDo, _N, _D, _Ta],
@@ -208,12 +245,6 @@ export var GetServiceSettingsOutput$: StaticStructureSchema = [3, n0, _GSSO,
   [_SSe],
   [() => ServiceSettings$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListConfigurationManagersInput$: StaticStructureSchema = [3, n0, _LCMI,
   0,
   [_ST, _MI, _Fi],
@@ -254,12 +285,6 @@ export var QuickSetupTypeOutput$: StaticStructureSchema = [3, n0, _QSTO,
   [_T, _LV],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceSettings$: StaticStructureSchema = [3, n0, _SSe,
   0,
   [_EERA],
@@ -270,7 +295,7 @@ export var StatusSummary$: StaticStructureSchema = [3, n0, _SSt,
   [_STt, _LUA, _S, _SM, _SD],
   [0, 5, 0, 0, 128 | 0], 2
 ];
-export var TagEntry$: StaticStructureSchema = [3, n0, _TE,
+export var TagEntry$: StaticStructureSchema = [3, n0, _TEa,
   8,
   [_K, _Va],
   [0, 0]
@@ -280,12 +305,6 @@ export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   [_RA, _Ta],
   [[0, 1], [() => TagsMap, 0]], 2
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TEh,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RA, _TK],
@@ -306,15 +325,7 @@ export var UpdateServiceSettingsInput$: StaticStructureSchema = [3, n0, _USSI,
   [_EERA],
   [0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 var __Unit = "unit" as const;
-export var SSMQuickSetupServiceException$: StaticErrorSchema = [-3, _sm, "SSMQuickSetupServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SSMQuickSetupServiceException$, SSMQuickSetupServiceException);
 var ConfigurationDefinitionsInputList: StaticListSchema = [1, n0, _CDIL,
   0, () => ConfigurationDefinitionInput$
 ];

@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSTSHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { STSClientConfig } from "./STSClient";
 
 /**
@@ -42,6 +43,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.sts",
+      errorTypeRegistries,
       xmlNamespace: "https://sts.amazonaws.com/doc/2011-06-15/",
       version: "2011-06-15",
       serviceTarget: "AWSSecurityTokenServiceV20110615",

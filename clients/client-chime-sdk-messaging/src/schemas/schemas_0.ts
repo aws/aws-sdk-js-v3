@@ -13,7 +13,7 @@ const _BCCMR = "BatchCreateChannelMembershipRequest";
 const _BCCMRa = "BatchCreateChannelMembershipResponse";
 const _BCM = "BatchChannelMemberships";
 const _BRE = "BadRequestException";
-const _C = "Content";
+const _C = "Code";
 const _CA = "ChannelArn";
 const _CAWFS = "ChannelAssociatedWithFlowSummary";
 const _CAWFSL = "ChannelAssociatedWithFlowSummaryList";
@@ -76,7 +76,7 @@ const _CT = "ContentType";
 const _CTr = "CreatedTimestamp";
 const _Ch = "Channel";
 const _Cha = "Channels";
-const _Co = "Code";
+const _Co = "Content";
 const _Con = "Configuration";
 const _D = "Detail";
 const _DC = "DeleteChannel";
@@ -188,7 +188,7 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LUT = "LastUpdatedTimestamp";
-const _M = "Metadata";
+const _M = "Message";
 const _MA = "MemberArn";
 const _MAM = "MessageAttributeMap";
 const _MAN = "MessageAttributeName";
@@ -204,7 +204,7 @@ const _MMP = "MinimumMembershipPercentage";
 const _MR = "MaxResults";
 const _MSC = "MaximumSubChannels";
 const _MSE = "MessagingSessionEndpoint";
-const _Me = "Message";
+const _Me = "Metadata";
 const _Mem = "Members";
 const _Memb = "Member";
 const _Mo = "Mode";
@@ -319,9 +319,9 @@ const _nb = "not-before";
 const _nt = "network-type";
 const _nt_ = "next-token";
 const _p = "privacy";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkmessaging";
 const _sci = "sub-channel-id";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.chimesdkmessaging";
+const _se = "server";
 const _so = "sort-order";
 const _t = "type";
 const _xacb = "x-amz-chime-bearer";
@@ -352,14 +352,81 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ChimeSDKMessagingServiceException$: StaticErrorSchema = [-3, _s, "ChimeSDKMessagingServiceException", 0, [], []];
+_s_registry.registerError(ChimeSDKMessagingServiceException$, ChimeSDKMessagingServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceFailureException$, ServiceFailureException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 429 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(ThrottledClientException$, ThrottledClientException);
+export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
+  { [_e]: _c, [_hE]: 401 },
+  [_C, _M],
+  [0, 0]
+];
+n0_registry.registerError(UnauthorizedClientException$, UnauthorizedClientException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ChannelId: StaticSimpleSchema = [0, n0, _CI, 8, 0];
 var ClientRequestToken: StaticSimpleSchema = [0, n0, _CRT, 8, 0];
-var Content: StaticSimpleSchema = [0, n0, _C, 8, 0];
+var Content: StaticSimpleSchema = [0, n0, _Co, 8, 0];
 var ContentType: StaticSimpleSchema = [0, n0, _CT, 8, 0];
 var FilterRule: StaticSimpleSchema = [0, n0, _FR, 8, 0];
 var MessageAttributeName: StaticSimpleSchema = [0, n0, _MAN, 8, 0];
 var MessageAttributeStringValue: StaticSimpleSchema = [0, n0, _MASV, 8, 0];
-var Metadata: StaticSimpleSchema = [0, n0, _M, 8, 0];
+var Metadata: StaticSimpleSchema = [0, n0, _Me, 8, 0];
 var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 var NonEmptyContent: StaticSimpleSchema = [0, n0, _NEC, 8, 0];
 var NonEmptyResourceName: StaticSimpleSchema = [0, n0, _NERN, 8, 0];
@@ -378,12 +445,6 @@ export var AssociateChannelFlowRequest$: StaticStructureSchema = [3, n0, _ACFR,
   [_CA, _CFA, _CB],
   [[0, 1], 0, [0, { [_hH]: _xacb }]], 3
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BatchChannelMemberships$: StaticStructureSchema = [3, n0, _BCM,
   0,
   [_IB, _T, _Mem, _CA, _SCI],
@@ -406,12 +467,12 @@ export var BatchCreateChannelMembershipResponse$: StaticStructureSchema = [3, n0
 ];
 export var Channel$: StaticStructureSchema = [3, n0, _Ch,
   0,
-  [_N, _CA, _Mo, _P, _M, _CBr, _CTr, _LMT, _LUT, _CFA, _ECC, _ES],
+  [_N, _CA, _Mo, _P, _Me, _CBr, _CTr, _LMT, _LUT, _CFA, _ECC, _ES],
   [[() => NonEmptyResourceName, 0], 0, 0, 0, [() => Metadata, 0], [() => Identity$, 0], 4, 4, 4, 0, () => ElasticChannelConfiguration$, () => ExpirationSettings$]
 ];
 export var ChannelAssociatedWithFlowSummary$: StaticStructureSchema = [3, n0, _CAWFS,
   0,
-  [_N, _CA, _Mo, _P, _M],
+  [_N, _CA, _Mo, _P, _Me],
   [[() => NonEmptyResourceName, 0], 0, 0, 0, [() => Metadata, 0]]
 ];
 export var ChannelBan$: StaticStructureSchema = [3, n0, _CBh,
@@ -466,12 +527,12 @@ export var ChannelMembershipSummary$: StaticStructureSchema = [3, n0, _CMS,
 ];
 export var ChannelMessage$: StaticStructureSchema = [3, n0, _CM,
   0,
-  [_CA, _MI, _C, _M, _T, _CTr, _LET, _LUT, _S, _R, _Pe, _St, _MAes, _SCI, _CT, _Ta],
+  [_CA, _MI, _Co, _Me, _T, _CTr, _LET, _LUT, _S, _R, _Pe, _St, _MAes, _SCI, _CT, _Ta],
   [0, 0, [() => Content, 0], [() => Metadata, 0], 0, 4, 4, 4, [() => Identity$, 0], 2, 0, () => ChannelMessageStatusStructure$, [() => MessageAttributeMap, 0], 0, [() => ContentType, 0], () => TargetList]
 ];
 export var ChannelMessageCallback$: StaticStructureSchema = [3, n0, _CMC,
   0,
-  [_MI, _C, _M, _PNu, _MAes, _SCI, _CT],
+  [_MI, _Co, _Me, _PNu, _MAes, _SCI, _CT],
   [0, [() => NonEmptyContent, 0], [() => Metadata, 0], [() => PushNotificationConfiguration$, 0], [() => MessageAttributeMap, 0], 0, [() => ContentType, 0]], 1
 ];
 export var ChannelMessageStatusStructure$: StaticStructureSchema = [3, n0, _CMSS,
@@ -481,7 +542,7 @@ export var ChannelMessageStatusStructure$: StaticStructureSchema = [3, n0, _CMSS
 ];
 export var ChannelMessageSummary$: StaticStructureSchema = [3, n0, _CMSh,
   0,
-  [_MI, _C, _M, _T, _CTr, _LUT, _LET, _S, _R, _St, _MAes, _CT, _Ta],
+  [_MI, _Co, _Me, _T, _CTr, _LUT, _LET, _S, _R, _St, _MAes, _CT, _Ta],
   [0, [() => Content, 0], [() => Metadata, 0], 0, 4, 4, 4, [() => Identity$, 0], 2, () => ChannelMessageStatusStructure$, [() => MessageAttributeMap, 0], [() => ContentType, 0], () => TargetList]
 ];
 export var ChannelModeratedByAppInstanceUserSummary$: StaticStructureSchema = [3, n0, _CMBAIUS,
@@ -501,15 +562,9 @@ export var ChannelModeratorSummary$: StaticStructureSchema = [3, n0, _CMSha,
 ];
 export var ChannelSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_N, _CA, _Mo, _P, _M, _LMT],
+  [_N, _CA, _Mo, _P, _Me, _LMT],
   [[() => NonEmptyResourceName, 0], 0, 0, 0, [() => Metadata, 0], 4]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateChannelBanRequest$: StaticStructureSchema = [3, n0, _CCBR,
   0,
   [_CA, _MA, _CB],
@@ -552,7 +607,7 @@ export var CreateChannelModeratorResponse$: StaticStructureSchema = [3, n0, _CCM
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_AIA, _N, _CB, _Mo, _P, _M, _CRT, _Tag, _CI, _MAe, _MAo, _ECC, _ES],
+  [_AIA, _N, _CB, _Mo, _P, _Me, _CRT, _Tag, _CI, _MAe, _MAo, _ECC, _ES],
   [0, [() => NonEmptyResourceName, 0], [0, { [_hH]: _xacb }], 0, 0, [() => Metadata, 0], [() => ClientRequestToken, 4], [() => TagList, 0], [() => ChannelId, 0], 64 | 0, 64 | 0, () => ElasticChannelConfiguration$, () => ExpirationSettings$], 3
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
@@ -680,12 +735,6 @@ export var ExpirationSettings$: StaticStructureSchema = [3, n0, _ES,
   [_ED, _ECx],
   [1, 0], 2
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetChannelMembershipPreferencesRequest$: StaticStructureSchema = [3, n0, _GCMPR,
   0,
   [_CA, _MA, _CB],
@@ -866,12 +915,6 @@ export var MessagingSessionEndpoint$: StaticStructureSchema = [3, n0, _MSE,
   [_U],
   [0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var Processor$: StaticStructureSchema = [3, n0, _Pro,
   0,
   [_N, _Con, _EO, _FA],
@@ -932,12 +975,6 @@ export var RedactChannelMessageResponse$: StaticStructureSchema = [3, n0, _RCMRe
   [_CA, _MI, _SCI],
   [0, 0, 0]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
 export var SearchChannelsRequest$: StaticStructureSchema = [3, n0, _SCR,
   0,
   [_F, _CB, _MR, _NT],
@@ -955,7 +992,7 @@ export var SearchField$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SendChannelMessageRequest$: StaticStructureSchema = [3, n0, _SCMR,
   0,
-  [_CA, _C, _T, _Pe, _CB, _M, _CRT, _PNu, _MAes, _SCI, _CT, _Ta],
+  [_CA, _Co, _T, _Pe, _CB, _Me, _CRT, _PNu, _MAes, _SCI, _CT, _Ta],
   [[0, 1], [() => NonEmptyContent, 0], 0, 0, [0, { [_hH]: _xacb }], [() => Metadata, 0], [() => ClientRequestToken, 4], [() => PushNotificationConfiguration$, 0], [() => MessageAttributeMap, 0], 0, [() => ContentType, 0], () => TargetList], 5
 ];
 export var SendChannelMessageResponse$: StaticStructureSchema = [3, n0, _SCMRe,
@@ -963,18 +1000,6 @@ export var SendChannelMessageResponse$: StaticStructureSchema = [3, n0, _SCMRe,
   [_CA, _MI, _St, _SCI],
   [0, 0, () => ChannelMessageStatusStructure$, 0]
 ];
-export var ServiceFailureException$: StaticErrorSchema = [-3, n0, _SFE,
-  { [_e]: _s, [_hE]: 500 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceFailureException$, ServiceFailureException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StreamingConfiguration$: StaticStructureSchema = [3, n0, _SCt,
   0,
   [_DT, _RA],
@@ -1000,18 +1025,6 @@ export var Target$: StaticStructureSchema = [3, n0, _Ta,
   [_MA],
   [0]
 ];
-export var ThrottledClientException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c, [_hE]: 429 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottledClientException$, ThrottledClientException);
-export var UnauthorizedClientException$: StaticErrorSchema = [-3, n0, _UCE,
-  { [_e]: _c, [_hE]: 401 },
-  [_Co, _Me],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedClientException$, UnauthorizedClientException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RARN, _TKa],
@@ -1029,7 +1042,7 @@ export var UpdateChannelFlowResponse$: StaticStructureSchema = [3, n0, _UCFRp,
 ];
 export var UpdateChannelMessageRequest$: StaticStructureSchema = [3, n0, _UCMR,
   0,
-  [_CA, _MI, _C, _CB, _M, _SCI, _CT],
+  [_CA, _MI, _Co, _CB, _Me, _SCI, _CT],
   [[0, 1], [0, 1], [() => NonEmptyContent, 0], [0, { [_hH]: _xacb }], [() => Metadata, 0], 0, [() => ContentType, 0]], 4
 ];
 export var UpdateChannelMessageResponse$: StaticStructureSchema = [3, n0, _UCMRp,
@@ -1049,7 +1062,7 @@ export var UpdateChannelReadMarkerResponse$: StaticStructureSchema = [3, n0, _UC
 ];
 export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_CA, _CB, _N, _Mo, _M],
+  [_CA, _CB, _N, _Mo, _Me],
   [[0, 1], [0, { [_hH]: _xacb }], [() => NonEmptyResourceName, 0], 0, [() => Metadata, 0]], 2
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
@@ -1058,8 +1071,6 @@ export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   [0]
 ];
 var __Unit = "unit" as const;
-export var ChimeSDKMessagingServiceException$: StaticErrorSchema = [-3, _sm, "ChimeSDKMessagingServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ChimeSDKMessagingServiceException$, ChimeSDKMessagingServiceException);
 var BatchCreateChannelMembershipErrors: StaticListSchema = [1, n0, _BCCMEa,
   0, () => BatchCreateChannelMembershipError$
 ];

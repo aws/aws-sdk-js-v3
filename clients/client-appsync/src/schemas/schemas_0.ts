@@ -48,9 +48,9 @@ const _CDNRr = "CreateDomainNameResponse";
 const _CDS = "CreateDataSource";
 const _CDSR = "CreateDataSourceRequest";
 const _CDSRr = "CreateDataSourceResponse";
-const _CE = "CodeError";
+const _CE = "ConflictException";
 const _CEL = "CodeErrorLocation";
-const _CEo = "ConflictException";
+const _CEo = "CodeError";
 const _CEod = "CodeErrors";
 const _CF = "CreateFunction";
 const _CFR = "CreateFunctionRequest";
@@ -357,7 +357,7 @@ const _co = "column";
 const _cod = "code";
 const _con = "context";
 const _cr = "created";
-const _d = "dns";
+const _d = "detail";
 const _dA = "defaultAction";
 const _dC = "dynamodbConfig";
 const _dCI = "dbClusterIdentifier";
@@ -380,8 +380,8 @@ const _dSa = "dataSources";
 const _de = "description";
 const _def = "definition";
 const _del = "deletes";
-const _det = "detail";
-const _deta = "details";
+const _det = "details";
+const _dn = "dns";
 const _e = "error";
 const _eBA = "eventBusArn";
 const _eBC = "eventBridgeConfig";
@@ -480,7 +480,7 @@ const _rV = "runtimeVersion";
 const _re = "resolver";
 const _res = "resolvers";
 const _ru = "runtime";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appsync";
 const _sA = "secretArn";
 const _sAA = "sourceApiAssociation";
 const _sAAC = "sourceApiAssociationConfig";
@@ -498,9 +498,9 @@ const _sSN = "signingServiceName";
 const _sc = "schema";
 const _sd = "sdl";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appsync";
 const _sp = "span";
-const _st = "stash";
+const _st = "status";
+const _sta = "stash";
 const _t = "tags";
 const _tEE = "transitEncryptionEnabled";
 const _tK = "tagKeys";
@@ -550,12 +550,97 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppSyncServiceException$: StaticErrorSchema = [-3, _s, "AppSyncServiceException", 0, [], []];
+_s_registry.registerError(AppSyncServiceException$, AppSyncServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ApiKeyLimitExceededException$: StaticErrorSchema = [-3, n0, _AKLEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApiKeyLimitExceededException$, ApiKeyLimitExceededException);
+export var ApiKeyValidityOutOfBoundsException$: StaticErrorSchema = [-3, n0, _AKVOOBE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApiKeyValidityOutOfBoundsException$, ApiKeyValidityOutOfBoundsException);
+export var ApiLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ApiLimitExceededException$, ApiLimitExceededException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _d],
+  [0, 0, () => BadRequestDetail$]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var GraphQLSchemaException$: StaticErrorSchema = [-3, n0, _GQLSE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(GraphQLSchemaException$, GraphQLSchemaException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AdditionalAuthenticationProvider$: StaticStructureSchema = [3, n0, _AAP,
   0,
   [_aT, _oIDCC, _uPC, _lAC],
@@ -563,7 +648,7 @@ export var AdditionalAuthenticationProvider$: StaticStructureSchema = [3, n0, _A
 ];
 export var Api$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _n, _oC, _t, _d, _aA, _cr, _xE, _wWAA, _eC],
+  [_aI, _n, _oC, _t, _dn, _aA, _cr, _xE, _wWAA, _eC],
   [0, 0, 0, 128 | 0, 128 | 0, 0, 4, 2, 0, () => EventConfig$]
 ];
 export var ApiAssociation$: StaticStructureSchema = [3, n0, _AA,
@@ -573,7 +658,7 @@ export var ApiAssociation$: StaticStructureSchema = [3, n0, _AA,
 ];
 export var ApiCache$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_tt, _aCB, _tEE, _aREE, _ty, _s, _hMC],
+  [_tt, _aCB, _tEE, _aREE, _ty, _st, _hMC],
   [1, 0, 2, 2, 0, 0, 0]
 ];
 export var ApiKey$: StaticStructureSchema = [3, n0, _AK,
@@ -581,24 +666,6 @@ export var ApiKey$: StaticStructureSchema = [3, n0, _AK,
   [_i, _de, _ex, _del],
   [0, 0, 1, 1]
 ];
-export var ApiKeyLimitExceededException$: StaticErrorSchema = [-3, n0, _AKLEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApiKeyLimitExceededException$, ApiKeyLimitExceededException);
-export var ApiKeyValidityOutOfBoundsException$: StaticErrorSchema = [-3, n0, _AKVOOBE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApiKeyValidityOutOfBoundsException$, ApiKeyValidityOutOfBoundsException);
-export var ApiLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ApiLimitExceededException$, ApiLimitExceededException);
 export var AppSyncRuntime$: StaticStructureSchema = [3, n0, _ASR,
   0,
   [_n, _rV],
@@ -659,12 +726,6 @@ export var BadRequestDetail$: StaticStructureSchema = [3, n0, _BRD,
   [_cE],
   [() => CodeErrors]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _det],
-  [0, 0, () => BadRequestDetail$]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var CachingConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_tt, _cK],
@@ -675,7 +736,7 @@ export var ChannelNamespace$: StaticStructureSchema = [3, n0, _CN,
   [_aI, _n, _sAM, _pAM, _cH, _t, _cNA, _cr, _lM, _hC],
   [0, 0, () => AuthModes, () => AuthModes, 0, 128 | 0, 0, 4, 4, () => HandlerConfigs$]
 ];
-export var CodeError$: StaticStructureSchema = [3, n0, _CE,
+export var CodeError$: StaticStructureSchema = [3, n0, _CEo,
   0,
   [_eT, _v, _l],
   [0, 0, () => CodeErrorLocation$]
@@ -695,18 +756,6 @@ export var CognitoUserPoolConfig$: StaticStructureSchema = [3, n0, _CUPC,
   [_uPI, _aR, _aICR],
   [0, 0, 0], 2
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEo,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateApiCacheRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
   [_aI, _tt, _aCB, _ty, _tEE, _aREE, _hMC],
@@ -1009,7 +1058,7 @@ export var EvaluateCodeRequest$: StaticStructureSchema = [3, n0, _ECR,
 ];
 export var EvaluateCodeResponse$: StaticStructureSchema = [3, n0, _ECRv,
   0,
-  [_eR, _e, _lo, _st, _oE],
+  [_eR, _e, _lo, _sta, _oE],
   [0, () => EvaluateCodeErrorDetail$, 64 | 0, 0, 0]
 ];
 export var EvaluateMappingTemplateRequest$: StaticStructureSchema = [3, n0, _EMTR,
@@ -1019,7 +1068,7 @@ export var EvaluateMappingTemplateRequest$: StaticStructureSchema = [3, n0, _EMT
 ];
 export var EvaluateMappingTemplateResponse$: StaticStructureSchema = [3, n0, _EMTRv,
   0,
-  [_eR, _e, _lo, _st, _oE],
+  [_eR, _e, _lo, _sta, _oE],
   [0, () => ErrorDetail$, 64 | 0, 0, 0]
 ];
 export var EventBridgeDataSourceConfig$: StaticStructureSchema = [3, n0, _EBDSC,
@@ -1179,7 +1228,7 @@ export var GetSchemaCreationStatusRequest$: StaticStructureSchema = [3, n0, _GSC
 ];
 export var GetSchemaCreationStatusResponse$: StaticStructureSchema = [3, n0, _GSCSRe,
   0,
-  [_s, _deta],
+  [_st, _det],
   [0, 0]
 ];
 export var GetSourceApiAssociationRequest$: StaticStructureSchema = [3, n0, _GSAAR,
@@ -1204,15 +1253,9 @@ export var GetTypeResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GraphqlApi$: StaticStructureSchema = [3, n0, _GA,
   0,
-  [_n, _aI, _aT, _lCo, _uPC, _oIDCC, _ar, _u, _t, _aAP, _xE, _wWAA, _lAC, _d, _vi, _aTp, _mAERA, _o, _oC, _iC, _qDL, _rCL, _eMC],
+  [_n, _aI, _aT, _lCo, _uPC, _oIDCC, _ar, _u, _t, _aAP, _xE, _wWAA, _lAC, _dn, _vi, _aTp, _mAERA, _o, _oC, _iC, _qDL, _rCL, _eMC],
   [0, 0, 0, () => LogConfig$, () => UserPoolConfig$, () => OpenIDConnectConfig$, 0, 128 | 0, 128 | 0, () => AdditionalAuthenticationProviders, 2, 0, () => LambdaAuthorizerConfig$, 128 | 0, 0, 0, 0, 0, 0, 0, 1, 1, () => EnhancedMetricsConfig$]
 ];
-export var GraphQLSchemaException$: StaticErrorSchema = [-3, n0, _GQLSE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GraphQLSchemaException$, GraphQLSchemaException);
 export var HandlerConfig$: StaticStructureSchema = [3, n0, _HC,
   0,
   [_b, _int],
@@ -1233,12 +1276,6 @@ export var Integration$: StaticStructureSchema = [3, n0, _I,
   [_dSN, _lC],
   [0, () => LambdaConfig$], 1
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
 export var LambdaAuthorizerConfig$: StaticStructureSchema = [3, n0, _LAC,
   0,
   [_aU, _aRTIS, _iVE],
@@ -1259,12 +1296,6 @@ export var LambdaDataSourceConfig$: StaticStructureSchema = [3, n0, _LDSC,
   [_lFA],
   [0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListApiKeysRequest$: StaticStructureSchema = [3, n0, _LAKR,
   0,
   [_aI, _nT, _mR],
@@ -1400,12 +1431,6 @@ export var LogConfig$: StaticStructureSchema = [3, n0, _LCo,
   [_fLL, _cWLRA, _eVC],
   [0, 0, 2], 2
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OpenIDConnectConfig$: StaticStructureSchema = [3, n0, _OIDCC,
   0,
   [_is, _cI, _iTTL, _aTTL],
@@ -1451,12 +1476,6 @@ export var Resolver$: StaticStructureSchema = [3, n0, _R,
   [_tN, _fN, _dSN, _rAe, _rMT, _rMTe, _k, _pC, _sC, _cCa, _mBS, _ru, _cod, _mC],
   [0, 0, 0, 0, 0, 0, 0, () => PipelineConfig$, () => SyncConfig$, () => CachingConfig$, 1, () => AppSyncRuntime$, 0, 0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SourceApiAssociation$: StaticStructureSchema = [3, n0, _SAA,
   0,
   [_aIs, _aAs, _sAIo, _sAAo, _mAA, _mAIe, _de, _sAAC, _sAAS, _sAASD, _lSMD],
@@ -1489,7 +1508,7 @@ export var StartSchemaCreationRequest$: StaticStructureSchema = [3, n0, _SSCR,
 ];
 export var StartSchemaCreationResponse$: StaticStructureSchema = [3, n0, _SSCRt,
   0,
-  [_s],
+  [_st],
   [0]
 ];
 export var StartSchemaMergeRequest$: StaticStructureSchema = [3, n0, _SSMR,
@@ -1522,12 +1541,6 @@ export var Type$: StaticStructureSchema = [3, n0, _T,
   [_n, _de, _ar, _def, _f],
   [0, 0, 0, 0, 0]
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -1653,8 +1666,6 @@ export var UserPoolConfig$: StaticStructureSchema = [3, n0, _UPC,
   [_uPI, _aR, _dA, _aICR],
   [0, 0, 0, 0], 3
 ];
-export var AppSyncServiceException$: StaticErrorSchema = [-3, _sm, "AppSyncServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppSyncServiceException$, AppSyncServiceException);
 var AdditionalAuthenticationProviders: StaticListSchema = [1, n0, _AAPd,
   0, () => AdditionalAuthenticationProvider$
 ];

@@ -126,7 +126,7 @@ const _aAWSTRL = "allowAWSToRetainLogs";
 const _aC = "applicationConfiguration";
 const _aCu = "authorizationConfiguration";
 const _aSTV = "authorizedSessionTagValue";
-const _c = "classification";
+const _c = "client";
 const _cA = "certificateArn";
 const _cAC = "currentAttemptCount";
 const _cAe = "certificateAuthority";
@@ -145,13 +145,13 @@ const _cPTe = "certificateProviderType";
 const _cT = "clientToken";
 const _cTr = "credentialType";
 const _cWMC = "cloudWatchMonitoringConfiguration";
-const _cl = "client";
+const _cl = "classification";
 const _co = "configurations";
 const _cr = "credentials";
 const _dE = "decryptionError";
 const _dIS = "durationInSeconds";
 const _dV = "defaultValue";
-const _e = "endpoint";
+const _e = "error";
 const _eA = "expiresAt";
 const _eAEI = "eksAccessEntryIntegrated";
 const _eC = "encryptionConfiguration";
@@ -161,8 +161,8 @@ const _eKA = "encryptionKeyArn";
 const _eP = "entryPoint";
 const _ePA = "entryPointArguments";
 const _eRA = "executionRoleArn";
-const _en = "endpoints";
-const _er = "error";
+const _en = "endpoint";
+const _end = "endpoints";
 const _fA = "finishedAt";
 const _fR = "failureReason";
 const _h = "http";
@@ -206,7 +206,7 @@ const _rL = "releaseLabel";
 const _rPC = "retryPolicyConfiguration";
 const _rPE = "retryPolicyExecution";
 const _rS = "rotationSize";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.emrcontainers";
 const _sC = "securityConfiguration";
 const _sCD = "securityConfigurationData";
 const _sCI = "securityConfigurationId";
@@ -222,8 +222,8 @@ const _sSP = "sparkSqlParameters";
 const _sSPp = "sparkSubmitParameters";
 const _sU = "serverUrl";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.emrcontainers";
-const _st = "states";
+const _st = "state";
+const _sta = "states";
 const _t = "type";
 const _tCC = "tlsCertificateConfiguration";
 const _tK = "tagKeys";
@@ -259,6 +259,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var EMRContainersServiceException$: StaticErrorSchema = [-3, _s, "EMRContainersServiceException", 0, [], []];
+_s_registry.registerError(EMRContainersServiceException$, EMRContainersServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var EKSRequestThrottledException$: StaticErrorSchema = [-3, n0, _EKSRTE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(EKSRequestThrottledException$, EKSRequestThrottledException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var RequestThrottledException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestThrottledException$, RequestThrottledException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var EntryPointArgument: StaticSimpleSchema = [0, n0, _EPA, 8, 0];
 var EntryPointPath: StaticSimpleSchema = [0, n0, _EPP, 8, 0];
 var SparkSqlParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
@@ -291,7 +334,7 @@ export var CloudWatchMonitoringConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var Configuration$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_c, _p, _co],
+  [_cl, _p, _co],
   [0, [() => SensitivePropertiesMap, 0], [() => ConfigurationList, 0]], 1
 ];
 export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
@@ -406,7 +449,7 @@ export var DescribeManagedEndpointRequest$: StaticStructureSchema = [3, n0, _DME
 ];
 export var DescribeManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DMEResc,
   0,
-  [_e],
+  [_en],
   [[() => Endpoint$, 0]]
 ];
 export var DescribeSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
@@ -434,12 +477,6 @@ export var EksInfo$: StaticStructureSchema = [3, n0, _EI,
   [_na, _nL],
   [0, 0]
 ];
-export var EKSRequestThrottledException$: StaticErrorSchema = [-3, n0, _EKSRTE,
-  { [_er]: _cl, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EKSRequestThrottledException$, EKSRequestThrottledException);
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
   [_iTEC],
@@ -447,7 +484,7 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_i, _n, _a, _vCI, _t, _s, _rL, _eRA, _cA, _cAe, _cO, _sU, _cAr, _sG, _sI, _sD, _fR, _ta],
+  [_i, _n, _a, _vCI, _t, _st, _rL, _eRA, _cA, _cAe, _cO, _sU, _cAr, _sG, _sI, _sD, _fR, _ta],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Certificate$, [() => ConfigurationOverrides$, 0], 0, 5, 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema = [3, n0, _GMESCR,
@@ -460,12 +497,6 @@ export var GetManagedEndpointSessionCredentialsResponse$: StaticStructureSchema 
   [_i, _cr, _eA],
   [0, [() => Credentials$, 0], 5]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_er]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var InTransitEncryptionConfiguration$: StaticStructureSchema = [3, n0, _ITEC,
   0,
   [_tCC],
@@ -478,7 +509,7 @@ export var JobDriver$: StaticStructureSchema = [3, n0, _JD,
 ];
 export var JobRun$: StaticStructureSchema = [3, n0, _JR,
   0,
-  [_i, _n, _vCI, _a, _s, _cT, _eRA, _rL, _cO, _jD, _cAr, _cB, _fA, _sD, _fR, _ta, _rPC, _rPE],
+  [_i, _n, _vCI, _a, _st, _cT, _eRA, _rL, _cO, _jD, _cAr, _cB, _fA, _sD, _fR, _ta, _rPC, _rPE],
   [0, 0, 0, 0, 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [() => JobDriver$, 0], 5, 0, 5, 0, 0, 128 | 0, () => RetryPolicyConfiguration$, () => RetryPolicyExecution$]
 ];
 export var JobTemplate$: StaticStructureSchema = [3, n0, _JT,
@@ -498,8 +529,8 @@ export var LakeFormationConfiguration$: StaticStructureSchema = [3, n0, _LFC,
 ];
 export var ListJobRunsRequest$: StaticStructureSchema = [3, n0, _LJRR,
   0,
-  [_vCI, _cBr, _cAre, _n, _st, _mR, _nT],
-  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [0, { [_hQ]: _n }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_vCI, _cBr, _cAre, _n, _sta, _mR, _nT],
+  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [0, { [_hQ]: _n }], [64 | 0, { [_hQ]: _sta }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListJobRunsResponse$: StaticStructureSchema = [3, n0, _LJRRi,
   0,
@@ -518,12 +549,12 @@ export var ListJobTemplatesResponse$: StaticStructureSchema = [3, n0, _LJTRi,
 ];
 export var ListManagedEndpointsRequest$: StaticStructureSchema = [3, n0, _LMER,
   0,
-  [_vCI, _cBr, _cAre, _ty, _st, _mR, _nT],
-  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [64 | 0, { [_hQ]: _ty }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_vCI, _cBr, _cAre, _ty, _sta, _mR, _nT],
+  [[0, 1], [5, { [_hQ]: _cBr }], [5, { [_hQ]: _cAre }], [64 | 0, { [_hQ]: _ty }], [64 | 0, { [_hQ]: _sta }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListManagedEndpointsResponse$: StaticStructureSchema = [3, n0, _LMERi,
   0,
-  [_en, _nT],
+  [_end, _nT],
   [[() => Endpoints, 0], 0]
 ];
 export var ListSecurityConfigurationsRequest$: StaticStructureSchema = [3, n0, _LSCR,
@@ -548,8 +579,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListVirtualClustersRequest$: StaticStructureSchema = [3, n0, _LVCR,
   0,
-  [_cPI, _cPT, _cAre, _cBr, _st, _mR, _nT, _eAEI],
-  [[0, { [_hQ]: _cPI }], [0, { [_hQ]: _cPT }], [5, { [_hQ]: _cAre }], [5, { [_hQ]: _cBr }], [64 | 0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [2, { [_hQ]: _eAEI }]]
+  [_cPI, _cPT, _cAre, _cBr, _sta, _mR, _nT, _eAEI],
+  [[0, { [_hQ]: _cPI }], [0, { [_hQ]: _cPT }], [5, { [_hQ]: _cAre }], [5, { [_hQ]: _cBr }], [64 | 0, { [_hQ]: _sta }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [2, { [_hQ]: _eAEI }]]
 ];
 export var ListVirtualClustersResponse$: StaticStructureSchema = [3, n0, _LVCRi,
   0,
@@ -586,18 +617,6 @@ export var ParametricS3MonitoringConfiguration$: StaticStructureSchema = [3, n0,
   [_lU],
   [0]
 ];
-export var RequestThrottledException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestThrottledException$, RequestThrottledException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryPolicyConfiguration$: StaticStructureSchema = [3, n0, _RPC,
   0,
   [_mA],
@@ -678,19 +697,11 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VirtualCluster$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_i, _n, _a, _s, _cP, _cAr, _ta, _sCI],
+  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI],
   [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0]
 ];
-export var EMRContainersServiceException$: StaticErrorSchema = [-3, _sm, "EMRContainersServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(EMRContainersServiceException$, EMRContainersServiceException);
 var ConfigurationList: StaticListSchema = [1, n0, _CL,
   0, [() => Configuration$,
     0]

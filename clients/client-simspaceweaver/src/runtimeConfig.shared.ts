@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSimSpaceWeaverHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SimSpaceWeaverClientConfig } from "./SimSpaceWeaverClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SimSpaceWeaverClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.simspaceweaver",
+      errorTypeRegistries,
       version: "2022-10-28",
       serviceTarget: "SimSpaceWeaver",
     },

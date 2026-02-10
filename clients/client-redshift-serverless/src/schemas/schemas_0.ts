@@ -380,7 +380,7 @@ const _rPe = "recoveryPoint";
 const _rPec = "recoveryPoints";
 const _rPes = "resourcePolicy";
 const _rT = "requestTime";
-const _s = "snapshot";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.redshiftserverless";
 const _sA = "scheduledAction";
 const _sAD = "scheduledActionDescription";
 const _sAN = "scheduledActionName";
@@ -408,8 +408,8 @@ const _sT = "startTime";
 const _sTN = "sourceTableName";
 const _sc = "schedule";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.redshiftserverless";
-const _sn = "snapshots";
+const _sn = "snapshot";
+const _sna = "snapshots";
 const _st = "status";
 const _sta = "state";
 const _t = "tags";
@@ -479,14 +479,93 @@ import {
 import { RedshiftServerlessServiceException } from "../models/RedshiftServerlessServiceException";
 
 /* eslint no-var: 0 */
-var DbPassword: StaticSimpleSchema = [0, n0, _DP, 8, 0];
-var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var RedshiftServerlessServiceException$: StaticErrorSchema = [-3, _s, "RedshiftServerlessServiceException", 0, [], []];
+_s_registry.registerError(RedshiftServerlessServiceException$, RedshiftServerlessServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_co, _m],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DryRunException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(DryRunException$, DryRunException);
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InsufficientCapacityException$, InsufficientCapacityException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidPaginationException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidPaginationException$, InvalidPaginationException);
+export var Ipv6CidrBlockNotFoundException$: StaticErrorSchema = [-3, n0, _ICBNFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(Ipv6CidrBlockNotFoundException$, Ipv6CidrBlockNotFoundException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rN],
+  [0, 0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_co, _m],
+  [0, 0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _rN],
+  [0, 0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var DbPassword: StaticSimpleSchema = [0, n0, _DP, 8, 0];
+var DbUser: StaticSimpleSchema = [0, n0, _DU, 8, 0];
 export var Association$: StaticStructureSchema = [3, n0, _A,
   0,
   [_cDCA, _cDCET, _cDN, _wN],
@@ -497,12 +576,6 @@ export var ConfigParameter$: StaticStructureSchema = [3, n0, _CP,
   [_pK, _pV],
   [0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConvertRecoveryPointToSnapshotRequest$: StaticStructureSchema = [3, n0, _CRPTSR,
   0,
   [_rPI, _sN, _rP, _t],
@@ -510,7 +583,7 @@ export var ConvertRecoveryPointToSnapshotRequest$: StaticStructureSchema = [3, n
 ];
 export var ConvertRecoveryPointToSnapshotResponse$: StaticStructureSchema = [3, n0, _CRPTSRo,
   0,
-  [_s],
+  [_sn],
   [() => Snapshot$]
 ];
 export var CreateCustomDomainAssociationRequest$: StaticStructureSchema = [3, n0, _CCDAR,
@@ -580,7 +653,7 @@ export var CreateSnapshotRequest$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CreateSnapshotResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_s],
+  [_sn],
   [() => Snapshot$]
 ];
 export var CreateSnapshotScheduleActionParameters$: StaticStructureSchema = [3, n0, _CSSAP,
@@ -675,7 +748,7 @@ export var DeleteSnapshotRequest$: StaticStructureSchema = [3, n0, _DSR,
 ];
 export var DeleteSnapshotResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_s],
+  [_sn],
   [() => Snapshot$]
 ];
 export var DeleteUsageLimitRequest$: StaticStructureSchema = [3, n0, _DULR,
@@ -698,12 +771,6 @@ export var DeleteWorkgroupResponse$: StaticStructureSchema = [3, n0, _DWRe,
   [_w],
   [() => Workgroup$], 1
 ];
-export var DryRunException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(DryRunException$, DryRunException);
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
   [_ad, _po, _vE],
@@ -821,7 +888,7 @@ export var GetSnapshotRequest$: StaticStructureSchema = [3, n0, _GSR,
 ];
 export var GetSnapshotResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_s],
+  [_sn],
   [() => Snapshot$]
 ];
 export var GetTableRestoreStatusRequest$: StaticStructureSchema = [3, n0, _GTRSR,
@@ -864,30 +931,6 @@ export var GetWorkgroupResponse$: StaticStructureSchema = [3, n0, _GWRe,
   [_w],
   [() => Workgroup$], 1
 ];
-export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InsufficientCapacityException$, InsufficientCapacityException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidPaginationException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidPaginationException$, InvalidPaginationException);
-export var Ipv6CidrBlockNotFoundException$: StaticErrorSchema = [-3, n0, _ICBNFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(Ipv6CidrBlockNotFoundException$, Ipv6CidrBlockNotFoundException);
 export var ListCustomDomainAssociationsRequest$: StaticStructureSchema = [3, n0, _LCDAR,
   0,
   [_nT, _mR, _cDN, _cDCA],
@@ -985,7 +1028,7 @@ export var ListSnapshotsRequest$: StaticStructureSchema = [3, n0, _LSR,
 ];
 export var ListSnapshotsResponse$: StaticStructureSchema = [3, n0, _LSRi,
   0,
-  [_nT, _sn],
+  [_nT, _sna],
   [0, () => SnapshotList]
 ];
 export var ListTableRestoreStatusRequest$: StaticStructureSchema = [3, n0, _LTRSR,
@@ -1083,12 +1126,6 @@ export var ReservationOffering$: StaticStructureSchema = [3, n0, _RO,
   [_oI, _d, _uC, _hC, _cC, _oT],
   [0, 1, 1, 1, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rN],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RPe,
   0,
   [_rAe, _pol],
@@ -1149,12 +1186,6 @@ export var ServerlessTrack$: StaticStructureSchema = [3, n0, _ST,
   [_tN, _wV, _uTp],
   [0, 0, () => UpdateTargetsList]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var Snapshot$: StaticStructureSchema = [3, n0, _S,
   0,
   [_nN, _nA, _sN, _sCT, _aU, _st, _kKI, _oA, _tBSIMB, _aIBSIMB, _bPIMB, _cBRIMBPS, _eSTC, _eTIS, _sRP, _sRD, _sRST, _sAn, _aWRA, _aWPRA, _aPSA, _aPSKKI],
@@ -1185,18 +1216,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_co, _m],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _rN],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -1274,7 +1293,7 @@ export var UpdateSnapshotRequest$: StaticStructureSchema = [3, n0, _USR,
 ];
 export var UpdateSnapshotResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_s],
+  [_sn],
   [() => Snapshot$]
 ];
 export var UpdateTarget$: StaticStructureSchema = [3, n0, _UT,
@@ -1307,12 +1326,6 @@ export var UsageLimit$: StaticStructureSchema = [3, n0, _UL,
   [_uLI, _uLA, _rAe, _uT, _a, _p, _bA],
   [0, 0, 0, 0, 1, 0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VEp,
   0,
   [_vEI, _vI, _nIet],
@@ -1328,8 +1341,6 @@ export var Workgroup$: StaticStructureSchema = [3, n0, _W,
   [_wI, _wA, _wN, _nN, _bC, _eVR, _cP, _sGI, _sI, _st, _en, _pA, _cD, _po, _cDN, _cDCA, _cDCET, _wV, _pVa, _mC, _cAV, _iAT, _pPT, _tN, _pTN, _eCFAO],
   [0, 0, 0, 0, 1, 2, () => ConfigParameterList, 64 | 0, 64 | 0, 0, () => Endpoint$, 2, 5, 1, 0, 0, 5, 0, 0, 1, 64 | 0, 0, () => PerformanceTarget$, 0, 0, 2]
 ];
-export var RedshiftServerlessServiceException$: StaticErrorSchema = [-3, _sm, "RedshiftServerlessServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(RedshiftServerlessServiceException$, RedshiftServerlessServiceException);
 var AccountIdList = 64 | 0;
 var AssociationList: StaticListSchema = [1, n0, _AL,
   0, () => Association$

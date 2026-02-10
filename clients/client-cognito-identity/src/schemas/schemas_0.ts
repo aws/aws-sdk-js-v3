@@ -146,8 +146,8 @@ const _c = "client";
 const _e = "error";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cognitoidentity";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cognitoidentity";
+const _se = "server";
 const n0 = "com.amazonaws.cognitoidentity";
 
 // smithy-typescript generated code
@@ -177,6 +177,85 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CognitoIdentityServiceException$: StaticErrorSchema = [-3, _s, "CognitoIdentityServiceException", 0, [], []];
+_s_registry.registerError(CognitoIdentityServiceException$, CognitoIdentityServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var DeveloperUserAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _DUARE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(DeveloperUserAlreadyRegisteredException$, DeveloperUserAlreadyRegisteredException);
+export var ExternalServiceException$: StaticErrorSchema = [-3, n0, _ESE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ExternalServiceException$, ExternalServiceException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidIdentityPoolConfigurationException$: StaticErrorSchema = [-3, n0, _IIPCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidIdentityPoolConfigurationException$, InvalidIdentityPoolConfigurationException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var IdentityProviderToken: StaticSimpleSchema = [0, n0, _IPT, 8, 0];
 var OIDCToken: StaticSimpleSchema = [0, n0, _OIDCT, 8, 0];
 var SecretKeyString: StaticSimpleSchema = [0, n0, _SKS, 8, 0];
@@ -185,12 +264,6 @@ export var CognitoIdentityProvider$: StaticStructureSchema = [3, n0, _CIP,
   [_PN, _CI, _SSTC],
   [0, 0, 2]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var CreateIdentityPoolInput$: StaticStructureSchema = [3, n0, _CIPI,
   0,
   [_IPN, _AUI, _ACF, _SLP, _DPN, _OICPARN, _CIPo, _SPARN, _IPTd],
@@ -226,18 +299,6 @@ export var DescribeIdentityPoolInput$: StaticStructureSchema = [3, n0, _DIPIe,
   [_IPI],
   [0], 1
 ];
-export var DeveloperUserAlreadyRegisteredException$: StaticErrorSchema = [-3, n0, _DUARE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DeveloperUserAlreadyRegisteredException$, DeveloperUserAlreadyRegisteredException);
-export var ExternalServiceException$: StaticErrorSchema = [-3, n0, _ESE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExternalServiceException$, ExternalServiceException);
 export var GetCredentialsForIdentityInput$: StaticStructureSchema = [3, n0, _GCFII,
   0,
   [_II, _L, _CRA],
@@ -313,30 +374,6 @@ export var IdentityPoolShortDescription$: StaticStructureSchema = [3, n0, _IPSD,
   [_IPI, _IPN],
   [0, 0]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidIdentityPoolConfigurationException$: StaticErrorSchema = [-3, n0, _IIPCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidIdentityPoolConfigurationException$, InvalidIdentityPoolConfigurationException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListIdentitiesInput$: StaticStructureSchema = [3, n0, _LII,
   0,
   [_IPI, _MR, _NT, _HD],
@@ -392,24 +429,6 @@ export var MergeDeveloperIdentitiesResponse$: StaticStructureSchema = [3, n0, _M
   [_II],
   [0]
 ];
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
-export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoleMapping$: StaticStructureSchema = [3, n0, _RMo,
   0,
   [_Ty, _ARR, _RC],
@@ -445,12 +464,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRR,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UnlinkDeveloperIdentityInput$: StaticStructureSchema = [3, n0, _UDII,
   0,
   [_II, _IPI, _DPN, _DUI],
@@ -477,8 +490,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URR,
   []
 ];
 var __Unit = "unit" as const;
-export var CognitoIdentityServiceException$: StaticErrorSchema = [-3, _sm, "CognitoIdentityServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CognitoIdentityServiceException$, CognitoIdentityServiceException);
 var CognitoIdentityProviderList: StaticListSchema = [1, n0, _CIPL,
   0, () => CognitoIdentityProvider$
 ];

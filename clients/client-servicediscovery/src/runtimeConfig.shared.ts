@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultServiceDiscoveryHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { ServiceDiscoveryClientConfig } from "./ServiceDiscoveryClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ServiceDiscoveryClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.servicediscovery",
+      errorTypeRegistries,
       version: "2017-03-14",
       serviceTarget: "Route53AutoNaming_v20170314",
     },

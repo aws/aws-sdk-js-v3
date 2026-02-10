@@ -251,7 +251,7 @@ const _LTPFFPRi = "ListThirdPartyFirewallFirewallPoliciesResponse";
 const _LU = "LastUpdated";
 const _LUT = "ListUpdateToken";
 const _LUTa = "LastUpdateTime";
-const _M = "Metadata";
+const _M = "Message";
 const _MA = "MemberAccount";
 const _MAI = "MemberAccountId";
 const _MAIe = "MemberAccountIds";
@@ -259,7 +259,7 @@ const _MAe = "MemberAccounts";
 const _MOS = "MarketplaceOnboardingStatus";
 const _MR = "MaxResults";
 const _MSD = "ManagedServiceData";
-const _Me = "Message";
+const _Me = "Metadata";
 const _N = "Name";
 const _NACP = "NetworkAclCommonPolicy";
 const _NAE = "NetworkAclEntry";
@@ -478,6 +478,55 @@ import {
 import { FMSServiceException } from "../models/FMSServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var FMSServiceException$: StaticErrorSchema = [-3, _s, "FMSServiceException", 0, [], []];
+_s_registry.registerError(FMSServiceException$, FMSServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidOperationException$, InvalidOperationException);
+export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidTypeException$, InvalidTypeException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountScope$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_A, _AAE, _ESA],
@@ -565,7 +614,7 @@ export var BatchDisassociateResourceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ComplianceViolator$: StaticStructureSchema = [3, n0, _CV,
   0,
-  [_RI, _VR, _RT, _M],
+  [_RI, _VR, _RT, _Me],
   [0, 0, 0, 128 | 0]
 ];
 export var CreateNetworkAclAction$: StaticStructureSchema = [3, n0, _CNAA,
@@ -828,41 +877,11 @@ export var GetViolationDetailsResponse$: StaticStructureSchema = [3, n0, _GVDRe,
   [_VD],
   [() => ViolationDetail$]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var InvalidNetworkAclEntriesViolation$: StaticStructureSchema = [3, n0, _INAEV,
   0,
   [_V, _Su, _SAZ, _CANA, _EVn],
   [0, 0, 0, 0, () => EntryViolations]
 ];
-export var InvalidOperationException$: StaticErrorSchema = [-3, n0, _IOE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidOperationException$, InvalidOperationException);
-export var InvalidTypeException$: StaticErrorSchema = [-3, n0, _ITE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidTypeException$, InvalidTypeException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAdminAccountsForOrganizationRequest$: StaticStructureSchema = [3, n0, _LAAFOR,
   0,
   [_NT, _MR],
@@ -1208,12 +1227,6 @@ export var Resource$: StaticStructureSchema = [3, n0, _Res,
   [_URI, _AI],
   [0, 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSet$: StaticStructureSchema = [3, n0, _RSe,
   0,
   [_N, _RTL, _Id_, _D, _UT, _LUTa, _RSS],
@@ -1340,8 +1353,6 @@ export var WebACLHasOutOfScopeResourcesViolation$: StaticStructureSchema = [3, n
   [0, 64 | 0]
 ];
 var __Unit = "unit" as const;
-export var FMSServiceException$: StaticErrorSchema = [-3, _s, "FMSServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(FMSServiceException$, FMSServiceException);
 var AccountIdList = 64 | 0;
 var AdminAccountSummaryList: StaticListSchema = [1, n0, _AASL,
   0, () => AdminAccountSummary$

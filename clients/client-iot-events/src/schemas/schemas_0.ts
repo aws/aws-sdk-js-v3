@@ -188,13 +188,13 @@ const _ac = "action";
 const _ar = "arn";
 const _at = "attributes";
 const _bV = "booleanValue";
-const _c = "content";
+const _c = "client";
 const _cE = "contentExpression";
 const _cO = "comparisonOperator";
 const _cT = "clearTimer";
 const _cTr = "creationTime";
-const _cl = "client";
-const _co = "condition";
+const _co = "content";
+const _con = "condition";
 const _dDB = "dynamoDB";
 const _dDBy = "dynamoDBv2";
 const _dDO = "detectorDebugOptions";
@@ -211,12 +211,12 @@ const _dMVS = "detectorModelVersionSummaries";
 const _dOI = "disabledOnInitialization";
 const _dSN = "deliveryStreamName";
 const _dV = "doubleValue";
-const _e = "enabled";
+const _e = "error";
 const _eC = "emailConfigurations";
 const _eI = "entryId";
 const _eM = "evaluationMethod";
 const _eN = "eventName";
-const _er = "error";
+const _en = "enabled";
 const _ev = "events";
 const _f = "firehose";
 const _fA = "functionArn";
@@ -276,15 +276,15 @@ const _pa = "payload";
 const _q = "quality";
 const _qU = "queueUrl";
 const _r = "recipients";
-const _rA = "roleArn";
-const _rAe = "resourceArn";
+const _rA = "resourceArn";
+const _rAo = "roleArn";
 const _rI = "resourceId";
 const _rKF = "rangeKeyField";
 const _rKT = "rangeKeyType";
 const _rKV = "rangeKeyValue";
 const _rR = "routedResources";
 const _rT = "resetTimer";
-const _s = "sns";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotevents";
 const _sC = "smsConfigurations";
 const _sI = "ssoIdentity";
 const _sIe = "senderId";
@@ -294,11 +294,11 @@ const _sR = "simpleRule";
 const _sT = "setTimer";
 const _sV = "setVariable";
 const _sVt = "stringValue";
-const _se = "severity";
+const _se = "server";
 const _sec = "seconds";
 const _sep = "separator";
-const _ser = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotevents";
+const _sev = "severity";
+const _sn = "sns";
 const _sq = "sqs";
 const _st = "status";
 const _sta = "states";
@@ -339,19 +339,86 @@ import {
 import { IoTEventsServiceException } from "../models/IoTEventsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTEventsServiceException$: StaticErrorSchema = [-3, _s, "IoTEventsServiceException", 0, [], []];
+_s_registry.registerError(IoTEventsServiceException$, IoTEventsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 410 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rA],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _se, [_hE]: 501 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcknowledgeFlow$: StaticStructureSchema = [3, n0, _AF,
   0,
-  [_e],
+  [_en],
   [2], 1
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_sV, _s, _iTP, _sT, _cT, _rT, _l, _iE, _sq, _f, _dDB, _dDBy, _iSW],
+  [_sV, _sn, _iTP, _sT, _cT, _rT, _l, _iE, _sq, _f, _dDB, _dDBy, _iSW],
   [() => SetVariableAction$, () => SNSTopicPublishAction$, () => IotTopicPublishAction$, () => SetTimerAction$, () => ClearTimerAction$, () => ResetTimerAction$, () => LambdaAction$, () => IotEventsAction$, () => SqsAction$, () => FirehoseAction$, () => DynamoDBAction$, () => DynamoDBv2Action$, () => IotSiteWiseAction$]
 ];
 export var AlarmAction$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_s, _iTP, _l, _iE, _sq, _f, _dDB, _dDBy, _iSW],
+  [_sn, _iTP, _l, _iE, _sq, _f, _dDB, _dDBy, _iSW],
   [() => SNSTopicPublishAction$, () => IotTopicPublishAction$, () => LambdaAction$, () => IotEventsAction$, () => SqsAction$, () => FirehoseAction$, () => DynamoDBAction$, () => DynamoDBv2Action$, () => IotSiteWiseAction$]
 ];
 export var AlarmCapabilities$: StaticStructureSchema = [3, n0, _AC,
@@ -371,7 +438,7 @@ export var AlarmModelSummary$: StaticStructureSchema = [3, n0, _AMS,
 ];
 export var AlarmModelVersionSummary$: StaticStructureSchema = [3, n0, _AMVS,
   0,
-  [_aMN, _aMA, _aMV, _rA, _cTr, _lUT, _st, _sM],
+  [_aMN, _aMA, _aMV, _rAo, _cTr, _lUT, _st, _sM],
   [0, 0, 0, 0, 4, 4, 0, 0]
 ];
 export var AlarmNotification$: StaticStructureSchema = [3, n0, _AN,
@@ -421,7 +488,7 @@ export var ClearTimerAction$: StaticStructureSchema = [3, n0, _CTA,
 ];
 export var CreateAlarmModelRequest$: StaticStructureSchema = [3, n0, _CAMR,
   0,
-  [_aMN, _rA, _aR, _aMD, _ta, _k, _se, _aN, _aEA, _aC],
+  [_aMN, _rAo, _aR, _aMD, _ta, _k, _sev, _aN, _aEA, _aC],
   [0, 0, () => AlarmRule$, 0, () => Tags, 0, 1, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$], 3
 ];
 export var CreateAlarmModelResponse$: StaticStructureSchema = [3, n0, _CAMRr,
@@ -431,7 +498,7 @@ export var CreateAlarmModelResponse$: StaticStructureSchema = [3, n0, _CAMRr,
 ];
 export var CreateDetectorModelRequest$: StaticStructureSchema = [3, n0, _CDMR,
   0,
-  [_dMN, _dMD, _rA, _dMDe, _k, _ta, _eM],
+  [_dMN, _dMD, _rAo, _dMDe, _k, _ta, _eM],
   [0, () => DetectorModelDefinition$, 0, 0, 0, () => Tags, 0], 3
 ];
 export var CreateDetectorModelResponse$: StaticStructureSchema = [3, n0, _CDMRr,
@@ -486,7 +553,7 @@ export var DescribeAlarmModelRequest$: StaticStructureSchema = [3, n0, _DAMRes,
 ];
 export var DescribeAlarmModelResponse$: StaticStructureSchema = [3, n0, _DAMResc,
   0,
-  [_cTr, _aMA, _aMV, _lUT, _st, _sM, _aMN, _aMD, _rA, _k, _se, _aR, _aN, _aEA, _aC],
+  [_cTr, _aMA, _aMV, _lUT, _st, _sM, _aMN, _aMD, _rAo, _k, _sev, _aR, _aN, _aEA, _aC],
   [4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 1, () => AlarmRule$, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$]
 ];
 export var DescribeDetectorModelAnalysisRequest$: StaticStructureSchema = [3, n0, _DDMAR,
@@ -541,7 +608,7 @@ export var DetectorModel$: StaticStructureSchema = [3, n0, _DM,
 ];
 export var DetectorModelConfiguration$: StaticStructureSchema = [3, n0, _DMC,
   0,
-  [_dMN, _dMV, _dMDe, _dMA, _rA, _cTr, _lUT, _st, _k, _eM],
+  [_dMN, _dMV, _dMDe, _dMA, _rAo, _cTr, _lUT, _st, _k, _eM],
   [0, 0, 0, 0, 0, 4, 4, 0, 0, 0]
 ];
 export var DetectorModelDefinition$: StaticStructureSchema = [3, n0, _DMD,
@@ -556,7 +623,7 @@ export var DetectorModelSummary$: StaticStructureSchema = [3, n0, _DMS,
 ];
 export var DetectorModelVersionSummary$: StaticStructureSchema = [3, n0, _DMVS,
   0,
-  [_dMN, _dMV, _dMA, _rA, _cTr, _lUT, _st, _eM],
+  [_dMN, _dMV, _dMA, _rAo, _cTr, _lUT, _st, _eM],
   [0, 0, 0, 0, 4, 4, 0, 0]
 ];
 export var DynamoDBAction$: StaticStructureSchema = [3, n0, _DDBA,
@@ -571,7 +638,7 @@ export var DynamoDBv2Action$: StaticStructureSchema = [3, n0, _DDBAy,
 ];
 export var EmailConfiguration$: StaticStructureSchema = [3, n0, _EC,
   0,
-  [_fr, _r, _c],
+  [_fr, _r, _co],
   [0, () => EmailRecipients$, () => EmailContent$], 2
 ];
 export var EmailContent$: StaticStructureSchema = [3, n0, _ECm,
@@ -586,7 +653,7 @@ export var EmailRecipients$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_eN, _co, _a],
+  [_eN, _con, _a],
   [0, 0, () => Actions], 1
 ];
 export var FirehoseAction$: StaticStructureSchema = [3, n0, _FA,
@@ -634,18 +701,6 @@ export var InputSummary$: StaticStructureSchema = [3, n0, _IS,
   [_iN, _iDn, _iA, _cTr, _lUT, _st],
   [0, 0, 0, 4, 4, 0]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_er]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_er]: _cl, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var IotEventsAction$: StaticStructureSchema = [3, n0, _IEA,
   0,
   [_iN, _pa],
@@ -681,12 +736,6 @@ export var LambdaAction$: StaticStructureSchema = [3, n0, _LA,
   [_fA, _pa],
   [0, () => Payload$], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_er]: _cl, [_hE]: 410 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAlarmModelsRequest$: StaticStructureSchema = [3, n0, _LAMR,
   0,
   [_nT, _mR],
@@ -749,8 +798,8 @@ export var ListInputsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_rAe],
-  [[0, { [_hQ]: _rAe }]], 1
+  [_rA],
+  [[0, { [_hQ]: _rA }]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
@@ -759,7 +808,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var LoggingOptions$: StaticStructureSchema = [3, n0, _LO,
   0,
-  [_rA, _le, _e, _dDO],
+  [_rAo, _le, _en, _dDO],
   [0, 0, 2, () => DetectorDebugOptions], 3
 ];
 export var NotificationAction$: StaticStructureSchema = [3, n0, _NA,
@@ -807,35 +856,11 @@ export var ResetTimerAction$: StaticStructureSchema = [3, n0, _RTA,
   [_tN],
   [0], 1
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_m, _rI, _rAe],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_er]: _cl, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_er]: _cl, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoutedResource$: StaticStructureSchema = [3, n0, _RR,
   0,
   [_n, _ar],
   [0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_er]: _ser, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SetTimerAction$: StaticStructureSchema = [3, n0, _STA,
   0,
   [_tN, _sec, _dE],
@@ -893,35 +918,23 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rAe, _ta],
-  [[0, { [_hQ]: _rAe }], () => Tags], 2
+  [_rA, _ta],
+  [[0, { [_hQ]: _rA }], () => Tags], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_er]: _cl, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TransitionEvent$: StaticStructureSchema = [3, n0, _TEr,
   0,
-  [_eN, _co, _nS, _a],
+  [_eN, _con, _nS, _a],
   [0, 0, 0, () => Actions], 3
 ];
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_er]: _ser, [_hE]: 501 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_rAe, _tK],
-  [[0, { [_hQ]: _rAe }], [64 | 0, { [_hQ]: _tK }]], 2
+  [_rA, _tK],
+  [[0, { [_hQ]: _rA }], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   0,
@@ -930,7 +943,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAlarmModelRequest$: StaticStructureSchema = [3, n0, _UAMR,
   0,
-  [_aMN, _rA, _aR, _aMD, _se, _aN, _aEA, _aC],
+  [_aMN, _rAo, _aR, _aMD, _sev, _aN, _aEA, _aC],
   [[0, 1], 0, () => AlarmRule$, 0, 1, () => AlarmNotification$, () => AlarmEventActions$, () => AlarmCapabilities$], 3
 ];
 export var UpdateAlarmModelResponse$: StaticStructureSchema = [3, n0, _UAMRp,
@@ -940,7 +953,7 @@ export var UpdateAlarmModelResponse$: StaticStructureSchema = [3, n0, _UAMRp,
 ];
 export var UpdateDetectorModelRequest$: StaticStructureSchema = [3, n0, _UDMR,
   0,
-  [_dMN, _dMD, _rA, _dMDe, _eM],
+  [_dMN, _dMD, _rAo, _dMDe, _eM],
   [[0, 1], () => DetectorModelDefinition$, 0, 0, 0], 3
 ];
 export var UpdateDetectorModelResponse$: StaticStructureSchema = [3, n0, _UDMRp,
@@ -959,8 +972,6 @@ export var UpdateInputResponse$: StaticStructureSchema = [3, n0, _UIRp,
   [() => InputConfiguration$]
 ];
 var __Unit = "unit" as const;
-export var IoTEventsServiceException$: StaticErrorSchema = [-3, _sm, "IoTEventsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTEventsServiceException$, IoTEventsServiceException);
 var Actions: StaticListSchema = [1, n0, _Ac,
   0, () => Action$
 ];

@@ -382,7 +382,7 @@ const _ra = "range";
 const _re = "rewrite";
 const _reg = "regex";
 const _ro = "routes";
-const _s = "spec";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.appmesh";
 const _sAN = "subjectAlternativeNames";
 const _sD = "serviceDiscovery";
 const _sN = "serviceName";
@@ -390,7 +390,7 @@ const _sNe = "secretName";
 const _sc = "scheme";
 const _sd = "sds";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.appmesh";
+const _sp = "spec";
 const _st = "status";
 const _sta = "start";
 const _su = "suffix";
@@ -453,6 +453,79 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AppMeshServiceException$: StaticErrorSchema = [-3, _s, "AppMeshServiceException", 0, [], []];
+_s_registry.registerError(AppMeshServiceException$, AppMeshServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceInUseException$, ResourceInUseException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AwsCloudMapInstanceAttribute$: StaticStructureSchema = [3, n0, _ACMIA,
   0,
   [_k, _v],
@@ -468,12 +541,6 @@ export var BackendDefaults$: StaticStructureSchema = [3, n0, _BD,
   [_cP],
   [() => ClientPolicy$]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var ClientPolicy$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_t],
@@ -484,15 +551,9 @@ export var ClientPolicyTls$: StaticStructureSchema = [3, n0, _CPT,
   [_va, _en, _p, _ce],
   [() => TlsValidationContext$, 2, 64 | 1, () => ClientTlsCertificate$], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateGatewayRouteInput$: StaticStructureSchema = [3, n0, _CGRI,
   0,
-  [_gRN, _mN, _vGN, _s, _ta, _cT, _mO],
+  [_gRN, _mN, _vGN, _sp, _ta, _cT, _mO],
   [0, [0, 1], [0, 1], () => GatewayRouteSpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 4
 ];
 export var CreateGatewayRouteOutput$: StaticStructureSchema = [3, n0, _CGRO,
@@ -502,7 +563,7 @@ export var CreateGatewayRouteOutput$: StaticStructureSchema = [3, n0, _CGRO,
 ];
 export var CreateMeshInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_mN, _s, _ta, _cT],
+  [_mN, _sp, _ta, _cT],
   [0, () => MeshSpec$, () => TagList, [0, 4]], 1
 ];
 export var CreateMeshOutput$: StaticStructureSchema = [3, n0, _CMO,
@@ -512,7 +573,7 @@ export var CreateMeshOutput$: StaticStructureSchema = [3, n0, _CMO,
 ];
 export var CreateRouteInput$: StaticStructureSchema = [3, n0, _CRI,
   0,
-  [_rN, _mN, _vRN, _s, _ta, _cT, _mO],
+  [_rN, _mN, _vRN, _sp, _ta, _cT, _mO],
   [0, [0, 1], [0, 1], () => RouteSpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 4
 ];
 export var CreateRouteOutput$: StaticStructureSchema = [3, n0, _CRO,
@@ -522,7 +583,7 @@ export var CreateRouteOutput$: StaticStructureSchema = [3, n0, _CRO,
 ];
 export var CreateVirtualGatewayInput$: StaticStructureSchema = [3, n0, _CVGI,
   0,
-  [_vGN, _mN, _s, _ta, _cT, _mO],
+  [_vGN, _mN, _sp, _ta, _cT, _mO],
   [0, [0, 1], () => VirtualGatewaySpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var CreateVirtualGatewayOutput$: StaticStructureSchema = [3, n0, _CVGO,
@@ -532,7 +593,7 @@ export var CreateVirtualGatewayOutput$: StaticStructureSchema = [3, n0, _CVGO,
 ];
 export var CreateVirtualNodeInput$: StaticStructureSchema = [3, n0, _CVNI,
   0,
-  [_vNN, _mN, _s, _ta, _cT, _mO],
+  [_vNN, _mN, _sp, _ta, _cT, _mO],
   [0, [0, 1], () => VirtualNodeSpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var CreateVirtualNodeOutput$: StaticStructureSchema = [3, n0, _CVNO,
@@ -542,7 +603,7 @@ export var CreateVirtualNodeOutput$: StaticStructureSchema = [3, n0, _CVNO,
 ];
 export var CreateVirtualRouterInput$: StaticStructureSchema = [3, n0, _CVRI,
   0,
-  [_vRN, _mN, _s, _ta, _cT, _mO],
+  [_vRN, _mN, _sp, _ta, _cT, _mO],
   [0, [0, 1], () => VirtualRouterSpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var CreateVirtualRouterOutput$: StaticStructureSchema = [3, n0, _CVRO,
@@ -552,7 +613,7 @@ export var CreateVirtualRouterOutput$: StaticStructureSchema = [3, n0, _CVRO,
 ];
 export var CreateVirtualServiceInput$: StaticStructureSchema = [3, n0, _CVSI,
   0,
-  [_vSN, _mN, _s, _ta, _cT, _mO],
+  [_vSN, _mN, _sp, _ta, _cT, _mO],
   [0, [0, 1], () => VirtualServiceSpec$, () => TagList, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var CreateVirtualServiceOutput$: StaticStructureSchema = [3, n0, _CVSO,
@@ -720,15 +781,9 @@ export var FileAccessLog$: StaticStructureSchema = [3, n0, _FAL,
   [_pa, _f],
   [0, () => LoggingFormat$], 1
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GatewayRouteData$: StaticStructureSchema = [3, n0, _GRD,
   0,
-  [_mN, _gRN, _vGN, _s, _met, _st],
+  [_mN, _gRN, _vGN, _sp, _met, _st],
   [0, 0, 0, () => GatewayRouteSpec$, () => ResourceMetadata$, () => GatewayRouteStatus$], 6
 ];
 export var GatewayRouteHostnameMatch$: StaticStructureSchema = [3, n0, _GRHM,
@@ -901,23 +956,11 @@ export var HttpTimeout$: StaticStructureSchema = [3, n0, _HT,
   [_pR, _id],
   [() => Duration$, () => Duration$]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var JsonFormatRef$: StaticStructureSchema = [3, n0, _JFR,
   0,
   [_k, _v],
   [0, 0], 2
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var Listener$: StaticStructureSchema = [3, n0, _L,
   0,
   [_pM, _t, _hC, _ti, _oD, _cPo],
@@ -1040,7 +1083,7 @@ export var MatchRange$: StaticStructureSchema = [3, n0, _MR,
 ];
 export var MeshData$: StaticStructureSchema = [3, n0, _MD,
   0,
-  [_mN, _s, _met, _st],
+  [_mN, _sp, _met, _st],
   [0, () => MeshSpec$, () => ResourceMetadata$, () => MeshStatus$], 4
 ];
 export var MeshRef$: StaticStructureSchema = [3, n0, _MRe,
@@ -1063,12 +1106,6 @@ export var MeshStatus$: StaticStructureSchema = [3, n0, _MSe,
   [_st],
   [0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OutlierDetection$: StaticStructureSchema = [3, n0, _OD,
   0,
   [_mSE, _in, _bED, _mEP],
@@ -1084,12 +1121,6 @@ export var QueryParameterMatch$: StaticStructureSchema = [3, n0, _QPM,
   [_ex],
   [0]
 ];
-export var ResourceInUseException$: StaticErrorSchema = [-3, n0, _RIUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceInUseException$, ResourceInUseException);
 export var ResourceMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_ar, _ve, _ui, _cA, _lUA, _mO, _rO],
@@ -1097,7 +1128,7 @@ export var ResourceMetadata$: StaticStructureSchema = [3, n0, _RM,
 ];
 export var RouteData$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_mN, _vRN, _rN, _s, _met, _st],
+  [_mN, _vRN, _rN, _sp, _met, _st],
   [0, 0, 0, () => RouteSpec$, () => ResourceMetadata$, () => RouteStatus$], 6
 ];
 export var RouteRef$: StaticStructureSchema = [3, n0, _RR,
@@ -1115,12 +1146,6 @@ export var RouteStatus$: StaticStructureSchema = [3, n0, _RSo,
   [_st],
   [0], 1
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var SubjectAlternativeNameMatchers$: StaticStructureSchema = [3, n0, _SANM,
   0,
   [_ex],
@@ -1186,18 +1211,6 @@ export var TlsValidationContextSdsTrust$: StaticStructureSchema = [3, n0, _TVCST
   [_sNe],
   [0], 1
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyTagsException$, TooManyTagsException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -1210,7 +1223,7 @@ export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
 ];
 export var UpdateGatewayRouteInput$: StaticStructureSchema = [3, n0, _UGRI,
   0,
-  [_gRN, _mN, _vGN, _s, _cT, _mO],
+  [_gRN, _mN, _vGN, _sp, _cT, _mO],
   [[0, 1], [0, 1], [0, 1], () => GatewayRouteSpec$, [0, 4], [0, { [_hQ]: _mO }]], 4
 ];
 export var UpdateGatewayRouteOutput$: StaticStructureSchema = [3, n0, _UGRO,
@@ -1220,7 +1233,7 @@ export var UpdateGatewayRouteOutput$: StaticStructureSchema = [3, n0, _UGRO,
 ];
 export var UpdateMeshInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
-  [_mN, _s, _cT],
+  [_mN, _sp, _cT],
   [[0, 1], () => MeshSpec$, [0, 4]], 1
 ];
 export var UpdateMeshOutput$: StaticStructureSchema = [3, n0, _UMO,
@@ -1230,7 +1243,7 @@ export var UpdateMeshOutput$: StaticStructureSchema = [3, n0, _UMO,
 ];
 export var UpdateRouteInput$: StaticStructureSchema = [3, n0, _URIp,
   0,
-  [_rN, _mN, _vRN, _s, _cT, _mO],
+  [_rN, _mN, _vRN, _sp, _cT, _mO],
   [[0, 1], [0, 1], [0, 1], () => RouteSpec$, [0, 4], [0, { [_hQ]: _mO }]], 4
 ];
 export var UpdateRouteOutput$: StaticStructureSchema = [3, n0, _UROp,
@@ -1240,7 +1253,7 @@ export var UpdateRouteOutput$: StaticStructureSchema = [3, n0, _UROp,
 ];
 export var UpdateVirtualGatewayInput$: StaticStructureSchema = [3, n0, _UVGI,
   0,
-  [_vGN, _mN, _s, _cT, _mO],
+  [_vGN, _mN, _sp, _cT, _mO],
   [[0, 1], [0, 1], () => VirtualGatewaySpec$, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var UpdateVirtualGatewayOutput$: StaticStructureSchema = [3, n0, _UVGO,
@@ -1250,7 +1263,7 @@ export var UpdateVirtualGatewayOutput$: StaticStructureSchema = [3, n0, _UVGO,
 ];
 export var UpdateVirtualNodeInput$: StaticStructureSchema = [3, n0, _UVNI,
   0,
-  [_vNN, _mN, _s, _cT, _mO],
+  [_vNN, _mN, _sp, _cT, _mO],
   [[0, 1], [0, 1], () => VirtualNodeSpec$, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var UpdateVirtualNodeOutput$: StaticStructureSchema = [3, n0, _UVNO,
@@ -1260,7 +1273,7 @@ export var UpdateVirtualNodeOutput$: StaticStructureSchema = [3, n0, _UVNO,
 ];
 export var UpdateVirtualRouterInput$: StaticStructureSchema = [3, n0, _UVRI,
   0,
-  [_vRN, _mN, _s, _cT, _mO],
+  [_vRN, _mN, _sp, _cT, _mO],
   [[0, 1], [0, 1], () => VirtualRouterSpec$, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var UpdateVirtualRouterOutput$: StaticStructureSchema = [3, n0, _UVRO,
@@ -1270,7 +1283,7 @@ export var UpdateVirtualRouterOutput$: StaticStructureSchema = [3, n0, _UVRO,
 ];
 export var UpdateVirtualServiceInput$: StaticStructureSchema = [3, n0, _UVSI,
   0,
-  [_vSN, _mN, _s, _cT, _mO],
+  [_vSN, _mN, _sp, _cT, _mO],
   [[0, 1], [0, 1], () => VirtualServiceSpec$, [0, 4], [0, { [_hQ]: _mO }]], 3
 ];
 export var UpdateVirtualServiceOutput$: StaticStructureSchema = [3, n0, _UVSO,
@@ -1295,7 +1308,7 @@ export var VirtualGatewayClientPolicyTls$: StaticStructureSchema = [3, n0, _VGCP
 ];
 export var VirtualGatewayData$: StaticStructureSchema = [3, n0, _VGD,
   0,
-  [_mN, _vGN, _s, _met, _st],
+  [_mN, _vGN, _sp, _met, _st],
   [0, 0, () => VirtualGatewaySpec$, () => ResourceMetadata$, () => VirtualGatewayStatus$], 5
 ];
 export var VirtualGatewayFileAccessLog$: StaticStructureSchema = [3, n0, _VGFAL,
@@ -1400,7 +1413,7 @@ export var VirtualGatewayTlsValidationContextSdsTrust$: StaticStructureSchema = 
 ];
 export var VirtualNodeData$: StaticStructureSchema = [3, n0, _VND,
   0,
-  [_mN, _vNN, _s, _met, _st],
+  [_mN, _vNN, _sp, _met, _st],
   [0, 0, () => VirtualNodeSpec$, () => ResourceMetadata$, () => VirtualNodeStatus$], 5
 ];
 export var VirtualNodeGrpcConnectionPool$: StaticStructureSchema = [3, n0, _VNGCP,
@@ -1445,7 +1458,7 @@ export var VirtualNodeTcpConnectionPool$: StaticStructureSchema = [3, n0, _VNTCP
 ];
 export var VirtualRouterData$: StaticStructureSchema = [3, n0, _VRD,
   0,
-  [_mN, _vRN, _s, _met, _st],
+  [_mN, _vRN, _sp, _met, _st],
   [0, 0, () => VirtualRouterSpec$, () => ResourceMetadata$, () => VirtualRouterStatus$], 5
 ];
 export var VirtualRouterListener$: StaticStructureSchema = [3, n0, _VRL,
@@ -1480,7 +1493,7 @@ export var VirtualServiceBackend$: StaticStructureSchema = [3, n0, _VSB,
 ];
 export var VirtualServiceData$: StaticStructureSchema = [3, n0, _VSD,
   0,
-  [_mN, _vSN, _s, _met, _st],
+  [_mN, _vSN, _sp, _met, _st],
   [0, 0, () => VirtualServiceSpec$, () => ResourceMetadata$, () => VirtualServiceStatus$], 5
 ];
 export var VirtualServiceRef$: StaticStructureSchema = [3, n0, _VSR,
@@ -1503,8 +1516,6 @@ export var WeightedTarget$: StaticStructureSchema = [3, n0, _WT,
   [_vN, _w, _po],
   [0, 1, 1], 2
 ];
-export var AppMeshServiceException$: StaticErrorSchema = [-3, _sm, "AppMeshServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AppMeshServiceException$, AppMeshServiceException);
 var AwsCloudMapInstanceAttributes: StaticListSchema = [1, n0, _ACMIAw,
   0, () => AwsCloudMapInstanceAttribute$
 ];

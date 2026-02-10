@@ -194,7 +194,7 @@ const _IT = "InstanceType";
 const _K = "Key";
 const _KF = "KeyFingerprint";
 const _KTM = "KeyToMatch";
-const _L = "License";
+const _L = "Location";
 const _LA = "LicenseArn";
 const _LADT = "LatestAssetDiscoveryTime";
 const _LAFLAG = "ListAssetsForLicenseAssetGroup";
@@ -316,8 +316,8 @@ const _LUE = "LicenseUsageException";
 const _LUFLC = "ListUsageForLicenseConfiguration";
 const _LUFLCR = "ListUsageForLicenseConfigurationRequest";
 const _LUFLCRi = "ListUsageForLicenseConfigurationResponse";
-const _Li = "Licenses";
-const _Lo = "Location";
+const _Li = "License";
+const _Lic = "Licenses";
 const _M = "Message";
 const _MC = "MaxCount";
 const _ML = "MetadataList";
@@ -473,8 +473,8 @@ const _lCA = "licenseConfigurationArns";
 const _p = "period";
 const _rED = "reportEndDate";
 const _rSD = "reportStartDate";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanager";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.licensemanager";
+const _se = "server";
 const _v = "value";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.licensemanager";
@@ -511,6 +511,121 @@ import {
 import { LicenseManagerServiceException } from "../models/LicenseManagerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var LicenseManagerServiceException$: StaticErrorSchema = [-3, _s, "LicenseManagerServiceException", 0, [], []];
+_s_registry.registerError(LicenseManagerServiceException$, LicenseManagerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_aQE]: [`ServiceAccessDenied`, 401], [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AuthorizationException$: StaticErrorSchema = [-3, n0, _AE,
+  { [_aQE]: [`AuthorizationFailure`, 403], [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AuthorizationException$, AuthorizationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var EntitlementNotAllowedException$: StaticErrorSchema = [-3, n0, _ENAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EntitlementNotAllowedException$, EntitlementNotAllowedException);
+export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE,
+  { [_aQE]: [`FailedDependency`, 424], [_e]: _c, [_hE]: 424 },
+  [_M, _EC],
+  [0, 0]
+];
+n0_registry.registerError(FailedDependencyException$, FailedDependencyException);
+export var FilterLimitExceededException$: StaticErrorSchema = [-3, n0, _FLEE,
+  { [_aQE]: [`FilterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(FilterLimitExceededException$, FilterLimitExceededException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_aQE]: [`InvalidParameterValueProvided`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
+  { [_aQE]: [`InvalidResourceState`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidResourceStateException$, InvalidResourceStateException);
+export var LicenseUsageException$: StaticErrorSchema = [-3, n0, _LUE,
+  { [_aQE]: [`LicenseUsageFailure`, 412], [_e]: _c, [_hE]: 412 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LicenseUsageException$, LicenseUsageException);
+export var NoEntitlementsAllowedException$: StaticErrorSchema = [-3, n0, _NEAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoEntitlementsAllowedException$, NoEntitlementsAllowedException);
+export var RateLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
+  { [_aQE]: [`RateLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RateLimitExceededException$, RateLimitExceededException);
+export var RedirectException$: StaticErrorSchema = [-3, n0, _RE,
+  { [_e]: _c, [_hE]: 308 },
+  [_L, _M],
+  [[0, { [_hH]: _L }], 0]
+];
+n0_registry.registerError(RedirectException$, RedirectException);
+export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEEe,
+  { [_aQE]: [`ResourceLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`InvalidResource.NotFound`, 400], [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
+  { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServerInternalException$, ServerInternalException);
+export var UnsupportedDigitalSignatureMethodException$: StaticErrorSchema = [-3, n0, _UDSME,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedDigitalSignatureMethodException$, UnsupportedDigitalSignatureMethodException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AcceptGrantRequest$: StaticStructureSchema = [3, n0, _AGR,
   0,
   [_GA],
@@ -521,12 +636,6 @@ export var AcceptGrantResponse$: StaticStructureSchema = [3, n0, _AGRc,
   [_GA, _S, _V],
   [0, 0, 0]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_aQE]: [`ServiceAccessDenied`, 401], [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AndRuleStatement$: StaticStructureSchema = [3, n0, _ARS,
   0,
   [_MRS, _SRS],
@@ -537,12 +646,6 @@ export var Asset$: StaticStructureSchema = [3, n0, _A,
   [_AA, _LADT],
   [0, 4]
 ];
-export var AuthorizationException$: StaticErrorSchema = [-3, n0, _AE,
-  { [_aQE]: [`AuthorizationFailure`, 403], [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AuthorizationException$, AuthorizationException);
 export var AutomatedDiscoveryInformation$: StaticStructureSchema = [3, n0, _ADI,
   0,
   [_LRT],
@@ -583,12 +686,6 @@ export var CheckoutLicenseResponse$: StaticStructureSchema = [3, n0, _CLRh,
   [_CTh, _LCT, _EA, _ST, _NI, _IA, _Ex, _LA],
   [0, 0, () => EntitlementDataList, 0, 0, 0, 0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_aQE]: [`ConflictException`, 409], [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsumedLicenseSummary$: StaticStructureSchema = [3, n0, _CLS,
   0,
   [_RT, _CL],
@@ -794,12 +891,6 @@ export var EntitlementData$: StaticStructureSchema = [3, n0, _ED,
   [_N, _U, _Val],
   [0, 0, 0], 2
 ];
-export var EntitlementNotAllowedException$: StaticErrorSchema = [-3, n0, _ENAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntitlementNotAllowedException$, EntitlementNotAllowedException);
 export var EntitlementUsage$: StaticStructureSchema = [3, n0, _EU,
   0,
   [_N, _CV, _U, _MC],
@@ -815,23 +906,11 @@ export var ExtendLicenseConsumptionResponse$: StaticStructureSchema = [3, n0, _E
   [_LCT, _Ex],
   [0, 0]
 ];
-export var FailedDependencyException$: StaticErrorSchema = [-3, n0, _FDE,
-  { [_aQE]: [`FailedDependency`, 424], [_e]: _c, [_hE]: 424 },
-  [_M, _EC],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(FailedDependencyException$, FailedDependencyException);
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_N, _Valu],
   [0, [() => FilterValues, 0]]
 ];
-export var FilterLimitExceededException$: StaticErrorSchema = [-3, n0, _FLEE,
-  { [_aQE]: [`FilterLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(FilterLimitExceededException$, FilterLimitExceededException);
 export var GetAccessTokenRequest$: StaticStructureSchema = [3, n0, _GATR,
   0,
   [_To, _TP],
@@ -909,7 +988,7 @@ export var GetLicenseRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLicenseResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_L],
+  [_Li],
   [() => License$]
 ];
 export var GetLicenseUsageRequest$: StaticStructureSchema = [3, n0, _GLUR,
@@ -947,18 +1026,6 @@ export var InstanceRuleStatement$: StaticStructureSchema = [3, n0, _IRS,
   [_ARS, _ORS, _MRSa, _SRSc],
   [() => AndRuleStatement$, () => OrRuleStatement$, () => MatchingRuleStatement$, () => ScriptRuleStatement$]
 ];
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_aQE]: [`InvalidParameterValueProvided`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
-export var InvalidResourceStateException$: StaticErrorSchema = [-3, n0, _IRSE,
-  { [_aQE]: [`InvalidResourceState`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidResourceStateException$, InvalidResourceStateException);
 export var InventoryFilter$: StaticStructureSchema = [3, n0, _IF,
   0,
   [_N, _C, _Val],
@@ -974,7 +1041,7 @@ export var IssuerDetails$: StaticStructureSchema = [3, n0, _ID,
   [_N, _SK, _KF],
   [0, 0, 0]
 ];
-export var License$: StaticStructureSchema = [3, n0, _L,
+export var License$: StaticStructureSchema = [3, n0, _Li,
   0,
   [_LA, _LN, _PN, _PSKU, _I, _HR, _S, _Va, _B, _E, _CC, _LM, _CTr, _V],
   [0, 0, 0, 0, () => IssuerDetails$, 0, 0, () => DatetimeRange$, 0, () => EntitlementList, () => ConsumptionConfiguration$, () => MetadataList, 0, 0]
@@ -1054,12 +1121,6 @@ export var LicenseUsage$: StaticStructureSchema = [3, n0, _LU,
   [_EUn],
   [() => EntitlementUsageList]
 ];
-export var LicenseUsageException$: StaticErrorSchema = [-3, n0, _LUE,
-  { [_aQE]: [`LicenseUsageFailure`, 412], [_e]: _c, [_hE]: 412 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LicenseUsageException$, LicenseUsageException);
 export var ListAssetsForLicenseAssetGroupRequest$: StaticStructureSchema = [3, n0, _LAFLAGR,
   0,
   [_LAGA, _ATss, _MR, _NT],
@@ -1177,7 +1238,7 @@ export var ListLicensesRequest$: StaticStructureSchema = [3, n0, _LLR,
 ];
 export var ListLicensesResponse$: StaticStructureSchema = [3, n0, _LLRi,
   0,
-  [_Li, _NT],
+  [_Lic, _NT],
   [() => LicenseList, 0]
 ];
 export var ListLicenseVersionsRequest$: StaticStructureSchema = [3, n0, _LLVR,
@@ -1187,7 +1248,7 @@ export var ListLicenseVersionsRequest$: StaticStructureSchema = [3, n0, _LLVR,
 ];
 export var ListLicenseVersionsResponse$: StaticStructureSchema = [3, n0, _LLVRi,
   0,
-  [_Li, _NT],
+  [_Lic, _NT],
   [() => LicenseList, 0]
 ];
 export var ListReceivedGrantsForOrganizationRequest$: StaticStructureSchema = [3, n0, _LRGFOR,
@@ -1217,7 +1278,7 @@ export var ListReceivedLicensesForOrganizationRequest$: StaticStructureSchema = 
 ];
 export var ListReceivedLicensesForOrganizationResponse$: StaticStructureSchema = [3, n0, _LRLFORi,
   0,
-  [_Li, _NT],
+  [_Lic, _NT],
   [() => GrantedLicenseList, 0]
 ];
 export var ListReceivedLicensesRequest$: StaticStructureSchema = [3, n0, _LRLR,
@@ -1227,7 +1288,7 @@ export var ListReceivedLicensesRequest$: StaticStructureSchema = [3, n0, _LRLR,
 ];
 export var ListReceivedLicensesResponse$: StaticStructureSchema = [3, n0, _LRLRi,
   0,
-  [_Li, _NT],
+  [_Lic, _NT],
   [() => GrantedLicenseList, 0]
 ];
 export var ListResourceInventoryRequest$: StaticStructureSchema = [3, n0, _LRIR,
@@ -1285,12 +1346,6 @@ export var Metadata$: StaticStructureSchema = [3, n0, _Me,
   [_N, _Val],
   [0, 0]
 ];
-export var NoEntitlementsAllowedException$: StaticErrorSchema = [-3, n0, _NEAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoEntitlementsAllowedException$, NoEntitlementsAllowedException);
 export var Options$: StaticStructureSchema = [3, n0, _O,
   0,
   [_AOB],
@@ -1326,23 +1381,11 @@ export var ProvisionalConfiguration$: StaticStructureSchema = [3, n0, _PC,
   [_MTTLIM],
   [1], 1
 ];
-export var RateLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEE,
-  { [_aQE]: [`RateLimitExceeded`, 429], [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RateLimitExceededException$, RateLimitExceededException);
 export var ReceivedMetadata$: StaticStructureSchema = [3, n0, _RM,
   0,
   [_RSec, _RSR, _AO],
   [0, 0, 64 | 0]
 ];
-export var RedirectException$: StaticErrorSchema = [-3, n0, _RE,
-  { [_e]: _c, [_hE]: 308 },
-  [_Lo, _M],
-  [[0, { [_hH]: _Lo }], 0]
-];
-TypeRegistry.for(n0).registerError(RedirectException$, RedirectException);
 export var RegionStatus$: StaticStructureSchema = [3, n0, _RSeg,
   0,
   [_S],
@@ -1378,18 +1421,6 @@ export var ResourceInventory$: StaticStructureSchema = [3, n0, _RI,
   [_RIe, _RT, _RA, _Pl, _PV, _ROAI, _MPC, _UO, _AI, _HI, _Re, _IT],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 0, 0, 0]
 ];
-export var ResourceLimitExceededException$: StaticErrorSchema = [-3, n0, _RLEEe,
-  { [_aQE]: [`ResourceLimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceLimitExceededException$, ResourceLimitExceededException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`InvalidResource.NotFound`, 400], [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuleStatement$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_LCRS, _LRS, _IRS],
@@ -1405,12 +1436,6 @@ export var ScriptRuleStatement$: StaticStructureSchema = [3, n0, _SRSc,
   [_KTM, _Sc],
   [0, 0], 2
 ];
-export var ServerInternalException$: StaticErrorSchema = [-3, n0, _SIE,
-  { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServerInternalException$, ServerInternalException);
 export var ServiceStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_CAD, _CRD],
@@ -1436,12 +1461,6 @@ export var TokenData$: StaticStructureSchema = [3, n0, _TD,
   [_TI, _TT, _LA, _ETx, _TP, _RAo, _S],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 0]
 ];
-export var UnsupportedDigitalSignatureMethodException$: StaticErrorSchema = [-3, n0, _UDSME,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedDigitalSignatureMethodException$, UnsupportedDigitalSignatureMethodException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -1512,14 +1531,6 @@ export var UpdateServiceSettingsResponse$: StaticStructureSchema = [3, n0, _USSR
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var LicenseManagerServiceException$: StaticErrorSchema = [-3, _sm, "LicenseManagerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LicenseManagerServiceException$, LicenseManagerServiceException);
 var AllowedOperationList = 64 | 0;
 var ArnList = 64 | 0;
 var AssetList: StaticListSchema = [1, n0, _AL,

@@ -95,8 +95,8 @@ const _hH = "httpHeader";
 const _m = "message";
 const _n = "name";
 const _r = "reason";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.account";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.account";
+const _se = "server";
 const _xaE = "x-amzn-ErrorType";
 const n0 = "com.amazonaws.account";
 
@@ -122,6 +122,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AccountServiceException$: StaticErrorSchema = [-3, _s, "AccountServiceException", 0, [], []];
+_s_registry.registerError(AccountServiceException$, AccountServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 424 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _eT],
+  [0, [0, { [_hH]: _xaE }]], 1
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [[() => SensitiveString, 0], 0, [() => ValidationExceptionFieldList, 0]], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var AddressLine: StaticSimpleSchema = [0, n0, _AL, 8, 0];
 var City: StaticSimpleSchema = [0, n0, _C, 8, 0];
@@ -150,23 +205,11 @@ export var AcceptPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _A
   [_S],
   [0]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AlternateContact$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_N, _T, _EA, _PN, _ACT],
   [[() => Name, 0], [() => Title, 0], [() => EmailAddress, 0], [() => PhoneNumber, 0], 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContactInformation$: StaticStructureSchema = [3, n0, _CI,
   0,
   [_FN, _ALd, _C, _PC, _CC, _PN, _ALdd, _ALddr, _SOR, _DOC, _CN, _WU],
@@ -247,12 +290,6 @@ export var GetRegionOptStatusResponse$: StaticStructureSchema = [3, n0, _GROSRe,
   [_RN, _ROS],
   [0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListRegionsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
   [_AI, _MR, _NT, _ROSC],
@@ -283,18 +320,6 @@ export var Region$: StaticStructureSchema = [3, n0, _Re,
   [_RN, _ROS],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c, [_hE]: 424 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var StartPrimaryEmailUpdateRequest$: StaticStructureSchema = [3, n0, _SPEUR,
   0,
   [_AI, _PE],
@@ -305,26 +330,12 @@ export var StartPrimaryEmailUpdateResponse$: StaticStructureSchema = [3, n0, _SP
   [_S],
   [0]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _eT],
-  [0, [0, { [_hH]: _xaE }]], 1
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [[() => SensitiveString, 0], 0, [() => ValidationExceptionFieldList, 0]], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, [() => SensitiveString, 0]], 2
 ];
 var __Unit = "unit" as const;
-export var AccountServiceException$: StaticErrorSchema = [-3, _sm, "AccountServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AccountServiceException$, AccountServiceException);
 var RegionOptList: StaticListSchema = [1, n0, _ROL,
   0, () => Region$
 ];

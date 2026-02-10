@@ -436,9 +436,9 @@ const _e = "error";
 const _en = "endpoint";
 const _h = "http";
 const _hE = "httpError";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lakeformation";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lakeformation";
+const _st = "streaming";
 const n0 = "com.amazonaws.lakeformation";
 
 // smithy-typescript generated code
@@ -477,15 +477,136 @@ import {
 import { LakeFormationServiceException } from "../models/LakeFormationServiceException";
 
 /* eslint no-var: 0 */
-var ResultStream: StaticSimpleSchema = [0, n0, _RS, { [_s]: 1 }, 42];
-var SyntheticGetWorkUnitResultsRequestWorkUnitTokenString: StaticSimpleSchema = [0, n0, _SGWURRWUTS, 8, 0];
-var SyntheticStartQueryPlanningRequestQueryString: StaticSimpleSchema = [0, n0, _SSQPRQS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var LakeFormationServiceException$: StaticErrorSchema = [-3, _s, "LakeFormationServiceException", 0, [], []];
+_s_registry.registerError(LakeFormationServiceException$, LakeFormationServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var EntityNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EntityNotFoundException$, EntityNotFoundException);
+export var ExpiredException$: StaticErrorSchema = [-3, n0, _EE,
+  { [_e]: _c, [_hE]: 410 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ExpiredException$, ExpiredException);
+export var GlueEncryptionException$: StaticErrorSchema = [-3, n0, _GEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(GlueEncryptionException$, GlueEncryptionException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var OperationTimeoutException$: StaticErrorSchema = [-3, n0, _OTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(OperationTimeoutException$, OperationTimeoutException);
+export var PermissionTypeMismatchException$: StaticErrorSchema = [-3, n0, _PTME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PermissionTypeMismatchException$, PermissionTypeMismatchException);
+export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotReadyException$, ResourceNotReadyException);
+export var ResourceNumberLimitExceededException$: StaticErrorSchema = [-3, n0, _RNLEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNumberLimitExceededException$, ResourceNumberLimitExceededException);
+export var StatisticsNotReadyYetException$: StaticErrorSchema = [-3, n0, _SNRYE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(StatisticsNotReadyYetException$, StatisticsNotReadyYetException);
+export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottledException$, ThrottledException);
+export var TransactionCanceledException$: StaticErrorSchema = [-3, n0, _TCE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TransactionCanceledException$, TransactionCanceledException);
+export var TransactionCommitInProgressException$: StaticErrorSchema = [-3, n0, _TCIPE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TransactionCommitInProgressException$, TransactionCommitInProgressException);
+export var TransactionCommittedException$: StaticErrorSchema = [-3, n0, _TCEr,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TransactionCommittedException$, TransactionCommittedException);
+export var WorkUnitsNotReadyYetException$: StaticErrorSchema = [-3, n0, _WUNRYE,
+  { [_e]: _c, [_hE]: 420 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(WorkUnitsNotReadyYetException$, WorkUnitsNotReadyYetException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ResultStream: StaticSimpleSchema = [0, n0, _RS, { [_st]: 1 }, 42];
+var SyntheticGetWorkUnitResultsRequestWorkUnitTokenString: StaticSimpleSchema = [0, n0, _SGWURRWUTS, 8, 0];
+var SyntheticStartQueryPlanningRequestQueryString: StaticSimpleSchema = [0, n0, _SSQPRQS, 8, 0];
 export var AddLFTagsToResourceRequest$: StaticStructureSchema = [3, n0, _ALFTTRR,
   0,
   [_R, _LFT, _CI],
@@ -506,12 +627,6 @@ export var AllRowsWildcard$: StaticStructureSchema = [3, n0, _ARW,
   [],
   []
 ];
-export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
 export var AssumeDecoratedRoleWithSAMLRequest$: StaticStructureSchema = [3, n0, _ADRWSAMLR,
   0,
   [_SAMLA, _RA, _PA, _DS],
@@ -592,23 +707,11 @@ export var CommitTransactionResponse$: StaticStructureSchema = [3, n0, _CTRom,
   [_TS],
   [0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var Condition$: StaticStructureSchema = [3, n0, _C,
   0,
   [_Ex],
   [0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateDataCellsFilterRequest$: StaticStructureSchema = [3, n0, _CDCFR,
   0,
   [_TD],
@@ -799,12 +902,6 @@ export var DetailsMap$: StaticStructureSchema = [3, n0, _DM,
   [_RSe],
   [64 | 0]
 ];
-export var EntityNotFoundException$: StaticErrorSchema = [-3, n0, _ENFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EntityNotFoundException$, EntityNotFoundException);
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_EC, _EM],
@@ -815,12 +912,6 @@ export var ExecutionStatistics$: StaticStructureSchema = [3, n0, _ES,
   [_AETM, _DSB, _WUEC],
   [1, 1, 1]
 ];
-export var ExpiredException$: StaticErrorSchema = [-3, n0, _EE,
-  { [_e]: _c, [_hE]: 410 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ExpiredException$, ExpiredException);
 export var ExtendTransactionRequest$: StaticStructureSchema = [3, n0, _ETR,
   0,
   [_TI],
@@ -991,12 +1082,6 @@ export var GetWorkUnitsResponse$: StaticStructureSchema = [3, n0, _GWURe,
   [_QI, _WUR, _NT],
   [0, () => WorkUnitRangeList, 0], 2
 ];
-export var GlueEncryptionException$: StaticErrorSchema = [-3, n0, _GEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(GlueEncryptionException$, GlueEncryptionException);
 export var GrantPermissionsRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
   [_P, _R, _Pe, _CI, _C, _PWGO],
@@ -1007,18 +1092,6 @@ export var GrantPermissionsResponse$: StaticStructureSchema = [3, n0, _GPRr,
   [],
   []
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var LakeFormationOptInsInfo$: StaticStructureSchema = [3, n0, _LFOII,
   0,
   [_R, _P, _C, _LM, _LUB],
@@ -1139,12 +1212,6 @@ export var ListTransactionsResponse$: StaticStructureSchema = [3, n0, _LTRi,
   [_Tr, _NT],
   [() => TransactionDescriptionList, 0]
 ];
-export var OperationTimeoutException$: StaticErrorSchema = [-3, n0, _OTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OperationTimeoutException$, OperationTimeoutException);
 export var PartitionObjects$: StaticStructureSchema = [3, n0, _PO,
   0,
   [_PV, _O],
@@ -1155,12 +1222,6 @@ export var PartitionValueList$: StaticStructureSchema = [3, n0, _PVL,
   [_V],
   [64 | 0], 1
 ];
-export var PermissionTypeMismatchException$: StaticErrorSchema = [-3, n0, _PTME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PermissionTypeMismatchException$, PermissionTypeMismatchException);
 export var PlanningStatistics$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_EDTSB, _PTM, _QTM, _WUGC],
@@ -1231,18 +1292,6 @@ export var ResourceInfo$: StaticStructureSchema = [3, n0, _RI,
   [_RAe, _RA, _LM, _WF, _HAE, _WPA, _VS, _EROA],
   [0, 0, 4, 2, 2, 2, 0, 0]
 ];
-export var ResourceNotReadyException$: StaticErrorSchema = [-3, n0, _RNRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotReadyException$, ResourceNotReadyException);
-export var ResourceNumberLimitExceededException$: StaticErrorSchema = [-3, n0, _RNLEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNumberLimitExceededException$, ResourceNumberLimitExceededException);
 export var RevokePermissionsRequest$: StaticStructureSchema = [3, n0, _RPR,
   0,
   [_P, _R, _Pe, _CI, _C, _PWGO],
@@ -1298,12 +1347,6 @@ export var StartTransactionResponse$: StaticStructureSchema = [3, n0, _STRt,
   [_TI],
   [0]
 ];
-export var StatisticsNotReadyYetException$: StaticErrorSchema = [-3, n0, _SNRYE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(StatisticsNotReadyYetException$, StatisticsNotReadyYetException);
 export var StorageOptimizer$: StaticStructureSchema = [3, n0, _SO,
   0,
   [_SOT, _Co, _EM, _W, _LRD],
@@ -1344,30 +1387,6 @@ export var TemporaryCredentials$: StaticStructureSchema = [3, n0, _TC,
   [_AKI, _SAK, _ST, _E],
   [0, 0, 0, 4]
 ];
-export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottledException$, ThrottledException);
-export var TransactionCanceledException$: StaticErrorSchema = [-3, n0, _TCE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransactionCanceledException$, TransactionCanceledException);
-export var TransactionCommitInProgressException$: StaticErrorSchema = [-3, n0, _TCIPE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransactionCommitInProgressException$, TransactionCommitInProgressException);
-export var TransactionCommittedException$: StaticErrorSchema = [-3, n0, _TCEr,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TransactionCommittedException$, TransactionCommittedException);
 export var TransactionDescription$: StaticStructureSchema = [3, n0, _TDr,
   0,
   [_TI, _TS, _TST, _TET],
@@ -1453,19 +1472,11 @@ export var WorkUnitRange$: StaticStructureSchema = [3, n0, _WURo,
   [_WUIM, _WUIMo, _WUT],
   [1, 1, 0], 3
 ];
-export var WorkUnitsNotReadyYetException$: StaticErrorSchema = [-3, n0, _WUNRYE,
-  { [_e]: _c, [_hE]: 420 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(WorkUnitsNotReadyYetException$, WorkUnitsNotReadyYetException);
 export var WriteOperation$: StaticStructureSchema = [3, n0, _WOr,
   0,
   [_AO, _DO],
   [() => AddObjectInput$, () => DeleteObjectInput$]
 ];
-export var LakeFormationServiceException$: StaticErrorSchema = [-3, _sm, "LakeFormationServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LakeFormationServiceException$, LakeFormationServiceException);
 var AuthorizedSessionTagValueList = 64 | 0;
 var BatchPermissionsFailureList: StaticListSchema = [1, n0, _BPFL,
   0, () => BatchPermissionsFailureEntry$

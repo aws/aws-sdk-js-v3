@@ -763,12 +763,12 @@ const _rCec = "receiverConfigurations";
 const _rF = "resultFormat";
 const _rI = "resourceId";
 const _rO = "requireOverlap";
-const _rT = "referencedTables";
-const _rTe = "resourceType";
+const _rT = "resourceType";
+const _rTe = "referencedTables";
 const _re = "reasons";
 const _reg = "region";
 const _res = "result";
-const _s = "schema";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cleanrooms";
 const _sA = "secretArn";
 const _sAM = "selectedAnalysisMethods";
 const _sARR = "schemaAnalysisRuleRequests";
@@ -787,10 +787,10 @@ const _sTP = "schemaTypeProperties";
 const _sTc = "schemaType";
 const _sTp = "specificationType";
 const _s_ = "s3";
-const _sc = "schemas";
+const _sc = "schema";
+const _sch = "schemas";
 const _se = "server";
 const _sh = "sha256";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cleanrooms";
 const _sn = "snowflake";
 const _so = "source";
 const _sp = "specification";
@@ -841,6 +841,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CleanRoomsServiceException$: StaticErrorSchema = [-3, _s, "CleanRoomsServiceException", 0, [], []];
+_s_registry.registerError(CleanRoomsServiceException$, CleanRoomsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _r],
+  [0, 0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT, _r],
+  [0, 0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _qN, _qV],
+  [0, 0, 1], 3
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AnalysisTemplateText: StaticSimpleSchema = [0, n0, _ATT, 8, 0];
 export var AccessBudget$: StaticStructureSchema = [3, n0, _AB,
   0,
@@ -867,12 +922,6 @@ export var AccessBudgetsPrivacyTemplateUpdateParameters$: StaticStructureSchema 
   [_bP],
   [() => BudgetParameters], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m, _r],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AggregateColumn$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_cN, _f],
@@ -915,12 +964,12 @@ export var AnalysisRuleList$: StaticStructureSchema = [3, n0, _ARL,
 ];
 export var AnalysisSchema$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_rT],
+  [_rTe],
   [64 | 0]
 ];
 export var AnalysisTemplate$: StaticStructureSchema = [3, n0, _AT,
   0,
-  [_i, _a, _cI, _cA, _mI, _mA, _n, _cT, _uT, _s, _fo, _so, _de, _sM, _aP, _v, _eMC, _sDP],
+  [_i, _a, _cI, _cA, _mI, _mA, _n, _cT, _uT, _sc, _fo, _so, _de, _sM, _aP, _v, _eMC, _sDP],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => AnalysisSchema$, 0, [() => AnalysisSource$, 0], 0, () => AnalysisSourceMetadata$, [() => AnalysisParameterList, 0], () => AnalysisTemplateValidationStatusDetailList, () => ErrorMessageConfiguration$, () => SyntheticDataParameters$], 12
 ];
 export var AnalysisTemplateArtifact$: StaticStructureSchema = [3, n0, _ATA,
@@ -1005,7 +1054,7 @@ export var BatchGetSchemaInput$: StaticStructureSchema = [3, n0, _BGSI,
 ];
 export var BatchGetSchemaOutput$: StaticStructureSchema = [3, n0, _BGSO,
   0,
-  [_sc, _er],
+  [_sch, _er],
   [() => SchemaList, () => BatchGetSchemaErrorList], 2
 ];
 export var BilledJobResourceUtilization$: StaticStructureSchema = [3, n0, _BJRU,
@@ -1040,7 +1089,7 @@ export var Collaboration$: StaticStructureSchema = [3, n0, _Co,
 ];
 export var CollaborationAnalysisTemplate$: StaticStructureSchema = [3, n0, _CAT,
   0,
-  [_i, _a, _cI, _cA, _cAI, _n, _cT, _uT, _s, _fo, _de, _so, _sM, _aP, _v, _eMC, _sDP],
+  [_i, _a, _cI, _cA, _cAI, _n, _cT, _uT, _sc, _fo, _de, _so, _sM, _aP, _v, _eMC, _sDP],
   [0, 0, 0, 0, 0, 0, 4, 4, () => AnalysisSchema$, 0, 0, [() => AnalysisSource$, 0], () => AnalysisSourceMetadata$, [() => AnalysisParameterList, 0], () => AnalysisTemplateValidationStatusDetailList, () => ErrorMessageConfiguration$, () => SyntheticDataParameters$], 10
 ];
 export var CollaborationAnalysisTemplateSummary$: StaticStructureSchema = [3, n0, _CATS,
@@ -1168,12 +1217,6 @@ export var ConfiguredTableSummary$: StaticStructureSchema = [3, n0, _CTS,
   [_i, _a, _n, _cT, _uT, _aRT, _aM, _sAM],
   [0, 0, 0, 4, 4, 64 | 0, 0, 64 | 0], 7
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rTe, _r],
-  [0, 0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConsolidatedPolicyAggregation$: StaticStructureSchema = [3, n0, _CPA,
   0,
   [_aC, _jC, _dC, _sF, _oC, _jR, _aJO, _aA, _aRRl, _aAA],
@@ -1191,7 +1234,7 @@ export var ConsolidatedPolicyList$: StaticStructureSchema = [3, n0, _CPL,
 ];
 export var CreateAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _CATI,
   0,
-  [_mIe, _n, _fo, _so, _de, _ta, _aP, _s, _eMC, _sDP],
+  [_mIe, _n, _fo, _so, _de, _ta, _aP, _sc, _eMC, _sDP],
   [[0, 1], 0, 0, [() => AnalysisSource$, 0], 0, 128 | 0, [() => AnalysisParameterList, 0], () => AnalysisSchema$, () => ErrorMessageConfiguration$, () => SyntheticDataParameters$], 4
 ];
 export var CreateAnalysisTemplateOutput$: StaticStructureSchema = [3, n0, _CATO,
@@ -1701,7 +1744,7 @@ export var GetSchemaInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetSchemaOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_s],
+  [_sc],
   [() => Schema$], 1
 ];
 export var GlueTableReference$: StaticStructureSchema = [3, n0, _GTR,
@@ -1774,12 +1817,6 @@ export var IdNamespaceAssociationSummary$: StaticStructureSchema = [3, n0, _INAS
   [_mI, _mA, _cA, _cI, _cT, _uT, _i, _a, _iRC, _n, _iRP, _de],
   [0, 0, 0, 0, 4, 4, 0, 0, () => IdNamespaceAssociationInputReferenceConfig$, 0, () => IdNamespaceAssociationInputReferencePropertiesSummary$, 0], 11
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var JobComputePaymentConfig$: StaticStructureSchema = [3, n0, _JCPC,
   0,
   [_iR],
@@ -2295,12 +2332,6 @@ export var ReceiverConfiguration$: StaticStructureSchema = [3, n0, _RC,
   [_aTn, _cD],
   [0, () => ConfigurationDetails$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rTe],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bu, _k],
@@ -2331,12 +2362,6 @@ export var SchemaSummary$: StaticStructureSchema = [3, n0, _SS,
   [_n, _t, _cAI, _cT, _uT, _cI, _cA, _aRT, _aM, _rA, _sAM],
   [0, 0, 0, 4, 4, 0, 0, 64 | 0, 0, 0, 64 | 0], 8
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _qN, _qV],
-  [0, 0, 1], 3
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SnowflakeTableReference$: StaticStructureSchema = [3, n0, _STR,
   0,
   [_sA, _aIc, _dN, _tN, _sN, _tS],
@@ -2387,12 +2412,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_rA, _tK],
@@ -2543,12 +2562,6 @@ export var UpdateProtectedQueryOutput$: StaticStructureSchema = [3, n0, _UPQO,
   [_pQ],
   [[() => ProtectedQuery$, 0]], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -2559,8 +2572,6 @@ export var WorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   [_t, _nu, _pr],
   [0, 1, () => WorkerComputeConfigurationProperties$]
 ];
-export var CleanRoomsServiceException$: StaticErrorSchema = [-3, _sm, "CleanRoomsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CleanRoomsServiceException$, CleanRoomsServiceException);
 var AccessBudgetDetailsList: StaticListSchema = [1, n0, _ABDL,
   0, () => AccessBudgetDetails$
 ];

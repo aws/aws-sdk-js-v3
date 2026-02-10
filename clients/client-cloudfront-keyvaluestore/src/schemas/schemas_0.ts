@@ -52,8 +52,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudfrontkeyvaluestore";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudfrontkeyvaluestore";
+const _se = "server";
 const n0 = "com.amazonaws.cloudfrontkeyvaluestore";
 
 // smithy-typescript generated code
@@ -77,19 +77,56 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var Value: StaticSimpleSchema = [0, n0, _V, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var CloudFrontKeyValueStoreServiceException$: StaticErrorSchema = [-3, _s, "CloudFrontKeyValueStoreServiceException", 0, [], []];
+_s_registry.registerError(CloudFrontKeyValueStoreServiceException$, CloudFrontKeyValueStoreServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Value: StaticSimpleSchema = [0, n0, _V, 8, 0];
 export var DeleteKeyRequest$: StaticStructureSchema = [3, n0, _DKR,
   0,
   [_KARN, _K, _IM],
@@ -125,12 +162,6 @@ export var GetKeyResponse$: StaticStructureSchema = [3, n0, _GKRe,
   [_K, _V, _IC, _TSIB],
   [0, [() => Value, 0], 1, 1], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListKeysRequest$: StaticStructureSchema = [3, n0, _LKR,
   0,
   [_KARN, _NT, _MR],
@@ -161,18 +192,6 @@ export var PutKeyResponse$: StaticStructureSchema = [3, n0, _PKRu,
   [_IC, _TSIB, _ET],
   [1, 1, [0, { [_hH]: _ET }]], 3
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var UpdateKeysRequest$: StaticStructureSchema = [3, n0, _UKR,
   0,
   [_KARN, _IM, _P, _D],
@@ -183,14 +202,6 @@ export var UpdateKeysResponse$: StaticStructureSchema = [3, n0, _UKRp,
   [_IC, _TSIB, _ET],
   [1, 1, [0, { [_hH]: _ET }]], 3
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var CloudFrontKeyValueStoreServiceException$: StaticErrorSchema = [-3, _sm, "CloudFrontKeyValueStoreServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudFrontKeyValueStoreServiceException$, CloudFrontKeyValueStoreServiceException);
 var DeleteKeyRequestsList: StaticListSchema = [1, n0, _DKRL,
   0, () => DeleteKeyRequestListItem$
 ];

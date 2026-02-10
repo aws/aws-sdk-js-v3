@@ -59,14 +59,14 @@ const _CDN = "ConnectorDeviceName";
 const _CDR = "CreateDestinationRequest";
 const _CDRr = "CreateDestinationResponse";
 const _CDS = "ConnectorDestinationSummary";
-const _CE = "CommandEndpoint";
+const _CE = "ConflictException";
 const _CELC = "CreateEventLogConfiguration";
 const _CELCR = "CreateEventLogConfigurationRequest";
 const _CELCRr = "CreateEventLogConfigurationResponse";
 const _CEM = "ConnectorEventMessage";
-const _CEo = "ConfigurationError";
+const _CEo = "CommandEndpoint";
 const _CEom = "CommandEndpoints";
-const _CEon = "ConflictException";
+const _CEon = "ConfigurationError";
 const _CI = "CapabilityId";
 const _CIF = "CapabilityIdFilter";
 const _CIo = "ConnectorItem";
@@ -327,7 +327,7 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LUA = "LastUpdatedAt";
-const _M = "Model";
+const _M = "Message";
 const _MA = "MacAddress";
 const _MAa = "MatterAttributes";
 const _MC = "MatterCluster";
@@ -357,8 +357,8 @@ const _MTS = "ManagedThingSummary";
 const _MTSLD = "ManagedThingSchemaListDefinition";
 const _MTSLI = "ManagedThingSchemaListItem";
 const _MW = "MaintenanceWindows";
-const _Me = "Message";
-const _Mo = "Modification";
+const _Mo = "Model";
+const _Mod = "Modification";
 const _N = "Name";
 const _NCL = "NotificationConfigurationList";
 const _NCLD = "NotificationConfigurationListDefinition";
@@ -572,12 +572,12 @@ const _pa = "parts";
 const _pr = "properties";
 const _r = "ref";
 const _re = "revision";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.iotmanagedintegrations";
 const _sT = "semanticTags";
 const _sV = "specVersion";
 const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.iotmanagedintegrations";
+const _st = "state";
 const _t = "tags";
 const _tEAS = "tokenEndpointAuthenticationScheme";
 const _tK = "tagKeys";
@@ -615,6 +615,91 @@ import {
 import { IoTManagedIntegrationsServiceException } from "../models/IoTManagedIntegrationsServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var IoTManagedIntegrationsServiceException$: StaticErrorSchema = [-3, _s, "IoTManagedIntegrationsServiceException", 0, [], []];
+_s_registry.registerError(IoTManagedIntegrationsServiceException$, IoTManagedIntegrationsServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 410 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AuthMaterialString: StaticSimpleSchema = [0, n0, _AMS, 8, 0];
 var Brand: StaticSimpleSchema = [0, n0, _B, 8, 0];
 var CaCertificate: StaticSimpleSchema = [0, n0, _CC, 8, 0];
@@ -631,7 +716,7 @@ var InternationalArticleNumber: StaticSimpleSchema = [0, n0, _IAN, 8, 0];
 var MacAddress: StaticSimpleSchema = [0, n0, _MA, 8, 0];
 var MatterAttributes: StaticSimpleSchema = [0, n0, _MAa, 8, 15];
 var MatterFields: StaticSimpleSchema = [0, n0, _MF, 8, 15];
-var Model: StaticSimpleSchema = [0, n0, _M, 8, 0];
+var Model: StaticSimpleSchema = [0, n0, _Mo, 8, 0];
 var OAuthAuthorizationUrlOutput: StaticSimpleSchema = [0, n0, _OAAUO, 8, 0];
 var OtaTaskConfigurationName: StaticSimpleSchema = [0, n0, _OTCN, 8, 0];
 var Owner: StaticSimpleSchema = [0, n0, _O, 8, 0];
@@ -643,12 +728,6 @@ export var AbortConfigCriteria$: StaticStructureSchema = [3, n0, _ACC,
   [_A, _FT, _MNOET, _TP],
   [0, 0, 1, 1]
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountAssociationItem$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_AAIc, _AS, _EM, _CDIo, _N, _D, _Ar],
@@ -699,27 +778,21 @@ export var CommandCapability$: StaticStructureSchema = [3, n0, _CCo,
   [_i, _n, _v, _a],
   [0, 0, 0, [() => CapabilityActions, 0]], 4
 ];
-export var CommandEndpoint$: StaticStructureSchema = [3, n0, _CE,
+export var CommandEndpoint$: StaticStructureSchema = [3, n0, _CEo,
   0,
   [_eI, _ca],
   [0, [() => CommandCapabilities, 0]], 2
 ];
-export var ConfigurationError$: StaticStructureSchema = [3, n0, _CEo,
+export var ConfigurationError$: StaticStructureSchema = [3, n0, _CEon,
   0,
   [_co, _m],
   [0, 0]
 ];
 export var ConfigurationStatus$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_s, _e],
+  [_st, _e],
   [0, () => ConfigurationError$], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CEon,
-  { [_e]: _c, [_hE]: 409 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectorDestinationSummary$: StaticStructureSchema = [3, n0, _CDS,
   0,
   [_N, _D, _CCI, _I],
@@ -792,7 +865,7 @@ export var CreateEventLogConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateManagedThingRequest$: StaticStructureSchema = [3, n0, _CMTR,
   0,
-  [_R, _AMu, _AMT, _O, _CLI, _WFSSC, _SN, _B, _M, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
+  [_R, _AMu, _AMT, _O, _CLI, _WFSSC, _SN, _B, _Mo, _N, _CR, _CSa, _Ca, _CT, _C, _Ta, _MD],
   [0, [() => AuthMaterialString, 0], 0, [() => Owner, 0], 0, () => WiFiSimpleSetupConfiguration$, [() => SerialNumber, 0], [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [0, 4], [() => Classification, 0], [() => TagsMap, 0], 128 | 0], 3
 ];
 export var CreateManagedThingResponse$: StaticStructureSchema = [3, n0, _CMTRr,
@@ -922,7 +995,7 @@ export var DeviceDiscoverySummary$: StaticStructureSchema = [3, n0, _DDS,
 ];
 export var DiscoveredDeviceSummary$: StaticStructureSchema = [3, n0, _DDSi,
   0,
-  [_CDI, _CDN, _DTe, _MTI, _Mo, _DA, _B, _M, _AMu],
+  [_CDI, _CDN, _DTe, _MTI, _Mod, _DA, _B, _Mo, _AMu],
   [[() => ConnectorDeviceId, 0], 0, 64 | 0, 0, 0, 4, [() => Brand, 0], [() => Model, 0], [() => AuthMaterialString, 0]]
 ];
 export var EndpointConfig$: StaticStructureSchema = [3, n0, _EC,
@@ -1097,7 +1170,7 @@ export var GetManagedThingRequest$: StaticStructureSchema = [3, n0, _GMTR,
 ];
 export var GetManagedThingResponse$: StaticStructureSchema = [3, n0, _GMTRe,
   0,
-  [_I, _Ar, _O, _CLI, _API, _R, _PS, _N, _M, _B, _SN, _UPC, _IAN, _CPI, _CDIo, _CDI, _DSK, _MA, _PCI, _C, _CAr, _UA, _AA, _HNM, _MD, _Ta, _WFSSC],
+  [_I, _Ar, _O, _CLI, _API, _R, _PS, _N, _Mo, _B, _SN, _UPC, _IAN, _CPI, _CDIo, _CDI, _DSK, _MA, _PCI, _C, _CAr, _UA, _AA, _HNM, _MD, _Ta, _WFSSC],
   [0, 0, [() => Owner, 0], 0, 0, 0, 0, 0, [() => Model, 0], [() => Brand, 0], [() => SerialNumber, 0], [() => UniversalProductCode, 0], [() => InternationalArticleNumber, 0], 0, 0, [() => ConnectorDeviceId, 0], [() => DeviceSpecificKey, 0], [() => MacAddress, 0], 0, [() => Classification, 0], 4, 4, 4, 0, 128 | 0, [() => TagsMap, 0], () => WiFiSimpleSetupConfiguration$]
 ];
 export var GetManagedThingStateRequest$: StaticStructureSchema = [3, n0, _GMTSR,
@@ -1170,35 +1243,11 @@ export var GetSchemaVersionResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   [_SI, _T, _D, _Na, _SV, _V, _S],
   [0, 0, 0, 0, 0, 0, 15]
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _se, [_hE]: 500 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var LambdaConfig$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_ar],
   [0], 1
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 410 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListAccountAssociationsRequest$: StaticStructureSchema = [3, n0, _LAAR,
   0,
   [_CDIo, _MR, _NT],
@@ -1391,7 +1440,7 @@ export var ManagedThingSchemaListItem$: StaticStructureSchema = [3, n0, _MTSLI,
 ];
 export var ManagedThingSummary$: StaticStructureSchema = [3, n0, _MTS,
   0,
-  [_I, _Ar, _API, _B, _C, _CDI, _CPI, _CDIo, _M, _N, _O, _CLI, _PCI, _PS, _R, _SN, _CAr, _UA, _AA],
+  [_I, _Ar, _API, _B, _C, _CDI, _CPI, _CDIo, _Mo, _N, _O, _CLI, _PCI, _PS, _R, _SN, _CAr, _UA, _AA],
   [0, 0, 0, [() => Brand, 0], [() => Classification, 0], [() => ConnectorDeviceId, 0], 0, 0, [() => Model, 0], 0, [() => Owner, 0], 0, 0, 0, 0, [() => SerialNumber, 0], 4, 4, 4]
 ];
 export var MatterCapabilityReport$: StaticStructureSchema = [3, n0, _MCR,
@@ -1549,12 +1598,6 @@ export var ResetRuntimeLogConfigurationRequest$: StaticStructureSchema = [3, n0,
   [_MTI],
   [[0, 1]], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_Me, _RI, _RT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryConfigCriteria$: StaticStructureSchema = [3, n0, _RCC,
   0,
   [_FT, _MNOR],
@@ -1587,7 +1630,7 @@ export var SecretsManager$: StaticStructureSchema = [3, n0, _SM,
 ];
 export var SendConnectorEventRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
-  [_CIonn, _Op, _UI, _OV, _SC, _Me, _DDI, _CDI, _TIr, _Dev, _ME],
+  [_CIonn, _Op, _UI, _OV, _SC, _M, _DDI, _CDI, _TIr, _Dev, _ME],
   [[0, 1], 0, [() => ThirdPartyUserId, 0], 0, 1, [() => ConnectorEventMessage, 0], 0, [() => ConnectorDeviceId, 0], 0, [() => Devices, 0], [() => MatterEndpoint$, 0]], 2
 ];
 export var SendConnectorEventResponse$: StaticStructureSchema = [3, n0, _SCERe,
@@ -1605,18 +1648,6 @@ export var SendManagedThingCommandResponse$: StaticStructureSchema = [3, n0, _SM
   [_TIr],
   [0]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartAccountAssociationRefreshRequest$: StaticStructureSchema = [3, n0, _SAARR,
   0,
   [_AAIc],
@@ -1662,18 +1693,6 @@ export var TaskProcessingDetails$: StaticStructureSchema = [3, n0, _TPD,
   [_NOCT, _NOFT, _NOIPT, _nOQT, _nORT, _nORTu, _nOST, _nOTOT, _pT],
   [1, 1, 1, 1, 1, 1, 1, 1, 64 | 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
@@ -1711,7 +1730,7 @@ export var UpdateEventLogConfigurationRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateManagedThingRequest$: StaticStructureSchema = [3, n0, _UMTR,
   0,
-  [_Id, _O, _CLI, _SN, _WFSSC, _B, _M, _N, _CR, _CSa, _Ca, _C, _HNM, _MD],
+  [_Id, _O, _CLI, _SN, _WFSSC, _B, _Mo, _N, _CR, _CSa, _Ca, _C, _HNM, _MD],
   [[0, 1], [() => Owner, 0], 0, [() => SerialNumber, 0], () => WiFiSimpleSetupConfiguration$, [() => Brand, 0], [() => Model, 0], 0, () => CapabilityReport$, () => CapabilitySchemas, 0, [() => Classification, 0], 0, 128 | 0], 1
 ];
 export var UpdateNotificationConfigurationRequest$: StaticStructureSchema = [3, n0, _UNCR,
@@ -1724,20 +1743,12 @@ export var UpdateOtaTaskRequest$: StaticStructureSchema = [3, n0, _UOTR,
   [_Id, _D, _TCI],
   [[0, 1], 0, 0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_Me],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WiFiSimpleSetupConfiguration$: StaticStructureSchema = [3, n0, _WFSSC,
   0,
   [_EAP, _EAPn, _TIM],
   [2, 2, 1]
 ];
 var __Unit = "unit" as const;
-export var IoTManagedIntegrationsServiceException$: StaticErrorSchema = [-3, _sm, "IoTManagedIntegrationsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(IoTManagedIntegrationsServiceException$, IoTManagedIntegrationsServiceException);
 var AbortConfigCriteriaList: StaticListSchema = [1, n0, _ACCL,
   0, () => AbortConfigCriteria$
 ];

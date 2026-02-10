@@ -4,7 +4,7 @@ const _AR = "ArchiveRule";
 const _ARR = "ArchiveRetainRule";
 const _AZ = "AvailabilityZones";
 const _Ac = "Actions";
-const _C = "Count";
+const _C = "Code";
 const _CA = "CmkArn";
 const _CE = "CronExpression";
 const _CI = "CreateInterval";
@@ -23,7 +23,7 @@ const _CRCT = "CrossRegionCopyTargets";
 const _CRCTL = "CrossRegionCopyTargetList";
 const _CRCTr = "CrossRegionCopyTarget";
 const _CT = "CopyTags";
-const _Co = "Code";
+const _Co = "Count";
 const _D = "Description";
 const _DC = "DateCreated";
 const _DLP = "DeleteLifecyclePolicy";
@@ -89,14 +89,14 @@ const _Po = "Policies";
 const _Pol = "Policy";
 const _RA = "ResourceArn";
 const _RAT = "RetentionArchiveTier";
-const _RI = "RetainInterval";
-const _RIe = "ResourceIds";
+const _RI = "ResourceIds";
+const _RIe = "RetainInterval";
 const _RL = "ResourceLocations";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RequiredParameters";
 const _RR = "RetainRule";
-const _RT = "ResourceTypes";
-const _RTe = "ResourceType";
+const _RT = "ResourceType";
+const _RTe = "ResourceTypes";
 const _S = "State";
 const _SL = "ScheduleList";
 const _SLc = "ScriptsList";
@@ -143,9 +143,9 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _pI = "policyIds";
 const _rT = "resourceTypes";
-const _s = "state";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.dlm";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.dlm";
+const _st = "state";
 const _tK = "tagKeys";
 const _tT = "targetTags";
 const _tTA = "tagsToAdd";
@@ -170,6 +170,43 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DLMServiceException$: StaticErrorSchema = [-3, _s, "DLMServiceException", 0, [], []];
+_s_registry.registerError(DLMServiceException$, DLMServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _C],
+  [0, 0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _C, _RP, _MEP],
+  [0, 0, 64 | 0, 64 | 0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _C, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _C, _RT, _RI],
+  [0, 0, 0, 64 | 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
   [_N, _CRC],
@@ -187,7 +224,7 @@ export var ArchiveRule$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var CreateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _CLPR,
   0,
-  [_ERA, _D, _S, _PD, _T, _DP, _CI, _RI, _CT, _ED, _CRCT, _E],
+  [_ERA, _D, _S, _PD, _T, _DP, _CI, _RIe, _CT, _ED, _CRCT, _E],
   [0, 0, 0, () => PolicyDetails$, 128 | 0, 0, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$], 3
 ];
 export var CreateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _CLPRr,
@@ -237,7 +274,7 @@ export var DeleteLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _DLPR
 ];
 export var DeprecateRule$: StaticStructureSchema = [3, n0, _DR,
   0,
-  [_C, _I, _IU],
+  [_Co, _I, _IU],
   [1, 1, 0]
 ];
 export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
@@ -262,13 +299,13 @@ export var Exclusions$: StaticStructureSchema = [3, n0, _E,
 ];
 export var FastRestoreRule$: StaticStructureSchema = [3, n0, _FRR,
   0,
-  [_AZ, _C, _I, _IU],
+  [_AZ, _Co, _I, _IU],
   [64 | 0, 1, 1, 0], 1
 ];
 export var GetLifecyclePoliciesRequest$: StaticStructureSchema = [3, n0, _GLPR,
   0,
-  [_PIo, _S, _RT, _TT, _TTA, _DPT],
-  [[64 | 0, { [_hQ]: _pI }], [0, { [_hQ]: _s }], [64 | 0, { [_hQ]: _rT }], [64 | 0, { [_hQ]: _tT }], [64 | 0, { [_hQ]: _tTA }], [0, { [_hQ]: _dPT }]]
+  [_PIo, _S, _RTe, _TT, _TTA, _DPT],
+  [[64 | 0, { [_hQ]: _pI }], [0, { [_hQ]: _st }], [64 | 0, { [_hQ]: _rT }], [64 | 0, { [_hQ]: _tT }], [64 | 0, { [_hQ]: _tTA }], [0, { [_hQ]: _dPT }]]
 ];
 export var GetLifecyclePoliciesResponse$: StaticStructureSchema = [3, n0, _GLPRe,
   0,
@@ -285,18 +322,6 @@ export var GetLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _GLPReti
   [_Pol],
   [() => LifecyclePolicy$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M, _Co],
-  [0, 0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Co, _RP, _MEP],
-  [0, 0, 64 | 0, 64 | 0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var LifecyclePolicy$: StaticStructureSchema = [3, n0, _LP,
   0,
   [_PI, _D, _S, _SM, _ERA, _DC, _DM, _PD, _T, _PA, _DP],
@@ -307,12 +332,6 @@ export var LifecyclePolicySummary$: StaticStructureSchema = [3, n0, _LPS,
   [_PI, _D, _S, _T, _PT, _DP],
   [0, 0, 0, 128 | 0, 0, 2]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _Co, _RTe],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RA],
@@ -330,23 +349,17 @@ export var _Parameters$: StaticStructureSchema = [3, n0, _P,
 ];
 export var PolicyDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_PT, _RT, _RL, _TT, _Sch, _P, _ES, _Ac, _PL, _RTe, _CI, _RI, _CT, _CRCT, _ED, _E],
+  [_PT, _RTe, _RL, _TT, _Sch, _P, _ES, _Ac, _PL, _RT, _CI, _RIe, _CT, _CRCT, _ED, _E],
   [0, 64 | 0, 64 | 0, () => TargetTagList, () => ScheduleList, () => _Parameters$, () => EventSource$, () => ActionList, 0, 0, 1, 1, 2, () => CrossRegionCopyTargetList, 2, () => Exclusions$]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _Co, _RTe, _RIe],
-  [0, 0, 0, 64 | 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetainRule$: StaticStructureSchema = [3, n0, _RR,
   0,
-  [_C, _I, _IU],
+  [_Co, _I, _IU],
   [1, 1, 0]
 ];
 export var RetentionArchiveTier$: StaticStructureSchema = [3, n0, _RAT,
   0,
-  [_C, _I, _IU],
+  [_Co, _I, _IU],
   [1, 1, 0]
 ];
 export var Schedule$: StaticStructureSchema = [3, n0, _Sche,
@@ -391,7 +404,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateLifecyclePolicyRequest$: StaticStructureSchema = [3, n0, _ULPR,
   0,
-  [_PI, _ERA, _S, _D, _PD, _CI, _RI, _CT, _ED, _CRCT, _E],
+  [_PI, _ERA, _S, _D, _PD, _CI, _RIe, _CT, _ED, _CRCT, _E],
   [[0, 1], 0, 0, 0, () => PolicyDetails$, 1, 1, 2, 2, () => CrossRegionCopyTargetList, () => Exclusions$], 1
 ];
 export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPRp,
@@ -399,8 +412,6 @@ export var UpdateLifecyclePolicyResponse$: StaticStructureSchema = [3, n0, _ULPR
   [],
   []
 ];
-export var DLMServiceException$: StaticErrorSchema = [-3, _sm, "DLMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DLMServiceException$, DLMServiceException);
 var ActionList: StaticListSchema = [1, n0, _AL,
   0, () => Action$
 ];

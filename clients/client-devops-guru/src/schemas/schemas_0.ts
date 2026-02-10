@@ -103,10 +103,10 @@ const _ETR = "EndTimeRange";
 const _ETRv = "EventTimeRange";
 const _Ev = "Events";
 const _Ex = "Explanation";
-const _F = "Feedback";
+const _F = "Fields";
 const _FT = "FromTime";
+const _Fe = "Feedback";
 const _Fi = "Filters";
-const _Fie = "Fields";
 const _Fil = "Filter";
 const _G = "Group";
 const _GB = "GroupBy";
@@ -236,13 +236,13 @@ const _POI = "ProactiveOrganizationInsights";
 const _POIS = "ProactiveOrganizationInsightSummary";
 const _PTR = "PredictionTimeRange";
 const _QC = "QuotaCode";
-const _R = "Resources";
-const _RA = "ReactiveAnomaly";
+const _R = "Reason";
+const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
 const _RASD = "RelatedAnomalySourceDetails";
 const _RASe = "ReactiveAnomalySummary";
-const _RA_ = "Retry-After";
-const _RAe = "ReactiveAnomalies";
+const _RAe = "ReactiveAnomaly";
+const _RAea = "ReactiveAnomalies";
 const _RAel = "RelatedAnomalies";
 const _RC = "ResourceCollection";
 const _RCF = "ResourceCollectionFilter";
@@ -276,19 +276,19 @@ const _RREe = "RecommendationRelatedEvents";
 const _RS = "ReferenceScalar";
 const _RT = "ResourceType";
 const _RTF = "ResourceTypeFilters";
-const _Re = "Recommendations";
-const _Rea = "Reason";
-const _Rec = "Recommendation";
+const _Re = "Resources";
+const _Rec = "Recommendations";
+const _Reco = "Recommendation";
 const _S = "Status";
 const _SAA = "StatsAtAnomaly";
 const _SAB = "StatsAtBaseline";
-const _SC = "StatusCode";
+const _SC = "ServiceCode";
 const _SCC = "SnsChannelConfig";
 const _SCE = "StartCostEstimation";
 const _SCER = "StartCostEstimationRequest";
 const _SCERt = "StartCostEstimationResponse";
 const _SCe = "ServiceCollection";
-const _SCer = "ServiceCode";
+const _SCt = "StatusCode";
 const _SD = "SourceDetails";
 const _SF = "StatusFilter";
 const _SH = "ServiceHealth";
@@ -373,8 +373,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.devopsguru";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.devopsguru";
+const _se = "server";
 const n0 = "com.amazonaws.devopsguru";
 
 // smithy-typescript generated code
@@ -399,12 +399,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var DevOpsGuruServiceException$: StaticErrorSchema = [-3, _s, "DevOpsGuruServiceException", 0, [], []];
+_s_registry.registerError(DevOpsGuruServiceException$, DevOpsGuruServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _QC, _SC, _RAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFields], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountHealth$: StaticStructureSchema = [3, n0, _AH,
   0,
   [_AI, _I],
@@ -482,7 +531,7 @@ export var CloudFormationHealth$: StaticStructureSchema = [3, n0, _CFH,
 ];
 export var CloudWatchMetricsDataSummary$: StaticStructureSchema = [3, n0, _CWMDS,
   0,
-  [_TMVPL, _SC],
+  [_TMVPL, _SCt],
   [() => TimestampMetricValuePairList, 0]
 ];
 export var CloudWatchMetricsDetail$: StaticStructureSchema = [3, n0, _CWMD,
@@ -495,12 +544,6 @@ export var CloudWatchMetricsDimension$: StaticStructureSchema = [3, n0, _CWMDl,
   [_N, _V],
   [0, 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CostEstimationResourceCollectionFilter$: StaticStructureSchema = [3, n0, _CERCF,
   0,
   [_CF, _Ta],
@@ -548,7 +591,7 @@ export var DescribeAnomalyRequest$: StaticStructureSchema = [3, n0, _DAR,
 ];
 export var DescribeAnomalyResponse$: StaticStructureSchema = [3, n0, _DARe,
   0,
-  [_PA, _RA],
+  [_PA, _RAe],
   [() => ProactiveAnomaly$, () => ReactiveAnomaly$]
 ];
 export var DescribeEventSourcesConfigRequest$: StaticStructureSchema = [3, n0, _DESCR,
@@ -638,7 +681,7 @@ export var EndTimeRange$: StaticStructureSchema = [3, n0, _ETR,
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_RC, _Id, _Ti, _ESv, _N, _DS, _EC, _R],
+  [_RC, _Id, _Ti, _ESv, _N, _DS, _EC, _Re],
   [() => ResourceCollection$, 0, 4, 0, 0, 0, 0, () => EventResources]
 ];
 export var EventResource$: StaticStructureSchema = [3, n0, _ER,
@@ -678,7 +721,7 @@ export var GetResourceCollectionResponse$: StaticStructureSchema = [3, n0, _GRCR
 ];
 export var InsightFeedback$: StaticStructureSchema = [3, n0, _IF,
   0,
-  [_Id, _F],
+  [_Id, _Fe],
   [0, 0]
 ];
 export var InsightHealth$: StaticStructureSchema = [3, n0, _IH,
@@ -691,12 +734,6 @@ export var InsightTimeRange$: StaticStructureSchema = [3, n0, _ITR,
   [_ST, _ET],
   [4, 4], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KMSServerSideEncryptionIntegration$: StaticStructureSchema = [3, n0, _KMSSSEI,
   0,
   [_KMSKI, _OIS, _T],
@@ -719,7 +756,7 @@ export var ListAnomaliesForInsightRequest$: StaticStructureSchema = [3, n0, _LAF
 ];
 export var ListAnomaliesForInsightResponse$: StaticStructureSchema = [3, n0, _LAFIRi,
   0,
-  [_PAr, _RAe, _NT],
+  [_PAr, _RAea, _NT],
   [() => ProactiveAnomalies, () => ReactiveAnomalies, 0]
 ];
 export var ListAnomalousLogGroupsRequest$: StaticStructureSchema = [3, n0, _LALGR,
@@ -819,7 +856,7 @@ export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
 ];
 export var ListRecommendationsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
-  [_Re, _NT],
+  [_Rec, _NT],
   [() => Recommendations, 0]
 ];
 export var LogAnomalyClass$: StaticStructureSchema = [3, n0, _LAC,
@@ -952,7 +989,7 @@ export var PutFeedbackResponse$: StaticStructureSchema = [3, n0, _PFRu,
   [],
   []
 ];
-export var ReactiveAnomaly$: StaticStructureSchema = [3, n0, _RA,
+export var ReactiveAnomaly$: StaticStructureSchema = [3, n0, _RAe,
   0,
   [_Id, _Seve, _S, _ATR, _ARTR, _SD, _AII, _RC, _T, _N, _De, _CAI, _ARn],
   [0, 0, 0, () => AnomalyTimeRange$, () => AnomalyReportedTimeRange$, () => AnomalySourceDetails$, 0, () => ResourceCollection$, 0, 0, 0, 0, () => AnomalyResources]
@@ -977,14 +1014,14 @@ export var ReactiveOrganizationInsightSummary$: StaticStructureSchema = [3, n0, 
   [_Id, _AI, _OUIr, _N, _Seve, _S, _ITR, _RC, _SCe],
   [0, 0, 0, 0, 0, 0, () => InsightTimeRange$, () => ResourceCollection$, () => ServiceCollection$]
 ];
-export var Recommendation$: StaticStructureSchema = [3, n0, _Rec,
+export var Recommendation$: StaticStructureSchema = [3, n0, _Reco,
   0,
-  [_De, _Lin, _N, _Rea, _RE, _RAel, _Ca],
+  [_De, _Lin, _N, _R, _RE, _RAel, _Ca],
   [0, 0, 0, 0, () => RecommendationRelatedEvents, () => RecommendationRelatedAnomalies, 0]
 ];
 export var RecommendationRelatedAnomaly$: StaticStructureSchema = [3, n0, _RRA,
   0,
-  [_R, _SD, _AIn],
+  [_Re, _SD, _AIn],
   [() => RecommendationRelatedAnomalyResources, () => RelatedAnomalySourceDetails, 0]
 ];
 export var RecommendationRelatedAnomalyResource$: StaticStructureSchema = [3, n0, _RRAR,
@@ -1004,7 +1041,7 @@ export var RecommendationRelatedCloudWatchMetricsSourceDetail$: StaticStructureS
 ];
 export var RecommendationRelatedEvent$: StaticStructureSchema = [3, n0, _RRE,
   0,
-  [_N, _R],
+  [_N, _Re],
   [0, () => RecommendationRelatedEventResources]
 ];
 export var RecommendationRelatedEventResource$: StaticStructureSchema = [3, n0, _RRER,
@@ -1032,12 +1069,6 @@ export var ResourceCollectionFilter$: StaticStructureSchema = [3, n0, _RCF,
   [_CF, _Ta],
   [() => CloudFormationCollectionFilter$, () => TagCollectionFilters]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SearchInsightsFilters$: StaticStructureSchema = [3, n0, _SIF,
   0,
   [_Sev, _Sta, _RC, _SCe],
@@ -1088,12 +1119,6 @@ export var ServiceIntegrationConfig$: StaticStructureSchema = [3, n0, _SIC,
   [_OC, _LAD, _KMSSSE],
   [() => OpsCenterIntegration$, () => LogsAnomalyDetectionIntegration$, () => KMSServerSideEncryptionIntegration$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var ServiceResourceCost$: StaticStructureSchema = [3, n0, _SRC,
   0,
   [_T, _Stat, _Cou, _UC, _Cos],
@@ -1139,12 +1164,6 @@ export var TagHealth$: StaticStructureSchema = [3, n0, _TH,
   [_ABK, _TVa, _I, _ARC],
   [0, 0, () => InsightHealth$, 1]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _QC, _SCer, _RAS],
-  [0, 0, 0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimestampMetricValuePair$: StaticStructureSchema = [3, n0, _TMVP,
   0,
   [_Tim, _MV],
@@ -1200,19 +1219,11 @@ export var UpdateTagCollectionFilter$: StaticStructureSchema = [3, n0, _UTCF,
   [_ABK, _TV],
   [0, 64 | 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _Rea, _Fie],
-  [0, 0, () => ValidationExceptionFields], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
   [0, 0], 2
 ];
-export var DevOpsGuruServiceException$: StaticErrorSchema = [-3, _sm, "DevOpsGuruServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(DevOpsGuruServiceException$, DevOpsGuruServiceException);
 var AccountHealths: StaticListSchema = [1, n0, _AHc,
   0, () => AccountHealth$
 ];
@@ -1278,7 +1289,7 @@ var ProactiveInsights: StaticListSchema = [1, n0, _PI,
 var ProactiveOrganizationInsights: StaticListSchema = [1, n0, _POI,
   0, () => ProactiveOrganizationInsightSummary$
 ];
-var ReactiveAnomalies: StaticListSchema = [1, n0, _RAe,
+var ReactiveAnomalies: StaticListSchema = [1, n0, _RAea,
   0, () => ReactiveAnomalySummary$
 ];
 var ReactiveInsights: StaticListSchema = [1, n0, _RIe,
@@ -1302,7 +1313,7 @@ var RecommendationRelatedEventResources: StaticListSchema = [1, n0, _RRERe,
 var RecommendationRelatedEvents: StaticListSchema = [1, n0, _RREe,
   0, () => RecommendationRelatedEvent$
 ];
-var Recommendations: StaticListSchema = [1, n0, _Re,
+var Recommendations: StaticListSchema = [1, n0, _Rec,
   0, () => Recommendation$
 ];
 var RelatedAnomalySourceDetails: StaticListSchema = [1, n0, _RASD,

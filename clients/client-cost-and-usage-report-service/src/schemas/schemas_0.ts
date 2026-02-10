@@ -54,8 +54,8 @@ const _c = "client";
 const _e = "error";
 const _lD = "lastDelivery";
 const _lS = "lastStatus";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.costandusagereportservice";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.costandusagereportservice";
+const _se = "server";
 const n0 = "com.amazonaws.costandusagereportservice";
 
 // smithy-typescript generated code
@@ -72,6 +72,49 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CostAndUsageReportServiceServiceException$: StaticErrorSchema = [-3, _s, "CostAndUsageReportServiceServiceException", 0, [], []];
+_s_registry.registerError(CostAndUsageReportServiceServiceException$, CostAndUsageReportServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DuplicateReportNameException$: StaticErrorSchema = [-3, n0, _DRNE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DuplicateReportNameException$, DuplicateReportNameException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var ReportLimitReachedException$: StaticErrorSchema = [-3, n0, _RLRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ReportLimitReachedException$, ReportLimitReachedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var DeleteReportDefinitionRequest$: StaticStructureSchema = [3, n0, _DRDR,
   0,
   [_RN],
@@ -92,18 +135,6 @@ export var DescribeReportDefinitionsResponse$: StaticStructureSchema = [3, n0, _
   [_RD, _NT],
   [() => ReportDefinitionList, 0]
 ];
-export var DuplicateReportNameException$: StaticErrorSchema = [-3, n0, _DRNE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DuplicateReportNameException$, DuplicateReportNameException);
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_RN],
@@ -139,23 +170,11 @@ export var ReportDefinition$: StaticStructureSchema = [3, n0, _RDe,
   [_RN, _TU, _F, _C, _ASE, _SB, _SP, _SR, _AA, _RCR, _RV, _BVA, _RS],
   [0, 0, 0, 0, 64 | 0, 0, 0, 0, 64 | 0, 2, 0, 0, () => ReportStatus$], 8
 ];
-export var ReportLimitReachedException$: StaticErrorSchema = [-3, n0, _RLRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ReportLimitReachedException$, ReportLimitReachedException);
 export var ReportStatus$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_lD, _lS],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
   [_K, _V],
@@ -181,14 +200,6 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var CostAndUsageReportServiceServiceException$: StaticErrorSchema = [-3, _sm, "CostAndUsageReportServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CostAndUsageReportServiceServiceException$, CostAndUsageReportServiceServiceException);
 var AdditionalArtifactList = 64 | 0;
 var ReportDefinitionList: StaticListSchema = [1, n0, _RDL,
   0, () => ReportDefinition$

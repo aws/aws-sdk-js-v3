@@ -206,11 +206,11 @@ const _re = "region";
 const _rea = "reason";
 const _rem = "remediation";
 const _res = "resource";
-const _s = "sources";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.securitylake";
 const _sA = "subscriberArn";
 const _sBA = "s3BucketArn";
-const _sC = "storageClass";
-const _sCe = "serviceCode";
+const _sC = "serviceCode";
+const _sCt = "storageClass";
 const _sD = "subscriberDescription";
 const _sE = "subscriberEndpoint";
 const _sI = "subscriberId";
@@ -223,8 +223,8 @@ const _sS = "sourceStatuses";
 const _sSu = "subscriberStatus";
 const _sV = "sourceVersion";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.securitylake";
-const _so = "source";
+const _so = "sources";
+const _sou = "source";
 const _st = "status";
 const _su = "subscriber";
 const _sub = "subscribers";
@@ -260,12 +260,55 @@ import {
 import { SecurityLakeServiceException } from "../models/SecurityLakeServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SecurityLakeServiceException$: StaticErrorSchema = [-3, _s, "SecurityLakeServiceException", 0, [], []];
+_s_registry.registerError(SecurityLakeServiceException$, SecurityLakeServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m, _eC],
   [0, 0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rN, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rN, _rT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AwsIdentity$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_p, _eI],
@@ -281,21 +324,9 @@ export var AwsLogSourceResource$: StaticStructureSchema = [3, n0, _ALSR,
   [_sN, _sV],
   [0, 0]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rN, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAwsLogSourceRequest$: StaticStructureSchema = [3, n0, _CALSR,
   0,
-  [_s],
+  [_so],
   [() => AwsLogSourceConfigurationList], 1
 ];
 export var CreateAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _CALSRr,
@@ -310,7 +341,7 @@ export var CreateCustomLogSourceRequest$: StaticStructureSchema = [3, n0, _CCLSR
 ];
 export var CreateCustomLogSourceResponse$: StaticStructureSchema = [3, n0, _CCLSRr,
   0,
-  [_so],
+  [_sou],
   [() => CustomLogSourceResource$]
 ];
 export var CreateDataLakeExceptionSubscriptionRequest$: StaticStructureSchema = [3, n0, _CDLESR,
@@ -355,7 +386,7 @@ export var CreateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateSubscriberRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sIu, _sNu, _s, _sD, _aT, _t],
+  [_sIu, _sNu, _so, _sD, _aT, _t],
   [() => AwsIdentity$, 0, () => LogSourceResourceList, 0, 64 | 0, () => TagList], 3
 ];
 export var CreateSubscriberResponse$: StaticStructureSchema = [3, n0, _CSRr,
@@ -390,7 +421,7 @@ export var CustomLogSourceResource$: StaticStructureSchema = [3, n0, _CLSR,
 ];
 export var DataLakeAutoEnableNewAccountConfiguration$: StaticStructureSchema = [3, n0, _DLAENAC,
   0,
-  [_re, _s],
+  [_re, _so],
   [0, () => AwsLogSourceResourceList], 2
 ];
 export var DataLakeConfiguration$: StaticStructureSchema = [3, n0, _DLC,
@@ -420,7 +451,7 @@ export var DataLakeLifecycleExpiration$: StaticStructureSchema = [3, n0, _DLLE,
 ];
 export var DataLakeLifecycleTransition$: StaticStructureSchema = [3, n0, _DLLT,
   0,
-  [_sC, _d],
+  [_sCt, _d],
   [0, 1]
 ];
 export var DataLakeReplicationConfiguration$: StaticStructureSchema = [3, n0, _DLRC,
@@ -455,7 +486,7 @@ export var DataLakeUpdateStatus$: StaticStructureSchema = [3, n0, _DLUS,
 ];
 export var DeleteAwsLogSourceRequest$: StaticStructureSchema = [3, n0, _DALSR,
   0,
-  [_s],
+  [_so],
   [() => AwsLogSourceConfigurationList], 1
 ];
 export var DeleteAwsLogSourceResponse$: StaticStructureSchema = [3, n0, _DALSRe,
@@ -578,12 +609,6 @@ export var HttpsNotificationConfiguration$: StaticStructureSchema = [3, n0, _HNC
   [_en, _tRA, _aAKN, _aAKV, _hM],
   [0, 0, 0, 0, 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListDataLakeExceptionsRequest$: StaticStructureSchema = [3, n0, _LDLER,
   0,
   [_r, _mR, _nT],
@@ -606,12 +631,12 @@ export var ListDataLakesResponse$: StaticStructureSchema = [3, n0, _LDLRi,
 ];
 export var ListLogSourcesRequest$: StaticStructureSchema = [3, n0, _LLSR,
   0,
-  [_a, _r, _s, _mR, _nT],
+  [_a, _r, _so, _mR, _nT],
   [64 | 0, 64 | 0, () => LogSourceResourceList, 1, 0]
 ];
 export var ListLogSourcesResponse$: StaticStructureSchema = [3, n0, _LLSRi,
   0,
-  [_s, _nT],
+  [_so, _nT],
   [() => LogSourceList, 0]
 ];
 export var ListSubscribersRequest$: StaticStructureSchema = [3, n0, _LSR,
@@ -636,7 +661,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var LogSource$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_ac, _re, _s],
+  [_ac, _re, _so],
   [0, 0, () => LogSourceResourceList]
 ];
 export var RegisterDataLakeDelegatedAdministratorRequest$: StaticStructureSchema = [3, n0, _RDLDAR,
@@ -649,12 +674,6 @@ export var RegisterDataLakeDelegatedAdministratorResponse$: StaticStructureSchem
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rN, _rT],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SqsNotificationConfiguration$: StaticStructureSchema = [3, n0, _SNC,
   0,
   [],
@@ -662,7 +681,7 @@ export var SqsNotificationConfiguration$: StaticStructureSchema = [3, n0, _SNC,
 ];
 export var SubscriberResource$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_sI, _sA, _sIu, _sNu, _s, _sD, _aT, _rA, _sBA, _sE, _sSu, _rSA, _rSN, _cAr, _uA],
+  [_sI, _sA, _sIu, _sNu, _so, _sD, _aT, _rA, _sBA, _sE, _sSu, _rSA, _rSN, _cAr, _uA],
   [0, 0, () => AwsIdentity$, 0, () => LogSourceResourceList, 0, 64 | 0, 0, 0, 0, 0, 0, 0, 5, 5], 5
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
@@ -680,12 +699,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rAe, _tK],
@@ -728,7 +741,7 @@ export var UpdateSubscriberNotificationResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateSubscriberRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sI, _sIu, _sNu, _sD, _s],
+  [_sI, _sIu, _sNu, _sD, _so],
   [[0, 1], () => AwsIdentity$, 0, 0, () => LogSourceResourceList], 1
 ];
 export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
@@ -736,8 +749,6 @@ export var UpdateSubscriberResponse$: StaticStructureSchema = [3, n0, _USRp,
   [_su],
   [() => SubscriberResource$]
 ];
-export var SecurityLakeServiceException$: StaticErrorSchema = [-3, _sm, "SecurityLakeServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SecurityLakeServiceException$, SecurityLakeServiceException);
 var AccessTypeList = 64 | 0;
 var AccountList = 64 | 0;
 var AwsLogSourceConfigurationList: StaticListSchema = [1, n0, _ALSCL,

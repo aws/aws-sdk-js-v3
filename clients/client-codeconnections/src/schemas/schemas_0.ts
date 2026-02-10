@@ -189,8 +189,8 @@ const _VI = "VpcId";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codeconnections";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codeconnections";
+const _se = "server";
 const n0 = "com.amazonaws.codeconnections";
 
 // smithy-typescript generated code
@@ -219,30 +219,121 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CodeConnectionsServiceException$: StaticErrorSchema = [-3, _s, "CodeConnectionsServiceException", 0, [], []];
+_s_registry.registerError(CodeConnectionsServiceException$, CodeConnectionsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var ConditionalCheckFailedException$: StaticErrorSchema = [-3, n0, _CCFE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConditionalCheckFailedException$, ConditionalCheckFailedException);
+n0_registry.registerError(ConditionalCheckFailedException$, ConditionalCheckFailedException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var RetryLatestCommitFailedException$: StaticErrorSchema = [-3, n0, _RLCFE,
+  { [_e]: _se, [_hE]: 503 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(RetryLatestCommitFailedException$, RetryLatestCommitFailedException);
+export var SyncBlockerDoesNotExistException$: StaticErrorSchema = [-3, n0, _SBDNEE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SyncBlockerDoesNotExistException$, SyncBlockerDoesNotExistException);
+export var SyncConfigurationStillExistsException$: StaticErrorSchema = [-3, n0, _SCSEE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(SyncConfigurationStillExistsException$, SyncConfigurationStillExistsException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedOperationException$, UnsupportedOperationException);
+export var UnsupportedProviderTypeException$: StaticErrorSchema = [-3, n0, _UPTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedProviderTypeException$, UnsupportedProviderTypeException);
+export var UpdateOutOfSyncException$: StaticErrorSchema = [-3, n0, _UOOSE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UpdateOutOfSyncException$, UpdateOutOfSyncException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
   [_CN, _CA, _PT, _OAI, _CS, _HA],
@@ -403,24 +494,6 @@ export var Host$: StaticStructureSchema = [3, n0, _H,
   [_N, _HA, _PT, _PE, _VC, _S, _SM],
   [0, 0, 0, 0, () => VpcConfiguration$, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConnectionsInput$: StaticStructureSchema = [3, n0, _LCI,
   0,
   [_PTF, _HAF, _MR, _NT],
@@ -501,18 +574,6 @@ export var RepositorySyncEvent$: StaticStructureSchema = [3, n0, _RSE,
   [_Ev, _Ti, _Ty, _EI],
   [0, 4, 0, 0], 3
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ResourceSyncAttempt$: StaticStructureSchema = [3, n0, _RSAe,
   0,
   [_E, _IR, _SA, _S, _TR, _Ta],
@@ -523,18 +584,6 @@ export var ResourceSyncEvent$: StaticStructureSchema = [3, n0, _RSEe,
   [_Ev, _Ti, _Ty, _EI],
   [0, 4, 0, 0], 3
 ];
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
-export var RetryLatestCommitFailedException$: StaticErrorSchema = [-3, n0, _RLCFE,
-  { [_e]: _s, [_hE]: 503 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RetryLatestCommitFailedException$, RetryLatestCommitFailedException);
 export var Revision$: StaticStructureSchema = [3, n0, _R,
   0,
   [_B, _D, _OI, _RN, _PT, _Sh],
@@ -550,12 +599,6 @@ export var SyncBlockerContext$: StaticStructureSchema = [3, n0, _SBC,
   [_K, _V],
   [0, 0], 2
 ];
-export var SyncBlockerDoesNotExistException$: StaticErrorSchema = [-3, n0, _SBDNEE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SyncBlockerDoesNotExistException$, SyncBlockerDoesNotExistException);
 export var SyncBlockerSummary$: StaticStructureSchema = [3, n0, _SBS,
   0,
   [_RNe, _PRN, _LB],
@@ -566,12 +609,6 @@ export var SyncConfiguration$: StaticStructureSchema = [3, n0, _SC,
   [_B, _OI, _PT, _RLIe, _RN, _RNe, _RA, _ST, _CF, _PDS, _TRUO, _PRC],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 8
 ];
-export var SyncConfigurationStillExistsException$: StaticErrorSchema = [-3, n0, _SCSEE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(SyncConfigurationStillExistsException$, SyncConfigurationStillExistsException);
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
   [_K, _V],
@@ -587,24 +624,6 @@ export var TagResourceOutput$: StaticStructureSchema = [3, n0, _TRO,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
-export var UnsupportedOperationException$: StaticErrorSchema = [-3, n0, _UOE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedOperationException$, UnsupportedOperationException);
-export var UnsupportedProviderTypeException$: StaticErrorSchema = [-3, n0, _UPTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedProviderTypeException$, UnsupportedProviderTypeException);
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_RAe, _TK],
@@ -625,12 +644,6 @@ export var UpdateHostOutput$: StaticStructureSchema = [3, n0, _UHO,
   [],
   []
 ];
-export var UpdateOutOfSyncException$: StaticErrorSchema = [-3, n0, _UOOSE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UpdateOutOfSyncException$, UpdateOutOfSyncException);
 export var UpdateRepositoryLinkInput$: StaticStructureSchema = [3, n0, _URLI,
   0,
   [_RLIe, _CA, _EKA],
@@ -666,8 +679,6 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
   [_VI, _SI, _SGI, _TC],
   [0, 64 | 0, 64 | 0, 0], 3
 ];
-export var CodeConnectionsServiceException$: StaticErrorSchema = [-3, _sm, "CodeConnectionsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeConnectionsServiceException$, CodeConnectionsServiceException);
 var ConnectionList: StaticListSchema = [1, n0, _CL,
   0, () => Connection$
 ];

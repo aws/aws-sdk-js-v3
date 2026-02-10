@@ -219,7 +219,7 @@ const _rAI = "romaniaAdditionalInfo";
 const _rCC = "registryCommercialCode";
 const _rI = "registrationId";
 const _rT = "registrationType";
-const _s = "seller";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.taxsettings";
 const _sAAI = "saudiArabiaAdditionalInfo";
 const _sAI = "spainAdditionalInfo";
 const _sAId = "sdiAccountId";
@@ -231,7 +231,7 @@ const _sTC = "serviceTaxCodes";
 const _sTI = "secondaryTaxId";
 const _se = "server";
 const _sec = "sector";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.taxsettings";
+const _sel = "seller";
 const _st = "state";
 const _sta = "status";
 const _tAI = "turkeyAdditionalInfo";
@@ -285,13 +285,62 @@ import {
 import { TaxSettingsServiceException } from "../models/TaxSettingsServiceException";
 
 /* eslint no-var: 0 */
-var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var TaxSettingsServiceException$: StaticErrorSchema = [-3, _s, "TaxSettingsServiceException", 0, [], []];
+_s_registry.registerError(TaxSettingsServiceException$, TaxSettingsServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 401 },
   [_m],
   [[() => ErrorMessage, 0]], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var AttachmentUploadException$: StaticErrorSchema = [-3, n0, _AUE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(AttachmentUploadException$, AttachmentUploadException);
+export var CaseCreationLimitExceededException$: StaticErrorSchema = [-3, n0, _CCLEE,
+  { [_e]: _c, [_hE]: 413 },
+  [_m],
+  [[() => ErrorMessage, 0]], 1
+];
+n0_registry.registerError(CaseCreationLimitExceededException$, CaseCreationLimitExceededException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _eC],
+  [[() => ErrorMessage, 0], 0], 2
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _eC],
+  [[() => ErrorMessage, 0], 0], 2
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _eC],
+  [[() => ErrorMessage, 0], 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _eC, _fL],
+  [[() => ErrorMessage, 0], 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var ErrorMessage: StaticSimpleSchema = [0, n0, _EM, 8, 0];
 export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
   8,
   [_aI, _tR, _tID, _aMD],
@@ -299,7 +348,7 @@ export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AccountMetaData$: StaticStructureSchema = [3, n0, _AMD,
   8,
-  [_aN, _s, _a, _aT, _aRM],
+  [_aN, _sel, _a, _aT, _aRM],
   [0, 0, () => Address$, 0, () => AddressRoleMap]
 ];
 export var AdditionalInfoRequest$: StaticStructureSchema = [3, n0, _AIR,
@@ -317,12 +366,6 @@ export var Address$: StaticStructureSchema = [3, n0, _A,
   [_aL, _ci, _pC, _cC, _aLd, _aLdd, _dOC, _sOR],
   [0, 0, 0, 0, 0, 0, 0, 0], 4
 ];
-export var AttachmentUploadException$: StaticErrorSchema = [-3, n0, _AUE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(AttachmentUploadException$, AttachmentUploadException);
 export var Authority$: StaticStructureSchema = [3, n0, _Au,
   0,
   [_co, _st],
@@ -378,18 +421,6 @@ export var CanadaAdditionalInfo$: StaticStructureSchema = [3, n0, _CAI,
   [_pSTI, _cQSTN, _cRSTN, _iRA],
   [0, 0, 0, 2]
 ];
-export var CaseCreationLimitExceededException$: StaticErrorSchema = [-3, n0, _CCLEE,
-  { [_e]: _c, [_hE]: 413 },
-  [_m],
-  [[() => ErrorMessage, 0]], 1
-];
-TypeRegistry.for(n0).registerError(CaseCreationLimitExceededException$, CaseCreationLimitExceededException);
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _eC],
-  [[() => ErrorMessage, 0], 0], 2
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteSupplementalTaxRegistrationRequest$: StaticStructureSchema = [3, n0, _DSTRR,
   0,
   [_aIu],
@@ -490,12 +521,6 @@ export var IndonesiaAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIn,
   [_tRNT, _pEDC, _dNe],
   [0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _eC],
-  [[() => ErrorMessage, 0], 0], 2
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IsraelAdditionalInfo$: StaticStructureSchema = [3, n0, _IAIs,
   0,
   [_dT, _cT],
@@ -596,12 +621,6 @@ export var PutTaxRegistrationResponse$: StaticStructureSchema = [3, n0, _PTRRu,
   [_sta],
   [0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _eC],
-  [[() => ErrorMessage, 0], 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RomaniaAdditionalInfo$: StaticStructureSchema = [3, n0, _RAI,
   0,
   [_tRNT],
@@ -702,12 +721,6 @@ export var UzbekistanAdditionalInfo$: StaticStructureSchema = [3, n0, _UAIz,
   [_tRNT, _vRN],
   [0, 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _eC, _fL],
-  [[() => ErrorMessage, 0], 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n],
@@ -723,8 +736,6 @@ export var VietnamAdditionalInfo$: StaticStructureSchema = [3, n0, _VAI,
   [_eIN, _eTCN, _pVN, _pVND],
   [0, 0, 0, 0]
 ];
-export var TaxSettingsServiceException$: StaticErrorSchema = [-3, _sm, "TaxSettingsServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(TaxSettingsServiceException$, TaxSettingsServiceException);
 var AccountDetailsList: StaticListSchema = [1, n0, _ADL,
   0, [() => AccountDetails$,
     0]

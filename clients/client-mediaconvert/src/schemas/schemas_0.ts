@@ -506,7 +506,7 @@ const _LVR = "ListVersionsRequest";
 const _LVRi = "ListVersionsResponse";
 const _La = "Layer";
 const _Li = "License";
-const _M = "Mode";
+const _M = "Message";
 const _MAB = "MaxAbrBitrate";
 const _MABa = "MaxAverageBitrate";
 const _MABi = "MinAbrBitrate";
@@ -572,8 +572,7 @@ const _MXPS = "MxfXavcProfileSettings";
 const _MYUV = "MaximumYUV";
 const _MYUVi = "MinimumYUV";
 const _Ma = "Mapping";
-const _Me = "Message";
-const _Mes = "Messages";
+const _Me = "Messages";
 const _Met = "Metadata3";
 const _Meta = "Metadata4";
 const _Metad = "Metadata5";
@@ -581,6 +580,7 @@ const _Metada = "Metadata6";
 const _Metadat = "Metadata7";
 const _Metadata = "Metadata8";
 const _Metadata_ = "Metadata";
+const _Mo = "Mode";
 const _N = "Name";
 const _NBFBRF = "NumberBFramesBetweenReferenceFrames";
 const _NC = "NielsenConfiguration";
@@ -1055,7 +1055,7 @@ const _bRL = "byteRateLimit";
 const _bTS = "billingTagsSource";
 const _bU = "baseUrl";
 const _br = "brightness";
-const _c = "channels";
+const _c = "client";
 const _cA = "createdAt";
 const _cAa = "cannedAcl";
 const _cAe = "certificateArn";
@@ -1114,7 +1114,7 @@ const _cTh = "channelTag";
 const _cTha = "channelTags";
 const _cV = "cttsVersion";
 const _ca = "category";
-const _cl = "client";
+const _ch = "channels";
 const _co = "codec";
 const _cod = "code";
 const _com = "compatibility";
@@ -1396,7 +1396,7 @@ const _lSD = "lastShareDetails";
 const _lU = "lastUpdated";
 const _la = "layer";
 const _li = "license";
-const _m = "mode";
+const _m = "message";
 const _mAB = "maxAbrBitrate";
 const _mABa = "maxAverageBitrate";
 const _mABi = "minAbrBitrate";
@@ -1460,8 +1460,7 @@ const _mX = "mccXml";
 const _mYUV = "maximumYUV";
 const _mYUVi = "minimumYUV";
 const _ma = "mapping";
-const _me = "message";
-const _mes = "messages";
+const _me = "messages";
 const _met = "metadata3";
 const _meta = "metadata4";
 const _metad = "metadata5";
@@ -1469,6 +1468,7 @@ const _metada = "metadata6";
 const _metadat = "metadata7";
 const _metadata = "metadata8";
 const _metadata_ = "metadata";
+const _mo = "mode";
 const _n = "name";
 const _nBFBRF = "numberBFramesBetweenReferenceFrames";
 const _nC = "nielsenConfiguration";
@@ -1586,7 +1586,7 @@ const _re = "reference";
 const _ro = "role";
 const _rot = "rotate";
 const _ru = "rules";
-const _s = "specification";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.mediaconvert";
 const _sACN = "sourceAncillaryChannelNumber";
 const _sAE = "saliencyAwareEncoding";
 const _sAOFM = "sampleAdaptiveOffsetFilterMode";
@@ -1665,15 +1665,15 @@ const _sX = "sccXml";
 const _sXO = "shadowXOffset";
 const _sYO = "shadowYOffset";
 const _sa = "saturation";
-const _se = "settings";
-const _ser = "server";
+const _se = "server";
+const _set = "settings";
 const _sh = "sharpening";
 const _sha = "sharpness";
 const _sl = "slices";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.mediaconvert";
 const _so = "softness";
 const _sou = "source";
-const _sp = "speed";
+const _sp = "specification";
+const _spe = "speed";
 const _st = "streams";
 const _sta = "status";
 const _star = "start";
@@ -1819,10 +1819,65 @@ import {
 import { MediaConvertServiceException } from "../models/MediaConvertServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var MediaConvertServiceException$: StaticErrorSchema = [-3, _s, "MediaConvertServiceException", 0, [], []];
+_s_registry.registerError(MediaConvertServiceException$, MediaConvertServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [[0, { [_jN]: _m }]]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AacSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_ADBM, _B, _CP, _CM, _LMM, _RI, _RCM, _RF, _SR, _S, _TLR, _VQ],
-  [[0, { [_jN]: _aDBM }], [1, { [_jN]: _b }], [0, { [_jN]: _cP }], [0, { [_jN]: _cM }], [0, { [_jN]: _lMM }], [1, { [_jN]: _rI }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rF }], [1, { [_jN]: _sR }], [0, { [_jN]: _s }], [1, { [_jN]: _tLR }], [0, { [_jN]: _vQ }]]
+  [[0, { [_jN]: _aDBM }], [1, { [_jN]: _b }], [0, { [_jN]: _cP }], [0, { [_jN]: _cM }], [0, { [_jN]: _lMM }], [1, { [_jN]: _rI }], [0, { [_jN]: _rCM }], [0, { [_jN]: _rF }], [1, { [_jN]: _sR }], [0, { [_jN]: _sp }], [1, { [_jN]: _tLR }], [0, { [_jN]: _vQ }]]
 ];
 export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
   0,
@@ -1831,8 +1886,8 @@ export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
 ];
 export var AccelerationSettings$: StaticStructureSchema = [3, n0, _AScc,
   0,
-  [_M],
-  [[0, { [_jN]: _m }]], 1
+  [_Mo],
+  [[0, { [_jN]: _mo }]], 1
 ];
 export var AdvancedInputFilterSettings$: StaticStructureSchema = [3, n0, _AIFS,
   0,
@@ -1842,7 +1897,7 @@ export var AdvancedInputFilterSettings$: StaticStructureSchema = [3, n0, _AIFS,
 export var AiffSettings$: StaticStructureSchema = [3, n0, _ASi,
   0,
   [_BD, _C, _SR],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _c }], [1, { [_jN]: _sR }]]
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]]
 ];
 export var AllowedRenditionSize$: StaticStructureSchema = [3, n0, _ARS,
   0,
@@ -1892,7 +1947,7 @@ export var AudioPitchCorrectionSettings$: StaticStructureSchema = [3, n0, _APCS,
 export var AudioProperties$: StaticStructureSchema = [3, n0, _AP,
   0,
   [_BD, _BR, _C, _FR, _LC, _SR],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [1, { [_jN]: _c }], [() => FrameRate$, { [_jN]: _fR }], [0, { [_jN]: _lC }], [1, { [_jN]: _sR }]]
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _bR }], [1, { [_jN]: _ch }], [() => FrameRate$, { [_jN]: _fR }], [0, { [_jN]: _lC }], [1, { [_jN]: _sR }]]
 ];
 export var AudioSelector$: StaticStructureSchema = [3, n0, _ASu,
   0,
@@ -1944,12 +1999,6 @@ export var AvcIntraUhdSettings$: StaticStructureSchema = [3, n0, _AIUS,
   [_QTL],
   [[0, { [_jN]: _qTL }]]
 ];
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _cl, [_hE]: 400 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var BandwidthReductionFilter$: StaticStructureSchema = [3, n0, _BRF,
   0,
   [_Sh, _Str],
@@ -2050,12 +2099,6 @@ export var ColorCorrector$: StaticStructureSchema = [3, n0, _CCo,
   [_Br, _CL, _CSC, _Con, _HM, _HTSTM, _Hu, _ML, _SRC, _Sa, _SRWL],
   [[1, { [_jN]: _br }], [() => ClipLimits$, { [_jN]: _cL }], [0, { [_jN]: _cSC }], [1, { [_jN]: _con }], [() => Hdr10Metadata$, { [_jN]: _hM }], [0, { [_jN]: _hTSTM }], [1, { [_jN]: _hu }], [1, { [_jN]: _mL }], [0, { [_jN]: _sRC }], [1, { [_jN]: _sa }], [1, { [_jN]: _sRWL }]]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _cl, [_hE]: 409 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Container$: StaticStructureSchema = [3, n0, _Cont,
   0,
   [_Du, _F, _T],
@@ -2069,7 +2112,7 @@ export var ContainerSettings$: StaticStructureSchema = [3, n0, _CSon,
 export var CreateJobRequest$: StaticStructureSchema = [3, n0, _CJRr,
   0,
   [_Ro, _Se, _AScc, _BTS, _CRT, _HD, _JEV, _JT, _Pri, _Q, _SRQ, _SUI, _Ta, _UM],
-  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _bTS }], [0, { [_iT]: 1, [_jN]: _cRT }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _jEV }], [0, { [_jN]: _jT }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }], [128 | 0, { [_jN]: _uM }]], 2
+  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _bTS }], [0, { [_iT]: 1, [_jN]: _cRT }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _jEV }], [0, { [_jN]: _jT }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }], [128 | 0, { [_jN]: _uM }]], 2
 ];
 export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
   0,
@@ -2079,7 +2122,7 @@ export var CreateJobResponse$: StaticStructureSchema = [3, n0, _CJRre,
 export var CreateJobTemplateRequest$: StaticStructureSchema = [3, n0, _CJTR,
   0,
   [_N, _Se, _AScc, _Ca, _Des, _HD, _Pri, _Q, _SUI, _Ta],
-  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]], 2
+  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
   0,
@@ -2089,7 +2132,7 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 export var CreatePresetRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
   [_N, _Se, _Ca, _Des, _Ta],
-  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [128 | 0, { [_jN]: _ta }]], 2
+  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [128 | 0, { [_jN]: _ta }]], 2
 ];
 export var CreatePresetResponse$: StaticStructureSchema = [3, n0, _CPRr,
   0,
@@ -2143,8 +2186,8 @@ export var DataProperties$: StaticStructureSchema = [3, n0, _DP,
 ];
 export var Deinterlacer$: StaticStructureSchema = [3, n0, _Dei,
   0,
-  [_Al, _Contr, _M],
-  [[0, { [_jN]: _al }], [0, { [_jN]: _contr }], [0, { [_jN]: _m }]]
+  [_Al, _Contr, _Mo],
+  [[0, { [_jN]: _al }], [0, { [_jN]: _contr }], [0, { [_jN]: _mo }]]
 ];
 export var DeleteJobTemplateRequest$: StaticStructureSchema = [3, n0, _DJTR,
   0,
@@ -2188,8 +2231,8 @@ export var DeleteQueueResponse$: StaticStructureSchema = [3, n0, _DQRe,
 ];
 export var DescribeEndpointsRequest$: StaticStructureSchema = [3, n0, _DER,
   0,
-  [_MRa, _M, _NT],
-  [[1, { [_jN]: _mRa }], [0, { [_jN]: _m }], [0, { [_jN]: _nT }]]
+  [_MRa, _Mo, _NT],
+  [[1, { [_jN]: _mRa }], [0, { [_jN]: _mo }], [0, { [_jN]: _nT }]]
 ];
 export var DescribeEndpointsResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
@@ -2319,14 +2362,8 @@ export var FileSourceSettings$: StaticStructureSchema = [3, n0, _FSS,
 export var FlacSettings$: StaticStructureSchema = [3, n0, _FS,
   0,
   [_BD, _C, _SR],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _c }], [1, { [_jN]: _sR }]]
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _cl, [_hE]: 403 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var ForceIncludeRenditionSize$: StaticStructureSchema = [3, n0, _FIRS,
   0,
   [_H, _W],
@@ -2520,23 +2557,17 @@ export var InputTemplate$: StaticStructureSchema = [3, n0, _IT,
 export var InputVideoGenerator$: StaticStructureSchema = [3, n0, _IVG,
   0,
   [_C, _Du, _FD, _FN, _H, _IIma, _SR, _W],
-  [[1, { [_jN]: _c }], [1, { [_jN]: _du }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _h }], [0, { [_jN]: _iIma }], [1, { [_jN]: _sR }], [1, { [_jN]: _w }]]
+  [[1, { [_jN]: _ch }], [1, { [_jN]: _du }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [1, { [_jN]: _h }], [0, { [_jN]: _iIma }], [1, { [_jN]: _sR }], [1, { [_jN]: _w }]]
 ];
 export var InsertableImage$: StaticStructureSchema = [3, n0, _IIns,
   0,
   [_Du, _FIa, _FOa, _H, _III, _IX, _IY, _La, _Op, _STta, _W],
   [[1, { [_jN]: _du }], [1, { [_jN]: _fIa }], [1, { [_jN]: _fOa }], [1, { [_jN]: _h }], [0, { [_jN]: _iII }], [1, { [_jN]: _iX }], [1, { [_jN]: _iY }], [1, { [_jN]: _la }], [1, { [_jN]: _op }], [0, { [_jN]: _sTta }], [1, { [_jN]: _w }]]
 ];
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_Ro, _Se, _AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Mes, _OGD, _Pri, _Q, _QT, _RC, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
-  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _mes }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]], 2
+  [_Ro, _Se, _AScc, _AScce, _A, _BTS, _CRT, _CA, _CPu, _EC, _EMr, _HD, _I, _JEVR, _JEVU, _JPC, _JT, _LSD, _Me, _OGD, _Pri, _Q, _QT, _RC, _SSh, _SRQ, _Sta, _SUI, _Timi, _UM, _Wa],
+  [[0, { [_jN]: _ro }], [() => JobSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _aScce }], [0, { [_jN]: _a }], [0, { [_jN]: _bTS }], [0, { [_jN]: _cRT }], [7, { [_jN]: _cA }], [0, { [_jN]: _cPu }], [1, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [() => __listOfHopDestination, { [_jN]: _hD }], [0, { [_jN]: _id }], [0, { [_jN]: _jEVR }], [0, { [_jN]: _jEVU }], [1, { [_jN]: _jPC }], [0, { [_jN]: _jT }], [0, { [_jN]: _lSD }], [() => JobMessages$, { [_jN]: _me }], [() => __listOfOutputGroupDetail, { [_jN]: _oGD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => __listOfQueueTransition, { [_jN]: _qT }], [1, { [_jN]: _rC }], [0, { [_jN]: _sSh }], [0, { [_jN]: _sRQ }], [0, { [_jN]: _sta }], [0, { [_jN]: _sUI }], [() => Timing$, { [_jN]: _timi }], [128 | 0, { [_jN]: _uM }], [() => __listOfWarningGroup, { [_jN]: _wa }]], 2
 ];
 export var JobEngineVersion$: StaticStructureSchema = [3, n0, _JEV,
   0,
@@ -2561,7 +2592,7 @@ export var JobsQueryFilter$: StaticStructureSchema = [3, n0, _JQF,
 export var JobTemplate$: StaticStructureSchema = [3, n0, _JT,
   0,
   [_N, _Se, _AScc, _A, _Ca, _CA, _Des, _HD, _LU, _Pri, _Q, _SUI, _Ty],
-  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _se }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]], 2
+  [[0, { [_jN]: _n }], [() => JobTemplateSettings$, { [_jN]: _set }], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [7, { [_jN]: _lU }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [0, { [_jN]: _sUI }], [0, { [_jN]: _ty }]], 2
 ];
 export var JobTemplateSettings$: StaticStructureSchema = [3, n0, _JTS,
   0,
@@ -2686,12 +2717,12 @@ export var MovSettings$: StaticStructureSchema = [3, n0, _MSo,
 export var Mp2Settings$: StaticStructureSchema = [3, n0, _MS,
   0,
   [_ADM, _B, _C, _SR],
-  [[0, { [_jN]: _aDM }], [1, { [_jN]: _b }], [1, { [_jN]: _c }], [1, { [_jN]: _sR }]]
+  [[0, { [_jN]: _aDM }], [1, { [_jN]: _b }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]]
 ];
 export var Mp3Settings$: StaticStructureSchema = [3, n0, _MSp,
   0,
   [_B, _C, _RCM, _SR, _VQ],
-  [[1, { [_jN]: _b }], [1, { [_jN]: _c }], [0, { [_jN]: _rCM }], [1, { [_jN]: _sR }], [1, { [_jN]: _vQ }]]
+  [[1, { [_jN]: _b }], [1, { [_jN]: _ch }], [0, { [_jN]: _rCM }], [1, { [_jN]: _sR }], [1, { [_jN]: _vQ }]]
 ];
 export var Mp4Settings$: StaticStructureSchema = [3, n0, _MSpe,
   0,
@@ -2761,23 +2792,17 @@ export var NoiseReducerFilterSettings$: StaticStructureSchema = [3, n0, _NRFS,
 export var NoiseReducerSpatialFilterSettings$: StaticStructureSchema = [3, n0, _NRSFS,
   0,
   [_PFSS, _Sp, _Str],
-  [[1, { [_jN]: _pFSS }], [1, { [_jN]: _sp }], [1, { [_jN]: _str }]]
+  [[1, { [_jN]: _pFSS }], [1, { [_jN]: _spe }], [1, { [_jN]: _str }]]
 ];
 export var NoiseReducerTemporalFilterSettings$: StaticStructureSchema = [3, n0, _NRTFS,
   0,
   [_AMg, _PTS, _PTSS, _Sp, _Str],
-  [[1, { [_jN]: _aMg }], [0, { [_jN]: _pTS }], [0, { [_jN]: _pTSS }], [1, { [_jN]: _sp }], [1, { [_jN]: _str }]]
+  [[1, { [_jN]: _aMg }], [0, { [_jN]: _pTS }], [0, { [_jN]: _pTSS }], [1, { [_jN]: _spe }], [1, { [_jN]: _str }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _cl, [_hE]: 404 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var OpusSettings$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_B, _C, _SR],
-  [[1, { [_jN]: _b }], [1, { [_jN]: _c }], [1, { [_jN]: _sR }]]
+  [[1, { [_jN]: _b }], [1, { [_jN]: _ch }], [1, { [_jN]: _sR }]]
 ];
 export var Output$: StaticStructureSchema = [3, n0, _Ou,
   0,
@@ -2832,7 +2857,7 @@ export var Policy$: StaticStructureSchema = [3, n0, _Po,
 export var Preset$: StaticStructureSchema = [3, n0, _Pre,
   0,
   [_N, _Se, _A, _Ca, _CA, _Des, _LU, _Ty],
-  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _se }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _ty }]], 2
+  [[0, { [_jN]: _n }], [() => PresetSettings$, { [_jN]: _set }], [0, { [_jN]: _a }], [0, { [_jN]: _ca }], [7, { [_jN]: _cA }], [0, { [_jN]: _des }], [7, { [_jN]: _lU }], [0, { [_jN]: _ty }]], 2
 ];
 export var PresetSettings$: StaticStructureSchema = [3, n0, _PSr,
   0,
@@ -2941,15 +2966,9 @@ export var SearchJobsResponse$: StaticStructureSchema = [3, n0, _SJRe,
 ];
 export var ServiceOverride$: StaticStructureSchema = [3, n0, _SOerv,
   0,
-  [_Me, _N, _OV, _Val],
-  [[0, { [_jN]: _me }], [0, { [_jN]: _n }], [0, { [_jN]: _oV }], [0, { [_jN]: _val }]]
+  [_M, _N, _OV, _Val],
+  [[0, { [_jN]: _m }], [0, { [_jN]: _n }], [0, { [_jN]: _oV }], [0, { [_jN]: _val }]]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _cl, [_hE]: 402 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
   [_CAe, _ECC, _RIe, _SIy, _U],
@@ -3020,12 +3039,6 @@ export var Timing$: StaticStructureSchema = [3, n0, _Timi,
   [_FTi, _STta, _STub],
   [[7, { [_jN]: _fTi }], [7, { [_jN]: _sTta }], [7, { [_jN]: _sTub }]]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _cl, [_hE]: 429 },
-  [_Me],
-  [[0, { [_jN]: _me }]]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var Track$: StaticStructureSchema = [3, n0, _Tr,
   0,
   [_AP, _Co, _DP, _Du, _Ind, _TT, _VPi],
@@ -3064,7 +3077,7 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 export var UpdateJobTemplateRequest$: StaticStructureSchema = [3, n0, _UJTR,
   0,
   [_N, _AScc, _Ca, _Des, _HD, _Pri, _Q, _Se, _SUI],
-  [[0, 1], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _se }], [0, { [_jN]: _sUI }]], 1
+  [[0, 1], [() => AccelerationSettings$, { [_jN]: _aScc }], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => __listOfHopDestination, { [_jN]: _hD }], [1, { [_jN]: _pri }], [0, { [_jN]: _q }], [() => JobTemplateSettings$, { [_jN]: _set }], [0, { [_jN]: _sUI }]], 1
 ];
 export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
   0,
@@ -3074,7 +3087,7 @@ export var UpdateJobTemplateResponse$: StaticStructureSchema = [3, n0, _UJTRp,
 export var UpdatePresetRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
   [_N, _Ca, _Des, _Se],
-  [[0, 1], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => PresetSettings$, { [_jN]: _se }]], 1
+  [[0, 1], [0, { [_jN]: _ca }], [0, { [_jN]: _des }], [() => PresetSettings$, { [_jN]: _set }]], 1
 ];
 export var UpdatePresetResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -3159,7 +3172,7 @@ export var VideoSelector$: StaticStructureSchema = [3, n0, _VSi,
 export var VorbisSettings$: StaticStructureSchema = [3, n0, _VS,
   0,
   [_C, _SR, _VQ],
-  [[1, { [_jN]: _c }], [1, { [_jN]: _sR }], [1, { [_jN]: _vQ }]]
+  [[1, { [_jN]: _ch }], [1, { [_jN]: _sR }], [1, { [_jN]: _vQ }]]
 ];
 export var Vp8Settings$: StaticStructureSchema = [3, n0, _VSp,
   0,
@@ -3179,7 +3192,7 @@ export var WarningGroup$: StaticStructureSchema = [3, n0, _WG,
 export var WavSettings$: StaticStructureSchema = [3, n0, _WS,
   0,
   [_BD, _C, _F, _SR],
-  [[1, { [_jN]: _bD }], [1, { [_jN]: _c }], [0, { [_jN]: _f }], [1, { [_jN]: _sR }]]
+  [[1, { [_jN]: _bD }], [1, { [_jN]: _ch }], [0, { [_jN]: _f }], [1, { [_jN]: _sR }]]
 ];
 export var WebvttDestinationSettings$: StaticStructureSchema = [3, n0, _WDS,
   0,
@@ -3221,8 +3234,6 @@ export var XavcSettings$: StaticStructureSchema = [3, n0, _XS,
   [_AQ, _EE, _FC, _FCA, _FD, _FN, _PFM, _Pr, _SP, _So, _SAQ, _TAQ, _XICPS, _XIVPS, _XPSa, _XHICPS, _XHPS],
   [[0, { [_jN]: _aQ }], [0, { [_jN]: _eE }], [0, { [_jN]: _fC }], [0, { [_jN]: _fCA }], [1, { [_jN]: _fD }], [1, { [_jN]: _fN }], [64 | 0, { [_jN]: _pFM }], [0, { [_jN]: _pr }], [0, { [_jN]: _sP }], [1, { [_jN]: _so }], [0, { [_jN]: _sAQ }], [0, { [_jN]: _tAQ }], [() => Xavc4kIntraCbgProfileSettings$, { [_jN]: _xICPS }], [() => Xavc4kIntraVbrProfileSettings$, { [_jN]: _xIVPS }], [() => Xavc4kProfileSettings$, { [_jN]: _xPSa }], [() => XavcHdIntraCbgProfileSettings$, { [_jN]: _xHICPS }], [() => XavcHdProfileSettings$, { [_jN]: _xHPS }]]
 ];
-export var MediaConvertServiceException$: StaticErrorSchema = [-3, _sm, "MediaConvertServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(MediaConvertServiceException$, MediaConvertServiceException);
 var __listOf__doubleMinNegative60Max6 = 64 | 1;
 var __listOf__integer = 64 | 1;
 var __listOf__integerMin1Max2147483647 = 64 | 1;

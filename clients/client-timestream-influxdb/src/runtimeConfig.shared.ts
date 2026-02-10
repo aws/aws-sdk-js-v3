@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTimestreamInfluxDBHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TimestreamInfluxDBClientConfig } from "./TimestreamInfluxDBClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TimestreamInfluxDBClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.timestreaminfluxdb",
+      errorTypeRegistries,
       version: "2023-01-27",
       serviceTarget: "AmazonTimestreamInfluxDB",
     },

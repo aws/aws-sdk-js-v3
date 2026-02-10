@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultTextractHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { TextractClientConfig } from "./TextractClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: TextractClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.textract",
+      errorTypeRegistries,
       version: "2018-06-27",
       serviceTarget: "Textract",
     },

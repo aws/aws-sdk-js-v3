@@ -493,13 +493,13 @@ const _rIu = "ruleId";
 const _rR = "ruleResults";
 const _rV = "ruleVersion";
 const _ru = "rule";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.frauddetector";
 const _sS = "sensitiveString";
 const _sT = "startTime";
 const _sc = "scores";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.frauddetector";
 const _so = "source";
+const _st = "status";
 const _t = "threshold";
 const _tDS = "trainingDataSource";
 const _tDSr = "trainingDataSchema";
@@ -556,17 +556,66 @@ import {
 import { FraudDetectorServiceException } from "../models/FraudDetectorServiceException";
 
 /* eslint no-var: 0 */
-var attributeValue: StaticSimpleSchema = [0, n0, _aV, 8, 0];
-var Elements: StaticSimpleSchema = [0, n0, _E, 8, 0];
-var ruleExpression: StaticSimpleSchema = [0, n0, _rE, 8, 0];
-var sensitiveString: StaticSimpleSchema = [0, n0, _sS, 8, 0];
-var variableValue: StaticSimpleSchema = [0, n0, _vV, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var FraudDetectorServiceException$: StaticErrorSchema = [-3, _s, "FraudDetectorServiceException", 0, [], []];
+_s_registry.registerError(FraudDetectorServiceException$, FraudDetectorServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceUnavailableException$, ResourceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var attributeValue: StaticSimpleSchema = [0, n0, _aV, 8, 0];
+var Elements: StaticSimpleSchema = [0, n0, _E, 8, 0];
+var ruleExpression: StaticSimpleSchema = [0, n0, _rE, 8, 0];
+var sensitiveString: StaticSimpleSchema = [0, n0, _sS, 8, 0];
+var variableValue: StaticSimpleSchema = [0, n0, _vV, 8, 0];
 export var AggregatedLogOddsMetric$: StaticStructureSchema = [3, n0, _ALOM,
   0,
   [_vN, _aVI],
@@ -634,12 +683,12 @@ export var BatchGetVariableResult$: StaticStructureSchema = [3, n0, _BGVRa,
 ];
 export var BatchImport$: StaticStructureSchema = [3, n0, _BI,
   0,
-  [_jI, _s, _fR, _sT, _cTo, _iP, _oP, _eTN, _iRA, _a, _pRC, _fRC, _tRC],
+  [_jI, _st, _fR, _sT, _cTo, _iP, _oP, _eTN, _iRA, _a, _pRC, _fRC, _tRC],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
 ];
 export var BatchPrediction$: StaticStructureSchema = [3, n0, _BP,
   0,
-  [_jI, _s, _fR, _sT, _cTo, _lHT, _iP, _oP, _eTN, _dN, _dV, _iRA, _a, _pRC, _tRC],
+  [_jI, _st, _fR, _sT, _cTo, _lHT, _iP, _oP, _eTN, _dN, _dV, _iRA, _a, _pRC, _tRC],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
 ];
 export var CancelBatchImportJobRequest$: StaticStructureSchema = [3, n0, _CBIJR,
@@ -662,12 +711,6 @@ export var CancelBatchPredictionJobResult$: StaticStructureSchema = [3, n0, _CBP
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBatchImportJobRequest$: StaticStructureSchema = [3, n0, _CBIJRr,
   0,
   [_jI, _iP, _oP, _eTN, _iRA, _ta],
@@ -695,7 +738,7 @@ export var CreateDetectorVersionRequest$: StaticStructureSchema = [3, n0, _CDVR,
 ];
 export var CreateDetectorVersionResult$: StaticStructureSchema = [3, n0, _CDVRr,
   0,
-  [_dI, _dVI, _s],
+  [_dI, _dVI, _st],
   [0, 0, 0]
 ];
 export var CreateListRequest$: StaticStructureSchema = [3, n0, _CLR,
@@ -725,7 +768,7 @@ export var CreateModelVersionRequest$: StaticStructureSchema = [3, n0, _CMVR,
 ];
 export var CreateModelVersionResult$: StaticStructureSchema = [3, n0, _CMVRr,
   0,
-  [_mI, _mT, _mVN, _s],
+  [_mI, _mT, _mVN, _st],
   [0, 0, 0, 0]
 ];
 export var CreateRuleRequest$: StaticStructureSchema = [3, n0, _CRR,
@@ -940,7 +983,7 @@ export var Detector$: StaticStructureSchema = [3, n0, _D,
 ];
 export var DetectorVersionSummary$: StaticStructureSchema = [3, n0, _DVS,
   0,
-  [_dVI, _s, _d, _lUT],
+  [_dVI, _st, _d, _lUT],
   [0, 0, 0, 0]
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
@@ -1075,7 +1118,7 @@ export var GetDetectorVersionRequest$: StaticStructureSchema = [3, n0, _GDVR,
 ];
 export var GetDetectorVersionResult$: StaticStructureSchema = [3, n0, _GDVRe,
   0,
-  [_dI, _dVI, _d, _eME, _mV, _r, _s, _lUT, _cT, _rEM, _a],
+  [_dI, _dVI, _d, _eME, _mV, _r, _st, _lUT, _cT, _rEM, _a],
   [0, 0, 0, 64 | 0, () => ListOfModelVersions, () => RuleList, 0, 0, 0, 0, 0]
 ];
 export var GetEntityTypesRequest$: StaticStructureSchema = [3, n0, _GETR,
@@ -1190,7 +1233,7 @@ export var GetModelVersionRequest$: StaticStructureSchema = [3, n0, _GMVR,
 ];
 export var GetModelVersionResult$: StaticStructureSchema = [3, n0, _GMVRe,
   0,
-  [_mI, _mT, _mVN, _tDS, _tDSr, _eED, _iED, _s, _a],
+  [_mI, _mT, _mVN, _tDS, _tDSr, _eED, _iED, _st, _a],
   [0, 0, 0, 0, () => TrainingDataSchema$, () => ExternalEventsDetail$, () => IngestedEventsDetail$, 0, 0]
 ];
 export var GetOutcomesRequest$: StaticStructureSchema = [3, n0, _GOR,
@@ -1238,12 +1281,6 @@ export var IngestedEventsTimeWindow$: StaticStructureSchema = [3, n0, _IETW,
   [_sT, _eTnd],
   [0, 0], 2
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var KMSKey$: StaticStructureSchema = [3, n0, _KMSK,
   0,
   [_kEKA],
@@ -1321,7 +1358,7 @@ export var ModelVersion$: StaticStructureSchema = [3, n0, _MV,
 ];
 export var ModelVersionDetail$: StaticStructureSchema = [3, n0, _MVD,
   0,
-  [_mI, _mT, _mVN, _s, _tDS, _tDSr, _eED, _iED, _tR, _lUT, _cT, _a, _tRV],
+  [_mI, _mT, _mVN, _st, _tDS, _tDSr, _eED, _iED, _tR, _lUT, _cT, _a, _tRV],
   [0, 0, 0, 0, 0, () => TrainingDataSchema$, () => ExternalEventsDetail$, () => IngestedEventsDetail$, () => TrainingResult$, 0, 0, 0, () => TrainingResultV2$]
 ];
 export var ModelVersionEvaluation$: StaticStructureSchema = [3, n0, _MVE,
@@ -1429,18 +1466,6 @@ export var PutOutcomeResult$: StaticStructureSchema = [3, n0, _PORu,
   [],
   []
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ResourceUnavailableException$: StaticErrorSchema = [-3, n0, _RUE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceUnavailableException$, ResourceUnavailableException);
 export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_dI, _rIu, _rV],
@@ -1496,12 +1521,6 @@ export var TFITrainingMetricsValue$: StaticStructureSchema = [3, n0, _TFITMV,
   [_mDP, _mP],
   [() => TFIMetricDataPointsList, () => TFIModelPerformance$]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrainingDataSchema$: StaticStructureSchema = [3, n0, _TDS,
   0,
   [_mVod, _lS],
@@ -1564,7 +1583,7 @@ export var UpdateDetectorVersionResult$: StaticStructureSchema = [3, n0, _UDVRp,
 ];
 export var UpdateDetectorVersionStatusRequest$: StaticStructureSchema = [3, n0, _UDVSR,
   0,
-  [_dI, _dVI, _s],
+  [_dI, _dVI, _st],
   [0, 0, 0], 3
 ];
 export var UpdateDetectorVersionStatusResult$: StaticStructureSchema = [3, n0, _UDVSRp,
@@ -1609,12 +1628,12 @@ export var UpdateModelVersionRequest$: StaticStructureSchema = [3, n0, _UMVR,
 ];
 export var UpdateModelVersionResult$: StaticStructureSchema = [3, n0, _UMVRp,
   0,
-  [_mI, _mT, _mVN, _s],
+  [_mI, _mT, _mVN, _st],
   [0, 0, 0, 0]
 ];
 export var UpdateModelVersionStatusRequest$: StaticStructureSchema = [3, n0, _UMVSR,
   0,
-  [_mI, _mT, _mVN, _s],
+  [_mI, _mT, _mVN, _st],
   [0, 0, 0, 0], 4
 ];
 export var UpdateModelVersionStatusResult$: StaticStructureSchema = [3, n0, _UMVSRp,
@@ -1652,12 +1671,6 @@ export var UpdateVariableResult$: StaticStructureSchema = [3, n0, _UVRp,
   [],
   []
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var Variable$: StaticStructureSchema = [3, n0, _V,
   0,
   [_n, _dT, _dS, _dVe, _d, _vT, _lUT, _cT, _a],
@@ -1679,8 +1692,6 @@ export var VariableImportanceMetrics$: StaticStructureSchema = [3, n0, _VIM,
   [() => ListOfLogOddsMetrics]
 ];
 var __Unit = "unit" as const;
-export var FraudDetectorServiceException$: StaticErrorSchema = [-3, _sm, "FraudDetectorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(FraudDetectorServiceException$, FraudDetectorServiceException);
 var AllowDenyLists: StaticListSchema = [1, n0, _ADLl,
   0, () => AllowDenyList$
 ];

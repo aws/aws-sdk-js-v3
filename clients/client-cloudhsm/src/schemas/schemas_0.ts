@@ -118,8 +118,8 @@ const _c = "client";
 const _e = "error";
 const _m = "message";
 const _r = "retryable";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cloudhsm";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cloudhsm";
+const _se = "server";
 const _xN = "xmlName";
 const n0 = "com.amazonaws.cloudhsm";
 
@@ -131,6 +131,37 @@ import { CloudHSMServiceException } from "../models/CloudHSMServiceException";
 import { CloudHsmInternalException, CloudHsmServiceException, InvalidRequestException } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CloudHSMServiceException$: StaticErrorSchema = [-3, _s, "CloudHSMServiceException", 0, [], []];
+_s_registry.registerError(CloudHSMServiceException$, CloudHSMServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var CloudHsmInternalException$: StaticErrorSchema = [-3, n0, _CHIE,
+  { [_e]: _se },
+  [_m, _r],
+  [0, 2]
+];
+n0_registry.registerError(CloudHsmInternalException$, CloudHsmInternalException);
+export var CloudHsmServiceException$: StaticErrorSchema = [-3, n0, _CHSE,
+  { [_e]: _c },
+  [_m, _r],
+  [0, 2]
+];
+n0_registry.registerError(CloudHsmServiceException$, CloudHsmServiceException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_m, _r],
+  [0, 2]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AddTagsToResourceRequest$: StaticStructureSchema = [3, n0, _ATTRR,
   0,
   [_RA, _TL],
@@ -141,18 +172,6 @@ export var AddTagsToResourceResponse$: StaticStructureSchema = [3, n0, _ATTRRd,
   [_S],
   [0], 1
 ];
-export var CloudHsmInternalException$: StaticErrorSchema = [-3, n0, _CHIE,
-  { [_e]: _s },
-  [_m, _r],
-  [0, 2]
-];
-TypeRegistry.for(n0).registerError(CloudHsmInternalException$, CloudHsmInternalException);
-export var CloudHsmServiceException$: StaticErrorSchema = [-3, n0, _CHSE,
-  { [_e]: _c },
-  [_m, _r],
-  [0, 2]
-];
-TypeRegistry.for(n0).registerError(CloudHsmServiceException$, CloudHsmServiceException);
 export var CreateHapgRequest$: StaticStructureSchema = [3, n0, _CHR,
   0,
   [_L],
@@ -253,12 +272,6 @@ export var GetConfigResponse$: StaticStructureSchema = [3, n0, _GCRe,
   [_CTo, _CFo, _CC],
   [0, 0, 0]
 ];
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_m, _r],
-  [0, 2]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
 export var ListAvailableZonesRequest$: StaticStructureSchema = [3, n0, _LAZR,
   0,
   [],
@@ -354,8 +367,6 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
   [_K, _V],
   [0, 0], 2
 ];
-export var CloudHSMServiceException$: StaticErrorSchema = [-3, _sm, "CloudHSMServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CloudHSMServiceException$, CloudHSMServiceException);
 var AZList = 64 | 0;
 var ClientList = 64 | 0;
 var HapgList = 64 | 0;

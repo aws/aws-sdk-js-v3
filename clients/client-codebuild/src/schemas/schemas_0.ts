@@ -527,7 +527,7 @@ const _rT = "retryType";
 const _rTe = "requestTime";
 const _re = "restrictions";
 const _res = "resource";
-const _s = "sandboxes";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.codebuild";
 const _sA = "secondaryArtifacts";
 const _sAO = "secondaryArtifactsOverride";
 const _sAOo = "sourceAuthOverride";
@@ -571,11 +571,11 @@ const _sTer = "serverType";
 const _sTu = "submitTime";
 const _sU = "streamUrl";
 const _sV = "sourceVersion";
-const _sa = "sandbox";
+const _sa = "sandboxes";
+const _san = "sandbox";
 const _sc = "scope";
 const _se = "secret";
 const _sh = "sha256sum";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.codebuild";
 const _so = "source";
 const _st = "status";
 const _sta = "stats";
@@ -629,20 +629,57 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
-var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var CodeBuildServiceException$: StaticErrorSchema = [-3, _s, "CodeBuildServiceException", 0, [], []];
+_s_registry.registerError(CodeBuildServiceException$, CodeBuildServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccountLimitExceededException$: StaticErrorSchema = [-3, n0, _ALEE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccountLimitExceededException$, AccountLimitExceededException);
+n0_registry.registerError(AccountLimitExceededException$, AccountLimitExceededException);
 export var AccountSuspendedException$: StaticErrorSchema = [-3, n0, _ASE,
   { [_e]: _c },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccountSuspendedException$, AccountSuspendedException);
+n0_registry.registerError(AccountSuspendedException$, AccountSuspendedException);
+export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidInputException$, InvalidInputException);
+export var OAuthProviderException$: StaticErrorSchema = [-3, n0, _OAPE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OAuthProviderException$, OAuthProviderException);
+export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SensitiveNonEmptyString: StaticSimpleSchema = [0, n0, _SNES, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AutoRetryConfig$: StaticStructureSchema = [3, n0, _ARC,
   0,
   [_aRL, _aRN, _nAR, _pAR],
@@ -735,7 +772,7 @@ export var BatchGetSandboxesInput$: StaticStructureSchema = [3, n0, _BGSI,
 ];
 export var BatchGetSandboxesOutput$: StaticStructureSchema = [3, n0, _BGSO,
   0,
-  [_s, _sNF],
+  [_sa, _sNF],
   [() => Sandboxes, 64 | 0]
 ];
 export var BatchRestrictions$: StaticStructureSchema = [3, n0, _BR,
@@ -1058,12 +1095,6 @@ export var InvalidateProjectCacheOutput$: StaticStructureSchema = [3, n0, _IPCO,
   [],
   []
 ];
-export var InvalidInputException$: StaticErrorSchema = [-3, n0, _IIE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidInputException$, InvalidInputException);
 export var ListBuildBatchesForProjectInput$: StaticStructureSchema = [3, n0, _LBBFPI,
   0,
   [_pN, _fi, _mR, _sO, _nT],
@@ -1239,12 +1270,6 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   [_sIu, _nII],
   [0, 0]
 ];
-export var OAuthProviderException$: StaticErrorSchema = [-3, n0, _OAPE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OAuthProviderException$, OAuthProviderException);
 export var PhaseContext$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_sC, _m],
@@ -1360,18 +1385,6 @@ export var ResolvedArtifact$: StaticStructureSchema = [3, n0, _RA,
   [_t, _lo, _ide],
   [0, 0, 0]
 ];
-export var ResourceAlreadyExistsException$: StaticErrorSchema = [-3, n0, _RAEE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceAlreadyExistsException$, ResourceAlreadyExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RetryBuildBatchInput$: StaticStructureSchema = [3, n0, _RBBI,
   0,
   [_id, _iTd, _rT],
@@ -1494,7 +1507,7 @@ export var StartSandboxInput$: StaticStructureSchema = [3, n0, _SSI,
 ];
 export var StartSandboxOutput$: StaticStructureSchema = [3, n0, _SSO,
   0,
-  [_sa],
+  [_san],
   [() => Sandbox$]
 ];
 export var StopBuildBatchInput$: StaticStructureSchema = [3, n0, _SBBIt,
@@ -1524,7 +1537,7 @@ export var StopSandboxInput$: StaticStructureSchema = [3, n0, _SSIt,
 ];
 export var StopSandboxOutput$: StaticStructureSchema = [3, n0, _SSOt,
   0,
-  [_sa],
+  [_san],
   [() => Sandbox$]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _T,
@@ -1617,8 +1630,6 @@ export var WebhookFilter$: StaticStructureSchema = [3, n0, _WF,
   [_t, _pat, _eMP],
   [0, 0, 2], 2
 ];
-export var CodeBuildServiceException$: StaticErrorSchema = [-3, _sm, "CodeBuildServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CodeBuildServiceException$, CodeBuildServiceException);
 var BuildArtifactsList: StaticListSchema = [1, n0, _BAL,
   0, () => BuildArtifacts$
 ];

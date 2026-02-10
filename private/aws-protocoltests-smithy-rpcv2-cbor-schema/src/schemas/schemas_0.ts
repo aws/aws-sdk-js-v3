@@ -144,13 +144,40 @@ import { ComplexError, InvalidGreeting, ValidationException } from "../models/er
 import { RpcV2ProtocolServiceException } from "../models/RpcV2ProtocolServiceException";
 
 /* eslint no-var: 0 */
-var __Unit = "unit" as const;
+const _sC_registry = TypeRegistry.for(_sC);
+export var RpcV2ProtocolServiceException$: StaticErrorSchema = [-3, _sC, "RpcV2ProtocolServiceException", 0, [], []];
+_sC_registry.registerError(RpcV2ProtocolServiceException$, RpcV2ProtocolServiceException);
+const n0_registry = TypeRegistry.for(n0);
+const n1_registry = TypeRegistry.for(n1);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c },
   [_m, _fL],
   [0, () => ValidationExceptionFieldList], 1
 ];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
+n0_registry.registerError(ValidationException$, ValidationException);
+export var ComplexError$: StaticErrorSchema = [-3, n1, _CE,
+  { [_e]: _c },
+  [_TL, _N],
+  [0, () => ComplexNestedErrorData$]
+];
+n1_registry.registerError(ComplexError$, ComplexError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n1, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n1_registry.registerError(InvalidGreeting$, InvalidGreeting);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _sC_registry,
+  n0_registry,
+  n1_registry,
+]
+var __Unit = "unit" as const;
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_p, _m],
@@ -161,12 +188,6 @@ export var ClientOptionalDefaults$: StaticStructureSchema = [3, n1, _COD,
   [_me],
   [1]
 ];
-export var ComplexError$: StaticErrorSchema = [-3, n1, _CE,
-  { [_e]: _c },
-  [_TL, _N],
-  [0, () => ComplexNestedErrorData$]
-];
-TypeRegistry.for(n1).registerError(ComplexError$, ComplexError);
 export var ComplexNestedErrorData$: StaticStructureSchema = [3, n1, _CNED,
   0,
   [_F],
@@ -197,12 +218,6 @@ export var GreetingWithErrorsOutput$: StaticStructureSchema = [3, n1, _GWEO,
   [_g],
   [0]
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n1, _IG,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n1).registerError(InvalidGreeting$, InvalidGreeting);
 export var OperationWithDefaultsInput$: StaticStructureSchema = [3, n1, _OWDI,
   0,
   [_de, _cOD, _tLD, _oTLD],
@@ -268,8 +283,6 @@ export var GreetingStruct$: StaticStructureSchema = [3, n2, _GS,
   [_h],
   [0]
 ];
-export var RpcV2ProtocolServiceException$: StaticErrorSchema = [-3, _sC, "RpcV2ProtocolServiceException", 0, [], []];
-TypeRegistry.for(_sC).registerError(RpcV2ProtocolServiceException$, RpcV2ProtocolServiceException);
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];

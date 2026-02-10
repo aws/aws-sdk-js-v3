@@ -228,23 +228,42 @@ import { ComplexError, CustomCodeError, InvalidGreeting } from "../models/errors
 import { QueryProtocolServiceException } from "../models/QueryProtocolServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var QueryProtocolServiceException$: StaticErrorSchema = [-3, _s, "QueryProtocolServiceException", 0, [], []];
+_s_registry.registerError(QueryProtocolServiceException$, QueryProtocolServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ComplexError$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c },
   [_TL, _N],
   [0, () => ComplexNestedErrorData$]
 ];
-TypeRegistry.for(n0).registerError(ComplexError$, ComplexError);
-export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
-  0,
-  [_F],
-  [0]
-];
+n0_registry.registerError(ComplexError$, ComplexError);
 export var CustomCodeError$: StaticErrorSchema = [-3, n0, _CCE,
   { [_aQE]: [`Customized`, 402], [_e]: _c },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(CustomCodeError$, CustomCodeError);
+n0_registry.registerError(CustomCodeError$, CustomCodeError);
+export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidGreeting$, InvalidGreeting);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+export var ComplexNestedErrorData$: StaticStructureSchema = [3, n0, _CNED,
+  0,
+  [_F],
+  [0]
+];
 export var DatetimeOffsetsOutput$: StaticStructureSchema = [3, n0, _DOO,
   0,
   [_d],
@@ -295,12 +314,6 @@ export var IgnoresWrappingXmlNameOutput$: StaticStructureSchema = [3, n0, _IWXNO
   [_f],
   [0]
 ];
-export var InvalidGreeting$: StaticErrorSchema = [-3, n0, _IG,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidGreeting$, InvalidGreeting);
 export var NestedStructuresInput$: StaticStructureSchema = [3, n0, _NSI,
   0,
   [_N],
@@ -437,8 +450,6 @@ export var GreetingStruct$: StaticStructureSchema = [3, n1, _GS,
   [0]
 ];
 var __Unit = "unit" as const;
-export var QueryProtocolServiceException$: StaticErrorSchema = [-3, _s, "QueryProtocolServiceException", 0, [], []];
-TypeRegistry.for(_s).registerError(QueryProtocolServiceException$, QueryProtocolServiceException);
 var ListWithMemberNamespace: StaticListSchema = [1, n0, _LWMN,
   { [_xNm]: [_, _hl] }, [0,
     { [_xNm]: [_, _hm_] }]

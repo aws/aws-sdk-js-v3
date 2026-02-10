@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultKinesisAnalyticsV2HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { KinesisAnalyticsV2ClientConfig } from "./KinesisAnalyticsV2Client";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: KinesisAnalyticsV2ClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.kinesisanalyticsv2",
+      errorTypeRegistries,
       xmlNamespace: "http://analytics.kinesis.amazonaws.com/doc/2018-05-23",
       version: "2018-05-23",
       serviceTarget: "KinesisAnalytics_20180523",

@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSFNHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SFNClientConfig } from "./SFNClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SFNClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.sfn",
+      errorTypeRegistries,
       xmlNamespace: "http://swf.amazonaws.com/doc/2015-07-20/",
       version: "2016-11-23",
       serviceTarget: "AWSStepFunctions",

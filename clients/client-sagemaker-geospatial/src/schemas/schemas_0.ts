@@ -246,9 +246,9 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _mT = "mediaType";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakergeospatial";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.sagemakergeospatial";
+const _st = "streaming";
 const _tK = "tagKeys";
 const _x = "x";
 const _y = "y";
@@ -279,14 +279,63 @@ import {
 import { SageMakerGeospatialServiceException } from "../models/SageMakerGeospatialServiceException";
 
 /* eslint no-var: 0 */
-var BinaryFile: StaticSimpleSchema = [0, n0, _BF, { [_mT]: _ab, [_s]: 1 }, 42];
-var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SageMakerGeospatialServiceException$: StaticErrorSchema = [-3, _s, "SageMakerGeospatialServiceException", 0, [], []];
+_s_registry.registerError(SageMakerGeospatialServiceException$, SageMakerGeospatialServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _RI],
+  [0, 0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var BinaryFile: StaticSimpleSchema = [0, n0, _BF, { [_mT]: _ab, [_st]: 1 }, 42];
+var NextToken: StaticSimpleSchema = [0, n0, _NT, 8, 0];
 export var AssetValue$: StaticStructureSchema = [3, n0, _AV,
   0,
   [_H],
@@ -307,12 +356,6 @@ export var CloudRemovalConfigInput$: StaticStructureSchema = [3, n0, _CRCI,
   [_AN, _IV, _TB],
   [0, 0, 64 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CustomIndicesInput$: StaticStructureSchema = [3, n0, _CII,
   0,
   [_O],
@@ -453,12 +496,6 @@ export var InputConfigOutput$: StaticStructureSchema = [3, n0, _ICO,
   [_PEOJA, _RDCQ],
   [0, [() => RasterDataCollectionQueryOutput$, 0]]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ItemSource$: StaticStructureSchema = [3, n0, _IS,
   0,
   [_I, _G, _DT, _As, _P],
@@ -609,12 +646,6 @@ export var ResamplingConfigInput$: StaticStructureSchema = [3, n0, _RCI,
   [_OR, _AN, _TB],
   [() => OutputResolutionResamplingInput$, 0, 64 | 0], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ReverseGeocodingConfig$: StaticStructureSchema = [3, n0, _RGC,
   0,
   [_YAN, _XAN],
@@ -630,12 +661,6 @@ export var SearchRasterDataCollectionOutput$: StaticStructureSchema = [3, n0, _S
   [_ARC, _NT, _It],
   [1, [() => NextToken, 0], [() => ItemSourceList, 0]], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StackConfigInput$: StaticStructureSchema = [3, n0, _SCI,
   0,
   [_OR, _TB],
@@ -696,12 +721,6 @@ export var TemporalStatisticsConfigInput$: StaticStructureSchema = [3, n0, _TSCI
   [_St, _GB, _TB],
   [64 | 0, 0, 64 | 0], 1
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TimeRangeFilterInput$: StaticStructureSchema = [3, n0, _TRFI,
   8,
   [_ST, _ET],
@@ -727,12 +746,6 @@ export var UserDefined$: StaticStructureSchema = [3, n0, _UD,
   [_V, _U],
   [1, 0], 2
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _RI],
-  [0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var VectorEnrichmentJobErrorDetails$: StaticStructureSchema = [3, n0, _VEJED,
   0,
   [_ETr, _EM],
@@ -773,8 +786,6 @@ export var ZonalStatisticsConfigInput$: StaticStructureSchema = [3, n0, _ZSCI,
   [_ZSP, _St, _TB, _ZSPKKI],
   [0, 64 | 0, 64 | 0, 0], 2
 ];
-export var SageMakerGeospatialServiceException$: StaticErrorSchema = [-3, _sm, "SageMakerGeospatialServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SageMakerGeospatialServiceException$, SageMakerGeospatialServiceException);
 var DataCollectionsList: StaticListSchema = [1, n0, _DCL,
   0, () => RasterDataCollectionMetadata$
 ];

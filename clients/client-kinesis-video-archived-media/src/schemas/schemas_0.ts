@@ -78,8 +78,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "streaming";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.kinesisvideoarchivedmedia";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kinesisvideoarchivedmedia";
+const _st = "streaming";
 const n0 = "com.amazonaws.kinesisvideoarchivedmedia";
 
 // smithy-typescript generated code
@@ -107,13 +107,74 @@ import {
 import { KinesisVideoArchivedMediaServiceException } from "../models/KinesisVideoArchivedMediaServiceException";
 
 /* eslint no-var: 0 */
-var Payload: StaticSimpleSchema = [0, n0, _P, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var KinesisVideoArchivedMediaServiceException$: StaticErrorSchema = [-3, _s, "KinesisVideoArchivedMediaServiceException", 0, [], []];
+_s_registry.registerError(KinesisVideoArchivedMediaServiceException$, KinesisVideoArchivedMediaServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var ClientLimitExceededException$: StaticErrorSchema = [-3, n0, _CLEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(ClientLimitExceededException$, ClientLimitExceededException);
+n0_registry.registerError(ClientLimitExceededException$, ClientLimitExceededException);
+export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidArgumentException$, InvalidArgumentException);
+export var InvalidCodecPrivateDataException$: StaticErrorSchema = [-3, n0, _ICPDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidCodecPrivateDataException$, InvalidCodecPrivateDataException);
+export var InvalidMediaFrameException$: StaticErrorSchema = [-3, n0, _IMFE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidMediaFrameException$, InvalidMediaFrameException);
+export var MissingCodecPrivateDataException$: StaticErrorSchema = [-3, n0, _MCPDE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(MissingCodecPrivateDataException$, MissingCodecPrivateDataException);
+export var NoDataRetentionException$: StaticErrorSchema = [-3, n0, _NDRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NoDataRetentionException$, NoDataRetentionException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var UnsupportedStreamMediaTypeException$: StaticErrorSchema = [-3, n0, _USMTE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnsupportedStreamMediaTypeException$, UnsupportedStreamMediaTypeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var Payload: StaticSimpleSchema = [0, n0, _P, { [_st]: 1 }, 42];
 export var ClipFragmentSelector$: StaticStructureSchema = [3, n0, _CFS,
   0,
   [_FST, _TR],
@@ -209,24 +270,6 @@ export var Image$: StaticStructureSchema = [3, n0, _Im,
   [_TS, _Er, _IC],
   [4, 0, 0]
 ];
-export var InvalidArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidArgumentException$, InvalidArgumentException);
-export var InvalidCodecPrivateDataException$: StaticErrorSchema = [-3, n0, _ICPDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidCodecPrivateDataException$, InvalidCodecPrivateDataException);
-export var InvalidMediaFrameException$: StaticErrorSchema = [-3, n0, _IMFE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidMediaFrameException$, InvalidMediaFrameException);
 export var ListFragmentsInput$: StaticStructureSchema = [3, n0, _LFI,
   0,
   [_SN, _SARN, _MR, _NT, _FS],
@@ -237,43 +280,11 @@ export var ListFragmentsOutput$: StaticStructureSchema = [3, n0, _LFO,
   [_Fr, _NT],
   [() => FragmentList, 0]
 ];
-export var MissingCodecPrivateDataException$: StaticErrorSchema = [-3, n0, _MCPDE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MissingCodecPrivateDataException$, MissingCodecPrivateDataException);
-export var NoDataRetentionException$: StaticErrorSchema = [-3, n0, _NDRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NoDataRetentionException$, NoDataRetentionException);
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var TimestampRange$: StaticStructureSchema = [3, n0, _TR,
   0,
   [_ST, _ET],
   [4, 4], 2
 ];
-export var UnsupportedStreamMediaTypeException$: StaticErrorSchema = [-3, n0, _USMTE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedStreamMediaTypeException$, UnsupportedStreamMediaTypeException);
-export var KinesisVideoArchivedMediaServiceException$: StaticErrorSchema = [-3, _sm, "KinesisVideoArchivedMediaServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(KinesisVideoArchivedMediaServiceException$, KinesisVideoArchivedMediaServiceException);
 var FragmentList: StaticListSchema = [1, n0, _FL,
   0, () => Fragment$
 ];

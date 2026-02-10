@@ -64,9 +64,9 @@ const _DNi = "DisplayName";
 const _E = "Email";
 const _EA = "ExpiresAt";
 const _EAn = "EndedAt";
-const _ED = "ErrorDetail";
+const _ED = "ErrorDetails";
 const _EDL = "ErrorDetailList";
-const _EDr = "ErrorDetails";
+const _EDr = "ErrorDetail";
 const _EPI = "ExcludedParticipantIds";
 const _EPIx = "ExcludedParticipantIdentifiers";
 const _EVC = "EmailVerificationCode";
@@ -210,8 +210,8 @@ const _WU = "WebsiteUrl";
 const _c = "client";
 const _e = "error";
 const _hE = "httpError";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralaccount";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralaccount";
+const _se = "server";
 const n0 = "com.amazonaws.partnercentralaccount";
 
 // smithy-typescript generated code
@@ -238,6 +238,61 @@ import {
 import { PartnerCentralAccountServiceException } from "../models/PartnerCentralAccountServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PartnerCentralAccountServiceException$: StaticErrorSchema = [-3, _s, "PartnerCentralAccountServiceException", 0, [], []];
+_s_registry.registerError(PartnerCentralAccountServiceException$, PartnerCentralAccountServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M, _R],
+  [0, 0], 2
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _R],
+  [0, 0], 2
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _R],
+  [0, 0], 2
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _R],
+  [0, 0], 2
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _SC, _QC],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _ED],
+  [0, 0, () => ValidationErrorList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var EmailVerificationCode: StaticSimpleSchema = [0, n0, _EVC, 8, 0];
 var LegalName: StaticSimpleSchema = [0, n0, _LN, 8, 0];
 var RegistrationId: StaticSimpleSchema = [0, n0, _RI, 8, 0];
@@ -252,12 +307,6 @@ export var AcceptConnectionInvitationResponse$: StaticStructureSchema = [3, n0, 
   [_Co],
   [[() => Connection$, 0]], 1
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M, _R],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountSummary$: StaticStructureSchema = [3, n0, _AS,
   0,
   [_N],
@@ -323,12 +372,6 @@ export var CancelProfileUpdateTaskResponse$: StaticStructureSchema = [3, n0, _CP
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
   [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList], 7
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _R],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Connection$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_C, _Id, _A, _OPAI, _UA, _CTon],
@@ -384,7 +427,7 @@ export var DisassociateAwsTrainingCertificationEmailDomainResponse$: StaticStruc
   [],
   []
 ];
-export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
   0,
   [_L, _M, _R],
   [0, 0, 0], 3
@@ -474,12 +517,6 @@ export var GetVerificationResponse$: StaticStructureSchema = [3, n0, _GVRe,
   [_VT, _VS, _VRD, _SA, _VSR, _CAo],
   [0, 0, [() => VerificationResponseDetails$, 0], 5, 0, 5], 4
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var ListConnectionInvitationsRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
   [_C, _NT, _CTo, _MR, _OPIt, _PT, _S],
@@ -585,12 +622,6 @@ export var RejectConnectionInvitationResponse$: StaticStructureSchema = [3, n0, 
   [_C, _Id, _A, _CTo, _CA, _UA, _OPI, _PT, _S, _IM, _IE, _IN, _CI, _EA],
   [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0, [() => SensitiveUnicodeString, 0], 0, 5], 12
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _R],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SellerProfileSummary$: StaticStructureSchema = [3, n0, _SPS,
   0,
   [_Id, _N],
@@ -606,12 +637,6 @@ export var SendEmailVerificationCodeResponse$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _R],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartProfileUpdateTaskRequest$: StaticStructureSchema = [3, n0, _SPUTR,
   0,
   [_C, _I, _TD, _CT],
@@ -652,12 +677,6 @@ export var TaskDetails$: StaticStructureSchema = [3, n0, _TD,
   [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo],
   [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList], 7
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _SC, _QC],
-  [0, 0, 0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RA, _TK],
@@ -678,14 +697,6 @@ export var UpdateConnectionPreferencesResponse$: StaticStructureSchema = [3, n0,
   [_C, _A, _AT, _UA, _Re, _EPI],
   [0, 0, 0, 5, 1, 64 | 0], 5
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R, _EDr],
-  [0, 0, () => ValidationErrorList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var PartnerCentralAccountServiceException$: StaticErrorSchema = [-3, _sm, "PartnerCentralAccountServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PartnerCentralAccountServiceException$, PartnerCentralAccountServiceException);
 var ConnectionInvitationSummaryList: StaticListSchema = [1, n0, _CISL,
   0, () => ConnectionInvitationSummary$
 ];

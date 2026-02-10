@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultComprehendMedicalHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ComprehendMedicalClientConfig } from "./ComprehendMedicalClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ComprehendMedicalClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.comprehendmedical",
+      errorTypeRegistries,
       version: "2018-10-30",
       serviceTarget: "ComprehendMedical_20181030",
     },

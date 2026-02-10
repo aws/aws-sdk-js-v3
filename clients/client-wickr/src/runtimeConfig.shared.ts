@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultWickrHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { WickrClientConfig } from "./WickrClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: WickrClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.wickr",
+      errorTypeRegistries,
       version: "2024-02-01",
       serviceTarget: "WickrAdminApi",
     },

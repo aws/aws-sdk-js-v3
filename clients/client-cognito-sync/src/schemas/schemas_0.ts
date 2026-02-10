@@ -124,9 +124,9 @@ const _lSC = "lastSyncCount";
 const _m = "message";
 const _mR = "maxResults";
 const _nT = "nextToken";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cognitosync";
 const _sST = "syncSessionToken";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cognitosync";
+const _se = "server";
 const _xaCC = "x-amz-Client-Context";
 const n0 = "com.amazonaws.cognitosync";
 
@@ -158,12 +158,97 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CognitoSyncServiceException$: StaticErrorSchema = [-3, _s, "CognitoSyncServiceException", 0, [], []];
+_s_registry.registerError(CognitoSyncServiceException$, CognitoSyncServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AlreadyStreamedException$: StaticErrorSchema = [-3, n0, _ASE,
   { [_aQE]: [`AlreadyStreamed`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AlreadyStreamedException$, AlreadyStreamedException);
+n0_registry.registerError(AlreadyStreamedException$, AlreadyStreamedException);
+export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
+  { [_aQE]: [`ConcurrentModification`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConcurrentModificationException$, ConcurrentModificationException);
+export var DuplicateRequestException$: StaticErrorSchema = [-3, n0, _DRE,
+  { [_aQE]: [`DuplicateRequest`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(DuplicateRequestException$, DuplicateRequestException);
+export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
+  { [_aQE]: [`InternalError`, 500], [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InvalidConfigurationException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_aQE]: [`InvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidConfigurationException$, InvalidConfigurationException);
+export var InvalidLambdaFunctionOutputException$: StaticErrorSchema = [-3, n0, _ILFOE,
+  { [_aQE]: [`InvalidLambdaFunctionOutput`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidLambdaFunctionOutputException$, InvalidLambdaFunctionOutputException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var LambdaThrottledException$: StaticErrorSchema = [-3, n0, _LTE,
+  { [_aQE]: [`LambdaThrottled`, 429], [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(LambdaThrottledException$, LambdaThrottledException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_aQE]: [`NotAuthorizedError`, 403], [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(NotAuthorizedException$, NotAuthorizedException);
+export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
+  { [_aQE]: [`ResourceConflict`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceConflictException$, ResourceConflictException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var BulkPublishRequest$: StaticStructureSchema = [3, n0, _BPR,
   0,
   [_IPI],
@@ -179,12 +264,6 @@ export var CognitoStreams$: StaticStructureSchema = [3, n0, _CS,
   [_SN, _RA, _SS],
   [0, 0, 0]
 ];
-export var ConcurrentModificationException$: StaticErrorSchema = [-3, n0, _CME,
-  { [_aQE]: [`ConcurrentModification`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConcurrentModificationException$, ConcurrentModificationException);
 export var Dataset$: StaticStructureSchema = [3, n0, _D,
   0,
   [_II, _DN, _CD, _LMD, _LMB, _DS, _NR],
@@ -230,12 +309,6 @@ export var DescribeIdentityUsageResponse$: StaticStructureSchema = [3, n0, _DIUR
   [_IU],
   [() => IdentityUsage$]
 ];
-export var DuplicateRequestException$: StaticErrorSchema = [-3, n0, _DRE,
-  { [_aQE]: [`DuplicateRequest`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(DuplicateRequestException$, DuplicateRequestException);
 export var GetBulkPublishDetailsRequest$: StaticStructureSchema = [3, n0, _GBPDR,
   0,
   [_IPI],
@@ -276,42 +349,6 @@ export var IdentityUsage$: StaticStructureSchema = [3, n0, _IU,
   [_II, _IPI, _LMD, _DC, _DS],
   [0, 0, 4, 1, 1]
 ];
-export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
-  { [_aQE]: [`InternalError`, 500], [_e]: _s, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalErrorException$, InternalErrorException);
-export var InvalidConfigurationException$: StaticErrorSchema = [-3, n0, _ICE,
-  { [_aQE]: [`InvalidConfiguration`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidConfigurationException$, InvalidConfigurationException);
-export var InvalidLambdaFunctionOutputException$: StaticErrorSchema = [-3, n0, _ILFOE,
-  { [_aQE]: [`InvalidLambdaFunctionOutput`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidLambdaFunctionOutputException$, InvalidLambdaFunctionOutputException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_aQE]: [`InvalidParameter`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var LambdaThrottledException$: StaticErrorSchema = [-3, n0, _LTE,
-  { [_aQE]: [`LambdaThrottled`, 429], [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(LambdaThrottledException$, LambdaThrottledException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_aQE]: [`LimitExceeded`, 400], [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListDatasetsRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_IPI, _II, _NT, _MR],
@@ -342,12 +379,6 @@ export var ListRecordsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   [_R, _NT, _C, _DSC, _LMB, _MDN, _DE, _DDARSC, _SST],
   [() => RecordList, 0, 1, 1, 0, 64 | 0, 2, 2, 0]
 ];
-export var NotAuthorizedException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_aQE]: [`NotAuthorizedError`, 403], [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(NotAuthorizedException$, NotAuthorizedException);
 export var PushSync$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_AA, _RA],
@@ -373,18 +404,6 @@ export var RegisterDeviceResponse$: StaticStructureSchema = [3, n0, _RDRe,
   [_DI],
   [0]
 ];
-export var ResourceConflictException$: StaticErrorSchema = [-3, n0, _RCE,
-  { [_aQE]: [`ResourceConflict`, 409], [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceConflictException$, ResourceConflictException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_aQE]: [`ResourceNotFound`, 404], [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SetCognitoEventsRequest$: StaticStructureSchema = [3, n0, _SCER,
   0,
   [_IPI, _E],
@@ -410,12 +429,6 @@ export var SubscribeToDatasetResponse$: StaticStructureSchema = [3, n0, _STDRu,
   [],
   []
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_aQE]: [`TooManyRequests`, 429], [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UnsubscribeFromDatasetRequest$: StaticStructureSchema = [3, n0, _UFDR,
   0,
   [_IPI, _II, _DN, _DI],
@@ -437,8 +450,6 @@ export var UpdateRecordsResponse$: StaticStructureSchema = [3, n0, _URRp,
   [() => RecordList]
 ];
 var __Unit = "unit" as const;
-export var CognitoSyncServiceException$: StaticErrorSchema = [-3, _sm, "CognitoSyncServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CognitoSyncServiceException$, CognitoSyncServiceException);
 var ApplicationArnList = 64 | 0;
 var DatasetList: StaticListSchema = [1, n0, _DL,
   0, () => Dataset$

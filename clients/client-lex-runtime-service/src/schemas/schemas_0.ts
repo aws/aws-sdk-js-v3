@@ -94,7 +94,7 @@ const _rA = "requestAttributes";
 const _rAS = "retryAfterSeconds";
 const _rC = "responseCard";
 const _rISV = "recentIntentSummaryView";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.lexruntimeservice";
 const _sA = "sessionAttributes";
 const _sI = "sessionId";
 const _sL = "sentimentLabel";
@@ -103,10 +103,10 @@ const _sS = "sentimentScore";
 const _sT = "subTitle";
 const _sTE = "slotToElicit";
 const _sc = "score";
-const _se = "sensitive";
-const _ser = "server";
+const _se = "server";
+const _sen = "sensitive";
 const _sl = "slots";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.lexruntimeservice";
+const _st = "streaming";
 const _t = "text";
 const _tTL = "timeToLive";
 const _tTLIS = "timeToLiveInSeconds";
@@ -162,11 +162,90 @@ import {
 import { LexRuntimeServiceServiceException } from "../models/LexRuntimeServiceServiceException";
 
 /* eslint no-var: 0 */
-var BlobStream: StaticSimpleSchema = [0, n0, _BS, { [_s]: 1 }, 42];
+const _s_registry = TypeRegistry.for(_s);
+export var LexRuntimeServiceServiceException$: StaticErrorSchema = [-3, _s, "LexRuntimeServiceServiceException", 0, [], []];
+_s_registry.registerError(LexRuntimeServiceServiceException$, LexRuntimeServiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
+  { [_e]: _se, [_hE]: 502 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(BadGatewayException$, BadGatewayException);
+export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
+  { [_e]: _c, [_hE]: 424 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DependencyFailedException$, DependencyFailedException);
+export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalFailureException$, InternalFailureException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 429 },
+  [_rAS, _m],
+  [[0, { [_hH]: _RA }], 0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var LoopDetectedException$: StaticErrorSchema = [-3, n0, _LDE,
+  { [_e]: _se, [_hE]: 508 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LoopDetectedException$, LoopDetectedException);
+export var NotAcceptableException$: StaticErrorSchema = [-3, n0, _NAE,
+  { [_e]: _c, [_hE]: 406 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotAcceptableException$, NotAcceptableException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
+  { [_e]: _c, [_hE]: 408 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RequestTimeoutException$, RequestTimeoutException);
+export var UnsupportedMediaTypeException$: StaticErrorSchema = [-3, n0, _UMTE,
+  { [_e]: _c, [_hE]: 415 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(UnsupportedMediaTypeException$, UnsupportedMediaTypeException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var BlobStream: StaticSimpleSchema = [0, n0, _BS, { [_st]: 1 }, 42];
 var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var SensitiveStringUnbounded: StaticSimpleSchema = [0, n0, _SSU, 8, 0];
-var SynthesizedJsonActiveContextsString: StaticSimpleSchema = [0, n0, _SJACS, { [_mT]: _a, [_se]: 1 }, 0];
-var SynthesizedJsonAttributesString: StaticSimpleSchema = [0, n0, _SJAS, { [_mT]: _a, [_se]: 1 }, 0];
+var SynthesizedJsonActiveContextsString: StaticSimpleSchema = [0, n0, _SJACS, { [_mT]: _a, [_sen]: 1 }, 0];
+var SynthesizedJsonAttributesString: StaticSimpleSchema = [0, n0, _SJAS, { [_mT]: _a, [_sen]: 1 }, 0];
 var SynthesizedJsonString: StaticSimpleSchema = [0, n0, _SJS, { [_mT]: _a }, 0];
 var Text: StaticSimpleSchema = [0, n0, _T, 8, 0];
 export var ActiveContext$: StaticStructureSchema = [3, n0, _AC,
@@ -179,29 +258,11 @@ export var ActiveContextTimeToLive$: StaticStructureSchema = [3, n0, _ACTTL,
   [_tTLIS, _tTLu],
   [1, 1]
 ];
-export var BadGatewayException$: StaticErrorSchema = [-3, n0, _BGE,
-  { [_e]: _ser, [_hE]: 502 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadGatewayException$, BadGatewayException);
-export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
 export var Button$: StaticStructureSchema = [3, n0, _B,
   0,
   [_t, _v],
   [0, 0], 2
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var DeleteSessionRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
   [_bN, _bA, _uI],
@@ -212,12 +273,6 @@ export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
   [_bN, _bA, _uI, _sI],
   [0, 0, 0, 0]
 ];
-export var DependencyFailedException$: StaticErrorSchema = [-3, n0, _DFE,
-  { [_e]: _c, [_hE]: 424 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DependencyFailedException$, DependencyFailedException);
 export var DialogAction$: StaticStructureSchema = [3, n0, _DA,
   0,
   [_ty, _iN, _sl, _sTE, _fS, _m, _mF],
@@ -248,36 +303,6 @@ export var IntentSummary$: StaticStructureSchema = [3, n0, _IS,
   [_dAT, _iN, _cL, _sl, _cS, _fS, _sTE],
   [0, 0, 0, [() => StringMap, 0], 0, 0, 0], 1
 ];
-export var InternalFailureException$: StaticErrorSchema = [-3, n0, _IFE,
-  { [_e]: _ser, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalFailureException$, InternalFailureException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 429 },
-  [_rAS, _m],
-  [[0, { [_hH]: _RA }], 0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
-export var LoopDetectedException$: StaticErrorSchema = [-3, n0, _LDE,
-  { [_e]: _ser, [_hE]: 508 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LoopDetectedException$, LoopDetectedException);
-export var NotAcceptableException$: StaticErrorSchema = [-3, n0, _NAE,
-  { [_e]: _c, [_hE]: 406 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotAcceptableException$, NotAcceptableException);
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PostContentRequest$: StaticStructureSchema = [3, n0, _PCR,
   0,
   [_bN, _bA, _uI, _cT, _iS, _sA, _rA, _ac, _aC],
@@ -313,12 +338,6 @@ export var PutSessionResponse$: StaticStructureSchema = [3, n0, _PSRu,
   [_cT, _iN, _sl, _sA, _m, _eM, _mF, _dS, _sTE, _aS, _sI, _aC],
   [[0, { [_hH]: _CT }], [0, { [_hH]: _xalin }], [() => SynthesizedJsonString, { [_hH]: _xals }], [() => SynthesizedJsonString, { [_hH]: _xalsa }], [() => Text, { [_hH]: _xalm }], [() => SensitiveString, { [_hH]: _xalem }], [0, { [_hH]: _xalmf }], [0, { [_hH]: _xalds }], [0, { [_hH]: _xalste }], [() => BlobStream, 16], [0, { [_hH]: _xalsi }], [() => SynthesizedJsonActiveContextsString, { [_hH]: _xalac }]]
 ];
-export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _c, [_hE]: 408 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
 export var ResponseCard$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_ve, _cT, _gA],
@@ -329,14 +348,6 @@ export var SentimentResponse$: StaticStructureSchema = [3, n0, _SR,
   [_sL, _sS],
   [0, 0]
 ];
-export var UnsupportedMediaTypeException$: StaticErrorSchema = [-3, n0, _UMTE,
-  { [_e]: _c, [_hE]: 415 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnsupportedMediaTypeException$, UnsupportedMediaTypeException);
-export var LexRuntimeServiceServiceException$: StaticErrorSchema = [-3, _sm, "LexRuntimeServiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(LexRuntimeServiceServiceException$, LexRuntimeServiceServiceException);
 var ActiveContextsList: StaticListSchema = [1, n0, _ACL,
   8, [() => ActiveContext$,
     0]

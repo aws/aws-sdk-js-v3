@@ -423,7 +423,7 @@ const _rST = "recommendationSourceType";
 const _rSe = "recommendationSources";
 const _rT = "resourceType";
 const _rV = "rootVolume";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.computeoptimizer";
 const _sA = "serviceArn";
 const _sAe = "serviceArns";
 const _sC = "statusCode";
@@ -445,10 +445,10 @@ const _sTta = "startTime";
 const _s_ = "s3";
 const _sc = "scope";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.computeoptimizer";
 const _so = "source";
-const _st = "statistic";
-const _sta = "stat";
+const _st = "status";
+const _sta = "statistic";
+const _stat = "stat";
 const _su = "summaries";
 const _t = "type";
 const _tDA = "taskDefinitionArn";
@@ -492,15 +492,76 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var ComputeOptimizerServiceException$: StaticErrorSchema = [-3, _s, "ComputeOptimizerServiceException", 0, [], []];
+_s_registry.registerError(ComputeOptimizerServiceException$, ComputeOptimizerServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MissingAuthenticationToken$: StaticErrorSchema = [-3, n0, _MAT,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MissingAuthenticationToken$, MissingAuthenticationToken);
+export var OptInRequiredException$: StaticErrorSchema = [-3, n0, _OIRE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(OptInRequiredException$, OptInRequiredException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccountEnrollmentStatus$: StaticStructureSchema = [3, n0, _AES,
   0,
-  [_aI, _s, _sR, _lUT],
+  [_aI, _st, _sR, _lUT],
   [0, 0, 0, 4]
 ];
 export var AutoScalingGroupConfiguration$: StaticStructureSchema = [3, n0, _ASGC,
@@ -600,7 +661,7 @@ export var EBSSavingsOpportunityAfterDiscounts$: StaticStructureSchema = [3, n0,
 ];
 export var EBSUtilizationMetric$: StaticStructureSchema = [3, n0, _EBSUM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var ECSEffectiveRecommendationPreferences$: StaticStructureSchema = [3, n0, _ECSERP,
@@ -630,7 +691,7 @@ export var ECSServiceProjectedMetric$: StaticStructureSchema = [3, n0, _ECSSPM,
 ];
 export var ECSServiceProjectedUtilizationMetric$: StaticStructureSchema = [3, n0, _ECSSPUM,
   0,
-  [_n, _st, _lBVo, _uBVp],
+  [_n, _sta, _lBVo, _uBVp],
   [0, 0, 1, 1]
 ];
 export var ECSServiceRecommendation$: StaticStructureSchema = [3, n0, _ECSSR,
@@ -655,7 +716,7 @@ export var ECSServiceRecommendedOptionProjectedMetric$: StaticStructureSchema = 
 ];
 export var ECSServiceUtilizationMetric$: StaticStructureSchema = [3, n0, _ECSSUM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var EffectivePreferredResource$: StaticStructureSchema = [3, n0, _EPR,
@@ -810,7 +871,7 @@ export var GetEC2InstanceRecommendationsResponse$: StaticStructureSchema = [3, n
 ];
 export var GetEC2RecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GECRPMR,
   0,
-  [_iAn, _sta, _p, _sTta, _eT, _rP],
+  [_iAn, _stat, _p, _sTta, _eT, _rP],
   [0, 0, 1, 4, 4, () => RecommendationPreferences$], 5
 ];
 export var GetEC2RecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GECRPMRe,
@@ -820,7 +881,7 @@ export var GetEC2RecommendationProjectedMetricsResponse$: StaticStructureSchema 
 ];
 export var GetECSServiceRecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GECSSRPMR,
   0,
-  [_sA, _sta, _p, _sTta, _eT],
+  [_sA, _stat, _p, _sTta, _eT],
   [0, 0, 1, 4, 4], 5
 ];
 export var GetECSServiceRecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GECSSRPMRe,
@@ -865,7 +926,7 @@ export var GetEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _GESR,
 ];
 export var GetEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
-  [_s, _sR, _mAE, _lUT, _nOMAOI],
+  [_st, _sR, _mAE, _lUT, _nOMAOI],
   [0, 0, 2, 4, 1]
 ];
 export var GetIdleRecommendationsRequest$: StaticStructureSchema = [3, n0, _GIRR,
@@ -900,7 +961,7 @@ export var GetLicenseRecommendationsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var GetRDSDatabaseRecommendationProjectedMetricsRequest$: StaticStructureSchema = [3, n0, _GRDSDRPMR,
   0,
-  [_rA, _sta, _p, _sTta, _eT, _rP],
+  [_rA, _stat, _p, _sTta, _eT, _rP],
   [0, 0, 1, 4, 4, () => RecommendationPreferences$], 5
 ];
 export var GetRDSDatabaseRecommendationProjectedMetricsResponse$: StaticStructureSchema = [3, n0, _GRDSDRPMRe,
@@ -990,7 +1051,7 @@ export var IdleSummary$: StaticStructureSchema = [3, n0, _IS,
 ];
 export var IdleUtilizationMetric$: StaticStructureSchema = [3, n0, _IUM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var InferredWorkloadSaving$: StaticStructureSchema = [3, n0, _IWS,
@@ -1023,18 +1084,6 @@ export var InstanceSavingsOpportunityAfterDiscounts$: StaticStructureSchema = [3
   [_sOP, _eMS],
   [1, () => InstanceEstimatedMonthlySavings$]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
-export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
 export var JobFilter$: StaticStructureSchema = [3, n0, _JF,
   0,
   [_n, _va],
@@ -1052,7 +1101,7 @@ export var LambdaEstimatedMonthlySavings$: StaticStructureSchema = [3, n0, _LEMS
 ];
 export var LambdaFunctionMemoryProjectedMetric$: StaticStructureSchema = [3, n0, _LFMPM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var LambdaFunctionMemoryRecommendationOption$: StaticStructureSchema = [3, n0, _LFMRO,
@@ -1072,7 +1121,7 @@ export var LambdaFunctionRecommendationFilter$: StaticStructureSchema = [3, n0, 
 ];
 export var LambdaFunctionUtilizationMetric$: StaticStructureSchema = [3, n0, _LFUM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var LambdaSavingsEstimationMode$: StaticStructureSchema = [3, n0, _LSEM,
@@ -1105,12 +1154,6 @@ export var LicenseRecommendationOption$: StaticStructureSchema = [3, n0, _LRO,
   [_r, _oS, _lE, _lM, _sO],
   [1, 0, 0, 0, () => SavingsOpportunity$]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var MemorySizeConfiguration$: StaticStructureSchema = [3, n0, _MSC,
   0,
   [_mem, _mRe],
@@ -1121,18 +1164,6 @@ export var MetricSource$: StaticStructureSchema = [3, n0, _MS,
   [_pr, _pA],
   [0, 0]
 ];
-export var MissingAuthenticationToken$: StaticErrorSchema = [-3, n0, _MAT,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MissingAuthenticationToken$, MissingAuthenticationToken);
-export var OptInRequiredException$: StaticErrorSchema = [-3, n0, _OIRE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(OptInRequiredException$, OptInRequiredException);
 export var OrderBy$: StaticStructureSchema = [3, n0, _OB,
   0,
   [_d, _o],
@@ -1190,7 +1221,7 @@ export var RDSDBStorageRecommendationOption$: StaticStructureSchema = [3, n0, _R
 ];
 export var RDSDBUtilizationMetric$: StaticStructureSchema = [3, n0, _RDSDBUM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var RDSEffectiveRecommendationPreferences$: StaticStructureSchema = [3, n0, _RDSERP,
@@ -1230,7 +1261,7 @@ export var ReasonCodeSummary$: StaticStructureSchema = [3, n0, _RCS,
 ];
 export var RecommendationExportJob$: StaticStructureSchema = [3, n0, _REJ,
   0,
-  [_jIo, _de, _rT, _s, _cT, _lUT, _fR],
+  [_jIo, _de, _rT, _st, _cT, _lUT, _fR],
   [0, () => ExportDestination$, 0, 0, 4, 4, 0]
 ];
 export var RecommendationPreferences$: StaticStructureSchema = [3, n0, _RP,
@@ -1258,12 +1289,6 @@ export var RecommendedOptionProjectedMetric$: StaticStructureSchema = [3, n0, _R
   [_rIT, _r, _pM],
   [0, 1, () => ProjectedMetrics]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3Destination$: StaticStructureSchema = [3, n0, _SD,
   0,
   [_b, _k, _mK],
@@ -1289,12 +1314,6 @@ export var ServiceConfiguration$: StaticStructureSchema = [3, n0, _SC,
   [_mem, _cp, _cCo, _aSC, _tDA],
   [1, 1, () => ContainerConfigurations, 0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _se, [_hE]: 503 },
-  [_m],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var Summary$: StaticStructureSchema = [3, n0, _Su,
   0,
   [_n, _v, _rCS],
@@ -1305,25 +1324,19 @@ export var Tag$: StaticStructureSchema = [3, n0, _T,
   [_k, _v],
   [0, 0]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UpdateEnrollmentStatusRequest$: StaticStructureSchema = [3, n0, _UESR,
   0,
-  [_s, _iMA],
+  [_st, _iMA],
   [0, 2], 1
 ];
 export var UpdateEnrollmentStatusResponse$: StaticStructureSchema = [3, n0, _UESRp,
   0,
-  [_s, _sR],
+  [_st, _sR],
   [0, 0]
 ];
 export var UtilizationMetric$: StaticStructureSchema = [3, n0, _UM,
   0,
-  [_n, _st, _v],
+  [_n, _sta, _v],
   [0, 0, 1]
 ];
 export var UtilizationPreference$: StaticStructureSchema = [3, n0, _UP,
@@ -1346,8 +1359,6 @@ export var VolumeRecommendationOption$: StaticStructureSchema = [3, n0, _VRO,
   [_co, _pR, _r, _sO, _sOAD],
   [() => VolumeConfiguration$, 1, 1, () => SavingsOpportunity$, () => EBSSavingsOpportunityAfterDiscounts$]
 ];
-export var ComputeOptimizerServiceException$: StaticErrorSchema = [-3, _sm, "ComputeOptimizerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ComputeOptimizerServiceException$, ComputeOptimizerServiceException);
 var AccountEnrollmentStatuses: StaticListSchema = [1, n0, _AESc,
   0, () => AccountEnrollmentStatus$
 ];

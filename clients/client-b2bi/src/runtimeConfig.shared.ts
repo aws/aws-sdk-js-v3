@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultB2biHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { B2biClientConfig } from "./B2biClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: B2biClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_0Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.b2bi",
+      errorTypeRegistries,
       version: "2022-06-23",
       serviceTarget: "B2BI",
     },

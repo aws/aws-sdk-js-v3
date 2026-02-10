@@ -113,13 +113,13 @@ const _DRRL = "DisassociateResourcesResponseList";
 const _E = "Error";
 const _EBP = "EndBillingPeriod";
 const _EEBP = "ExclusiveEndBillingPeriod";
-const _F = "Flat";
+const _F = "Fields";
 const _FAR = "FailedAssociatedResources";
 const _FDR = "FailedDisassociatedResources";
 const _FT = "FreeTier";
 const _FTC = "FreeTierConfig";
 const _Fi = "Filters";
-const _Fie = "Fields";
+const _Fl = "Flat";
 const _GB = "GroupBy";
 const _GBGCR = "GetBillingGroupCostReport";
 const _GBGCRI = "GetBillingGroupCostReportInput";
@@ -216,10 +216,10 @@ const _PRLE = "PricingRuleListElement";
 const _PRN = "PricingRuleName";
 const _PV = "PercentageValue";
 const _R = "Reason";
-const _RA = "ResourceArns";
+const _RA = "Retry-After";
 const _RAS = "RetryAfterSeconds";
-const _RA_ = "Retry-After";
-const _RAe = "ResourceArn";
+const _RAe = "ResourceArns";
+const _RAes = "ResourceArn";
 const _RI = "ResourceId";
 const _RNFE = "ResourceNotFoundException";
 const _RT = "ResourceType";
@@ -286,8 +286,8 @@ const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _iT = "idempotencyToken";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.billingconductor";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.billingconductor";
+const _se = "server";
 const _tK = "tagKeys";
 const n0 = "com.amazonaws.billingconductor";
 
@@ -314,6 +314,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var BillingconductorServiceException$: StaticErrorSchema = [-3, _s, "BillingconductorServiceException", 0, [], []];
+_s_registry.registerError(BillingconductorServiceException$, BillingconductorServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M, _RI, _RT, _R],
+  [0, 0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M, _LC, _SC, _RI, _RT],
+  [0, 0, 0, 0, 0], 3
+];
+n0_registry.registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M, _RAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M, _R, _F],
+  [0, 0, () => ValidationExceptionFieldList], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var AccountEmail: StaticSimpleSchema = [0, n0, _AE, 8, 0];
 var AccountName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var BillingGroupDescription: StaticSimpleSchema = [0, n0, _BGD, 8, 0];
@@ -324,12 +379,6 @@ var PricingPlanDescription: StaticSimpleSchema = [0, n0, _PPD, 8, 0];
 var PricingPlanName: StaticSimpleSchema = [0, n0, _PPN, 8, 0];
 var PricingRuleDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 var PricingRuleName: StaticSimpleSchema = [0, n0, _PRN, 8, 0];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AccountAssociationsListElement$: StaticStructureSchema = [3, n0, _AALE,
   0,
   [_AI, _BGA, _AN, _AE],
@@ -377,7 +426,7 @@ export var Attribute$: StaticStructureSchema = [3, n0, _At,
 ];
 export var BatchAssociateResourcesToCustomLineItemInput$: StaticStructureSchema = [3, n0, _BARTCLII,
   0,
-  [_TA, _RA, _BPR],
+  [_TA, _RAe, _BPR],
   [0, 64 | 0, () => CustomLineItemBillingPeriodRange$], 2
 ];
 export var BatchAssociateResourcesToCustomLineItemOutput$: StaticStructureSchema = [3, n0, _BARTCLIO,
@@ -387,7 +436,7 @@ export var BatchAssociateResourcesToCustomLineItemOutput$: StaticStructureSchema
 ];
 export var BatchDisassociateResourcesFromCustomLineItemInput$: StaticStructureSchema = [3, n0, _BDRFCLII,
   0,
-  [_TA, _RA, _BPR],
+  [_TA, _RAe, _BPR],
   [0, 64 | 0, () => CustomLineItemBillingPeriodRange$], 2
 ];
 export var BatchDisassociateResourcesFromCustomLineItemOutput$: StaticStructureSchema = [3, n0, _BDRFCLIO,
@@ -420,12 +469,6 @@ export var ComputationPreference$: StaticStructureSchema = [3, n0, _CP,
   [_PPA],
   [0], 1
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M, _RI, _RT, _R],
-  [0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateBillingGroupInput$: StaticStructureSchema = [3, n0, _CBGI,
   0,
   [_N, _AG, _CP, _CTl, _PAI, _D, _T],
@@ -483,7 +526,7 @@ export var CustomLineItemBillingPeriodRange$: StaticStructureSchema = [3, n0, _C
 ];
 export var CustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _CLICD,
   0,
-  [_Ty, _F, _P, _LIF],
+  [_Ty, _Fl, _P, _LIF],
   [0, () => CustomLineItemFlatChargeDetails$, () => CustomLineItemPercentageChargeDetails$, () => LineItemFiltersList], 1
 ];
 export var CustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _CLIFCD,
@@ -586,12 +629,6 @@ export var GetBillingGroupCostReportOutput$: StaticStructureSchema = [3, n0, _GB
   [_BGCRR, _NT],
   [() => BillingGroupCostReportResultsList, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LineItemFilter$: StaticStructureSchema = [3, n0, _LIFi,
   0,
   [_At, _MO, _Va, _AVt],
@@ -649,7 +686,7 @@ export var ListBillingGroupsOutput$: StaticStructureSchema = [3, n0, _LBGO,
 ];
 export var ListCustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _LCLICD,
   0,
-  [_Ty, _F, _P, _LIF],
+  [_Ty, _Fl, _P, _LIF],
   [0, () => ListCustomLineItemFlatChargeDetails$, () => ListCustomLineItemPercentageChargeDetails$, () => LineItemFiltersList], 1
 ];
 export var ListCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _LCLIFCD,
@@ -769,7 +806,7 @@ export var ListResourcesAssociatedToCustomLineItemResponseElement$: StaticStruct
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RAe],
+  [_RAes],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -792,18 +829,6 @@ export var PricingRuleListElement$: StaticStructureSchema = [3, n0, _PRLE,
   [_N, _A, _D, _Sc, _Ty, _MPo, _Se, _APPC, _CT, _LMT, _BE, _Ti, _UT, _O],
   [[() => PricingRuleName, 0], 0, [() => PricingRuleDescription, 0], 0, 0, 1, 0, 1, 1, 1, 0, () => Tiering$, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
-export var ServiceLimitExceededException$: StaticErrorSchema = [-3, n0, _SLEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M, _LC, _SC, _RI, _RT],
-  [0, 0, 0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ServiceLimitExceededException$, ServiceLimitExceededException);
 export var StringSearch$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_SO, _SV],
@@ -811,7 +836,7 @@ export var StringSearch$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RAe, _T],
+  [_RAes, _T],
   [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -819,12 +844,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M, _RAS],
-  [0, [1, { [_hH]: _RA_ }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var Tiering$: StaticStructureSchema = [3, n0, _Ti,
   0,
   [_FT],
@@ -832,7 +851,7 @@ export var Tiering$: StaticStructureSchema = [3, n0, _Ti,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RAe, _TK],
+  [_RAes, _TK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -857,7 +876,7 @@ export var UpdateBillingGroupOutput$: StaticStructureSchema = [3, n0, _UBGO,
 ];
 export var UpdateCustomLineItemChargeDetails$: StaticStructureSchema = [3, n0, _UCLICD,
   0,
-  [_F, _P, _LIF],
+  [_Fl, _P, _LIF],
   [() => UpdateCustomLineItemFlatChargeDetails$, () => UpdateCustomLineItemPercentageChargeDetails$, () => LineItemFiltersList]
 ];
 export var UpdateCustomLineItemFlatChargeDetails$: StaticStructureSchema = [3, n0, _UCLIFCD,
@@ -910,19 +929,11 @@ export var UpdateTieringInput$: StaticStructureSchema = [3, n0, _UTI,
   [_FT],
   [() => UpdateFreeTierConfig$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M, _R, _Fie],
-  [0, 0, () => ValidationExceptionFieldList], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_N, _M],
   [0, 0], 2
 ];
-export var BillingconductorServiceException$: StaticErrorSchema = [-3, _sm, "BillingconductorServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(BillingconductorServiceException$, BillingconductorServiceException);
 var AccountAssociationsList: StaticListSchema = [1, n0, _AAL,
   0, [() => AccountAssociationsListElement$,
     0]

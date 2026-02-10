@@ -67,8 +67,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoice";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.pinpointsmsvoice";
+const _se = "server";
 const n0 = "com.amazonaws.pinpointsmsvoice";
 
 // smithy-typescript generated code
@@ -86,18 +86,55 @@ import {
 import { PinpointSMSVoiceServiceException } from "../models/PinpointSMSVoiceServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var PinpointSMSVoiceServiceException$: StaticErrorSchema = [-3, _s, "PinpointSMSVoiceServiceException", 0, [], []];
+_s_registry.registerError(PinpointSMSVoiceServiceException$, PinpointSMSVoiceServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AlreadyExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_e]: _c, [_hE]: 409 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(AlreadyExistsException$, AlreadyExistsException);
+n0_registry.registerError(AlreadyExistsException$, AlreadyExistsException);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
   [0]
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
+export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceErrorException$, InternalServiceErrorException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c, [_hE]: 412 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var CallInstructionsMessageType$: StaticStructureSchema = [3, n0, _CIMT,
   0,
   [_T],
@@ -168,23 +205,11 @@ export var GetConfigurationSetEventDestinationsResponse$: StaticStructureSchema 
   [_EDv],
   [() => EventDestinations]
 ];
-export var InternalServiceErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceErrorException$, InternalServiceErrorException);
 export var KinesisFirehoseDestination$: StaticStructureSchema = [3, n0, _KFD,
   0,
   [_DSA, _IRA],
   [0, 0]
 ];
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c, [_hE]: 412 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListConfigurationSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
   [_NT, _PS],
@@ -195,12 +220,6 @@ export var ListConfigurationSetsResponse$: StaticStructureSchema = [3, n0, _LCSR
   [_CS, _NT],
   [64 | 0, 0]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
 export var PlainTextMessageType$: StaticStructureSchema = [3, n0, _PTMT,
   0,
   [_LC, _T, _VI],
@@ -226,12 +245,6 @@ export var SSMLMessageType$: StaticStructureSchema = [3, n0, _SSMLMT,
   [_LC, _T, _VI],
   [0, 0, 0]
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
 export var UpdateConfigurationSetEventDestinationRequest$: StaticStructureSchema = [3, n0, _UCSEDR,
   0,
   [_CSN, _EDN, _ED],
@@ -247,8 +260,6 @@ export var VoiceMessageContent$: StaticStructureSchema = [3, n0, _VMC,
   [_CIM, _PTM, _SSMLM],
   [() => CallInstructionsMessageType$, () => PlainTextMessageType$, () => SSMLMessageType$]
 ];
-export var PinpointSMSVoiceServiceException$: StaticErrorSchema = [-3, _sm, "PinpointSMSVoiceServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(PinpointSMSVoiceServiceException$, PinpointSMSVoiceServiceException);
 var ConfigurationSets = 64 | 0;
 var EventDestinations: StaticListSchema = [1, n0, _EDv,
   0, () => EventDestination$

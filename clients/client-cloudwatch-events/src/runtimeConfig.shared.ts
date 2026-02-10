@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloudWatchEventsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CloudWatchEventsClientConfig } from "./CloudWatchEventsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CloudWatchEventsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloudwatchevents",
+      errorTypeRegistries,
       xmlNamespace: "http://events.amazonaws.com/doc/2015-10-07",
       version: "2015-10-07",
       serviceTarget: "AWSEvents",

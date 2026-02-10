@@ -248,11 +248,11 @@ const _rIe = "revisionId";
 const _rPID = "retentionPeriodInDays";
 const _rT = "resourceType";
 const _ra = "ratio";
-const _s = "status";
-const _sC = "statusCode";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.amp";
+const _sC = "serviceCode";
 const _sCc = "scrapeConfiguration";
 const _sCcr = "scraperComponents";
-const _sCe = "serviceCode";
+const _sCt = "statusCode";
 const _sGI = "securityGroupIds";
 const _sI = "scraperId";
 const _sIu = "subnetIds";
@@ -264,8 +264,8 @@ const _sc = "scraper";
 const _scr = "scrapers";
 const _se = "server";
 const _sk = "skip";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.amp";
 const _so = "source";
+const _st = "status";
 const _t = "tags";
 const _tK = "tagKeys";
 const _tRA = "targetRoleArn";
@@ -301,20 +301,69 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var AmpServiceException$: StaticErrorSchema = [-3, _s, "AmpServiceException", 0, [], []];
+_s_registry.registerError(AmpServiceException$, AmpServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_m],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _rAS],
+  [0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 3
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _rI, _rT, _sC, _qC],
+  [0, 0, 0, 0, 0], 5
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m, _sC, _qC, _rAS],
+  [0, 0, 0, [1, { [_hH]: _RA }]], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _r, _fL],
+  [0, 0, () => ValidationExceptionFieldList], 2
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AlertManagerDefinitionDescription$: StaticStructureSchema = [3, n0, _AMDD,
   0,
-  [_s, _d, _cA, _mA],
+  [_st, _d, _cA, _mA],
   [() => AlertManagerDefinitionStatus$, 21, 4, 4], 4
 ];
 export var AlertManagerDefinitionStatus$: StaticStructureSchema = [3, n0, _AMDS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var AmpConfiguration$: StaticStructureSchema = [3, n0, _AC,
@@ -324,17 +373,17 @@ export var AmpConfiguration$: StaticStructureSchema = [3, n0, _AC,
 ];
 export var AnomalyDetectorDescription$: StaticStructureSchema = [3, n0, _ADD,
   0,
-  [_a, _aDI, _al, _s, _cA, _mA, _eIIS, _mDA, _co, _l, _t],
+  [_a, _aDI, _al, _st, _cA, _mA, _eIIS, _mDA, _co, _l, _t],
   [0, 0, 0, () => AnomalyDetectorStatus$, 4, 4, 1, () => AnomalyDetectorMissingDataAction$, () => AnomalyDetectorConfiguration$, 128 | 0, 128 | 0], 6
 ];
 export var AnomalyDetectorStatus$: StaticStructureSchema = [3, n0, _ADS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var AnomalyDetectorSummary$: StaticStructureSchema = [3, n0, _ADSn,
   0,
-  [_a, _aDI, _al, _s, _cA, _mA, _t],
+  [_a, _aDI, _al, _st, _cA, _mA, _t],
   [0, 0, 0, () => AnomalyDetectorStatus$, 4, 4, 128 | 0], 6
 ];
 export var CloudWatchLogDestination$: StaticStructureSchema = [3, n0, _CWLD,
@@ -347,12 +396,6 @@ export var ComponentConfig$: StaticStructureSchema = [3, n0, _CC,
   [_o],
   [128 | 0]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var CreateAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0, _CAMDR,
   0,
   [_wI, _d, _cT],
@@ -360,7 +403,7 @@ export var CreateAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0,
 ];
 export var CreateAlertManagerDefinitionResponse$: StaticStructureSchema = [3, n0, _CAMDRr,
   0,
-  [_s],
+  [_st],
   [() => AlertManagerDefinitionStatus$], 1
 ];
 export var CreateAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _CADR,
@@ -370,7 +413,7 @@ export var CreateAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _CADR,
 ];
 export var CreateAnomalyDetectorResponse$: StaticStructureSchema = [3, n0, _CADRr,
   0,
-  [_aDI, _a, _s, _t],
+  [_aDI, _a, _st, _t],
   [0, 0, () => AnomalyDetectorStatus$, 128 | 0], 3
 ];
 export var CreateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _CLCR,
@@ -380,7 +423,7 @@ export var CreateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _CLCRr,
   0,
-  [_s],
+  [_st],
   [() => LoggingConfigurationStatus$], 1
 ];
 export var CreateQueryLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _CQLCR,
@@ -390,7 +433,7 @@ export var CreateQueryLoggingConfigurationRequest$: StaticStructureSchema = [3, 
 ];
 export var CreateQueryLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _CQLCRr,
   0,
-  [_s],
+  [_st],
   [() => QueryLoggingConfigurationStatus$], 1
 ];
 export var CreateRuleGroupsNamespaceRequest$: StaticStructureSchema = [3, n0, _CRGNR,
@@ -400,7 +443,7 @@ export var CreateRuleGroupsNamespaceRequest$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateRuleGroupsNamespaceResponse$: StaticStructureSchema = [3, n0, _CRGNRr,
   0,
-  [_n, _a, _s, _t],
+  [_n, _a, _st, _t],
   [0, 0, () => RuleGroupsNamespaceStatus$, 128 | 0], 3
 ];
 export var CreateScraperRequest$: StaticStructureSchema = [3, n0, _CSR,
@@ -410,7 +453,7 @@ export var CreateScraperRequest$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CreateScraperResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_sI, _a, _s, _t],
+  [_sI, _a, _st, _t],
   [0, 0, () => ScraperStatus$, 128 | 0], 3
 ];
 export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
@@ -420,7 +463,7 @@ export var CreateWorkspaceRequest$: StaticStructureSchema = [3, n0, _CWR,
 ];
 export var CreateWorkspaceResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
-  [_wI, _a, _s, _t, _kKA],
+  [_wI, _a, _st, _t, _kKA],
   [0, 0, () => WorkspaceStatus$, 128 | 0, 0], 3
 ];
 export var DeleteAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0, _DAMDR,
@@ -465,7 +508,7 @@ export var DeleteScraperRequest$: StaticStructureSchema = [3, n0, _DSR,
 ];
 export var DeleteScraperResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_sI, _s],
+  [_sI, _st],
   [0, () => ScraperStatus$], 2
 ];
 export var DeleteWorkspaceRequest$: StaticStructureSchema = [3, n0, _DWR,
@@ -540,7 +583,7 @@ export var DescribeScraperLoggingConfigurationRequest$: StaticStructureSchema = 
 ];
 export var DescribeScraperLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _DSLCRes,
   0,
-  [_s, _sI, _lD, _sCcr, _mA],
+  [_st, _sI, _lD, _sCcr, _mA],
   [() => ScraperLoggingConfigurationStatus$, 0, () => ScraperLoggingDestination$, () => ScraperComponents, 4], 5
 ];
 export var DescribeScraperRequest$: StaticStructureSchema = [3, n0, _DSRes,
@@ -588,12 +631,6 @@ export var GetDefaultScraperConfigurationResponse$: StaticStructureSchema = [3, 
   [_co],
   [21], 1
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m, _rAS],
-  [0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var LimitsPerLabelSet$: StaticStructureSchema = [3, n0, _LPLS,
   0,
   [_li, _lS],
@@ -656,12 +693,12 @@ export var ListWorkspacesResponse$: StaticStructureSchema = [3, n0, _LWRi,
 ];
 export var LoggingConfigurationMetadata$: StaticStructureSchema = [3, n0, _LCM,
   0,
-  [_s, _w, _lGA, _cA, _mA],
+  [_st, _w, _lGA, _cA, _mA],
   [() => LoggingConfigurationStatus$, 0, 0, 4, 4], 5
 ];
 export var LoggingConfigurationStatus$: StaticStructureSchema = [3, n0, _LCS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var LoggingDestination$: StaticStructureSchema = [3, n0, _LD,
@@ -681,7 +718,7 @@ export var PutAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutAlertManagerDefinitionResponse$: StaticStructureSchema = [3, n0, _PAMDRu,
   0,
-  [_s],
+  [_st],
   [() => AlertManagerDefinitionStatus$], 1
 ];
 export var PutAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _PADR,
@@ -691,7 +728,7 @@ export var PutAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _PADR,
 ];
 export var PutAnomalyDetectorResponse$: StaticStructureSchema = [3, n0, _PADRu,
   0,
-  [_aDI, _a, _s, _t],
+  [_aDI, _a, _st, _t],
   [0, 0, () => AnomalyDetectorStatus$, 128 | 0], 3
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
@@ -711,17 +748,17 @@ export var PutRuleGroupsNamespaceRequest$: StaticStructureSchema = [3, n0, _PRGN
 ];
 export var PutRuleGroupsNamespaceResponse$: StaticStructureSchema = [3, n0, _PRGNRu,
   0,
-  [_n, _a, _s, _t],
+  [_n, _a, _st, _t],
   [0, 0, () => RuleGroupsNamespaceStatus$, 128 | 0], 3
 ];
 export var QueryLoggingConfigurationMetadata$: StaticStructureSchema = [3, n0, _QLCM,
   0,
-  [_s, _w, _de, _cA, _mA],
+  [_st, _w, _de, _cA, _mA],
   [() => QueryLoggingConfigurationStatus$, 0, () => LoggingDestinations, 4, 4], 5
 ];
 export var QueryLoggingConfigurationStatus$: StaticStructureSchema = [3, n0, _QLCS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var RandomCutForestConfiguration$: StaticStructureSchema = [3, n0, _RCFC,
@@ -729,12 +766,6 @@ export var RandomCutForestConfiguration$: StaticStructureSchema = [3, n0, _RCFC,
   [_q, _sS, _sSa, _iNEFA, _iNEFB],
   [0, 1, 1, () => IgnoreNearExpected$, () => IgnoreNearExpected$], 1
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m, _rI, _rT],
-  [0, 0, 0], 3
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RoleConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_sRA, _tRA],
@@ -742,17 +773,17 @@ export var RoleConfiguration$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var RuleGroupsNamespaceDescription$: StaticStructureSchema = [3, n0, _RGND,
   0,
-  [_a, _n, _s, _d, _cA, _mA, _t],
+  [_a, _n, _st, _d, _cA, _mA, _t],
   [0, 0, () => RuleGroupsNamespaceStatus$, 21, 4, 4, 128 | 0], 6
 ];
 export var RuleGroupsNamespaceStatus$: StaticStructureSchema = [3, n0, _RGNS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var RuleGroupsNamespaceSummary$: StaticStructureSchema = [3, n0, _RGNSu,
   0,
-  [_a, _n, _s, _cA, _mA, _t],
+  [_a, _n, _st, _cA, _mA, _t],
   [0, 0, () => RuleGroupsNamespaceStatus$, 4, 4, 128 | 0], 5
 ];
 export var ScraperComponent$: StaticStructureSchema = [3, n0, _SC,
@@ -762,30 +793,24 @@ export var ScraperComponent$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var ScraperDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_sI, _a, _rAo, _s, _cA, _lMA, _sCc, _so, _des, _al, _t, _sR, _rC],
+  [_sI, _a, _rAo, _st, _cA, _lMA, _sCc, _so, _des, _al, _t, _sR, _rC],
   [0, 0, 0, () => ScraperStatus$, 4, 4, () => ScrapeConfiguration$, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$], 9
 ];
 export var ScraperLoggingConfigurationStatus$: StaticStructureSchema = [3, n0, _SLCS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var ScraperStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sC],
+  [_sCt],
   [0], 1
 ];
 export var ScraperSummary$: StaticStructureSchema = [3, n0, _SSc,
   0,
-  [_sI, _a, _rAo, _s, _cA, _lMA, _so, _des, _al, _t, _sR, _rC],
+  [_sI, _a, _rAo, _st, _cA, _lMA, _so, _des, _al, _t, _sR, _rC],
   [0, 0, 0, () => ScraperStatus$, 4, 4, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$], 8
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _rI, _rT, _sCe, _qC],
-  [0, 0, 0, 0, 0], 5
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_rA, _t],
@@ -796,12 +821,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m, _sCe, _qC, _rAS],
-  [0, 0, 0, [1, { [_hH]: _RA }]], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -819,7 +838,7 @@ export var UpdateLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var UpdateLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _ULCRp,
   0,
-  [_s],
+  [_st],
   [() => LoggingConfigurationStatus$], 1
 ];
 export var UpdateQueryLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _UQLCR,
@@ -829,7 +848,7 @@ export var UpdateQueryLoggingConfigurationRequest$: StaticStructureSchema = [3, 
 ];
 export var UpdateQueryLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _UQLCRp,
   0,
-  [_s],
+  [_st],
   [() => QueryLoggingConfigurationStatus$], 1
 ];
 export var UpdateScraperLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _USLCR,
@@ -839,7 +858,7 @@ export var UpdateScraperLoggingConfigurationRequest$: StaticStructureSchema = [3
 ];
 export var UpdateScraperLoggingConfigurationResponse$: StaticStructureSchema = [3, n0, _USLCRp,
   0,
-  [_s],
+  [_st],
   [() => ScraperLoggingConfigurationStatus$], 1
 ];
 export var UpdateScraperRequest$: StaticStructureSchema = [3, n0, _USR,
@@ -849,7 +868,7 @@ export var UpdateScraperRequest$: StaticStructureSchema = [3, n0, _USR,
 ];
 export var UpdateScraperResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_sI, _a, _s, _t],
+  [_sI, _a, _st, _t],
   [0, 0, () => ScraperStatus$, 128 | 0], 3
 ];
 export var UpdateWorkspaceAliasRequest$: StaticStructureSchema = [3, n0, _UWAR,
@@ -864,15 +883,9 @@ export var UpdateWorkspaceConfigurationRequest$: StaticStructureSchema = [3, n0,
 ];
 export var UpdateWorkspaceConfigurationResponse$: StaticStructureSchema = [3, n0, _UWCRp,
   0,
-  [_s],
+  [_st],
   [() => WorkspaceConfigurationStatus$], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _r, _fL],
-  [0, 0, () => ValidationExceptionFieldList], 2
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
@@ -885,32 +898,30 @@ export var VpcConfiguration$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var WorkspaceConfigurationDescription$: StaticStructureSchema = [3, n0, _WCD,
   0,
-  [_s, _lPLS, _rPID],
+  [_st, _lPLS, _rPID],
   [() => WorkspaceConfigurationStatus$, () => LimitsPerLabelSetList, 1], 1
 ];
 export var WorkspaceConfigurationStatus$: StaticStructureSchema = [3, n0, _WCS,
   0,
-  [_sC, _sR],
+  [_sCt, _sR],
   [0, 0], 1
 ];
 export var WorkspaceDescription$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_wI, _a, _s, _cA, _al, _pE, _t, _kKA],
+  [_wI, _a, _st, _cA, _al, _pE, _t, _kKA],
   [0, 0, () => WorkspaceStatus$, 4, 0, 0, 128 | 0, 0], 4
 ];
 export var WorkspaceStatus$: StaticStructureSchema = [3, n0, _WS,
   0,
-  [_sC],
+  [_sCt],
   [0], 1
 ];
 export var WorkspaceSummary$: StaticStructureSchema = [3, n0, _WSo,
   0,
-  [_wI, _a, _s, _cA, _al, _t, _kKA],
+  [_wI, _a, _st, _cA, _al, _t, _kKA],
   [0, 0, () => WorkspaceStatus$, 4, 0, 128 | 0, 0], 4
 ];
 var __Unit = "unit" as const;
-export var AmpServiceException$: StaticErrorSchema = [-3, _sm, "AmpServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(AmpServiceException$, AmpServiceException);
 var AnomalyDetectorSummaryList: StaticListSchema = [1, n0, _ADSL,
   0, () => AnomalyDetectorSummary$
 ];

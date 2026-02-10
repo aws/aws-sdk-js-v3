@@ -9,6 +9,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultSSMHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 import type { SSMClientConfig } from "./SSMClient";
 
 /**
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: SSMClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.ssm",
+      errorTypeRegistries,
       xmlNamespace: "http://ssm.amazonaws.com/doc/2014-11-06/",
       version: "2014-11-06",
       serviceTarget: "AmazonSSM",

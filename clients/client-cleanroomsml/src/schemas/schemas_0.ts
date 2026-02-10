@@ -408,7 +408,7 @@ const _rF = "resultFormat";
 const _rID = "retentionInDays";
 const _rM = "relevanceMetrics";
 const _rMe = "recallMetric";
-const _s = "status";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.cleanroomsml";
 const _sA = "seedAudience";
 const _sAM = "sharedAudienceMetrics";
 const _sB = "startedBy";
@@ -428,8 +428,8 @@ const _sU = "s3Uri";
 const _sc = "schema";
 const _sco = "score";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.cleanroomsml";
 const _sp = "spark";
+const _st = "status";
 const _t = "type";
 const _tCC = "trainingContainerConfig";
 const _tCID = "trainingContainerImageDigest";
@@ -479,6 +479,61 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var CleanRoomsMLServiceException$: StaticErrorSchema = [-3, _s, "CleanRoomsMLServiceException", 0, [], []];
+_s_registry.registerError(CleanRoomsMLServiceException$, CleanRoomsMLServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InternalServiceException$, InternalServiceException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_m, _qN, _qV],
+  [0, 0, 1], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 export var AccessBudget$: StaticStructureSchema = [3, n0, _AB,
   0,
   [_rA, _d, _aRB],
@@ -489,12 +544,6 @@ export var AccessBudgetDetails$: StaticStructureSchema = [3, n0, _ABD,
   [_sT, _rB, _b, _bT, _eT, _aR],
   [5, 1, 1, 0, 5, 0], 4
 ];
-export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
-  { [_e]: _c, [_hE]: 403 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
 export var AudienceDestination$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_sD],
@@ -502,7 +551,7 @@ export var AudienceDestination$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AudienceExportJobSummary$: StaticStructureSchema = [3, n0, _AEJS,
   0,
-  [_cT, _uT, _n, _aGJA, _aS, _s, _de, _sDt, _oL],
+  [_cT, _uT, _n, _aGJA, _aS, _st, _de, _sDt, _oL],
   [5, 5, 0, 0, () => AudienceSize$, 0, 0, () => StatusDetails$, 0], 6
 ];
 export var AudienceGenerationJobDataSource$: StaticStructureSchema = [3, n0, _AGJDS,
@@ -512,12 +561,12 @@ export var AudienceGenerationJobDataSource$: StaticStructureSchema = [3, n0, _AG
 ];
 export var AudienceGenerationJobSummary$: StaticStructureSchema = [3, n0, _AGJS,
   0,
-  [_cT, _uT, _aGJA, _n, _s, _cAMA, _de, _cI, _sB],
+  [_cT, _uT, _aGJA, _n, _st, _cAMA, _de, _cI, _sB],
   [5, 5, 0, 0, 0, 0, 0, 0, 0], 6
 ];
 export var AudienceModelSummary$: StaticStructureSchema = [3, n0, _AMS,
   0,
-  [_cT, _uT, _aMA, _n, _tDA, _s, _de],
+  [_cT, _uT, _aMA, _n, _tDA, _st, _de],
   [5, 5, 0, 0, 0, 0, 0], 6
 ];
 export var AudienceQualityMetrics$: StaticStructureSchema = [3, n0, _AQM,
@@ -552,22 +601,22 @@ export var CollaborationConfiguredModelAlgorithmAssociationSummary$: StaticStruc
 ];
 export var CollaborationMLInputChannelSummary$: StaticStructureSchema = [3, n0, _CMLICS,
   0,
-  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _s, _cAI, _de],
+  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _cAI, _de],
   [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0], 9
 ];
 export var CollaborationTrainedModelExportJobSummary$: StaticStructureSchema = [3, n0, _CTMEJS,
   0,
-  [_cT, _uT, _n, _oC, _s, _cAI, _tMA, _mI, _cIo, _sDt, _de, _tMVI],
+  [_cT, _uT, _n, _oC, _st, _cAI, _tMA, _mI, _cIo, _sDt, _de, _tMVI],
   [5, 5, 0, () => TrainedModelExportOutputConfiguration$, 0, 0, 0, 0, 0, () => StatusDetails$, 0, 0], 9
 ];
 export var CollaborationTrainedModelInferenceJobSummary$: StaticStructureSchema = [3, n0, _CTMIJS,
   0,
-  [_tMIJA, _mI, _tMA, _cIo, _s, _oC, _n, _cT, _uT, _cAI, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
+  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cAI, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
   [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0, 0], 10
 ];
 export var CollaborationTrainedModelSummary$: StaticStructureSchema = [3, n0, _CTMS,
   0,
-  [_cT, _uT, _tMA, _n, _mI, _cIo, _s, _cMAAA, _cAI, _vI, _iTDC, _de],
+  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _cAI, _vI, _iTDC, _de],
   [5, 5, 0, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0], 9
 ];
 export var ColumnClassificationDetails$: StaticStructureSchema = [3, n0, _CCD,
@@ -587,7 +636,7 @@ export var ConfiguredAudienceModelOutputConfig$: StaticStructureSchema = [3, n0,
 ];
 export var ConfiguredAudienceModelSummary$: StaticStructureSchema = [3, n0, _CAMS,
   0,
-  [_cT, _uT, _n, _aMA, _oCu, _cAMA, _s, _de],
+  [_cT, _uT, _n, _aMA, _oCu, _cAMA, _st, _de],
   [5, 5, 0, 0, () => ConfiguredAudienceModelOutputConfig$, 0, 0, 0], 7
 ];
 export var ConfiguredModelAlgorithmAssociationSummary$: StaticStructureSchema = [3, n0, _CMAAS,
@@ -600,12 +649,6 @@ export var ConfiguredModelAlgorithmSummary$: StaticStructureSchema = [3, n0, _CM
   [_cT, _uT, _cMAA, _n, _de],
   [5, 5, 0, 0, 0], 4
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ContainerConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_iU, _en, _a, _mD],
@@ -768,7 +811,7 @@ export var GetAudienceGenerationJobRequest$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GetAudienceGenerationJobResponse$: StaticStructureSchema = [3, n0, _GAGJRe,
   0,
-  [_cT, _uT, _aGJA, _n, _s, _cAMA, _de, _sDt, _sA, _iSIO, _cI, _me, _sB, _ta, _pQI],
+  [_cT, _uT, _aGJA, _n, _st, _cAMA, _de, _sDt, _sA, _iSIO, _cI, _me, _sB, _ta, _pQI],
   [5, 5, 0, 0, 0, 0, 0, () => StatusDetails$, [() => AudienceGenerationJobDataSource$, 0], 2, 0, () => AudienceQualityMetrics$, 0, 128 | 0, 0], 6
 ];
 export var GetAudienceModelRequest$: StaticStructureSchema = [3, n0, _GAMR,
@@ -778,7 +821,7 @@ export var GetAudienceModelRequest$: StaticStructureSchema = [3, n0, _GAMR,
 ];
 export var GetAudienceModelResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
-  [_cT, _uT, _aMA, _n, _tDA, _s, _tDST, _tDET, _sDt, _kKA, _ta, _de],
+  [_cT, _uT, _aMA, _n, _tDA, _st, _tDST, _tDET, _sDt, _kKA, _ta, _de],
   [5, 5, 0, 0, 0, 0, 5, 5, () => StatusDetails$, 0, 128 | 0, 0], 6
 ];
 export var GetCollaborationConfiguredModelAlgorithmAssociationRequest$: StaticStructureSchema = [3, n0, _GCCMAAR,
@@ -798,7 +841,7 @@ export var GetCollaborationMLInputChannelRequest$: StaticStructureSchema = [3, n
 ];
 export var GetCollaborationMLInputChannelResponse$: StaticStructureSchema = [3, n0, _GCMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _rID, _cT, _uT, _cAI, _sDt, _nOR, _pB, _de, _sDC],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _cAI, _sDt, _nOR, _pB, _de, _sDC],
   [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, 0, () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$], 10
 ];
 export var GetCollaborationTrainedModelRequest$: StaticStructureSchema = [3, n0, _GCTMR,
@@ -808,7 +851,7 @@ export var GetCollaborationTrainedModelRequest$: StaticStructureSchema = [3, n0,
 ];
 export var GetCollaborationTrainedModelResponse$: StaticStructureSchema = [3, n0, _GCTMRe,
   0,
-  [_mI, _cIo, _tMA, _n, _s, _cMAAA, _cT, _uT, _cAI, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID],
+  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _cAI, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID],
   [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0], 9
 ];
 export var GetConfiguredAudienceModelPolicyRequest$: StaticStructureSchema = [3, n0, _GCAMPR,
@@ -828,7 +871,7 @@ export var GetConfiguredAudienceModelRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetConfiguredAudienceModelResponse$: StaticStructureSchema = [3, n0, _GCAMRe,
   0,
-  [_cT, _uT, _cAMA, _n, _aMA, _oCu, _s, _sAM, _de, _mMSS, _aSC, _ta, _cRTOCP],
+  [_cT, _uT, _cAMA, _n, _aMA, _oCu, _st, _sAM, _de, _mMSS, _aSC, _ta, _cRTOCP],
   [5, 5, 0, 0, 0, () => ConfiguredAudienceModelOutputConfig$, 0, 64 | 0, 0, 1, () => AudienceSizeConfig$, 128 | 0, 0], 8
 ];
 export var GetConfiguredModelAlgorithmAssociationRequest$: StaticStructureSchema = [3, n0, _GCMAAR,
@@ -868,7 +911,7 @@ export var GetMLInputChannelRequest$: StaticStructureSchema = [3, n0, _GMLICR,
 ];
 export var GetMLInputChannelResponse$: StaticStructureSchema = [3, n0, _GMLICRe,
   0,
-  [_mI, _cIo, _mICA, _n, _cMAAo, _s, _rID, _cT, _uT, _iC, _sDt, _nOR, _pB, _de, _sDC, _pQI, _nOF, _sIG, _kKA, _ta],
+  [_mI, _cIo, _mICA, _n, _cMAAo, _st, _rID, _cT, _uT, _iC, _sDt, _nOR, _pB, _de, _sDC, _pQI, _nOF, _sIG, _kKA, _ta],
   [0, 0, 0, 0, 64 | 0, 0, 1, 5, 5, [() => InputChannel$, 0], () => StatusDetails$, 1, () => PrivacyBudgets$, 0, () => SyntheticDataConfiguration$, 0, 1, 1, 0, 128 | 0], 10
 ];
 export var GetTrainedModelInferenceJobRequest$: StaticStructureSchema = [3, n0, _GTMIJR,
@@ -878,7 +921,7 @@ export var GetTrainedModelInferenceJobRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetTrainedModelInferenceJobResponse$: StaticStructureSchema = [3, n0, _GTMIJRe,
   0,
-  [_cT, _uT, _tMIJA, _n, _s, _tMA, _rC, _oC, _mI, _dS, _cMAAA, _tMVI, _cEP, _sDt, _de, _iCID, _env, _kKA, _mS, _mSD, _lS, _lSD, _ta],
+  [_cT, _uT, _tMIJA, _n, _st, _tMA, _rC, _oC, _mI, _dS, _cMAAA, _tMVI, _cEP, _sDt, _de, _iCID, _env, _kKA, _mS, _mSD, _lS, _lSD, _ta],
   [5, 5, 0, 0, 0, 0, () => InferenceResourceConfig$, () => InferenceOutputConfiguration$, 0, () => ModelInferenceDataSource$, 0, 0, () => InferenceContainerExecutionParameters$, () => StatusDetails$, 0, 0, 128 | 0, 0, 0, 0, 0, 0, 128 | 0], 10
 ];
 export var GetTrainedModelRequest$: StaticStructureSchema = [3, n0, _GTMR,
@@ -888,7 +931,7 @@ export var GetTrainedModelRequest$: StaticStructureSchema = [3, n0, _GTMR,
 ];
 export var GetTrainedModelResponse$: StaticStructureSchema = [3, n0, _GTMRe,
   0,
-  [_mI, _cIo, _tMA, _n, _s, _cMAAA, _cT, _uT, _dC, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID, _h, _env, _kKA, _ta],
+  [_mI, _cIo, _tMA, _n, _st, _cMAAA, _cT, _uT, _dC, _vI, _iTDC, _de, _sDt, _rC, _tIM, _sC, _mS, _mSD, _lS, _lSD, _tCID, _h, _env, _kKA, _ta],
   [0, 0, 0, 0, 0, 0, 5, 5, () => ModelTrainingDataChannels, 0, () => IncrementalTrainingDataChannelsOutput, 0, () => StatusDetails$, () => ResourceConfig$, 0, () => StoppingCondition$, 0, 0, 0, 0, 0, 128 | 0, 128 | 0, 0, 128 | 0], 9
 ];
 export var GetTrainingDatasetRequest$: StaticStructureSchema = [3, n0, _GTDR,
@@ -898,7 +941,7 @@ export var GetTrainingDatasetRequest$: StaticStructureSchema = [3, n0, _GTDR,
 ];
 export var GetTrainingDatasetResponse$: StaticStructureSchema = [3, n0, _GTDRe,
   0,
-  [_cT, _uT, _tDA, _n, _tD, _s, _rAo, _ta, _de],
+  [_cT, _uT, _tDA, _n, _tD, _st, _rAo, _ta, _de],
   [5, 5, 0, 0, () => DatasetList, 0, 0, 128 | 0, 0], 7
 ];
 export var GlueDataSource$: StaticStructureSchema = [3, n0, _GDS,
@@ -946,12 +989,6 @@ export var InputChannel$: StaticStructureSchema = [3, n0, _IC,
   [_dS, _rAo],
   [[() => InputChannelDataSource$, 0], 0], 2
 ];
-export var InternalServiceException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _se, [_hE]: 500 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServiceException$, InternalServiceException);
 export var ListAudienceExportJobsRequest$: StaticStructureSchema = [3, n0, _LAEJR,
   0,
   [_nT, _mR, _aGJA],
@@ -1104,8 +1141,8 @@ export var ListTrainedModelsResponse$: StaticStructureSchema = [3, n0, _LTMRi,
 ];
 export var ListTrainedModelVersionsRequest$: StaticStructureSchema = [3, n0, _LTMVR,
   0,
-  [_mI, _tMA, _nT, _mR, _s],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _s }]], 2
+  [_mI, _tMA, _nT, _mR, _st],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }]], 2
 ];
 export var ListTrainedModelVersionsResponse$: StaticStructureSchema = [3, n0, _LTMVRi,
   0,
@@ -1149,7 +1186,7 @@ export var MetricsConfigurationPolicy$: StaticStructureSchema = [3, n0, _MCP,
 ];
 export var MLInputChannelSummary$: StaticStructureSchema = [3, n0, _MLICS,
   0,
-  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _s, _pQI, _de],
+  [_cT, _uT, _mI, _cIo, _n, _cMAAo, _mICA, _st, _pQI, _de],
   [5, 5, 0, 0, 0, 64 | 0, 0, 0, 0, 0], 8
 ];
 export var MLOutputConfiguration$: StaticStructureSchema = [3, n0, _MLOC,
@@ -1217,23 +1254,11 @@ export var ResourceConfig$: StaticStructureSchema = [3, n0, _RC,
   [_iT, _vSIGB, _iCns],
   [0, 1, 1], 2
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var S3ConfigMap$: StaticStructureSchema = [3, n0, _SCM,
   0,
   [_sU],
   [0], 1
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_m, _qN, _qV],
-  [0, 0, 1], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartAudienceExportJobRequest$: StaticStructureSchema = [3, n0, _SAEJR,
   0,
   [_n, _aGJA, _aS, _de],
@@ -1299,12 +1324,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var TrainedModelArtifactMaxSize$: StaticStructureSchema = [3, n0, _TMAMS,
   0,
   [_u, _v],
@@ -1337,7 +1356,7 @@ export var TrainedModelInferenceJobsConfigurationPolicy$: StaticStructureSchema 
 ];
 export var TrainedModelInferenceJobSummary$: StaticStructureSchema = [3, n0, _TMIJS,
   0,
-  [_tMIJA, _mI, _tMA, _cIo, _s, _oC, _n, _cT, _uT, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
+  [_tMIJA, _mI, _tMA, _cIo, _st, _oC, _n, _cT, _uT, _cMAAA, _tMVI, _de, _mS, _mSD, _lS, _lSD],
   [0, 0, 0, 0, 0, () => InferenceOutputConfiguration$, 0, 5, 5, 0, 0, 0, 0, 0, 0, 0], 9
 ];
 export var TrainedModelInferenceMaxOutputSize$: StaticStructureSchema = [3, n0, _TMIMOS,
@@ -1352,12 +1371,12 @@ export var TrainedModelsConfigurationPolicy$: StaticStructureSchema = [3, n0, _T
 ];
 export var TrainedModelSummary$: StaticStructureSchema = [3, n0, _TMS,
   0,
-  [_cT, _uT, _tMA, _n, _mI, _cIo, _s, _cMAAA, _vI, _iTDC, _de],
+  [_cT, _uT, _tMA, _n, _mI, _cIo, _st, _cMAAA, _vI, _iTDC, _de],
   [5, 5, 0, 0, 0, 0, 0, 0, 0, () => IncrementalTrainingDataChannelsOutput, 0], 8
 ];
 export var TrainingDatasetSummary$: StaticStructureSchema = [3, n0, _TDS,
   0,
-  [_cT, _uT, _tDA, _n, _s, _de],
+  [_cT, _uT, _tDA, _n, _st, _de],
   [5, 5, 0, 0, 0, 0], 5
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -1380,20 +1399,12 @@ export var UpdateConfiguredAudienceModelResponse$: StaticStructureSchema = [3, n
   [_cAMA],
   [0], 1
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var WorkerComputeConfiguration$: StaticStructureSchema = [3, n0, _WCC,
   0,
   [_t, _nu, _pr],
   [0, 1, () => WorkerComputeConfigurationProperties$]
 ];
 var __Unit = "unit" as const;
-export var CleanRoomsMLServiceException$: StaticErrorSchema = [-3, _sm, "CleanRoomsMLServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(CleanRoomsMLServiceException$, CleanRoomsMLServiceException);
 var AccessBudgetDetailsList: StaticListSchema = [1, n0, _ABDL,
   0, () => AccessBudgetDetails$
 ];

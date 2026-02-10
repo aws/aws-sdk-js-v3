@@ -163,12 +163,12 @@ const _mT = "mediaType";
 const _nT = "nextToken";
 const _rN = "registryName";
 const _rNP = "registryNamePrefix";
-const _s = "server";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.schemas";
 const _sAP = "sourceArnPrefix";
 const _sNP = "schemaNamePrefix";
 const _sV = "schemaVersion";
 const _sc = "scope";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.schemas";
+const _se = "server";
 const _t = "tags";
 const _tK = "tagKeys";
 const _ty = "type";
@@ -200,19 +200,80 @@ import {
 import { SchemasServiceException } from "../models/SchemasServiceException";
 
 /* eslint no-var: 0 */
-var SynthesizedJson__string: StaticSimpleSchema = [0, n0, _Ss, { [_mT]: _a }, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var SchemasServiceException$: StaticErrorSchema = [-3, _s, "SchemasServiceException", 0, [], []];
+_s_registry.registerError(SchemasServiceException$, SchemasServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var BadRequestException$: StaticErrorSchema = [-3, n0, _BRE,
   { [_e]: _c, [_hE]: 400 },
   [_C, _M],
   [0, 0], 2
 ];
-TypeRegistry.for(n0).registerError(BadRequestException$, BadRequestException);
+n0_registry.registerError(BadRequestException$, BadRequestException);
 export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   { [_e]: _c, [_hE]: 409 },
   [_C, _M],
   [0, 0], 2
 ];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
+n0_registry.registerError(ConflictException$, ConflictException);
+export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
+  { [_e]: _c, [_hE]: 403 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(ForbiddenException$, ForbiddenException);
+export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
+  { [_e]: _c, [_hE]: 410 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(GoneException$, GoneException);
+export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
+  { [_e]: _se, [_hE]: 500 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(InternalServerErrorException$, InternalServerErrorException);
+export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(NotFoundException$, NotFoundException);
+export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
+  { [_e]: _c, [_hE]: 412 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(PreconditionFailedException$, PreconditionFailedException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
+  { [_e]: _c, [_hE]: 429 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(TooManyRequestsException$, TooManyRequestsException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_C, _M],
+  [0, 0], 2
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var SynthesizedJson__string: StaticSimpleSchema = [0, n0, _Ss, { [_mT]: _a }, 0];
 export var CreateDiscovererRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
   [_SA, _D, _CA, _T],
@@ -323,12 +384,6 @@ export var ExportSchemaResponse$: StaticStructureSchema = [3, n0, _ESRx,
   [_Co, _SAc, _SN, _SV, _Ty],
   [0, 0, 0, 0, 0]
 ];
-export var ForbiddenException$: StaticErrorSchema = [-3, n0, _FE,
-  { [_e]: _c, [_hE]: 403 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ForbiddenException$, ForbiddenException);
 export var GetCodeBindingSourceRequest$: StaticStructureSchema = [3, n0, _GCBSR,
   0,
   [_L, _RN, _SN, _SV],
@@ -359,18 +414,6 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   [_P, _RI],
   [[() => SynthesizedJson__string, 0], 0]
 ];
-export var GoneException$: StaticErrorSchema = [-3, n0, _GE,
-  { [_e]: _c, [_hE]: 410 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(GoneException$, GoneException);
-export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
-  { [_e]: _s, [_hE]: 500 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(InternalServerErrorException$, InternalServerErrorException);
 export var ListDiscoverersRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
   [_DIP, _Li, _NT, _SAP],
@@ -421,18 +464,6 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_T],
   [[128 | 0, { [_jN]: _t }]]
 ];
-export var NotFoundException$: StaticErrorSchema = [-3, n0, _NFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(NotFoundException$, NotFoundException);
-export var PreconditionFailedException$: StaticErrorSchema = [-3, n0, _PFE,
-  { [_e]: _c, [_hE]: 412 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(PreconditionFailedException$, PreconditionFailedException);
 export var PutCodeBindingRequest$: StaticStructureSchema = [3, n0, _PCBR,
   0,
   [_L, _RN, _SN, _SV],
@@ -488,12 +519,6 @@ export var SearchSchemaVersionSummary$: StaticStructureSchema = [3, n0, _SSVS,
   [_CDr, _SV, _Ty],
   [5, 0, 0]
 ];
-export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var StartDiscovererRequest$: StaticStructureSchema = [3, n0, _SDR,
   0,
   [_DI],
@@ -519,18 +544,6 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_RAe, _T],
   [[0, 1], [128 | 0, { [_jN]: _t }]], 2
 ];
-export var TooManyRequestsException$: StaticErrorSchema = [-3, n0, _TMRE,
-  { [_e]: _c, [_hE]: 429 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(TooManyRequestsException$, TooManyRequestsException);
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_C, _M],
-  [0, 0], 2
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_RAe, _TK],
@@ -567,8 +580,6 @@ export var UpdateSchemaResponse$: StaticStructureSchema = [3, n0, _USRp,
   [0, 5, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 5]
 ];
 var __Unit = "unit" as const;
-export var SchemasServiceException$: StaticErrorSchema = [-3, _sm, "SchemasServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SchemasServiceException$, SchemasServiceException);
 var __listOf__string = 64 | 0;
 var __listOfDiscovererSummary: StaticListSchema = [1, n0, _lODS,
   0, [() => DiscovererSummary$,

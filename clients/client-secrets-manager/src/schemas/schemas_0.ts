@@ -184,8 +184,8 @@ const _Va = "Values";
 const _Ve = "Versions";
 const _c = "client";
 const _e = "error";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.secretsmanager";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.secretsmanager";
+const _se = "server";
 const n0 = "com.amazonaws.secretsmanager";
 
 // smithy-typescript generated code
@@ -216,6 +216,91 @@ import {
 import { SecretsManagerServiceException } from "../models/SecretsManagerServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SecretsManagerServiceException$: StaticErrorSchema = [-3, _s, "SecretsManagerServiceException", 0, [], []];
+_s_registry.registerError(SecretsManagerServiceException$, SecretsManagerServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var DecryptionFailure$: StaticErrorSchema = [-3, n0, _DF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(DecryptionFailure$, DecryptionFailure);
+export var EncryptionFailure$: StaticErrorSchema = [-3, n0, _EF,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(EncryptionFailure$, EncryptionFailure);
+export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServiceError$, InternalServiceError);
+export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidNextTokenException$, InvalidNextTokenException);
+export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidParameterException$, InvalidParameterException);
+export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InvalidRequestException$, InvalidRequestException);
+export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(LimitExceededException$, LimitExceededException);
+export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PreconditionNotMetException$, PreconditionNotMetException);
+export var PublicPolicyException$: StaticErrorSchema = [-3, n0, _PPE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(PublicPolicyException$, PublicPolicyException);
+export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceExistsException$, ResourceExistsException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var RandomPasswordType: StaticSimpleSchema = [0, n0, _RPT, 8, 0];
 var RotationTokenType: StaticSimpleSchema = [0, n0, _RTT, 8, 0];
 var SecretBinaryType: StaticSimpleSchema = [0, n0, _SBT, 8, 21];
@@ -255,12 +340,6 @@ export var CreateSecretResponse$: StaticStructureSchema = [3, n0, _CSRr,
   [_ARN, _N, _VI, _RS],
   [0, 0, 0, () => ReplicationStatusListType]
 ];
-export var DecryptionFailure$: StaticErrorSchema = [-3, n0, _DF,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(DecryptionFailure$, DecryptionFailure);
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
   [_SI],
@@ -291,12 +370,6 @@ export var DescribeSecretResponse$: StaticStructureSchema = [3, n0, _DSResc,
   [_ARN, _N, _Ty, _D, _KKI, _RE, _RLARN, _RR, _ESRM, _ESRRA, _LRD, _LCD, _LAD, _DDe, _NRD, _T, _VITS, _OS, _CD, _PR, _RS],
   [0, 0, 0, 0, 0, 2, 0, () => RotationRulesType$, () => ExternalSecretRotationMetadataType, 0, 4, 4, 4, 4, 4, () => TagListType, [2, n0, _SVTSMT, 0, 0, 64 | 0], 0, 4, 0, () => ReplicationStatusListType]
 ];
-export var EncryptionFailure$: StaticErrorSchema = [-3, n0, _EF,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(EncryptionFailure$, EncryptionFailure);
 export var ExternalSecretRotationMetadataItem$: StaticStructureSchema = [3, n0, _ESRMI,
   0,
   [_K, _V],
@@ -337,36 +410,6 @@ export var GetSecretValueResponse$: StaticStructureSchema = [3, n0, _GSVRe,
   [_ARN, _N, _VI, _SB, _SS, _VSe, _CD],
   [0, 0, 0, [() => SecretBinaryType, 0], [() => SecretStringType, 0], 64 | 0, 4]
 ];
-export var InternalServiceError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServiceError$, InternalServiceError);
-export var InvalidNextTokenException$: StaticErrorSchema = [-3, n0, _INTE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidNextTokenException$, InvalidNextTokenException);
-export var InvalidParameterException$: StaticErrorSchema = [-3, n0, _IPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidParameterException$, InvalidParameterException);
-export var InvalidRequestException$: StaticErrorSchema = [-3, n0, _IRE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InvalidRequestException$, InvalidRequestException);
-export var LimitExceededException$: StaticErrorSchema = [-3, n0, _LEE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(LimitExceededException$, LimitExceededException);
 export var ListSecretsRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
   [_IPD, _MR, _NT, _F, _SO, _SBo],
@@ -387,24 +430,6 @@ export var ListSecretVersionIdsResponse$: StaticStructureSchema = [3, n0, _LSVIR
   [_Ve, _NT, _ARN, _N],
   [() => SecretVersionsListType, 0, 0, 0]
 ];
-export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
-export var PreconditionNotMetException$: StaticErrorSchema = [-3, n0, _PNME,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PreconditionNotMetException$, PreconditionNotMetException);
-export var PublicPolicyException$: StaticErrorSchema = [-3, n0, _PPE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(PublicPolicyException$, PublicPolicyException);
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_SI, _RPe, _BPP],
@@ -455,18 +480,6 @@ export var ReplicationStatusType$: StaticStructureSchema = [3, n0, _RST,
   [_R, _KKI, _S, _SM, _LAD],
   [0, 0, 0, 0, 4]
 ];
-export var ResourceExistsException$: StaticErrorSchema = [-3, n0, _REE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceExistsException$, ResourceExistsException);
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RestoreSecretRequest$: StaticStructureSchema = [3, n0, _RSR,
   0,
   [_SI],
@@ -568,8 +581,6 @@ export var ValidationErrorsEntry$: StaticStructureSchema = [3, n0, _VEE,
   [0, 0]
 ];
 var __Unit = "unit" as const;
-export var SecretsManagerServiceException$: StaticErrorSchema = [-3, _sm, "SecretsManagerServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SecretsManagerServiceException$, SecretsManagerServiceException);
 var AddReplicaRegionListType: StaticListSchema = [1, n0, _ARRLT,
   0, () => ReplicaRegionType$
 ];

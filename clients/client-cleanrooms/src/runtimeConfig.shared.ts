@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCleanRoomsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { CleanRoomsClientConfig } from "./CleanRoomsClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: CleanRoomsClientConfig) => {
     protocol: config?.protocol ?? AwsRestJsonProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cleanrooms",
+      errorTypeRegistries,
       version: "2022-02-17",
       serviceTarget: "AWSBastionControlPlaneServiceLambda",
     },

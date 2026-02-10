@@ -235,8 +235,8 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _rA = "resourceArn";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.ssmsap";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ssmsap";
+const _se = "server";
 const _sp = "sparse";
 const _t = "tags";
 const _tK = "tagKeys";
@@ -263,6 +263,49 @@ import {
 import { SsmSapServiceException } from "../models/SsmSapServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var SsmSapServiceException$: StaticErrorSchema = [-3, _s, "SsmSapServiceException", 0, [], []];
+_s_registry.registerError(SsmSapServiceException$, SsmSapServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
+  { [_e]: _c, [_hE]: 401 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(UnauthorizedException$, UnauthorizedException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var SecretId: StaticSimpleSchema = [0, n0, _SI, 8, 0];
 export var Application$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -314,12 +357,6 @@ export var ConfigurationCheckOperation$: StaticStructureSchema = [3, n0, _CCO,
   [_I, _AI, _S, _SM, _CCI, _CCN, _CCDo, _ST, _ET, _RSC],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => RuleStatusCounts$]
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var Database$: StaticStructureSchema = [3, n0, _Da,
   0,
   [_AI, _CI, _Cr, _DI, _DN, _DT, _Ar, _S, _PH, _SQLP, _LU, _CCA],
@@ -425,12 +462,6 @@ export var Host$: StaticStructureSchema = [3, n0, _Hos,
   [_HN, _HI, _ECII, _II, _HR, _OV],
   [0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var IpAddressMember$: StaticStructureSchema = [3, n0, _IAM,
   0,
   [_IAp, _Pr, _ATl],
@@ -576,12 +607,6 @@ export var Resource$: StaticStructureSchema = [3, n0, _Re,
   [_RA, _RT],
   [0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var RuleResult$: StaticStructureSchema = [3, n0, _RRu,
   0,
   [_I, _De, _S, _M, _Me],
@@ -647,12 +672,6 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   [],
   []
 ];
-export var UnauthorizedException$: StaticErrorSchema = [-3, n0, _UE,
-  { [_e]: _c, [_hE]: 401 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(UnauthorizedException$, UnauthorizedException);
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -673,14 +692,6 @@ export var UpdateApplicationSettingsOutput$: StaticStructureSchema = [3, n0, _UA
   [_M, _OIp],
   [0, 64 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0]
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
-export var SsmSapServiceException$: StaticErrorSchema = [-3, _sm, "SsmSapServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(SsmSapServiceException$, SsmSapServiceException);
 var ApplicationArnList = 64 | 0;
 var ApplicationCredentialList: StaticListSchema = [1, n0, _ACL,
   0, [() => ApplicationCredential$,

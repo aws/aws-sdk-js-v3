@@ -16,8 +16,8 @@ const _aD = "archiveDescription";
 const _aI = "archiveId";
 const _aIc = "accountId";
 const _b = "body";
-const _c = "checksum";
-const _cl = "client";
+const _c = "client";
+const _ch = "checksum";
 const _co = "code";
 const _e = "error";
 const _h = "http";
@@ -26,9 +26,9 @@ const _hH = "httpHeader";
 const _l = "location";
 const _m = "message";
 const _r = "range";
-const _s = "streaming";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.glacier";
 const _se = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.glacier";
+const _st = "streaming";
 const _t = "type";
 const _uI = "uploadId";
 const _vN = "vaultName";
@@ -56,59 +56,70 @@ import {
 import { GlacierServiceException } from "../models/GlacierServiceException";
 
 /* eslint no-var: 0 */
-var _Stream: StaticSimpleSchema = [0, n0, _S, { [_s]: 1 }, 42];
-export var ArchiveCreationOutput$: StaticStructureSchema = [3, n0, _ACO,
-  0,
-  [_l, _c, _aI],
-  [[0, { [_hH]: _L }], [0, { [_hH]: _xasth }], [0, { [_hH]: _xaai }]]
-];
+const _s_registry = TypeRegistry.for(_s);
+export var GlacierServiceException$: StaticErrorSchema = [-3, _s, "GlacierServiceException", 0, [], []];
+_s_registry.registerError(GlacierServiceException$, GlacierServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var InvalidParameterValueException$: StaticErrorSchema = [-3, n0, _IPVE,
-  { [_e]: _cl, [_hE]: 400 },
+  { [_e]: _c, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(InvalidParameterValueException$, InvalidParameterValueException);
+n0_registry.registerError(InvalidParameterValueException$, InvalidParameterValueException);
 export var MissingParameterValueException$: StaticErrorSchema = [-3, n0, _MPVE,
-  { [_e]: _cl, [_hE]: 400 },
+  { [_e]: _c, [_hE]: 400 },
   [_t, _co, _m],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(MissingParameterValueException$, MissingParameterValueException);
+n0_registry.registerError(MissingParameterValueException$, MissingParameterValueException);
 export var RequestTimeoutException$: StaticErrorSchema = [-3, n0, _RTE,
-  { [_e]: _cl, [_hE]: 408 },
+  { [_e]: _c, [_hE]: 408 },
   [_t, _co, _m],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(RequestTimeoutException$, RequestTimeoutException);
+n0_registry.registerError(RequestTimeoutException$, RequestTimeoutException);
 export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _cl, [_hE]: 404 },
+  { [_e]: _c, [_hE]: 404 },
   [_t, _co, _m],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
   { [_e]: _se, [_hE]: 500 },
   [_t, _co, _m],
   [0, 0, 0]
 ];
-TypeRegistry.for(n0).registerError(ServiceUnavailableException$, ServiceUnavailableException);
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var _Stream: StaticSimpleSchema = [0, n0, _S, { [_st]: 1 }, 42];
+export var ArchiveCreationOutput$: StaticStructureSchema = [3, n0, _ACO,
+  0,
+  [_l, _ch, _aI],
+  [[0, { [_hH]: _L }], [0, { [_hH]: _xasth }], [0, { [_hH]: _xaai }]]
+];
 export var UploadArchiveInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_vN, _aIc, _aD, _c, _b],
+  [_vN, _aIc, _aD, _ch, _b],
   [[0, 1], [0, 1], [0, { [_hH]: _xaad }], [0, { [_hH]: _xasth }], [() => _Stream, 16]], 2
 ];
 export var UploadMultipartPartInput$: StaticStructureSchema = [3, n0, _UMPI,
   0,
-  [_aIc, _vN, _uI, _c, _r, _b],
+  [_aIc, _vN, _uI, _ch, _r, _b],
   [[0, 1], [0, 1], [0, 1], [0, { [_hH]: _xasth }], [0, { [_hH]: _CR }], [() => _Stream, 16]], 3
 ];
 export var UploadMultipartPartOutput$: StaticStructureSchema = [3, n0, _UMPO,
   0,
-  [_c],
+  [_ch],
   [[0, { [_hH]: _xasth }]]
 ];
-export var GlacierServiceException$: StaticErrorSchema = [-3, _sm, "GlacierServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(GlacierServiceException$, GlacierServiceException);
 export var UploadArchive$: StaticOperationSchema = [9, n0, _UA,
   { [_h]: ["POST", "/{accountId}/vaults/{vaultName}/archives", 201] }, () => UploadArchiveInput$, () => ArchiveCreationOutput$
 ];

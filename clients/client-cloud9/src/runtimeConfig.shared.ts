@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultCloud9HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { Cloud9ClientConfig } from "./Cloud9Client";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: Cloud9ClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.cloud9",
+      errorTypeRegistries,
       version: "2017-09-23",
       serviceTarget: "AWSCloud9WorkspaceManagementService",
     },

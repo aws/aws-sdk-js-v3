@@ -561,8 +561,8 @@ const _eC = "errorCode";
 const _eD = "errorDetails";
 const _hE = "httpError";
 const _m = "message";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.storagegateway";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.storagegateway";
+const _se = "server";
 const n0 = "com.amazonaws.storagegateway";
 
 // smithy-typescript generated code
@@ -580,6 +580,37 @@ import { InternalServerError, InvalidGatewayRequestException, ServiceUnavailable
 import { StorageGatewayServiceException } from "../models/StorageGatewayServiceException";
 
 /* eslint no-var: 0 */
+const _s_registry = TypeRegistry.for(_s);
+export var StorageGatewayServiceException$: StaticErrorSchema = [-3, _s, "StorageGatewayServiceException", 0, [], []];
+_s_registry.registerError(StorageGatewayServiceException$, StorageGatewayServiceException);
+const n0_registry = TypeRegistry.for(n0);
+export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m, _e],
+  [0, () => StorageGatewayError$]
+];
+n0_registry.registerError(InternalServerError$, InternalServerError);
+export var InvalidGatewayRequestException$: StaticErrorSchema = [-3, n0, _IGRE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m, _e],
+  [0, () => StorageGatewayError$]
+];
+n0_registry.registerError(InvalidGatewayRequestException$, InvalidGatewayRequestException);
+export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m, _e],
+  [0, () => StorageGatewayError$]
+];
+n0_registry.registerError(ServiceUnavailableError$, ServiceUnavailableError);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
 var ChapSecret: StaticSimpleSchema = [0, n0, _CS, 8, 0];
 var DomainUserPassword: StaticSimpleSchema = [0, n0, _DUP, 8, 0];
 var LocalConsolePassword: StaticSimpleSchema = [0, n0, _LCP, 8, 0];
@@ -1224,18 +1255,6 @@ export var GatewayInfo$: StaticStructureSchema = [3, n0, _GIa,
   [_GI, _GARN, _GTa, _GOS, _GN, _EII, _EIR, _HE, _HEI, _DD, _SV],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-export var InternalServerError$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_m, _e],
-  [0, () => StorageGatewayError$]
-];
-TypeRegistry.for(n0).registerError(InternalServerError$, InternalServerError);
-export var InvalidGatewayRequestException$: StaticErrorSchema = [-3, n0, _IGRE,
-  { [_e]: _c, [_hE]: 400 },
-  [_m, _e],
-  [0, () => StorageGatewayError$]
-];
-TypeRegistry.for(n0).registerError(InvalidGatewayRequestException$, InvalidGatewayRequestException);
 export var JoinDomainInput$: StaticStructureSchema = [3, n0, _JDI,
   0,
   [_GARN, _DN, _UN, _P, _OU, _DC, _TIS],
@@ -1446,12 +1465,6 @@ export var RetrieveTapeRecoveryPointOutput$: StaticStructureSchema = [3, n0, _RT
   [_TARN],
   [0]
 ];
-export var ServiceUnavailableError$: StaticErrorSchema = [-3, n0, _SUE,
-  { [_e]: _s, [_hE]: 503 },
-  [_m, _e],
-  [0, () => StorageGatewayError$]
-];
-TypeRegistry.for(n0).registerError(ServiceUnavailableError$, ServiceUnavailableError);
 export var SetLocalConsolePasswordInput$: StaticStructureSchema = [3, n0, _SLCPI,
   0,
   [_GARN, _LCP],
@@ -1732,8 +1745,6 @@ export var VTLDevice$: StaticStructureSchema = [3, n0, _VTLDe,
   [_VTLDARNe, _VTLDT, _VTLDV, _VTLDPI, _DSCSIA],
   [0, 0, 0, 0, () => DeviceiSCSIAttributes$]
 ];
-export var StorageGatewayServiceException$: StaticErrorSchema = [-3, _sm, "StorageGatewayServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(StorageGatewayServiceException$, StorageGatewayServiceException);
 var AutomaticTapeCreationPolicyInfos: StaticListSchema = [1, n0, _ATCPIu,
   0, () => AutomaticTapeCreationPolicyInfo$
 ];

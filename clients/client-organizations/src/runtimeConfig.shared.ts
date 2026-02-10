@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultOrganizationsHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import type { OrganizationsClientConfig } from "./OrganizationsClient";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: OrganizationsClientConfig) => {
     protocol: config?.protocol ?? AwsJson1_1Protocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.organizations",
+      errorTypeRegistries,
       xmlNamespace: "http://organizations.amazonaws.com/doc/2016-11-28/",
       version: "2016-11-28",
       serviceTarget: "AWSOrganizationsV20161128",

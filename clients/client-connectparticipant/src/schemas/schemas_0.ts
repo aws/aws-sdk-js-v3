@@ -82,8 +82,8 @@ const _RCI = "RelatedContactId";
 const _RI = "ResourceId";
 const _RNFE = "ResourceNotFoundException";
 const _RPI = "RecipientParticipantId";
-const _RT = "ReadTimestamp";
-const _RTe = "ResourceType";
+const _RT = "ResourceType";
+const _RTe = "ReadTimestamp";
 const _RU = "RedirectUri";
 const _Re = "Receipt";
 const _S = "Status";
@@ -130,8 +130,8 @@ const _e = "error";
 const _h = "http";
 const _hE = "httpError";
 const _hH = "httpHeader";
-const _s = "server";
-const _sm = "smithy.ts.sdk.synthetic.com.amazonaws.connectparticipant";
+const _s = "smithy.ts.sdk.synthetic.com.amazonaws.connectparticipant";
+const _se = "server";
 const n0 = "com.amazonaws.connectparticipant";
 
 // smithy-typescript generated code
@@ -157,17 +157,66 @@ import {
 } from "../models/errors";
 
 /* eslint no-var: 0 */
-var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
-var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
-var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
-var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
-var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
+const _s_registry = TypeRegistry.for(_s);
+export var ConnectParticipantServiceException$: StaticErrorSchema = [-3, _s, "ConnectParticipantServiceException", 0, [], []];
+_s_registry.registerError(ConnectParticipantServiceException$, ConnectParticipantServiceException);
+const n0_registry = TypeRegistry.for(n0);
 export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   { [_e]: _c, [_hE]: 403 },
   [_M],
   [0], 1
 ];
-TypeRegistry.for(n0).registerError(AccessDeniedException$, AccessDeniedException);
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
+export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
+  { [_e]: _c, [_hE]: 404 },
+  [_M, _RI, _RT],
+  [0, 0, 0]
+];
+n0_registry.registerError(ResourceNotFoundException$, ResourceNotFoundException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 402 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
+  { [_e]: _c, [_hE]: 429 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ThrottlingException$, ThrottlingException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(ValidationException$, ValidationException);
+/**
+ * TypeRegistry instances containing modeled errors.
+ * @internal
+ *
+ */
+export const errorTypeRegistries = [
+  _s_registry,
+  n0_registry,
+]
+var JoinToken: StaticSimpleSchema = [0, n0, _JT, 8, 0];
+var ViewAction: StaticSimpleSchema = [0, n0, _VA, 8, 0];
+var ViewInputSchema: StaticSimpleSchema = [0, n0, _VIS, 8, 0];
+var ViewName: StaticSimpleSchema = [0, n0, _VN, 8, 0];
+var ViewTemplate: StaticSimpleSchema = [0, n0, _VT, 8, 0];
 export var AttachmentItem$: StaticStructureSchema = [3, n0, _AI,
   0,
   [_CT, _AIt, _AN, _S],
@@ -203,12 +252,6 @@ export var CompleteAttachmentUploadResponse$: StaticStructureSchema = [3, n0, _C
   [],
   []
 ];
-export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
-  { [_e]: _c, [_hE]: 409 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ConflictException$, ConflictException);
 export var ConnectionCredentials$: StaticStructureSchema = [3, n0, _CC,
   0,
   [_CTo, _E],
@@ -274,12 +317,6 @@ export var GetTranscriptResponse$: StaticStructureSchema = [3, n0, _GTRe,
   [_ICI, _Tr, _NT],
   [0, () => Transcript, 0]
 ];
-export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
-  { [_e]: _s, [_hE]: 500 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(InternalServerException$, InternalServerException);
 export var Item$: StaticStructureSchema = [3, n0, _I,
   0,
   [_AT, _C, _CT, _Id, _T, _PI, _DN, _PR, _At, _MM, _RCI, _CI],
@@ -302,15 +339,9 @@ export var MessageProcessingMetadata$: StaticStructureSchema = [3, n0, _MPM,
 ];
 export var Receipt$: StaticStructureSchema = [3, n0, _Re,
   0,
-  [_DT, _RT, _RPI],
+  [_DT, _RTe, _RPI],
   [0, 0, 0]
 ];
-export var ResourceNotFoundException$: StaticErrorSchema = [-3, n0, _RNFE,
-  { [_e]: _c, [_hE]: 404 },
-  [_M, _RI, _RTe],
-  [0, 0, 0]
-];
-TypeRegistry.for(n0).registerError(ResourceNotFoundException$, ResourceNotFoundException);
 export var SendEventRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
   [_CT, _CTo, _C, _CTl],
@@ -331,12 +362,6 @@ export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   [_Id, _AT, _MM],
   [0, 0, () => MessageProcessingMetadata$]
 ];
-export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
-  { [_e]: _c, [_hE]: 402 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var StartAttachmentUploadRequest$: StaticStructureSchema = [3, n0, _SAUR,
   0,
   [_CT, _ASIB, _AN, _CTo, _CTl],
@@ -352,23 +377,11 @@ export var StartPosition$: StaticStructureSchema = [3, n0, _SP,
   [_Id, _AT, _MRo],
   [0, 0, 1]
 ];
-export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
-  { [_e]: _c, [_hE]: 429 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ThrottlingException$, ThrottlingException);
 export var UploadMetadata$: StaticStructureSchema = [3, n0, _UM,
   0,
   [_U, _UE, _HTI],
   [0, 0, 128 | 0]
 ];
-export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
-  { [_e]: _c, [_hE]: 400 },
-  [_M],
-  [0], 1
-];
-TypeRegistry.for(n0).registerError(ValidationException$, ValidationException);
 export var View$: StaticStructureSchema = [3, n0, _V,
   0,
   [_Id, _Ar, _N, _Ve, _C],
@@ -399,8 +412,6 @@ export var Websocket$: StaticStructureSchema = [3, n0, _W,
   [_U, _CEo],
   [0, 0]
 ];
-export var ConnectParticipantServiceException$: StaticErrorSchema = [-3, _sm, "ConnectParticipantServiceException", 0, [], []];
-TypeRegistry.for(_sm).registerError(ConnectParticipantServiceException$, ConnectParticipantServiceException);
 var AttachmentIdList = 64 | 0;
 var Attachments: StaticListSchema = [1, n0, _At,
   0, () => AttachmentItem$

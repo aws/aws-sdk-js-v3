@@ -10,6 +10,7 @@ import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { defaultElasticLoadBalancingHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import type { ElasticLoadBalancingClientConfig } from "./ElasticLoadBalancingClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { errorTypeRegistries } from "./schemas/schemas_0";
 
 /**
  * @internal
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: ElasticLoadBalancingClientConfig) => {
     protocol: config?.protocol ?? AwsQueryProtocol,
     protocolSettings: config?.protocolSettings ?? {
       defaultNamespace: "com.amazonaws.elasticloadbalancing",
+      errorTypeRegistries,
       xmlNamespace: "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
       version: "2012-06-01",
       serviceTarget: "ElasticLoadBalancing_v7",
