@@ -303,7 +303,8 @@
     "throw200ExceptionsMiddleware": "function, since <=3.930.0",
     "throw200ExceptionsMiddlewareOptions": "object, since <=3.930.0",
     "validateBucketNameMiddleware": "function, since <=3.930.0",
-    "validateBucketNameMiddlewareOptions": "object, since <=3.930.0"
+    "validateBucketNameMiddlewareOptions": "object, since <=3.930.0",
+    "S3RestXmlProtocol": "function, since 3.972.24"
   },
   "@aws-sdk/middleware-sdk-s3-control": {
     "NODE_USE_ARN_REGION_CONFIG_OPTIONS": "object, since <=3.930.0",
@@ -598,5 +599,11 @@
   "@aws-sdk/util-endpoints-placeholder": {},
   "@aws-sdk/snapshot-testing": {
     "setup": "function, since 3.0.0"
+  },
+  "@aws-sdk/checksums": {
+    "ChecksumSha512": "function, since 3.0.0",
+    "ChecksumXxHash3_128": "function, since 3.0.0",
+    "ChecksumXxHash3_64": "function, since 3.0.0",
+    "ChecksumXxHash64": "function, since 3.0.0"
   }
 }

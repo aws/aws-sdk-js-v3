@@ -1487,6 +1487,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/checksums@workspace:packages-internal/checksums":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/checksums@workspace:packages-internal/checksums"
+  dependencies:
+    "@smithy/types": "npm:^4.13.1"
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+    xxhashjs: "npm:0.2.2"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/chunked-stream-reader-node@workspace:^3.972.4, @aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/chunked-stream-reader-node@workspace:packages-internal/chunked-stream-reader-node"
@@ -32617,6 +32632,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cuint@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "cuint@npm:0.2.2"
+  checksum: 10c0/ba56735799e04cd8fd8e386bfde52298e26179665f0063a7a22aaf5771e1b350f1b3baa83c719097cb650766b0e5067d16121db71f88fad4b2ef1ed423d646b7
+  languageName: node
+  linkType: hard
+
 "dargs@npm:^7.0.0":
   version: 7.0.0
   resolution: "dargs@npm:7.0.0"
@@ -42586,6 +42608,15 @@ __metadata:
   version: 4.0.2
   resolution: "xtend@npm:4.0.2"
   checksum: 10c0/366ae4783eec6100f8a02dff02ac907bf29f9a00b82ac0264b4d8b832ead18306797e283cf19de776538babfdcb2101375ec5646b59f08c52128ac4ab812ed0e
+  languageName: node
+  linkType: hard
+
+"xxhashjs@npm:0.2.2":
+  version: 0.2.2
+  resolution: "xxhashjs@npm:0.2.2"
+  dependencies:
+    cuint: "npm:^0.2.2"
+  checksum: 10c0/78f3a5e10c7ba026bfc52f07ab02acb972c9c681dd53c283b386042822bae15577667103efe843725e9b0914f7bc53d70fe2f24a3e85d15aac13378fdf2db50e
   languageName: node
   linkType: hard
 
