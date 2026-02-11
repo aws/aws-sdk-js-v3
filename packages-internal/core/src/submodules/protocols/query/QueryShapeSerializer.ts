@@ -9,7 +9,6 @@ import type {
   MapSchemaModifier,
   Schema,
   ShapeSerializer,
-  StringSchema,
   TimestampDateTimeSchema,
   TimestampDefaultSchema,
   TimestampEpochSecondsSchema,
@@ -106,7 +105,8 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
             if (item == null) {
               continue;
             }
-            const suffix = this.getKey("member", member.getMergedTraits().xmlName);
+            const traits = member.getMergedTraits();
+            const suffix = this.getKey("member", traits.xmlName, traits.ec2QueryName);
             const key = flat ? `${prefix}${i}` : `${prefix}${suffix}.${i}`;
             this.write(member, item, key);
             ++i;
@@ -123,10 +123,12 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
           if (v == null) {
             continue;
           }
-          const keySuffix = this.getKey("key", keySchema.getMergedTraits().xmlName);
+          const keyTraits = keySchema.getMergedTraits();
+          const keySuffix = this.getKey("key", keyTraits.xmlName, keyTraits.ec2QueryName);
           const key = flat ? `${prefix}${i}.${keySuffix}` : `${prefix}entry.${i}.${keySuffix}`;
 
-          const valueSuffix = this.getKey("value", memberSchema.getMergedTraits().xmlName);
+          const valTraits = memberSchema.getMergedTraits();
+          const valueSuffix = this.getKey("value", valTraits.xmlName, valTraits.ec2QueryName);
           const valueKey = flat ? `${prefix}${i}.${valueSuffix}` : `${prefix}entry.${i}.${valueSuffix}`;
 
           this.write(keySchema, k, key);
@@ -141,7 +143,8 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
           if ((value as any)[memberName] == null && !member.isIdempotencyToken()) {
             continue;
           }
-          const suffix = this.getKey(memberName, member.getMergedTraits().xmlName);
+          const traits = member.getMergedTraits();
+          const suffix = this.getKey(memberName, traits.xmlName, traits.ec2QueryName, "struct");
           const key = `${prefix}${suffix}`;
           this.write(member, (value as any)[memberName], key);
           didWriteMember = true;
@@ -170,9 +173,19 @@ export class QueryShapeSerializer extends SerdeContextConfig implements ShapeSer
     return str;
   }
 
-  protected getKey(memberName: string, xmlName?: string): string {
+  protected getKey(memberName: string, xmlName?: string, ec2QueryName?: unknown, keySource?: string): string {
+    const { ec2, capitalizeKeys } = this.settings;
+
+    if (ec2 && ec2QueryName) {
+      return ec2QueryName as string;
+    }
+
     const key = xmlName ?? memberName;
-    if (this.settings.capitalizeKeys) {
+
+    // `keySource` is a technicality at this time.
+    // EC2 model has flattened lists and no maps, leaving
+    // no opportunity to miscapitalize a non-struct key.
+    if (capitalizeKeys && keySource === "struct") {
       return key[0].toUpperCase() + key.slice(1);
     }
     return key;

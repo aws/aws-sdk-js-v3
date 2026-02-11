@@ -1,5 +1,5 @@
 import { AwsQueryProtocol } from "./AwsQueryProtocol";
-import { QuerySerializerSettings } from "./QuerySerializerSettings";
+import type { QuerySerializerSettings } from "./QuerySerializerSettings";
 
 /**
  * @public
@@ -17,6 +17,7 @@ export class AwsEc2QueryProtocol extends AwsQueryProtocol {
       capitalizeKeys: true,
       flattenLists: true,
       serializeEmptyLists: false,
+      ec2: true,
     };
     Object.assign(this.serializer.settings, ec2Settings);
   }
