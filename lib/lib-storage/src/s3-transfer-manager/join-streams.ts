@@ -1,8 +1,8 @@
-import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 import { Readable } from "stream";
 
-import { JoinStreamIterationEvents } from "./types";
+import type { JoinStreamIterationEvents } from "./types";
 
 /**
  * Joins multiple stream promises into a single stream with event callbacks.
@@ -25,6 +25,7 @@ export async function joinStreams(
     });
     return sdkStreamMixin(newReadableStream);
   } else {
+    // TOOD: remove this, rejected promises must abort the joining of the streams.
     streams.forEach((stream) => stream.catch(() => {}));
 
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
