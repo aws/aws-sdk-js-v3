@@ -30,6 +30,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.typescript.codegen.knowledge.ServiceClosure;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
@@ -174,13 +175,9 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
     private void writeOperationList(TypeScriptWriter writer, Model model, TypeScriptSettings settings) {
         writer.write("## Client Commands (Operations List)");
         writer.write("");
-        Set<OperationShape> operationShapesSet = model.getOperationShapes();
+        ServiceClosure closure = ServiceClosure.of(model, settings.getService(model));
 
-        List<OperationShape> operationShapes = operationShapesSet.stream()
-            .sorted(Comparator.comparing(Shape::getId))
-            .toList();
-
-        for (OperationShape operationShape : operationShapes) {
+        for (OperationShape operationShape : closure.getOperationShapes()) {
             writer.write("<details>");
             writer.write("<summary>");
             writer.write("$L", operationShape.getId().getName());

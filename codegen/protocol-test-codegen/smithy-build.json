@@ -523,6 +523,30 @@
           "private": true
         }
       }
+    },
+    "aws-protocoltests-ec2-mock": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["awssdkjs.example#Ec2Mock"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-protocoltests-ec2-mock",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
     }
   }
 }
