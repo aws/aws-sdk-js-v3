@@ -11,6 +11,9 @@ describe(selectChecksumAlgorithmFunction.name, () => {
     md5: vi.fn(),
     sha1: vi.fn(),
     sha256: vi.fn(),
+    checksumAlgorithms: {
+      novel: class {},
+    },
   };
 
   it.each([
@@ -24,7 +27,11 @@ describe(selectChecksumAlgorithmFunction.name, () => {
   });
 
   it("throws an error for unsupported checksum algorithm", () => {
-    expect(() => selectChecksumAlgorithmFunction("UNSUPPORTED" as any, mockConfig as any)).toThrow();
+    expect(() => selectChecksumAlgorithmFunction("UNSUPPORTED", mockConfig as any)).toThrow();
+  });
+
+  it("doesn't throw an error if the unknown algo's implementation was provided", () => {
+    expect(() => selectChecksumAlgorithmFunction("novel", mockConfig as any)).not.toThrow();
   });
 
   it("returns Crc64Nvme if crc64NvmeCrtContainer.CrtCrc64Nvme is not a function", () => {

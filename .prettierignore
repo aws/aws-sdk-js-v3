@@ -6,5 +6,6 @@ CHANGELOG.md
 clients/**/src
 clients/**/README.md
 private/**
+!private/aws-client-api-test/src/**/*
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts
 **/*.java

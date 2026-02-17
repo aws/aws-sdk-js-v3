@@ -1,35 +1,44 @@
 import { AwsCrc32c } from "@aws-crypto/crc32c";
 import { Crc64Nvme, crc64NvmeCrtContainer } from "@aws-sdk/crc64-nvme";
-import { ChecksumConstructor, HashConstructor } from "@smithy/types";
+import type { ChecksumConstructor, HashConstructor } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
+import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 
 /**
  * Returns the function that will compute the checksum for the given {@link ChecksumAlgorithm}.
  */
 export const selectChecksumAlgorithmFunction = (
-  checksumAlgorithm: ChecksumAlgorithm,
+  checksumAlgorithm: ChecksumAlgorithm | string,
   config: PreviouslyResolved
 ): ChecksumConstructor | HashConstructor => {
+  const { checksumAlgorithms = {} } = config;
   switch (checksumAlgorithm) {
     case ChecksumAlgorithm.MD5:
-      return config.md5;
+      return checksumAlgorithms?.MD5 ?? config.md5;
     case ChecksumAlgorithm.CRC32:
-      return getCrc32ChecksumAlgorithmFunction();
+      return checksumAlgorithms?.CRC32 ?? getCrc32ChecksumAlgorithmFunction();
     case ChecksumAlgorithm.CRC32C:
-      return AwsCrc32c;
+      return checksumAlgorithms?.CRC32C ?? AwsCrc32c;
     case ChecksumAlgorithm.CRC64NVME:
       if (typeof crc64NvmeCrtContainer.CrtCrc64Nvme !== "function") {
-        return Crc64Nvme;
+        return checksumAlgorithms?.CRC64NVME ?? Crc64Nvme;
       }
-      return crc64NvmeCrtContainer.CrtCrc64Nvme;
+      return checksumAlgorithms?.CRC64NVME ?? crc64NvmeCrtContainer.CrtCrc64Nvme;
     case ChecksumAlgorithm.SHA1:
-      return config.sha1;
+      return checksumAlgorithms?.SHA1 ?? config.sha1;
     case ChecksumAlgorithm.SHA256:
-      return config.sha256;
+      return checksumAlgorithms?.SHA256 ?? config.sha256;
     default:
-      throw new Error(`Unsupported checksum algorithm: ${checksumAlgorithm}`);
+      if (checksumAlgorithms?.[checksumAlgorithm]) {
+        return checksumAlgorithms[checksumAlgorithm];
+      }
+      throw new Error(
+        `The checksum algorithm "${checksumAlgorithm}" is not supported by the client.` +
+          ` Select one of ${CLIENT_SUPPORTED_ALGORITHMS}, or provide an implementation to ` +
+          ` the client constructor checksums field.`
+      );
   }
 };

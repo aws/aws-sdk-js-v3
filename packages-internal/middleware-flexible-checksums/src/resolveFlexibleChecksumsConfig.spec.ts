@@ -31,6 +31,7 @@ describe(resolveFlexibleChecksumsConfig.name, () => {
       requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
       responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
       requestStreamBufferSize: 0,
+      checksumAlgorithms: {},
     });
     expect(normalizeProvider).toHaveBeenCalledTimes(2);
   });

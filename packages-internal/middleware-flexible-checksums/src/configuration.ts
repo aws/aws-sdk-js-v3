@@ -1,4 +1,4 @@
-import {
+import type {
   BodyLengthCalculator,
   ChecksumConstructor,
   Encoder,
@@ -9,7 +9,8 @@ import {
   StreamHasher,
 } from "@smithy/types";
 
-import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import type { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import type { FlexibleChecksumsInputConfig } from "./resolveFlexibleChecksumsConfig";
 
 /**
  * @internal
@@ -74,4 +75,6 @@ export interface PreviouslyResolved {
    * Minimum bytes from a stream to buffer into a chunk before passing to chunked encoding.
    */
   requestStreamBufferSize: number;
+
+  checksumAlgorithms?: FlexibleChecksumsInputConfig["checksumAlgorithms"];
 }
