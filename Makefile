@@ -41,6 +41,12 @@ test-indices:
 test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.mts
 
+snapshot-compare:
+	SNAPSHOT_MODE=compare yarn g:vitest run -c vitest.config.snapshots.integ.mts
+
+snapshot-write:
+	SNAPSHOT_MODE=write yarn g:vitest run -c vitest.config.snapshots.integ.mts
+
 test-schema: bundles
 	yarn g:vitest run -c vitest.config.protocols-schema.integ.mts
 
@@ -50,6 +56,7 @@ test-integration: bundles
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types
+	make snapshot-compare
 	make test-indices
 	make test-endpoints
 

@@ -287,6 +287,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-ec2-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -312,6 +313,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-json-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -337,6 +339,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-json-schema-machinelearning",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -362,6 +365,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-json-10-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -387,6 +391,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-query-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -412,6 +417,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-restjson-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -437,6 +443,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-restjson-schema-apigateway",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -462,6 +469,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-restjson-schema-glacier",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -487,6 +495,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-restxml-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {
@@ -512,6 +521,7 @@
         "typescript-codegen": {
           "package": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor-schema",
           "generateSchemas": true,
+          "generateSnapshotTests": true,
           "packageVersion": "1.0.0-alpha.1",
           "packageJson": {
             "author": {

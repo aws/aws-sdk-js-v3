@@ -57,7 +57,10 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
 
     const match = (headers?.authorization ?? "").match(/Signature=(\w+)$/);
     // Sign the eventstream based on the signature from initial request.
-    const priorSignature = (match ?? [])[1] ?? (query && (query["X-Amz-Signature"] as string)) ?? "";
+    let priorSignature = (match ?? [])[1] ?? (query && (query["X-Amz-Signature"] as string)) ?? "";
+    if (context.__staticSignature) {
+      priorSignature = "";
+    }
     const signingStream = new EventSigningTransformStream(
       priorSignature,
       await this.messageSigner(),

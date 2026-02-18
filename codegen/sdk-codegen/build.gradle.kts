@@ -132,6 +132,12 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
             val useLegacyAuthServices = setOf<String>(
                 // e.g. "S3" - use this as exclusion list if needed.
             )
+            val generateSnapshotTests = setOf<String>(
+                // "S3",
+                // "EC2", "DynamoDB", "CloudWatch",
+                // "Bedrock Runtime", "IAM", "Route 53", "SageMaker",
+                // "S3Tables"
+            )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
@@ -145,6 +151,8 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                                     .withMember("useLegacyAuth",
                                         useLegacyAuthServices.contains(serviceTrait.sdkId))
                                     .withMember("generateIndexTests", true)
+                                    .withMember("generateSnapshotTests",
+                                        generateSnapshotTests.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.lowercase(), projectionContents)

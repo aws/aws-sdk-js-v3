@@ -1,0 +1,32 @@
+POST https://awsec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 450
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2-protocol#_.__ m/E,e
+host: awsec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f8c41ba7e90c35fc4fd84019928a5267167cf146ade71391780583804ae57e50
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2query/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=QueryLists&
+Version=2020-01-08&
+ListArg.1=__member__&
+ListArg.2=__member__&
+ListArg.3=__member__&
+ComplexListArg.1.Hi=__hi__&
+ComplexListArg.2.Hi=__hi__&
+ComplexListArg.3.Hi=__hi__&
+ListArgWithXmlNameMember.1=__member__&
+ListArgWithXmlNameMember.2=__member__&
+ListArgWithXmlNameMember.3=__member__&
+Hi.1=__member__&
+Hi.2=__member__&
+Hi.3=__member__&
+NestedWithList.ListArg.1=__member__&
+NestedWithList.ListArg.2=__member__&
+NestedWithList.ListArg.3=__member__

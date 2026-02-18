@@ -149,10 +149,11 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
       }
     }
 
-    // copy and merge generated index tests
+    // copy and merge generated tests
     for (const test of [
       join(artifactPath, "test", "index-objects.spec.mjs"),
       join(artifactPath, "test", "index-types.ts"),
+      join(artifactPath, "test", "snapshots.integ.spec.ts"),
     ]) {
       if (existsSync(test)) {
         copySync(test, join(destPath, "test", basename(test)), {

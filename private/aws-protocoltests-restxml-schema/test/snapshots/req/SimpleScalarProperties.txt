@@ -1,0 +1,46 @@
+PUT https://restxml.us-east-1.amazonaws.com 
+/SimpleScalarProperties
+
+x-foo: __foo__
+content-type: application/xml
+content-length: 391
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-xml-protocol#_.__ m/E,e
+host: restxml.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 399b878c0835f2f9abd14fbdb44b8217fca75ccc47c2a7d0bbf425d82739f94e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-foo, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<SimpleScalarPropertiesRequest>
+    <stringValue>
+        __stringValue__
+    </stringValue>
+    <trueBooleanValue>
+        false
+    </trueBooleanValue>
+    <falseBooleanValue>
+        false
+    </falseBooleanValue>
+    <byteValue>
+        0
+    </byteValue>
+    <shortValue>
+        0
+    </shortValue>
+    <integerValue>
+        0
+    </integerValue>
+    <longValue>
+        0
+    </longValue>
+    <floatValue>
+        0
+    </floatValue>
+    <DoubleDribble>
+        0
+    </DoubleDribble>
+</SimpleScalarPropertiesRequest>

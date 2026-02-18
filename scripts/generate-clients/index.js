@@ -129,12 +129,24 @@ const {
       await generateNestedClients();
     }
 
+    await spawnProcess("make", ["test-client-codegen"], {
+      cwd: REPO_ROOT,
+      stdio: "inherit",
+      env: { ...process.env },
+    });
+
+    await spawnProcess("make", ["snapshot-write"], {
+      cwd: REPO_ROOT,
+      stdio: "inherit",
+      env: { ...process.env },
+    });
+
+    require("../runtime-dependency-version-check/runtime-dep-version-check");
     await spawnProcess("yarn", ["install", "--no-immutable"], {
       cwd: REPO_ROOT,
       stdio: "inherit",
       env: { ...process.env, CI: "" },
     });
-    require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);
     process.exit(1);

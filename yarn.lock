@@ -255,6 +255,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -364,6 +365,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -526,6 +528,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -580,6 +583,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -688,6 +692,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -907,6 +912,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -963,6 +969,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -1027,6 +1034,7 @@ __metadata:
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/querystring-builder": "npm:^4.2.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -1150,6 +1158,7 @@ __metadata:
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/querystring-builder": "npm:^4.2.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -1262,6 +1271,7 @@ __metadata:
     "@smithy/node-http-handler": "npm:^4.4.10"
     "@smithy/protocol-http": "npm:^5.3.8"
     "@smithy/smithy-client": "npm:^4.11.5"
+    "@smithy/snapshot-testing": "npm:^1.0.1"
     "@smithy/types": "npm:^4.12.0"
     "@smithy/url-parser": "npm:^4.2.8"
     "@smithy/util-base64": "npm:^4.3.0"
@@ -29216,6 +29226,22 @@ __metadata:
     "@smithy/util-stream": "npm:^4.5.12"
     tslib: "npm:^2.6.2"
   checksum: 10c0/b36b2c20b7e3a25231d7d9b0021e6e55edd7722b894ceb060f0f6da4ddf282080da5ff319c1fa2f3cdd62b5dde7f1dc7d44a730b9cce7f3d404bfc29ea70d3c2
+  languageName: node
+  linkType: hard
+
+"@smithy/snapshot-testing@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@smithy/snapshot-testing@npm:1.0.1"
+  dependencies:
+    "@smithy/core": "npm:^3.23.2"
+    "@smithy/eventstream-codec": "npm:^4.2.8"
+    "@smithy/protocol-http": "npm:^5.3.8"
+    "@smithy/types": "npm:^4.12.0"
+    "@smithy/util-base64": "npm:^4.3.0"
+    "@smithy/util-hex-encoding": "npm:^4.2.0"
+    "@smithy/util-utf8": "npm:^4.2.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/8ec0cf8554038ab6aa94e1718d9be9d029b63bf4cd5eca56f7f4dc2102aaa10855ee1d53aa5a350032cb35b5888820ecdc6f923fcf5f0b670f1fdc31f4ec61bb
   languageName: node
   linkType: hard
 

@@ -64,6 +64,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
+    "@smithy/snapshot-testing": "^1.0.1",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
