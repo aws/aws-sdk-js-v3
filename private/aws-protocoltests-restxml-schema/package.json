@@ -62,7 +62,7 @@
     "@smithy/util-stream": "^4.5.12",
     "@smithy/util-utf8": "^4.2.0",
     "entities": "2.2.0",
-    "fast-xml-parser": "5.3.4",
+    "fast-xml-parser": "5.3.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
