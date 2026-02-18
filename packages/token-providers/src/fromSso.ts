@@ -18,6 +18,13 @@ import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 /**
  * Last refresh attempt time to ensure refresh is not attempted more than once every 30 seconds.
  */
+/**
+ * Potential logic impact: this timestamp is a module-level global state shared across multiple profiles / sso_sessions
+ * within the same process.
+ * When refreshing tokens concurrently or switching between different sessions within a short time window, sessions may
+ * throttle each other, causing later sessions to skip refresh within the 30-second window and fall back to the existing
+ * token (and will still throw if the existing token is already expired).
+ */
 const lastRefreshAttemptTime = new Date(0);
 
 export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
@@ -121,6 +128,11 @@ export const fromSso =
           refreshToken: newSsoOidcToken.refreshToken,
         });
       } catch (error) {
+        init.logger?.warn?.(
+          `@aws-sdk/token-providers - fromSso: unable to write SSO token to cache file for sso_session=${ssoSessionName}. ` +
+            `Proceeding with refreshed token in-memory only. ` +
+            `Reason: ${(error as any)?.message ?? String(error)}`
+        );
         // Swallow error if unable to write token to file.
       }
 
