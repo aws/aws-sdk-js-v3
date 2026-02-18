@@ -1,7 +1,7 @@
-import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { isReadableStream, sdkStreamMixin } from "@smithy/util-stream";
 
-import { JoinStreamIterationEvents } from "./types";
+import type { JoinStreamIterationEvents } from "./types";
 
 /**
  * Joins multiple stream promises into a single stream with event callbacks.
@@ -61,6 +61,11 @@ export async function* iterateStreams(
           bytesTransferred += value.byteLength;
           eventListeners?.onBytes?.(bytesTransferred, index);
         }
+      } catch (e) {
+        reader.releaseLock();
+        await destroy(promises);
+        eventListeners?.onFailure?.(e, index);
+        throw e;
       } finally {
         reader.releaseLock();
       }

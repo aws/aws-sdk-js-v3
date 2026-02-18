@@ -26,8 +26,8 @@ export async function joinStreams(
     return sdkStreamMixin(newReadableStream);
   } else {
     // TOOD: remove this, rejected promises must abort the joining of the streams.
-    streams.forEach((stream) => stream.catch(() => {}));
-
+    // await Promise.all(streams);
+    // iterateStreams handles stream promises, and on failure, aborts the joining and cleans up all streams.
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
   }
 }
@@ -41,6 +41,9 @@ export async function* iterateStreams(
   promises: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
 ): AsyncIterable<StreamingBlobPayloadOutputTypes, void, void> {
+  for (const p of promises) {
+    p.catch(() => {});
+  }
   let bytesTransferred = 0;
   let index = 0;
   for (const streamPromise of promises) {
@@ -65,17 +68,28 @@ export async function* iterateStreams(
           bytesTransferred += value.byteLength;
           eventListeners?.onBytes?.(bytesTransferred, index);
         }
+      } catch (e) {
+        await destroy(promises);
+        eventListeners?.onFailure?.(e, index);
+        throw e;
       } finally {
         reader.releaseLock();
       }
     } else if (stream instanceof Readable) {
-      for await (const chunk of stream) {
-        yield chunk;
-        const chunkSize = Buffer.isBuffer(chunk) ? chunk.length : Buffer.byteLength(chunk);
-        bytesTransferred += chunkSize;
-        eventListeners?.onBytes?.(bytesTransferred, index);
+      try {
+        for await (const chunk of stream) {
+          yield chunk;
+          const chunkSize = Buffer.isBuffer(chunk) ? chunk.length : Buffer.byteLength(chunk);
+          bytesTransferred += chunkSize;
+          eventListeners?.onBytes?.(bytesTransferred, index);
+        }
+      } catch (e) {
+        await destroy(promises);
+        eventListeners?.onFailure?.(e, index);
+        throw e;
       }
     } else {
+      await destroy(promises);
       const failure = new Error(`unhandled stream type ${(stream as any)?.constructor?.name}`);
       eventListeners?.onFailure?.(failure, index);
       throw failure;
