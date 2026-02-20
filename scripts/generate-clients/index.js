@@ -129,6 +129,12 @@ const {
       await generateNestedClients();
     }
 
+    await spawnProcess("yarn", ["update:versions:default"], {
+      cwd: REPO_ROOT,
+      stdio: "inherit",
+      env: { ...process.env, CI: "" },
+    });
+
     await spawnProcess("yarn", ["install", "--no-immutable"], {
       cwd: REPO_ROOT,
       stdio: "inherit",
