@@ -1,7 +1,8 @@
-import { Provider, UserAgent } from "@smithy/types";
+import type { Provider, UserAgent } from "@smithy/types";
 import { platform, release } from "os";
-import { env, versions } from "process";
+import { env } from "process";
 
+import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";
 import { isCrtAvailable } from "./is-crt-available";
 
 /**
@@ -40,7 +41,7 @@ export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: Def
       // language-metadata
       // ECMAScript edition doesn't matter in JS, so no version needed.
       ["lang/js"],
-      ["md/nodejs", `${versions.node}`],
+      getRuntimeUserAgentPair(),
     ];
 
     const crtAvailable = isCrtAvailable();

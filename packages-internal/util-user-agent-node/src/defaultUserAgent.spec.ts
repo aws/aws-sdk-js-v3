@@ -1,12 +1,14 @@
-import { UserAgent } from "@smithy/types";
+import type { UserAgent } from "@smithy/types";
 import { platform, release } from "os";
-import { versions } from "process";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { createDefaultUserAgentProvider, PreviouslyResolved } from "./defaultUserAgent";
+import type { PreviouslyResolved } from "./defaultUserAgent";
+import { createDefaultUserAgentProvider } from "./defaultUserAgent";
+import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";
 import { isCrtAvailable } from "./is-crt-available";
 
 vi.mock("os");
+vi.mock("./getRuntimeUserAgentPair");
 vi.mock("./is-crt-available");
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
@@ -22,6 +24,7 @@ describe("createDefaultUserAgentProvider", () => {
   beforeEach(() => {
     vi.mocked(platform).mockReturnValue("darwin");
     vi.mocked(release).mockReturnValue("19.6.0");
+    vi.mocked(getRuntimeUserAgentPair).mockReturnValue(["md/nodejs", "20.0.0"]);
     vi.mocked(isCrtAvailable).mockReturnValue(null);
     delete process.env.AWS_EXECUTION_ENV;
   });
@@ -37,7 +40,7 @@ describe("createDefaultUserAgentProvider", () => {
     ["api/s3", "0.1.0"],
     ["os/darwin", "19.6.0"],
     ["lang/js"],
-    ["md/nodejs", versions.node],
+    ["md/nodejs", "20.0.0"],
   ];
 
   const mockConfig: PreviouslyResolved = {
