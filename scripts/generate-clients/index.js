@@ -129,12 +129,6 @@ const {
       await generateNestedClients();
     }
 
-    await spawnProcess("make", ["test-client-codegen"], {
-      cwd: REPO_ROOT,
-      stdio: "inherit",
-      env: { ...process.env },
-    });
-
     // await spawnProcess("make", ["snapshot-write"], {
     //   cwd: REPO_ROOT,
     //   stdio: "inherit",
