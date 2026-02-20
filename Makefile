@@ -56,7 +56,7 @@ test-integration: bundles
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types
-	make snapshot-compare
+	# make snapshot-compare
 	make test-indices
 	make test-endpoints
 

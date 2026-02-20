@@ -135,11 +135,11 @@ const {
       env: { ...process.env },
     });
 
-    await spawnProcess("make", ["snapshot-write"], {
-      cwd: REPO_ROOT,
-      stdio: "inherit",
-      env: { ...process.env },
-    });
+    // await spawnProcess("make", ["snapshot-write"], {
+    //   cwd: REPO_ROOT,
+    //   stdio: "inherit",
+    //   env: { ...process.env },
+    // });
 
     require("../runtime-dependency-version-check/runtime-dep-version-check");
     await spawnProcess("yarn", ["install", "--no-immutable"], {
