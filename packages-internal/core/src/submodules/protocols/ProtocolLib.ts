@@ -117,9 +117,9 @@ export class ProtocolLib {
 
       error.Error = {
         ...error.Error,
-        Type: error.Error.Type,
-        Code: error.Error.Code,
-        Message: error.Error.message ?? error.Error.Message ?? msg,
+        Type: error.Error?.Type,
+        Code: error.Error?.Code,
+        Message: error.Error?.message ?? error.Error?.Message ?? msg,
       };
 
       const reqId = error.$metadata.requestId;
