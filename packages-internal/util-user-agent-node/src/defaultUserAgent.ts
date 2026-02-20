@@ -30,6 +30,7 @@ export interface PreviouslyResolved {
  * @internal
  */
 export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: DefaultUserAgentOptions) => {
+  const runtimeUserAgentPair = getRuntimeUserAgentPair();
   return async (config?: PreviouslyResolved) => {
     const sections: UserAgent = [
       // sdk-metadata
@@ -41,7 +42,7 @@ export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: Def
       // language-metadata
       // ECMAScript edition doesn't matter in JS, so no version needed.
       ["lang/js"],
-      getRuntimeUserAgentPair(),
+      runtimeUserAgentPair,
     ];
 
     const crtAvailable = isCrtAvailable();
