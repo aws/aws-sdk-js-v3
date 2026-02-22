@@ -383,6 +383,46 @@ describe("getSignedUrl", () => {
       expect(verifySignature(signatureQueryParam, policy)).toBeTruthy();
     });
   });
+
+  it("should URL-encode spaces in the path", () => {
+    const urlWithSpaces = "https://d111111abcdef8.cloudfront.net/private content/My File.pdf";
+    const result = getSignedUrl({
+      url: urlWithSpaces,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result).toContain("private%20content/My%20File.pdf");
+    expect(result).not.toContain("private content");
+    expect(result).not.toContain("My File.pdf");
+  });
+
+  it("should URL-encode special characters in the path while preserving path structure", () => {
+    const urlWithSpecialChars = "https://d111111abcdef8.cloudfront.net/path with spaces/file[1].pdf";
+    const result = getSignedUrl({
+      url: urlWithSpecialChars,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result).toContain("path%20with%20spaces");
+    expect(result).not.toContain("path with spaces");
+  });
+
+  it("should not double-encode already-encoded URLs", () => {
+    const alreadyEncodedUrl = "https://d111111abcdef8.cloudfront.net/private%20content/My%20File.pdf";
+    const result = getSignedUrl({
+      url: alreadyEncodedUrl,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    expect(result).toContain("private%20content/My%20File.pdf");
+    expect(result).not.toContain("%2520");
+  });
 });
 
 describe("getSignedCookies", () => {

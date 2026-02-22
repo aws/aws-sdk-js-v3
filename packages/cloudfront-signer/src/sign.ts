@@ -143,18 +143,7 @@ export function getSignedUrl({
     .map(([key, value]) => `${extendedEncodeURIComponent(key)}=${extendedEncodeURIComponent(value)}`)
     .join("&");
 
-  function encodeBaseUrlQuery(url: string) {
-    if (url.includes("?")) {
-      const [hostAndPath, query] = url.split("?");
-      const params = [...new URLSearchParams(query).entries()]
-        .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
-        .join("&");
-      return `${hostAndPath}?${params}`;
-    }
-    return url;
-  }
-
-  const urlString = encodeBaseUrlQuery(baseUrl!) + startFlag + params;
+  const urlString = encodeUrlPath(baseUrl!) + startFlag + params;
 
   return getResource(urlString);
 }
@@ -246,6 +235,53 @@ interface CloudfrontAttributes {
   Policy?: string;
   "Key-Pair-Id": string;
   Signature: string;
+}
+
+/**
+ * Encodes the path and query of a URL string without normalizing `.` or `..` segments.
+ * Already percent-encoded sequences are preserved (no double-encoding).
+ * @internal
+ */
+function encodeUrlPath(url: string): string {
+  const protocolEnd = url.indexOf("//");
+  if (protocolEnd === -1) {
+    return url;
+  }
+  const authorityStart = protocolEnd + 2;
+  const pathStart = url.indexOf("/", authorityStart);
+  if (pathStart === -1) {
+    return url;
+  }
+
+  const origin = url.slice(0, pathStart);
+  const rest = url.slice(pathStart);
+
+  // Split path from query string
+  const queryIndex = rest.indexOf("?");
+  const rawPath = queryIndex === -1 ? rest : rest.slice(0, queryIndex);
+  const rawQuery = queryIndex === -1 ? "" : rest.slice(queryIndex);
+
+  // Encode each path segment individually, preserving `/` and already-encoded `%XX`.
+  const encodedPath = rawPath.replace(/[^/]+/g, (segment) => {
+    // Decode first to avoid double-encoding, then re-encode.
+    try {
+      return encodeURIComponent(decodeURIComponent(segment));
+    } catch {
+      // If decoding fails (malformed percent sequence), encode as-is.
+      return encodeURIComponent(segment);
+    }
+  });
+
+  // Re-encode query parameters if present
+  let encodedQuery = "";
+  if (rawQuery) {
+    const params = [...new URLSearchParams(rawQuery.slice(1)).entries()]
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join("&");
+    encodedQuery = `?${params}`;
+  }
+
+  return origin + encodedPath + encodedQuery;
 }
 
 /**
