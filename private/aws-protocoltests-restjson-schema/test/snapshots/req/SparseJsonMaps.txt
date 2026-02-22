@@ -1,0 +1,49 @@
+POST https://restjson.us-east-1.amazonaws.com 
+/SparseJsonMaps
+
+content-type: application/json
+content-length: 323
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-json-protocol#_.__ m/E,e
+host: restjson.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 5b29641c63c0eaae2b9d2ae9e7510f5e460d7042d9595e72c5a50d3f3b13eef9
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "sparseStructMap": {
+    "key1": {
+      "hi": "__hi__"
+    },
+    "key2": {
+      "hi": "__hi__"
+    }
+  },
+  "sparseNumberMap": {
+    "key1": 0,
+    "key2": 0
+  },
+  "sparseBooleanMap": {
+    "key1": false,
+    "key2": false
+  },
+  "sparseStringMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "sparseSetMap": {
+    "key1": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "key2": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  }
+}

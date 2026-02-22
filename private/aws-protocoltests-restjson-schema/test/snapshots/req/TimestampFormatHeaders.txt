@@ -1,0 +1,21 @@
+POST https://restjson.us-east-1.amazonaws.com 
+/TimestampFormatHeaders
+
+x-memberepochseconds: 946702799.999
+x-memberhttpdate: Sat, 01 Jan 2000 04:59:59 GMT
+x-memberdatetime: 2000-01-01T04:59:59.999Z
+x-defaultformat: Sat, 01 Jan 2000 04:59:59 GMT
+x-targetepochseconds: 946702799.999
+x-targethttpdate: Sat, 01 Jan 2000 04:59:59 GMT
+x-targetdatetime: 2000-01-01T04:59:59.999Z
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-json-protocol#_.__ m/E,e
+host: restjson.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-defaultformat;x-memberdatetime;x-memberepochseconds;x-memberhttpdate;x-targetdatetime;x-targetepochseconds;x-targethttpdate, Signature=***
+
+[no body]
+

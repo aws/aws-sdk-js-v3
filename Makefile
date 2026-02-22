@@ -110,7 +110,7 @@ b-auth:
 
 # run turbo build for packages only.
 tpk:
-	npx turbo run build --filter='./{packages,packages-internal}/*'
+	node ./scripts/turbo build --filter='./{packages,packages-internal}/*'
 
 # builds only packages that have no build at all.
 # for development only - packages may be stale.

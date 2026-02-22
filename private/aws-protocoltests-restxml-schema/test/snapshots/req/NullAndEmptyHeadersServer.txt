@@ -1,0 +1,17 @@
+GET https://restxml.us-east-1.amazonaws.com 
+/NullAndEmptyHeadersServer
+
+x-a: __a__
+x-b: __b__
+x-c: 
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-xml-protocol#_.__ m/E,e
+host: restxml.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restxml/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;host;x-a;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-b;x-c, Signature=***
+
+[no body]
+
