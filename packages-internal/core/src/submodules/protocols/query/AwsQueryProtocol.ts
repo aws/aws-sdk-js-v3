@@ -146,7 +146,7 @@ export class AwsQueryProtocol extends RpcProtocol {
     metadata: ResponseMetadata
   ): Promise<never> {
     const errorIdentifier = this.loadQueryErrorCode(response, dataObject) ?? "Unknown";
-    const errorData = this.loadQueryError(dataObject);
+    const errorData = this.loadQueryError(dataObject) ?? {};
     const message = this.loadQueryErrorMessage(dataObject);
     errorData.message = message;
     errorData.Error = {
