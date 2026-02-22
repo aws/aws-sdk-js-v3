@@ -826,10 +826,10 @@ export type ConfigurationRecorderFilterName =
  * @enum
  */
 export const RecorderStatus = {
-  Failure: "Failure",
-  NotApplicable: "NotApplicable",
-  Pending: "Pending",
-  Success: "Success",
+  Failure: "FAILURE",
+  NotApplicable: "NOT_APPLICABLE",
+  Pending: "PENDING",
+  Success: "SUCCESS",
 } as const;
 /**
  * @public

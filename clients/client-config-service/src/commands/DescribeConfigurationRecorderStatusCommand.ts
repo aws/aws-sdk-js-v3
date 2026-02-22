@@ -63,7 +63,7 @@ export interface DescribeConfigurationRecorderStatusCommandOutput extends Descri
  * //       lastStartTime: new Date("TIMESTAMP"),
  * //       lastStopTime: new Date("TIMESTAMP"),
  * //       recording: true || false,
- * //       lastStatus: "Pending" || "Success" || "Failure" || "NotApplicable",
+ * //       lastStatus: "PENDING" || "SUCCESS" || "FAILURE" || "NOT_APPLICABLE",
  * //       lastErrorCode: "STRING_VALUE",
  * //       lastErrorMessage: "STRING_VALUE",
  * //       lastStatusChangeTime: new Date("TIMESTAMP"),

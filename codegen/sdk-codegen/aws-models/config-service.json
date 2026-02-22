@@ -11245,25 +11245,25 @@
         "Pending": {
           "target": "smithy.api#Unit",
           "traits": {
-            "smithy.api#enumValue": "Pending"
+            "smithy.api#enumValue": "PENDING"
           }
         },
         "Success": {
           "target": "smithy.api#Unit",
           "traits": {
-            "smithy.api#enumValue": "Success"
+            "smithy.api#enumValue": "SUCCESS"
           }
         },
         "Failure": {
           "target": "smithy.api#Unit",
           "traits": {
-            "smithy.api#enumValue": "Failure"
+            "smithy.api#enumValue": "FAILURE"
           }
         },
         "NotApplicable": {
           "target": "smithy.api#Unit",
           "traits": {
-            "smithy.api#enumValue": "NotApplicable"
+            "smithy.api#enumValue": "NOT_APPLICABLE"
           }
         }
       }
