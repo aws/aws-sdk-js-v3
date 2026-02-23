@@ -136,6 +136,7 @@ export class ValidationError extends __BaseException {
    * @public
    */
   reasons?: ErrorDetail[] | undefined;
+
   /**
    * @internal
    */

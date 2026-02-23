@@ -86,6 +86,9 @@ const _GNRe = "GetNetworkResponse";
 const _GNS = "GetNetworkSettings";
 const _GNSR = "GetNetworkSettingsRequest";
 const _GNSRe = "GetNetworkSettingsResponse";
+const _GOC = "GetOpentdfConfig";
+const _GOCR = "GetOpentdfConfigRequest";
+const _GOCRe = "GetOpentdfConfigResponse";
 const _GOI = "GetOidcInfo";
 const _GOIR = "GetOidcInfoRequest";
 const _GOIRe = "GetOidcInfoResponse";
@@ -140,9 +143,12 @@ const _RNFE = "ResourceNotFoundError";
 const _ROC = "RegisterOidcConfig";
 const _ROCR = "RegisterOidcConfigRequest";
 const _ROCRe = "RegisterOidcConfigResponse";
+const _ROCReg = "RegisterOpentdfConfigRequest";
+const _ROCRegi = "RegisterOpentdfConfigResponse";
 const _ROCT = "RegisterOidcConfigTest";
 const _ROCTR = "RegisterOidcConfigTestRequest";
 const _ROCTRe = "RegisterOidcConfigTestResponse";
+const _ROCe = "RegisterOpentdfConfig";
 const _RRC = "ReadReceiptConfig";
 const _S = "Setting";
 const _SG = "SecurityGroup";
@@ -227,10 +233,11 @@ const _ch = "challenge";
 const _co = "code";
 const _cou = "count";
 const _cr = "created";
-const _d = "devices";
+const _d = "domain";
 const _dN = "displayName";
 const _dR = "dataRetention";
-const _do = "domain";
+const _dRr = "dryRun";
+const _de = "devices";
 const _e = "error";
 const _eA = "enableAtak";
 const _eAP = "extraAuthParams";
@@ -246,6 +253,7 @@ const _ePFT = "enablePremiumFreeTrial";
 const _eRGF = "enableRestrictedGlobalFederation";
 const _eSE = "endSessionEndpoint";
 const _eT = "endTime";
+const _eTDF = "enableTrustedDataFormat";
 const _f = "failed";
 const _fDL = "forceDeviceLockout";
 const _fE = "filesEnabled";
@@ -322,6 +330,7 @@ const _pR = "passwordRequirements";
 const _pWAN = "permittedWickrAwsNetworks";
 const _pWEN = "permittedWickrEnterpriseNetworks";
 const _pe = "pending";
+const _pr = "provider";
 const _qR = "quickResponses";
 const _r = "reasons";
 const _rE = "revocationEndpoint";
@@ -443,8 +452,8 @@ export var UnauthorizedError$: StaticErrorSchema = [-3, n0, _UE,
 n0_registry.registerError(UnauthorizedError$, UnauthorizedError);
 export var ValidationError$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 422 },
-  [_r],
-  [() => ErrorDetailList]
+  [_r, _m],
+  [() => ErrorDetailList, 0]
 ];
 n0_registry.registerError(ValidationError$, ValidationError);
 /**
@@ -737,6 +746,16 @@ export var GetOidcInfoResponse$: StaticStructureSchema = [3, n0, _GOIRe,
   [_oCI, _tI],
   [[() => OidcConfigInfo$, 0], () => OidcTokenInfo$]
 ];
+export var GetOpentdfConfigRequest$: StaticStructureSchema = [3, n0, _GOCR,
+  0,
+  [_nI],
+  [[0, 1]], 1
+];
+export var GetOpentdfConfigResponse$: StaticStructureSchema = [3, n0, _GOCRe,
+  0,
+  [_cI, _d, _cS, _pr],
+  [0, 0, [() => SensitiveString, 0], 0], 4
+];
 export var GetSecurityGroupRequest$: StaticStructureSchema = [3, n0, _GSGR,
   0,
   [_nI, _gI],
@@ -804,7 +823,7 @@ export var ListDevicesForUserRequest$: StaticStructureSchema = [3, n0, _LDFUR,
 ];
 export var ListDevicesForUserResponse$: StaticStructureSchema = [3, n0, _LDFURi,
   0,
-  [_d, _nT],
+  [_de, _nT],
   [() => Devices, 0], 1
 ];
 export var ListGuestUsersRequest$: StaticStructureSchema = [3, n0, _LGUR,
@@ -864,8 +883,8 @@ export var Network$: StaticStructureSchema = [3, n0, _N,
 ];
 export var NetworkSettings$: StaticStructureSchema = [3, n0, _NS,
   0,
-  [_eCM, _rRC, _dR],
-  [2, () => ReadReceiptConfig$, 2]
+  [_eCM, _rRC, _dR, _eTDF],
+  [2, () => ReadReceiptConfig$, 2, 2]
 ];
 export var OidcConfigInfo$: StaticStructureSchema = [3, n0, _OCI,
   0,
@@ -884,7 +903,7 @@ export var PasswordRequirements$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var PermittedWickrEnterpriseNetwork$: StaticStructureSchema = [3, n0, _PWEN,
   0,
-  [_do, _nI],
+  [_d, _nI],
   [0, 0], 2
 ];
 export var ReadReceiptConfig$: StaticStructureSchema = [3, n0, _RRC,
@@ -911,6 +930,16 @@ export var RegisterOidcConfigTestResponse$: StaticStructureSchema = [3, n0, _ROC
   0,
   [_tE, _uE, _rTS, _sS, _i, _aE, _eSE, _lE, _gTS, _rE, _tEAMS, _mMRT],
   [0, 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 2]
+];
+export var RegisterOpentdfConfigRequest$: StaticStructureSchema = [3, n0, _ROCReg,
+  0,
+  [_nI, _cI, _cS, _d, _pr, _dRr],
+  [[0, 1], 0, [() => SensitiveString, 0], 0, 0, [2, { [_hQ]: _dRr }]], 5
+];
+export var RegisterOpentdfConfigResponse$: StaticStructureSchema = [3, n0, _ROCRegi,
+  0,
+  [_cI, _d, _cS, _pr],
+  [0, 0, [() => SensitiveString, 0], 0], 4
 ];
 export var SecurityGroup$: StaticStructureSchema = [3, n0, _SG,
   0,
@@ -1154,6 +1183,9 @@ export var GetNetworkSettings$: StaticOperationSchema = [9, n0, _GNS,
 export var GetOidcInfo$: StaticOperationSchema = [9, n0, _GOI,
   { [_ht]: ["GET", "/networks/{networkId}/oidc", 200] }, () => GetOidcInfoRequest$, () => GetOidcInfoResponse$
 ];
+export var GetOpentdfConfig$: StaticOperationSchema = [9, n0, _GOC,
+  { [_ht]: ["GET", "/networks/{networkId}/tdf", 200] }, () => GetOpentdfConfigRequest$, () => GetOpentdfConfigResponse$
+];
 export var GetSecurityGroup$: StaticOperationSchema = [9, n0, _GSG,
   { [_ht]: ["GET", "/networks/{networkId}/security-groups/{groupId}", 200] }, () => GetSecurityGroupRequest$, () => GetSecurityGroupResponse$
 ];
@@ -1192,6 +1224,9 @@ export var RegisterOidcConfig$: StaticOperationSchema = [9, n0, _ROC,
 ];
 export var RegisterOidcConfigTest$: StaticOperationSchema = [9, n0, _ROCT,
   { [_ht]: ["POST", "/networks/{networkId}/oidc/test", 200] }, () => RegisterOidcConfigTestRequest$, () => RegisterOidcConfigTestResponse$
+];
+export var RegisterOpentdfConfig$: StaticOperationSchema = [9, n0, _ROCe,
+  { [_ht]: ["POST", "/networks/{networkId}/tdf", 200] }, () => RegisterOpentdfConfigRequest$, () => RegisterOpentdfConfigResponse$
 ];
 export var UpdateBot$: StaticOperationSchema = [9, n0, _UB,
   { [_ht]: ["PATCH", "/networks/{networkId}/bots/{botId}", 200] }, () => UpdateBotRequest$, () => UpdateBotResponse$

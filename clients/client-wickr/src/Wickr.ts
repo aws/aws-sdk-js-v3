@@ -93,6 +93,11 @@ import {
 } from "./commands/GetNetworkSettingsCommand";
 import { GetOidcInfoCommand, GetOidcInfoCommandInput, GetOidcInfoCommandOutput } from "./commands/GetOidcInfoCommand";
 import {
+  GetOpentdfConfigCommand,
+  GetOpentdfConfigCommandInput,
+  GetOpentdfConfigCommandOutput,
+} from "./commands/GetOpentdfConfigCommand";
+import {
   GetSecurityGroupCommand,
   GetSecurityGroupCommandInput,
   GetSecurityGroupCommandOutput,
@@ -145,6 +150,11 @@ import {
   RegisterOidcConfigTestCommandInput,
   RegisterOidcConfigTestCommandOutput,
 } from "./commands/RegisterOidcConfigTestCommand";
+import {
+  RegisterOpentdfConfigCommand,
+  RegisterOpentdfConfigCommandInput,
+  RegisterOpentdfConfigCommandOutput,
+} from "./commands/RegisterOpentdfConfigCommand";
 import { UpdateBotCommand, UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
 import {
   UpdateDataRetentionCommand,
@@ -205,6 +215,7 @@ const commands = {
   GetNetworkCommand,
   GetNetworkSettingsCommand,
   GetOidcInfoCommand,
+  GetOpentdfConfigCommand,
   GetSecurityGroupCommand,
   GetUserCommand,
   GetUsersCountCommand,
@@ -218,6 +229,7 @@ const commands = {
   ListUsersCommand,
   RegisterOidcConfigCommand,
   RegisterOidcConfigTestCommand,
+  RegisterOpentdfConfigCommand,
   UpdateBotCommand,
   UpdateDataRetentionCommand,
   UpdateGuestUserCommand,
@@ -613,6 +625,23 @@ export interface Wickr {
   ): void;
 
   /**
+   * @see {@link GetOpentdfConfigCommand}
+   */
+  getOpentdfConfig(
+    args: GetOpentdfConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetOpentdfConfigCommandOutput>;
+  getOpentdfConfig(
+    args: GetOpentdfConfigCommandInput,
+    cb: (err: any, data?: GetOpentdfConfigCommandOutput) => void
+  ): void;
+  getOpentdfConfig(
+    args: GetOpentdfConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetOpentdfConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSecurityGroupCommand}
    */
   getSecurityGroup(
@@ -832,6 +861,23 @@ export interface Wickr {
     args: RegisterOidcConfigTestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RegisterOidcConfigTestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RegisterOpentdfConfigCommand}
+   */
+  registerOpentdfConfig(
+    args: RegisterOpentdfConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterOpentdfConfigCommandOutput>;
+  registerOpentdfConfig(
+    args: RegisterOpentdfConfigCommandInput,
+    cb: (err: any, data?: RegisterOpentdfConfigCommandOutput) => void
+  ): void;
+  registerOpentdfConfig(
+    args: RegisterOpentdfConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterOpentdfConfigCommandOutput) => void
   ): void;
 
   /**

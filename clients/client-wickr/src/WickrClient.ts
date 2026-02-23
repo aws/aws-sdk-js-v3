@@ -115,6 +115,7 @@ import {
 import { GetNetworkCommandInput, GetNetworkCommandOutput } from "./commands/GetNetworkCommand";
 import { GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput } from "./commands/GetNetworkSettingsCommand";
 import { GetOidcInfoCommandInput, GetOidcInfoCommandOutput } from "./commands/GetOidcInfoCommand";
+import { GetOpentdfConfigCommandInput, GetOpentdfConfigCommandOutput } from "./commands/GetOpentdfConfigCommand";
 import { GetSecurityGroupCommandInput, GetSecurityGroupCommandOutput } from "./commands/GetSecurityGroupCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import { GetUsersCountCommandInput, GetUsersCountCommandOutput } from "./commands/GetUsersCountCommand";
@@ -137,6 +138,10 @@ import {
   RegisterOidcConfigTestCommandInput,
   RegisterOidcConfigTestCommandOutput,
 } from "./commands/RegisterOidcConfigTestCommand";
+import {
+  RegisterOpentdfConfigCommandInput,
+  RegisterOpentdfConfigCommandOutput,
+} from "./commands/RegisterOpentdfConfigCommand";
 import { UpdateBotCommandInput, UpdateBotCommandOutput } from "./commands/UpdateBotCommand";
 import {
   UpdateDataRetentionCommandInput,
@@ -190,6 +195,7 @@ export type ServiceInputTypes =
   | GetNetworkCommandInput
   | GetNetworkSettingsCommandInput
   | GetOidcInfoCommandInput
+  | GetOpentdfConfigCommandInput
   | GetSecurityGroupCommandInput
   | GetUserCommandInput
   | GetUsersCountCommandInput
@@ -203,6 +209,7 @@ export type ServiceInputTypes =
   | ListUsersCommandInput
   | RegisterOidcConfigCommandInput
   | RegisterOidcConfigTestCommandInput
+  | RegisterOpentdfConfigCommandInput
   | UpdateBotCommandInput
   | UpdateDataRetentionCommandInput
   | UpdateGuestUserCommandInput
@@ -237,6 +244,7 @@ export type ServiceOutputTypes =
   | GetNetworkCommandOutput
   | GetNetworkSettingsCommandOutput
   | GetOidcInfoCommandOutput
+  | GetOpentdfConfigCommandOutput
   | GetSecurityGroupCommandOutput
   | GetUserCommandOutput
   | GetUsersCountCommandOutput
@@ -250,6 +258,7 @@ export type ServiceOutputTypes =
   | ListUsersCommandOutput
   | RegisterOidcConfigCommandOutput
   | RegisterOidcConfigTestCommandOutput
+  | RegisterOpentdfConfigCommandOutput
   | UpdateBotCommandOutput
   | UpdateDataRetentionCommandOutput
   | UpdateGuestUserCommandOutput

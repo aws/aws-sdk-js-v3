@@ -4,8 +4,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
-import { UpdateNetworkSettings$ } from "../schemas/schemas_0";
+import type { RegisterOpentdfConfigRequest, RegisterOpentdfConfigResponse } from "../models/models_0";
+import { RegisterOpentdfConfig$ } from "../schemas/schemas_0";
 import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
@@ -16,55 +16,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateNetworkSettingsCommand}.
+ * The input for {@link RegisterOpentdfConfigCommand}.
  */
-export interface UpdateNetworkSettingsCommandInput extends UpdateNetworkSettingsRequest {}
+export interface RegisterOpentdfConfigCommandInput extends RegisterOpentdfConfigRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateNetworkSettingsCommand}.
+ * The output of {@link RegisterOpentdfConfigCommand}.
  */
-export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSettingsResponse, __MetadataBearer {}
+export interface RegisterOpentdfConfigCommandOutput extends RegisterOpentdfConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Updates network-level settings for a Wickr network. You can modify settings such as client metrics, data retention, and other network-wide options.</p>
+ * <p>Registers and saves OpenTDF configuration for a Wickr network, enabling attribute-based access control for Wickr through an OpenTDF provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WickrClient, UpdateNetworkSettingsCommand } from "@aws-sdk/client-wickr"; // ES Modules import
- * // const { WickrClient, UpdateNetworkSettingsCommand } = require("@aws-sdk/client-wickr"); // CommonJS import
+ * import { WickrClient, RegisterOpentdfConfigCommand } from "@aws-sdk/client-wickr"; // ES Modules import
+ * // const { WickrClient, RegisterOpentdfConfigCommand } = require("@aws-sdk/client-wickr"); // CommonJS import
  * // import type { WickrClientConfig } from "@aws-sdk/client-wickr";
  * const config = {}; // type is WickrClientConfig
  * const client = new WickrClient(config);
- * const input = { // UpdateNetworkSettingsRequest
+ * const input = { // RegisterOpentdfConfigRequest
  *   networkId: "STRING_VALUE", // required
- *   settings: { // NetworkSettings
- *     enableClientMetrics: true || false,
- *     readReceiptConfig: { // ReadReceiptConfig
- *       status: "DISABLED" || "ENABLED" || "FORCE_ENABLED",
- *     },
- *     dataRetention: true || false,
- *     enableTrustedDataFormat: true || false,
- *   },
+ *   clientId: "STRING_VALUE", // required
+ *   clientSecret: "STRING_VALUE", // required
+ *   domain: "STRING_VALUE", // required
+ *   provider: "STRING_VALUE", // required
+ *   dryRun: true || false,
  * };
- * const command = new UpdateNetworkSettingsCommand(input);
+ * const command = new RegisterOpentdfConfigCommand(input);
  * const response = await client.send(command);
- * // { // UpdateNetworkSettingsResponse
- * //   settings: [ // SettingsList // required
- * //     { // Setting
- * //       optionName: "STRING_VALUE", // required
- * //       value: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
- * //     },
- * //   ],
+ * // { // RegisterOpentdfConfigResponse
+ * //   clientId: "STRING_VALUE", // required
+ * //   domain: "STRING_VALUE", // required
+ * //   clientSecret: "STRING_VALUE", // required
+ * //   provider: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param UpdateNetworkSettingsCommandInput - {@link UpdateNetworkSettingsCommandInput}
- * @returns {@link UpdateNetworkSettingsCommandOutput}
- * @see {@link UpdateNetworkSettingsCommandInput} for command's `input` shape.
- * @see {@link UpdateNetworkSettingsCommandOutput} for command's `response` shape.
+ * @param RegisterOpentdfConfigCommandInput - {@link RegisterOpentdfConfigCommandInput}
+ * @returns {@link RegisterOpentdfConfigCommandOutput}
+ * @see {@link RegisterOpentdfConfigCommandInput} for command's `input` shape.
+ * @see {@link RegisterOpentdfConfigCommandOutput} for command's `response` shape.
  * @see {@link WickrClientResolvedConfig | config} for WickrClient's `config` shape.
  *
  * @throws {@link BadRequestError} (client fault)
@@ -92,126 +86,97 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  * <p>Base exception class for all service exceptions from Wickr service.</p>
  *
  *
- * @example Update multiple network settings
+ * @example Save OpenTDF config successfully
  * ```javascript
  * //
  * const input = {
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
  *   networkId: "12345678",
- *   settings: {
- *     dataRetention: true,
- *     enableClientMetrics: true
- *   }
+ *   provider: "virtru"
  * };
- * const command = new UpdateNetworkSettingsCommand(input);
+ * const command = new RegisterOpentdfConfigCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   settings: [
- *     {
- *       optionName: "enableClientMetrics",
- *       type: "boolean",
- *       value: "true"
- *     },
- *     {
- *       optionName: "dataRetention",
- *       type: "boolean",
- *       value: "true"
- *     }
- *   ]
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
+ *   provider: "virtru"
  * }
  * *\/
  * ```
  *
- * @example Update single boolean setting
+ * @example Dry run saving OpenTDF config
  * ```javascript
  * //
  * const input = {
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
+ *   dryRun: true,
  *   networkId: "12345678",
- *   settings: {
- *     enableClientMetrics: false
- *   }
+ *   provider: "virtru"
  * };
- * const command = new UpdateNetworkSettingsCommand(input);
+ * const command = new RegisterOpentdfConfigCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   settings: [
- *     {
- *       optionName: "enableClientMetrics",
- *       type: "boolean",
- *       value: "false"
- *     }
- *   ]
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
+ *   provider: "virtru"
  * }
  * *\/
  * ```
  *
- * @example Update client metrics settings
+ * @example Dry run saving OpenTDF config - failed test
  * ```javascript
  * //
  * const input = {
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
+ *   dryRun: true,
  *   networkId: "12345678",
- *   settings: {
- *     enableClientMetrics: true
- *   }
+ *   provider: "virtru"
  * };
- * const command = new UpdateNetworkSettingsCommand(input);
- * const response = await client.send(command);
- * /* response is
- * {
- *   settings: [
- *     {
- *       optionName: "enableClientMetrics",
- *       type: "boolean",
- *       value: "true"
- *     }
- *   ]
- * }
- * *\/
- * ```
- *
- * @example Invalid setting name error
- * ```javascript
- * //
- * const input = {
- *   networkId: "12345678",
- *   settings: {
- *     enableClientMetrics: false
- *   }
- * };
- * const command = new UpdateNetworkSettingsCommand(input);
+ * const command = new RegisterOpentdfConfigCommand(input);
  * const response = await client.send(command);
  * /* response is
  * { /* metadata only *\/ }
  * *\/
  * ```
  *
- * @example Network not found error
+ * @example Save OpenTDF config - invalid provider
  * ```javascript
  * //
  * const input = {
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
+ *   networkId: "12345678",
+ *   provider: "invalid provider"
+ * };
+ * const command = new RegisterOpentdfConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @example Save OpenTDF config - network not found
+ * ```javascript
+ * //
+ * const input = {
+ *   clientId: "client123",
+ *   clientSecret: "secret456",
+ *   domain: "https://api.sample.com",
  *   networkId: "99999999",
- *   settings: {
- *     enableClientMetrics: true
- *   }
+ *   provider: "virtru"
  * };
- * const command = new UpdateNetworkSettingsCommand(input);
- * const response = await client.send(command);
- * /* response is
- * { /* metadata only *\/ }
- * *\/
- * ```
- *
- * @example Invalid value type error
- * ```javascript
- * //
- * const input = {
- *   networkId: "12345678",
- *   settings: {
- *     dataRetention: true
- *   }
- * };
- * const command = new UpdateNetworkSettingsCommand(input);
+ * const command = new RegisterOpentdfConfigCommand(input);
  * const response = await client.send(command);
  * /* response is
  * { /* metadata only *\/ }
@@ -220,10 +185,10 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  *
  * @public
  */
-export class UpdateNetworkSettingsCommand extends $Command
+export class RegisterOpentdfConfigCommand extends $Command
   .classBuilder<
-    UpdateNetworkSettingsCommandInput,
-    UpdateNetworkSettingsCommandOutput,
+    RegisterOpentdfConfigCommandInput,
+    RegisterOpentdfConfigCommandOutput,
     WickrClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -232,19 +197,19 @@ export class UpdateNetworkSettingsCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("WickrAdminApi", "UpdateNetworkSettings", {})
-  .n("WickrClient", "UpdateNetworkSettingsCommand")
-  .sc(UpdateNetworkSettings$)
+  .s("WickrAdminApi", "RegisterOpentdfConfig", {})
+  .n("WickrClient", "RegisterOpentdfConfigCommand")
+  .sc(RegisterOpentdfConfig$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateNetworkSettingsRequest;
-      output: UpdateNetworkSettingsResponse;
+      input: RegisterOpentdfConfigRequest;
+      output: RegisterOpentdfConfigResponse;
     };
     sdk: {
-      input: UpdateNetworkSettingsCommandInput;
-      output: UpdateNetworkSettingsCommandOutput;
+      input: RegisterOpentdfConfigCommandInput;
+      output: RegisterOpentdfConfigCommandOutput;
     };
   };
 }

@@ -355,6 +355,13 @@ GetOidcInfo
 </details>
 <details>
 <summary>
+GetOpentdfConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wickr/command/GetOpentdfConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/GetOpentdfConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/GetOpentdfConfigCommandOutput/)
+</details>
+<details>
+<summary>
 GetSecurityGroup
 </summary>
 
@@ -443,6 +450,13 @@ RegisterOidcConfigTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wickr/command/RegisterOidcConfigTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/RegisterOidcConfigTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/RegisterOidcConfigTestCommandOutput/)
+</details>
+<details>
+<summary>
+RegisterOpentdfConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wickr/command/RegisterOpentdfConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/RegisterOpentdfConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wickr/Interface/RegisterOpentdfConfigCommandOutput/)
 </details>
 <details>
 <summary>

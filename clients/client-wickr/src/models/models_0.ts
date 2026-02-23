@@ -2036,6 +2036,46 @@ export interface GetOidcInfoResponse {
 /**
  * @public
  */
+export interface GetOpentdfConfigRequest {
+  /**
+   * <p>The ID of the Wickr network for which OpenTDF integration will be retrieved.</p>
+   * @public
+   */
+  networkId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetOpentdfConfigResponse {
+  /**
+   * <p>The OIDC client ID used for authenticating with the OpenTDF provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The domain of the OpenTDF server.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The OIDC client secret used for authenticating with the OpenTDF provider.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>The provider of the OpenTDF platform.</p>
+   * @public
+   */
+  provider: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSecurityGroupRequest {
   /**
    * <p>The ID of the Wickr network containing the security group.</p>
@@ -2819,6 +2859,12 @@ export interface NetworkSettings {
    * @public
    */
   dataRetention?: boolean | undefined;
+
+  /**
+   * <p>Configuration for OpenTDF integration at the network level, enforcing ABAC decision making when operating in TDF enabled rooms.</p>
+   * @public
+   */
+  enableTrustedDataFormat?: boolean | undefined;
 }
 
 /**
@@ -3079,6 +3125,76 @@ export interface RegisterOidcConfigTestResponse {
    * @public
    */
   microsoftMultiRefreshToken?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterOpentdfConfigRequest {
+  /**
+   * <p>The ID of the Wickr network for which OpenTDF integration will be configured.</p>
+   * @public
+   */
+  networkId: string | undefined;
+
+  /**
+   * <p>The OIDC client ID used for authenticating with the OpenTDF provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The OIDC client secret used for authenticating with the OpenTDF provider</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>The domain of the OpenTDF server.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The provider of the OpenTDF platform.</p> <note> <p>Currently only Virtru is supported as the OpenTDF provider.</p> </note>
+   * @public
+   */
+  provider: string | undefined;
+
+  /**
+   * <p>Perform dry-run test connection of OpenTDF configuration (optional).</p>
+   * @public
+   */
+  dryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterOpentdfConfigResponse {
+  /**
+   * <p>The OIDC client ID used for authenticating with the OpenTDF provider.</p>
+   * @public
+   */
+  clientId: string | undefined;
+
+  /**
+   * <p>The domain of the OpenTDF server.</p>
+   * @public
+   */
+  domain: string | undefined;
+
+  /**
+   * <p>The OIDC client secret used for authenticating with the OpenTDF provider.</p>
+   * @public
+   */
+  clientSecret: string | undefined;
+
+  /**
+   * <p>The provider of the OpenTDF platform.</p>
+   * @public
+   */
+  provider: string | undefined;
 }
 
 /**

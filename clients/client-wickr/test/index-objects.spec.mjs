@@ -106,6 +106,10 @@ import {
   GetOidcInfoCommand,
   GetOidcInfoRequest$,
   GetOidcInfoResponse$,
+  GetOpentdfConfig$,
+  GetOpentdfConfigCommand,
+  GetOpentdfConfigRequest$,
+  GetOpentdfConfigResponse$,
   GetSecurityGroup$,
   GetSecurityGroupCommand,
   GetSecurityGroupRequest$,
@@ -179,6 +183,10 @@ import {
   RegisterOidcConfigTestCommand,
   RegisterOidcConfigTestRequest$,
   RegisterOidcConfigTestResponse$,
+  RegisterOpentdfConfig$,
+  RegisterOpentdfConfigCommand,
+  RegisterOpentdfConfigRequest$,
+  RegisterOpentdfConfigResponse$,
   ResourceNotFoundError,
   ResourceNotFoundError$,
   SecurityGroup$,
@@ -277,6 +285,8 @@ assert(typeof GetNetworkSettingsCommand === "function");
 assert(typeof GetNetworkSettings$ === "object");
 assert(typeof GetOidcInfoCommand === "function");
 assert(typeof GetOidcInfo$ === "object");
+assert(typeof GetOpentdfConfigCommand === "function");
+assert(typeof GetOpentdfConfig$ === "object");
 assert(typeof GetSecurityGroupCommand === "function");
 assert(typeof GetSecurityGroup$ === "object");
 assert(typeof GetUserCommand === "function");
@@ -303,6 +313,8 @@ assert(typeof RegisterOidcConfigCommand === "function");
 assert(typeof RegisterOidcConfig$ === "object");
 assert(typeof RegisterOidcConfigTestCommand === "function");
 assert(typeof RegisterOidcConfigTest$ === "object");
+assert(typeof RegisterOpentdfConfigCommand === "function");
+assert(typeof RegisterOpentdfConfig$ === "object");
 assert(typeof UpdateBotCommand === "function");
 assert(typeof UpdateBot$ === "object");
 assert(typeof UpdateDataRetentionCommand === "function");
@@ -374,6 +386,8 @@ assert(typeof GetNetworkSettingsRequest$ === "object");
 assert(typeof GetNetworkSettingsResponse$ === "object");
 assert(typeof GetOidcInfoRequest$ === "object");
 assert(typeof GetOidcInfoResponse$ === "object");
+assert(typeof GetOpentdfConfigRequest$ === "object");
+assert(typeof GetOpentdfConfigResponse$ === "object");
 assert(typeof GetSecurityGroupRequest$ === "object");
 assert(typeof GetSecurityGroupResponse$ === "object");
 assert(typeof GetUserRequest$ === "object");
@@ -409,6 +423,8 @@ assert(typeof RegisterOidcConfigRequest$ === "object");
 assert(typeof RegisterOidcConfigResponse$ === "object");
 assert(typeof RegisterOidcConfigTestRequest$ === "object");
 assert(typeof RegisterOidcConfigTestResponse$ === "object");
+assert(typeof RegisterOpentdfConfigRequest$ === "object");
+assert(typeof RegisterOpentdfConfigResponse$ === "object");
 assert(typeof SecurityGroup$ === "object");
 assert(typeof SecurityGroupSettings$ === "object");
 assert(typeof SecurityGroupSettingsRequest$ === "object");
