@@ -27,7 +27,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.12",
     "@aws-sdk/types": "workspace:^3.973.1",
-    "@aws-sdk/util-endpoints": "workspace:3.996.0",
+    "@aws-sdk/util-endpoints": "workspace:^3.996.0",
     "@smithy/core": "^3.23.4",
     "@smithy/protocol-http": "^5.3.9",
     "@smithy/types": "^4.12.1",

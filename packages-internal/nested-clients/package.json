@@ -1,0 +1,127 @@
+{
+  "name": "@aws-sdk/nested-clients",
+  "version": "3.996.0",
+  "description": "Nested clients for AWS SDK packages.",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "scripts": {
+    "build": "yarn lint && concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "node ../../scripts/compilation/inline nested-clients",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
+    "lint": "node ../../scripts/validation/submodules-linter.js --pkg nested-clients",
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "sideEffects": false,
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@aws-crypto/sha256-browser": "5.2.0",
+    "@aws-crypto/sha256-js": "5.2.0",
+    "@aws-sdk/core": "workspace:^3.973.12",
+    "@aws-sdk/middleware-host-header": "workspace:^3.972.3",
+    "@aws-sdk/middleware-logger": "workspace:^3.972.3",
+    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.3",
+    "@aws-sdk/middleware-user-agent": "workspace:^3.972.12",
+    "@aws-sdk/region-config-resolver": "workspace:^3.972.3",
+    "@aws-sdk/types": "workspace:^3.973.1",
+    "@aws-sdk/util-endpoints": "workspace:^3.996.0",
+    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.3",
+    "@aws-sdk/util-user-agent-node": "workspace:^3.972.11",
+    "@smithy/config-resolver": "^4.4.7",
+    "@smithy/core": "^3.23.4",
+    "@smithy/fetch-http-handler": "^5.3.10",
+    "@smithy/hash-node": "^4.2.9",
+    "@smithy/invalid-dependency": "^4.2.9",
+    "@smithy/middleware-content-length": "^4.2.9",
+    "@smithy/middleware-endpoint": "^4.4.18",
+    "@smithy/middleware-retry": "^4.4.35",
+    "@smithy/middleware-serde": "^4.2.10",
+    "@smithy/middleware-stack": "^4.2.9",
+    "@smithy/node-config-provider": "^4.3.9",
+    "@smithy/node-http-handler": "^4.4.11",
+    "@smithy/protocol-http": "^5.3.9",
+    "@smithy/smithy-client": "^4.11.7",
+    "@smithy/types": "^4.12.1",
+    "@smithy/url-parser": "^4.2.9",
+    "@smithy/util-base64": "^4.3.1",
+    "@smithy/util-body-length-browser": "^4.2.1",
+    "@smithy/util-body-length-node": "^4.2.2",
+    "@smithy/util-defaults-mode-browser": "^4.3.34",
+    "@smithy/util-defaults-mode-node": "^4.2.37",
+    "@smithy/util-endpoints": "^3.2.9",
+    "@smithy/util-middleware": "^4.2.9",
+    "@smithy/util-retry": "^4.2.9",
+    "@smithy/util-utf8": "^4.2.1",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "./signin.d.ts",
+    "./signin.js",
+    "./sso-oidc.d.ts",
+    "./sso-oidc.js",
+    "./sts.d.ts",
+    "./sts.js",
+    "dist-*/**"
+  ],
+  "browser": {
+    "./dist-es/submodules/signin/runtimeConfig": "./dist-es/submodules/signin/runtimeConfig.browser",
+    "./dist-es/submodules/sso-oidc/runtimeConfig": "./dist-es/submodules/sso-oidc/runtimeConfig.browser",
+    "./dist-es/submodules/sts/runtimeConfig": "./dist-es/submodules/sts/runtimeConfig.browser"
+  },
+  "react-native": {},
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/nested-clients",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/nested-clients"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./sso-oidc": {
+      "types": "./dist-types/submodules/sso-oidc/index.d.ts",
+      "module": "./dist-es/submodules/sso-oidc/index.js",
+      "node": "./dist-cjs/submodules/sso-oidc/index.js",
+      "import": "./dist-es/submodules/sso-oidc/index.js",
+      "require": "./dist-cjs/submodules/sso-oidc/index.js"
+    },
+    "./sts": {
+      "types": "./dist-types/submodules/sts/index.d.ts",
+      "module": "./dist-es/submodules/sts/index.js",
+      "node": "./dist-cjs/submodules/sts/index.js",
+      "import": "./dist-es/submodules/sts/index.js",
+      "require": "./dist-cjs/submodules/sts/index.js"
+    },
+    "./signin": {
+      "types": "./dist-types/submodules/signin/index.d.ts",
+      "module": "./dist-es/submodules/signin/index.js",
+      "node": "./dist-cjs/submodules/signin/index.js",
+      "import": "./dist-es/submodules/signin/index.js",
+      "require": "./dist-cjs/submodules/signin/index.js"
+    }
+  }
+}

@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/credential-provider-node": "workspace:^3.972.11",
-    "@aws-sdk/nested-clients": "workspace:3.996.0",
+    "@aws-sdk/nested-clients": "workspace:^3.996.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -23416,9 +23416,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/crc64-nvme@workspace:3.972.0, @aws-sdk/crc64-nvme@workspace:packages/crc64-nvme":
+"@aws-sdk/crc64-nvme@workspace:3.972.0, @aws-sdk/crc64-nvme@workspace:packages-internal/crc64-nvme":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/crc64-nvme@workspace:packages/crc64-nvme"
+  resolution: "@aws-sdk/crc64-nvme@workspace:packages-internal/crc64-nvme"
   dependencies:
     "@smithy/types": "npm:^4.12.1"
     "@smithy/util-base64": "npm:^4.3.1"
@@ -24326,9 +24326,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/nested-clients@workspace:3.996.0, @aws-sdk/nested-clients@workspace:packages/nested-clients":
+"@aws-sdk/nested-clients@workspace:3.996.0, @aws-sdk/nested-clients@workspace:packages-internal/nested-clients":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/nested-clients@workspace:packages/nested-clients"
+  resolution: "@aws-sdk/nested-clients@workspace:packages-internal/nested-clients"
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
@@ -24534,9 +24534,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/signature-v4-multi-region@workspace:3.996.0, @aws-sdk/signature-v4-multi-region@workspace:packages/signature-v4-multi-region":
+"@aws-sdk/signature-v4-multi-region@workspace:3.996.0, @aws-sdk/signature-v4-multi-region@workspace:packages-internal/signature-v4-multi-region":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages/signature-v4-multi-region"
+  resolution: "@aws-sdk/signature-v4-multi-region@workspace:packages-internal/signature-v4-multi-region"
   dependencies:
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.12"
     "@aws-sdk/types": "workspace:^3.973.1"
@@ -24566,9 +24566,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/smithy-client@workspace:packages/smithy-client":
+"@aws-sdk/smithy-client@workspace:packages-internal/smithy-client":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/smithy-client@workspace:packages/smithy-client"
+  resolution: "@aws-sdk/smithy-client@workspace:packages-internal/smithy-client"
   dependencies:
     "@smithy/smithy-client": "npm:^4.11.7"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -24673,9 +24673,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-dynamodb@workspace:3.996.0, @aws-sdk/util-dynamodb@workspace:packages/util-dynamodb":
+"@aws-sdk/util-dynamodb@workspace:3.996.0, @aws-sdk/util-dynamodb@workspace:packages-internal/util-dynamodb":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-dynamodb@workspace:packages/util-dynamodb"
+  resolution: "@aws-sdk/util-dynamodb@workspace:packages-internal/util-dynamodb"
   dependencies:
     "@aws-sdk/client-dynamodb": "workspace:3.996.0"
     "@tsconfig/recommended": "npm:1.0.1"
@@ -24689,9 +24689,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-endpoints@workspace:3.996.0, @aws-sdk/util-endpoints@workspace:packages/util-endpoints":
+"@aws-sdk/util-endpoints-placeholder@workspace:packages/util-endpoints":
   version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-endpoints@workspace:packages/util-endpoints"
+  resolution: "@aws-sdk/util-endpoints-placeholder@workspace:packages/util-endpoints"
+  dependencies:
+    "@tsconfig/recommended": "npm:1.0.1"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
+"@aws-sdk/util-endpoints@workspace:3.996.0, @aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints"
   dependencies:
     "@aws-sdk/types": "workspace:^3.973.1"
     "@smithy/types": "npm:^4.12.1"

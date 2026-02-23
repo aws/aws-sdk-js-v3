@@ -33,7 +33,7 @@
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.3",
     "@aws-sdk/middleware-flexible-checksums": "workspace:^3.972.10",
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.12",
-    "@aws-sdk/signature-v4-multi-region": "workspace:3.996.0",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.0",
     "@aws-sdk/util-user-agent-node": "workspace:^3.972.11",
     "@smithy/config-resolver": "^4.4.7",
     "@smithy/eventstream-serde-node": "^4.2.9",

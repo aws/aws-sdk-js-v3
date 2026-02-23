@@ -18,8 +18,8 @@ module.exports = class Inliner {
   constructor(pkg) {
     this.package = pkg;
     this.platform = "node";
-    this.isPackage = fs.existsSync(path.join(root, "packages", pkg));
     this.isInternalPackage = fs.existsSync(path.join(root, "packages-internal", pkg));
+    this.isPackage = !this.isInternalPackage && fs.existsSync(path.join(root, "packages", pkg));
     this.isLib = fs.existsSync(path.join(root, "lib", pkg));
     this.submodulePackages = ["core", "nested-clients", "config"];
     this.hasSubmodules = this.submodulePackages.includes(pkg);

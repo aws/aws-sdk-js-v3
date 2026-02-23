@@ -42,7 +42,7 @@
     "@aws-sdk/credential-provider-process": "workspace:^3.972.10",
     "@aws-sdk/credential-provider-sso": "workspace:^3.972.10",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.10",
-    "@aws-sdk/nested-clients": "workspace:3.996.0",
+    "@aws-sdk/nested-clients": "workspace:^3.996.0",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/config-resolver": "^4.4.7",
     "@smithy/core": "^3.23.4",

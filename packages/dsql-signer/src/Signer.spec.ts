@@ -1,14 +1,15 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { fromNodeProviderChain } from "@aws-sdk/credential-providers";
+import { defaultProvider } from "@aws-sdk/credential-provider-node";
 import { loadConfig } from "@smithy/node-config-provider";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { DsqlSigner, DsqlSignerConfig } from "./Signer";
+import type { DsqlSignerConfig } from "./Signer";
+import { DsqlSigner } from "./Signer";
 
 vi.mock("@smithy/node-config-provider");
 vi.mock("@smithy/config-resolver");
-vi.mock("@aws-sdk/credential-providers");
+vi.mock("@aws-sdk/credential-provider-node");
 
 describe("dsql-signer", () => {
   const credentials_provider: AwsCredentialIdentity = {
@@ -22,7 +23,7 @@ describe("dsql-signer", () => {
   };
 
   beforeAll(() => {
-    vi.mocked(fromNodeProviderChain).mockReturnValue(async () => credentials_provider);
+    vi.mocked(defaultProvider).mockReturnValue(async () => credentials_provider);
     vi.mocked(loadConfig).mockReturnValue(async () => "us-east-1");
   });
 

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["dom"],
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "paths": {
+      "@aws-sdk/nested-clients/sso-oidc": ["./src/submodules/sso-oidc/index.ts"],
+      "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"],
+      "@aws-sdk/nested-clients/signin": ["./src/submodules/signin/index.ts"],
+      "@aws-sdk/nested-clients/cognito-identity": ["./src/submodules/cognito-identity/index.ts"],
+      "@aws-sdk/nested-clients/sso": ["./src/submodules/sso/index.ts"]
+    },
+    "noCheck": true
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
+}
