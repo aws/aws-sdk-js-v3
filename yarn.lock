@@ -24689,19 +24689,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/util-endpoints-placeholder@workspace:packages/util-endpoints":
-  version: 0.0.0-use.local
-  resolution: "@aws-sdk/util-endpoints-placeholder@workspace:packages/util-endpoints"
-  dependencies:
-    "@tsconfig/recommended": "npm:1.0.1"
-    concurrently: "npm:7.0.0"
-    downlevel-dts: "npm:0.10.1"
-    premove: "npm:4.0.0"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:~5.8.3"
-  languageName: unknown
-  linkType: soft
-
 "@aws-sdk/util-endpoints@workspace:^3.996.0, @aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/util-endpoints@workspace:packages-internal/util-endpoints"
