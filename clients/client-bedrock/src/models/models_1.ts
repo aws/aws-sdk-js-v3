@@ -9,6 +9,11 @@ import {
   EvaluationJobType,
   FineTuningJobStatus,
   FoundationModelLifecycleStatus,
+  GuardrailManagedWordsType,
+  GuardrailStatus,
+  GuardrailTopicAction,
+  GuardrailTopicType,
+  GuardrailWordAction,
   InferenceProfileStatus,
   InferenceProfileType,
   InferenceType,
@@ -39,6 +44,19 @@ import {
   type EvaluationOutputDataConfig,
   type ExternalSourcesRetrieveAndGenerateConfiguration,
   type GenerationConfiguration,
+  type GuardrailAutomatedReasoningPolicy,
+  type GuardrailAutomatedReasoningPolicyConfig,
+  type GuardrailContentPolicy,
+  type GuardrailContentPolicyConfig,
+  type GuardrailContextualGroundingPolicy,
+  type GuardrailContextualGroundingPolicyConfig,
+  type GuardrailCrossRegionConfig,
+  type GuardrailCrossRegionDetails,
+  type GuardrailSensitiveInformationPolicy,
+  type GuardrailSensitiveInformationPolicyConfig,
+  type GuardrailTopicPolicyConfig,
+  type GuardrailTopicsTier,
+  type GuardrailWordPolicyConfig,
   type ImplicitFilterConfiguration,
   type ModelDataSource,
   type OrchestrationConfiguration,
@@ -54,6 +72,596 @@ import {
   Tag,
   ValidatorMetric,
 } from "./models_0";
+
+/**
+ * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailTopic {
+  /**
+   * <p>The name of the topic to deny.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A definition of the topic to deny.</p>
+   * @public
+   */
+  definition: string | undefined;
+
+  /**
+   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
+   * @public
+   */
+  examples?: string[] | undefined;
+
+  /**
+   * <p>Specifies to deny the topic.</p>
+   * @public
+   */
+  type?: GuardrailTopicType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailTopicAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about topics that the guardrail should identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailTopicPolicy {
+  /**
+   * <p>A list of policies related to topics that the guardrail should deny.</p>
+   * @public
+   */
+  topics: GuardrailTopic[] | undefined;
+
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters.</p>
+   * @public
+   */
+  tier?: GuardrailTopicsTier | undefined;
+}
+
+/**
+ * <p>The managed word list that was configured for the guardrail. (This is a list of words that are pre-defined and managed by guardrails only.)</p>
+ * @public
+ */
+export interface GuardrailManagedWords {
+  /**
+   * <p>ManagedWords$type The managed word type that was configured for the guardrail. (For now, we only offer profanity word list)</p>
+   * @public
+   */
+  type: GuardrailManagedWordsType | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>A word configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWord {
+  /**
+   * <p>Text of the word configured for the guardrail to block.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  inputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
+   * @public
+   */
+  outputAction?: GuardrailWordAction | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  inputEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
+   * @public
+   */
+  outputEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about the word policy configured for the guardrail.</p>
+ * @public
+ */
+export interface GuardrailWordPolicy {
+  /**
+   * <p>A list of words configured for the guardrail.</p>
+   * @public
+   */
+  words?: GuardrailWord[] | undefined;
+
+  /**
+   * <p>A list of managed words configured for the guardrail.</p>
+   * @public
+   */
+  managedWordLists?: GuardrailManagedWords[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGuardrailResponse {
+  /**
+   * <p>The name of the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the guardrail.</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  guardrailArn: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The status of the guardrail.</p>
+   * @public
+   */
+  status: GuardrailStatus | undefined;
+
+  /**
+   * <p>The topic policy that was configured for the guardrail.</p>
+   * @public
+   */
+  topicPolicy?: GuardrailTopicPolicy | undefined;
+
+  /**
+   * <p>The content policy that was configured for the guardrail.</p>
+   * @public
+   */
+  contentPolicy?: GuardrailContentPolicy | undefined;
+
+  /**
+   * <p>The word policy that was configured for the guardrail.</p>
+   * @public
+   */
+  wordPolicy?: GuardrailWordPolicy | undefined;
+
+  /**
+   * <p>The sensitive information policy that was configured for the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy | undefined;
+
+  /**
+   * <p>The contextual grounding policy used in the guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy | undefined;
+
+  /**
+   * <p>The current Automated Reasoning policy configuration for the guardrail, if any is configured.</p>
+   * @public
+   */
+  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicy | undefined;
+
+  /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Appears if the <code>status</code> is <code>FAILED</code>. A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+
+  /**
+   * <p>Appears if the <code>status</code> of the guardrail is <code>FAILED</code>. A list of recommendations to carry out before retrying the request.</p>
+   * @public
+   */
+  failureRecommendations?: string[] | undefined;
+
+  /**
+   * <p>The message that the guardrail returns when it blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message that the guardrail returns when it blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key that encrypts the guardrail.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGuardrailsRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a guardrail.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListGuardrails.html#API_ListGuardrails_ResponseSyntax">ListGuardrails response body</a> </p> </li> </ul>
+ * @public
+ */
+export interface GuardrailSummary {
+  /**
+   * <p>The unique identifier of the guardrail.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the guardrail.</p>
+   * @public
+   */
+  status: GuardrailStatus | undefined;
+
+  /**
+   * <p>The name of the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGuardrailsResponse {
+  /**
+   * <p>A list of objects, each of which contains details about a guardrail.</p>
+   * @public
+   */
+  guardrails: GuardrailSummary[] | undefined;
+
+  /**
+   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGuardrailRequest {
+  /**
+   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>A name for the guardrail.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the guardrail.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The topic policy to configure for the guardrail.</p>
+   * @public
+   */
+  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
+
+  /**
+   * <p>The content policy to configure for the guardrail.</p>
+   * @public
+   */
+  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
+
+  /**
+   * <p>The word policy to configure for the guardrail.</p>
+   * @public
+   */
+  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
+
+  /**
+   * <p>The sensitive information policy to configure for the guardrail.</p>
+   * @public
+   */
+  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
+
+  /**
+   * <p>The contextual grounding policy configuration used to update a guardrail.</p>
+   * @public
+   */
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
+
+  /**
+   * <p>Updated configuration for Automated Reasoning policies associated with the guardrail.</p>
+   * @public
+   */
+  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig | undefined;
+
+  /**
+   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a prompt.</p>
+   * @public
+   */
+  blockedInputMessaging: string | undefined;
+
+  /**
+   * <p>The message to return when the guardrail blocks a model response.</p>
+   * @public
+   */
+  blockedOutputsMessaging: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key with which to encrypt the guardrail.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGuardrailResponse {
+  /**
+   * <p>The unique identifier of the guardrail</p>
+   * @public
+   */
+  guardrailId: string | undefined;
+
+  /**
+   * <p>The ARN of the guardrail.</p>
+   * @public
+   */
+  guardrailArn: string | undefined;
+
+  /**
+   * <p>The version of the guardrail.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The date and time at which the guardrail was updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Contains information about the model or system-defined inference profile that is the source for an inference profile..</p>
+ * @public
+ */
+export type InferenceProfileModelSource =
+  | InferenceProfileModelSource.CopyFromMember
+  | InferenceProfileModelSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InferenceProfileModelSource {
+  /**
+   * <p>The ARN of the model or system-defined inference profile that is the source for the inference profile.</p>
+   * @public
+   */
+  export interface CopyFromMember {
+    copyFrom: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    copyFrom?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    copyFrom: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileRequest {
+  /**
+   * <p>A name for the inference profile.</p>
+   * @public
+   */
+  inferenceProfileName: string | undefined;
+
+  /**
+   * <p>A description for the inference profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+
+  /**
+   * <p>The foundation model or system-defined inference profile that the inference profile will track metrics and costs for.</p>
+   * @public
+   */
+  modelSource: InferenceProfileModelSource | undefined;
+
+  /**
+   * <p>An array of objects, each of which contains a tag and its value. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInferenceProfileResponse {
+  /**
+   * <p>The ARN of the inference profile that you created.</p>
+   * @public
+   */
+  inferenceProfileArn: string | undefined;
+
+  /**
+   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
+   * @public
+   */
+  status?: InferenceProfileStatus | undefined;
+}
 
 /**
  * @public

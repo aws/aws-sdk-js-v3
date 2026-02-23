@@ -32,13 +32,20 @@ const _ARLSC = "AutomatedReasoningLogicStatementContent";
 const _ARLSL = "AutomatedReasoningLogicStatementList";
 const _ARNLSC = "AutomatedReasoningNaturalLanguageStatementContent";
 const _ARPA = "AutomatedReasoningPolicyAnnotation";
+const _ARPAC = "AutomatedReasoningPolicyAnnotatedChunk";
+const _ARPACL = "AutomatedReasoningPolicyAnnotatedChunkList";
+const _ARPACLu = "AutomatedReasoningPolicyAnnotatedContentList";
+const _ARPACu = "AutomatedReasoningPolicyAnnotatedContent";
 const _ARPAFNL = "AutomatedReasoningPolicyAnnotationFeedbackNaturalLanguage";
 const _ARPAIC = "AutomatedReasoningPolicyAnnotationIngestContent";
-const _ARPAL = "AutomatedReasoningPolicyAnnotationList";
+const _ARPAL = "AutomatedReasoningPolicyAnnotatedLine";
+const _ARPALu = "AutomatedReasoningPolicyAnnotationList";
 const _ARPARA = "AutomatedReasoningPolicyAddRuleAnnotation";
 const _ARPARFNLA = "AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation";
 const _ARPARM = "AutomatedReasoningPolicyAddRuleMutation";
 const _ARPARNL = "AutomatedReasoningPolicyAnnotationRuleNaturalLanguage";
+const _ARPAS = "AutomatedReasoningPolicyAtomicStatement";
+const _ARPASL = "AutomatedReasoningPolicyAtomicStatementList";
 const _ARPATA = "AutomatedReasoningPolicyAddTypeAnnotation";
 const _ARPATM = "AutomatedReasoningPolicyAddTypeMutation";
 const _ARPATV = "AutomatedReasoningPolicyAddTypeValue";
@@ -51,6 +58,10 @@ const _ARPBL = "AutomatedReasoningPolicyBuildLog";
 const _ARPBLE = "AutomatedReasoningPolicyBuildLogEntry";
 const _ARPBLEL = "AutomatedReasoningPolicyBuildLogEntryList";
 const _ARPBRA = "AutomatedReasoningPolicyBuildResultAssets";
+const _ARPBRAM = "AutomatedReasoningPolicyBuildResultAssetManifest";
+const _ARPBRAME = "AutomatedReasoningPolicyBuildResultAssetManifestEntry";
+const _ARPBRAML = "AutomatedReasoningPolicyBuildResultAssetManifestList";
+const _ARPBRAN = "AutomatedReasoningPolicyBuildResultAssetName";
 const _ARPBS = "AutomatedReasoningPolicyBuildStep";
 const _ARPBSC = "AutomatedReasoningPolicyBuildStepContext";
 const _ARPBSL = "AutomatedReasoningPolicyBuildStepList";
@@ -94,17 +105,32 @@ const _ARPDVM = "AutomatedReasoningPolicyDeleteVariableMutation";
 const _ARPDVN = "AutomatedReasoningPolicyDefinitionVariableName";
 const _ARPDVNL = "AutomatedReasoningPolicyDefinitionVariableNameList";
 const _ARPDu = "AutomatedReasoningPolicyDefinition";
+const _ARPFR = "AutomatedReasoningPolicyFidelityReport";
+const _ARPGFRC = "AutomatedReasoningPolicyGenerateFidelityReportContent";
+const _ARPGFRDL = "AutomatedReasoningPolicyGenerateFidelityReportDocumentList";
 const _ARPGTC = "AutomatedReasoningPolicyGeneratedTestCase";
 const _ARPGTCL = "AutomatedReasoningPolicyGeneratedTestCaseList";
 const _ARPGTCu = "AutomatedReasoningPolicyGeneratedTestCases";
 const _ARPICA = "AutomatedReasoningPolicyIngestContentAnnotation";
+const _ARPJL = "AutomatedReasoningPolicyJustificationList";
+const _ARPJT = "AutomatedReasoningPolicyJustificationText";
+const _ARPLT = "AutomatedReasoningPolicyLineText";
 const _ARPM = "AutomatedReasoningPolicyMutation";
 const _ARPN = "AutomatedReasoningPolicyName";
 const _ARPP = "AutomatedReasoningPolicyPlanning";
+const _ARPRR = "AutomatedReasoningPolicyRuleReport";
+const _ARPRRM = "AutomatedReasoningPolicyRuleReportMap";
+const _ARPRSD = "AutomatedReasoningPolicyReportSourceDocument";
+const _ARPRSDL = "AutomatedReasoningPolicyReportSourceDocumentList";
 const _ARPS = "AutomatedReasoningPolicyScenario";
 const _ARPSAE = "AutomatedReasoningPolicyScenarioAlternateExpression";
+const _ARPSD = "AutomatedReasoningPolicySourceDocument";
 const _ARPSE = "AutomatedReasoningPolicyScenarioExpression";
-const _ARPSL = "AutomatedReasoningPolicyScenarioList";
+const _ARPSL = "AutomatedReasoningPolicyStatementLocation";
+const _ARPSLu = "AutomatedReasoningPolicyScenarioList";
+const _ARPSR = "AutomatedReasoningPolicyStatementReference";
+const _ARPSRL = "AutomatedReasoningPolicyStatementReferenceList";
+const _ARPST = "AutomatedReasoningPolicyStatementText";
 const _ARPSu = "AutomatedReasoningPolicyScenarios";
 const _ARPSut = "AutomatedReasoningPolicySummary";
 const _ARPSuto = "AutomatedReasoningPolicySummaries";
@@ -125,6 +151,8 @@ const _ARPUTM = "AutomatedReasoningPolicyUpdateTypeMutation";
 const _ARPUTV = "AutomatedReasoningPolicyUpdateTypeValue";
 const _ARPUVA = "AutomatedReasoningPolicyUpdateVariableAnnotation";
 const _ARPUVM = "AutomatedReasoningPolicyUpdateVariableMutation";
+const _ARPVR = "AutomatedReasoningPolicyVariableReport";
+const _ARPVRM = "AutomatedReasoningPolicyVariableReportMap";
 const _ARPWTC = "AutomatedReasoningPolicyWorkflowTypeContent";
 const _BCB = "ByteContentBlob";
 const _BCD = "ByteContentDoc";
@@ -674,21 +702,27 @@ const _aD = "agreementDuration";
 const _aDDE = "audioDataDeliveryEnabled";
 const _aE = "alternateExpression";
 const _aEc = "acceptEula";
+const _aI = "assetId";
+const _aJ = "accuracyJustification";
+const _aM = "assetManifest";
 const _aMRF = "additionalModelRequestFields";
+const _aN = "assetName";
 const _aR = "addRule";
 const _aRFNL = "addRuleFromNaturalLanguage";
 const _aRP = "automatedReasoningPolicy";
 const _aRPBWS = "automatedReasoningPolicyBuildWorkflowSummaries";
 const _aRPC = "automatedReasoningPolicyConfig";
 const _aRPS = "automatedReasoningPolicySummaries";
-const _aS = "authorizationStatus";
+const _aS = "accuracyScore";
 const _aSH = "annotationSetHash";
-const _aT = "applicationType";
+const _aSt = "atomicStatements";
+const _aSu = "authorizationStatus";
+const _aT = "assetType";
 const _aTE = "applicationTypeEquals";
 const _aTFR = "aggregatedTestFindingsResult";
 const _aTV = "addTypeValue";
 const _aTd = "addType";
-const _aTs = "assetType";
+const _aTp = "applicationType";
 const _aV = "addVariable";
 const _ac = "action";
 const _an = "annotations";
@@ -752,7 +786,8 @@ const _cRC = "crossRegionConfig";
 const _cRD = "crossRegionDetails";
 const _cRT = "clientRequestToken";
 const _cRo = "conflictingRules";
-const _cS = "customizationsSupported";
+const _cS = "coverageScore";
+const _cSu = "customizationsSupported";
 const _cT = "confidenceThreshold";
 const _cTA = "creationTimeAfter";
 const _cTB = "creationTimeBefore";
@@ -764,13 +799,16 @@ const _cWC = "cloudWatchConfig";
 const _cl = "claims";
 const _co = "confidence";
 const _cod = "code";
-const _con = "context";
-const _cont = "content";
+const _con = "content";
+const _cont = "context";
 const _d = "description";
-const _dC = "distillationConfig";
+const _dC = "documentContent";
 const _dCT = "documentContentType";
+const _dCi = "distillationConfig";
 const _dD = "documentDescription";
-const _dH = "definitionHash";
+const _dH = "documentHash";
+const _dHe = "definitionHash";
+const _dI = "documentId";
 const _dL = "datasetLocation";
 const _dMA = "desiredModelArn";
 const _dMC = "datasetMetricConfigs";
@@ -782,6 +820,7 @@ const _dPMN = "desiredProvisionedModelName";
 const _dR = "deleteRule";
 const _dRS = "disjointRuleSets";
 const _dS = "differenceScenarios";
+const _dSo = "documentSources";
 const _dT = "deleteType";
 const _dTV = "deleteTypeValue";
 const _dV = "deleteVariable";
@@ -830,6 +869,7 @@ const _fMa = "failureMessage";
 const _fMai = "failureMessages";
 const _fN = "fieldName";
 const _fR = "failureRecommendations";
+const _fRi = "fidelityReport";
 const _fTE = "fieldsToExclude";
 const _fTI = "fieldsToInclude";
 const _fV = "floatValue";
@@ -843,12 +883,15 @@ const _gCe = "generationConfiguration";
 const _gCr = "graderConfig";
 const _gCu = "guardrailConfiguration";
 const _gCua = "guardrailsConfig";
+const _gFRC = "generateFidelityReportContent";
 const _gI = "guardrailIdentifier";
 const _gIC = "guardrailInferenceConfig";
 const _gIu = "guardrailId";
+const _gJ = "groundingJustifications";
 const _gPA = "guardrailProfileArn";
 const _gPI = "guardrailProfileIdentifier";
 const _gPIu = "guardrailProfileId";
+const _gS = "groundingStatements";
 const _gT = "greaterThan";
 const _gTC = "generatedTestCases";
 const _gTOE = "greaterThanOrEquals";
@@ -927,15 +970,20 @@ const _lDDSC = "largeDataDeliveryS3Config";
 const _lG = "lambdaGrader";
 const _lGN = "logGroupName";
 const _lMT = "lastModifiedTime";
+const _lN = "lineNumber";
 const _lR = "learningRate";
-const _lT = "legalTerm";
+const _lT = "lineText";
 const _lTOE = "lessThanOrEquals";
-const _lTe = "lessThan";
+const _lTe = "legalTerm";
+const _lTes = "lessThan";
 const _lUA = "lastUpdatedAt";
 const _lUASH = "lastUpdatedAnnotationSetHash";
 const _lUDH = "lastUpdatedDefinitionHash";
 const _lW = "logicWarning";
 const _la = "latency";
+const _li = "lines";
+const _lin = "line";
+const _lo = "location";
 const _m = "message";
 const _mA = "modelArn";
 const _mAE = "modelArnEquals";
@@ -1026,7 +1074,8 @@ const _pMA = "provisionedModelArn";
 const _pMI = "provisionedModelId";
 const _pMN = "provisionedModelName";
 const _pMS = "provisionedModelSummaries";
-const _pN = "providerName";
+const _pN = "pageNumber";
+const _pNr = "providerName";
 const _pRA = "promptRouterArn";
 const _pRAo = "policyRepairAssets";
 const _pRN = "promptRouterName";
@@ -1035,6 +1084,7 @@ const _pRSC = "precomputedRagSourceConfig";
 const _pRSI = "precomputedRagSourceIdentifiers";
 const _pS = "policyScenarios";
 const _pT = "promptTemplate";
+const _pV = "policyVariable";
 const _pVA = "policyVersionArn";
 const _pa = "pattern";
 const _pl = "planning";
@@ -1068,6 +1118,7 @@ const _rMF = "requestMetadataFilters";
 const _rN = "resourceName";
 const _rPD = "refundPolicyDescription";
 const _rQD = "responseQualityDifference";
+const _rR = "ruleReports";
 const _rS = "ratingScale";
 const _rSC = "retrieveSourceConfig";
 const _rSI = "ragSourceIdentifier";
@@ -1088,11 +1139,12 @@ const _sE = "scenarioExpression";
 const _sEKI = "s3EncryptionKeyId";
 const _sEt = "statusEquals";
 const _sGI = "securityGroupIds";
-const _sI = "subnetIds";
+const _sI = "statementId";
 const _sIDC = "s3InputDataConfig";
 const _sIF = "s3InputFormat";
 const _sIP = "sensitiveInformationPolicy";
 const _sIPC = "sensitiveInformationPolicyConfig";
+const _sIu = "subnetIds";
 const _sL = "s3Location";
 const _sM = "statusMessage";
 const _sMA = "sourceModelArn";
@@ -1198,6 +1250,7 @@ const _vDDE = "videoDataDeliveryEnabled";
 const _vL = "validationLoss";
 const _vM = "validationMetrics";
 const _vN = "valueName";
+const _vR = "variableReports";
 const _vSC = "vectorSearchConfiguration";
 const _vT = "validityTerm";
 const _va = "value";
@@ -1323,6 +1376,7 @@ var AutomatedReasoningPolicyAnnotationRuleNaturalLanguage: StaticSimpleSchema = 
 var AutomatedReasoningPolicyBuildDocumentBlob: StaticSimpleSchema = [0, n0, _ARPBDB, 8, 21];
 var AutomatedReasoningPolicyBuildDocumentDescription: StaticSimpleSchema = [0, n0, _ARPBDD, 8, 0];
 var AutomatedReasoningPolicyBuildDocumentName: StaticSimpleSchema = [0, n0, _ARPBDN, 8, 0];
+var AutomatedReasoningPolicyBuildResultAssetName: StaticSimpleSchema = [0, n0, _ARPBRAN, 8, 0];
 var AutomatedReasoningPolicyDefinitionRuleAlternateExpression: StaticSimpleSchema = [0, n0, _ARPDRAE, 8, 0];
 var AutomatedReasoningPolicyDefinitionRuleExpression: StaticSimpleSchema = [0, n0, _ARPDRE, 8, 0];
 var AutomatedReasoningPolicyDefinitionTypeDescription: StaticSimpleSchema = [0, n0, _ARPDTD, 8, 0];
@@ -1331,9 +1385,12 @@ var AutomatedReasoningPolicyDefinitionTypeValueDescription: StaticSimpleSchema =
 var AutomatedReasoningPolicyDefinitionVariableDescription: StaticSimpleSchema = [0, n0, _ARPDVD, 8, 0];
 var AutomatedReasoningPolicyDefinitionVariableName: StaticSimpleSchema = [0, n0, _ARPDVN, 8, 0];
 var AutomatedReasoningPolicyDescription: StaticSimpleSchema = [0, n0, _ARPD, 8, 0];
+var AutomatedReasoningPolicyJustificationText: StaticSimpleSchema = [0, n0, _ARPJT, 8, 0];
+var AutomatedReasoningPolicyLineText: StaticSimpleSchema = [0, n0, _ARPLT, 8, 0];
 var AutomatedReasoningPolicyName: StaticSimpleSchema = [0, n0, _ARPN, 8, 0];
 var AutomatedReasoningPolicyScenarioAlternateExpression: StaticSimpleSchema = [0, n0, _ARPSAE, 8, 0];
 var AutomatedReasoningPolicyScenarioExpression: StaticSimpleSchema = [0, n0, _ARPSE, 8, 0];
+var AutomatedReasoningPolicyStatementText: StaticSimpleSchema = [0, n0, _ARPST, 8, 0];
 var AutomatedReasoningPolicyTestGuardContent: StaticSimpleSchema = [0, n0, _ARPTGC, 8, 0];
 var AutomatedReasoningPolicyTestQueryContent: StaticSimpleSchema = [0, n0, _ARPTQC, 8, 0];
 var ByteContentBlob: StaticSimpleSchema = [0, n0, _BCB, 8, 21];
@@ -1500,6 +1557,21 @@ export var AutomatedReasoningPolicyAddVariableMutation$: StaticStructureSchema =
   [_var],
   [[() => AutomatedReasoningPolicyDefinitionVariable$, 0]], 1
 ];
+export var AutomatedReasoningPolicyAnnotatedChunk$: StaticStructureSchema = [3, n0, _ARPAC,
+  0,
+  [_con, _pN],
+  [[() => AutomatedReasoningPolicyAnnotatedContentList, 0], 1], 1
+];
+export var AutomatedReasoningPolicyAnnotatedLine$: StaticStructureSchema = [3, n0, _ARPAL,
+  0,
+  [_lN, _lT],
+  [1, [() => AutomatedReasoningPolicyLineText, 0]]
+];
+export var AutomatedReasoningPolicyAtomicStatement$: StaticStructureSchema = [3, n0, _ARPAS,
+  0,
+  [_i, _te, _lo],
+  [0, [() => AutomatedReasoningPolicyStatementText, 0], () => AutomatedReasoningPolicyStatementLocation$], 3
+];
 export var AutomatedReasoningPolicyBuildLog$: StaticStructureSchema = [3, n0, _ARPBL,
   0,
   [_en],
@@ -1510,9 +1582,19 @@ export var AutomatedReasoningPolicyBuildLogEntry$: StaticStructureSchema = [3, n
   [_a, _st, _bS],
   [[() => AutomatedReasoningPolicyAnnotation$, 0], 0, [() => AutomatedReasoningPolicyBuildStepList, 0]], 3
 ];
+export var AutomatedReasoningPolicyBuildResultAssetManifest$: StaticStructureSchema = [3, n0, _ARPBRAM,
+  0,
+  [_en],
+  [[() => AutomatedReasoningPolicyBuildResultAssetManifestList, 0]], 1
+];
+export var AutomatedReasoningPolicyBuildResultAssetManifestEntry$: StaticStructureSchema = [3, n0, _ARPBRAME,
+  0,
+  [_aT, _aN, _aI],
+  [0, [() => AutomatedReasoningPolicyBuildResultAssetName, 0], 0], 1
+];
 export var AutomatedReasoningPolicyBuildStep$: StaticStructureSchema = [3, n0, _ARPBS,
   0,
-  [_con, _me, _pE],
+  [_cont, _me, _pE],
   [[() => AutomatedReasoningPolicyBuildStepContext$, 0], () => AutomatedReasoningPolicyBuildStepMessageList, [() => AutomatedReasoningPolicyDefinitionElement$, 0]], 2
 ];
 export var AutomatedReasoningPolicyBuildStepMessage$: StaticStructureSchema = [3, n0, _ARPBSM,
@@ -1615,6 +1697,11 @@ export var AutomatedReasoningPolicyDisjointRuleSet$: StaticStructureSchema = [3,
   [_vari, _ru],
   [[() => AutomatedReasoningPolicyDefinitionVariableNameList, 0], 64 | 0], 2
 ];
+export var AutomatedReasoningPolicyFidelityReport$: StaticStructureSchema = [3, n0, _ARPFR,
+  0,
+  [_cS, _aS, _rR, _vR, _dSo],
+  [1, 1, [() => AutomatedReasoningPolicyRuleReportMap, 0], [() => AutomatedReasoningPolicyVariableReportMap, 0], [() => AutomatedReasoningPolicyReportSourceDocumentList, 0]], 5
+];
 export var AutomatedReasoningPolicyGeneratedTestCase$: StaticStructureSchema = [3, n0, _ARPGTC,
   0,
   [_qC, _gC, _eAFR],
@@ -1627,13 +1714,23 @@ export var AutomatedReasoningPolicyGeneratedTestCases$: StaticStructureSchema = 
 ];
 export var AutomatedReasoningPolicyIngestContentAnnotation$: StaticStructureSchema = [3, n0, _ARPICA,
   0,
-  [_cont],
+  [_con],
   [[() => AutomatedReasoningPolicyAnnotationIngestContent, 0]], 1
 ];
 export var AutomatedReasoningPolicyPlanning$: StaticStructureSchema = [3, n0, _ARPP,
   0,
   [],
   []
+];
+export var AutomatedReasoningPolicyReportSourceDocument$: StaticStructureSchema = [3, n0, _ARPRSD,
+  0,
+  [_dN, _dH, _dI, _aSt, _dC],
+  [[() => AutomatedReasoningPolicyBuildDocumentName, 0], 0, 0, [() => AutomatedReasoningPolicyAtomicStatementList, 0], [() => AutomatedReasoningPolicyAnnotatedChunkList, 0]], 5
+];
+export var AutomatedReasoningPolicyRuleReport$: StaticStructureSchema = [3, n0, _ARPRR,
+  0,
+  [_r, _gS, _gJ, _aS, _aJ],
+  [0, () => AutomatedReasoningPolicyStatementReferenceList, [() => AutomatedReasoningPolicyJustificationList, 0], 1, [() => AutomatedReasoningPolicyJustificationText, 0]], 1
 ];
 export var AutomatedReasoningPolicyScenario$: StaticStructureSchema = [3, n0, _ARPS,
   0,
@@ -1644,6 +1741,21 @@ export var AutomatedReasoningPolicyScenarios$: StaticStructureSchema = [3, n0, _
   0,
   [_pS],
   [[() => AutomatedReasoningPolicyScenarioList, 0]], 1
+];
+export var AutomatedReasoningPolicySourceDocument$: StaticStructureSchema = [3, n0, _ARPSD,
+  0,
+  [_do, _dCT, _dN, _dH, _dD],
+  [[() => AutomatedReasoningPolicyBuildDocumentBlob, 0], 0, [() => AutomatedReasoningPolicyBuildDocumentName, 0], 0, [() => AutomatedReasoningPolicyBuildDocumentDescription, 0]], 4
+];
+export var AutomatedReasoningPolicyStatementLocation$: StaticStructureSchema = [3, n0, _ARPSL,
+  0,
+  [_li],
+  [64 | 1], 1
+];
+export var AutomatedReasoningPolicyStatementReference$: StaticStructureSchema = [3, n0, _ARPSR,
+  0,
+  [_dI, _sI],
+  [0, 0], 2
 ];
 export var AutomatedReasoningPolicySummary$: StaticStructureSchema = [3, n0, _ARPSut,
   0,
@@ -1705,6 +1817,11 @@ export var AutomatedReasoningPolicyUpdateVariableMutation$: StaticStructureSchem
   [_var],
   [[() => AutomatedReasoningPolicyDefinitionVariable$, 0]], 1
 ];
+export var AutomatedReasoningPolicyVariableReport$: StaticStructureSchema = [3, n0, _ARPVR,
+  0,
+  [_pV, _gS, _gJ, _aS, _aJ],
+  [[() => AutomatedReasoningPolicyDefinitionVariableName, 0], () => AutomatedReasoningPolicyStatementReferenceList, [() => AutomatedReasoningPolicyJustificationList, 0], 1, [() => AutomatedReasoningPolicyJustificationText, 0]], 1
+];
 export var BatchDeleteEvaluationJobError$: StaticStructureSchema = [3, n0, _BDEJE,
   0,
   [_jI, _cod, _m],
@@ -1757,7 +1874,7 @@ export var CreateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n
 ];
 export var CreateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, n0, _CARPRr,
   0,
-  [_pA, _ve, _n, _cA, _uA, _d, _dH],
+  [_pA, _ve, _n, _cA, _uA, _d, _dHe],
   [0, 0, [() => AutomatedReasoningPolicyName, 0], 5, 5, [() => AutomatedReasoningPolicyDescription, 0], 0], 5
 ];
 export var CreateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _CARPTCR,
@@ -1777,7 +1894,7 @@ export var CreateAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema 
 ];
 export var CreateAutomatedReasoningPolicyVersionResponse$: StaticStructureSchema = [3, n0, _CARPVRr,
   0,
-  [_pA, _ve, _n, _dH, _cA, _d],
+  [_pA, _ve, _n, _dHe, _cA, _d],
   [0, 0, [() => AutomatedReasoningPolicyName, 0], 0, 5, [() => AutomatedReasoningPolicyDescription, 0]], 5
 ];
 export var CreateCustomModelDeploymentRequest$: StaticStructureSchema = [3, n0, _CCMDR,
@@ -1802,7 +1919,7 @@ export var CreateCustomModelResponse$: StaticStructureSchema = [3, n0, _CCMRr,
 ];
 export var CreateEvaluationJobRequest$: StaticStructureSchema = [3, n0, _CEJR,
   0,
-  [_jN, _rA, _eC, _iC, _oDC, _jD, _cRT, _cEKI, _jT, _aT],
+  [_jN, _rA, _eC, _iC, _oDC, _jD, _cRT, _cEKI, _jT, _aTp],
   [0, 0, [() => EvaluationConfig$, 0], [() => EvaluationInferenceConfig$, 0], () => EvaluationOutputDataConfig$, [() => EvaluationJobDescription, 0], [0, 4], 0, () => TagList, 0], 5
 ];
 export var CreateEvaluationJobResponse$: StaticStructureSchema = [3, n0, _CEJRr,
@@ -2172,7 +2289,7 @@ export var EvaluationRagConfigSummary$: StaticStructureSchema = [3, n0, _ERCS,
 ];
 export var EvaluationSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_jA, _jN, _st, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aT],
+  [_jA, _jN, _st, _cTr, _jTo, _eTT, _mIod, _rIa, _eMI, _cMEMI, _iCS, _aTp],
   [0, 0, 0, 5, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => EvaluationInferenceConfigSummary$, 0], 6
 ];
 export var ExportAutomatedReasoningPolicyVersionRequest$: StaticStructureSchema = [3, n0, _EARPVR,
@@ -2212,7 +2329,7 @@ export var FilterAttribute$: StaticStructureSchema = [3, n0, _FA,
 ];
 export var FoundationModelDetails$: StaticStructureSchema = [3, n0, _FMD,
   0,
-  [_mA, _mIo, _mN, _pN, _iM, _oM, _rSS, _cS, _iTS, _mL],
+  [_mA, _mIo, _mN, _pNr, _iM, _oM, _rSS, _cSu, _iTS, _mL],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle$], 2
 ];
 export var FoundationModelLifecycle$: StaticStructureSchema = [3, n0, _FML,
@@ -2222,7 +2339,7 @@ export var FoundationModelLifecycle$: StaticStructureSchema = [3, n0, _FML,
 ];
 export var FoundationModelSummary$: StaticStructureSchema = [3, n0, _FMS,
   0,
-  [_mA, _mIo, _mN, _pN, _iM, _oM, _rSS, _cS, _iTS, _mL],
+  [_mA, _mIo, _mN, _pNr, _iM, _oM, _rSS, _cSu, _iTS, _mL],
   [0, 0, 0, 0, 64 | 0, 64 | 0, 2, 64 | 0, 64 | 0, () => FoundationModelLifecycle$], 2
 ];
 export var GenerationConfiguration$: StaticStructureSchema = [3, n0, _GC,
@@ -2252,8 +2369,8 @@ export var GetAutomatedReasoningPolicyBuildWorkflowResponse$: StaticStructureSch
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest$: StaticStructureSchema = [3, n0, _GARPBWRAR,
   0,
-  [_pA, _bWI, _aTs],
-  [[0, 1], [0, 1], [0, { [_hQ]: _aTs }]], 3
+  [_pA, _bWI, _aT, _aI],
+  [[0, 1], [0, 1], [0, { [_hQ]: _aT }], [0, { [_hQ]: _aI }]], 3
 ];
 export var GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse$: StaticStructureSchema = [3, n0, _GARPBWRARe,
   0,
@@ -2277,7 +2394,7 @@ export var GetAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var GetAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, n0, _GARPRe,
   0,
-  [_pA, _n, _ve, _pI, _dH, _uA, _d, _kKA, _cA],
+  [_pA, _n, _ve, _pI, _dHe, _uA, _d, _kKA, _cA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 0, 0, 5, [() => AutomatedReasoningPolicyDescription, 0], 0, 5], 6
 ];
 export var GetAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _GARPTCR,
@@ -2327,7 +2444,7 @@ export var GetEvaluationJobRequest$: StaticStructureSchema = [3, n0, _GEJR,
 ];
 export var GetEvaluationJobResponse$: StaticStructureSchema = [3, n0, _GEJRe,
   0,
-  [_jN, _st, _jA, _rA, _jTo, _eC, _iC, _oDC, _cTr, _jD, _cEKI, _aT, _lMT, _fMai],
+  [_jN, _st, _jA, _rA, _jTo, _eC, _iC, _oDC, _cTr, _jD, _cEKI, _aTp, _lMT, _fMai],
   [0, 0, 0, 0, 0, [() => EvaluationConfig$, 0], [() => EvaluationInferenceConfig$, 0], () => EvaluationOutputDataConfig$, 5, [() => EvaluationJobDescription, 0], 0, 0, 5, 64 | 0], 9
 ];
 export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n0, _GFMAR,
@@ -2337,7 +2454,7 @@ export var GetFoundationModelAvailabilityRequest$: StaticStructureSchema = [3, n
 ];
 export var GetFoundationModelAvailabilityResponse$: StaticStructureSchema = [3, n0, _GFMARe,
   0,
-  [_mIo, _aA, _aS, _eAn, _rAe],
+  [_mIo, _aA, _aSu, _eAn, _rAe],
   [0, () => AgreementAvailability$, 0, 0, 0], 5
 ];
 export var GetFoundationModelRequest$: StaticStructureSchema = [3, n0, _GFMR,
@@ -3202,7 +3319,7 @@ export var TeacherModelConfig$: StaticStructureSchema = [3, n0, _TMC,
 ];
 export var TermDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_uBPT, _lT, _sTup, _vT],
+  [_uBPT, _lTe, _sTup, _vT],
   [() => PricingTerm$, () => LegalTerm$, () => SupportTerm$, () => ValidityTerm$], 3
 ];
 export var TextInferenceConfig$: StaticStructureSchema = [3, n0, _TIC,
@@ -3252,7 +3369,7 @@ export var UpdateAutomatedReasoningPolicyRequest$: StaticStructureSchema = [3, n
 ];
 export var UpdateAutomatedReasoningPolicyResponse$: StaticStructureSchema = [3, n0, _UARPRp,
   0,
-  [_pA, _n, _dH, _uA],
+  [_pA, _n, _dHe, _uA],
   [0, [() => AutomatedReasoningPolicyName, 0], 0, 5], 4
 ];
 export var UpdateAutomatedReasoningPolicyTestCaseRequest$: StaticStructureSchema = [3, n0, _UARPTCR,
@@ -3347,7 +3464,7 @@ export var VectorSearchRerankingConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_sI, _sGI],
+  [_sIu, _sGI],
   [64 | 0, 64 | 0], 2
 ];
 var AccountEnforcedGuardrailsOutputConfiguration: StaticListSchema = [1, n0, _AEGOCc,
@@ -3384,13 +3501,29 @@ var AutomatedReasoningLogicStatementList: StaticListSchema = [1, n0, _ARLSL,
   0, [() => AutomatedReasoningLogicStatement$,
     0]
 ];
-var AutomatedReasoningPolicyAnnotationList: StaticListSchema = [1, n0, _ARPAL,
+var AutomatedReasoningPolicyAnnotatedChunkList: StaticListSchema = [1, n0, _ARPACL,
+  0, [() => AutomatedReasoningPolicyAnnotatedChunk$,
+    0]
+];
+var AutomatedReasoningPolicyAnnotatedContentList: StaticListSchema = [1, n0, _ARPACLu,
+  0, [() => AutomatedReasoningPolicyAnnotatedContent$,
+    0]
+];
+var AutomatedReasoningPolicyAnnotationList: StaticListSchema = [1, n0, _ARPALu,
   0, [() => AutomatedReasoningPolicyAnnotation$,
     0]
 ];
 var AutomatedReasoningPolicyArnList = 64 | 0;
+var AutomatedReasoningPolicyAtomicStatementList: StaticListSchema = [1, n0, _ARPASL,
+  0, [() => AutomatedReasoningPolicyAtomicStatement$,
+    0]
+];
 var AutomatedReasoningPolicyBuildLogEntryList: StaticListSchema = [1, n0, _ARPBLEL,
   0, [() => AutomatedReasoningPolicyBuildLogEntry$,
+    0]
+];
+var AutomatedReasoningPolicyBuildResultAssetManifestList: StaticListSchema = [1, n0, _ARPBRAML,
+  0, [() => AutomatedReasoningPolicyBuildResultAssetManifestEntry$,
     0]
 ];
 var AutomatedReasoningPolicyBuildStepList: StaticListSchema = [1, n0, _ARPBSL,
@@ -3446,9 +3579,25 @@ var AutomatedReasoningPolicyGeneratedTestCaseList: StaticListSchema = [1, n0, _A
   0, [() => AutomatedReasoningPolicyGeneratedTestCase$,
     0]
 ];
-var AutomatedReasoningPolicyScenarioList: StaticListSchema = [1, n0, _ARPSL,
+var AutomatedReasoningPolicyGenerateFidelityReportDocumentList: StaticListSchema = [1, n0, _ARPGFRDL,
+  0, [() => AutomatedReasoningPolicyBuildWorkflowDocument$,
+    0]
+];
+var AutomatedReasoningPolicyJustificationList: StaticListSchema = [1, n0, _ARPJL,
+  0, [() => AutomatedReasoningPolicyJustificationText,
+    0]
+];
+var AutomatedReasoningPolicyLineNumberList = 64 | 1;
+var AutomatedReasoningPolicyReportSourceDocumentList: StaticListSchema = [1, n0, _ARPRSDL,
+  0, [() => AutomatedReasoningPolicyReportSourceDocument$,
+    0]
+];
+var AutomatedReasoningPolicyScenarioList: StaticListSchema = [1, n0, _ARPSLu,
   0, [() => AutomatedReasoningPolicyScenario$,
     0]
+];
+var AutomatedReasoningPolicyStatementReferenceList: StaticListSchema = [1, n0, _ARPSRL,
+  0, () => AutomatedReasoningPolicyStatementReference$
 ];
 var AutomatedReasoningPolicySummaries: StaticListSchema = [1, n0, _ARPSuto,
   0, [() => AutomatedReasoningPolicySummary$,
@@ -3677,6 +3826,18 @@ var Validators: StaticListSchema = [1, n0, _Va,
   0, () => Validator$
 ];
 var AdditionalModelRequestFields = 128 | 15;
+var AutomatedReasoningPolicyRuleReportMap: StaticMapSchema = [2, n0, _ARPRRM,
+  0, [0,
+    0]
+  , [() => AutomatedReasoningPolicyRuleReport$,
+    0]
+];
+var AutomatedReasoningPolicyVariableReportMap: StaticMapSchema = [2, n0, _ARPVRM,
+  0, [() => AutomatedReasoningPolicyDefinitionVariableName,
+    0]
+  , [() => AutomatedReasoningPolicyVariableReport$,
+    0]
+];
 var ModelCustomizationHyperParameters = 128 | 0;
 var RequestMetadataMap: StaticMapSchema = [2, n0, _RMM,
   8, 0, 0
@@ -3691,6 +3852,11 @@ export var AutomatedReasoningCheckFinding$: StaticUnionSchema = [4, n0, _ARCF,
   [_vali, _inv, _sa, _im, _tA, _tCoo, _nTo],
   [[() => AutomatedReasoningCheckValidFinding$, 0], [() => AutomatedReasoningCheckInvalidFinding$, 0], [() => AutomatedReasoningCheckSatisfiableFinding$, 0], [() => AutomatedReasoningCheckImpossibleFinding$, 0], [() => AutomatedReasoningCheckTranslationAmbiguousFinding$, 0], () => AutomatedReasoningCheckTooComplexFinding$, () => AutomatedReasoningCheckNoTranslationsFinding$]
 ];
+export var AutomatedReasoningPolicyAnnotatedContent$: StaticUnionSchema = [4, n0, _ARPACu,
+  0,
+  [_lin],
+  [[() => AutomatedReasoningPolicyAnnotatedLine$, 0]]
+];
 export var AutomatedReasoningPolicyAnnotation$: StaticUnionSchema = [4, n0, _ARPA,
   0,
   [_aTd, _uTp, _dT, _aV, _uVp, _dV, _aR, _uR, _dR, _aRFNL, _uFRF, _uFSF, _iCn],
@@ -3698,8 +3864,8 @@ export var AutomatedReasoningPolicyAnnotation$: StaticUnionSchema = [4, n0, _ARP
 ];
 export var AutomatedReasoningPolicyBuildResultAssets$: StaticUnionSchema = [4, n0, _ARPBRA,
   0,
-  [_pD, _qR, _bL, _gTC, _pS],
-  [[() => AutomatedReasoningPolicyDefinition$, 0], [() => AutomatedReasoningPolicyDefinitionQualityReport$, 0], [() => AutomatedReasoningPolicyBuildLog$, 0], [() => AutomatedReasoningPolicyGeneratedTestCases$, 0], [() => AutomatedReasoningPolicyScenarios$, 0]]
+  [_pD, _qR, _bL, _gTC, _pS, _aM, _do, _fRi],
+  [[() => AutomatedReasoningPolicyDefinition$, 0], [() => AutomatedReasoningPolicyDefinitionQualityReport$, 0], [() => AutomatedReasoningPolicyBuildLog$, 0], [() => AutomatedReasoningPolicyGeneratedTestCases$, 0], [() => AutomatedReasoningPolicyScenarios$, 0], [() => AutomatedReasoningPolicyBuildResultAssetManifest$, 0], [() => AutomatedReasoningPolicySourceDocument$, 0], [() => AutomatedReasoningPolicyFidelityReport$, 0]]
 ];
 export var AutomatedReasoningPolicyBuildStepContext$: StaticUnionSchema = [4, n0, _ARPBSC,
   0,
@@ -3710,6 +3876,11 @@ export var AutomatedReasoningPolicyDefinitionElement$: StaticUnionSchema = [4, n
   0,
   [_pDV, _pDT, _pDR],
   [[() => AutomatedReasoningPolicyDefinitionVariable$, 0], [() => AutomatedReasoningPolicyDefinitionType$, 0], [() => AutomatedReasoningPolicyDefinitionRule$, 0]]
+];
+export var AutomatedReasoningPolicyGenerateFidelityReportContent$: StaticUnionSchema = [4, n0, _ARPGFRC,
+  0,
+  [_doc],
+  [[() => AutomatedReasoningPolicyGenerateFidelityReportDocumentList, 0]]
 ];
 export var AutomatedReasoningPolicyMutation$: StaticUnionSchema = [4, n0, _ARPM,
   0,
@@ -3723,12 +3894,12 @@ export var AutomatedReasoningPolicyTypeValueAnnotation$: StaticUnionSchema = [4,
 ];
 export var AutomatedReasoningPolicyWorkflowTypeContent$: StaticUnionSchema = [4, n0, _ARPWTC,
   0,
-  [_doc, _pRAo],
-  [[() => AutomatedReasoningPolicyBuildWorkflowDocumentList, 0], [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0]]
+  [_doc, _pRAo, _gFRC],
+  [[() => AutomatedReasoningPolicyBuildWorkflowDocumentList, 0], [() => AutomatedReasoningPolicyBuildWorkflowRepairContent$, 0], [() => AutomatedReasoningPolicyGenerateFidelityReportContent$, 0]]
 ];
 export var CustomizationConfig$: StaticUnionSchema = [4, n0, _CC,
   0,
-  [_dC, _rCf],
+  [_dCi, _rCf],
   [() => DistillationConfig$, () => RFTConfig$]
 ];
 export var EndpointConfig$: StaticUnionSchema = [4, n0, _EC,
@@ -3823,7 +3994,7 @@ export var RerankingMetadataSelectiveModeConfiguration$: StaticUnionSchema = [4,
 ];
 export var RetrievalFilter$: StaticUnionSchema = [4, n0, _RF,
   8,
-  [_eq, _nE, _gT, _gTOE, _lTe, _lTOE, _in_, _nI, _sW, _lCi, _sCt, _aAn, _oAr],
+  [_eq, _nE, _gT, _gTOE, _lTes, _lTOE, _in_, _nI, _sW, _lCi, _sCt, _aAn, _oAr],
   [() => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, () => FilterAttribute$, [() => RetrievalFilterList, 0], [() => RetrievalFilterList, 0]]
 ];
 export var BatchDeleteEvaluationJob$: StaticOperationSchema = [9, n0, _BDEJ,

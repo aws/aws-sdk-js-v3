@@ -66,6 +66,7 @@ export type AutomatedReasoningCheckResult =
  * @enum
  */
 export const AutomatedReasoningPolicyBuildWorkflowType = {
+  GENERATE_FIDELITY_REPORT: "GENERATE_FIDELITY_REPORT",
   IMPORT_POLICY: "IMPORT_POLICY",
   INGEST_CONTENT: "INGEST_CONTENT",
   REFINE_POLICY: "REFINE_POLICY",
@@ -115,11 +116,14 @@ export type AutomatedReasoningPolicyBuildWorkflowStatus =
  * @enum
  */
 export const AutomatedReasoningPolicyBuildResultAssetType = {
+  ASSET_MANIFEST: "ASSET_MANIFEST",
   BUILD_LOG: "BUILD_LOG",
+  FIDELITY_REPORT: "FIDELITY_REPORT",
   GENERATED_TEST_CASES: "GENERATED_TEST_CASES",
   POLICY_DEFINITION: "POLICY_DEFINITION",
   POLICY_SCENARIOS: "POLICY_SCENARIOS",
   QUALITY_REPORT: "QUALITY_REPORT",
+  SOURCE_DOCUMENT: "SOURCE_DOCUMENT",
 } as const;
 /**
  * @public

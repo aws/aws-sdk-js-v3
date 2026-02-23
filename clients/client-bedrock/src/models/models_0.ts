@@ -33,12 +33,10 @@ import {
   GuardrailModality,
   GuardrailPiiEntityType,
   GuardrailSensitiveInformationAction,
-  GuardrailStatus,
   GuardrailTopicAction,
   GuardrailTopicsTierName,
   GuardrailTopicType,
   GuardrailWordAction,
-  InferenceProfileStatus,
   InputTags,
   ModelStatus,
   PerformanceConfigLatency,
@@ -1585,10 +1583,52 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest {
   buildWorkflowId: string | undefined;
 
   /**
-   * <p>The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION).</p>
+   * <p>The type of asset to retrieve (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).</p>
    * @public
    */
   assetType: AutomatedReasoningPolicyBuildResultAssetType | undefined;
+
+  /**
+   * <p>The unique identifier of the specific asset to retrieve when multiple assets of the same type exist. This is required when retrieving SOURCE_DOCUMENT assets, as multiple source documents may have been used in the workflow. The asset ID can be obtained from the asset manifest.</p>
+   * @public
+   */
+  assetId?: string | undefined;
+}
+
+/**
+ * <p>Represents a single entry in the asset manifest, describing one artifact produced by the build workflow.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyBuildResultAssetManifestEntry {
+  /**
+   * <p>The type of asset (e.g., BUILD_LOG, QUALITY_REPORT, POLICY_DEFINITION, GENERATED_TEST_CASES, POLICY_SCENARIOS, FIDELITY_REPORT, ASSET_MANIFEST, SOURCE_DOCUMENT).</p>
+   * @public
+   */
+  assetType: AutomatedReasoningPolicyBuildResultAssetType | undefined;
+
+  /**
+   * <p>A human-readable name for the asset, if applicable. This helps identify specific documents or reports within the workflow results.</p>
+   * @public
+   */
+  assetName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the asset, if applicable. Use this ID when requesting specific assets through the API.</p>
+   * @public
+   */
+  assetId?: string | undefined;
+}
+
+/**
+ * <p>A catalog of all artifacts produced by a build workflow, providing a comprehensive list of available assets including their types and identifiers.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyBuildResultAssetManifest {
+  /**
+   * <p>The list of asset entries in the manifest, each describing an available artifact that can be retrieved.</p>
+   * @public
+   */
+  entries: AutomatedReasoningPolicyBuildResultAssetManifestEntry[] | undefined;
 }
 
 /**
@@ -2113,6 +2153,315 @@ export interface AutomatedReasoningPolicyBuildLog {
 }
 
 /**
+ * <p>Represents a source document that was processed during a build workflow. Contains the document content, metadata, and a hash for verification.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicySourceDocument {
+  /**
+   * <p>The raw content of the source document as a binary blob.</p>
+   * @public
+   */
+  document: Uint8Array | undefined;
+
+  /**
+   * <p>The MIME type of the document (e.g., application/pdf, text/plain).</p>
+   * @public
+   */
+  documentContentType: AutomatedReasoningPolicyBuildDocumentContentType | undefined;
+
+  /**
+   * <p>The name of the source document for identification purposes.</p>
+   * @public
+   */
+  documentName: string | undefined;
+
+  /**
+   * <p>An optional description providing context about the document's content and purpose.</p>
+   * @public
+   */
+  documentDescription?: string | undefined;
+
+  /**
+   * <p>A SHA-256 hash of the document content, used for verification and integrity checking.</p>
+   * @public
+   */
+  documentHash: string | undefined;
+}
+
+/**
+ * <p>Describes the location of a statement within a source document using line numbers.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyStatementLocation {
+  /**
+   * <p>The line numbers in the source document where this statement appears.</p>
+   * @public
+   */
+  lines: number[] | undefined;
+}
+
+/**
+ * <p>Represents a single, indivisible statement extracted from a source document. Atomic statements are the fundamental units used to ground policy rules and variables to their source material.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyAtomicStatement {
+  /**
+   * <p>A unique identifier for this atomic statement within the fidelity report.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The actual text content of the atomic statement as extracted from the source document.</p>
+   * @public
+   */
+  text: string | undefined;
+
+  /**
+   * <p>Information about where this statement appears in the source document, including line numbers.</p>
+   * @public
+   */
+  location: AutomatedReasoningPolicyStatementLocation | undefined;
+}
+
+/**
+ * <p>Represents a single line of text from a source document, annotated with its line number for precise referencing.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyAnnotatedLine {
+  /**
+   * <p>The line number of this text within the source document.</p>
+   * @public
+   */
+  lineNumber?: number | undefined;
+
+  /**
+   * <p>The actual text content of this line from the source document.</p>
+   * @public
+   */
+  lineText?: string | undefined;
+}
+
+/**
+ * <p>Represents a content element within an annotated chunk. This union type allows for different types of content elements to be included in document chunks, such as individual lines of text with their line numbers.</p>
+ * @public
+ */
+export type AutomatedReasoningPolicyAnnotatedContent =
+  | AutomatedReasoningPolicyAnnotatedContent.LineMember
+  | AutomatedReasoningPolicyAnnotatedContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutomatedReasoningPolicyAnnotatedContent {
+  /**
+   * <p>An annotated line of text from the source document, including both the line number and the text content.</p>
+   * @public
+   */
+  export interface LineMember {
+    line: AutomatedReasoningPolicyAnnotatedLine;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    line?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    line: (value: AutomatedReasoningPolicyAnnotatedLine) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents a portion of a source document with line number annotations. Chunks help organize document content for easier navigation and reference.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyAnnotatedChunk {
+  /**
+   * <p>The page number where this chunk begins, if the document is divided into pages.</p>
+   * @public
+   */
+  pageNumber?: number | undefined;
+
+  /**
+   * <p>The lines of text contained within this chunk, each annotated with its line number.</p>
+   * @public
+   */
+  content: AutomatedReasoningPolicyAnnotatedContent[] | undefined;
+}
+
+/**
+ * <p>Represents a source document that was analyzed during fidelity report generation, including the document's metadata and its content broken down into atomic statements.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyReportSourceDocument {
+  /**
+   * <p>The name of the source document that was analyzed.</p>
+   * @public
+   */
+  documentName: string | undefined;
+
+  /**
+   * <p>A SHA-256 hash of the document content, used for verification and ensuring the document hasn't changed since analysis.</p>
+   * @public
+   */
+  documentHash: string | undefined;
+
+  /**
+   * <p>A unique identifier for this document within the fidelity report.</p>
+   * @public
+   */
+  documentId: string | undefined;
+
+  /**
+   * <p>The list of atomic statements extracted from this document, representing the fundamental units of meaning used for grounding.</p>
+   * @public
+   */
+  atomicStatements: AutomatedReasoningPolicyAtomicStatement[] | undefined;
+
+  /**
+   * <p>The document's content organized into annotated chunks with line number information for precise referencing.</p>
+   * @public
+   */
+  documentContent: AutomatedReasoningPolicyAnnotatedChunk[] | undefined;
+}
+
+/**
+ * <p>References a specific atomic statement within a source document, used to link policy elements back to their source material.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyStatementReference {
+  /**
+   * <p>The unique identifier of the document containing the referenced statement.</p>
+   * @public
+   */
+  documentId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the specific atomic statement being referenced.</p>
+   * @public
+   */
+  statementId: string | undefined;
+}
+
+/**
+ * <p>Provides detailed fidelity analysis for a specific policy rule, including which source document statements support it and how accurate the rule is.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyRuleReport {
+  /**
+   * <p>The identifier of the policy rule being analyzed in this report.</p>
+   * @public
+   */
+  rule: string | undefined;
+
+  /**
+   * <p>References to statements from the source documents that provide the basis or justification for this rule.</p>
+   * @public
+   */
+  groundingStatements?: AutomatedReasoningPolicyStatementReference[] | undefined;
+
+  /**
+   * <p>Explanations describing how the source statements support and justify this specific rule.</p>
+   * @public
+   */
+  groundingJustifications?: string[] | undefined;
+
+  /**
+   * <p>A score from 0.0 to 1.0 indicating how accurately this rule represents the source material.</p>
+   * @public
+   */
+  accuracyScore?: number | undefined;
+
+  /**
+   * <p>A textual explanation of the accuracy score, describing why the rule received this particular accuracy rating.</p>
+   * @public
+   */
+  accuracyJustification?: string | undefined;
+}
+
+/**
+ * <p>Provides detailed fidelity analysis for a specific policy variable, including which source document statements support it and how accurate the variable definition is.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyVariableReport {
+  /**
+   * <p>The name of the policy variable being analyzed in this report.</p>
+   * @public
+   */
+  policyVariable: string | undefined;
+
+  /**
+   * <p>References to statements from the source documents that provide the basis or justification for this variable.</p>
+   * @public
+   */
+  groundingStatements?: AutomatedReasoningPolicyStatementReference[] | undefined;
+
+  /**
+   * <p>Explanations describing how the source statements support and justify this specific variable definition.</p>
+   * @public
+   */
+  groundingJustifications?: string[] | undefined;
+
+  /**
+   * <p>A score from 0.0 to 1.0 indicating how accurately this variable represents concepts from the source material.</p>
+   * @public
+   */
+  accuracyScore?: number | undefined;
+
+  /**
+   * <p>A textual explanation of the accuracy score, describing why the variable received this particular accuracy rating.</p>
+   * @public
+   */
+  accuracyJustification?: string | undefined;
+}
+
+/**
+ * <p>A comprehensive analysis report that measures how accurately a generated policy represents the source documents. The report includes coverage and accuracy scores, detailed grounding information linking policy elements to source statements, and annotated document content.</p>
+ * @public
+ */
+export interface AutomatedReasoningPolicyFidelityReport {
+  /**
+   * <p>A score from 0.0 to 1.0 indicating how well the policy covers the statements in the source documents. A higher score means more of the source content is represented in the policy.</p>
+   * @public
+   */
+  coverageScore: number | undefined;
+
+  /**
+   * <p>A score from 0.0 to 1.0 indicating how accurate the policy rules are relative to the source documents. A higher score means the policy rules more faithfully represent the source material.</p>
+   * @public
+   */
+  accuracyScore: number | undefined;
+
+  /**
+   * <p>A mapping from rule identifiers to detailed fidelity reports for each rule, showing which source statements ground each rule and how accurate it is.</p>
+   * @public
+   */
+  ruleReports: Record<string, AutomatedReasoningPolicyRuleReport> | undefined;
+
+  /**
+   * <p>A mapping from variable names to detailed fidelity reports for each variable, showing which source statements ground each variable and how accurate it is.</p>
+   * @public
+   */
+  variableReports: Record<string, AutomatedReasoningPolicyVariableReport> | undefined;
+
+  /**
+   * <p>A list of source documents with their content broken down into atomic statements and annotated with line numbers for precise referencing.</p>
+   * @public
+   */
+  documentSources: AutomatedReasoningPolicyReportSourceDocument[] | undefined;
+}
+
+/**
  * <p>Represents a generated test case, consisting of query content, guard content, and expected results.</p>
  * @public
  */
@@ -2285,7 +2634,10 @@ export interface AutomatedReasoningPolicyDefinitionQualityReport {
  * @public
  */
 export type AutomatedReasoningPolicyBuildResultAssets =
+  | AutomatedReasoningPolicyBuildResultAssets.AssetManifestMember
   | AutomatedReasoningPolicyBuildResultAssets.BuildLogMember
+  | AutomatedReasoningPolicyBuildResultAssets.DocumentMember
+  | AutomatedReasoningPolicyBuildResultAssets.FidelityReportMember
   | AutomatedReasoningPolicyBuildResultAssets.GeneratedTestCasesMember
   | AutomatedReasoningPolicyBuildResultAssets.PolicyDefinitionMember
   | AutomatedReasoningPolicyBuildResultAssets.PolicyScenariosMember
@@ -2306,6 +2658,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog?: never;
     generatedTestCases?: never;
     policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
     $unknown?: never;
   }
 
@@ -2319,6 +2674,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog?: never;
     generatedTestCases?: never;
     policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
     $unknown?: never;
   }
 
@@ -2332,6 +2690,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog: AutomatedReasoningPolicyBuildLog;
     generatedTestCases?: never;
     policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
     $unknown?: never;
   }
 
@@ -2345,6 +2706,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog?: never;
     generatedTestCases: AutomatedReasoningPolicyGeneratedTestCases;
     policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
     $unknown?: never;
   }
 
@@ -2358,6 +2722,57 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog?: never;
     generatedTestCases?: never;
     policyScenarios: AutomatedReasoningPolicyScenarios;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A manifest listing all available artifacts produced by the build workflow. This provides a catalog of all assets that can be retrieved, including their types, names, and identifiers.</p>
+   * @public
+   */
+  export interface AssetManifestMember {
+    policyDefinition?: never;
+    qualityReport?: never;
+    buildLog?: never;
+    generatedTestCases?: never;
+    policyScenarios?: never;
+    assetManifest: AutomatedReasoningPolicyBuildResultAssetManifest;
+    document?: never;
+    fidelityReport?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A source document that was used as input during the build workflow. This allows you to retrieve the original documents that were processed to generate the policy.</p>
+   * @public
+   */
+  export interface DocumentMember {
+    policyDefinition?: never;
+    qualityReport?: never;
+    buildLog?: never;
+    generatedTestCases?: never;
+    policyScenarios?: never;
+    assetManifest?: never;
+    document: AutomatedReasoningPolicySourceDocument;
+    fidelityReport?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A comprehensive fidelity report that measures how accurately the generated policy represents the source documents. The report includes coverage and accuracy scores, along with detailed grounding information for rules and variables.</p>
+   * @public
+   */
+  export interface FidelityReportMember {
+    policyDefinition?: never;
+    qualityReport?: never;
+    buildLog?: never;
+    generatedTestCases?: never;
+    policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport: AutomatedReasoningPolicyFidelityReport;
     $unknown?: never;
   }
 
@@ -2370,6 +2785,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog?: never;
     generatedTestCases?: never;
     policyScenarios?: never;
+    assetManifest?: never;
+    document?: never;
+    fidelityReport?: never;
     $unknown: [string, any];
   }
 
@@ -2383,6 +2801,9 @@ export namespace AutomatedReasoningPolicyBuildResultAssets {
     buildLog: (value: AutomatedReasoningPolicyBuildLog) => T;
     generatedTestCases: (value: AutomatedReasoningPolicyGeneratedTestCases) => T;
     policyScenarios: (value: AutomatedReasoningPolicyScenarios) => T;
+    assetManifest: (value: AutomatedReasoningPolicyBuildResultAssetManifest) => T;
+    document: (value: AutomatedReasoningPolicySourceDocument) => T;
+    fidelityReport: (value: AutomatedReasoningPolicyFidelityReport) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3318,6 +3739,45 @@ export interface AutomatedReasoningPolicyBuildWorkflowDocument {
 }
 
 /**
+ * <p>Configuration for generating a fidelity report, which can either analyze new documents or update an existing fidelity report with a new policy definition.</p>
+ * @public
+ */
+export type AutomatedReasoningPolicyGenerateFidelityReportContent =
+  | AutomatedReasoningPolicyGenerateFidelityReportContent.DocumentsMember
+  | AutomatedReasoningPolicyGenerateFidelityReportContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AutomatedReasoningPolicyGenerateFidelityReportContent {
+  /**
+   * <p>Source documents to analyze for generating a new fidelity report. The documents will be processed to create atomic statements and grounding information.</p>
+   * @public
+   */
+  export interface DocumentsMember {
+    documents: AutomatedReasoningPolicyBuildWorkflowDocument[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    documents?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    documents: (value: AutomatedReasoningPolicyBuildWorkflowDocument[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Contains content and instructions for repairing or improving an existing Automated Reasoning policy.</p>
  * @public
  */
@@ -3335,6 +3795,7 @@ export interface AutomatedReasoningPolicyBuildWorkflowRepairContent {
  */
 export type AutomatedReasoningPolicyWorkflowTypeContent =
   | AutomatedReasoningPolicyWorkflowTypeContent.DocumentsMember
+  | AutomatedReasoningPolicyWorkflowTypeContent.GenerateFidelityReportContentMember
   | AutomatedReasoningPolicyWorkflowTypeContent.PolicyRepairAssetsMember
   | AutomatedReasoningPolicyWorkflowTypeContent.$UnknownMember;
 
@@ -3349,6 +3810,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   export interface DocumentsMember {
     documents: AutomatedReasoningPolicyBuildWorkflowDocument[];
     policyRepairAssets?: never;
+    generateFidelityReportContent?: never;
     $unknown?: never;
   }
 
@@ -3359,6 +3821,18 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   export interface PolicyRepairAssetsMember {
     documents?: never;
     policyRepairAssets: AutomatedReasoningPolicyBuildWorkflowRepairContent;
+    generateFidelityReportContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content configuration for generating a fidelity report workflow. This can include source documents to analyze or an existing fidelity report to update with a new policy definition.</p>
+   * @public
+   */
+  export interface GenerateFidelityReportContentMember {
+    documents?: never;
+    policyRepairAssets?: never;
+    generateFidelityReportContent: AutomatedReasoningPolicyGenerateFidelityReportContent;
     $unknown?: never;
   }
 
@@ -3368,6 +3842,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   export interface $UnknownMember {
     documents?: never;
     policyRepairAssets?: never;
+    generateFidelityReportContent?: never;
     $unknown: [string, any];
   }
 
@@ -3378,6 +3853,7 @@ export namespace AutomatedReasoningPolicyWorkflowTypeContent {
   export interface Visitor<T> {
     documents: (value: AutomatedReasoningPolicyBuildWorkflowDocument[]) => T;
     policyRepairAssets: (value: AutomatedReasoningPolicyBuildWorkflowRepairContent) => T;
+    generateFidelityReportContent: (value: AutomatedReasoningPolicyGenerateFidelityReportContent) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -7635,594 +8111,4 @@ export interface GuardrailTopicsTier {
    * @public
    */
   tierName: GuardrailTopicsTierName | undefined;
-}
-
-/**
- * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
- * @public
- */
-export interface GuardrailTopic {
-  /**
-   * <p>The name of the topic to deny.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A definition of the topic to deny.</p>
-   * @public
-   */
-  definition: string | undefined;
-
-  /**
-   * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
-   * @public
-   */
-  examples?: string[] | undefined;
-
-  /**
-   * <p>Specifies to deny the topic.</p>
-   * @public
-   */
-  type?: GuardrailTopicType | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailTopicAction | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailTopicAction | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about topics that the guardrail should identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>
- * @public
- */
-export interface GuardrailTopicPolicy {
-  /**
-   * <p>A list of policies related to topics that the guardrail should deny.</p>
-   * @public
-   */
-  topics: GuardrailTopic[] | undefined;
-
-  /**
-   * <p>The tier that your guardrail uses for denied topic filters.</p>
-   * @public
-   */
-  tier?: GuardrailTopicsTier | undefined;
-}
-
-/**
- * <p>The managed word list that was configured for the guardrail. (This is a list of words that are pre-defined and managed by guardrails only.)</p>
- * @public
- */
-export interface GuardrailManagedWords {
-  /**
-   * <p>ManagedWords$type The managed word type that was configured for the guardrail. (For now, we only offer profanity word list)</p>
-   * @public
-   */
-  type: GuardrailManagedWordsType | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>A word configured for the guardrail.</p>
- * @public
- */
-export interface GuardrailWord {
-  /**
-   * <p>Text of the word configured for the guardrail to block.</p>
-   * @public
-   */
-  text: string | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the input. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  inputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>The action to take when harmful content is detected in the output. Supported values include:</p> <ul> <li> <p> <code>BLOCK</code> – Block the content and replace it with blocked messaging.</p> </li> <li> <p> <code>NONE</code> – Take no action but return detection information in the trace response.</p> </li> </ul>
-   * @public
-   */
-  outputAction?: GuardrailWordAction | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the input. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  inputEnabled?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether guardrail evaluation is enabled on the output. When disabled, you aren't charged for the evaluation. The evaluation doesn't appear in the response.</p>
-   * @public
-   */
-  outputEnabled?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about the word policy configured for the guardrail.</p>
- * @public
- */
-export interface GuardrailWordPolicy {
-  /**
-   * <p>A list of words configured for the guardrail.</p>
-   * @public
-   */
-  words?: GuardrailWord[] | undefined;
-
-  /**
-   * <p>A list of managed words configured for the guardrail.</p>
-   * @public
-   */
-  managedWordLists?: GuardrailManagedWords[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGuardrailResponse {
-  /**
-   * <p>The name of the guardrail.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the guardrail.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the guardrail.</p>
-   * @public
-   */
-  guardrailId: string | undefined;
-
-  /**
-   * <p>The ARN of the guardrail.</p>
-   * @public
-   */
-  guardrailArn: string | undefined;
-
-  /**
-   * <p>The version of the guardrail.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The status of the guardrail.</p>
-   * @public
-   */
-  status: GuardrailStatus | undefined;
-
-  /**
-   * <p>The topic policy that was configured for the guardrail.</p>
-   * @public
-   */
-  topicPolicy?: GuardrailTopicPolicy | undefined;
-
-  /**
-   * <p>The content policy that was configured for the guardrail.</p>
-   * @public
-   */
-  contentPolicy?: GuardrailContentPolicy | undefined;
-
-  /**
-   * <p>The word policy that was configured for the guardrail.</p>
-   * @public
-   */
-  wordPolicy?: GuardrailWordPolicy | undefined;
-
-  /**
-   * <p>The sensitive information policy that was configured for the guardrail.</p>
-   * @public
-   */
-  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy | undefined;
-
-  /**
-   * <p>The contextual grounding policy used in the guardrail.</p>
-   * @public
-   */
-  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy | undefined;
-
-  /**
-   * <p>The current Automated Reasoning policy configuration for the guardrail, if any is configured.</p>
-   * @public
-   */
-  automatedReasoningPolicy?: GuardrailAutomatedReasoningPolicy | undefined;
-
-  /**
-   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
-
-  /**
-   * <p>The date and time at which the guardrail was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The date and time at which the guardrail was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>Appears if the <code>status</code> is <code>FAILED</code>. A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-
-  /**
-   * <p>Appears if the <code>status</code> of the guardrail is <code>FAILED</code>. A list of recommendations to carry out before retrying the request.</p>
-   * @public
-   */
-  failureRecommendations?: string[] | undefined;
-
-  /**
-   * <p>The message that the guardrail returns when it blocks a prompt.</p>
-   * @public
-   */
-  blockedInputMessaging: string | undefined;
-
-  /**
-   * <p>The message that the guardrail returns when it blocks a model response.</p>
-   * @public
-   */
-  blockedOutputsMessaging: string | undefined;
-
-  /**
-   * <p>The ARN of the KMS key that encrypts the guardrail.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGuardrailsRequest {
-  /**
-   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
-   * @public
-   */
-  guardrailIdentifier?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains details about a guardrail.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListGuardrails.html#API_ListGuardrails_ResponseSyntax">ListGuardrails response body</a> </p> </li> </ul>
- * @public
- */
-export interface GuardrailSummary {
-  /**
-   * <p>The unique identifier of the guardrail.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ARN of the guardrail.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the guardrail.</p>
-   * @public
-   */
-  status: GuardrailStatus | undefined;
-
-  /**
-   * <p>The name of the guardrail.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the guardrail.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The version of the guardrail.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The date and time at which the guardrail was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The date and time at which the guardrail was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>Details about the system-defined guardrail profile that you're using with your guardrail, including the guardrail profile ID and Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  crossRegionDetails?: GuardrailCrossRegionDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGuardrailsResponse {
-  /**
-   * <p>A list of objects, each of which contains details about a guardrail.</p>
-   * @public
-   */
-  guardrails: GuardrailSummary[] | undefined;
-
-  /**
-   * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGuardrailRequest {
-  /**
-   * <p>The unique identifier of the guardrail. This can be an ID or the ARN.</p>
-   * @public
-   */
-  guardrailIdentifier: string | undefined;
-
-  /**
-   * <p>A name for the guardrail.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the guardrail.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The topic policy to configure for the guardrail.</p>
-   * @public
-   */
-  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
-
-  /**
-   * <p>The content policy to configure for the guardrail.</p>
-   * @public
-   */
-  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
-
-  /**
-   * <p>The word policy to configure for the guardrail.</p>
-   * @public
-   */
-  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
-
-  /**
-   * <p>The sensitive information policy to configure for the guardrail.</p>
-   * @public
-   */
-  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
-
-  /**
-   * <p>The contextual grounding policy configuration used to update a guardrail.</p>
-   * @public
-   */
-  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
-
-  /**
-   * <p>Updated configuration for Automated Reasoning policies associated with the guardrail.</p>
-   * @public
-   */
-  automatedReasoningPolicyConfig?: GuardrailAutomatedReasoningPolicyConfig | undefined;
-
-  /**
-   * <p>The system-defined guardrail profile that you're using with your guardrail. Guardrail profiles define the destination Amazon Web Services Regions where guardrail inference requests can be automatically routed.</p> <p>For more information, see the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">Amazon Bedrock User Guide</a>.</p>
-   * @public
-   */
-  crossRegionConfig?: GuardrailCrossRegionConfig | undefined;
-
-  /**
-   * <p>The message to return when the guardrail blocks a prompt.</p>
-   * @public
-   */
-  blockedInputMessaging: string | undefined;
-
-  /**
-   * <p>The message to return when the guardrail blocks a model response.</p>
-   * @public
-   */
-  blockedOutputsMessaging: string | undefined;
-
-  /**
-   * <p>The ARN of the KMS key with which to encrypt the guardrail.</p>
-   * @public
-   */
-  kmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGuardrailResponse {
-  /**
-   * <p>The unique identifier of the guardrail</p>
-   * @public
-   */
-  guardrailId: string | undefined;
-
-  /**
-   * <p>The ARN of the guardrail.</p>
-   * @public
-   */
-  guardrailArn: string | undefined;
-
-  /**
-   * <p>The version of the guardrail.</p>
-   * @public
-   */
-  version: string | undefined;
-
-  /**
-   * <p>The date and time at which the guardrail was updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-}
-
-/**
- * <p>Contains information about the model or system-defined inference profile that is the source for an inference profile..</p>
- * @public
- */
-export type InferenceProfileModelSource =
-  | InferenceProfileModelSource.CopyFromMember
-  | InferenceProfileModelSource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace InferenceProfileModelSource {
-  /**
-   * <p>The ARN of the model or system-defined inference profile that is the source for the inference profile.</p>
-   * @public
-   */
-  export interface CopyFromMember {
-    copyFrom: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    copyFrom?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    copyFrom: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface CreateInferenceProfileRequest {
-  /**
-   * <p>A name for the inference profile.</p>
-   * @public
-   */
-  inferenceProfileName: string | undefined;
-
-  /**
-   * <p>A description for the inference profile.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientRequestToken?: string | undefined;
-
-  /**
-   * <p>The foundation model or system-defined inference profile that the inference profile will track metrics and costs for.</p>
-   * @public
-   */
-  modelSource: InferenceProfileModelSource | undefined;
-
-  /**
-   * <p>An array of objects, each of which contains a tag and its value. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInferenceProfileResponse {
-  /**
-   * <p>The ARN of the inference profile that you created.</p>
-   * @public
-   */
-  inferenceProfileArn: string | undefined;
-
-  /**
-   * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
-   * @public
-   */
-  status?: InferenceProfileStatus | undefined;
 }

@@ -42,7 +42,8 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * const input = { // GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest
  *   policyArn: "STRING_VALUE", // required
  *   buildWorkflowId: "STRING_VALUE", // required
- *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES" || "POLICY_SCENARIOS", // required
+ *   assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES" || "POLICY_SCENARIOS" || "FIDELITY_REPORT" || "ASSET_MANIFEST" || "SOURCE_DOCUMENT", // required
+ *   assetId: "STRING_VALUE",
  * };
  * const command = new GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand(input);
  * const response = await client.send(command);
@@ -282,6 +283,89 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  * //           expectedResult: "VALID" || "INVALID" || "SATISFIABLE" || "IMPOSSIBLE" || "TRANSLATION_AMBIGUOUS" || "TOO_COMPLEX" || "NO_TRANSLATION", // required
  * //           ruleIds: [ // required
  * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
+ * //     assetManifest: { // AutomatedReasoningPolicyBuildResultAssetManifest
+ * //       entries: [ // AutomatedReasoningPolicyBuildResultAssetManifestList // required
+ * //         { // AutomatedReasoningPolicyBuildResultAssetManifestEntry
+ * //           assetType: "BUILD_LOG" || "QUALITY_REPORT" || "POLICY_DEFINITION" || "GENERATED_TEST_CASES" || "POLICY_SCENARIOS" || "FIDELITY_REPORT" || "ASSET_MANIFEST" || "SOURCE_DOCUMENT", // required
+ * //           assetName: "STRING_VALUE",
+ * //           assetId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     document: { // AutomatedReasoningPolicySourceDocument
+ * //       document: new Uint8Array(), // required
+ * //       documentContentType: "pdf" || "txt", // required
+ * //       documentName: "STRING_VALUE", // required
+ * //       documentDescription: "STRING_VALUE",
+ * //       documentHash: "STRING_VALUE", // required
+ * //     },
+ * //     fidelityReport: { // AutomatedReasoningPolicyFidelityReport
+ * //       coverageScore: Number("double"), // required
+ * //       accuracyScore: Number("double"), // required
+ * //       ruleReports: { // AutomatedReasoningPolicyRuleReportMap // required
+ * //         "<keys>": { // AutomatedReasoningPolicyRuleReport
+ * //           rule: "STRING_VALUE", // required
+ * //           groundingStatements: [ // AutomatedReasoningPolicyStatementReferenceList
+ * //             { // AutomatedReasoningPolicyStatementReference
+ * //               documentId: "STRING_VALUE", // required
+ * //               statementId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           groundingJustifications: [ // AutomatedReasoningPolicyJustificationList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           accuracyScore: Number("double"),
+ * //           accuracyJustification: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       variableReports: { // AutomatedReasoningPolicyVariableReportMap // required
+ * //         "<keys>": { // AutomatedReasoningPolicyVariableReport
+ * //           policyVariable: "STRING_VALUE", // required
+ * //           groundingStatements: [
+ * //             {
+ * //               documentId: "STRING_VALUE", // required
+ * //               statementId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           groundingJustifications: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           accuracyScore: Number("double"),
+ * //           accuracyJustification: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       documentSources: [ // AutomatedReasoningPolicyReportSourceDocumentList // required
+ * //         { // AutomatedReasoningPolicyReportSourceDocument
+ * //           documentName: "STRING_VALUE", // required
+ * //           documentHash: "STRING_VALUE", // required
+ * //           documentId: "STRING_VALUE", // required
+ * //           atomicStatements: [ // AutomatedReasoningPolicyAtomicStatementList // required
+ * //             { // AutomatedReasoningPolicyAtomicStatement
+ * //               id: "STRING_VALUE", // required
+ * //               text: "STRING_VALUE", // required
+ * //               location: { // AutomatedReasoningPolicyStatementLocation
+ * //                 lines: [ // AutomatedReasoningPolicyLineNumberList // required
+ * //                   Number("int"),
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //           documentContent: [ // AutomatedReasoningPolicyAnnotatedChunkList // required
+ * //             { // AutomatedReasoningPolicyAnnotatedChunk
+ * //               pageNumber: Number("int"),
+ * //               content: [ // AutomatedReasoningPolicyAnnotatedContentList // required
+ * //                 { // AutomatedReasoningPolicyAnnotatedContent Union: only one key present
+ * //                   line: { // AutomatedReasoningPolicyAnnotatedLine
+ * //                     lineNumber: Number("int"),
+ * //                     lineText: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //             },
  * //           ],
  * //         },
  * //       ],

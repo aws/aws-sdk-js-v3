@@ -36,12 +36,18 @@ import {
   AutomatedReasoningPolicyAddTypeValue$,
   AutomatedReasoningPolicyAddVariableAnnotation$,
   AutomatedReasoningPolicyAddVariableMutation$,
+  AutomatedReasoningPolicyAnnotatedChunk$,
+  AutomatedReasoningPolicyAnnotatedContent$,
+  AutomatedReasoningPolicyAnnotatedLine$,
   AutomatedReasoningPolicyAnnotation$,
   AutomatedReasoningPolicyAnnotationStatus,
+  AutomatedReasoningPolicyAtomicStatement$,
   AutomatedReasoningPolicyBuildDocumentContentType,
   AutomatedReasoningPolicyBuildLog$,
   AutomatedReasoningPolicyBuildLogEntry$,
   AutomatedReasoningPolicyBuildMessageType,
+  AutomatedReasoningPolicyBuildResultAssetManifest$,
+  AutomatedReasoningPolicyBuildResultAssetManifestEntry$,
   AutomatedReasoningPolicyBuildResultAssets$,
   AutomatedReasoningPolicyBuildResultAssetType,
   AutomatedReasoningPolicyBuildStep$,
@@ -69,13 +75,20 @@ import {
   AutomatedReasoningPolicyDeleteVariableAnnotation$,
   AutomatedReasoningPolicyDeleteVariableMutation$,
   AutomatedReasoningPolicyDisjointRuleSet$,
+  AutomatedReasoningPolicyFidelityReport$,
   AutomatedReasoningPolicyGeneratedTestCase$,
   AutomatedReasoningPolicyGeneratedTestCases$,
+  AutomatedReasoningPolicyGenerateFidelityReportContent$,
   AutomatedReasoningPolicyIngestContentAnnotation$,
   AutomatedReasoningPolicyMutation$,
   AutomatedReasoningPolicyPlanning$,
+  AutomatedReasoningPolicyReportSourceDocument$,
+  AutomatedReasoningPolicyRuleReport$,
   AutomatedReasoningPolicyScenario$,
   AutomatedReasoningPolicyScenarios$,
+  AutomatedReasoningPolicySourceDocument$,
+  AutomatedReasoningPolicyStatementLocation$,
+  AutomatedReasoningPolicyStatementReference$,
   AutomatedReasoningPolicySummary$,
   AutomatedReasoningPolicyTestCase$,
   AutomatedReasoningPolicyTestResult$,
@@ -91,6 +104,7 @@ import {
   AutomatedReasoningPolicyUpdateTypeValue$,
   AutomatedReasoningPolicyUpdateVariableAnnotation$,
   AutomatedReasoningPolicyUpdateVariableMutation$,
+  AutomatedReasoningPolicyVariableReport$,
   AutomatedReasoningPolicyWorkflowTypeContent$,
   BatchDeleteEvaluationJob$,
   BatchDeleteEvaluationJobCommand,
@@ -965,9 +979,15 @@ assert(typeof AutomatedReasoningPolicyAddTypeMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyAddTypeValue$ === "object");
 assert(typeof AutomatedReasoningPolicyAddVariableAnnotation$ === "object");
 assert(typeof AutomatedReasoningPolicyAddVariableMutation$ === "object");
+assert(typeof AutomatedReasoningPolicyAnnotatedChunk$ === "object");
+assert(typeof AutomatedReasoningPolicyAnnotatedContent$ === "object");
+assert(typeof AutomatedReasoningPolicyAnnotatedLine$ === "object");
 assert(typeof AutomatedReasoningPolicyAnnotation$ === "object");
+assert(typeof AutomatedReasoningPolicyAtomicStatement$ === "object");
 assert(typeof AutomatedReasoningPolicyBuildLog$ === "object");
 assert(typeof AutomatedReasoningPolicyBuildLogEntry$ === "object");
+assert(typeof AutomatedReasoningPolicyBuildResultAssetManifest$ === "object");
+assert(typeof AutomatedReasoningPolicyBuildResultAssetManifestEntry$ === "object");
 assert(typeof AutomatedReasoningPolicyBuildResultAssets$ === "object");
 assert(typeof AutomatedReasoningPolicyBuildStep$ === "object");
 assert(typeof AutomatedReasoningPolicyBuildStepContext$ === "object");
@@ -992,13 +1012,20 @@ assert(typeof AutomatedReasoningPolicyDeleteTypeValue$ === "object");
 assert(typeof AutomatedReasoningPolicyDeleteVariableAnnotation$ === "object");
 assert(typeof AutomatedReasoningPolicyDeleteVariableMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyDisjointRuleSet$ === "object");
+assert(typeof AutomatedReasoningPolicyFidelityReport$ === "object");
 assert(typeof AutomatedReasoningPolicyGeneratedTestCase$ === "object");
 assert(typeof AutomatedReasoningPolicyGeneratedTestCases$ === "object");
+assert(typeof AutomatedReasoningPolicyGenerateFidelityReportContent$ === "object");
 assert(typeof AutomatedReasoningPolicyIngestContentAnnotation$ === "object");
 assert(typeof AutomatedReasoningPolicyMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyPlanning$ === "object");
+assert(typeof AutomatedReasoningPolicyReportSourceDocument$ === "object");
+assert(typeof AutomatedReasoningPolicyRuleReport$ === "object");
 assert(typeof AutomatedReasoningPolicyScenario$ === "object");
 assert(typeof AutomatedReasoningPolicyScenarios$ === "object");
+assert(typeof AutomatedReasoningPolicySourceDocument$ === "object");
+assert(typeof AutomatedReasoningPolicyStatementLocation$ === "object");
+assert(typeof AutomatedReasoningPolicyStatementReference$ === "object");
 assert(typeof AutomatedReasoningPolicySummary$ === "object");
 assert(typeof AutomatedReasoningPolicyTestCase$ === "object");
 assert(typeof AutomatedReasoningPolicyTestResult$ === "object");
@@ -1012,6 +1039,7 @@ assert(typeof AutomatedReasoningPolicyUpdateTypeMutation$ === "object");
 assert(typeof AutomatedReasoningPolicyUpdateTypeValue$ === "object");
 assert(typeof AutomatedReasoningPolicyUpdateVariableAnnotation$ === "object");
 assert(typeof AutomatedReasoningPolicyUpdateVariableMutation$ === "object");
+assert(typeof AutomatedReasoningPolicyVariableReport$ === "object");
 assert(typeof AutomatedReasoningPolicyWorkflowTypeContent$ === "object");
 assert(typeof BatchDeleteEvaluationJobError$ === "object");
 assert(typeof BatchDeleteEvaluationJobItem$ === "object");

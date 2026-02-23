@@ -41,7 +41,7 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  * const client = new BedrockClient(config);
  * const input = { // StartAutomatedReasoningPolicyBuildWorkflowRequest
  *   policyArn: "STRING_VALUE", // required
- *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY", // required
+ *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY" || "GENERATE_FIDELITY_REPORT", // required
  *   clientRequestToken: "STRING_VALUE",
  *   sourceContent: { // AutomatedReasoningPolicyBuildWorkflowSource
  *     policyDefinition: { // AutomatedReasoningPolicyDefinition
@@ -161,6 +161,16 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  *             ingestContent: { // AutomatedReasoningPolicyIngestContentAnnotation
  *               content: "STRING_VALUE", // required
  *             },
+ *           },
+ *         ],
+ *       },
+ *       generateFidelityReportContent: { // AutomatedReasoningPolicyGenerateFidelityReportContent Union: only one key present
+ *         documents: [ // AutomatedReasoningPolicyGenerateFidelityReportDocumentList
+ *           {
+ *             document: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *             documentContentType: "pdf" || "txt", // required
+ *             documentName: "STRING_VALUE", // required
+ *             documentDescription: "STRING_VALUE",
  *           },
  *         ],
  *       },
