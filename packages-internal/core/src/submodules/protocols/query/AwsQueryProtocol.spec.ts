@@ -1,7 +1,8 @@
 import { TypeRegistry } from "@smithy/core/schema";
 import { HttpResponse } from "@smithy/protocol-http";
-import { ServiceException, ServiceExceptionOptions } from "@smithy/smithy-client";
-import { StaticErrorSchema } from "@smithy/types";
+import type { ServiceExceptionOptions } from "@smithy/smithy-client";
+import { ServiceException } from "@smithy/smithy-client";
+import type { StaticErrorSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { context } from "../test-schema.spec";
@@ -124,5 +125,48 @@ describe(AwsQueryProtocol.name, () => {
     expect(actual.Type).toEqual(expected.Type);
     expect(actual.Code).toEqual(expected.Code);
     expect(actual.Error).toEqual(expected.Error);
+  });
+});
+
+it("should not crash when error response body is empty", async () => {
+  const httpResponse = new HttpResponse({
+    statusCode: 500,
+    headers: {
+      "content-type": "text/xml",
+    },
+    body: Buffer.from(""),
+  });
+
+  const protocol = new AwsQueryProtocol({
+    version: "1999-12-31",
+    defaultNamespace: "com.amazonaws.giraffes",
+    xmlNamespace: "ns",
+  });
+
+  const actual = await protocol
+    .deserializeResponse(
+      {
+        namespace: "ns",
+        name: "Empty",
+        traits: 0,
+        input: "unit" as const,
+        output: [3, "ns", "EmptyOutput", 0, [], []],
+      },
+      context,
+      httpResponse
+    )
+    .catch((e) => {
+      return e;
+    });
+
+  // The error should be a proper ServiceException, not a raw TypeError
+  expect(actual).toBeDefined();
+  expect(actual).not.toBeInstanceOf(TypeError);
+  expect(actual.$metadata.httpStatusCode).toBe(500);
+  expect(actual.message).toBe("Unknown");
+  expect(actual.Error).toEqual({
+    Type: undefined,
+    Code: undefined,
+    Message: "Unknown",
   });
 });
