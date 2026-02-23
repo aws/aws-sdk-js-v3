@@ -1,4 +1,4 @@
-import { SSOClient } from "@aws-sdk/client-sso";
+import type { SSOClient } from "@aws-sdk/nested-clients/sso";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
@@ -9,7 +9,7 @@ import { resolveSSOCredentials } from "./resolveSSOCredentials";
 import { validateSsoProfile } from "./validateSsoProfile";
 
 vi.mock("@smithy/shared-ini-file-loader");
-vi.mock("@aws-sdk/client-sso", () => ({
+vi.mock("@aws-sdk/nested-clients/sso", () => ({
   SSOClient: vi.fn(),
 }));
 vi.mock("./isSsoProfile");

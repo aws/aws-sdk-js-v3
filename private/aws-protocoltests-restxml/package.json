@@ -30,7 +30,7 @@
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.12",
     "@aws-sdk/region-config-resolver": "workspace:^3.972.3",
     "@aws-sdk/types": "workspace:^3.973.1",
-    "@aws-sdk/util-endpoints": "workspace:3.996.0",
+    "@aws-sdk/util-endpoints": "workspace:^3.996.0",
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.3",
     "@aws-sdk/util-user-agent-node": "workspace:^3.972.11",
     "@aws-sdk/xml-builder": "workspace:^3.972.5",

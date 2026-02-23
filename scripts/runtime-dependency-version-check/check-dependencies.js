@@ -107,7 +107,13 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
           dependencyPackageName !== pkgJson.name
         ) {
           if (
-            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc", "@aws-sdk/client-signin"].includes(dependency) &&
+            [
+              "@aws-sdk/client-cognito-identity",
+              "@aws-sdk/client-sso",
+              "@aws-sdk/client-sts",
+              "@aws-sdk/client-sso-oidc",
+              "@aws-sdk/client-signin",
+            ].includes(dependency) &&
             ["@aws-sdk/nested-clients"].includes(pkgJson.name)
           ) {
             continue;

@@ -76,7 +76,7 @@ build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
 
 build-signature-v4-multi-region-browser-bundle:
-	node ./packages/signature-v4-multi-region/test-browser/browser-build/esbuild.js
+	node ./packages-internal/signature-v4-multi-region/test-browser/browser-build/esbuild.js
 
 # removes nested node_modules folders
 clean-nested:

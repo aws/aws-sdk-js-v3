@@ -110,6 +110,10 @@ describe(WebSocketFetchHandler.name, () => {
       } catch (err) {
         expect(err).toBeDefined();
         expect(err.message).toEqual("FakeError");
+
+        // closed async.
+        await new Promise((r) => setTimeout(r, 10));
+
         // @ts-expect-error Property 'sockets' is private and only accessible within class 'WebSocketHandler'.
         expect(handler.sockets[mockUrl].length).toBe(0);
       }

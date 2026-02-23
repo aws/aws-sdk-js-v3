@@ -11,6 +11,14 @@ const clients = [
     name: "signin",
     operations: ["CreateOAuth2Token"],
   },
+  {
+    name: "sso",
+    operations: ["GetRoleCredentials"],
+  },
+  {
+    name: "cognito-identity",
+    operations: ["GetCredentialsForIdentity", "GetId"],
+  },
 ];
 
 const { join, relative, normalize } = require("path");
@@ -25,7 +33,9 @@ const {
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("../code-gen-dir");
 
-const NESTED_SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "..", "packages", "nested-clients", "src"));
+const NESTED_SDK_CLIENTS_DIR = normalize(
+  join(__dirname, "..", "..", "..", "packages-internal", "nested-clients", "src")
+);
 
 /**
  *

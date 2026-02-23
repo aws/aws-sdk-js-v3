@@ -35,7 +35,7 @@
     "@aws-sdk/credential-provider-process": "workspace:^3.972.10",
     "@aws-sdk/credential-provider-sso": "workspace:^3.972.10",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.10",
-    "@aws-sdk/nested-clients": "workspace:3.996.0",
+    "@aws-sdk/nested-clients": "workspace:^3.996.0",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@smithy/credential-provider-imds": "^4.2.9",
     "@smithy/property-provider": "^4.2.9",

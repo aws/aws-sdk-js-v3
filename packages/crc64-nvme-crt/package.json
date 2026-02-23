@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/crc64-nvme": "workspace:3.972.0",
+    "@aws-sdk/crc64-nvme": "workspace:^3.972.0",
     "@aws-sdk/crt-loader": "workspace:^3.972.11",
     "@smithy/types": "^4.12.1",
     "@smithy/util-utf8": "^4.2.1",
