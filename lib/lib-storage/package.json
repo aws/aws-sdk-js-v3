@@ -30,9 +30,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/abort-controller": "^4.2.8",
-    "@smithy/middleware-endpoint": "^4.4.16",
-    "@smithy/smithy-client": "^4.11.5",
+    "@smithy/abort-controller": "^4.2.9",
+    "@smithy/middleware-endpoint": "^4.4.18",
+    "@smithy/smithy-client": "^4.11.7",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "workspace:3.996.0",
-    "@smithy/types": "^4.12.0",
+    "@smithy/types": "^4.12.1",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

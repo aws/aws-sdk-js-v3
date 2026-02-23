@@ -26,12 +26,12 @@
   "dependencies": {
     "@aws-sdk/crc64-nvme": "workspace:3.972.0",
     "@aws-sdk/crt-loader": "workspace:^3.972.11",
-    "@smithy/types": "^4.12.0",
-    "@smithy/util-utf8": "^4.2.0",
+    "@smithy/types": "^4.12.1",
+    "@smithy/util-utf8": "^4.2.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/util-base64": "^4.3.0",
+    "@smithy/util-base64": "^4.3.1",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
