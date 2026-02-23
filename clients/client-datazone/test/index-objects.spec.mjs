@@ -1143,6 +1143,10 @@ import {
   UserType,
   ValidationException,
   ValidationException$,
+  WorkflowsMwaaPropertiesInput$,
+  WorkflowsMwaaPropertiesOutput$,
+  WorkflowsServerlessPropertiesInput$,
+  WorkflowsServerlessPropertiesOutput$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -2144,6 +2148,10 @@ assert(typeof UsernamePassword$ === "object");
 assert(typeof UserPolicyGrantPrincipal$ === "object");
 assert(typeof UserProfileDetails$ === "object");
 assert(typeof UserProfileSummary$ === "object");
+assert(typeof WorkflowsMwaaPropertiesInput$ === "object");
+assert(typeof WorkflowsMwaaPropertiesOutput$ === "object");
+assert(typeof WorkflowsServerlessPropertiesInput$ === "object");
+assert(typeof WorkflowsServerlessPropertiesOutput$ === "object");
 // enums
 assert(typeof AcceptRuleBehavior === "object");
 assert(typeof AttributeEntityType === "object");

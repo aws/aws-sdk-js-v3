@@ -231,6 +231,10 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * //         mlflowProperties: { // MlflowPropertiesOutput
  * //           trackingServerArn: "STRING_VALUE",
  * //         },
+ * //         workflowsMwaaProperties: { // WorkflowsMwaaPropertiesOutput
+ * //           mwaaEnvironmentName: "STRING_VALUE",
+ * //         },
+ * //         workflowsServerlessProperties: {},
  * //       },
  * //       type: "ATHENA" || "BIGQUERY" || "DATABRICKS" || "DOCUMENTDB" || "DYNAMODB" || "HYPERPOD" || "IAM" || "MYSQL" || "OPENSEARCH" || "ORACLE" || "POSTGRESQL" || "REDSHIFT" || "S3" || "SAPHANA" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "VERTICA" || "WORKFLOWS_MWAA" || "AMAZON_Q" || "MLFLOW", // required
  * //       scope: "DOMAIN" || "PROJECT",

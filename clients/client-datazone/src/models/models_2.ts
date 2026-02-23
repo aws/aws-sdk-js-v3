@@ -17,6 +17,7 @@ import {
   TypesSearchScope,
   UserProfileStatus,
   UserProfileType,
+  UserSearchType,
 } from "./enums";
 import {
   type AccountSource,
@@ -50,7 +51,118 @@ import {
   SubscribedPrincipal,
   SubscriptionTargetForm,
 } from "./models_0";
-import { type SearchSort, Filter, SearchInItem } from "./models_1";
+import { type SearchSort, Filter, SearchInItem, SearchTypesResultItem } from "./models_1";
+
+/**
+ * @public
+ */
+export interface SearchTypesOutput {
+  /**
+   * <p>The results of the <code>SearchTypes</code> action.</p>
+   * @public
+   */
+  items?: SearchTypesResultItem[] | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Total number of search results.</p>
+   * @public
+   */
+  totalMatchCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserProfilesInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
+   * @public
+   */
+  userType: UserSearchType | undefined;
+
+  /**
+   * <p>Specifies the text for which to search.</p>
+   * @public
+   */
+  searchText?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details of the user profile.</p>
+ * @public
+ */
+export interface UserProfileSummary {
+  /**
+   * <p>The ID of the Amazon DataZone domain of the user profile.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The ID of the user profile.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The type of the user profile.</p>
+   * @public
+   */
+  type?: UserProfileType | undefined;
+
+  /**
+   * <p>The status of the user profile.</p>
+   * @public
+   */
+  status?: UserProfileStatus | undefined;
+
+  /**
+   * <p>The details of the user profile.</p>
+   * @public
+   */
+  details?: UserProfileDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserProfilesOutput {
+  /**
+   * <p>The results of the <code>SearchUserProfiles</code> action.</p>
+   * @public
+   */
+  items?: UserProfileSummary[] | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public

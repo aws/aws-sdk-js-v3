@@ -60,7 +60,7 @@ import {
   UserDesignation,
   UserProfileStatus,
   UserProfileType,
-  UserSearchType,
+  UserType,
 } from "./enums";
 import {
   type AccountSource,
@@ -120,6 +120,92 @@ import {
   SubscriptionTargetForm,
   TimeSeriesDataPointSummaryFormOutput,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateUserProfileInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the user for which the user profile is created.</p>
+   * @public
+   */
+  userIdentifier: string | undefined;
+
+  /**
+   * <p>The user type of the user for which the user profile is created.</p>
+   * @public
+   */
+  userType?: UserType | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUserProfileOutput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the user profile.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The type of the user profile.</p>
+   * @public
+   */
+  type?: UserProfileType | undefined;
+
+  /**
+   * <p>The status of the user profile.</p>
+   * @public
+   */
+  status?: UserProfileStatus | undefined;
+
+  /**
+   * <p>The user profile details.</p>
+   * @public
+   */
+  details?: UserProfileDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProductInput {
+  /**
+   * <p>The ID of the Amazon DataZone domain in which the data product is deleted.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the data product that is deleted.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProductOutput {}
 
 /**
  * @public
@@ -11149,115 +11235,4 @@ export namespace SearchTypesResultItem {
     lineageNodeTypeItem: (value: LineageNodeTypeItem) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface SearchTypesOutput {
-  /**
-   * <p>The results of the <code>SearchTypes</code> action.</p>
-   * @public
-   */
-  items?: SearchTypesResultItem[] | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchTypes</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Total number of search results.</p>
-   * @public
-   */
-  totalMatchCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchUserProfilesInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which you want to search user profiles.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>Specifies the user type for the <code>SearchUserProfiles</code> action.</p>
-   * @public
-   */
-  userType: UserSearchType | undefined;
-
-  /**
-   * <p>Specifies the text for which to search.</p>
-   * @public
-   */
-  searchText?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call to <code>SearchUserProfiles</code>. When the number of results to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results. </p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The details of the user profile.</p>
- * @public
- */
-export interface UserProfileSummary {
-  /**
-   * <p>The ID of the Amazon DataZone domain of the user profile.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The ID of the user profile.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The type of the user profile.</p>
-   * @public
-   */
-  type?: UserProfileType | undefined;
-
-  /**
-   * <p>The status of the user profile.</p>
-   * @public
-   */
-  status?: UserProfileStatus | undefined;
-
-  /**
-   * <p>The details of the user profile.</p>
-   * @public
-   */
-  details?: UserProfileDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchUserProfilesOutput {
-  /**
-   * <p>The results of the <code>SearchUserProfiles</code> action.</p>
-   * @public
-   */
-  items?: UserProfileSummary[] | undefined;
-
-  /**
-   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchUserProfiles</code> to list the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
 }

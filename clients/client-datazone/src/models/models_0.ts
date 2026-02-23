@@ -60,9 +60,6 @@ import {
   Timezone,
   UserAssignment,
   UserDesignation,
-  UserProfileStatus,
-  UserProfileType,
-  UserType,
 } from "./enums";
 
 /**
@@ -5582,6 +5579,24 @@ export interface SparkGluePropertiesInput {
 }
 
 /**
+ * <p>The Amazon MWAA properties.</p>
+ * @public
+ */
+export interface WorkflowsMwaaPropertiesInput {
+  /**
+   * <p>The MWAA environment name.</p>
+   * @public
+   */
+  mwaaEnvironmentName?: string | undefined;
+}
+
+/**
+ * <p>The MWAA serverless properties.</p>
+ * @public
+ */
+export interface WorkflowsServerlessPropertiesInput {}
+
+/**
  * <p>The properties of a connection.</p>
  * @public
  */
@@ -5596,6 +5611,8 @@ export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.S3PropertiesMember
   | ConnectionPropertiesInput.SparkEmrPropertiesMember
   | ConnectionPropertiesInput.SparkGluePropertiesMember
+  | ConnectionPropertiesInput.WorkflowsMwaaPropertiesMember
+  | ConnectionPropertiesInput.WorkflowsServerlessPropertiesMember
   | ConnectionPropertiesInput.$UnknownMember;
 
 /**
@@ -5617,6 +5634,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5635,6 +5654,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5653,6 +5674,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5671,6 +5694,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5689,6 +5714,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5707,6 +5734,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5725,6 +5754,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5743,6 +5774,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties: S3PropertiesInput;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5761,6 +5794,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesInput;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -5779,6 +5814,48 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesInput;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon MWAA properties of a connection.</p>
+   * @public
+   */
+  export interface WorkflowsMwaaPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties: WorkflowsMwaaPropertiesInput;
+    workflowsServerlessProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MWAA serverless properties of a connection.</p>
+   * @public
+   */
+  export interface WorkflowsServerlessPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
     $unknown?: never;
   }
 
@@ -5796,6 +5873,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown: [string, any];
   }
 
@@ -5814,6 +5893,8 @@ export namespace ConnectionPropertiesInput {
     s3Properties: (value: S3PropertiesInput) => T;
     amazonQProperties: (value: AmazonQPropertiesInput) => T;
     mlflowProperties: (value: MlflowPropertiesInput) => T;
+    workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesInput) => T;
+    workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6167,6 +6248,24 @@ export interface SparkGluePropertiesOutput {
 }
 
 /**
+ * <p>The Amazon MWAA properties.</p>
+ * @public
+ */
+export interface WorkflowsMwaaPropertiesOutput {
+  /**
+   * <p>The MWAA environment name.</p>
+   * @public
+   */
+  mwaaEnvironmentName?: string | undefined;
+}
+
+/**
+ * <p>The MWAA serverless properties.</p>
+ * @public
+ */
+export interface WorkflowsServerlessPropertiesOutput {}
+
+/**
  * <p>The properties of a connection.</p>
  * @public
  */
@@ -6181,6 +6280,8 @@ export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.S3PropertiesMember
   | ConnectionPropertiesOutput.SparkEmrPropertiesMember
   | ConnectionPropertiesOutput.SparkGluePropertiesMember
+  | ConnectionPropertiesOutput.WorkflowsMwaaPropertiesMember
+  | ConnectionPropertiesOutput.WorkflowsServerlessPropertiesMember
   | ConnectionPropertiesOutput.$UnknownMember;
 
 /**
@@ -6202,6 +6303,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6220,6 +6323,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6238,6 +6343,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6256,6 +6363,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6274,6 +6383,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6292,6 +6403,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6310,6 +6423,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6328,6 +6443,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties: S3PropertiesOutput;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6346,6 +6463,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties: AmazonQPropertiesOutput;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown?: never;
   }
 
@@ -6364,6 +6483,48 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties: MlflowPropertiesOutput;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon MWAA properties of a connection.</p>
+   * @public
+   */
+  export interface WorkflowsMwaaPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties: WorkflowsMwaaPropertiesOutput;
+    workflowsServerlessProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The MWAA serverless properties of a connection.</p>
+   * @public
+   */
+  export interface WorkflowsServerlessPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties: WorkflowsServerlessPropertiesOutput;
     $unknown?: never;
   }
 
@@ -6381,6 +6542,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties?: never;
     amazonQProperties?: never;
     mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6399,6 +6562,8 @@ export namespace ConnectionPropertiesOutput {
     s3Properties: (value: S3PropertiesOutput) => T;
     amazonQProperties: (value: AmazonQPropertiesOutput) => T;
     mlflowProperties: (value: MlflowPropertiesOutput) => T;
+    workflowsMwaaProperties: (value: WorkflowsMwaaPropertiesOutput) => T;
+    workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11578,89 +11743,3 @@ export interface CreateSubscriptionTargetOutput {
    */
   subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
 }
-
-/**
- * @public
- */
-export interface CreateUserProfileInput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the user for which the user profile is created.</p>
-   * @public
-   */
-  userIdentifier: string | undefined;
-
-  /**
-   * <p>The user type of the user for which the user profile is created.</p>
-   * @public
-   */
-  userType?: UserType | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserProfileOutput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain in which a user profile is created.</p>
-   * @public
-   */
-  domainId?: string | undefined;
-
-  /**
-   * <p>The identifier of the user profile.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The type of the user profile.</p>
-   * @public
-   */
-  type?: UserProfileType | undefined;
-
-  /**
-   * <p>The status of the user profile.</p>
-   * @public
-   */
-  status?: UserProfileStatus | undefined;
-
-  /**
-   * <p>The user profile details.</p>
-   * @public
-   */
-  details?: UserProfileDetails | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataProductInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the data product is deleted.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the data product that is deleted.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDataProductOutput {}
