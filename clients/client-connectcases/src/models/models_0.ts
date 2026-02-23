@@ -22,7 +22,7 @@ import {
 export interface EmptyFieldValue {}
 
 /**
- * <p>Object to store union of Field values.</p> <note> <p>The <code>Summary</code> system field accepts 3000 characters while all other fields accept 500 characters.</p> </note>
+ * <p>Object to store union of Field values.</p> <note> <p>The <code>Summary</code> system field accepts up to 3000 characters, while all other fields accept up to 4100 characters. If you use multi-byte characters, the effective character limit may be lower.</p> </note>
  * @public
  */
 export type FieldValueUnion =
