@@ -80,10 +80,14 @@
     }
   },
   "files": [
+    "./cognito-identity.d.ts",
+    "./cognito-identity.js",
     "./signin.d.ts",
     "./signin.js",
     "./sso-oidc.d.ts",
     "./sso-oidc.js",
+    "./sso.d.ts",
+    "./sso.js",
     "./sts.d.ts",
     "./sts.js",
     "dist-*/**"
@@ -122,6 +126,20 @@
       "node": "./dist-cjs/submodules/signin/index.js",
       "import": "./dist-es/submodules/signin/index.js",
       "require": "./dist-cjs/submodules/signin/index.js"
+    },
+    "./cognito-identity": {
+      "types": "./dist-types/submodules/cognito-identity/index.d.ts",
+      "module": "./dist-es/submodules/cognito-identity/index.js",
+      "node": "./dist-cjs/submodules/cognito-identity/index.js",
+      "import": "./dist-es/submodules/cognito-identity/index.js",
+      "require": "./dist-cjs/submodules/cognito-identity/index.js"
+    },
+    "./sso": {
+      "types": "./dist-types/submodules/sso/index.d.ts",
+      "module": "./dist-es/submodules/sso/index.js",
+      "node": "./dist-cjs/submodules/sso/index.js",
+      "import": "./dist-es/submodules/sso/index.js",
+      "require": "./dist-cjs/submodules/sso/index.js"
     }
   }
 }

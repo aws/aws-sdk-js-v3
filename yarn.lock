@@ -21398,7 +21398,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sso@workspace:3.996.0, @aws-sdk/client-sso@workspace:clients/client-sso":
+"@aws-sdk/client-sso@workspace:clients/client-sso":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-sso@workspace:clients/client-sso"
   dependencies:
@@ -23435,7 +23435,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-cognito-identity@workspace:packages-internal/credential-provider-cognito-identity"
   dependencies:
-    "@aws-sdk/client-cognito-identity": "workspace:3.996.0"
+    "@aws-sdk/nested-clients": "workspace:^3.996.0"
     "@aws-sdk/types": "workspace:^3.973.1"
     "@smithy/property-provider": "npm:^4.2.9"
     "@smithy/types": "npm:^4.12.1"
@@ -23585,8 +23585,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/credential-provider-sso@workspace:packages-internal/credential-provider-sso"
   dependencies:
-    "@aws-sdk/client-sso": "workspace:3.996.0"
     "@aws-sdk/core": "workspace:^3.973.12"
+    "@aws-sdk/nested-clients": "workspace:^3.996.0"
     "@aws-sdk/token-providers": "workspace:3.996.0"
     "@aws-sdk/types": "workspace:^3.973.1"
     "@smithy/property-provider": "npm:^4.2.9"
@@ -23676,7 +23676,7 @@ __metadata:
   dependencies:
     "@aws-crypto/sha256-browser": "npm:5.2.0"
     "@aws-crypto/sha256-js": "npm:5.2.0"
-    "@aws-sdk/credential-providers": "workspace:3.996.0"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.11"
     "@aws-sdk/util-format-url": "workspace:^3.972.3"
     "@smithy/config-resolver": "npm:^4.4.7"
     "@smithy/hash-node": "npm:^4.2.9"
