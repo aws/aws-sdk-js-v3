@@ -2992,6 +2992,7 @@ export const InputColumnDataType = {
   DECIMAL: "DECIMAL",
   INTEGER: "INTEGER",
   JSON: "JSON",
+  SEMISTRUCT: "SEMISTRUCT",
   STRING: "STRING",
 } as const;
 /**

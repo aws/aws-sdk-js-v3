@@ -52,7 +52,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *           { // InputColumn
  *             Name: "STRING_VALUE", // required
  *             Id: "STRING_VALUE",
- *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
@@ -65,7 +65,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *           {
  *             Name: "STRING_VALUE", // required
  *             Id: "STRING_VALUE",
- *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
@@ -84,7 +84,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *           {
  *             Name: "STRING_VALUE", // required
  *             Id: "STRING_VALUE",
- *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
@@ -101,7 +101,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *           {
  *             Name: "STRING_VALUE", // required
  *             Id: "STRING_VALUE",
- *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *             Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
  *             SubType: "FLOAT" || "FIXED",
  *           },
  *         ],
@@ -409,7 +409,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *             {
  *               Name: "STRING_VALUE", // required
  *               Id: "STRING_VALUE",
- *               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON", // required
+ *               Type: "STRING" || "INTEGER" || "DECIMAL" || "DATETIME" || "BIT" || "BOOLEAN" || "JSON" || "SEMISTRUCT", // required
  *               SubType: "FLOAT" || "FIXED",
  *             },
  *           ],

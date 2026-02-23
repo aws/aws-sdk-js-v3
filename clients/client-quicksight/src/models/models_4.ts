@@ -1527,9 +1527,22 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    * <p>Session tags are user-specified strings that identify a session in your application. You can use these tags to implement row-level security (RLS) controls.
    *             Before you use the <code>SessionTags</code> parameter, make sure that you have configured the relevant datasets using the <code>DataSet$RowLevelPermissionTagConfiguration</code> parameter
    *             so that session tags can be used to provide row-level security.</p>
-   *          <p>When using session tags, you must call <code>GenerateEmbedUrlForAnonymousUser</code> from a secure, trusted environment.
-   *             The API call passes session tags that enable server-side data redaction by using the row-level security (RLS) rules configured in your datasets.
-   *             A secure, trusted environment has access controls that you implement. These controls ensure that only your server or authorized users can add or modify session tags.</p>
+   *          <p>When using <code>SessionTags</code> in <code>GenerateEmbedUrlForAnonymousUser</code>,</p>
+   *          <ul>
+   *             <li>
+   *                <p>Treat <code>SessionTags</code> as security credentials. Do not expose <code>SessionTags</code> to end users or client-side code.</p>
+   *             </li>
+   *             <li>
+   *                <p>Implement server-side controls. Ensure that <code>SessionTags</code> are set exclusively by your trusted backend services, not by parameters that end users can modify.</p>
+   *             </li>
+   *             <li>
+   *                <p>Protect <code>SessionTags</code> from enumeration. Ensure that users in one tenant cannot discover or guess sessionTag values belonging to other tenants.</p>
+   *             </li>
+   *             <li>
+   *                <p>Review your architecture. If downstream customers or partners are allowed to call the <code>GenerateEmbedUrlForAnonymousUser</code> API directly,
+   *                     evaluate whether those parties could specify sessionTag values for tenants they should not access.</p>
+   *             </li>
+   *          </ul>
    *          <p>Besides, these are not the tags used for the Amazon Web Services resource tagging feature.
    *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
    * @public
