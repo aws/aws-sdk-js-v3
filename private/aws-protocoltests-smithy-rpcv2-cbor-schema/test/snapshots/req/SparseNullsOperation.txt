@@ -1,0 +1,32 @@
+POST https://localhost 
+/mock-required-endpoint/service/RpcV2Protocol/operation/SparseNullsOperation
+
+content-type: application/cbor
+smithy-protocol: rpc-v2-cbor
+accept: application/cbor
+content-length: 99
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ m/N,M,E
+host: localhost
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+
+[Uint8Array (cbor object view)]
+{
+  "sparseStringList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "sparseStringMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+[actual bytes]
+162, 112, 115, 112, 97, 114, 115, 101, 83, 116, 114, 105, 110, 103, 76, 105, 115, 116, 131, 106, 95, 95, 109, 101,
+109, 98, 101, 114, 95, 95, 106, 95, 95, 109, 101, 109, 98, 101, 114, 95, 95, 106, 95, 95, 109, 101, 109, 98,
+101, 114, 95, 95, 111, 115, 112, 97, 114, 115, 101, 83, 116, 114, 105, 110, 103, 77, 97, 112, 162, 100, 107, 101,
+121, 49, 105, 95, 95, 118, 97, 108, 117, 101, 95, 95, 100, 107, 101, 121, 50, 105, 95, 95, 118, 97, 108, 117,
+101, 95, 95
