@@ -25,11 +25,11 @@ module.exports = class Inliner {
     this.hasSubmodules = this.submodulePackages.includes(pkg);
     this.reExportStubs = false;
     this.subfolder = (() => {
-      if (this.isPackage) {
-        return "packages";
-      }
       if (this.isInternalPackage) {
         return "packages-internal";
+      }
+      if (this.isPackage) {
+        return "packages";
       }
       if (this.isLib) {
         return "lib";

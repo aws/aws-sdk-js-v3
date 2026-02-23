@@ -1,4 +1,4 @@
-import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
+import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/nested-clients/sso";
 import * as tokenProviders from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile } from "@smithy/shared-ini-file-loader";
@@ -7,7 +7,7 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
 vi.mock("@smithy/shared-ini-file-loader");
-vi.mock("@aws-sdk/client-sso");
+vi.mock("@aws-sdk/nested-clients/sso");
 vi.mock("@aws-sdk/token-providers", () => {
   return {
     fromSso: vi.fn(() => async () => {

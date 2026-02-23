@@ -1,4 +1,4 @@
-import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
+import { GetIdCommand } from "@aws-sdk/nested-clients/cognito-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
