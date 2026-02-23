@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
+
+
+### Features
+
+* **client-wickr:** AWS Wickr now provides APIs to manage your Wickr OpenTDF integration. These APIs enable you to test and save your OpenTDF configuration allowing you to manage rooms based on Trusted Data Format attributes. ([750b4d8](https://github.com/aws/aws-sdk-js-v3/commit/750b4d862b2b480dde8959a4893016b173ad4e0d))
+
+
+
+
+
 # [3.995.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.994.0...v3.995.0) (2026-02-20)
 
 **Note:** Version bump only for package @aws-sdk/client-wickr

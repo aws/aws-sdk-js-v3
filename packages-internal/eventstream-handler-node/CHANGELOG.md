@@ -8,6 +8,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.6 (2026-02-20)
+### Tests
+* **clients:** add snapshot tests ([#7755](https://github.com/aws/aws-sdk-js-v3/issues/7755)) ([6a275c2](https://github.com/aws/aws-sdk-js-v3/commit/6a275c28a8614df9c3919bc9ca25bab6e8d55854))
+
+
+
 # 3.972.5 (2026-02-05)
 ### Chores
 * **eventstream-handler-node:** eventstream code maintenance ([#7708](https://github.com/aws/aws-sdk-js-v3/issues/7708)) ([7163f9d](https://github.com/aws/aws-sdk-js-v3/commit/7163f9d847d9306d938cd4542862d35ee2c3ba46))

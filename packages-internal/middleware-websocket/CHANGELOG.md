@@ -9,6 +9,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.7 (2026-02-20)
+### Tests
+* **clients:** add snapshot tests ([#7755](https://github.com/aws/aws-sdk-js-v3/issues/7755)) ([6a275c2](https://github.com/aws/aws-sdk-js-v3/commit/6a275c28a8614df9c3919bc9ca25bab6e8d55854))
+
+
+
 # 3.972.6 (2026-02-06)
 ### Tests
 * **middleware-websocket:** improve integ test for websocket ([#7718](https://github.com/aws/aws-sdk-js-v3/issues/7718)) ([e25063a](https://github.com/aws/aws-sdk-js-v3/commit/e25063ae4e9c4c04ded2882e280a3fb1b511f961))

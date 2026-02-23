@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
+
+
+### Features
+
+* **client-mediatailor:** Updated endpoint rule set for dualstack endpoints. Added a new opt-in option to log raw ad decision server requests for Playback Configurations. ([3068c8e](https://github.com/aws/aws-sdk-js-v3/commit/3068c8eea700ea3cf22dcd725e3aa948d9c1b75a))
+
+
+
+
+
 # [3.995.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.994.0...v3.995.0) (2026-02-20)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

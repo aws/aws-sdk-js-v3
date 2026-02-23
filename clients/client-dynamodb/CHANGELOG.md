@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
+
+
+### Features
+
+* **client-dynamodb:** This change supports the creation of multi-account global tables. It adds one new arguments to UpdateTable, GlobalTableSettingsReplicationMode. ([8e185cb](https://github.com/aws/aws-sdk-js-v3/commit/8e185cb484ed3e1d5c1d0ee0feb402b7689b7fbc))
+
+
+
+
+
 # [3.995.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.994.0...v3.995.0) (2026-02-20)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb

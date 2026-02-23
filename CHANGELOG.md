@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
+
+
+### Bug Fixes
+
+* **core:** handle empty error response body in AwsQuery protocol deserialization ([#7766](https://github.com/aws/aws-sdk-js-v3/issues/7766)) ([7d97314](https://github.com/aws/aws-sdk-js-v3/commit/7d973147197feb4321014df284a184d5d5667222))
+* **protocols:** handle missing error.Error in queryCompat mode  ([#7758](https://github.com/aws/aws-sdk-js-v3/issues/7758)) ([15a27f9](https://github.com/aws/aws-sdk-js-v3/commit/15a27f99b8dadd6de7694cb82222403ac573856a)), closes [#7756](https://github.com/aws/aws-sdk-js-v3/issues/7756)
+* **scripts:** disable Rollup externalLiveBindings to fix Jest auto-mocking ([#7767](https://github.com/aws/aws-sdk-js-v3/issues/7767)) ([95d1cc6](https://github.com/aws/aws-sdk-js-v3/commit/95d1cc6cd54feaeb2b6a40d71893b60d82b42b17))
+
+
+### Features
+
+* **client-bedrock:** Automated Reasoning checks in Amazon Bedrock Guardrails now support fidelity report generation. The new workflow type assesses policy coverage and accuracy against customer documents. The GetAutomatedReasoningPolicyBuildWorkflowResultAssets API adds support for the three new asset types. ([3fe6610](https://github.com/aws/aws-sdk-js-v3/commit/3fe66102044d2e40b3a7900931d504b4a005295c))
+* **client-connectcases:** SearchCases API can now accept 25 fields in the request and response as opposed to the previous limit of 10. DeleteField's hard limit of 100 fields per domain has been lifted. ([21ae04f](https://github.com/aws/aws-sdk-js-v3/commit/21ae04f9eda396e1fbd3f23f3e00f59fc6816566))
+* **client-datazone:** Add workflow properties support to connections APIs ([b76f82b](https://github.com/aws/aws-sdk-js-v3/commit/b76f82b319167baadecd1c4014c2a927a1aeb4b5))
+* **client-dynamodb:** This change supports the creation of multi-account global tables. It adds one new arguments to UpdateTable, GlobalTableSettingsReplicationMode. ([8e185cb](https://github.com/aws/aws-sdk-js-v3/commit/8e185cb484ed3e1d5c1d0ee0feb402b7689b7fbc))
+* **client-mediatailor:** Updated endpoint rule set for dualstack endpoints. Added a new opt-in option to log raw ad decision server requests for Playback Configurations. ([3068c8e](https://github.com/aws/aws-sdk-js-v3/commit/3068c8eea700ea3cf22dcd725e3aa948d9c1b75a))
+* **client-quicksight:** Adds support for SEMISTRUCT to InputColumn Type ([581e9ea](https://github.com/aws/aws-sdk-js-v3/commit/581e9ea9821a2368098292b9b80626a7b48d1604))
+* **client-wickr:** AWS Wickr now provides APIs to manage your Wickr OpenTDF integration. These APIs enable you to test and save your OpenTDF configuration allowing you to manage rooms based on Trusted Data Format attributes. ([750b4d8](https://github.com/aws/aws-sdk-js-v3/commit/750b4d862b2b480dde8959a4893016b173ad4e0d))
+* **clients:** update client endpoints as of 2026-02-23 ([02d8340](https://github.com/aws/aws-sdk-js-v3/commit/02d83401666e4301b14489acce1218f2a2197101))
+
+
+
+
+
 # [3.995.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.994.0...v3.995.0) (2026-02-20)
 
 

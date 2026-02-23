@@ -13,6 +13,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.11 (2026-02-23)
+### Chores
+* **util-user-agent-node:** update dependencies.
+
+
+
 # 3.972.10 (2026-02-19)
 ### Chores
 * **util-user-agent-node:** populate metadata of alternative JavaScript runtimes ([#7754](https://github.com/aws/aws-sdk-js-v3/issues/7754)) ([79d2c23](https://github.com/aws/aws-sdk-js-v3/commit/79d2c235fc32a54fd088949cdb63afcd7fd8ed60))

@@ -28,7 +28,7 @@
     "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.3",
     "@aws-sdk/types": "workspace:^3.973.1",
     "@aws-sdk/util-arn-parser": "workspace:^3.972.2",
-    "@aws-sdk/util-endpoints": "workspace:3.995.0",
+    "@aws-sdk/util-endpoints": "workspace:3.996.0",
     "@smithy/protocol-http": "^5.3.8",
     "@smithy/types": "^4.12.0",
     "@smithy/util-endpoints": "^3.2.8",

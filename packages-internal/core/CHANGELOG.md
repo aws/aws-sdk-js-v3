@@ -15,6 +15,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.12 (2026-02-22)
+### Bug Fixes
+* **core:** handle empty error response body in AwsQuery protocol deserialization ([#7766](https://github.com/aws/aws-sdk-js-v3/issues/7766)) ([7d97314](https://github.com/aws/aws-sdk-js-v3/commit/7d973147197feb4321014df284a184d5d5667222))
+* **protocols:** handle missing error.Error in queryCompat mode  ([#7758](https://github.com/aws/aws-sdk-js-v3/issues/7758)) ([15a27f9](https://github.com/aws/aws-sdk-js-v3/commit/15a27f99b8dadd6de7694cb82222403ac573856a))
+
+
+
 # 3.973.11 (2026-02-17)
 ### Chores
 * **codegen:** fix undefined http binding top level members ([#7741](https://github.com/aws/aws-sdk-js-v3/issues/7741)) ([4b02642](https://github.com/aws/aws-sdk-js-v3/commit/4b0264205571fb92738e0304838377aa8d98394c))

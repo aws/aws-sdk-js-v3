@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.12 (2026-02-23)
+### Chores
+* **middleware-user-agent:** update dependencies.
+
+
+
 # 3.972.11 (2026-02-17)
 ### Chores
 * **codegen:** fix undefined http binding top level members ([#7741](https://github.com/aws/aws-sdk-js-v3/issues/7741)) ([4b02642](https://github.com/aws/aws-sdk-js-v3/commit/4b0264205571fb92738e0304838377aa8d98394c))

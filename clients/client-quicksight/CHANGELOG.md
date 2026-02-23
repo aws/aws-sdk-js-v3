@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
+
+
+### Features
+
+* **client-quicksight:** Adds support for SEMISTRUCT to InputColumn Type ([581e9ea](https://github.com/aws/aws-sdk-js-v3/commit/581e9ea9821a2368098292b9b80626a7b48d1604))
+
+
+
+
+
 # [3.995.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.994.0...v3.995.0) (2026-02-20)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight
