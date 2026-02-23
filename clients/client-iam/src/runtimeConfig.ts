@@ -46,10 +46,16 @@ export const getRuntimeConfig = (config: IAMClientConfig) => {
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
-    region: config?.region ?? loadNodeConfig(
-        NODE_REGION_CONFIG_OPTIONS,
-        {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
-    ),
+    region: config?.region ?? (async () => {
+      try {
+        return await loadNodeConfig(
+          NODE_REGION_CONFIG_OPTIONS,
+          {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
+        )();
+      } catch (e) {
+        return "us-east-1";
+      }
+    }),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??

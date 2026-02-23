@@ -124,6 +124,7 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
+    require("./customizations/iam-global-region")();
 
     if (!protocolTestsOnly && !globs) {
       await generateNestedClients();
