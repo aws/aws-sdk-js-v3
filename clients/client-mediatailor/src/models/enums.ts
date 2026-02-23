@@ -57,6 +57,7 @@ export type AdsInteractionExcludeEventType =
  * @enum
  */
 export const AdsInteractionPublishOptInEventType = {
+  RAW_ADS_REQUEST: "RAW_ADS_REQUEST",
   RAW_ADS_RESPONSE: "RAW_ADS_RESPONSE",
 } as const;
 /**
