@@ -2006,8 +2006,8 @@ export var UpdateReplicationGroupMemberAction$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateTableInput$: StaticStructureSchema = [3, n0, _UTI,
   0,
-  [_TN, _ADt, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT],
-  [0, () => AttributeDefinitions, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$], 1
+  [_TN, _ADt, _BM, _PT, _GSIUl, _SS, _SSES, _RUe, _TC, _DPE, _MRC, _GTWU, _ODT, _WT, _GTSRM],
+  [0, () => AttributeDefinitions, 0, () => ProvisionedThroughput$, () => GlobalSecondaryIndexUpdateList, () => StreamSpecification$, () => SSESpecification$, () => ReplicationGroupUpdateList, 0, 2, 0, () => GlobalTableWitnessGroupUpdateList, () => OnDemandThroughput$, () => WarmThroughput$, 0], 1
 ];
 export var UpdateTableOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,

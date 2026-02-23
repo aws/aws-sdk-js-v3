@@ -200,6 +200,7 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *     ReadUnitsPerSecond: Number("long"),
  *     WriteUnitsPerSecond: Number("long"),
  *   },
+ *   GlobalTableSettingsReplicationMode: "ENABLED" || "DISABLED" || "ENABLED_WITH_OVERRIDES",
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);

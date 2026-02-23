@@ -6372,6 +6372,26 @@ export interface UpdateTableInput {
    * @public
    */
   WarmThroughput?: WarmThroughput | undefined;
+
+  /**
+   * <p>Controls the settings replication mode for a global table replica. This attribute can be defined
+   *             using UpdateTable operation only on a regional table with values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: Defines settings replication on a regional table to be used as a
+   *                     source table for creating Multi-Account Global Table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs
+   *                     to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
 }
 
 /**
@@ -10613,9 +10633,7 @@ export interface UpdateItemInput {
    *                   </li>
    *                </ul>
    *                <important>
-   *                   <p>The <code>ADD</code> action only supports Number and set data types. In
-   *                         addition, <code>ADD</code> can only be used on top-level attributes, not
-   *                         nested attributes.</p>
+   *                   <p>The <code>ADD</code> action only supports Number and set data types.</p>
    *                </important>
    *             </li>
    *             <li>
@@ -10626,9 +10644,7 @@ export interface UpdateItemInput {
    *                     the <code>DELETE</code> action specifies <code>[a,c]</code>, then the final
    *                     attribute value is <code>[b]</code>. Specifying an empty set is an error.</p>
    *                <important>
-   *                   <p>The <code>DELETE</code> action only supports set data types. In addition,
-   *                             <code>DELETE</code> can only be used on top-level attributes, not nested
-   *                         attributes.</p>
+   *                   <p>The <code>DELETE</code> action only supports set data types.</p>
    *                </important>
    *             </li>
    *          </ul>
