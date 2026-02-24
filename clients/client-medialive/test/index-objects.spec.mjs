@@ -329,6 +329,7 @@ import {
   DescribeClusterResponse$,
   DescribeClusterSummary$,
   DescribeFollowerChannelSettings$,
+  DescribeInferenceSettings$,
   DescribeInput$,
   DescribeInputCommand,
   DescribeInputDevice$,
@@ -585,6 +586,7 @@ import {
   IFrameOnlyPlaylistType,
   ImmediateModeScheduleActionStartSettings$,
   IncludeFillerNalUnits,
+  InferenceSettings$,
   Input$,
   InputAttachment$,
   InputChannelLevel$,
@@ -1665,6 +1667,7 @@ assert(typeof DescribeClusterRequest$ === "object");
 assert(typeof DescribeClusterResponse$ === "object");
 assert(typeof DescribeClusterSummary$ === "object");
 assert(typeof DescribeFollowerChannelSettings$ === "object");
+assert(typeof DescribeInferenceSettings$ === "object");
 assert(typeof DescribeInputDeviceRequest$ === "object");
 assert(typeof DescribeInputDeviceResponse$ === "object");
 assert(typeof DescribeInputDeviceThumbnailRequest$ === "object");
@@ -1762,6 +1765,7 @@ assert(typeof HlsWebdavSettings$ === "object");
 assert(typeof HtmlMotionGraphicsSettings$ === "object");
 assert(typeof Id3SegmentTaggingScheduleActionSettings$ === "object");
 assert(typeof ImmediateModeScheduleActionStartSettings$ === "object");
+assert(typeof InferenceSettings$ === "object");
 assert(typeof Input$ === "object");
 assert(typeof InputAttachment$ === "object");
 assert(typeof InputChannelLevel$ === "object");

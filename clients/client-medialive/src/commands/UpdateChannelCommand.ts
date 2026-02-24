@@ -1115,7 +1115,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *         Height: Number("int"),
  *         Name: "STRING_VALUE", // required
  *         RespondToAfd: "NONE" || "PASSTHROUGH" || "RESPOND",
- *         ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
+ *         ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "SMART_CROP",
  *         Sharpness: Number("int"),
  *         Width: Number("int"),
  *       },
@@ -1302,6 +1302,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     },
  *   },
  *   ChannelSecurityGroups: "<__listOf__string>",
+ *   InferenceSettings: { // InferenceSettings
+ *     FeedArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -2391,7 +2394,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //           Height: Number("int"),
  * //           Name: "STRING_VALUE", // required
  * //           RespondToAfd: "NONE" || "PASSTHROUGH" || "RESPOND",
- * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
+ * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "SMART_CROP",
  * //           Sharpness: Number("int"),
  * //           Width: Number("int"),
  * //         },
@@ -2605,6 +2608,9 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       },
  * //     },
  * //     ChannelSecurityGroups: "<__listOf__string>",
+ * //     InferenceSettings: { // DescribeInferenceSettings
+ * //       FeedArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

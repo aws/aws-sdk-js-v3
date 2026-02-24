@@ -288,6 +288,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         },
  * //       },
  * //       ChannelSecurityGroups: "<__listOf__string>",
+ * //       InferenceSettings: { // DescribeInferenceSettings
+ * //         FeedArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

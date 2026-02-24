@@ -4514,6 +4514,7 @@ export type VideoDescriptionRespondToAfd =
  */
 export const VideoDescriptionScalingBehavior = {
   DEFAULT: "DEFAULT",
+  SMART_CROP: "SMART_CROP",
   STRETCH_TO_OUTPUT: "STRETCH_TO_OUTPUT",
 } as const;
 /**

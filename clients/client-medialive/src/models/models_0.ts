@@ -2225,6 +2225,18 @@ export interface OutputDestination {
 }
 
 /**
+ * Configures Elemental Inference features in a channel.
+ * @public
+ */
+export interface DescribeInferenceSettings {
+  /**
+   * The ARN of the feed resource that is associated with this channel. The feed is a resource in the Elemental Inference service.
+   * @public
+   */
+  FeedArn?: string | undefined;
+}
+
+/**
  * Placeholder documentation for AudioSilenceFailoverSettings
  * @public
  */
@@ -2902,6 +2914,12 @@ export interface ChannelSummary {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -10263,22 +10281,4 @@ export interface BatchStartResponse {
    * @public
    */
   Successful?: BatchSuccessfulResultModel[] | undefined;
-}
-
-/**
- * A request to stop resources
- * @public
- */
-export interface BatchStopRequest {
-  /**
-   * List of channel IDs
-   * @public
-   */
-  ChannelIds?: string[] | undefined;
-
-  /**
-   * List of multiplex IDs
-   * @public
-   */
-  MultiplexIds?: string[] | undefined;
 }

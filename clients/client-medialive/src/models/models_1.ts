@@ -76,6 +76,7 @@ import {
   type CdiInputSpecification,
   type ClusterNetworkSettings,
   type DescribeAnywhereSettings,
+  type DescribeInferenceSettings,
   type DescribeLinkedChannelSettings,
   type InputDeviceHdSettings,
   type InputDeviceNetworkSettings,
@@ -157,6 +158,24 @@ import {
   TransferringInputDeviceSummary,
   VideoDescription,
 } from "./models_0";
+
+/**
+ * A request to stop resources
+ * @public
+ */
+export interface BatchStopRequest {
+  /**
+   * List of channel IDs
+   * @public
+   */
+  ChannelIds?: string[] | undefined;
+
+  /**
+   * List of multiplex IDs
+   * @public
+   */
+  MultiplexIds?: string[] | undefined;
+}
 
 /**
  * Placeholder documentation for BatchStopResponse
@@ -779,6 +798,12 @@ export interface Channel {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -845,6 +870,18 @@ export interface ClusterNetworkSettingsUpdateRequest {
    * @public
    */
   InterfaceMappings?: InterfaceMappingUpdateRequest[] | undefined;
+}
+
+/**
+ * Configures Elemental Inference features in a channel.
+ * @public
+ */
+export interface InferenceSettings {
+  /**
+   * The ARN of the feed resource that is associated with this channel. The feed is a resource in the Elemental Inference service.
+   * @public
+   */
+  FeedArn?: string | undefined;
 }
 
 /**
@@ -1062,6 +1099,12 @@ export interface CreateChannelRequest {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: InferenceSettings | undefined;
 }
 
 /**
@@ -3207,6 +3250,12 @@ export interface DeleteChannelResponse {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -4079,6 +4128,12 @@ export interface DescribeChannelResponse {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -7066,6 +7121,12 @@ export interface RestartChannelPipelinesResponse {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -7218,6 +7279,12 @@ export interface StartChannelResponse {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -7904,6 +7971,12 @@ export interface StopChannelResponse {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: DescribeInferenceSettings | undefined;
 }
 
 /**
@@ -8156,6 +8229,12 @@ export interface UpdateChannelRequest {
    * @public
    */
   ChannelSecurityGroups?: string[] | undefined;
+
+  /**
+   * Include this setting to include Elemental Inference features in this channel.
+   * @public
+   */
+  InferenceSettings?: InferenceSettings | undefined;
 }
 
 /**
