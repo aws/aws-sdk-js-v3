@@ -2,6 +2,8 @@ import {
   ActionsSuppressedBy,
   AlarmContributor$,
   AlarmHistoryItem$,
+  AlarmMuteRuleStatus,
+  AlarmMuteRuleSummary$,
   AlarmType,
   AnomalyDetector$,
   AnomalyDetectorConfiguration$,
@@ -23,6 +25,9 @@ import {
   DashboardNotFoundError$,
   DashboardValidationMessage$,
   Datapoint$,
+  DeleteAlarmMuteRule$,
+  DeleteAlarmMuteRuleCommand,
+  DeleteAlarmMuteRuleInput$,
   DeleteAlarms$,
   DeleteAlarmsCommand,
   DeleteAlarmsInput$,
@@ -85,6 +90,10 @@ import {
   Entity$,
   EntityMetricData$,
   EvaluationState,
+  GetAlarmMuteRule$,
+  GetAlarmMuteRuleCommand,
+  GetAlarmMuteRuleInput$,
+  GetAlarmMuteRuleOutput$,
   GetDashboard$,
   GetDashboardCommand,
   GetDashboardInput$,
@@ -129,6 +138,10 @@ import {
   LimitExceededException$,
   LimitExceededFault,
   LimitExceededFault$,
+  ListAlarmMuteRules$,
+  ListAlarmMuteRulesCommand,
+  ListAlarmMuteRulesInput$,
+  ListAlarmMuteRulesOutput$,
   ListDashboards$,
   ListDashboardsCommand,
   ListDashboardsInput$,
@@ -168,16 +181,21 @@ import {
   MetricStreamStatisticsMetric$,
   MissingRequiredParameterException,
   MissingRequiredParameterException$,
+  MuteTargets$,
   paginateDescribeAlarmHistory,
   paginateDescribeAlarms,
   paginateDescribeAnomalyDetectors,
   paginateDescribeInsightRules,
   paginateGetMetricData,
+  paginateListAlarmMuteRules,
   paginateListDashboards,
   paginateListManagedInsightRules,
   paginateListMetrics,
   paginateListMetricStreams,
   PartialFailure$,
+  PutAlarmMuteRule$,
+  PutAlarmMuteRuleCommand,
+  PutAlarmMuteRuleInput$,
   PutAnomalyDetector$,
   PutAnomalyDetectorCommand,
   PutAnomalyDetectorInput$,
@@ -213,7 +231,9 @@ import {
   ResourceNotFound$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  Rule$,
   ScanBy,
+  Schedule$,
   SetAlarmState$,
   SetAlarmStateCommand,
   SetAlarmStateInput$,
@@ -241,8 +261,10 @@ import {
   UntagResourceInput$,
   UntagResourceOutput$,
   waitForAlarmExists,
+  waitForAlarmMuteRuleExists,
   waitForCompositeAlarmExists,
   waitUntilAlarmExists,
+  waitUntilAlarmMuteRuleExists,
   waitUntilCompositeAlarmExists,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -250,6 +272,8 @@ import assert from "node:assert";
 assert(typeof CloudWatchClient === "function");
 assert(typeof CloudWatch === "function");
 // commands
+assert(typeof DeleteAlarmMuteRuleCommand === "function");
+assert(typeof DeleteAlarmMuteRule$ === "object");
 assert(typeof DeleteAlarmsCommand === "function");
 assert(typeof DeleteAlarms$ === "object");
 assert(typeof DeleteAnomalyDetectorCommand === "function");
@@ -280,6 +304,8 @@ assert(typeof EnableAlarmActionsCommand === "function");
 assert(typeof EnableAlarmActions$ === "object");
 assert(typeof EnableInsightRulesCommand === "function");
 assert(typeof EnableInsightRules$ === "object");
+assert(typeof GetAlarmMuteRuleCommand === "function");
+assert(typeof GetAlarmMuteRule$ === "object");
 assert(typeof GetDashboardCommand === "function");
 assert(typeof GetDashboard$ === "object");
 assert(typeof GetInsightRuleReportCommand === "function");
@@ -292,6 +318,8 @@ assert(typeof GetMetricStreamCommand === "function");
 assert(typeof GetMetricStream$ === "object");
 assert(typeof GetMetricWidgetImageCommand === "function");
 assert(typeof GetMetricWidgetImage$ === "object");
+assert(typeof ListAlarmMuteRulesCommand === "function");
+assert(typeof ListAlarmMuteRules$ === "object");
 assert(typeof ListDashboardsCommand === "function");
 assert(typeof ListDashboards$ === "object");
 assert(typeof ListManagedInsightRulesCommand === "function");
@@ -302,6 +330,8 @@ assert(typeof ListMetricStreamsCommand === "function");
 assert(typeof ListMetricStreams$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof PutAlarmMuteRuleCommand === "function");
+assert(typeof PutAlarmMuteRule$ === "object");
 assert(typeof PutAnomalyDetectorCommand === "function");
 assert(typeof PutAnomalyDetector$ === "object");
 assert(typeof PutCompositeAlarmCommand === "function");
@@ -331,12 +361,14 @@ assert(typeof UntagResource$ === "object");
 // structural schemas
 assert(typeof AlarmContributor$ === "object");
 assert(typeof AlarmHistoryItem$ === "object");
+assert(typeof AlarmMuteRuleSummary$ === "object");
 assert(typeof AnomalyDetector$ === "object");
 assert(typeof AnomalyDetectorConfiguration$ === "object");
 assert(typeof CompositeAlarm$ === "object");
 assert(typeof DashboardEntry$ === "object");
 assert(typeof DashboardValidationMessage$ === "object");
 assert(typeof Datapoint$ === "object");
+assert(typeof DeleteAlarmMuteRuleInput$ === "object");
 assert(typeof DeleteAlarmsInput$ === "object");
 assert(typeof DeleteAnomalyDetectorInput$ === "object");
 assert(typeof DeleteAnomalyDetectorOutput$ === "object");
@@ -368,6 +400,8 @@ assert(typeof EnableInsightRulesInput$ === "object");
 assert(typeof EnableInsightRulesOutput$ === "object");
 assert(typeof Entity$ === "object");
 assert(typeof EntityMetricData$ === "object");
+assert(typeof GetAlarmMuteRuleInput$ === "object");
+assert(typeof GetAlarmMuteRuleOutput$ === "object");
 assert(typeof GetDashboardInput$ === "object");
 assert(typeof GetDashboardOutput$ === "object");
 assert(typeof GetInsightRuleReportInput$ === "object");
@@ -385,6 +419,8 @@ assert(typeof InsightRuleContributor$ === "object");
 assert(typeof InsightRuleContributorDatapoint$ === "object");
 assert(typeof InsightRuleMetricDatapoint$ === "object");
 assert(typeof LabelOptions$ === "object");
+assert(typeof ListAlarmMuteRulesInput$ === "object");
+assert(typeof ListAlarmMuteRulesOutput$ === "object");
 assert(typeof ListDashboardsInput$ === "object");
 assert(typeof ListDashboardsOutput$ === "object");
 assert(typeof ListManagedInsightRulesInput$ === "object");
@@ -411,7 +447,9 @@ assert(typeof MetricStreamEntry$ === "object");
 assert(typeof MetricStreamFilter$ === "object");
 assert(typeof MetricStreamStatisticsConfiguration$ === "object");
 assert(typeof MetricStreamStatisticsMetric$ === "object");
+assert(typeof MuteTargets$ === "object");
 assert(typeof PartialFailure$ === "object");
+assert(typeof PutAlarmMuteRuleInput$ === "object");
 assert(typeof PutAnomalyDetectorInput$ === "object");
 assert(typeof PutAnomalyDetectorOutput$ === "object");
 assert(typeof PutCompositeAlarmInput$ === "object");
@@ -426,6 +464,8 @@ assert(typeof PutMetricDataInput$ === "object");
 assert(typeof PutMetricStreamInput$ === "object");
 assert(typeof PutMetricStreamOutput$ === "object");
 assert(typeof Range$ === "object");
+assert(typeof Rule$ === "object");
+assert(typeof Schedule$ === "object");
 assert(typeof SetAlarmStateInput$ === "object");
 assert(typeof SingleMetricAnomalyDetector$ === "object");
 assert(typeof StartMetricStreamsInput$ === "object");
@@ -440,6 +480,7 @@ assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 // enums
 assert(typeof ActionsSuppressedBy === "object");
+assert(typeof AlarmMuteRuleStatus === "object");
 assert(typeof AlarmType === "object");
 assert(typeof AnomalyDetectorStateValue === "object");
 assert(typeof AnomalyDetectorType === "object");
@@ -485,8 +526,10 @@ assert(typeof ResourceNotFoundException$ === "object");
 assert(CloudWatchServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAlarmExists === "function");
+assert(typeof waitForAlarmMuteRuleExists === "function");
 assert(typeof waitForCompositeAlarmExists === "function");
 assert(typeof waitUntilAlarmExists === "function");
+assert(typeof waitUntilAlarmMuteRuleExists === "function");
 assert(typeof waitUntilCompositeAlarmExists === "function");
 // paginators
 assert(typeof paginateDescribeAlarmHistory === "function");
@@ -494,6 +537,7 @@ assert(typeof paginateDescribeAlarms === "function");
 assert(typeof paginateDescribeAnomalyDetectors === "function");
 assert(typeof paginateDescribeInsightRules === "function");
 assert(typeof paginateGetMetricData === "function");
+assert(typeof paginateListAlarmMuteRules === "function");
 assert(typeof paginateListDashboards === "function");
 assert(typeof paginateListManagedInsightRules === "function");
 assert(typeof paginateListMetricStreams === "function");

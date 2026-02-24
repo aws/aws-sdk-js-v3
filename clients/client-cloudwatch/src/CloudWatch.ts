@@ -10,6 +10,11 @@ import type { WaiterResult } from "@smithy/util-waiter";
 
 import { CloudWatchClient } from "./CloudWatchClient";
 import {
+  DeleteAlarmMuteRuleCommand,
+  DeleteAlarmMuteRuleCommandInput,
+  DeleteAlarmMuteRuleCommandOutput,
+} from "./commands/DeleteAlarmMuteRuleCommand";
+import {
   DeleteAlarmsCommand,
   DeleteAlarmsCommandInput,
   DeleteAlarmsCommandOutput,
@@ -85,6 +90,11 @@ import {
   EnableInsightRulesCommandOutput,
 } from "./commands/EnableInsightRulesCommand";
 import {
+  GetAlarmMuteRuleCommand,
+  GetAlarmMuteRuleCommandInput,
+  GetAlarmMuteRuleCommandOutput,
+} from "./commands/GetAlarmMuteRuleCommand";
+import {
   GetDashboardCommand,
   GetDashboardCommandInput,
   GetDashboardCommandOutput,
@@ -115,6 +125,11 @@ import {
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
 import {
+  ListAlarmMuteRulesCommand,
+  ListAlarmMuteRulesCommandInput,
+  ListAlarmMuteRulesCommandOutput,
+} from "./commands/ListAlarmMuteRulesCommand";
+import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
@@ -135,6 +150,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutAlarmMuteRuleCommand,
+  PutAlarmMuteRuleCommandInput,
+  PutAlarmMuteRuleCommandOutput,
+} from "./commands/PutAlarmMuteRuleCommand";
 import {
   PutAnomalyDetectorCommand,
   PutAnomalyDetectorCommandInput,
@@ -201,14 +221,17 @@ import { paginateDescribeAlarms } from "./pagination/DescribeAlarmsPaginator";
 import { paginateDescribeAnomalyDetectors } from "./pagination/DescribeAnomalyDetectorsPaginator";
 import { paginateDescribeInsightRules } from "./pagination/DescribeInsightRulesPaginator";
 import { paginateGetMetricData } from "./pagination/GetMetricDataPaginator";
+import { paginateListAlarmMuteRules } from "./pagination/ListAlarmMuteRulesPaginator";
 import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
 import { paginateListManagedInsightRules } from "./pagination/ListManagedInsightRulesPaginator";
 import { paginateListMetrics } from "./pagination/ListMetricsPaginator";
 import { paginateListMetricStreams } from "./pagination/ListMetricStreamsPaginator";
 import { waitUntilAlarmExists } from "./waiters/waitForAlarmExists";
+import { waitUntilAlarmMuteRuleExists } from "./waiters/waitForAlarmMuteRuleExists";
 import { waitUntilCompositeAlarmExists } from "./waiters/waitForCompositeAlarmExists";
 
 const commands = {
+  DeleteAlarmMuteRuleCommand,
   DeleteAlarmsCommand,
   DeleteAnomalyDetectorCommand,
   DeleteDashboardsCommand,
@@ -224,17 +247,20 @@ const commands = {
   DisableInsightRulesCommand,
   EnableAlarmActionsCommand,
   EnableInsightRulesCommand,
+  GetAlarmMuteRuleCommand,
   GetDashboardCommand,
   GetInsightRuleReportCommand,
   GetMetricDataCommand,
   GetMetricStatisticsCommand,
   GetMetricStreamCommand,
   GetMetricWidgetImageCommand,
+  ListAlarmMuteRulesCommand,
   ListDashboardsCommand,
   ListManagedInsightRulesCommand,
   ListMetricsCommand,
   ListMetricStreamsCommand,
   ListTagsForResourceCommand,
+  PutAlarmMuteRuleCommand,
   PutAnomalyDetectorCommand,
   PutCompositeAlarmCommand,
   PutDashboardCommand,
@@ -255,6 +281,7 @@ const paginators = {
   paginateDescribeAnomalyDetectors,
   paginateDescribeInsightRules,
   paginateGetMetricData,
+  paginateListAlarmMuteRules,
   paginateListDashboards,
   paginateListManagedInsightRules,
   paginateListMetrics,
@@ -263,9 +290,27 @@ const paginators = {
 const waiters = {
   waitUntilAlarmExists,
   waitUntilCompositeAlarmExists,
+  waitUntilAlarmMuteRuleExists,
 };
 
 export interface CloudWatch {
+  /**
+   * @see {@link DeleteAlarmMuteRuleCommand}
+   */
+  deleteAlarmMuteRule(
+    args: DeleteAlarmMuteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAlarmMuteRuleCommandOutput>;
+  deleteAlarmMuteRule(
+    args: DeleteAlarmMuteRuleCommandInput,
+    cb: (err: any, data?: DeleteAlarmMuteRuleCommandOutput) => void
+  ): void;
+  deleteAlarmMuteRule(
+    args: DeleteAlarmMuteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAlarmMuteRuleCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteAlarmsCommand}
    */
@@ -527,6 +572,23 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link GetAlarmMuteRuleCommand}
+   */
+  getAlarmMuteRule(
+    args: GetAlarmMuteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAlarmMuteRuleCommandOutput>;
+  getAlarmMuteRule(
+    args: GetAlarmMuteRuleCommandInput,
+    cb: (err: any, data?: GetAlarmMuteRuleCommandOutput) => void
+  ): void;
+  getAlarmMuteRule(
+    args: GetAlarmMuteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAlarmMuteRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDashboardCommand}
    */
   getDashboard(
@@ -629,6 +691,24 @@ export interface CloudWatch {
   ): void;
 
   /**
+   * @see {@link ListAlarmMuteRulesCommand}
+   */
+  listAlarmMuteRules(): Promise<ListAlarmMuteRulesCommandOutput>;
+  listAlarmMuteRules(
+    args: ListAlarmMuteRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAlarmMuteRulesCommandOutput>;
+  listAlarmMuteRules(
+    args: ListAlarmMuteRulesCommandInput,
+    cb: (err: any, data?: ListAlarmMuteRulesCommandOutput) => void
+  ): void;
+  listAlarmMuteRules(
+    args: ListAlarmMuteRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAlarmMuteRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDashboardsCommand}
    */
   listDashboards(): Promise<ListDashboardsCommandOutput>;
@@ -714,6 +794,23 @@ export interface CloudWatch {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAlarmMuteRuleCommand}
+   */
+  putAlarmMuteRule(
+    args: PutAlarmMuteRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAlarmMuteRuleCommandOutput>;
+  putAlarmMuteRule(
+    args: PutAlarmMuteRuleCommandInput,
+    cb: (err: any, data?: PutAlarmMuteRuleCommandOutput) => void
+  ): void;
+  putAlarmMuteRule(
+    args: PutAlarmMuteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAlarmMuteRuleCommandOutput) => void
   ): void;
 
   /**
@@ -994,6 +1091,17 @@ export interface CloudWatch {
   ): Paginator<GetMetricDataCommandOutput>;
 
   /**
+   * @see {@link ListAlarmMuteRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAlarmMuteRulesCommandOutput}.
+   */
+  paginateListAlarmMuteRules(
+    args?: ListAlarmMuteRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAlarmMuteRulesCommandOutput>;
+
+  /**
    * @see {@link ListDashboardsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1054,6 +1162,16 @@ export interface CloudWatch {
    */
   waitUntilCompositeAlarmExists(
     args: DescribeAlarmsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
+  ): Promise<WaiterResult>;
+
+  /**
+   * @see {@link GetAlarmMuteRuleCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilAlarmMuteRuleExists(
+    args: GetAlarmMuteRuleCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<CloudWatch>, "client">
   ): Promise<WaiterResult>;
 }

@@ -68,6 +68,10 @@ import {
   defaultCloudWatchHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  DeleteAlarmMuteRuleCommandInput,
+  DeleteAlarmMuteRuleCommandOutput,
+} from "./commands/DeleteAlarmMuteRuleCommand";
 import { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand";
 import {
   DeleteAnomalyDetectorCommandInput,
@@ -107,6 +111,7 @@ import {
 } from "./commands/DisableInsightRulesCommand";
 import { EnableAlarmActionsCommandInput, EnableAlarmActionsCommandOutput } from "./commands/EnableAlarmActionsCommand";
 import { EnableInsightRulesCommandInput, EnableInsightRulesCommandOutput } from "./commands/EnableInsightRulesCommand";
+import { GetAlarmMuteRuleCommandInput, GetAlarmMuteRuleCommandOutput } from "./commands/GetAlarmMuteRuleCommand";
 import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
 import {
   GetInsightRuleReportCommandInput,
@@ -122,6 +127,7 @@ import {
   GetMetricWidgetImageCommandInput,
   GetMetricWidgetImageCommandOutput,
 } from "./commands/GetMetricWidgetImageCommand";
+import { ListAlarmMuteRulesCommandInput, ListAlarmMuteRulesCommandOutput } from "./commands/ListAlarmMuteRulesCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import {
   ListManagedInsightRulesCommandInput,
@@ -133,6 +139,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutAlarmMuteRuleCommandInput, PutAlarmMuteRuleCommandOutput } from "./commands/PutAlarmMuteRuleCommand";
 import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand";
 import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand";
 import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand";
@@ -164,6 +171,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | DeleteAlarmMuteRuleCommandInput
   | DeleteAlarmsCommandInput
   | DeleteAnomalyDetectorCommandInput
   | DeleteDashboardsCommandInput
@@ -179,17 +187,20 @@ export type ServiceInputTypes =
   | DisableInsightRulesCommandInput
   | EnableAlarmActionsCommandInput
   | EnableInsightRulesCommandInput
+  | GetAlarmMuteRuleCommandInput
   | GetDashboardCommandInput
   | GetInsightRuleReportCommandInput
   | GetMetricDataCommandInput
   | GetMetricStatisticsCommandInput
   | GetMetricStreamCommandInput
   | GetMetricWidgetImageCommandInput
+  | ListAlarmMuteRulesCommandInput
   | ListDashboardsCommandInput
   | ListManagedInsightRulesCommandInput
   | ListMetricStreamsCommandInput
   | ListMetricsCommandInput
   | ListTagsForResourceCommandInput
+  | PutAlarmMuteRuleCommandInput
   | PutAnomalyDetectorCommandInput
   | PutCompositeAlarmCommandInput
   | PutDashboardCommandInput
@@ -208,6 +219,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | DeleteAlarmMuteRuleCommandOutput
   | DeleteAlarmsCommandOutput
   | DeleteAnomalyDetectorCommandOutput
   | DeleteDashboardsCommandOutput
@@ -223,17 +235,20 @@ export type ServiceOutputTypes =
   | DisableInsightRulesCommandOutput
   | EnableAlarmActionsCommandOutput
   | EnableInsightRulesCommandOutput
+  | GetAlarmMuteRuleCommandOutput
   | GetDashboardCommandOutput
   | GetInsightRuleReportCommandOutput
   | GetMetricDataCommandOutput
   | GetMetricStatisticsCommandOutput
   | GetMetricStreamCommandOutput
   | GetMetricWidgetImageCommandOutput
+  | ListAlarmMuteRulesCommandOutput
   | ListDashboardsCommandOutput
   | ListManagedInsightRulesCommandOutput
   | ListMetricStreamsCommandOutput
   | ListMetricsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutAlarmMuteRuleCommandOutput
   | PutAnomalyDetectorCommandOutput
   | PutCompositeAlarmCommandOutput
   | PutDashboardCommandOutput

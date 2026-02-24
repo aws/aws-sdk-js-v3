@@ -46,6 +46,20 @@ export type HistoryItemType = (typeof HistoryItemType)[keyof typeof HistoryItemT
  * @public
  * @enum
  */
+export const AlarmMuteRuleStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  SCHEDULED: "SCHEDULED",
+} as const;
+/**
+ * @public
+ */
+export type AlarmMuteRuleStatus = (typeof AlarmMuteRuleStatus)[keyof typeof AlarmMuteRuleStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const StandardUnit = {
   Bits: "Bits",
   Bits_Second: "Bits/Second",

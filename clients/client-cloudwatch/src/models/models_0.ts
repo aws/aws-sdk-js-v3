@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import {
   ActionsSuppressedBy,
+  AlarmMuteRuleStatus,
   AlarmType,
   AnomalyDetectorStateValue,
   AnomalyDetectorType,
@@ -98,6 +99,42 @@ export interface AlarmHistoryItem {
    * @public
    */
   AlarmContributorAttributes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Summary information about an alarm mute rule, including its name, status, and configuration details.</p>
+ * @public
+ */
+export interface AlarmMuteRuleSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alarm mute rule.</p>
+   * @public
+   */
+  AlarmMuteRuleArn?: string | undefined;
+
+  /**
+   * <p>The date and time when the mute rule expires and is no longer evaluated. This field is only present if an expiration date was configured.</p>
+   * @public
+   */
+  ExpireDate?: Date | undefined;
+
+  /**
+   * <p>The current status of the alarm mute rule. Valid values are <code>SCHEDULED</code>, <code>ACTIVE</code>, or <code>EXPIRED</code>.</p>
+   * @public
+   */
+  Status?: AlarmMuteRuleStatus | undefined;
+
+  /**
+   * <p>Indicates whether the mute rule is one-time or recurring. Valid values are <code>ONE_TIME</code> or <code>RECURRING</code>.</p>
+   * @public
+   */
+  MuteType?: string | undefined;
+
+  /**
+   * <p>The date and time when the mute rule was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -816,6 +853,17 @@ export interface Datapoint {
    * @public
    */
   ExtendedStatistics?: Record<string, number> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAlarmMuteRuleInput {
+  /**
+   * <p>The name of the alarm mute rule to delete.</p>
+   * @public
+   */
+  AlarmMuteRuleName: string | undefined;
 }
 
 /**
@@ -1931,6 +1979,232 @@ export interface EntityMetricData {
 /**
  * @public
  */
+export interface GetAlarmMuteRuleInput {
+  /**
+   * <p>The name of the alarm mute rule to retrieve.</p>
+   * @public
+   */
+  AlarmMuteRuleName: string | undefined;
+}
+
+/**
+ * <p>Specifies which alarms an alarm mute rule applies to.</p>
+ *          <p>You can target up to 100 specific alarms by name. When a mute rule is active, the targeted alarms continue to evaluate metrics and transition between states, but their configured actions are muted.</p>
+ * @public
+ */
+export interface MuteTargets {
+  /**
+   * <p>The list of alarm names that this mute rule targets. You can specify up to 100 alarm names.</p>
+   *          <p>Each alarm name must be between 1 and 255 characters in length. The alarm names must match existing alarms in your Amazon Web Services account and region.</p>
+   * @public
+   */
+  AlarmNames: string[] | undefined;
+}
+
+/**
+ * <p>Specifies when and how long an alarm mute rule is active.</p>
+ *          <p>The schedule uses either a cron expression for recurring mute windows or an at expression for one-time mute windows. When the schedule activates, the mute rule mutes alarm actions for the specified duration.</p>
+ * @public
+ */
+export interface Schedule {
+  /**
+   * <p>The schedule expression that defines when the mute rule activates. The expression must be between 1 and 256 characters in length.</p>
+   *          <p>You can use one of two expression formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Cron expressions</b> - For recurring mute windows. Format: <code>cron(Minutes Hours Day-of-month Month Day-of-week)</code>
+   *                </p>
+   *                <p>Examples:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>cron(0 2 * * *)</code> - Activates daily at 2:00 AM</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>cron(0 2 * * SUN)</code> - Activates every Sunday at 2:00 AM for weekly system maintenance</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>cron(0 1 1 * *)</code> - Activates on the first day of each month at 1:00 AM for monthly database maintenance</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>cron(0 18 * * FRI)</code> - Activates every Friday at 6:00 PM</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>cron(0 23 * * *)</code> - Activates every day at 11:00 PM during nightly backup operations</p>
+   *                   </li>
+   *                </ul>
+   *                <p>The characters <code>*</code>, <code>-</code>, and <code>,</code> are supported in all fields. English names can be used for the month (JAN-DEC) and day of week (SUN-SAT) fields.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>At expressions</b> - For one-time mute windows. Format: <code>at(yyyy-MM-ddThh:mm)</code>
+   *                </p>
+   *                <p>Examples:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>at(2024-05-10T14:00)</code> - Activates once on May 10, 2024 at 2:00 PM during an active incident response session</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>at(2024-12-23T00:00)</code> - Activates once on December 23, 2024 at midnight during annual company shutdown</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Expression: string | undefined;
+
+  /**
+   * <p>The length of time that alarms remain muted when the schedule activates. The duration must be between 1 and 50 characters in length.</p>
+   *          <p>Specify the duration using ISO 8601 duration format with a minimum of 1 minute (<code>PT1M</code>) and maximum of 15 days (<code>P15D</code>).</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PT4H</code> - 4 hours for weekly system maintenance</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>P2DT12H</code> - 2 days and 12 hours for weekend muting from Friday 6:00 PM to Monday 6:00 AM</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PT6H</code> - 6 hours for monthly database maintenance</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PT2H</code> - 2 hours for nightly backup operations</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>P7D</code> - 7 days for annual company shutdown</p>
+   *             </li>
+   *          </ul>
+   *          <p>The duration begins when the schedule expression time is reached. For recurring schedules, the duration applies to each occurrence.</p>
+   * @public
+   */
+  Duration: string | undefined;
+
+  /**
+   * <p>The time zone to use when evaluating the schedule expression. The time zone must be between 1 and 50 characters in length.</p>
+   *          <p>Specify the time zone using standard timezone identifiers (for example, <code>America/New_York</code>, <code>Europe/London</code>, or <code>Asia/Tokyo</code>).</p>
+   *          <p>If you don't specify a time zone, UTC is used by default. The time zone affects how cron and at expressions are interpreted, as well as start and expire dates you specify</p>
+   *          <p>Examples:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>America/New_York</code> - Eastern Time (US)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>America/Los_Angeles</code> - Pacific Time (US)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Europe/London</code> - British Time</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Asia/Tokyo</code> - Japan Standard Time</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UTC</code> - Coordinated Universal Time</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Timezone?: string | undefined;
+}
+
+/**
+ * <p>Defines the schedule configuration for an alarm mute rule.</p>
+ *          <p>The rule contains a schedule that specifies when and how long alarms should be muted. The schedule can be a recurring pattern using cron expressions or a one-time mute window using at expressions.</p>
+ * @public
+ */
+export interface Rule {
+  /**
+   * <p>The schedule configuration that defines when the mute rule activates and how long it remains active.</p>
+   * @public
+   */
+  Schedule: Schedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAlarmMuteRuleOutput {
+  /**
+   * <p>The name of the alarm mute rule.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the alarm mute rule.</p>
+   * @public
+   */
+  AlarmMuteRuleArn?: string | undefined;
+
+  /**
+   * <p>The description of the alarm mute rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration that defines when and how long alarms are muted.</p>
+   * @public
+   */
+  Rule?: Rule | undefined;
+
+  /**
+   * <p>Specifies which alarms this rule applies to.</p>
+   * @public
+   */
+  MuteTargets?: MuteTargets | undefined;
+
+  /**
+   * <p>The date and time when the mute rule becomes active. If not set, the rule is active immediately.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the mute rule expires and is no longer evaluated.</p>
+   * @public
+   */
+  ExpireDate?: Date | undefined;
+
+  /**
+   * <p>The current status of the alarm mute rule. Valid values are <code>SCHEDULED</code>, <code>ACTIVE</code>, or <code>EXPIRED</code>.</p>
+   * @public
+   */
+  Status?: AlarmMuteRuleStatus | undefined;
+
+  /**
+   * <p>The date and time when the mute rule was last updated.</p>
+   * @public
+   */
+  LastUpdatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the mute rule is one-time or recurring. Valid values are <code>ONE_TIME</code> or <code>RECURRING</code>.</p>
+   * @public
+   */
+  MuteType?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetDashboardInput {
   /**
    * <p>The name of the dashboard to be described.</p>
@@ -2868,6 +3142,52 @@ export interface GetMetricWidgetImageOutput {
 /**
  * @public
  */
+export interface ListAlarmMuteRulesInput {
+  /**
+   * <p>Filter results to show only mute rules that target the specified alarm name.</p>
+   * @public
+   */
+  AlarmName?: string | undefined;
+
+  /**
+   * <p>Filter results to show only mute rules with the specified statuses. Valid values are <code>SCHEDULED</code>, <code>ACTIVE</code>, or <code>EXPIRED</code>.</p>
+   * @public
+   */
+  Statuses?: AlarmMuteRuleStatus[] | undefined;
+
+  /**
+   * <p>The maximum number of mute rules to return in one call. The default is 50.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous call to indicate where to continue retrieving results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAlarmMuteRulesOutput {
+  /**
+   * <p>A list of alarm mute rule summaries.</p>
+   * @public
+   */
+  AlarmMuteRuleSummaries?: AlarmMuteRuleSummary[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of results. If this field is absent, there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListDashboardsInput {
   /**
    * <p>If you specify this parameter, only the dashboards with names starting with the
@@ -3220,6 +3540,53 @@ export interface ListTagsForResourceOutput {
    * @public
    */
   Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAlarmMuteRuleInput {
+  /**
+   * <p>The name of the alarm mute rule. This name must be unique within your Amazon Web Services account and region.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the alarm mute rule that helps you identify its purpose.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration that defines when and how long alarms should be muted.</p>
+   * @public
+   */
+  Rule: Rule | undefined;
+
+  /**
+   * <p>Specifies which alarms this rule applies to.</p>
+   * @public
+   */
+  MuteTargets?: MuteTargets | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the alarm mute rule. You can use tags to categorize and manage your mute rules.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The date and time after which the mute rule takes effect. If not specified, the mute rule takes effect immediately upon creation and the mutes are applied as per the schedule expression. This date and time is interpreted according to the schedule timezone, or UTC if no timezone is specified.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time when the mute rule expires and is no longer evaluated. After this time, the rule status becomes EXPIRED and will no longer mute the targeted alarms. This date and time is interpreted according to the schedule timezone, or UTC if no timezone is specified.</p>
+   * @public
+   */
+  ExpireDate?: Date | undefined;
 }
 
 /**
