@@ -62,6 +62,7 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
+  private readonly maxInMemoryParts?: number;
 
   public constructor(config: S3TransferManagerConfig = {}) {
     this.checksumValidationEnabled = config.checksumValidationEnabled ?? true;
@@ -80,6 +81,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     this.checksumAlgorithm = config.checksumAlgorithm ?? "CRC32";
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
+    this.maxInMemoryParts = config.maxInMemoryParts ?? 10;
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
@@ -335,18 +337,35 @@ export class S3TransferManager implements IS3TransferManager {
     this.checkAborted(transferOptions);
     this.addEventListeners(transferOptions?.eventListeners);
 
+    const transferAbortController = new AbortController();
+    const responseChecksumValidation = await this.s3ClientInstance.config.responseChecksumValidation?.();
+    const checksumValidationEnabled =
+      request.ChecksumMode === "ENABLED" || responseChecksumValidation === "WHEN_SUPPORTED";
+
     if (this.multipartDownloadType === "PART") {
-      const responseMetadata = await this.downloadByPart(request, transferOptions ?? {}, streams, requests, metadata);
+      const responseMetadata = await this.downloadByPart(
+        request,
+        transferOptions ?? {},
+        streams,
+        requests,
+        metadata,
+        checksumValidationEnabled
+      );
       totalSize = responseMetadata.totalSize;
     } else if (this.multipartDownloadType === "RANGE") {
-      const responseMetadata = await this.downloadByRange(request, transferOptions ?? {}, streams, requests, metadata);
+      const responseMetadata = await this.downloadByRange(
+        request,
+        transferOptions ?? {},
+        streams,
+        requests,
+        metadata,
+        checksumValidationEnabled
+      );
       totalSize = responseMetadata.totalSize;
     }
 
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
-
-      // remove any local abort() listeners after request completes.
       if (transferOptions?.abortSignal) {
         this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
         this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
@@ -457,7 +476,8 @@ export class S3TransferManager implements IS3TransferManager {
     transferOptions: TransferOptions,
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
-    metadata: Omit<DownloadResponse, "Body">
+    metadata: Omit<DownloadResponse, "Body">,
+    checksumValidationEnabled: boolean
   ): Promise<{ totalSize: number | undefined }> {
     let totalSize: number | undefined;
     this.checkAborted(transferOptions);
@@ -466,6 +486,7 @@ export class S3TransferManager implements IS3TransferManager {
       const initialPartRequest = {
         ...request,
         PartNumber: 1,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
       try {
         const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
@@ -495,6 +516,7 @@ export class S3TransferManager implements IS3TransferManager {
               ...request,
               PartNumber: part,
               IfMatch: initialETag,
+              ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
             };
 
             const getObject = this.s3ClientInstance
@@ -534,6 +556,7 @@ export class S3TransferManager implements IS3TransferManager {
       try {
         const getObjectRequest = {
           ...request,
+          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
         };
 
         const getObject = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
@@ -566,7 +589,8 @@ export class S3TransferManager implements IS3TransferManager {
     transferOptions: TransferOptions,
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
-    metadata: Omit<DownloadResponse, "Body">
+    metadata: Omit<DownloadResponse, "Body">,
+    checksumValidationEnabled: boolean
   ): Promise<{ totalSize: number | undefined }> {
     this.checkAborted(transferOptions);
 
@@ -576,7 +600,7 @@ export class S3TransferManager implements IS3TransferManager {
     );
 
     if (headResponse.ContentLength === 0) {
-      const getObjectRequest = { ...request };
+      const getObjectRequest = { ...request, ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }) };
       const response = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
 
       this.dispatchTransferInitiatedEvent(request, 0);
@@ -606,6 +630,7 @@ export class S3TransferManager implements IS3TransferManager {
       const getObjectRequest: GetObjectCommandInput = {
         ...request,
         Range: `bytes=${left}-${right}`,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
       const initialRangeGet = await this.s3ClientInstance.send(new GetObjectCommand(getObjectRequest), transferOptions);
       await internalEventHandler.afterInitialGetObject();
@@ -654,6 +679,7 @@ export class S3TransferManager implements IS3TransferManager {
         ...request,
         Range: range,
         IfMatch: initialETag,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
 
       const getObject = this.s3ClientInstance
