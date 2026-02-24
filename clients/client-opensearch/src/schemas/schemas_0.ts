@@ -1325,7 +1325,7 @@ export var DeleteVpcEndpointResponse$: StaticStructureSchema = [3, n0, _DVERe,
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
   [_DN, _MR, _NT],
-  [[0, 1], 1, 0], 1
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
 ];
 export var DescribeDomainAutoTunesResponse$: StaticStructureSchema = [3, n0, _DDATRe,
   0,
