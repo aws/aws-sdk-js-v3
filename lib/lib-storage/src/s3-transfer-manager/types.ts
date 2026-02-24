@@ -9,9 +9,9 @@ import type {
   PutObjectCommandOutput,
   S3Client,
 } from "@aws-sdk/client-s3";
-import { HttpHandlerOptions } from "@smithy/types";
+import type { HttpHandlerOptions } from "@smithy/types";
 
-import { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
+import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 
 /**
  * Constructor parameters for the S3 Transfer Manager configuration.
@@ -47,6 +47,11 @@ export interface S3TransferManagerConfig {
    * Collection of callbacks for monitoring transfer lifecycle events. Allows tracking statuses of all transfers from the client.
    */
   eventListeners?: TransferEventListeners;
+  /**
+   * Maximum number of parts that can be buffered in memory.
+   * Effective memory limit = maxInMemoryParts * partSize.
+   */
+  maxInMemoryParts?: number;
 }
 
 /**
