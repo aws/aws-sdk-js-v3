@@ -320,6 +320,7 @@ export type {
   Tag,
   TagResourceRequest,
   TagResourceResponse,
+  TargetCloseDateFilter,
   UntagResourceRequest,
   UntagResourceResponse,
   UpdateEngagementContextPayload,

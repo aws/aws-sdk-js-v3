@@ -2349,7 +2349,7 @@ export interface CreateEngagementInvitationRequest {
   EngagementIdentifier: string | undefined;
 
   /**
-   * <p> The <code>Invitation</code> object all information necessary to initiate an engagement invitation to a partner. It contains a personalized message from the sender, the invitation's receiver, and a payload. The <code>Payload</code> can be the <code>OpportunityInvitation</code>, which includes detailed structures for sender contacts, partner responsibilities, customer information, and project details. </p>
+   * <p> The <code>Invitation</code> object all information necessary to initiate an engagement invitation to a partner. It contains a personalized message from the sender, the invitation's receiver, and a payload. The <code>Payload</code> can be the <code>OpportunityInvitation</code>, which includes detailed structures for sender contacts, partner responsibilities, customer information, and project details, or <code>LeadInvitation</code>, which includes structures for customer information and interaction details. </p>
    * @public
    */
   Invitation: Invitation | undefined;
@@ -3461,6 +3461,24 @@ export interface OpportunitySort {
 }
 
 /**
+ * <p>Filters opportunities based on their target close date.</p>
+ * @public
+ */
+export interface TargetCloseDateFilter {
+  /**
+   * <p>Filters opportunities with a target close date after this date. Use the <code>YYYY-MM-DD</code> format.</p>
+   * @public
+   */
+  AfterTargetCloseDate?: string | undefined;
+
+  /**
+   * <p>Filters opportunities with a target close date before this date. Use the <code>YYYY-MM-DD</code> format.</p>
+   * @public
+   */
+  BeforeTargetCloseDate?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListOpportunitiesRequest {
@@ -3523,6 +3541,12 @@ export interface ListOpportunitiesRequest {
    * @public
    */
   CreatedDate?: CreatedDateFilter | undefined;
+
+  /**
+   * <p>Filters opportunities based on their target close date. This filter helps retrieve opportunities with an expected close date before or after a specified date.</p>
+   * @public
+   */
+  TargetCloseDate?: TargetCloseDateFilter | undefined;
 }
 
 /**

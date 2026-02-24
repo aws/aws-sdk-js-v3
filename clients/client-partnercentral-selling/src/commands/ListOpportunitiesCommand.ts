@@ -46,7 +46,7 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  *   NextToken: "STRING_VALUE",
  *   Sort: { // OpportunitySort
  *     SortOrder: "ASCENDING" || "DESCENDING", // required
- *     SortBy: "LastModifiedDate" || "Identifier" || "CustomerCompanyName" || "CreatedDate", // required
+ *     SortBy: "LastModifiedDate" || "Identifier" || "CustomerCompanyName" || "CreatedDate" || "TargetCloseDate", // required
  *   },
  *   LastModifiedDate: { // LastModifiedDate
  *     AfterLastModifiedDate: new Date("TIMESTAMP"),
@@ -67,6 +67,10 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  *   CreatedDate: { // CreatedDateFilter
  *     AfterCreatedDate: new Date("TIMESTAMP"),
  *     BeforeCreatedDate: new Date("TIMESTAMP"),
+ *   },
+ *   TargetCloseDate: { // TargetCloseDateFilter
+ *     AfterTargetCloseDate: "STRING_VALUE",
+ *     BeforeTargetCloseDate: "STRING_VALUE",
  *   },
  * };
  * const command = new ListOpportunitiesCommand(input);

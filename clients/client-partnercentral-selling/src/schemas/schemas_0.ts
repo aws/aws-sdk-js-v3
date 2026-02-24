@@ -41,6 +41,7 @@ const _AR = "AccountReceiver";
 const _AS = "AccountSummary";
 const _ASd = "AddressSummary";
 const _ASw = "AwsSubmission";
+const _ATCD = "AfterTargetCloseDate";
 const _ATM = "AwsTeamMember";
 const _AWS = "AWS";
 const _Ac = "Account";
@@ -52,6 +53,7 @@ const _BCD = "BeforeCreatedDate";
 const _BLMD = "BeforeLastModifiedDate";
 const _BP = "BusinessProblem";
 const _BT = "BusinessTitle";
+const _BTCD = "BeforeTargetCloseDate";
 const _C = "Catalog";
 const _CA = "CreatedAt";
 const _CAu = "CustomerAction";
@@ -396,6 +398,7 @@ const _TABC = "TotalAmountByCategory";
 const _TAa = "TaskArn";
 const _TC = "TargetCompany";
 const _TCD = "TargetCloseDate";
+const _TCDF = "TargetCloseDateFilter";
 const _TCDa = "TargetCompletionDate";
 const _TE = "ThrottlingException";
 const _TI = "TaskIdentifier";
@@ -992,8 +995,8 @@ export var ListEngagementsResponse$: StaticStructureSchema = [3, n0, _LERi,
 ];
 export var ListOpportunitiesRequest$: StaticStructureSchema = [3, n0, _LOR,
   0,
-  [_C, _MR, _NT, _Sor, _LMD, _I, _LCSi, _LCRS, _CCN, _CD],
-  [0, 1, 0, () => OpportunitySort$, () => LastModifiedDate$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => CreatedDateFilter$], 1
+  [_C, _MR, _NT, _Sor, _LMD, _I, _LCSi, _LCRS, _CCN, _CD, _TCD],
+  [0, 1, 0, () => OpportunitySort$, () => LastModifiedDate$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, () => CreatedDateFilter$, () => TargetCloseDateFilter$], 1
 ];
 export var ListOpportunitiesResponse$: StaticStructureSchema = [3, n0, _LORi,
   0,
@@ -1239,6 +1242,11 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
   0,
   [],
   []
+];
+export var TargetCloseDateFilter$: StaticStructureSchema = [3, n0, _TCDF,
+  0,
+  [_ATCD, _BTCD],
+  [0, 0]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,

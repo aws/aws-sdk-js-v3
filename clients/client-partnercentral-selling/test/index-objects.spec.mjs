@@ -289,6 +289,7 @@ import {
   TagResourceCommand,
   TagResourceRequest$,
   TagResourceResponse$,
+  TargetCloseDateFilter$,
   TaskStatus,
   ThrottlingException,
   ThrottlingException$,
@@ -547,6 +548,7 @@ assert(typeof SubmitOpportunityRequest$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
+assert(typeof TargetCloseDateFilter$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateEngagementContextPayload$ === "object");

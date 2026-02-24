@@ -1175,6 +1175,7 @@ export const OpportunitySortName = {
   CUSTOMER_COMPANY_NAME: "CustomerCompanyName",
   IDENTIFIER: "Identifier",
   LAST_MODIFIEDDATE: "LastModifiedDate",
+  TARGET_CLOSE_DATE: "TargetCloseDate",
 } as const;
 /**
  * @public
