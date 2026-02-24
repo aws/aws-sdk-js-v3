@@ -134,6 +134,7 @@ import {
   ListTelemetryRulesOutput$,
   LogDeliveryParameters$,
   LoggingFilter$,
+  LogGroupNameConfiguration$,
   LogsBackupConfiguration$,
   LogsEncryptionConfiguration$,
   LogType,
@@ -379,6 +380,7 @@ assert(typeof ListTelemetryRulesInput$ === "object");
 assert(typeof ListTelemetryRulesOutput$ === "object");
 assert(typeof LogDeliveryParameters$ === "object");
 assert(typeof LoggingFilter$ === "object");
+assert(typeof LogGroupNameConfiguration$ === "object");
 assert(typeof LogsBackupConfiguration$ === "object");
 assert(typeof LogsEncryptionConfiguration$ === "object");
 assert(typeof PipelineOutput$ === "object");

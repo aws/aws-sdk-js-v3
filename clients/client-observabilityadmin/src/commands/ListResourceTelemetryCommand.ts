@@ -69,6 +69,7 @@ export interface ListResourceTelemetryCommandOutput extends ListResourceTelemetr
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       LastUpdateTimeStamp: Number("long"),
+ * //       TelemetrySourceType: "VPC_FLOW_LOGS" || "ROUTE53_RESOLVER_QUERY_LOGS" || "EKS_AUDIT_LOGS" || "EKS_AUTHENTICATOR_LOGS" || "EKS_CONTROLLER_MANAGER_LOGS" || "EKS_SCHEDULER_LOGS" || "EKS_API_LOGS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

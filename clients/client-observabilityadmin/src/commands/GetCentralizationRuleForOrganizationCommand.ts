@@ -81,6 +81,9 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //           Region: "STRING_VALUE", // required
  * //           KmsKeyArn: "STRING_VALUE",
  * //         },
+ * //         LogGroupNameConfiguration: { // LogGroupNameConfiguration
+ * //           LogGroupNamePattern: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //   },

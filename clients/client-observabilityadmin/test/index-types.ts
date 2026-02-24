@@ -209,6 +209,7 @@ export type {
   ListTelemetryRulesOutput,
   LogDeliveryParameters,
   LoggingFilter,
+  LogGroupNameConfiguration,
   LogsBackupConfiguration,
   LogsEncryptionConfiguration,
   PipelineOutput,

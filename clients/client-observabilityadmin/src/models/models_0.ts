@@ -121,6 +121,18 @@ export interface LogsBackupConfiguration {
 }
 
 /**
+ * <p>Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.</p>
+ * @public
+ */
+export interface LogGroupNameConfiguration {
+  /**
+   * <p>The pattern used to generate destination log group names during centralization. The pattern can contain static text and dynamic variables that are replaced with source attributes. If a variable cannot be resolved, it inherits the value from its parent variable in the hierarchy. The pattern must be between 1 and 512 characters.</p> <p>Supported variables:</p> <ul> <li> <p> <b>$\{source.logGroup\}</b> — The original log group name from the source account.</p> </li> <li> <p> <b>$\{source.accountId\}</b> — The AWS account ID where the log originated.</p> </li> <li> <p> <b>$\{source.region\}</b> — The AWS Region where the log originated.</p> </li> <li> <p> <b>$\{source.org.id\}</b> — The AWS Organization ID of the source account.</p> </li> <li> <p> <b>$\{source.org.ouId\}</b> — The organizational unit ID of the source account.</p> </li> <li> <p> <b>$\{source.org.rootId\}</b> — The organization Root ID.</p> </li> <li> <p> <b>$\{source.org.path\}</b> — The organizational path from account to root.</p> </li> </ul>
+   * @public
+   */
+  LogGroupNamePattern: string | undefined;
+}
+
+/**
  * <p>Configuration for encrypting centralized log groups. This configuration is only applied to destination log groups for which the corresponding source log groups are encrypted using Customer Managed KMS Keys.</p>
  * @public
  */
@@ -160,6 +172,12 @@ export interface DestinationLogsConfiguration {
    * @public
    */
   BackupConfiguration?: LogsBackupConfiguration | undefined;
+
+  /**
+   * <p>Configuration that specifies a naming pattern for destination log groups created during centralization. The pattern supports static text and dynamic variables that are replaced with source attributes when log groups are created.</p>
+   * @public
+   */
+  LogGroupNameConfiguration?: LogGroupNameConfiguration | undefined;
 }
 
 /**
@@ -531,7 +549,7 @@ export interface CreateS3TableIntegrationOutput {
 }
 
 /**
- * <p>Defines the configuration for a telemetry pipeline, including how data flows from sources through processors to destinations.</p>
+ * <p>Defines the configuration for a pipeline, including how data flows from sources through processors to destinations. The configuration is specified in YAML format and must include a valid pipeline definition with required source and sink components. This pipeline enables end-to-end telemetry data collection, transformation, and delivery while supporting optional processing steps and extensions for enhanced functionality.</p> <p>The primary pipeline configuration section are:</p> <ul> <li> <p> <b>Source:</b> Defines where log data originates from (S3 buckets, CloudWatch Logs, third-party APIs). Each pipeline must have exactly one source.</p> </li> <li> <p> <b>Processors (optional):</b> Transform, parse, and enrich log data as it flows through the pipeline. Processors are applied sequentially in the order they are defined.</p> </li> <li> <p> <b>Sink:</b> Defines the destination where processed log data is sent. Each pipeline must have exactly one sink.</p> </li> <li> <p> <b>Extensions (optional):</b> Provide additional functionality such as Amazon Web Services Secrets Manager integration for credential management.</p> </li> </ul> <p>For more details on each configuration section see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.html">CloudWatch pipelines User Guide</a>. Additional comprehensive configuration examples can be found in the <a href="https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/API_CreateTelemetryPipeline.html#API_CreateTelemetryPipeline_Examples">CreateTelemetryPipeline API docs</a>.</p>
  * @public
  */
 export interface TelemetryPipelineConfiguration {
@@ -1460,6 +1478,12 @@ export interface TelemetryConfiguration {
    * @public
    */
   LastUpdateTimeStamp?: number | undefined;
+
+  /**
+   * <p> Specifies the type of telemetry source for a resource, such as EKS cluster logs. </p>
+   * @public
+   */
+  TelemetrySourceType?: TelemetrySourceType | undefined;
 }
 
 /**

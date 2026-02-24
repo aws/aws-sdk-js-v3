@@ -117,6 +117,8 @@ const _LDP = "LogDeliveryParameters";
 const _LEC = "LogsEncryptionConfiguration";
 const _LF = "LoggingFilter";
 const _LFo = "LogFormat";
+const _LGNC = "LogGroupNameConfiguration";
+const _LGNP = "LogGroupNamePattern";
 const _LGSC = "LogGroupSelectionCriteria";
 const _LN = "LabelName";
 const _LNC = "LabelNameCondition";
@@ -229,7 +231,8 @@ const _TRI = "TagResourceInput";
 const _TRS = "TelemetryRuleSummaries";
 const _TRSe = "TelemetryRuleSummary";
 const _TRa = "TagResource";
-const _TST = "TelemetrySourceTypes";
+const _TST = "TelemetrySourceType";
+const _TSTe = "TelemetrySourceTypes";
 const _TT = "TelemetryType";
 const _TTP = "TestTelemetryPipeline";
 const _TTPI = "TestTelemetryPipelineInput";
@@ -492,8 +495,8 @@ export var DeleteTelemetryRuleInput$: StaticStructureSchema = [3, n0, _DTRI,
 ];
 export var DestinationLogsConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
-  [_LEC, _BC],
-  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$]
+  [_LEC, _BC, _LGNC],
+  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$]
 ];
 export var ELBLoadBalancerLoggingParameters$: StaticStructureSchema = [3, n0, _ELBLBLP,
   0,
@@ -680,6 +683,11 @@ export var LoggingFilter$: StaticStructureSchema = [3, n0, _LF,
   [_Fil, _DB],
   [() => Filters, 0]
 ];
+export var LogGroupNameConfiguration$: StaticStructureSchema = [3, n0, _LGNC,
+  0,
+  [_LGNP],
+  [0], 1
+];
 export var LogsBackupConfiguration$: StaticStructureSchema = [3, n0, _LBC,
   0,
   [_R, _KKA],
@@ -737,8 +745,8 @@ export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
 ];
 export var TelemetryConfiguration$: StaticStructureSchema = [3, n0, _TCe,
   0,
-  [_AIc, _TCS, _RT, _RIe, _RTes, _LUTS],
-  [0, 128 | 0, 0, 0, 128 | 0, 1]
+  [_AIc, _TCS, _RT, _RIe, _RTes, _LUTS, _TST],
+  [0, 128 | 0, 0, 0, 128 | 0, 1, 0]
 ];
 export var TelemetryDestinationConfiguration$: StaticStructureSchema = [3, n0, _TDC,
   0,
@@ -767,12 +775,12 @@ export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPS,
 ];
 export var TelemetryRule$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_TT, _RT, _TST, _DC, _Sc, _SCe],
+  [_TT, _RT, _TSTe, _DC, _Sc, _SCe],
   [0, 0, 64 | 0, () => TelemetryDestinationConfiguration$, 0, 0], 1
 ];
 export var TelemetryRuleSummary$: StaticStructureSchema = [3, n0, _TRSe,
   0,
-  [_RN, _RAu, _CTS, _LUTS, _RT, _TT, _TST],
+  [_RN, _RAu, _CTS, _LUTS, _RT, _TT, _TSTe],
   [0, 0, 1, 1, 0, 0, 64 | 0]
 ];
 export var TestTelemetryPipelineInput$: StaticStructureSchema = [3, n0, _TTPI,

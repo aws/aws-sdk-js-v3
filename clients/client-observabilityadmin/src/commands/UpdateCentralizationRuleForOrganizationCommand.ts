@@ -69,6 +69,9 @@ export interface UpdateCentralizationRuleForOrganizationCommandOutput extends Up
  *           Region: "STRING_VALUE", // required
  *           KmsKeyArn: "STRING_VALUE",
  *         },
+ *         LogGroupNameConfiguration: { // LogGroupNameConfiguration
+ *           LogGroupNamePattern: "STRING_VALUE", // required
+ *         },
  *       },
  *     },
  *   },
