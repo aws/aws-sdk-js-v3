@@ -118,6 +118,14 @@ const shouldIgnore = (dep) => ignored.includes(dep) || (dep.startsWith("node:") 
           ) {
             continue;
           }
+          if (
+            dependency === "typescript" &&
+            pkgJson.name === "@aws-sdk/util-user-agent-node" &&
+            file.endsWith("src/getTypeScriptUserAgentPair.ts")
+          ) {
+            // We do async import of typescript to check version in application code.
+            continue;
+          }
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
       }
