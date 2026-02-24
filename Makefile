@@ -30,6 +30,7 @@ test-client-codegen:
 	cp -r ./codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen/* ./private/client-test-weather/
 	cat ./private/client-test-weather/package.json
 	yarn update:versions:default
+	git checkout HEAD -- ./private/client-test-weather/CHANGELOG.md ./private/client-test-weather/package.json
 
 # typecheck for test code.
 test-types:
