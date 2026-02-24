@@ -66,13 +66,10 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         delete fromContent[name]["typedoc"];
       }
 
-      if (name === "build" && parentKey === "scripts") {
-        // build CJS after ES because of rollup inliner.
-        fromContent[name] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
-      }
-
-      if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
-        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="${fromContent.name}"`;
+      if (name === "scripts") {
+        // build CJS after types and ES because of rollup inliner.
+        fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
+        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
       }
 
       merged[name] = await mergeManifest(fromContent[name], toContent[name], name);
