@@ -5,10 +5,12 @@ import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest"
 import type { PreviouslyResolved } from "./defaultUserAgent";
 import { createDefaultUserAgentProvider } from "./defaultUserAgent";
 import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";
+import { getTypeScriptUserAgentPair } from "./getTypeScriptUserAgentPair";
 import { isCrtAvailable } from "./is-crt-available";
 
 vi.mock("os");
 vi.mock("./getRuntimeUserAgentPair");
+vi.mock("./getTypeScriptUserAgentPair");
 vi.mock("./is-crt-available");
 
 const validateUserAgent = (userAgent: UserAgent, expected: UserAgent) => {
@@ -25,6 +27,7 @@ describe("createDefaultUserAgentProvider", () => {
     vi.mocked(platform).mockReturnValue("darwin");
     vi.mocked(release).mockReturnValue("19.6.0");
     vi.mocked(getRuntimeUserAgentPair).mockReturnValue(["md/nodejs", "20.0.0"]);
+    vi.mocked(getTypeScriptUserAgentPair).mockResolvedValue(undefined);
     vi.mocked(isCrtAvailable).mockReturnValue(null);
     delete process.env.AWS_EXECUTION_ENV;
   });
@@ -51,6 +54,13 @@ describe("createDefaultUserAgentProvider", () => {
     const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
     const userAgent = await userAgentProvider(mockConfig);
     validateUserAgent(userAgent, basicUserAgent);
+  });
+
+  it("should add typescript version if available", async () => {
+    vi.mocked(getTypeScriptUserAgentPair).mockResolvedValue(["md/tsc", "5.9.3"]);
+    const userAgentProvider = createDefaultUserAgentProvider({ serviceId: "s3", clientVersion: "0.1.0" });
+    const userAgent = await userAgentProvider(mockConfig);
+    expect(userAgent).toContainEqual(["md/tsc", "5.9.3"]);
   });
 
   it("should set crt available key if aws-crt is available in runtime", async () => {
