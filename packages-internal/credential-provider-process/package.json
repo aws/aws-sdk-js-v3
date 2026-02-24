@@ -28,9 +28,9 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.13",
     "@aws-sdk/types": "workspace:^3.973.2",
-    "@smithy/property-provider": "^4.2.9",
-    "@smithy/shared-ini-file-loader": "^4.4.4",
-    "@smithy/types": "^4.12.1",
+    "@smithy/property-provider": "^4.2.10",
+    "@smithy/shared-ini-file-loader": "^4.4.5",
+    "@smithy/types": "^4.13.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
