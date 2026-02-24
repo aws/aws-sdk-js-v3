@@ -1,5 +1,5 @@
-import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
-import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
+import type { ChecksumAlgorithm } from "./constants";
+import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 
 export interface GetChecksumAlgorithmForRequestOptions {
   /**
@@ -26,7 +26,7 @@ export interface GetChecksumAlgorithmForRequestOptions {
 export const getChecksumAlgorithmForRequest = (
   input: any,
   { requestChecksumRequired, requestAlgorithmMember, requestChecksumCalculation }: GetChecksumAlgorithmForRequestOptions
-): ChecksumAlgorithm | undefined => {
+): ChecksumAlgorithm | string | undefined => {
   // The Operation input member that is used to configure request checksum behavior is not set.
   if (!requestAlgorithmMember) {
     // Select an algorithm only if request checksum calculation is supported
@@ -41,13 +41,6 @@ export const getChecksumAlgorithmForRequest = (
   }
 
   const checksumAlgorithm = input[requestAlgorithmMember];
-  // Validate that at least one algorithm from customer preference is supported by the SDK.
-  if (!CLIENT_SUPPORTED_ALGORITHMS.includes(checksumAlgorithm)) {
-    throw new Error(
-      `The checksum algorithm "${checksumAlgorithm}" is not supported by the client.` +
-        ` Select one of ${CLIENT_SUPPORTED_ALGORITHMS}.`
-    );
-  }
 
-  return checksumAlgorithm as ChecksumAlgorithm;
+  return checksumAlgorithm as ChecksumAlgorithm | string;
 };

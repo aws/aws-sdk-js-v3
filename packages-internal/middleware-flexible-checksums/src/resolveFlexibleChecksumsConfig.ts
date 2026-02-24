@@ -1,12 +1,8 @@
-import { Provider } from "@smithy/types";
+import type { ChecksumConstructor, Provider } from "@smithy/types";
 import { normalizeProvider } from "@smithy/util-middleware";
 
-import {
-  DEFAULT_REQUEST_CHECKSUM_CALCULATION,
-  DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
-  RequestChecksumCalculation,
-  ResponseChecksumValidation,
-} from "./constants";
+import type { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import { DEFAULT_REQUEST_CHECKSUM_CALCULATION, DEFAULT_RESPONSE_CHECKSUM_VALIDATION } from "./constants";
 
 /**
  * @public
@@ -38,6 +34,20 @@ export interface FlexibleChecksumsInputConfig {
    * of 8kb or greater.
    */
   requestStreamBufferSize?: number | false;
+
+  /**
+   * Optional implementations of checksum algorithms adhering to the
+   * Checksum interface.
+   */
+  checksumAlgorithms?: {
+    CRC32?: ChecksumConstructor;
+    CRC32C?: ChecksumConstructor;
+    CRC64NVME?: ChecksumConstructor;
+    SHA1?: ChecksumConstructor;
+    SHA256?: ChecksumConstructor;
+  } & {
+    [algorithmId: string]: ChecksumConstructor;
+  };
 }
 
 /**
@@ -47,6 +57,7 @@ export interface FlexibleChecksumsResolvedConfig {
   requestChecksumCalculation: Provider<RequestChecksumCalculation>;
   responseChecksumValidation: Provider<ResponseChecksumValidation>;
   requestStreamBufferSize: number;
+  checksumAlgorithms?: FlexibleChecksumsInputConfig["checksumAlgorithms"];
 }
 
 /**
@@ -60,5 +71,6 @@ export const resolveFlexibleChecksumsConfig = <T>(
     requestChecksumCalculation: normalizeProvider(requestChecksumCalculation ?? DEFAULT_REQUEST_CHECKSUM_CALCULATION),
     responseChecksumValidation: normalizeProvider(responseChecksumValidation ?? DEFAULT_RESPONSE_CHECKSUM_VALIDATION),
     requestStreamBufferSize: Number(requestStreamBufferSize ?? 0),
+    checksumAlgorithms: input.checksumAlgorithms ?? {},
   });
 };

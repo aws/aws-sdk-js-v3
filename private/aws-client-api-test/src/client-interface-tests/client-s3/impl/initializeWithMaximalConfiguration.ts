@@ -1,4 +1,5 @@
-import { S3Client, S3ClientConfigType } from "@aws-sdk/client-s3";
+import type { S3ClientConfigType } from "@aws-sdk/client-s3";
+import { S3Client } from "@aws-sdk/client-s3";
 import { AwsRestXmlProtocol } from "@aws-sdk/core/protocols";
 import { defaultProvider as credentialDefaultProvider, defaultProvider } from "@aws-sdk/credential-provider-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
@@ -22,7 +23,7 @@ import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from 
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
-import { EndpointV2, HttpAuthSchemeProvider } from "@smithy/types";
+import type { EndpointV2, HttpAuthSchemeProvider } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
@@ -144,6 +145,29 @@ export const initializeWithMaximalConfiguration = () => {
     bucketEndpoint: false,
     requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
+    checksumAlgorithms: {
+      SHA256: class {
+        update() {}
+        reset() {}
+        async digest() {
+          return new Uint8Array();
+        }
+      },
+      CRC64NVME: class {
+        update() {}
+        reset() {}
+        async digest() {
+          return new Uint8Array();
+        }
+      },
+      unknown: class {
+        update() {}
+        reset() {}
+        async digest() {
+          return new Uint8Array();
+        }
+      },
+    },
     requestStreamBufferSize: 8 * 1024,
     expectContinueHeader: 8 * 1024 * 1024,
   };

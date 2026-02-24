@@ -55,7 +55,7 @@ describe(getChecksumAlgorithmForRequest.name, () => {
     });
   });
 
-  it("throws error if input[requestAlgorithmMember] if not supported by client", () => {
+  it("does not throw an error if an unknown algo is selected", () => {
     const unsupportedAlgo = "unsupportedAlgo";
     const mockInput = { [mockRequestAlgorithmMember]: unsupportedAlgo };
     const mockOptions = {
@@ -65,10 +65,8 @@ describe(getChecksumAlgorithmForRequest.name, () => {
     };
     expect(() => {
       getChecksumAlgorithmForRequest(mockInput, mockOptions);
-    }).toThrowError(
-      `The checksum algorithm "${unsupportedAlgo}" is not supported by the client.` +
-        ` Select one of ${CLIENT_SUPPORTED_ALGORITHMS}.`
-    );
+    }).not.toThrowError();
+    // throwing an error is deferred to the selectChecksumAlgorithmFunction step.
   });
 
   describe("returns input[requestAlgorithmMember] if supported by client", () => {
