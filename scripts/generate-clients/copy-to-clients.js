@@ -72,7 +72,7 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
       }
 
       if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
-        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="${fromContent.name}"`;
+        fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
       }
 
       merged[name] = await mergeManifest(fromContent[name], toContent[name], name);
