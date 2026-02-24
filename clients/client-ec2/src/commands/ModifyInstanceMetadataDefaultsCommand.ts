@@ -50,6 +50,7 @@ export interface ModifyInstanceMetadataDefaultsCommandOutput extends ModifyInsta
  *   HttpEndpoint: "disabled" || "enabled" || "no-preference",
  *   InstanceMetadataTags: "disabled" || "enabled" || "no-preference",
  *   DryRun: true || false,
+ *   HttpTokensEnforced: "disabled" || "enabled" || "no-preference",
  * };
  * const command = new ModifyInstanceMetadataDefaultsCommand(input);
  * const response = await client.send(command);

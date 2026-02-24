@@ -7401,6 +7401,19 @@ export type PartitionLoadFrequency = (typeof PartitionLoadFrequency)[keyof typeo
  * @public
  * @enum
  */
+export const HttpTokensEnforcedState = {
+  disabled: "disabled",
+  enabled: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type HttpTokensEnforcedState = (typeof HttpTokensEnforcedState)[keyof typeof HttpTokensEnforcedState];
+
+/**
+ * @public
+ * @enum
+ */
 export const EkPubKeyFormat = {
   der: "der",
   tpmt: "tpmt",
@@ -7706,6 +7719,21 @@ export const MetadataDefaultHttpTokensState = {
  */
 export type MetadataDefaultHttpTokensState =
   (typeof MetadataDefaultHttpTokensState)[keyof typeof MetadataDefaultHttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultHttpTokensEnforcedState = {
+  disabled: "disabled",
+  enabled: "enabled",
+  no_preference: "no-preference",
+} as const;
+/**
+ * @public
+ */
+export type DefaultHttpTokensEnforcedState =
+  (typeof DefaultHttpTokensEnforcedState)[keyof typeof DefaultHttpTokensEnforcedState];
 
 /**
  * @public

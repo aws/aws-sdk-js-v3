@@ -10,6 +10,7 @@ import {
   BootModeValues,
   CapacityReservationPreference,
   CurrencyCodeValues,
+  DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
   DefaultInstanceMetadataTagsState,
   DefaultRouteTableAssociationValue,
@@ -27,6 +28,7 @@ import {
   HostnameType,
   HostRecovery,
   HostTenancy,
+  HttpTokensEnforcedState,
   HttpTokensState,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
@@ -735,6 +737,14 @@ export interface InstanceMetadataDefaultsResponse {
    * @public
    */
   ManagedExceptionMessage?: string | undefined;
+
+  /**
+   * <p>Indicates whether to enforce the requirement of IMDSv2 on an instance at the time of
+   *             launch. When enforcement is enabled, the instance can't launch unless IMDSv2
+   *                 (<code>HttpTokens</code>) is set to <code>required</code>.</p>
+   * @public
+   */
+  HttpTokensEnforced?: HttpTokensEnforcedState | undefined;
 }
 
 /**
@@ -7984,6 +7994,16 @@ export interface ModifyInstanceMetadataDefaultsRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enforce the requirement of IMDSv2 on an instance at the time of
+   *             launch. When enforcement is enabled, the instance can't launch unless IMDSv2
+   *                 (<code>HttpTokens</code>) is set to <code>required</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#enforce-imdsv2-at-the-account-level">Enforce IMDSv2 at the account level</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  HttpTokensEnforced?: DefaultHttpTokensEnforcedState | undefined;
 }
 
 /**

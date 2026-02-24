@@ -2936,6 +2936,7 @@ const _HRo = "HostReservation";
 const _HS = "HibernationSupported";
 const _HSa = "HaStatus";
 const _HT = "HttpTokens";
+const _HTE = "HttpTokensEnforced";
 const _HTo = "HostnameType";
 const _HZI = "HostedZoneId";
 const _Hi = "Hibernate";
@@ -6705,6 +6706,7 @@ const _hS = "hostSet";
 const _hSa = "haStatus";
 const _hSi = "hibernationSupported";
 const _hT = "httpTokens";
+const _hTE = "httpTokensEnforced";
 const _hTo = "hostnameType";
 const _hZI = "hostedZoneId";
 const _i = "id";
@@ -18213,14 +18215,15 @@ export var InstanceMarketOptionsRequest$: StaticStructureSchema = [3, n0, _IMORn
 ];
 export var InstanceMetadataDefaultsResponse$: StaticStructureSchema = [3, n0, _IMDR,
   0,
-  [_HT, _HPRHL, _HE, _IMT, _MB, _MEM],
+  [_HT, _HPRHL, _HE, _IMT, _MB, _MEM, _HTE],
   [[0, { [_eQN]: `HttpTokens`
   , [_xN]: _hT }], [1, { [_eQN]: `HttpPutResponseHopLimit`
   , [_xN]: _hPRHL }], [0, { [_eQN]: `HttpEndpoint`
   , [_xN]: _hE }], [0, { [_eQN]: `InstanceMetadataTags`
   , [_xN]: _iMT }], [0, { [_eQN]: `ManagedBy`
   , [_xN]: _mB }], [0, { [_eQN]: `ManagedExceptionMessage`
-  , [_xN]: _mEM }]]
+  , [_xN]: _mEM }], [0, { [_eQN]: `HttpTokensEnforced`
+  , [_xN]: _hTE }]]
 ];
 export var InstanceMetadataOptionsRequest$: StaticStructureSchema = [3, n0, _IMORns,
   0,
@@ -20101,8 +20104,8 @@ export var ModifyInstanceMaintenanceOptionsResult$: StaticStructureSchema = [3, 
 ];
 export var ModifyInstanceMetadataDefaultsRequest$: StaticStructureSchema = [3, n0, _MIMDR,
   0,
-  [_HT, _HPRHL, _HE, _IMT, _DR],
-  [0, 1, 0, 0, 2]
+  [_HT, _HPRHL, _HE, _IMT, _DR, _HTE],
+  [0, 1, 0, 0, 2, 0]
 ];
 export var ModifyInstanceMetadataDefaultsResult$: StaticStructureSchema = [3, n0, _MIMDRo,
   0,

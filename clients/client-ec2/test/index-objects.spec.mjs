@@ -884,6 +884,7 @@ import {
   DataQuery$,
   DataResponse$,
   DeclarativePoliciesReport$,
+  DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
   DefaultInstanceMetadataTagsState,
   DefaultRouteTableAssociationValue,
@@ -2745,6 +2746,7 @@ import {
   HostRecovery,
   HostReservation$,
   HostTenancy,
+  HttpTokensEnforcedState,
   HttpTokensState,
   HypervisorType,
   IamInstanceProfile$,
@@ -8515,6 +8517,7 @@ assert(typeof CopyTagsFromSource === "object");
 assert(typeof CpuManufacturer === "object");
 assert(typeof CurrencyCodeValues === "object");
 assert(typeof DatafeedSubscriptionState === "object");
+assert(typeof DefaultHttpTokensEnforcedState === "object");
 assert(typeof DefaultInstanceMetadataEndpointState === "object");
 assert(typeof DefaultInstanceMetadataTagsState === "object");
 assert(typeof DefaultRouteTableAssociationValue === "object");
@@ -8578,6 +8581,7 @@ assert(typeof HostMaintenance === "object");
 assert(typeof HostnameType === "object");
 assert(typeof HostRecovery === "object");
 assert(typeof HostTenancy === "object");
+assert(typeof HttpTokensEnforcedState === "object");
 assert(typeof HttpTokensState === "object");
 assert(typeof HypervisorType === "object");
 assert(typeof IamInstanceProfileAssociationState === "object");

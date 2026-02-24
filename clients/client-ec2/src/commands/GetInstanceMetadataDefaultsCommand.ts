@@ -52,6 +52,7 @@ export interface GetInstanceMetadataDefaultsCommandOutput extends GetInstanceMet
  * //     InstanceMetadataTags: "disabled" || "enabled",
  * //     ManagedBy: "account" || "declarative-policy",
  * //     ManagedExceptionMessage: "STRING_VALUE",
+ * //     HttpTokensEnforced: "disabled" || "enabled",
  * //   },
  * // };
  *
