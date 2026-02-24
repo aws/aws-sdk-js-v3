@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+# 3.972.1 (2026-02-23)
+### Chores
+* **packages:** use open version range for additional packages ([#7774](https://github.com/aws/aws-sdk-js-v3/issues/7774)) ([3f776c3](https://github.com/aws/aws-sdk-js-v3/commit/3f776c331961a98d88a8f6c3c4f4b51e18c1373c))
+
+
+
 # [3.972.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.971.0...v3.972.0) (2026-01-20)
 
 **Note:** Version bump only for package @aws-sdk/crc64-nvme

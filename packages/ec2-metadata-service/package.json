@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/ec2-metadata-service",
-  "version": "3.996.0",
+  "version": "3.997.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline ec2-metadata-service",
@@ -24,7 +24,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.973.1",
+    "@aws-sdk/types": "workspace:^3.973.2",
     "@smithy/node-config-provider": "^4.3.9",
     "@smithy/node-http-handler": "^4.4.11",
     "@smithy/protocol-http": "^5.3.9",
@@ -33,7 +33,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/credential-providers": "workspace:3.996.0",
+    "@aws-sdk/credential-providers": "workspace:3.997.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

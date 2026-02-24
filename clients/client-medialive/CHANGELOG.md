@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
+
+
+### Features
+
+* **client-medialive:** AWS Elemental MediaLive - Added support for Elemental Inference for Smart Cropping and Clipping features for MediaLive. ([967c712](https://github.com/aws/aws-sdk-js-v3/commit/967c712b99caf0598ffcb345d8b061bcced9dd3b))
+
+
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

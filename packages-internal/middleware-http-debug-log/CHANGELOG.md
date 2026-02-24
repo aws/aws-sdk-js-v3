@@ -7,6 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.5 (2026-02-23)
+### Chores
+* **codegen:** sync for checksum stream backpressure ([#7776](https://github.com/aws/aws-sdk-js-v3/issues/7776)) ([14fc571](https://github.com/aws/aws-sdk-js-v3/commit/14fc57173714be0bca229b541db383219620afd8))
+
+
+
 # 3.972.4 (2026-02-10)
 ### Chores
 * **codegen:** update for compositeErrorRegistries ([#7728](https://github.com/aws/aws-sdk-js-v3/issues/7728)) ([d20ea16](https://github.com/aws/aws-sdk-js-v3/commit/d20ea16f8069517b7dc02c62f39afea11423f061))

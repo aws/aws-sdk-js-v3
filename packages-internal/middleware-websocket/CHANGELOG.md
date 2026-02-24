@@ -10,6 +10,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.8 (2026-02-23)
+### Chores
+* **packages:** use open version range for additional packages ([#7774](https://github.com/aws/aws-sdk-js-v3/issues/7774)) ([3f776c3](https://github.com/aws/aws-sdk-js-v3/commit/3f776c331961a98d88a8f6c3c4f4b51e18c1373c))
+* **codegen:** sync for checksum stream backpressure ([#7776](https://github.com/aws/aws-sdk-js-v3/issues/7776)) ([14fc571](https://github.com/aws/aws-sdk-js-v3/commit/14fc57173714be0bca229b541db383219620afd8))
+
+
+
 # 3.972.7 (2026-02-20)
 ### Tests
 * **clients:** add snapshot tests ([#7755](https://github.com/aws/aws-sdk-js-v3/issues/7755)) ([6a275c2](https://github.com/aws/aws-sdk-js-v3/commit/6a275c28a8614df9c3919bc9ca25bab6e8d55854))

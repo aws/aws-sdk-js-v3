@@ -8,6 +8,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.6 (2026-02-23)
+### Chores
+* **codegen:** sync for checksum stream backpressure ([#7776](https://github.com/aws/aws-sdk-js-v3/issues/7776)) ([14fc571](https://github.com/aws/aws-sdk-js-v3/commit/14fc57173714be0bca229b541db383219620afd8))
+
+
+
 # 3.972.5 (2026-02-18)
 ### Chores
 * bump fast-xml-parser to 5.3.6 ([#7747](https://github.com/aws/aws-sdk-js-v3/issues/7747)) ([74d03fa](https://github.com/aws/aws-sdk-js-v3/commit/74d03faf12a9970b1510406afd30bab58de050e8))

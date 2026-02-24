@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds the APIs (PutAlarmMuteRule, ListAlarmMuteRules, GetAlarmMuteRule and DeleteAlarmMuteRule) to manage a new Cloudwatch resource, AlarmMuteRules. AlarmMuteRules allow customers to temporarily mute alarm notifications during expected downtime periods. ([cc014d1](https://github.com/aws/aws-sdk-js-v3/commit/cc014d1addd225c58492177047a88f045a0520df))
+
+
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

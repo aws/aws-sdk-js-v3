@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+
+# 3.996.1 (2026-02-24)
+### Chores
+* **util-endpoints:** update aws partitions.json ([ba2bbcd](https://github.com/aws/aws-sdk-js-v3/commit/ba2bbcd32ee298aa8770657f8fa5e2608e31c4a3))
+* **packages:** use open version range for additional packages ([#7774](https://github.com/aws/aws-sdk-js-v3/issues/7774)) ([3f776c3](https://github.com/aws/aws-sdk-js-v3/commit/3f776c331961a98d88a8f6c3c4f4b51e18c1373c))
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 **Note:** Version bump only for package @aws-sdk/util-endpoints

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "3.972.3",
+  "version": "3.972.4",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline body-checksum-node",
@@ -23,8 +23,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/chunked-stream-reader-node": "workspace:^3.972.2",
-    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.3",
-    "@aws-sdk/types": "workspace:^3.973.1",
+    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.4",
+    "@aws-sdk/types": "workspace:^3.973.2",
     "@smithy/is-array-buffer": "^4.2.1",
     "@smithy/protocol-http": "^5.3.9",
     "@smithy/types": "^4.12.1",

@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.13 (2026-02-23)
+### Chores
+* **codegen:** sync for checksum stream backpressure ([#7776](https://github.com/aws/aws-sdk-js-v3/issues/7776)) ([14fc571](https://github.com/aws/aws-sdk-js-v3/commit/14fc57173714be0bca229b541db383219620afd8))
+
+
+
 # 3.973.12 (2026-02-22)
 ### Bug Fixes
 * **core:** handle empty error response body in AwsQuery protocol deserialization ([#7766](https://github.com/aws/aws-sdk-js-v3/issues/7766)) ([7d97314](https://github.com/aws/aws-sdk-js-v3/commit/7d973147197feb4321014df284a184d5d5667222))

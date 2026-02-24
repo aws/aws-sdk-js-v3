@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
+
+
+### Features
+
+* **client-cloudwatch:** This release adds the APIs (PutAlarmMuteRule, ListAlarmMuteRules, GetAlarmMuteRule and DeleteAlarmMuteRule) to manage a new Cloudwatch resource, AlarmMuteRules. AlarmMuteRules allow customers to temporarily mute alarm notifications during expected downtime periods. ([cc014d1](https://github.com/aws/aws-sdk-js-v3/commit/cc014d1addd225c58492177047a88f045a0520df))
+* **client-ec2:** Adds httpTokensEnforced property to ModifyInstanceMetadataDefaults API. Set per account or manage organization-wide using declarative policies to prevent IMDSv1-enabled instance launch and block attempts to enable IMDSv1 on existing IMDSv2-only instances. ([89d8e7e](https://github.com/aws/aws-sdk-js-v3/commit/89d8e7e9e19db2aaf746cf533b854befe840ce1e))
+* **client-elasticsearch-service:** Fixed HTTP binding for DescribeDomainAutoTunes API to correctly pass request parameters as query parameters in the HTTP request. ([aff0c5e](https://github.com/aws/aws-sdk-js-v3/commit/aff0c5ebec8ffffa3889395fe7351b73313c232f))
+* **client-elementalinference:** Initial GA launch for AWS Elemental Inference including capabilities of Smart Crop and Live Event Clipping ([592e5a7](https://github.com/aws/aws-sdk-js-v3/commit/592e5a73f9ae6464718b1031108e7634d09c9948))
+* **client-medialive:** AWS Elemental MediaLive - Added support for Elemental Inference for Smart Cropping and Clipping features for MediaLive. ([967c712](https://github.com/aws/aws-sdk-js-v3/commit/967c712b99caf0598ffcb345d8b061bcced9dd3b))
+* **client-observabilityadmin:** Adding a new field in the CreateCentralizationRuleForOrganization, UpdateCentralizationRuleForOrganization API and updating the GetCentralizationRuleForOrganization API response to include the new field ([7025fca](https://github.com/aws/aws-sdk-js-v3/commit/7025fca93eea0864ab9d0ae420073a29a12433e7))
+* **client-opensearch:** Fixed HTTP binding for DescribeDomainAutoTunes API to correctly pass request parameters as query parameters in the HTTP request. ([5aaa8bc](https://github.com/aws/aws-sdk-js-v3/commit/5aaa8bc9e3aa075a67bb33b404de05d738077dbb))
+* **client-partnercentral-selling:** Added support for filtering opportunities by target close date in the ListOpportunities API. You can now filter results to return opportunities with a target close date before or after a specified date, enabling more precise opportunity searches based on expected closure timelines. ([bf80322](https://github.com/aws/aws-sdk-js-v3/commit/bf803227a27ffe4811121fc488d2fc6db14835a3))
+* **clients:** update client endpoints as of 2026-02-24 ([3f22faa](https://github.com/aws/aws-sdk-js-v3/commit/3f22faa1ffdf35c05f21e6106212d176b22f93cf))
+
+
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 

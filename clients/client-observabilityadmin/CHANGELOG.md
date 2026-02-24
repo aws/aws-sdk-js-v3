@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
+
+
+### Features
+
+* **client-observabilityadmin:** Adding a new field in the CreateCentralizationRuleForOrganization, UpdateCentralizationRuleForOrganization API and updating the GetCentralizationRuleForOrganization API response to include the new field ([7025fca](https://github.com/aws/aws-sdk-js-v3/commit/7025fca93eea0864ab9d0ae420073a29a12433e7))
+
+
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

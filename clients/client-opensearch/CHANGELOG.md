@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
+
+
+### Features
+
+* **client-opensearch:** Fixed HTTP binding for DescribeDomainAutoTunes API to correctly pass request parameters as query parameters in the HTTP request. ([5aaa8bc](https://github.com/aws/aws-sdk-js-v3/commit/5aaa8bc9e3aa075a67bb33b404de05d738077dbb))
+
+
+
+
+
 # [3.996.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.995.0...v3.996.0) (2026-02-23)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch
