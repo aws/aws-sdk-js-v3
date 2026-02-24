@@ -1,0 +1,24 @@
+POST https://localhost 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: AmazonML_20141212.Predict
+content-length: 116
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/machine-learning#_.__ m/E,e
+host: localhost
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 915a26252e713ecfa9a3a978aa4a2af7fa727c3b42fdce742d76c2e40be2c94d
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/machinelearning/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "MLModelId": "__MLModelId__",
+  "Record": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "PredictEndpoint": "https://localhost"
+}
