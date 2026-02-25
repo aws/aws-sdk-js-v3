@@ -1,36 +1,37 @@
+import type {
+  CompletedPart,
+  CompleteMultipartUploadCommandInput,
+  CompleteMultipartUploadCommandOutput,
+  CreateMultipartUploadCommandInput,
+  CreateMultipartUploadCommandOutput,
+  PutObjectCommandInput,
+  S3Client,
+  Tag,
+  UploadPartCommandInput,
+} from "@aws-sdk/client-s3";
 import {
   AbortMultipartUploadCommand,
   ChecksumAlgorithm,
-  CompletedPart,
   CompleteMultipartUploadCommand,
-  CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
-  CreateMultipartUploadCommandInput,
-  CreateMultipartUploadCommandOutput,
   PutObjectCommand,
-  PutObjectCommandInput,
   PutObjectTaggingCommand,
-  S3Client,
-  Tag,
   UploadPartCommand,
-  UploadPartCommandInput,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
-import {
-  EndpointParameterInstructionsSupplier,
-  getEndpointFromInstructions,
-  toEndpointV1,
-} from "@smithy/middleware-endpoint";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
+import type { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
+// eslint-disable-next-line n/prefer-node-protocol
 import { EventEmitter } from "events";
 
 import { byteLength } from "./byteLength";
-import { BYTE_LENGTH_SOURCE, byteLengthSource } from "./byteLengthSource";
+import type { BYTE_LENGTH_SOURCE } from "./byteLengthSource";
+import { byteLengthSource } from "./byteLengthSource";
 import { getChunk } from "./chunker";
-import { BodyDataTypes, Options, Progress } from "./types";
+import type { BodyDataTypes, Options, Progress } from "./types";
 
 export interface RawDataPart {
   partNumber: number;

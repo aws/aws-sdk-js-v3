@@ -1,4 +1,4 @@
-import { HandlerExecutionContext } from "@smithy/types";
+import type { HandlerExecutionContext } from "@smithy/types";
 import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { regionRedirectMiddleware } from "./region-redirect-middleware";

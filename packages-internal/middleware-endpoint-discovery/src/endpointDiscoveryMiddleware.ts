@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,
@@ -8,8 +8,8 @@ import {
 } from "@smithy/types";
 
 import { getCacheKey } from "./getCacheKey";
-import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
-import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
+import type { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
+import type { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCache";
 
 export const endpointDiscoveryMiddleware =

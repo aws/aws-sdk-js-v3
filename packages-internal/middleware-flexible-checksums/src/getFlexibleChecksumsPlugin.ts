@@ -1,19 +1,16 @@
-import { Pluggable } from "@smithy/types";
+import type { Pluggable } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
+import type { FlexibleChecksumsInputMiddlewareConfig } from "./flexibleChecksumsInputMiddleware";
 import {
   flexibleChecksumsInputMiddleware,
-  FlexibleChecksumsInputMiddlewareConfig,
   flexibleChecksumsInputMiddlewareOptions,
 } from "./flexibleChecksumsInputMiddleware";
-import {
-  flexibleChecksumsMiddleware,
-  flexibleChecksumsMiddlewareOptions,
-  FlexibleChecksumsRequestMiddlewareConfig,
-} from "./flexibleChecksumsMiddleware";
+import type { FlexibleChecksumsRequestMiddlewareConfig } from "./flexibleChecksumsMiddleware";
+import { flexibleChecksumsMiddleware, flexibleChecksumsMiddlewareOptions } from "./flexibleChecksumsMiddleware";
+import type { FlexibleChecksumsResponseMiddlewareConfig } from "./flexibleChecksumsResponseMiddleware";
 import {
   flexibleChecksumsResponseMiddleware,
-  FlexibleChecksumsResponseMiddlewareConfig,
   flexibleChecksumsResponseMiddlewareOptions,
 } from "./flexibleChecksumsResponseMiddleware";
 

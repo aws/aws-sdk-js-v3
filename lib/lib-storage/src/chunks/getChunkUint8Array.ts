@@ -1,4 +1,4 @@
-import { RawDataPart } from "../Upload";
+import type { RawDataPart } from "../Upload";
 
 export async function* getChunkUint8Array(
   data: Uint8Array,

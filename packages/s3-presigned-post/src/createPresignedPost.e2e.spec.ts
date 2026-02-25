@@ -4,8 +4,8 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as i
 const FormData = require("form-data");
 
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
-import { createReadStream, existsSync, rmSync, writeFileSync } from "fs";
-import { join } from "path";
+import { createReadStream, existsSync, rmSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
 import { createPresignedPost } from "./createPresignedPost";
 

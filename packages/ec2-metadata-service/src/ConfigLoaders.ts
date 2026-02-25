@@ -1,4 +1,4 @@
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
 
 import { Endpoint } from "./Endpoint";
 import { EndpointMode } from "./EndpointMode";

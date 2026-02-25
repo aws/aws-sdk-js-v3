@@ -1,5 +1,5 @@
 import { buildQueryString } from "@smithy/querystring-builder";
-import { HttpRequest } from "@smithy/types";
+import type { HttpRequest } from "@smithy/types";
 
 export function formatUrl(request: Omit<HttpRequest, "headers" | "method">): string {
   const { port, query } = request;

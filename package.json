@@ -86,6 +86,7 @@
     "esbuild": "0.25.0",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-n": "17.24.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-sort-export-all": "1.2.2",

@@ -2,7 +2,7 @@ import type { AwsIdentityProperties } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
-import { FromIniInit } from "./fromIni";
+import type { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
 import { isLoginProfile, resolveLoginCredentials } from "./resolveLoginCredentials";
 import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";

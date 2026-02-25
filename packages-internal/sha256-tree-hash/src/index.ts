@@ -1,4 +1,4 @@
-import { Checksum, ChecksumConstructor, Decoder, HashConstructor, SourceData } from "@smithy/types";
+import type { Checksum, ChecksumConstructor, Decoder, HashConstructor, SourceData } from "@smithy/types";
 
 const MiB = 1048576;
 

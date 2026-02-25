@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { join, normalize } = require("path");
+const { join, normalize } = require("node:path");
 
 const { spawnProcess } = require("../utils/spawn-process");
 const { CODE_GEN_ROOT } = require("../generate-clients/code-gen-dir");

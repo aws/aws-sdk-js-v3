@@ -19,8 +19,9 @@ import type {
 } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { JsonCodec, JsonSettings } from "../json/JsonCodec";
-import { JsonShapeDeserializer } from "../json/JsonShapeDeserializer";
+import type { JsonSettings } from "../json/JsonCodec";
+import { JsonCodec } from "../json/JsonCodec";
+import type { JsonShapeDeserializer } from "../json/JsonShapeDeserializer";
 import { testCases } from "./new-document-type-test-cases.spec";
 
 /* eslint no-var: 0 */

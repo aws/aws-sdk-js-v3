@@ -1,5 +1,5 @@
 import type { UserAgentPair } from "@smithy/types";
-import { versions } from "process";
+import { versions } from "node:process";
 
 /**
  * Returns the runtime name and version as a user agent pair.

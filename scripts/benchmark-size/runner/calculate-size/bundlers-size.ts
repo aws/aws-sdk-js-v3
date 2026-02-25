@@ -3,10 +3,10 @@ import jsonPlugin from "@rollup/plugin-json";
 import resolvePlugin from "@rollup/plugin-node-resolve";
 import { build as esbuild } from "esbuild";
 import fsExtra from "fs-extra";
-import { join } from "path";
+import { join } from "node:path";
+import { promisify } from "node:util";
 import { rollup } from "rollup";
 import { terser as terserPlugin } from "rollup-plugin-terser";
-import { promisify } from "util";
 import webpack from "webpack";
 
 import type { SizeReportContext } from "../index";

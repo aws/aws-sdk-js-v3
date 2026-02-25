@@ -1,5 +1,5 @@
 // @ts-check
-const path = require("path");
+const path = require("node:path");
 const { emptyDirSync } = require("fs-extra");
 const { generateGenericClient } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");

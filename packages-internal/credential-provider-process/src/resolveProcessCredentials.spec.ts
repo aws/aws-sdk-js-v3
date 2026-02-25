@@ -1,6 +1,6 @@
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity } from "@smithy/types";
-import { promisify } from "util";
+import type { AwsCredentialIdentity } from "@smithy/types";
+import { promisify } from "node:util";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";

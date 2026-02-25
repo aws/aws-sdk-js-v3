@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
-import * as crypto from "crypto";
+import * as crypto from "node:crypto";
 import { describe, test as it } from "vitest";
 
 // "server-side-encryption"

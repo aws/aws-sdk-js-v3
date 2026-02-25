@@ -1,4 +1,5 @@
-import { Readable, ReadableOptions } from "stream";
+import type { ReadableOptions } from "node:stream";
+import { Readable } from "node:stream";
 
 /**
  * @internal

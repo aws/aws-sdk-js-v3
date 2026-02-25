@@ -6,7 +6,8 @@ import {
   memoizeIdentityProvider,
   normalizeProvider,
 } from "@smithy/core";
-import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import type { SignatureV4CryptoInit, SignatureV4Init } from "@smithy/signature-v4";
+import { SignatureV4 } from "@smithy/signature-v4";
 import type {
   AuthScheme,
   AwsCredentialIdentity,

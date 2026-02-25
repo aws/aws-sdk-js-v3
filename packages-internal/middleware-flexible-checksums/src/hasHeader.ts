@@ -1,4 +1,4 @@
-import { HeaderBag } from "@smithy/types";
+import type { HeaderBag } from "@smithy/types";
 
 /**
  * Returns true if header is present in headers.

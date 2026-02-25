@@ -1,5 +1,5 @@
 import { CborShapeSerializer } from "@smithy/core/cbor";
-import { StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { JsonShapeSerializer } from "./json/JsonShapeSerializer";

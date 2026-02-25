@@ -1,5 +1,5 @@
 import { normalizeProvider } from "@smithy/core";
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
 import { ProviderError } from "@smithy/property-provider";
 import type { Profile, Provider } from "@smithy/types";
 

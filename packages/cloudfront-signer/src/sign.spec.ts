@@ -1,5 +1,5 @@
 import { parseUrl } from "@smithy/url-parser";
-import { createSign, createVerify } from "crypto";
+import { createSign, createVerify } from "node:crypto";
 import { describe, expect, test as it } from "vitest";
 
 import { getSignedCookies, getSignedUrl } from "./index";

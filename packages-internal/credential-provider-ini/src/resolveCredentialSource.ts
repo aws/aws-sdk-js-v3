@@ -1,7 +1,7 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { AwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { chain, CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentityProvider, Logger } from "@smithy/types";
+import type { AwsCredentialIdentityProvider, Logger } from "@smithy/types";
 
 /**
  * @internal

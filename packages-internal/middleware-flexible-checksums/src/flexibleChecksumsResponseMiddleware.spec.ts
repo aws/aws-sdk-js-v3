@@ -1,12 +1,12 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { DeserializeHandlerArguments } from "@smithy/types";
+import type { DeserializeHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsResponseMiddleware } from "./flexibleChecksumsResponseMiddleware";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
+import type { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";

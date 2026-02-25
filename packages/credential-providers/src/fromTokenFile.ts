@@ -1,4 +1,5 @@
-import { fromTokenFile as _fromTokenFile, FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
+import type { FromTokenFileInit } from "@aws-sdk/credential-provider-web-identity";
+import { fromTokenFile as _fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**

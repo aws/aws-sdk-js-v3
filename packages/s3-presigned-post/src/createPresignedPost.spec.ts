@@ -1,6 +1,6 @@
 import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
 import { createScope, getSigningKey } from "@smithy/signature-v4";
-import { HttpRequest, SourceData } from "@smithy/types";
+import type { HttpRequest, SourceData } from "@smithy/types";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import {

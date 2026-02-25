@@ -1,5 +1,5 @@
 import { setFeature } from "@aws-sdk/core";
-import {
+import type {
   HandlerExecutionContext,
   MetadataBearer,
   RelativeMiddlewareOptions,
@@ -9,7 +9,7 @@ import {
   SerializeMiddleware,
 } from "@smithy/types";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
 /**

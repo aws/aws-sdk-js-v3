@@ -1,6 +1,6 @@
 import { execa as exec } from "execa";
-import { promises as fsPromise } from "fs";
-import { join } from "path";
+import { promises as fsPromise } from "node:fs";
+import { join } from "node:path";
 
 import { PROJECT_ROOT } from "./constants.js";
 import { isFile } from "./utils.js";

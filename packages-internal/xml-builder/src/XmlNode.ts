@@ -1,5 +1,5 @@
 import { escapeAttribute } from "./escape-attribute";
-import { Stringable } from "./stringable";
+import type { Stringable } from "./stringable";
 import { XmlText } from "./XmlText";
 
 /**

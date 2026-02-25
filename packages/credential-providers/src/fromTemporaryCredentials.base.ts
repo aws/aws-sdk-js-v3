@@ -6,7 +6,13 @@ import type {
 } from "@aws-sdk/types";
 import { normalizeProvider } from "@smithy/core";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Logger, Pluggable, RequestHandler } from "@smithy/types";
+import type {
+  AwsCredentialIdentity,
+  AwsCredentialIdentityProvider,
+  Logger,
+  Pluggable,
+  RequestHandler,
+} from "@smithy/types";
 
 export interface FromTemporaryCredentialsOptions extends CredentialProviderOptions {
   params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };

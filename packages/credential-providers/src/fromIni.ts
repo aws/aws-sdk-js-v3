@@ -1,4 +1,5 @@
-import { fromIni as _fromIni, FromIniInit } from "@aws-sdk/credential-provider-ini";
+import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
+import { fromIni as _fromIni } from "@aws-sdk/credential-provider-ini";
 import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**

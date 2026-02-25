@@ -1,8 +1,8 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
-import fs from "fs/promises";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import fs from "node:fs/promises";
 
 import { checkUrl } from "./checkUrl";
 import type { FromHttpOptions } from "./fromHttpTypes";

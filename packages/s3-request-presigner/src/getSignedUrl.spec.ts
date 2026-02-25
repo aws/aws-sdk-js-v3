@@ -10,8 +10,8 @@ vi.mock("@aws-sdk/util-format-url", () => ({
 
 vi.mock("./presigner");
 
-import { HttpRequest } from "@smithy/protocol-http";
-import { RequestPresigningArguments } from "@smithy/types";
+import type { HttpRequest } from "@smithy/protocol-http";
+import type { RequestPresigningArguments } from "@smithy/types";
 
 import { getSignedUrl } from "./getSignedUrl";
 

@@ -19,7 +19,7 @@ import { fromBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { UnionSerde } from "../UnionSerde";
-import { JsonSettings } from "./JsonCodec";
+import type { JsonSettings } from "./JsonCodec";
 import { jsonReviver } from "./jsonReviver";
 import { parseJsonBody } from "./parseJsonBody";
 

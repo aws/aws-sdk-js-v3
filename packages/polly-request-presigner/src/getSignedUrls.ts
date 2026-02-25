@@ -1,4 +1,4 @@
-import { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
+import type { PollyClient, SynthesizeSpeechCommand } from "@aws-sdk/client-polly";
 import type { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { HttpRequest } from "@smithy/protocol-http";

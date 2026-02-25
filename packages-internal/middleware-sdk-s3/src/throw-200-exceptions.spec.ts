@@ -1,6 +1,6 @@
 import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { toUtf8 } from "@smithy/util-utf8";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { throw200ExceptionsMiddleware } from "./throw-200-exceptions";

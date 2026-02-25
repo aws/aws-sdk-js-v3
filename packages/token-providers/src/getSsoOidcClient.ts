@@ -1,6 +1,6 @@
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 
-import { FromSsoInit } from "./fromSso";
+import type { FromSsoInit } from "./fromSso";
 
 /**
  * Returns a SSOOIDC client for the given region.

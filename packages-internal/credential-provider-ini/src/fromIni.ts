@@ -1,10 +1,11 @@
 import type { FromLoginCredentialsInit } from "@aws-sdk/credential-provider-login";
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
-import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { getProfileName, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
-import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
+import type { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
 
 /**

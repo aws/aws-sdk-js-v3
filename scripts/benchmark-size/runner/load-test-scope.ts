@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 import { DEFAULT_TEST_SCOPE } from "./constants.js";
 import { loadWorkspacePackages } from "./workspace.js";

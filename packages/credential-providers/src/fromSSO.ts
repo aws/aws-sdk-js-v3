@@ -1,5 +1,5 @@
 import { fromSSO as _fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests

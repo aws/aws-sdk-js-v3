@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { httpSigningMiddlewareOptions } from "@smithy/core";
-import { HttpRequest, IHttpRequest } from "@smithy/protocol-http";
-import {
+import type { IHttpRequest } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
+import type {
   AuthScheme,
   AwsCredentialIdentity,
   ErrorHandler,

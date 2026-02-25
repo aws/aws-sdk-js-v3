@@ -1,11 +1,12 @@
-import { appendFileSync, mkdirSync, promises as fsPromise, readFileSync, rmdirSync } from "fs";
 import { ensureDirSync, ensureFile } from "fs-extra";
 import hbs from "handlebars";
-import { tmpdir } from "os";
+import { appendFileSync, mkdirSync, promises as fsPromise, readFileSync, rmdirSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import map from "p-map";
-import { join } from "path";
 
-import { generatePackageSizeReport, PackageSizeReportOutput } from "./calculate-size/index.js";
+import type { PackageSizeReportOutput } from "./calculate-size/index.js";
+import { generatePackageSizeReport } from "./calculate-size/index.js";
 import {
   DEFAULT_LIMIT_CONFIG_PATH,
   DEFAULT_RAW_OUTPUT_PATH,
@@ -17,7 +18,8 @@ import { loadPackageContext } from "./load-test-scope.js";
 import { localPublishChangedPackages, spawnLocalRegistry } from "./local-registry.js";
 import { updateReport } from "./reporter/index.js";
 import { sleep, validateRuntime } from "./utils.js";
-import { loadWorkspacePackages, SinceOption, validatePackagesAlreadyBuilt, WorkspacePackage } from "./workspace.js";
+import type { SinceOption, WorkspacePackage } from "./workspace.js";
+import { loadWorkspacePackages, validatePackagesAlreadyBuilt } from "./workspace.js";
 
 export interface SizeReportContext {
   localRegistry: string;

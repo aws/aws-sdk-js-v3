@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const { spawnProcess } = require("./../utils/spawn-process");
 const walk = require("./../utils/walk");
 const rollup = require("rollup");

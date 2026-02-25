@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("node:fs");
 
 /**
  * This enforcement is not here to prevent adoption of newer

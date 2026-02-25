@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 module.exports = async function* walk(dir, ignore = []) {
   for await (const d of await fs.promises.opendir(dir)) {

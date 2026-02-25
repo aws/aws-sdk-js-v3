@@ -1,4 +1,4 @@
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,

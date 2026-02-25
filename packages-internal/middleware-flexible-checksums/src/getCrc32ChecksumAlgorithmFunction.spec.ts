@@ -1,7 +1,7 @@
 import { AwsCrc32 } from "@aws-crypto/crc32";
 import { numToUint8 } from "@aws-crypto/util";
+import * as zlib from "node:zlib";
 import { describe, expect, test as it, vi } from "vitest";
-import * as zlib from "zlib";
 
 import { getCrc32ChecksumAlgorithmFunction } from "./getCrc32ChecksumAlgorithmFunction";
 

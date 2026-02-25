@@ -7,7 +7,7 @@ const {
 } = require("@aws-sdk/client-s3");
 const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 const { ensureDirSync, writeFileSync, readFileSync } = require("fs-extra");
-const { join } = require("path");
+const { join } = require("node:path");
 
 const fsTempFolder = join(__dirname, "..", "..", "tmp");
 

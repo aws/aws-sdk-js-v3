@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { ServiceException } from "@smithy/smithy-client";
+import type { ServiceException } from "@smithy/smithy-client";
 import type {
   AuthScheme,
   AwsCredentialIdentity,
@@ -11,7 +11,7 @@ import type {
 } from "@smithy/types";
 
 import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
-import { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
+import type { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
  * @internal

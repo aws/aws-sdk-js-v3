@@ -1,7 +1,7 @@
 // @ts-ignore
 import { InvokeStore } from "@aws/lambda-invoke-store";
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   BuildHandler,
   BuildHandlerArguments,
   BuildHandlerOutput,

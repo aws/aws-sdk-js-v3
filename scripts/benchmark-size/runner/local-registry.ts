@@ -1,6 +1,6 @@
 import { execa as exec } from "execa";
-import { readdirSync } from "fs";
-import { join } from "path";
+import { readdirSync } from "node:fs";
+import { join } from "node:path";
 
 import { PROJECT_ROOT } from "./constants.js";
 

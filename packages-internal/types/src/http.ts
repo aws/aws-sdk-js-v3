@@ -1,4 +1,4 @@
-import { HttpResponse } from "@smithy/types";
+import type { HttpResponse } from "@smithy/types";
 export {
   Endpoint,
   HeaderBag,

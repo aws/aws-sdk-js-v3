@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const { join } = require("path");
-const { readdirSync, statSync, rmSync, writeFileSync } = require("fs");
+const { join } = require("node:path");
+const { readdirSync, statSync, rmSync, writeFileSync } = require("node:fs");
 const { spawnProcess } = require("../utils/spawn-process");
 const walk = require("../utils/walk");
-const assert = require("assert");
+const assert = require("node:assert");
 const { listFolders } = require("../utils/list-folders");
 
 /**

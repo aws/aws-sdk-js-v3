@@ -1,6 +1,6 @@
-import { Pluggable } from "@smithy/types";
+import type { Pluggable } from "@smithy/types";
 
-import { EventStreamResolvedConfig } from "./eventStreamConfiguration";
+import type { EventStreamResolvedConfig } from "./eventStreamConfiguration";
 import { eventStreamHandlingMiddleware, eventStreamHandlingMiddlewareOptions } from "./eventStreamHandlingMiddleware";
 import { eventStreamHeaderMiddleware, eventStreamHeaderMiddlewareOptions } from "./eventStreamHeaderMiddleware";
 

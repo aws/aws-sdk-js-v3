@@ -1,4 +1,4 @@
-import { Pluggable } from "@smithy/types";
+import type { Pluggable } from "@smithy/types";
 
 import { recursionDetectionMiddlewareOptions } from "./configuration";
 import { recursionDetectionMiddleware } from "./recursionDetectionMiddleware";

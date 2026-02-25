@@ -4,7 +4,8 @@ import type {
   RuntimeConfigAwsCredentialIdentityProvider,
 } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { getProfileName, loadSsoSessionData, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import type { SourceProfileInit } from "@smithy/shared-ini-file-loader";
+import { getProfileName, loadSsoSessionData, parseKnownFiles } from "@smithy/shared-ini-file-loader";
 
 import { isSsoProfile } from "./isSsoProfile";
 import type { SSOClient, SSOClientConfig } from "./loadSso";

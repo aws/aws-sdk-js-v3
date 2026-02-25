@@ -1,4 +1,4 @@
-import { PassThrough } from "stream";
+import { PassThrough } from "node:stream";
 import { describe, expect, test as it, vi } from "vitest";
 
 import { streamReader } from "./index";

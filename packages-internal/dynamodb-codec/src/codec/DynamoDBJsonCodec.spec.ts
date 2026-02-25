@@ -1,5 +1,5 @@
 import { JsonCodec } from "@aws-sdk/core/protocols";
-import { StaticListSchema, StaticMapSchema, StaticStructureSchema } from "@smithy/types";
+import type { StaticListSchema, StaticMapSchema, StaticStructureSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { DynamoDBJsonCodec } from "./DynamoDBJsonCodec";

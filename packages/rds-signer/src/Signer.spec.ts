@@ -5,7 +5,8 @@ import { HttpRequest } from "@smithy/protocol-http";
 import { SignatureV4 } from "@smithy/signature-v4";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { Signer, SignerConfig } from "./Signer";
+import type { SignerConfig } from "./Signer";
+import { Signer } from "./Signer";
 
 const mockPresign = vi.fn();
 vi.mock("@smithy/signature-v4", function () {

@@ -1,11 +1,13 @@
+// eslint-disable-next-line n/prefer-node-protocol
 import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
+// eslint-disable-next-line n/prefer-node-protocol
 import { Readable } from "stream";
 
 import { getChunkStream } from "./chunks/getChunkStream";
 import { getChunkUint8Array } from "./chunks/getChunkUint8Array";
 import { getDataReadable } from "./chunks/getDataReadable";
 import { getDataReadableStream } from "./chunks/getDataReadableStream";
-import { BodyDataTypes } from "./types";
+import type { BodyDataTypes } from "./types";
 import type { RawDataPart } from "./Upload";
 
 export const getChunk = (data: BodyDataTypes, partSize: number): AsyncGenerator<RawDataPart, void, undefined> => {

@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { BuildHandlerArguments, RequestHandler } from "@smithy/types";
+import type { BuildHandlerArguments, RequestHandler } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { websocketPortMiddleware } from "./middleware-port";

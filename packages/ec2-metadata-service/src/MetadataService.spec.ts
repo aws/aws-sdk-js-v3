@@ -1,5 +1,5 @@
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { MetadataService } from "./MetadataService";

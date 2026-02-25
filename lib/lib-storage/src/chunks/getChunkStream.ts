@@ -1,6 +1,7 @@
+// eslint-disable-next-line n/prefer-node-protocol
 import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
 
-import { RawDataPart } from "../Upload";
+import type { RawDataPart } from "../Upload";
 
 interface Buffers {
   chunks: Uint8Array[];

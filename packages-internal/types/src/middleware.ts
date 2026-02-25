@@ -1,6 +1,6 @@
-import { HandlerExecutionContext } from "@smithy/types";
+import type { HandlerExecutionContext } from "@smithy/types";
 
-import { AwsSdkFeatures } from "./feature-ids";
+import type { AwsSdkFeatures } from "./feature-ids";
 
 export {
   AbsoluteLocation,

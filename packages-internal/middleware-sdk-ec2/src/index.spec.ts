@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { EndpointV2 } from "@smithy/types";
+import type { EndpointV2 } from "@smithy/types";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentials, MockSha256, region } from "./fixture.spec";

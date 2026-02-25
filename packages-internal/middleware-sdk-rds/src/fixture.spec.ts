@@ -1,4 +1,4 @@
-import { SourceData } from "@smithy/types";
+import type { SourceData } from "@smithy/types";
 import { describe, test as it } from "vitest";
 
 export class MockSha256 {

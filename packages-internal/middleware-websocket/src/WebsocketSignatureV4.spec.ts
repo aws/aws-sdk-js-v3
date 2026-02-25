@@ -1,6 +1,6 @@
 // TODO: remove this file as duplicated to @aws-sdk/middleware-websocket
 import { HttpRequest } from "@smithy/protocol-http";
-import { RequestPresigningArguments, RequestSigningArguments } from "@smithy/types";
+import type { RequestPresigningArguments, RequestSigningArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";

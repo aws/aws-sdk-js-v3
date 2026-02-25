@@ -1,4 +1,4 @@
-import { lstatSync, ReadStream } from "fs";
+import { lstatSync, ReadStream } from "node:fs";
 
 import { runtimeConfigShared as shared } from "./runtimeConfig.shared";
 

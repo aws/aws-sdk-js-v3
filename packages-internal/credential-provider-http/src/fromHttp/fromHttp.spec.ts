@@ -1,5 +1,5 @@
 import { HttpResponse } from "@smithy/protocol-http";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { afterAll, describe, expect, test as it, vi } from "vitest";
 
 import { fromHttp } from "./fromHttp";

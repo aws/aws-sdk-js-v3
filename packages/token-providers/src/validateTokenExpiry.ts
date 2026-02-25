@@ -1,4 +1,4 @@
-import { TokenIdentity } from "@aws-sdk/types";
+import type { TokenIdentity } from "@aws-sdk/types";
 import { TokenProviderError } from "@smithy/property-provider";
 
 import { REFRESH_MESSAGE } from "./constants";

@@ -1,6 +1,6 @@
 import { getSSOTokenFilepath } from "@smithy/shared-ini-file-loader";
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
-import { promises } from "fs";
+import { promises } from "node:fs";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";

@@ -1,4 +1,4 @@
-import { ChecksumConstructor, Decoder, HashConstructor, HttpRequest, Pluggable } from "@smithy/types";
+import type { ChecksumConstructor, Decoder, HashConstructor, HttpRequest, Pluggable } from "@smithy/types";
 
 import { accountIdDefaultMiddleware, accountIdDefaultMiddlewareOptions } from "./account-id-default";
 import { addChecksumHeadersMiddleware, addChecksumHeadersMiddlewareOptions } from "./add-checksum-headers";

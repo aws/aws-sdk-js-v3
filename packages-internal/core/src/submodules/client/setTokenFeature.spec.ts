@@ -1,4 +1,4 @@
-import { AttributedTokenIdentity } from "@aws-sdk/types";
+import type { AttributedTokenIdentity } from "@aws-sdk/types";
 import { describe, expect, test as it } from "vitest";
 
 import { setTokenFeature } from "./setTokenFeature";
