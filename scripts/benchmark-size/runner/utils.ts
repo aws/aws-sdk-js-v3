@@ -1,5 +1,5 @@
 import { execa as exec } from "execa";
-import { existsSync, promises as fsPromise } from "fs";
+import { existsSync, promises as fsPromise } from "node:fs";
 
 import { PROJECT_ROOT } from "./constants.js";
 

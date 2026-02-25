@@ -5,7 +5,7 @@
 
 // @ts-check
 
-const { spawn, execSync } = require("child_process");
+const { spawn, execSync } = require("node:child_process");
 const pipeStdIo = { stdio: [process.stdin, process.stdout, process.stderr] };
 
 execSync("rm -rf verdaccio/storage");

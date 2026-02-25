@@ -1,6 +1,6 @@
 // @ts-check
 const yargs = require("yargs");
-const path = require("path");
+const path = require("node:path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");

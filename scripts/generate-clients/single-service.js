@@ -1,5 +1,5 @@
 const yargs = require("yargs");
-const { normalize, join } = require("path");
+const { normalize, join } = require("node:path");
 const { generateClient } = require("./code-gen");
 const { copyToClients } = require("./copy-to-clients");
 

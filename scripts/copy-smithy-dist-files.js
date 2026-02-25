@@ -3,8 +3,8 @@
  * from a co-located smithy-typescript repo folder to this workspace.
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 const aws = path.join(__dirname, "..", "..");
 

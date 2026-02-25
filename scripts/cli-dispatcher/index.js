@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const path = require("path");
+const path = require("node:path");
 
 const findFolders = require("./lib/findFolders");
 const findScripts = require("./lib/findScripts");

@@ -4,8 +4,8 @@
  *
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 const Inliner = require("./Inliner");
 const { listFolders } = require("../utils/list-folders");
 

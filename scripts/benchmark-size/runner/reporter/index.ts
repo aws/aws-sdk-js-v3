@@ -1,10 +1,10 @@
 import esbuild from "esbuild";
-import { existsSync, lstatSync, readFileSync, writeFileSync } from "fs";
 import { ensureFileSync } from "fs-extra";
+import { existsSync, lstatSync, readFileSync, writeFileSync } from "node:fs";
 import * as rollup from "rollup";
 import webpack from "webpack";
 
-import { PackageSizeReportOutput } from "../calculate-size";
+import type { PackageSizeReportOutput } from "../calculate-size";
 import { prettifySize } from "../utils.js";
 import { LimitValidator } from "./limit.js";
 

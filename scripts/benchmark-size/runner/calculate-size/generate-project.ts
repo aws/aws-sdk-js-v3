@@ -1,9 +1,9 @@
 import { execa as exec } from "execa";
-import { promises as fsPromise } from "fs";
-import { join } from "path";
+import { promises as fsPromise } from "node:fs";
+import { join } from "node:path";
 import prettier from "prettier";
 
-import { PackageContext } from "../load-test-scope";
+import type { PackageContext } from "../load-test-scope";
 import type { PackageSizeReportOptions } from "./index";
 
 export const generateProject = async (projectDir: string, options: PackageSizeReportOptions) => {

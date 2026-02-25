@@ -21,7 +21,7 @@ const clients = [
   },
 ];
 
-const { join, relative, normalize } = require("path");
+const { join, relative, normalize } = require("node:path");
 const { emptyDirSync, rmSync, copyFileSync, copySync, rmdirSync, writeFileSync, readFileSync } = require("fs-extra");
 const { copyToClients } = require("../copy-to-clients");
 const { spawnProcess } = require("../../utils/spawn-process");

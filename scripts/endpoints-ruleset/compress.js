@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node:path");
 
 const RemoveWhitespace = require("./compression-algorithms/RemoveWhitespace");
 const PatternDetection = require("./compression-algorithms/PatternDetection");

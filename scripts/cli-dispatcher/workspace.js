@@ -17,7 +17,7 @@
  * that make use of the packages built in the root monorepo workspace.
  */
 
-const path = require("path");
+const path = require("node:path");
 const walk = require("../utils/walk");
 
 const matcher = require("./lib/matcher");

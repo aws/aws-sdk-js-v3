@@ -1,8 +1,8 @@
 // @ts-check
 const yargs = require("yargs");
 
-const { promises: fsPromises } = require("fs");
-const { join, resolve } = require("path");
+const { promises: fsPromises } = require("node:fs");
+const { join, resolve } = require("node:path");
 
 const { models, protocols } = yargs(process.argv.slice(2))
   .alias("m", "models")

@@ -1,6 +1,6 @@
-const { readdirSync, lstatSync } = require("fs");
+const { readdirSync, lstatSync } = require("node:fs");
 const Glob = require("glob");
-const { join } = require("path");
+const { join } = require("node:path");
 
 /**
  * @returns {string[]}

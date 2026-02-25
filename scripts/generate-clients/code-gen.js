@@ -1,5 +1,5 @@
 // @ts-check
-const { basename, join, relative, normalize } = require("path");
+const { basename, join, relative, normalize } = require("node:path");
 const { copySync, emptyDirSync, rmSync, copyFileSync } = require("fs-extra");
 const { spawnProcess } = require("../utils/spawn-process");
 const {

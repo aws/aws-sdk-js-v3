@@ -1,9 +1,9 @@
 // @ts-check
-const { join, basename } = require("path");
+const { join, basename } = require("node:path");
 const { copySync, removeSync } = require("fs-extra");
 const prettier = require("prettier");
 const semver = require("semver");
-const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
+const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("node:fs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalOverwritablePaths = {

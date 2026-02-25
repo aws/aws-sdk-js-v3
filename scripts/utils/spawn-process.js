@@ -1,5 +1,5 @@
 // @ts-check
-const { spawn } = require("child_process");
+const { spawn } = require("node:child_process");
 
 const spawnProcess = async (command, args = [], options = {}) => {
   const childProcess = spawn(command, args, options);

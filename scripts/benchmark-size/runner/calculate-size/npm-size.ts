@@ -1,5 +1,5 @@
-import { lstatSync, readdirSync } from "fs";
-import { join } from "path";
+import { lstatSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 
 export interface NpmSize {
   publishSize: number;

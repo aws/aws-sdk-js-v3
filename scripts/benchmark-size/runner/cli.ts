@@ -6,7 +6,8 @@ import {
   DEFAULT_REPORT_PATH,
   DEFAULT_TEST_SCOPE,
 } from "./constants.js";
-import { sizeReport, SizeReportOptions } from "./index.js";
+import type { SizeReportOptions } from "./index.js";
+import { sizeReport } from "./index.js";
 
 const args = yargs(process.argv.slice(2))
   .option("since", {

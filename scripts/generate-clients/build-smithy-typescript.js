@@ -1,5 +1,5 @@
 // @ts-check
-const { access, rm } = require("fs/promises");
+const { access, rm } = require("node:fs/promises");
 const { spawnProcess } = require("../utils/spawn-process");
 
 const buildSmithyTypeScript = async (repo, commit) => {

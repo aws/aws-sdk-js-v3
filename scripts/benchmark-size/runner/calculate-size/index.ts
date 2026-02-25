@@ -1,8 +1,8 @@
-import { promises as fsPromise } from "fs";
-import { join } from "path";
+import { promises as fsPromise } from "node:fs";
+import { join } from "node:path";
 
-import { SizeReportContext } from "../index";
-import { PackageContext } from "../load-test-scope";
+import type { SizeReportContext } from "../index";
+import type { PackageContext } from "../load-test-scope";
 import { getEsbuildSize, getRollupSize, getWebpackSize } from "./bundlers-size.js";
 import { generateProject } from "./generate-project.js";
 import { calculateNpmSize } from "./npm-size.js";

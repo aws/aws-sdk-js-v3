@@ -68,6 +68,7 @@ module.exports = {
       files: ["**/*.js"],
       rules: {
         "tsdoc/syntax": "off",
+        "n/prefer-node-protocol": "error",
       },
     },
   ],
