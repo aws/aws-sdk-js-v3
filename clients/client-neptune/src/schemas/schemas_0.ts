@@ -1301,8 +1301,8 @@ export var CreateEventSubscriptionResult$: StaticStructureSchema = [3, n0, _CESR
 ];
 export var CreateGlobalClusterMessage$: StaticStructureSchema = [3, n0, _CGCM,
   0,
-  [_GCI, _SDBCI, _En, _EV, _DP, _SE],
-  [0, 0, 0, 0, 2, 2], 1
+  [_GCI, _SDBCI, _En, _EV, _DP, _DN, _T, _SE],
+  [0, 0, 0, 0, 2, 0, [() => TagList, 0], 2], 1
 ];
 export var CreateGlobalClusterResult$: StaticStructureSchema = [3, n0, _CGCR,
   0,
@@ -1726,8 +1726,8 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
 ];
 export var GlobalCluster$: StaticStructureSchema = [3, n0, _GC,
   0,
-  [_GCI, _GCRI, _GCA, _S, _En, _EV, _SE, _DP, _GCM, _FS],
-  [0, 0, 0, 0, 0, 0, 2, 2, [() => GlobalClusterMemberList, 0], () => FailoverState$]
+  [_GCI, _GCRI, _GCA, _S, _En, _EV, _DN, _SE, _DP, _GCM, _FS, _TL],
+  [0, 0, 0, 0, 0, 0, 0, 2, 2, [() => GlobalClusterMemberList, 0], () => FailoverState$, [() => TagList, 0]]
 ];
 export var GlobalClusterMember$: StaticStructureSchema = [3, n0, _GCMl,
   0,

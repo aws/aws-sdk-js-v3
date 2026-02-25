@@ -50,6 +50,13 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   DeletionProtection: true || false,
+ *   DatabaseName: "STRING_VALUE",
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  *   StorageEncrypted: true || false,
  * };
  * const command = new CreateGlobalClusterCommand(input);
@@ -62,6 +69,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * //     Status: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
  * //     StorageEncrypted: true || false,
  * //     DeletionProtection: true || false,
  * //     GlobalClusterMembers: [ // GlobalClusterMemberList
@@ -79,6 +87,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

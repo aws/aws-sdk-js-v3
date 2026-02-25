@@ -3286,6 +3286,19 @@ export interface CreateGlobalClusterMessage {
   DeletionProtection?: boolean | undefined;
 
   /**
+   * <p>The name for the new global database (up to 64 alpha-numeric
+   *       characters.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>Tags to assign to the global cluster.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
    * <p>The storage encryption setting for the new global database
    *       cluster.</p>
    * @public
@@ -3435,6 +3448,12 @@ export interface GlobalCluster {
   EngineVersion?: string | undefined;
 
   /**
+   * <p>The default database name within the new global database cluster.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
    * <p>The storage encryption setting for the global database.</p>
    * @public
    */
@@ -3459,6 +3478,12 @@ export interface GlobalCluster {
    * @public
    */
   FailoverState?: FailoverState | undefined;
+
+  /**
+   * <p>A list of global cluster tags.</p>
+   * @public
+   */
+  TagList?: Tag[] | undefined;
 }
 
 /**

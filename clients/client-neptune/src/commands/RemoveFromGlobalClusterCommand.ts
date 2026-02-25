@@ -53,6 +53,7 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * //     Status: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
+ * //     DatabaseName: "STRING_VALUE",
  * //     StorageEncrypted: true || false,
  * //     DeletionProtection: true || false,
  * //     GlobalClusterMembers: [ // GlobalClusterMemberList
@@ -70,6 +71,12 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
