@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
+
+
+### Features
+
+* **client-neptune:** Neptune global clusters now supports tags ([e3c73a0](https://github.com/aws/aws-sdk-js-v3/commit/e3c73a0f634d8d9282381a8c2b79c817bf0c7d2c))
+
+
+
+
+
 # [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune

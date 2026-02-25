@@ -14,6 +14,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.0 (2026-02-24)
+### Features
+* **middleware-flexible-checksums:** allow custom checksum algorithm implementations ([#7746](https://github.com/aws/aws-sdk-js-v3/issues/7746)) ([34e99cd](https://github.com/aws/aws-sdk-js-v3/commit/34e99cdda62d79edeb7ca353d8ceabc60c68abda))
+### Chores
+* **codegen:** sync for checksum algorithm extensions ([#7781](https://github.com/aws/aws-sdk-js-v3/issues/7781)) ([ae4f994](https://github.com/aws/aws-sdk-js-v3/commit/ae4f994f679b8814d2ce6ba121fd1ffa38df9a99))
+
+
+
 # 3.972.11 (2026-02-23)
 ### Chores
 * **packages:** use open version range for additional packages ([#7774](https://github.com/aws/aws-sdk-js-v3/issues/7774)) ([3f776c3](https://github.com/aws/aws-sdk-js-v3/commit/3f776c331961a98d88a8f6c3c4f4b51e18c1373c))

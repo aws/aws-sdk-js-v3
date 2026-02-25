@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-web-identity",
-  "version": "3.972.11",
+  "version": "3.972.12",
   "description": "AWS credential provider that calls STS assumeRole for temporary AWS credentials",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -34,9 +34,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.13",
-    "@aws-sdk/nested-clients": "workspace:^3.996.1",
-    "@aws-sdk/types": "workspace:^3.973.2",
+    "@aws-sdk/core": "workspace:^3.973.14",
+    "@aws-sdk/nested-clients": "workspace:^3.996.2",
+    "@aws-sdk/types": "workspace:^3.973.3",
     "@smithy/property-provider": "^4.2.10",
     "@smithy/shared-ini-file-loader": "^4.4.5",
     "@smithy/types": "^4.13.0",

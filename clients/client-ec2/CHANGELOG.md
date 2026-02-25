@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
+
+
+### Features
+
+* **client-ec2:** Add support for EC2 Capacity Blocks in Local Zones. ([7029db2](https://github.com/aws/aws-sdk-js-v3/commit/7029db2c62ee83aa511910fdfeb85ebfc9a481a1))
+
+
+
+
+
 # [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
 
 

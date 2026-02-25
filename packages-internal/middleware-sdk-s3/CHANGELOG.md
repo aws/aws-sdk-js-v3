@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.14 (2026-02-24)
+### Chores
+* **codegen:** sync for checksum algorithm extensions ([#7781](https://github.com/aws/aws-sdk-js-v3/issues/7781)) ([ae4f994](https://github.com/aws/aws-sdk-js-v3/commit/ae4f994f679b8814d2ce6ba121fd1ffa38df9a99))
+
+
+
 # 3.972.13 (2026-02-23)
 ### Chores
 * **codegen:** sync for checksum stream backpressure ([#7776](https://github.com/aws/aws-sdk-js-v3/issues/7776)) ([14fc571](https://github.com/aws/aws-sdk-js-v3/commit/14fc57173714be0bca229b541db383219620afd8))

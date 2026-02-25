@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
+
+
+### Features
+
+* **middleware-flexible-checksums:** allow custom checksum algorithm implementations ([#7746](https://github.com/aws/aws-sdk-js-v3/issues/7746)) ([34e99cd](https://github.com/aws/aws-sdk-js-v3/commit/34e99cdda62d79edeb7ca353d8ceabc60c68abda))
+
+
+
+
+
 # [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-api-test

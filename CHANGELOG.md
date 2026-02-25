@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
+
+
+### Features
+
+* **client-ec2:** Add support for EC2 Capacity Blocks in Local Zones. ([7029db2](https://github.com/aws/aws-sdk-js-v3/commit/7029db2c62ee83aa511910fdfeb85ebfc9a481a1))
+* **client-ecr:** Update repository name regex to comply with OCI Distribution Specification ([fa176d3](https://github.com/aws/aws-sdk-js-v3/commit/fa176d37b82665781e50135b41cc04fd9874cc71))
+* **client-neptune:** Neptune global clusters now supports tags ([e3c73a0](https://github.com/aws/aws-sdk-js-v3/commit/e3c73a0f634d8d9282381a8c2b79c817bf0c7d2c))
+* **client-wafv2:** AWS WAF now supports GetTopPathStatisticsByTraffic that provides aggregated statistics on the top URI paths accessed by bot traffic. Use this operation to see which paths receive the most bot traffic, identify the specific bots accessing them, and filter by category, organization, or bot name. ([68165e5](https://github.com/aws/aws-sdk-js-v3/commit/68165e555880efee2b1cfeedef75491c434e6825))
+* **clients:** update client endpoints as of 2026-02-25 ([9bb005e](https://github.com/aws/aws-sdk-js-v3/commit/9bb005efed3c379c001a912a46b82c709cb668a8))
+* **middleware-flexible-checksums:** allow custom checksum algorithm implementations ([#7746](https://github.com/aws/aws-sdk-js-v3/issues/7746)) ([34e99cd](https://github.com/aws/aws-sdk-js-v3/commit/34e99cdda62d79edeb7ca353d8ceabc60c68abda))
+
+
+
+
+
 # [3.997.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.996.0...v3.997.0) (2026-02-24)
 
 
