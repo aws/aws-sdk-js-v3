@@ -6213,8 +6213,8 @@ export interface ServiceJobAttemptDetail {
  */
 export interface ServiceJobCapacityUsageDetail {
   /**
-   * <p>The unit of measure for the service job capacity usage. For service jobs, this is
-   *                 <code>NUM_INSTANCES</code>.</p>
+   * <p>The unit of measure for the service job capacity usage. For service jobs, this is the
+   *                 instance type.</p>
    * @public
    */
   capacityUnit?: string | undefined;
@@ -6476,7 +6476,7 @@ export interface FrontOfQueueDetail {
 export interface FairshareCapacityUsage {
   /**
    * <p>The unit of measure for the capacity usage. For compute jobs, this is
-   *                 <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS. For service jobs, this is <code>NUM_INSTANCES</code>.</p>
+   *                 <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS. For service jobs, this is the instance type.</p>
    * @public
    */
   capacityUnit?: string | undefined;
@@ -6538,7 +6538,7 @@ export interface FairshareUtilizationDetail {
 export interface QueueSnapshotCapacityUsage {
   /**
    * <p>The unit of measure for the capacity usage. For compute jobs, this is
-   *             <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS. For service jobs, this is <code>NUM_INSTANCES</code>.</p>
+   *             <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS. For service jobs, this is the instance type.</p>
    * @public
    */
   capacityUnit?: string | undefined;
@@ -7405,8 +7405,8 @@ export interface ListServiceJobsRequest {
  */
 export interface ServiceJobCapacityUsageSummary {
   /**
-   * <p>The unit of measure for the service job capacity usage. For service jobs, this is
-   *                 <code>NUM_INSTANCES</code>.</p>
+   * <p>The unit of measure for the service job capacity usage. For service jobs, this is the
+   *                 instance type.</p>
    * @public
    */
   capacityUnit?: string | undefined;
