@@ -1,0 +1,32 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 543
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 45e7fea3ae341bbf0304a18dcc4423f8a85133fd4446c58c5edc9abdafa1811e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateDBClusterEndpoint&
+Version=2014-10-31&
+DBClusterIdentifier=__DBClusterIdentifier__&
+DBClusterEndpointIdentifier=__DBClusterEndpointIdentifier__&
+EndpointType=__EndpointType__&
+StaticMembers.member.1=__member__&
+StaticMembers.member.2=__member__&
+StaticMembers.member.3=__member__&
+ExcludedMembers.member.1=__member__&
+ExcludedMembers.member.2=__member__&
+ExcludedMembers.member.3=__member__&
+Tags.Tag.1.Key=__Key__&
+Tags.Tag.1.Value=__Value__&
+Tags.Tag.2.Key=__Key__&
+Tags.Tag.2.Value=__Value__&
+Tags.Tag.3.Key=__Key__&
+Tags.Tag.3.Value=__Value__

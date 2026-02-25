@@ -1,0 +1,59 @@
+POST https://dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDB_20120810.ExecuteStatement
+content-length: 373
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb#_.__ m/E,P,e
+host: dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 75106476d2ed5d6d533587ba25c1fa1e5051bf0c6f8ecfc6494c3142fc6045a8
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Statement": "__Statement__",
+  "Parameters": [
+    {
+      "M": {
+        "key1": {
+          "NULL": false
+        },
+        "key2": {
+          "S": "__S__"
+        }
+      }
+    },
+    {
+      "L": [
+        {
+          "M": {
+            "key1": {},
+            "key2": {}
+          }
+        },
+        {
+          "L": [
+            {},
+            {},
+            {}
+          ]
+        },
+        {
+          "NULL": false
+        }
+      ]
+    },
+    {
+      "NULL": false
+    }
+  ],
+  "ConsistentRead": false,
+  "NextToken": "__NextToken__",
+  "ReturnConsumedCapacity": "__ReturnConsumedCapacity__",
+  "Limit": 0,
+  "ReturnValuesOnConditionCheckFailure": "__ReturnValuesOnConditionCheckFailure__"
+}

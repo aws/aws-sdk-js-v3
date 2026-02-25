@@ -1,0 +1,60 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.StopInferenceExperiment
+content-length: 801
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 46c37a546e12b57f24980eaef4cbd056acbdfecc544de3fcd79211f6a55cbacd
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Name": "__Name__",
+  "ModelVariantActions": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "DesiredModelVariants": [
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    }
+  ],
+  "DesiredState": "__DesiredState__",
+  "Reason": "__Reason__"
+}

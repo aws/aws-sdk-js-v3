@@ -1,0 +1,32 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 975
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: dd3ab44b58086bd6f77c83dceecf9678d389b4d1586be1cf08c7eb7a4e3c6aaf
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateMacSystemIntegrityProtectionModificationTask&
+Version=2016-11-15&
+InstanceId=__InstanceId__&
+MacSystemIntegrityProtectionStatus=__MacSystemIntegrityProtectionStatus__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false&
+MacCredentials=__MacCredentials__&
+MacSystemIntegrityProtectionConfiguration.AppleInternal=__AppleInternal__&
+MacSystemIntegrityProtectionConfiguration.BaseSystem=__BaseSystem__&
+MacSystemIntegrityProtectionConfiguration.DebuggingRestrictions=__DebuggingRestrictions__&
+MacSystemIntegrityProtectionConfiguration.DTraceRestrictions=__DTraceRestrictions__&
+MacSystemIntegrityProtectionConfiguration.FilesystemProtections=__FilesystemProtections__&
+MacSystemIntegrityProtectionConfiguration.KextSigning=__KextSigning__&
+MacSystemIntegrityProtectionConfiguration.NvramProtections=__NvramProtections__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__

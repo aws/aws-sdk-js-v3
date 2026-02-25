@@ -1,0 +1,51 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1723
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 2d5deef39d131472eb725047a24dc1a984415b6143033b1875ce5fe4e67ed540
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ReplaceImageCriteriaInAllowedImagesSettings&
+Version=2016-11-15&
+ImageCriterion.1.ImageProvider.1=__member__&
+ImageCriterion.1.ImageProvider.2=__member__&
+ImageCriterion.1.ImageProvider.3=__member__&
+ImageCriterion.1.MarketplaceProductCode.1=__member__&
+ImageCriterion.1.MarketplaceProductCode.2=__member__&
+ImageCriterion.1.MarketplaceProductCode.3=__member__&
+ImageCriterion.1.ImageName.1=__member__&
+ImageCriterion.1.ImageName.2=__member__&
+ImageCriterion.1.ImageName.3=__member__&
+ImageCriterion.1.DeprecationTimeCondition.MaximumDaysSinceDeprecated=0&
+ImageCriterion.1.CreationDateCondition.MaximumDaysSinceCreated=0&
+ImageCriterion.2.ImageProvider.1=__member__&
+ImageCriterion.2.ImageProvider.2=__member__&
+ImageCriterion.2.ImageProvider.3=__member__&
+ImageCriterion.2.MarketplaceProductCode.1=__member__&
+ImageCriterion.2.MarketplaceProductCode.2=__member__&
+ImageCriterion.2.MarketplaceProductCode.3=__member__&
+ImageCriterion.2.ImageName.1=__member__&
+ImageCriterion.2.ImageName.2=__member__&
+ImageCriterion.2.ImageName.3=__member__&
+ImageCriterion.2.DeprecationTimeCondition.MaximumDaysSinceDeprecated=0&
+ImageCriterion.2.CreationDateCondition.MaximumDaysSinceCreated=0&
+ImageCriterion.3.ImageProvider.1=__member__&
+ImageCriterion.3.ImageProvider.2=__member__&
+ImageCriterion.3.ImageProvider.3=__member__&
+ImageCriterion.3.MarketplaceProductCode.1=__member__&
+ImageCriterion.3.MarketplaceProductCode.2=__member__&
+ImageCriterion.3.MarketplaceProductCode.3=__member__&
+ImageCriterion.3.ImageName.1=__member__&
+ImageCriterion.3.ImageName.2=__member__&
+ImageCriterion.3.ImageName.3=__member__&
+ImageCriterion.3.DeprecationTimeCondition.MaximumDaysSinceDeprecated=0&
+ImageCriterion.3.CreationDateCondition.MaximumDaysSinceCreated=0&
+DryRun=false

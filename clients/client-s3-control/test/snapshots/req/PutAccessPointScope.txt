@@ -1,0 +1,43 @@
+PUT https://s3express-control.us-east-1.amazonaws.com 
+/v20180820/accesspoint/__Name__/scope
+
+x-amz-account-id: 123456789012
+content-type: application/xml
+content-length: 402
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3-control#_.__ m/E,e
+host: s3express-control.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 2f0721f1dc505dcbf7f19383f1438b048493f70351b00ae20a36dc26c64ef9db
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3express/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-account-id;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<PutAccessPointScopeRequest xmlns="http://awss3control.amazonaws.com/doc/2018-08-20/">
+    <Scope>
+        <Prefixes>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+        </Prefixes>
+        <Permissions>
+            <Permission>
+                __member__
+            </Permission>
+            <Permission>
+                __member__
+            </Permission>
+            <Permission>
+                __member__
+            </Permission>
+        </Permissions>
+    </Scope>
+</PutAccessPointScopeRequest>

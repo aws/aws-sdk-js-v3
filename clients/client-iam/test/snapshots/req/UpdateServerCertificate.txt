@@ -1,0 +1,20 @@
+POST https://iam.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 171
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/iam#_.__ m/E,e
+host: iam.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 29eca80fd9eece6e4be1cbbea36f5eb689bffa384e0e49b7ff6710e58c2bb830
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/iam/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=UpdateServerCertificate&
+Version=2010-05-08&
+ServerCertificateName=__ServerCertificateName__&
+NewPath=__NewPath__&
+NewServerCertificateName=__NewServerCertificateName__

@@ -1,0 +1,51 @@
+POST https://monitoring.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: GraniteServiceVersion20100801.PutAlarmMuteRule
+x-amzn-query-mode: true
+content-length: 401
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch#_.__ m/E,e
+host: monitoring.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 1972e15da88482a7100d1d981f7b63db03bfa4c9906b90a0df38755efdec5aab
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
+
+[string (json)]
+{
+  "Name": "__Name__",
+  "Rule": {
+    "Schedule": {
+      "Expression": "__Expression__",
+      "Duration": "__Duration__",
+      "Timezone": "__Timezone__"
+    }
+  },
+  "Description": "__Description__",
+  "MuteTargets": {
+    "AlarmNames": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "StartDate": 946702799.999,
+  "ExpireDate": 946702799.999
+}

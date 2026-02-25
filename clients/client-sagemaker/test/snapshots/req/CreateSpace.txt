@@ -1,0 +1,163 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateSpace
+content-length: 2752
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: aff85fc0e2bc88eedfdf17c2eb71197226113a5a3c3a8294b059ee84f567919b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "DomainId": "__DomainId__",
+  "SpaceName": "__SpaceName__",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "SpaceSettings": {
+    "JupyterServerAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "LifecycleConfigArns": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "CodeRepositories": [
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        }
+      ]
+    },
+    "KernelGatewayAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "CustomImages": [
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        },
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        },
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        }
+      ],
+      "LifecycleConfigArns": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "CodeEditorAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "AppLifecycleManagement": {
+        "IdleSettings": {
+          "IdleTimeoutInMinutes": 0
+        }
+      }
+    },
+    "JupyterLabAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "CodeRepositories": [
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        }
+      ],
+      "AppLifecycleManagement": {
+        "IdleSettings": {
+          "IdleTimeoutInMinutes": 0
+        }
+      }
+    },
+    "AppType": "__AppType__",
+    "SpaceStorageSettings": {
+      "EbsStorageSettings": {
+        "EbsVolumeSizeInGb": 0
+      }
+    },
+    "SpaceManagedResources": "__SpaceManagedResources__",
+    "CustomFileSystems": [
+      {
+        "FSxLustreFileSystem": {
+          "FileSystemId": "__FileSystemId__"
+        }
+      },
+      {
+        "S3FileSystem": {
+          "S3Uri": "__S3Uri__"
+        }
+      },
+      {
+        "EFSFileSystem": {
+          "FileSystemId": "__FileSystemId__"
+        }
+      }
+    ],
+    "RemoteAccess": "__RemoteAccess__"
+  },
+  "OwnershipSettings": {
+    "OwnerUserProfileName": "__OwnerUserProfileName__"
+  },
+  "SpaceSharingSettings": {
+    "SharingType": "__SharingType__"
+  },
+  "SpaceDisplayName": "__SpaceDisplayName__"
+}

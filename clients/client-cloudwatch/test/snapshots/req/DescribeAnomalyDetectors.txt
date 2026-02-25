@@ -1,0 +1,42 @@
+POST https://monitoring.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: GraniteServiceVersion20100801.DescribeAnomalyDetectors
+x-amzn-query-mode: true
+content-length: 301
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch#_.__ m/E,e
+host: monitoring.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d6a2510876df0af00d3375a9646c9b0f26240fda27d9aa7e37e4c839a8092f1b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
+
+[string (json)]
+{
+  "NextToken": "__NextToken__",
+  "MaxResults": 0,
+  "Namespace": "__Namespace__",
+  "MetricName": "__MetricName__",
+  "Dimensions": [
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    },
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    },
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    }
+  ],
+  "AnomalyDetectorTypes": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ]
+}

@@ -1,0 +1,77 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 2416
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 1923159546f6605abf60864385696ae13a930769ac1a16611ad342ed2b747c34
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=RestoreDBClusterFromSnapshot&
+Version=2014-10-31&
+DBClusterIdentifier=__DBClusterIdentifier__&
+SnapshotIdentifier=__SnapshotIdentifier__&
+Engine=__Engine__&
+AvailabilityZones.AvailabilityZone.1=__member__&
+AvailabilityZones.AvailabilityZone.2=__member__&
+AvailabilityZones.AvailabilityZone.3=__member__&
+EngineVersion=__EngineVersion__&
+Port=0&
+DBSubnetGroupName=__DBSubnetGroupName__&
+DatabaseName=__DatabaseName__&
+OptionGroupName=__OptionGroupName__&
+VpcSecurityGroupIds.VpcSecurityGroupId.1=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.2=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.3=__member__&
+Tags.Tag.1.Key=__Key__&
+Tags.Tag.1.Value=__Value__&
+Tags.Tag.2.Key=__Key__&
+Tags.Tag.2.Value=__Value__&
+Tags.Tag.3.Key=__Key__&
+Tags.Tag.3.Value=__Value__&
+KmsKeyId=__KmsKeyId__&
+EnableIAMDatabaseAuthentication=false&
+BacktrackWindow=0&
+EnableCloudwatchLogsExports.member.1=__member__&
+EnableCloudwatchLogsExports.member.2=__member__&
+EnableCloudwatchLogsExports.member.3=__member__&
+EngineMode=__EngineMode__&
+ScalingConfiguration.MinCapacity=0&
+ScalingConfiguration.MaxCapacity=0&
+ScalingConfiguration.AutoPause=false&
+ScalingConfiguration.SecondsUntilAutoPause=0&
+ScalingConfiguration.TimeoutAction=__TimeoutAction__&
+ScalingConfiguration.SecondsBeforeTimeout=0&
+DBClusterParameterGroupName=__DBClusterParameterGroupName__&
+DeletionProtection=false&
+CopyTagsToSnapshot=false&
+Domain=__Domain__&
+DomainIAMRoleName=__DomainIAMRoleName__&
+DBClusterInstanceClass=__DBClusterInstanceClass__&
+StorageType=__StorageType__&
+Iops=0&
+PubliclyAccessible=false&
+NetworkType=__NetworkType__&
+ServerlessV2ScalingConfiguration.MinCapacity=0&
+ServerlessV2ScalingConfiguration.MaxCapacity=0&
+ServerlessV2ScalingConfiguration.SecondsUntilAutoPause=0&
+RdsCustomClusterConfiguration.InterconnectSubnetId=__InterconnectSubnetId__&
+RdsCustomClusterConfiguration.TransitGatewayMulticastDomainId=__TransitGatewayMulticastDomainId__&
+RdsCustomClusterConfiguration.ReplicaMode=__ReplicaMode__&
+MonitoringInterval=0&
+MonitoringRoleArn=__MonitoringRoleArn__&
+EnablePerformanceInsights=false&
+PerformanceInsightsKMSKeyId=__PerformanceInsightsKMSKeyId__&
+PerformanceInsightsRetentionPeriod=0&
+BackupRetentionPeriod=0&
+PreferredBackupWindow=__PreferredBackupWindow__&
+EngineLifecycleSupport=__EngineLifecycleSupport__&
+TagSpecifications.item.1.ResourceType=__ResourceType__&
+TagSpecifications.item.2.ResourceType=__ResourceType__&
+TagSpecifications.item.3.ResourceType=__ResourceType__

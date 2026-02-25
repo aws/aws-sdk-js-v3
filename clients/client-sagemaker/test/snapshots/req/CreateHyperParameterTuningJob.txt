@@ -1,0 +1,1535 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateHyperParameterTuningJob
+content-length: 25453
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 0803426deffe80e06a42e974a70cfd35ca11621623cb75e8bde08e69a5a7a5e4
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+  "HyperParameterTuningJobConfig": {
+    "Strategy": "__Strategy__",
+    "ResourceLimits": {
+      "MaxParallelTrainingJobs": 0,
+      "MaxNumberOfTrainingJobs": 0,
+      "MaxRuntimeInSeconds": 0
+    },
+    "StrategyConfig": {
+      "HyperbandStrategyConfig": {
+        "MinResource": 0,
+        "MaxResource": 0
+      }
+    },
+    "HyperParameterTuningJobObjective": {
+      "Type": "__Type__",
+      "MetricName": "__MetricName__"
+    },
+    "ParameterRanges": {
+      "IntegerParameterRanges": [
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        }
+      ],
+      "ContinuousParameterRanges": [
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        }
+      ],
+      "CategoricalParameterRanges": [
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      "AutoParameters": [
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        },
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        },
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        }
+      ]
+    },
+    "TrainingJobEarlyStoppingType": "__TrainingJobEarlyStoppingType__",
+    "TuningJobCompletionCriteria": {
+      "TargetObjectiveMetricValue": 0,
+      "BestObjectiveNotImproving": {
+        "MaxNumberOfTrainingJobsNotImproving": 0
+      },
+      "ConvergenceDetected": {
+        "CompleteOnConvergence": "__CompleteOnConvergence__"
+      }
+    },
+    "RandomSeed": 0
+  },
+  "TrainingJobDefinition": {
+    "AlgorithmSpecification": {
+      "TrainingInputMode": "__TrainingInputMode__",
+      "TrainingImage": "__TrainingImage__",
+      "AlgorithmName": "__AlgorithmName__",
+      "MetricDefinitions": [
+        {
+          "Name": "__Name__",
+          "Regex": "__Regex__"
+        },
+        {
+          "Name": "__Name__",
+          "Regex": "__Regex__"
+        },
+        {
+          "Name": "__Name__",
+          "Regex": "__Regex__"
+        }
+      ]
+    },
+    "RoleArn": "__RoleArn__",
+    "OutputDataConfig": {
+      "S3OutputPath": "__S3OutputPath__",
+      "KmsKeyId": "__KmsKeyId__",
+      "CompressionType": "__CompressionType__"
+    },
+    "StoppingCondition": {
+      "MaxRuntimeInSeconds": 0,
+      "MaxWaitTimeInSeconds": 0,
+      "MaxPendingTimeInSeconds": 0
+    },
+    "DefinitionName": "__DefinitionName__",
+    "TuningObjective": {
+      "Type": "__Type__",
+      "MetricName": "__MetricName__"
+    },
+    "HyperParameterRanges": {
+      "IntegerParameterRanges": [
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        }
+      ],
+      "ContinuousParameterRanges": [
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        },
+        {
+          "Name": "__Name__",
+          "MinValue": "__MinValue__",
+          "MaxValue": "__MaxValue__",
+          "ScalingType": "__ScalingType__"
+        }
+      ],
+      "CategoricalParameterRanges": [
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "Name": "__Name__",
+          "Values": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      "AutoParameters": [
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        },
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        },
+        {
+          "Name": "__Name__",
+          "ValueHint": "__ValueHint__"
+        }
+      ]
+    },
+    "StaticHyperParameters": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "InputDataConfig": [
+      {
+        "ChannelName": "__ChannelName__",
+        "DataSource": {
+          "S3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "AttributeNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "InstanceGroupNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            }
+          },
+          "FileSystemDataSource": {
+            "FileSystemId": "__FileSystemId__",
+            "FileSystemAccessMode": "__FileSystemAccessMode__",
+            "FileSystemType": "__FileSystemType__",
+            "DirectoryPath": "__DirectoryPath__"
+          },
+          "DatasetSource": {
+            "DatasetArn": "__DatasetArn__"
+          }
+        },
+        "ContentType": "__ContentType__",
+        "CompressionType": "__CompressionType__",
+        "RecordWrapperType": "__RecordWrapperType__",
+        "InputMode": "__InputMode__",
+        "ShuffleConfig": {
+          "Seed": 0
+        }
+      },
+      {
+        "ChannelName": "__ChannelName__",
+        "DataSource": {
+          "S3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "AttributeNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "InstanceGroupNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            }
+          },
+          "FileSystemDataSource": {
+            "FileSystemId": "__FileSystemId__",
+            "FileSystemAccessMode": "__FileSystemAccessMode__",
+            "FileSystemType": "__FileSystemType__",
+            "DirectoryPath": "__DirectoryPath__"
+          },
+          "DatasetSource": {
+            "DatasetArn": "__DatasetArn__"
+          }
+        },
+        "ContentType": "__ContentType__",
+        "CompressionType": "__CompressionType__",
+        "RecordWrapperType": "__RecordWrapperType__",
+        "InputMode": "__InputMode__",
+        "ShuffleConfig": {
+          "Seed": 0
+        }
+      },
+      {
+        "ChannelName": "__ChannelName__",
+        "DataSource": {
+          "S3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "AttributeNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "InstanceGroupNames": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            }
+          },
+          "FileSystemDataSource": {
+            "FileSystemId": "__FileSystemId__",
+            "FileSystemAccessMode": "__FileSystemAccessMode__",
+            "FileSystemType": "__FileSystemType__",
+            "DirectoryPath": "__DirectoryPath__"
+          },
+          "DatasetSource": {
+            "DatasetArn": "__DatasetArn__"
+          }
+        },
+        "ContentType": "__ContentType__",
+        "CompressionType": "__CompressionType__",
+        "RecordWrapperType": "__RecordWrapperType__",
+        "InputMode": "__InputMode__",
+        "ShuffleConfig": {
+          "Seed": 0
+        }
+      }
+    ],
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "ResourceConfig": {
+      "InstanceType": "__InstanceType__",
+      "InstanceCount": 0,
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+      "KeepAlivePeriodInSeconds": 0,
+      "InstanceGroups": [
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "InstanceGroupName": "__InstanceGroupName__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "InstanceGroupName": "__InstanceGroupName__"
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "InstanceGroupName": "__InstanceGroupName__"
+        }
+      ],
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "InstancePlacementConfig": {
+        "EnableMultipleJobs": false,
+        "PlacementSpecifications": [
+          {
+            "InstanceCount": 0,
+            "UltraServerId": "__UltraServerId__"
+          },
+          {
+            "InstanceCount": 0,
+            "UltraServerId": "__UltraServerId__"
+          },
+          {
+            "InstanceCount": 0,
+            "UltraServerId": "__UltraServerId__"
+          }
+        ]
+      }
+    },
+    "HyperParameterTuningResourceConfig": {
+      "InstanceType": "__InstanceType__",
+      "InstanceCount": 0,
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+      "AllocationStrategy": "__AllocationStrategy__",
+      "InstanceConfigs": [
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "VolumeSizeInGB": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "VolumeSizeInGB": 0
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0,
+          "VolumeSizeInGB": 0
+        }
+      ]
+    },
+    "EnableNetworkIsolation": false,
+    "EnableInterContainerTrafficEncryption": false,
+    "EnableManagedSpotTraining": false,
+    "CheckpointConfig": {
+      "S3Uri": "__S3Uri__",
+      "LocalPath": "__LocalPath__"
+    },
+    "RetryStrategy": {
+      "MaximumRetryAttempts": 0
+    },
+    "Environment": {
+      "key1": "__value__",
+      "key2": "__value__"
+    }
+  },
+  "TrainingJobDefinitions": [
+    {
+      "AlgorithmSpecification": {
+        "TrainingInputMode": "__TrainingInputMode__",
+        "TrainingImage": "__TrainingImage__",
+        "AlgorithmName": "__AlgorithmName__",
+        "MetricDefinitions": [
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          }
+        ]
+      },
+      "RoleArn": "__RoleArn__",
+      "OutputDataConfig": {
+        "S3OutputPath": "__S3OutputPath__",
+        "KmsKeyId": "__KmsKeyId__",
+        "CompressionType": "__CompressionType__"
+      },
+      "StoppingCondition": {
+        "MaxRuntimeInSeconds": 0,
+        "MaxWaitTimeInSeconds": 0,
+        "MaxPendingTimeInSeconds": 0
+      },
+      "DefinitionName": "__DefinitionName__",
+      "TuningObjective": {
+        "Type": "__Type__",
+        "MetricName": "__MetricName__"
+      },
+      "HyperParameterRanges": {
+        "IntegerParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "ContinuousParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "CategoricalParameterRanges": [
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "AutoParameters": [
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          }
+        ]
+      },
+      "StaticHyperParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        }
+      ],
+      "VpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "KeepAlivePeriodInSeconds": 0,
+        "InstanceGroups": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          }
+        ],
+        "TrainingPlanArn": "__TrainingPlanArn__",
+        "InstancePlacementConfig": {
+          "EnableMultipleJobs": false,
+          "PlacementSpecifications": [
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            }
+          ]
+        }
+      },
+      "HyperParameterTuningResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "AllocationStrategy": "__AllocationStrategy__",
+        "InstanceConfigs": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          }
+        ]
+      },
+      "EnableNetworkIsolation": false,
+      "EnableInterContainerTrafficEncryption": false,
+      "EnableManagedSpotTraining": false,
+      "CheckpointConfig": {
+        "S3Uri": "__S3Uri__",
+        "LocalPath": "__LocalPath__"
+      },
+      "RetryStrategy": {
+        "MaximumRetryAttempts": 0
+      },
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "AlgorithmSpecification": {
+        "TrainingInputMode": "__TrainingInputMode__",
+        "TrainingImage": "__TrainingImage__",
+        "AlgorithmName": "__AlgorithmName__",
+        "MetricDefinitions": [
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          }
+        ]
+      },
+      "RoleArn": "__RoleArn__",
+      "OutputDataConfig": {
+        "S3OutputPath": "__S3OutputPath__",
+        "KmsKeyId": "__KmsKeyId__",
+        "CompressionType": "__CompressionType__"
+      },
+      "StoppingCondition": {
+        "MaxRuntimeInSeconds": 0,
+        "MaxWaitTimeInSeconds": 0,
+        "MaxPendingTimeInSeconds": 0
+      },
+      "DefinitionName": "__DefinitionName__",
+      "TuningObjective": {
+        "Type": "__Type__",
+        "MetricName": "__MetricName__"
+      },
+      "HyperParameterRanges": {
+        "IntegerParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "ContinuousParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "CategoricalParameterRanges": [
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "AutoParameters": [
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          }
+        ]
+      },
+      "StaticHyperParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        }
+      ],
+      "VpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "KeepAlivePeriodInSeconds": 0,
+        "InstanceGroups": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          }
+        ],
+        "TrainingPlanArn": "__TrainingPlanArn__",
+        "InstancePlacementConfig": {
+          "EnableMultipleJobs": false,
+          "PlacementSpecifications": [
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            }
+          ]
+        }
+      },
+      "HyperParameterTuningResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "AllocationStrategy": "__AllocationStrategy__",
+        "InstanceConfigs": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          }
+        ]
+      },
+      "EnableNetworkIsolation": false,
+      "EnableInterContainerTrafficEncryption": false,
+      "EnableManagedSpotTraining": false,
+      "CheckpointConfig": {
+        "S3Uri": "__S3Uri__",
+        "LocalPath": "__LocalPath__"
+      },
+      "RetryStrategy": {
+        "MaximumRetryAttempts": 0
+      },
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "AlgorithmSpecification": {
+        "TrainingInputMode": "__TrainingInputMode__",
+        "TrainingImage": "__TrainingImage__",
+        "AlgorithmName": "__AlgorithmName__",
+        "MetricDefinitions": [
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          },
+          {
+            "Name": "__Name__",
+            "Regex": "__Regex__"
+          }
+        ]
+      },
+      "RoleArn": "__RoleArn__",
+      "OutputDataConfig": {
+        "S3OutputPath": "__S3OutputPath__",
+        "KmsKeyId": "__KmsKeyId__",
+        "CompressionType": "__CompressionType__"
+      },
+      "StoppingCondition": {
+        "MaxRuntimeInSeconds": 0,
+        "MaxWaitTimeInSeconds": 0,
+        "MaxPendingTimeInSeconds": 0
+      },
+      "DefinitionName": "__DefinitionName__",
+      "TuningObjective": {
+        "Type": "__Type__",
+        "MetricName": "__MetricName__"
+      },
+      "HyperParameterRanges": {
+        "IntegerParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "ContinuousParameterRanges": [
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          },
+          {
+            "Name": "__Name__",
+            "MinValue": "__MinValue__",
+            "MaxValue": "__MaxValue__",
+            "ScalingType": "__ScalingType__"
+          }
+        ],
+        "CategoricalParameterRanges": [
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          {
+            "Name": "__Name__",
+            "Values": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        ],
+        "AutoParameters": [
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          },
+          {
+            "Name": "__Name__",
+            "ValueHint": "__ValueHint__"
+          }
+        ]
+      },
+      "StaticHyperParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "InputDataConfig": [
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "DataSource": {
+            "S3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "S3DataDistributionType": "__S3DataDistributionType__",
+              "AttributeNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "InstanceGroupNames": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ],
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              }
+            },
+            "FileSystemDataSource": {
+              "FileSystemId": "__FileSystemId__",
+              "FileSystemAccessMode": "__FileSystemAccessMode__",
+              "FileSystemType": "__FileSystemType__",
+              "DirectoryPath": "__DirectoryPath__"
+            },
+            "DatasetSource": {
+              "DatasetArn": "__DatasetArn__"
+            }
+          },
+          "ContentType": "__ContentType__",
+          "CompressionType": "__CompressionType__",
+          "RecordWrapperType": "__RecordWrapperType__",
+          "InputMode": "__InputMode__",
+          "ShuffleConfig": {
+            "Seed": 0
+          }
+        }
+      ],
+      "VpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "KeepAlivePeriodInSeconds": 0,
+        "InstanceGroups": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "InstanceGroupName": "__InstanceGroupName__"
+          }
+        ],
+        "TrainingPlanArn": "__TrainingPlanArn__",
+        "InstancePlacementConfig": {
+          "EnableMultipleJobs": false,
+          "PlacementSpecifications": [
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            },
+            {
+              "InstanceCount": 0,
+              "UltraServerId": "__UltraServerId__"
+            }
+          ]
+        }
+      },
+      "HyperParameterTuningResourceConfig": {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "VolumeSizeInGB": 0,
+        "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+        "AllocationStrategy": "__AllocationStrategy__",
+        "InstanceConfigs": [
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeSizeInGB": 0
+          }
+        ]
+      },
+      "EnableNetworkIsolation": false,
+      "EnableInterContainerTrafficEncryption": false,
+      "EnableManagedSpotTraining": false,
+      "CheckpointConfig": {
+        "S3Uri": "__S3Uri__",
+        "LocalPath": "__LocalPath__"
+      },
+      "RetryStrategy": {
+        "MaximumRetryAttempts": 0
+      },
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  ],
+  "WarmStartConfig": {
+    "ParentHyperParameterTuningJobs": [
+      {
+        "HyperParameterTuningJobName": "__HyperParameterTuningJobName__"
+      },
+      {
+        "HyperParameterTuningJobName": "__HyperParameterTuningJobName__"
+      },
+      {
+        "HyperParameterTuningJobName": "__HyperParameterTuningJobName__"
+      }
+    ],
+    "WarmStartType": "__WarmStartType__"
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "Autotune": {
+    "Mode": "__Mode__"
+  }
+}

@@ -1,0 +1,80 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 3165
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 406a38ede6594d8028a6c3db6462041af4dbf1d9743e510439ab0697a821d1cb
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=GetInstanceTypesFromInstanceRequirements&
+Version=2016-11-15&
+ArchitectureType.1=__member__&
+ArchitectureType.2=__member__&
+ArchitectureType.3=__member__&
+VirtualizationType.1=__member__&
+VirtualizationType.2=__member__&
+VirtualizationType.3=__member__&
+InstanceRequirements.VCpuCount.Min=0&
+InstanceRequirements.VCpuCount.Max=0&
+InstanceRequirements.MemoryMiB.Min=0&
+InstanceRequirements.MemoryMiB.Max=0&
+InstanceRequirements.CpuManufacturer.1=__member__&
+InstanceRequirements.CpuManufacturer.2=__member__&
+InstanceRequirements.CpuManufacturer.3=__member__&
+InstanceRequirements.MemoryGiBPerVCpu.Min=0&
+InstanceRequirements.MemoryGiBPerVCpu.Max=0&
+InstanceRequirements.ExcludedInstanceType.1=__member__&
+InstanceRequirements.ExcludedInstanceType.2=__member__&
+InstanceRequirements.ExcludedInstanceType.3=__member__&
+InstanceRequirements.InstanceGeneration.1=__member__&
+InstanceRequirements.InstanceGeneration.2=__member__&
+InstanceRequirements.InstanceGeneration.3=__member__&
+InstanceRequirements.SpotMaxPricePercentageOverLowestPrice=0&
+InstanceRequirements.OnDemandMaxPricePercentageOverLowestPrice=0&
+InstanceRequirements.BareMetal=__BareMetal__&
+InstanceRequirements.BurstablePerformance=__BurstablePerformance__&
+InstanceRequirements.RequireHibernateSupport=false&
+InstanceRequirements.NetworkInterfaceCount.Min=0&
+InstanceRequirements.NetworkInterfaceCount.Max=0&
+InstanceRequirements.LocalStorage=__LocalStorage__&
+InstanceRequirements.LocalStorageType.1=__member__&
+InstanceRequirements.LocalStorageType.2=__member__&
+InstanceRequirements.LocalStorageType.3=__member__&
+InstanceRequirements.TotalLocalStorageGB.Min=0&
+InstanceRequirements.TotalLocalStorageGB.Max=0&
+InstanceRequirements.BaselineEbsBandwidthMbps.Min=0&
+InstanceRequirements.BaselineEbsBandwidthMbps.Max=0&
+InstanceRequirements.AcceleratorType.1=__member__&
+InstanceRequirements.AcceleratorType.2=__member__&
+InstanceRequirements.AcceleratorType.3=__member__&
+InstanceRequirements.AcceleratorCount.Min=0&
+InstanceRequirements.AcceleratorCount.Max=0&
+InstanceRequirements.AcceleratorManufacturer.1=__member__&
+InstanceRequirements.AcceleratorManufacturer.2=__member__&
+InstanceRequirements.AcceleratorManufacturer.3=__member__&
+InstanceRequirements.AcceleratorName.1=__member__&
+InstanceRequirements.AcceleratorName.2=__member__&
+InstanceRequirements.AcceleratorName.3=__member__&
+InstanceRequirements.AcceleratorTotalMemoryMiB.Min=0&
+InstanceRequirements.AcceleratorTotalMemoryMiB.Max=0&
+InstanceRequirements.NetworkBandwidthGbps.Min=0&
+InstanceRequirements.NetworkBandwidthGbps.Max=0&
+InstanceRequirements.AllowedInstanceType.1=__member__&
+InstanceRequirements.AllowedInstanceType.2=__member__&
+InstanceRequirements.AllowedInstanceType.3=__member__&
+InstanceRequirements.MaxSpotPriceAsPercentageOfOptimalOnDemandPrice=0&
+InstanceRequirements.BaselinePerformanceFactors.Cpu.Reference.1.InstanceFamily=__InstanceFamily__&
+InstanceRequirements.BaselinePerformanceFactors.Cpu.Reference.2.InstanceFamily=__InstanceFamily__&
+InstanceRequirements.BaselinePerformanceFactors.Cpu.Reference.3.InstanceFamily=__InstanceFamily__&
+InstanceRequirements.RequireEncryptionInTransit=false&
+DryRun=false&
+MaxResults=0&
+NextToken=__NextToken__&
+Context=__Context__

@@ -1,0 +1,95 @@
+POST https://route53.amazonaws.com 
+/2013-04-01/healthcheck/__HealthCheckId__
+
+content-type: application/xml
+content-length: 1220
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
+host: route53.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d72798db9bb007ccca6a216d6163fbe69ff2f9512694eb7aa707765926fe06d7
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateHealthCheckRequest xmlns="https://route53.amazonaws.com/doc/2013-04-01/">
+    <HealthCheckVersion>
+        0
+    </HealthCheckVersion>
+    <IPAddress>
+        __IPAddress__
+    </IPAddress>
+    <Port>
+        0
+    </Port>
+    <ResourcePath>
+        __ResourcePath__
+    </ResourcePath>
+    <FullyQualifiedDomainName>
+        __FullyQualifiedDomainName__
+    </FullyQualifiedDomainName>
+    <SearchString>
+        __SearchString__
+    </SearchString>
+    <FailureThreshold>
+        0
+    </FailureThreshold>
+    <Inverted>
+        false
+    </Inverted>
+    <Disabled>
+        false
+    </Disabled>
+    <HealthThreshold>
+        0
+    </HealthThreshold>
+    <ChildHealthChecks>
+        <ChildHealthCheck>
+            __member__
+        </ChildHealthCheck>
+        <ChildHealthCheck>
+            __member__
+        </ChildHealthCheck>
+        <ChildHealthCheck>
+            __member__
+        </ChildHealthCheck>
+    </ChildHealthChecks>
+    <EnableSNI>
+        false
+    </EnableSNI>
+    <Regions>
+        <Region>
+            __member__
+        </Region>
+        <Region>
+            __member__
+        </Region>
+        <Region>
+            __member__
+        </Region>
+    </Regions>
+    <AlarmIdentifier>
+        <Region>
+            __Region__
+        </Region>
+        <Name>
+            __Name__
+        </Name>
+    </AlarmIdentifier>
+    <InsufficientDataHealthStatus>
+        __InsufficientDataHealthStatus__
+    </InsufficientDataHealthStatus>
+    <ResetElements>
+        <ResettableElementName>
+            __member__
+        </ResettableElementName>
+        <ResettableElementName>
+            __member__
+        </ResettableElementName>
+        <ResettableElementName>
+            __member__
+        </ResettableElementName>
+    </ResetElements>
+</UpdateHealthCheckRequest>

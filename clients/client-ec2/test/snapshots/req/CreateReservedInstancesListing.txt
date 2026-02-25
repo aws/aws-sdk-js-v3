@@ -1,0 +1,29 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 432
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 8d450fb7818860ca12673b968f477d8cd1148f5d38207af982b7b8642cb78349
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateReservedInstancesListing&
+Version=2016-11-15&
+ReservedInstancesId=__ReservedInstancesId__&
+InstanceCount=0&
+PriceSchedules.1.Term=0&
+PriceSchedules.1.Price=0&
+PriceSchedules.1.CurrencyCode=__CurrencyCode__&
+PriceSchedules.2.Term=0&
+PriceSchedules.2.Price=0&
+PriceSchedules.2.CurrencyCode=__CurrencyCode__&
+PriceSchedules.3.Term=0&
+PriceSchedules.3.Price=0&
+PriceSchedules.3.CurrencyCode=__CurrencyCode__&
+ClientToken=__ClientToken__

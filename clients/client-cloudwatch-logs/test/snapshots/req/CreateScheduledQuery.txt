@@ -1,0 +1,44 @@
+POST https://logs.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: Logs_20140328.CreateScheduledQuery
+content-length: 550
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch-logs#_.__ m/E,e
+host: logs.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 072bd6a279e1e7d96db6e602e4b616a6388588dca54fb56fe2b8c410c7a83bee
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "name": "__name__",
+  "queryLanguage": "__queryLanguage__",
+  "queryString": "__queryString__",
+  "scheduleExpression": "__scheduleExpression__",
+  "executionRoleArn": "__executionRoleArn__",
+  "description": "__description__",
+  "logGroupIdentifiers": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "timezone": "__timezone__",
+  "startTimeOffset": 0,
+  "destinationConfiguration": {
+    "s3Configuration": {
+      "destinationIdentifier": "__destinationIdentifier__",
+      "roleArn": "__roleArn__"
+    }
+  },
+  "scheduleStartTime": 0,
+  "scheduleEndTime": 0,
+  "state": "__state__",
+  "tags": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}

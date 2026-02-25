@@ -1,0 +1,31 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 658
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 20391a3ea1052247b9c0798f8e9e04646a86b88ea160d56b0ca1dbbe8326c802
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=AssociateInstanceEventWindow&
+Version=2016-11-15&
+InstanceEventWindowId=__InstanceEventWindowId__&
+AssociationTarget.InstanceId.1=__member__&
+AssociationTarget.InstanceId.2=__member__&
+AssociationTarget.InstanceId.3=__member__&
+AssociationTarget.InstanceTag.1.Key=__Key__&
+AssociationTarget.InstanceTag.1.Value=__Value__&
+AssociationTarget.InstanceTag.2.Key=__Key__&
+AssociationTarget.InstanceTag.2.Value=__Value__&
+AssociationTarget.InstanceTag.3.Key=__Key__&
+AssociationTarget.InstanceTag.3.Value=__Value__&
+AssociationTarget.DedicatedHostId.1=__member__&
+AssociationTarget.DedicatedHostId.2=__member__&
+AssociationTarget.DedicatedHostId.3=__member__&
+DryRun=false

@@ -1,0 +1,24 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 316
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 709fcc6f4c4f37cafe34ef5819992ea0f962ca7a1f9a38cd8d9b3b9c77945053
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyTenantDatabase&
+Version=2014-10-31&
+DBInstanceIdentifier=__DBInstanceIdentifier__&
+TenantDBName=__TenantDBName__&
+MasterUserPassword=__MasterUserPassword__&
+NewTenantDBName=__NewTenantDBName__&
+ManageMasterUserPassword=false&
+RotateMasterUserPassword=false&
+MasterUserSecretKmsKeyId=__MasterUserSecretKmsKeyId__

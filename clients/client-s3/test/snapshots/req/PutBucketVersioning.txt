@@ -1,0 +1,29 @@
+PUT https://s3.us-east-1.amazonaws.com 
+/__Bucket__/?versioning=
+
+content-md5: __ContentMD5__
+x-amz-sdk-checksum-algorithm: CRC64NVME
+x-amz-mfa: __MFA__
+x-amz-expected-bucket-owner: __ExpectedBucketOwner__
+content-type: application/xml
+content-length: 200
+x-amz-checksum-crc64nvme: GANC+PVeMNo=
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3#_.__ m/Z,b,W,E,e
+host: s3.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f7a8f3e2f712f232782466ed24070e628c5711c5a6c8a2b3d6dcf09d2b8e4f2d
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-checksum-crc64nvme;x-amz-content-sha256;x-amz-date;x-amz-expected-bucket-owner;x-amz-mfa;x-amz-sdk-checksum-algorithm;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<VersioningConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <MfaDelete>
+        __MFADelete__
+    </MfaDelete>
+    <Status>
+        __Status__
+    </Status>
+</VersioningConfiguration>

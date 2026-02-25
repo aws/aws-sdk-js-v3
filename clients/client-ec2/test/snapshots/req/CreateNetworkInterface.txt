@@ -1,0 +1,56 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1517
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 68cbaf5cbe529038259cee227d6e60ca2b53e131c8c46c4613dde9da5b69ee3c
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateNetworkInterface&
+Version=2016-11-15&
+SubnetId=__SubnetId__&
+Ipv4Prefix.1.Ipv4Prefix=__Ipv4Prefix__&
+Ipv4Prefix.2.Ipv4Prefix=__Ipv4Prefix__&
+Ipv4Prefix.3.Ipv4Prefix=__Ipv4Prefix__&
+Ipv4PrefixCount=0&
+Ipv6Prefix.1.Ipv6Prefix=__Ipv6Prefix__&
+Ipv6Prefix.2.Ipv6Prefix=__Ipv6Prefix__&
+Ipv6Prefix.3.Ipv6Prefix=__Ipv6Prefix__&
+Ipv6PrefixCount=0&
+InterfaceType=__InterfaceType__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+EnablePrimaryIpv6=false&
+ConnectionTrackingSpecification.TcpEstablishedTimeout=0&
+ConnectionTrackingSpecification.UdpStreamTimeout=0&
+ConnectionTrackingSpecification.UdpTimeout=0&
+Operator.Principal=__Principal__&
+Description=__Description__&
+PrivateIpAddress=__PrivateIpAddress__&
+SecurityGroupId.1=__member__&
+SecurityGroupId.2=__member__&
+SecurityGroupId.3=__member__&
+PrivateIpAddresses.1.Primary=false&
+PrivateIpAddresses.1.PrivateIpAddress=__PrivateIpAddress__&
+PrivateIpAddresses.2.Primary=false&
+PrivateIpAddresses.2.PrivateIpAddress=__PrivateIpAddress__&
+PrivateIpAddresses.3.Primary=false&
+PrivateIpAddresses.3.PrivateIpAddress=__PrivateIpAddress__&
+SecondaryPrivateIpAddressCount=0&
+Ipv6Addresses.1.Ipv6Address=__Ipv6Address__&
+Ipv6Addresses.1.IsPrimaryIpv6=false&
+Ipv6Addresses.2.Ipv6Address=__Ipv6Address__&
+Ipv6Addresses.2.IsPrimaryIpv6=false&
+Ipv6Addresses.3.Ipv6Address=__Ipv6Address__&
+Ipv6Addresses.3.IsPrimaryIpv6=false&
+Ipv6AddressCount=0&
+DryRun=false

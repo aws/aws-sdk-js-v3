@@ -1,0 +1,104 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateOptimizationJob
+content-length: 1209
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 07fb7c450f92cc09c6c64feeede68c28b8b87a4cfbe4fe54b99bf29b4df76e7a
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "OptimizationJobName": "__OptimizationJobName__",
+  "RoleArn": "__RoleArn__",
+  "ModelSource": {
+    "S3": {
+      "S3Uri": "__S3Uri__",
+      "ModelAccessConfig": {
+        "AcceptEula": false
+      }
+    },
+    "SageMakerModel": {
+      "ModelName": "__ModelName__"
+    }
+  },
+  "DeploymentInstanceType": "__DeploymentInstanceType__",
+  "OptimizationConfigs": [
+    {
+      "ModelSpeculativeDecodingConfig": {
+        "Technique": "__Technique__",
+        "TrainingDataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__"
+        }
+      }
+    },
+    {
+      "ModelQuantizationConfig": {
+        "Image": "__Image__",
+        "OverrideEnvironment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    },
+    {
+      "ModelCompilationConfig": {
+        "Image": "__Image__",
+        "OverrideEnvironment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    }
+  ],
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "KmsKeyId": "__KmsKeyId__",
+    "SageMakerModel": {
+      "ModelName": "__ModelName__"
+    }
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0,
+    "MaxWaitTimeInSeconds": 0,
+    "MaxPendingTimeInSeconds": 0
+  },
+  "MaxInstanceCount": 0,
+  "OptimizationEnvironment": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  }
+}

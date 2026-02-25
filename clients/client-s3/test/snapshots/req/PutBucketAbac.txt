@@ -1,0 +1,25 @@
+PUT https://s3.us-east-1.amazonaws.com 
+/__Bucket__/?abac=
+
+content-md5: __ContentMD5__
+x-amz-sdk-checksum-algorithm: CRC64NVME
+x-amz-expected-bucket-owner: __ExpectedBucketOwner__
+content-type: application/xml
+content-length: 138
+x-amz-checksum-crc64nvme: oYNDHlcqe2w=
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3#_.__ m/Z,b,W,E,e
+host: s3.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 8cddd5a89e1fe44285c35cd3897fc2b843f86e13cb453b60367c413afa31b9e5
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-checksum-crc64nvme;x-amz-content-sha256;x-amz-date;x-amz-expected-bucket-owner;x-amz-sdk-checksum-algorithm;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<AbacStatus xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <Status>
+        __Status__
+    </Status>
+</AbacStatus>

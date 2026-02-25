@@ -1,0 +1,40 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1142
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 1eb846c6b85d65786ecc23ccf343892f428823245a0e9ae400f5dbd2c4fd8271
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateVpc&
+Version=2016-11-15&
+CidrBlock=__CidrBlock__&
+Ipv6Pool=__Ipv6Pool__&
+Ipv6CidrBlock=__Ipv6CidrBlock__&
+Ipv4IpamPoolId=__Ipv4IpamPoolId__&
+Ipv4NetmaskLength=0&
+Ipv6IpamPoolId=__Ipv6IpamPoolId__&
+Ipv6NetmaskLength=0&
+Ipv6CidrBlockNetworkBorderGroup=__Ipv6CidrBlockNetworkBorderGroup__&
+VpcEncryptionControl.Mode=__Mode__&
+VpcEncryptionControl.InternetGatewayExclusion=__InternetGatewayExclusion__&
+VpcEncryptionControl.EgressOnlyInternetGatewayExclusion=__EgressOnlyInternetGatewayExclusion__&
+VpcEncryptionControl.NatGatewayExclusion=__NatGatewayExclusion__&
+VpcEncryptionControl.VirtualPrivateGatewayExclusion=__VirtualPrivateGatewayExclusion__&
+VpcEncryptionControl.VpcPeeringExclusion=__VpcPeeringExclusion__&
+VpcEncryptionControl.LambdaExclusion=__LambdaExclusion__&
+VpcEncryptionControl.VpcLatticeExclusion=__VpcLatticeExclusion__&
+VpcEncryptionControl.ElasticFileSystemExclusion=__ElasticFileSystemExclusion__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+DryRun=false&
+InstanceTenancy=__InstanceTenancy__&
+AmazonProvidedIpv6CidrBlock=false

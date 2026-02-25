@@ -1,0 +1,18 @@
+PUT https://s3tables.us-east-1.amazonaws.com 
+/tables/__tableBucketARN__/__namespace__/__name__/policy
+
+content-type: application/json
+content-length: 39
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3tables#_.__ m/E,e
+host: s3tables.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 9388b729f2cecb1f7183e572b8947be4b9cceb3d38176130646e8ba04cd4bd9e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "resourcePolicy": "__resourcePolicy__"
+}

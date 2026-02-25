@@ -1,0 +1,26 @@
+POST https://route53.amazonaws.com 
+/2013-04-01/hostedzone/__HostedZoneId__/authorizevpcassociation
+
+content-type: application/xml
+content-length: 248
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
+host: route53.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4c9a5265e814efa47804213baef1e0a3ed47f2cd2e5594998b822917829f1e90
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateVPCAssociationAuthorizationRequest xmlns="https://route53.amazonaws.com/doc/2013-04-01/">
+    <VPC>
+        <VPCRegion>
+            __VPCRegion__
+        </VPCRegion>
+        <VPCId>
+            __VPCId__
+        </VPCId>
+    </VPC>
+</CreateVPCAssociationAuthorizationRequest>

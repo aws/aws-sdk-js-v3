@@ -1,0 +1,44 @@
+POST https://s3.us-east-1.amazonaws.com 
+/__Bucket__/__Key__?uploads=
+
+x-amz-acl: __ACL__
+cache-control: __CacheControl__
+content-disposition: __ContentDisposition__
+content-encoding: __ContentEncoding__
+content-language: __ContentLanguage__
+content-type: __ContentType__
+expires: Sat, 01 Jan 2000 04:59:59 GMT
+x-amz-grant-full-control: __GrantFullControl__
+x-amz-grant-read: __GrantRead__
+x-amz-grant-read-acp: __GrantReadACP__
+x-amz-grant-write-acp: __GrantWriteACP__
+x-amz-meta-key1: __value__
+x-amz-meta-key2: __value__
+x-amz-server-side-encryption: __ServerSideEncryption__
+x-amz-storage-class: __StorageClass__
+x-amz-website-redirect-location: __WebsiteRedirectLocation__
+x-amz-server-side-encryption-customer-algorithm: __SSECustomerAlgorithm__
+x-amz-server-side-encryption-customer-key: X19TU0VDdXN0b21lcktleV9f
+x-amz-server-side-encryption-customer-key-md5: glVjSQBmIFjCUpKT6MQ5wA==
+x-amz-server-side-encryption-aws-kms-key-id: __SSEKMSKeyId__
+x-amz-server-side-encryption-context: __SSEKMSEncryptionContext__
+x-amz-server-side-encryption-bucket-key-enabled: false
+x-amz-request-payer: __RequestPayer__
+x-amz-tagging: __Tagging__
+x-amz-object-lock-mode: __ObjectLockMode__
+x-amz-object-lock-retain-until-date: 2000-01-01T04:59:59.999Z
+x-amz-object-lock-legal-hold: __ObjectLockLegalHoldStatus__
+x-amz-expected-bucket-owner: __ExpectedBucketOwner__
+x-amz-checksum-algorithm: CRC64NVME
+x-amz-checksum-type: __ChecksumType__
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3#_.__ m/E,e
+host: s3.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-disposition;content-encoding;content-language;content-type;expires;host;x-amz-acl;x-amz-checksum-algorithm;x-amz-checksum-type;x-amz-content-sha256;x-amz-date;x-amz-expected-bucket-owner;x-amz-grant-full-control;x-amz-grant-read;x-amz-grant-read-acp;x-amz-grant-write-acp;x-amz-meta-key1;x-amz-meta-key2;x-amz-object-lock-legal-hold;x-amz-object-lock-mode;x-amz-object-lock-retain-until-date;x-amz-request-payer;x-amz-server-side-encryption;x-amz-server-side-encryption-aws-kms-key-id;x-amz-server-side-encryption-bucket-key-enabled;x-amz-server-side-encryption-context;x-amz-server-side-encryption-customer-algorithm;x-amz-server-side-encryption-customer-key;x-amz-server-side-encryption-customer-key-md5;x-amz-storage-class;x-amz-tagging;x-amz-user-agent;x-amz-website-redirect-location, Signature=***
+
+[no body]
+

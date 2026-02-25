@@ -1,0 +1,258 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateInferenceRecommendationsJob
+content-length: 3311
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d3d03eeae566ea563f4e0658aa51029a81c9f3fae1765ec9f5f2bd51166e13ad
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "JobName": "__JobName__",
+  "JobType": "__JobType__",
+  "RoleArn": "__RoleArn__",
+  "InputConfig": {
+    "ModelPackageVersionArn": "__ModelPackageVersionArn__",
+    "ModelName": "__ModelName__",
+    "JobDurationInSeconds": 0,
+    "TrafficPattern": {
+      "TrafficType": "__TrafficType__",
+      "Phases": [
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        },
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        },
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        }
+      ],
+      "Stairs": {
+        "DurationInSeconds": 0,
+        "NumberOfSteps": 0,
+        "UsersPerStep": 0
+      }
+    },
+    "ResourceLimit": {
+      "MaxNumberOfTests": 0,
+      "MaxParallelOfTests": 0
+    },
+    "EndpointConfigurations": [
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+    "ContainerConfig": {
+      "Domain": "__Domain__",
+      "Task": "__Task__",
+      "Framework": "__Framework__",
+      "FrameworkVersion": "__FrameworkVersion__",
+      "PayloadConfig": {
+        "SamplePayloadUrl": "__SamplePayloadUrl__",
+        "SupportedContentTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "NearestModelName": "__NearestModelName__",
+      "SupportedInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedEndpointType": "__SupportedEndpointType__",
+      "DataInputConfig": "__DataInputConfig__",
+      "SupportedResponseMIMETypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "Endpoints": [
+      {
+        "EndpointName": "__EndpointName__"
+      },
+      {
+        "EndpointName": "__EndpointName__"
+      },
+      {
+        "EndpointName": "__EndpointName__"
+      }
+    ],
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "JobDescription": "__JobDescription__",
+  "StoppingConditions": {
+    "MaxInvocations": 0,
+    "ModelLatencyThresholds": [
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      },
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      },
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      }
+    ],
+    "FlatInvocations": "__FlatInvocations__"
+  },
+  "OutputConfig": {
+    "KmsKeyId": "__KmsKeyId__",
+    "CompiledOutputConfig": {
+      "S3OutputUri": "__S3OutputUri__"
+    }
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

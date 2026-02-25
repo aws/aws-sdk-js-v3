@@ -1,0 +1,127 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 7358
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: a9197d0340a83357ff17efcf51f2d51aa99a3dcb371228058661b6563f4143c3
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=RunScheduledInstances&
+Version=2016-11-15&
+LaunchSpecification.ImageId=__ImageId__&
+LaunchSpecification.BlockDeviceMapping.1.DeviceName=__DeviceName__&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.DeleteOnTermination=false&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.Encrypted=false&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.Iops=0&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.SnapshotId=__SnapshotId__&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.VolumeSize=0&
+LaunchSpecification.BlockDeviceMapping.1.Ebs.VolumeType=__VolumeType__&
+LaunchSpecification.BlockDeviceMapping.1.NoDevice=__NoDevice__&
+LaunchSpecification.BlockDeviceMapping.1.VirtualName=__VirtualName__&
+LaunchSpecification.BlockDeviceMapping.2.DeviceName=__DeviceName__&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.DeleteOnTermination=false&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.Encrypted=false&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.Iops=0&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.SnapshotId=__SnapshotId__&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.VolumeSize=0&
+LaunchSpecification.BlockDeviceMapping.2.Ebs.VolumeType=__VolumeType__&
+LaunchSpecification.BlockDeviceMapping.2.NoDevice=__NoDevice__&
+LaunchSpecification.BlockDeviceMapping.2.VirtualName=__VirtualName__&
+LaunchSpecification.BlockDeviceMapping.3.DeviceName=__DeviceName__&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.DeleteOnTermination=false&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.Encrypted=false&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.Iops=0&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.SnapshotId=__SnapshotId__&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.VolumeSize=0&
+LaunchSpecification.BlockDeviceMapping.3.Ebs.VolumeType=__VolumeType__&
+LaunchSpecification.BlockDeviceMapping.3.NoDevice=__NoDevice__&
+LaunchSpecification.BlockDeviceMapping.3.VirtualName=__VirtualName__&
+LaunchSpecification.EbsOptimized=false&
+LaunchSpecification.IamInstanceProfile.Arn=__Arn__&
+LaunchSpecification.IamInstanceProfile.Name=__Name__&
+LaunchSpecification.InstanceType=__InstanceType__&
+LaunchSpecification.KernelId=__KernelId__&
+LaunchSpecification.KeyName=__KeyName__&
+LaunchSpecification.Monitoring.Enabled=false&
+LaunchSpecification.NetworkInterface.1.AssociatePublicIpAddress=false&
+LaunchSpecification.NetworkInterface.1.DeleteOnTermination=false&
+LaunchSpecification.NetworkInterface.1.Description=__Description__&
+LaunchSpecification.NetworkInterface.1.DeviceIndex=0&
+LaunchSpecification.NetworkInterface.1.Group.1=__member__&
+LaunchSpecification.NetworkInterface.1.Group.2=__member__&
+LaunchSpecification.NetworkInterface.1.Group.3=__member__&
+LaunchSpecification.NetworkInterface.1.Ipv6AddressCount=0&
+LaunchSpecification.NetworkInterface.1.Ipv6Address.1.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.1.Ipv6Address.2.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.1.Ipv6Address.3.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.1.NetworkInterfaceId=__NetworkInterfaceId__&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.1.Primary=false&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.1.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.2.Primary=false&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.2.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.3.Primary=false&
+LaunchSpecification.NetworkInterface.1.PrivateIpAddressConfig.3.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.1.SecondaryPrivateIpAddressCount=0&
+LaunchSpecification.NetworkInterface.1.SubnetId=__SubnetId__&
+LaunchSpecification.NetworkInterface.2.AssociatePublicIpAddress=false&
+LaunchSpecification.NetworkInterface.2.DeleteOnTermination=false&
+LaunchSpecification.NetworkInterface.2.Description=__Description__&
+LaunchSpecification.NetworkInterface.2.DeviceIndex=0&
+LaunchSpecification.NetworkInterface.2.Group.1=__member__&
+LaunchSpecification.NetworkInterface.2.Group.2=__member__&
+LaunchSpecification.NetworkInterface.2.Group.3=__member__&
+LaunchSpecification.NetworkInterface.2.Ipv6AddressCount=0&
+LaunchSpecification.NetworkInterface.2.Ipv6Address.1.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.2.Ipv6Address.2.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.2.Ipv6Address.3.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.2.NetworkInterfaceId=__NetworkInterfaceId__&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.1.Primary=false&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.1.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.2.Primary=false&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.2.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.3.Primary=false&
+LaunchSpecification.NetworkInterface.2.PrivateIpAddressConfig.3.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.2.SecondaryPrivateIpAddressCount=0&
+LaunchSpecification.NetworkInterface.2.SubnetId=__SubnetId__&
+LaunchSpecification.NetworkInterface.3.AssociatePublicIpAddress=false&
+LaunchSpecification.NetworkInterface.3.DeleteOnTermination=false&
+LaunchSpecification.NetworkInterface.3.Description=__Description__&
+LaunchSpecification.NetworkInterface.3.DeviceIndex=0&
+LaunchSpecification.NetworkInterface.3.Group.1=__member__&
+LaunchSpecification.NetworkInterface.3.Group.2=__member__&
+LaunchSpecification.NetworkInterface.3.Group.3=__member__&
+LaunchSpecification.NetworkInterface.3.Ipv6AddressCount=0&
+LaunchSpecification.NetworkInterface.3.Ipv6Address.1.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.3.Ipv6Address.2.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.3.Ipv6Address.3.Ipv6Address=__Ipv6Address__&
+LaunchSpecification.NetworkInterface.3.NetworkInterfaceId=__NetworkInterfaceId__&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.1.Primary=false&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.1.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.2.Primary=false&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.2.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.3.Primary=false&
+LaunchSpecification.NetworkInterface.3.PrivateIpAddressConfig.3.PrivateIpAddress=__PrivateIpAddress__&
+LaunchSpecification.NetworkInterface.3.SecondaryPrivateIpAddressCount=0&
+LaunchSpecification.NetworkInterface.3.SubnetId=__SubnetId__&
+LaunchSpecification.Placement.AvailabilityZone=__AvailabilityZone__&
+LaunchSpecification.Placement.GroupName=__GroupName__&
+LaunchSpecification.RamdiskId=__RamdiskId__&
+LaunchSpecification.SecurityGroupId.1=__member__&
+LaunchSpecification.SecurityGroupId.2=__member__&
+LaunchSpecification.SecurityGroupId.3=__member__&
+LaunchSpecification.SubnetId=__SubnetId__&
+LaunchSpecification.UserData=__UserData__&
+ScheduledInstanceId=__ScheduledInstanceId__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false&
+InstanceCount=0

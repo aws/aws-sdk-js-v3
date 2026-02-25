@@ -1,0 +1,25 @@
+POST https://streams.dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDBStreams_20120810.DescribeStream
+content-length: 149
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb-streams#_.__ m/E,e
+host: streams.dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f6f9b82b3a962e520cc373e264f95b1fff17a20cd58bced9038f189b3ae3cd52
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "StreamArn": "__StreamArn__",
+  "Limit": 0,
+  "ExclusiveStartShardId": "__ExclusiveStartShardId__",
+  "ShardFilter": {
+    "Type": "__Type__",
+    "ShardId": "__ShardId__"
+  }
+}

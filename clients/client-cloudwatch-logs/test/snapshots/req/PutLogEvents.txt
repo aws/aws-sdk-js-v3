@@ -1,0 +1,45 @@
+POST https://logs.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: Logs_20140328.PutLogEvents
+content-length: 361
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch-logs#_.__ m/E,e
+host: logs.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: c72d1d025417e6cc5d4982f8cb9c2997ee99dd87e7a95bee4709882ad4530fe5
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "logGroupName": "__logGroupName__",
+  "logStreamName": "__logStreamName__",
+  "logEvents": [
+    {
+      "timestamp": 0,
+      "message": "__message__"
+    },
+    {
+      "timestamp": 0,
+      "message": "__message__"
+    },
+    {
+      "timestamp": 0,
+      "message": "__message__"
+    }
+  ],
+  "sequenceToken": "__sequenceToken__",
+  "entity": {
+    "keyAttributes": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "attributes": {
+      "key1": "__value__",
+      "key2": "__value__"
+    }
+  }
+}

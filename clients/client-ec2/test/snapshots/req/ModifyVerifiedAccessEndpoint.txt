@@ -1,0 +1,52 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1406
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 1405884e897557f18d3845825ec2d883aefd0c3dac9ddf34c06b7502f7283298
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyVerifiedAccessEndpoint&
+Version=2016-11-15&
+VerifiedAccessEndpointId=__VerifiedAccessEndpointId__&
+VerifiedAccessGroupId=__VerifiedAccessGroupId__&
+LoadBalancerOptions.SubnetId.1=__member__&
+LoadBalancerOptions.SubnetId.2=__member__&
+LoadBalancerOptions.SubnetId.3=__member__&
+LoadBalancerOptions.Protocol=__Protocol__&
+LoadBalancerOptions.Port=0&
+LoadBalancerOptions.PortRange.1.FromPort=0&
+LoadBalancerOptions.PortRange.1.ToPort=0&
+LoadBalancerOptions.PortRange.2.FromPort=0&
+LoadBalancerOptions.PortRange.2.ToPort=0&
+LoadBalancerOptions.PortRange.3.FromPort=0&
+LoadBalancerOptions.PortRange.3.ToPort=0&
+NetworkInterfaceOptions.Protocol=__Protocol__&
+NetworkInterfaceOptions.Port=0&
+NetworkInterfaceOptions.PortRange.1.FromPort=0&
+NetworkInterfaceOptions.PortRange.1.ToPort=0&
+NetworkInterfaceOptions.PortRange.2.FromPort=0&
+NetworkInterfaceOptions.PortRange.2.ToPort=0&
+NetworkInterfaceOptions.PortRange.3.FromPort=0&
+NetworkInterfaceOptions.PortRange.3.ToPort=0&
+Description=__Description__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false&
+RdsOptions.SubnetId.1=__member__&
+RdsOptions.SubnetId.2=__member__&
+RdsOptions.SubnetId.3=__member__&
+RdsOptions.Port=0&
+RdsOptions.RdsEndpoint=__RdsEndpoint__&
+CidrOptions.PortRange.1.FromPort=0&
+CidrOptions.PortRange.1.ToPort=0&
+CidrOptions.PortRange.2.FromPort=0&
+CidrOptions.PortRange.2.ToPort=0&
+CidrOptions.PortRange.3.FromPort=0&
+CidrOptions.PortRange.3.ToPort=0

@@ -1,0 +1,944 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateModelPackage
+content-length: 18877
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: c48da0e73bcbf57499d810f929b55cdd7eb2f8e027c1c5e73173a783692d199e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "ModelPackageName": "__ModelPackageName__",
+  "ModelPackageGroupName": "__ModelPackageGroupName__",
+  "ModelPackageDescription": "__ModelPackageDescription__",
+  "ModelPackageRegistrationType": "__ModelPackageRegistrationType__",
+  "InferenceSpecification": {
+    "Containers": [
+      {
+        "ContainerHostname": "__ContainerHostname__",
+        "Image": "__Image__",
+        "ImageDigest": "__ImageDigest__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "ModelDataSource": {
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        "ProductId": "__ProductId__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "ModelInput": {
+          "DataInputConfig": "__DataInputConfig__"
+        },
+        "Framework": "__Framework__",
+        "FrameworkVersion": "__FrameworkVersion__",
+        "NearestModelName": "__NearestModelName__",
+        "AdditionalS3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "CompressionType": "__CompressionType__",
+          "ETag": "__ETag__"
+        },
+        "ModelDataETag": "__ModelDataETag__",
+        "IsCheckpoint": false,
+        "BaseModel": {
+          "HubContentName": "__HubContentName__",
+          "HubContentVersion": "__HubContentVersion__",
+          "RecipeName": "__RecipeName__"
+        }
+      },
+      {
+        "ContainerHostname": "__ContainerHostname__",
+        "Image": "__Image__",
+        "ImageDigest": "__ImageDigest__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "ModelDataSource": {
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        "ProductId": "__ProductId__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "ModelInput": {
+          "DataInputConfig": "__DataInputConfig__"
+        },
+        "Framework": "__Framework__",
+        "FrameworkVersion": "__FrameworkVersion__",
+        "NearestModelName": "__NearestModelName__",
+        "AdditionalS3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "CompressionType": "__CompressionType__",
+          "ETag": "__ETag__"
+        },
+        "ModelDataETag": "__ModelDataETag__",
+        "IsCheckpoint": false,
+        "BaseModel": {
+          "HubContentName": "__HubContentName__",
+          "HubContentVersion": "__HubContentVersion__",
+          "RecipeName": "__RecipeName__"
+        }
+      },
+      {
+        "ContainerHostname": "__ContainerHostname__",
+        "Image": "__Image__",
+        "ImageDigest": "__ImageDigest__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "ModelDataSource": {
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        "ProductId": "__ProductId__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "ModelInput": {
+          "DataInputConfig": "__DataInputConfig__"
+        },
+        "Framework": "__Framework__",
+        "FrameworkVersion": "__FrameworkVersion__",
+        "NearestModelName": "__NearestModelName__",
+        "AdditionalS3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "CompressionType": "__CompressionType__",
+          "ETag": "__ETag__"
+        },
+        "ModelDataETag": "__ModelDataETag__",
+        "IsCheckpoint": false,
+        "BaseModel": {
+          "HubContentName": "__HubContentName__",
+          "HubContentVersion": "__HubContentVersion__",
+          "RecipeName": "__RecipeName__"
+        }
+      }
+    ],
+    "SupportedTransformInstanceTypes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SupportedRealtimeInferenceInstanceTypes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SupportedContentTypes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SupportedResponseMIMETypes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "ValidationSpecification": {
+    "ValidationRole": "__ValidationRole__",
+    "ValidationProfiles": [
+      {
+        "ProfileName": "__ProfileName__",
+        "TransformJobDefinition": {
+          "TransformInput": {
+            "DataSource": {
+              "S3DataSource": {
+                "S3DataType": "__S3DataType__",
+                "S3Uri": "__S3Uri__"
+              }
+            },
+            "ContentType": "__ContentType__",
+            "CompressionType": "__CompressionType__",
+            "SplitType": "__SplitType__"
+          },
+          "TransformOutput": {
+            "S3OutputPath": "__S3OutputPath__",
+            "Accept": "__Accept__",
+            "AssembleWith": "__AssembleWith__",
+            "KmsKeyId": "__KmsKeyId__"
+          },
+          "TransformResources": {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "TransformAmiVersion": "__TransformAmiVersion__"
+          },
+          "MaxConcurrentTransforms": 0,
+          "MaxPayloadInMB": 0,
+          "BatchStrategy": "__BatchStrategy__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      },
+      {
+        "ProfileName": "__ProfileName__",
+        "TransformJobDefinition": {
+          "TransformInput": {
+            "DataSource": {
+              "S3DataSource": {
+                "S3DataType": "__S3DataType__",
+                "S3Uri": "__S3Uri__"
+              }
+            },
+            "ContentType": "__ContentType__",
+            "CompressionType": "__CompressionType__",
+            "SplitType": "__SplitType__"
+          },
+          "TransformOutput": {
+            "S3OutputPath": "__S3OutputPath__",
+            "Accept": "__Accept__",
+            "AssembleWith": "__AssembleWith__",
+            "KmsKeyId": "__KmsKeyId__"
+          },
+          "TransformResources": {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "TransformAmiVersion": "__TransformAmiVersion__"
+          },
+          "MaxConcurrentTransforms": 0,
+          "MaxPayloadInMB": 0,
+          "BatchStrategy": "__BatchStrategy__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      },
+      {
+        "ProfileName": "__ProfileName__",
+        "TransformJobDefinition": {
+          "TransformInput": {
+            "DataSource": {
+              "S3DataSource": {
+                "S3DataType": "__S3DataType__",
+                "S3Uri": "__S3Uri__"
+              }
+            },
+            "ContentType": "__ContentType__",
+            "CompressionType": "__CompressionType__",
+            "SplitType": "__SplitType__"
+          },
+          "TransformOutput": {
+            "S3OutputPath": "__S3OutputPath__",
+            "Accept": "__Accept__",
+            "AssembleWith": "__AssembleWith__",
+            "KmsKeyId": "__KmsKeyId__"
+          },
+          "TransformResources": {
+            "InstanceType": "__InstanceType__",
+            "InstanceCount": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "TransformAmiVersion": "__TransformAmiVersion__"
+          },
+          "MaxConcurrentTransforms": 0,
+          "MaxPayloadInMB": 0,
+          "BatchStrategy": "__BatchStrategy__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      }
+    ]
+  },
+  "SourceAlgorithmSpecification": {
+    "SourceAlgorithms": [
+      {},
+      {},
+      {}
+    ]
+  },
+  "CertifyForMarketplace": false,
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "ModelApprovalStatus": "__ModelApprovalStatus__",
+  "MetadataProperties": {
+    "CommitId": "__CommitId__",
+    "Repository": "__Repository__",
+    "GeneratedBy": "__GeneratedBy__",
+    "ProjectId": "__ProjectId__"
+  },
+  "ModelMetrics": {
+    "ModelQuality": {
+      "Statistics": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "Constraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "ModelDataQuality": {
+      "Statistics": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "Constraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "Bias": {
+      "Report": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "PreTrainingReport": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "PostTrainingReport": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "Explainability": {
+      "Report": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    }
+  },
+  "ClientToken": "1111abcd-uuid-uuid-uuid-000000001111",
+  "Domain": "__Domain__",
+  "Task": "__Task__",
+  "SamplePayloadUrl": "__SamplePayloadUrl__",
+  "CustomerMetadataProperties": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "DriftCheckBaselines": {
+    "Bias": {
+      "ConfigFile": {
+        "S3Uri": "__S3Uri__",
+        "ContentType": "__ContentType__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "PreTrainingConstraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "PostTrainingConstraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "Explainability": {
+      "Constraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "ConfigFile": {
+        "S3Uri": "__S3Uri__",
+        "ContentType": "__ContentType__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "ModelQuality": {
+      "Statistics": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "Constraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    },
+    "ModelDataQuality": {
+      "Statistics": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      },
+      "Constraints": {
+        "ContentType": "__ContentType__",
+        "S3Uri": "__S3Uri__",
+        "ContentDigest": "__ContentDigest__"
+      }
+    }
+  },
+  "AdditionalInferenceSpecifications": [
+    {
+      "Name": "__Name__",
+      "Containers": [
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        }
+      ],
+      "Description": "__Description__",
+      "SupportedTransformInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedResponseMIMETypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Name": "__Name__",
+      "Containers": [
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        }
+      ],
+      "Description": "__Description__",
+      "SupportedTransformInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedResponseMIMETypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "Name": "__Name__",
+      "Containers": [
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        },
+        {
+          "ContainerHostname": "__ContainerHostname__",
+          "Image": "__Image__",
+          "ImageDigest": "__ImageDigest__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "ModelDataSource": {
+            "S3DataSource": {
+              "S3Uri": "__S3Uri__",
+              "S3DataType": "__S3DataType__",
+              "CompressionType": "__CompressionType__",
+              "ModelAccessConfig": {
+                "AcceptEula": false
+              },
+              "HubAccessConfig": {
+                "HubContentArn": "__HubContentArn__"
+              },
+              "ManifestS3Uri": "__ManifestS3Uri__",
+              "ETag": "__ETag__",
+              "ManifestEtag": "__ManifestEtag__"
+            }
+          },
+          "ProductId": "__ProductId__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ModelInput": {
+            "DataInputConfig": "__DataInputConfig__"
+          },
+          "Framework": "__Framework__",
+          "FrameworkVersion": "__FrameworkVersion__",
+          "NearestModelName": "__NearestModelName__",
+          "AdditionalS3DataSource": {
+            "S3DataType": "__S3DataType__",
+            "S3Uri": "__S3Uri__",
+            "CompressionType": "__CompressionType__",
+            "ETag": "__ETag__"
+          },
+          "ModelDataETag": "__ModelDataETag__",
+          "IsCheckpoint": false,
+          "BaseModel": {
+            "HubContentName": "__HubContentName__",
+            "HubContentVersion": "__HubContentVersion__",
+            "RecipeName": "__RecipeName__"
+          }
+        }
+      ],
+      "Description": "__Description__",
+      "SupportedTransformInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedRealtimeInferenceInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedResponseMIMETypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "SkipModelValidation": "__SkipModelValidation__",
+  "SourceUri": "__SourceUri__",
+  "SecurityConfig": {
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "ModelCard": {
+    "ModelCardContent": "__ModelCardContent__",
+    "ModelCardStatus": "__ModelCardStatus__"
+  },
+  "ModelLifeCycle": {
+    "Stage": "__Stage__",
+    "StageStatus": "__StageStatus__",
+    "StageDescription": "__StageDescription__"
+  }
+}

@@ -1,0 +1,71 @@
+POST https://123456789012.s3-control.us-east-1.amazonaws.com 
+/v20180820/accessgrantsinstance/grant
+
+x-amz-account-id: 123456789012
+content-type: application/xml
+content-length: 765
+content-md5: lYgw41Dwms2NdkHNn6E/0w==
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3-control#_.__ m/E,e
+host: 123456789012.s3-control.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 8bf53745ecc7a780f2a3b518c23207d0020437dc53db27bc41adeb9e4b451a10
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-account-id;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateAccessGrantRequest xmlns="http://awss3control.amazonaws.com/doc/2018-08-20/">
+    <AccessGrantsLocationId>
+        __AccessGrantsLocationId__
+    </AccessGrantsLocationId>
+    <Grantee>
+        <GranteeType>
+            __GranteeType__
+        </GranteeType>
+        <GranteeIdentifier>
+            __GranteeIdentifier__
+        </GranteeIdentifier>
+    </Grantee>
+    <Permission>
+        __Permission__
+    </Permission>
+    <AccessGrantsLocationConfiguration>
+        <S3SubPrefix>
+            __S3SubPrefix__
+        </S3SubPrefix>
+    </AccessGrantsLocationConfiguration>
+    <ApplicationArn>
+        __ApplicationArn__
+    </ApplicationArn>
+    <S3PrefixType>
+        __S3PrefixType__
+    </S3PrefixType>
+    <Tags>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+    </Tags>
+</CreateAccessGrantRequest>

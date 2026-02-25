@@ -1,0 +1,62 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdateFeatureGroup
+content-length: 724
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 023ace70f417a729a5a5b935575a77b3c27dfff45793c121f851068a6f1401cf
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "FeatureGroupName": "__FeatureGroupName__",
+  "FeatureAdditions": [
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    }
+  ],
+  "OnlineStoreConfig": {
+    "TtlDuration": {
+      "Unit": "__Unit__",
+      "Value": 0
+    }
+  },
+  "ThroughputConfig": {
+    "ThroughputMode": "__ThroughputMode__",
+    "ProvisionedReadCapacityUnits": 0,
+    "ProvisionedWriteCapacityUnits": 0
+  }
+}

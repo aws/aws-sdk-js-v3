@@ -1,0 +1,25 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 436
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: a653841d8b219da9eec873fbc0db71d50767cca400e50a6dd9b99f49360bca4c
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyInstanceCreditSpecification&
+Version=2016-11-15&
+InstanceCreditSpecification.1.InstanceId=__InstanceId__&
+InstanceCreditSpecification.1.CpuCredits=__CpuCredits__&
+InstanceCreditSpecification.2.InstanceId=__InstanceId__&
+InstanceCreditSpecification.2.CpuCredits=__CpuCredits__&
+InstanceCreditSpecification.3.InstanceId=__InstanceId__&
+InstanceCreditSpecification.3.CpuCredits=__CpuCredits__&
+DryRun=false&
+ClientToken=__ClientToken__

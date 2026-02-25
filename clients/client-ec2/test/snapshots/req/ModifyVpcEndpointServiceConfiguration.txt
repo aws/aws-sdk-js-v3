@@ -1,0 +1,46 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1116
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: bc231412173f70e450a462ed6b635371855f8496aa8d4ad6c84008460aceb065
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyVpcEndpointServiceConfiguration&
+Version=2016-11-15&
+ServiceId=__ServiceId__&
+DryRun=false&
+PrivateDnsName=__PrivateDnsName__&
+RemovePrivateDnsName=false&
+AcceptanceRequired=false&
+AddNetworkLoadBalancerArn.1=__member__&
+AddNetworkLoadBalancerArn.2=__member__&
+AddNetworkLoadBalancerArn.3=__member__&
+RemoveNetworkLoadBalancerArn.1=__member__&
+RemoveNetworkLoadBalancerArn.2=__member__&
+RemoveNetworkLoadBalancerArn.3=__member__&
+AddGatewayLoadBalancerArn.1=__member__&
+AddGatewayLoadBalancerArn.2=__member__&
+AddGatewayLoadBalancerArn.3=__member__&
+RemoveGatewayLoadBalancerArn.1=__member__&
+RemoveGatewayLoadBalancerArn.2=__member__&
+RemoveGatewayLoadBalancerArn.3=__member__&
+AddSupportedIpAddressType.1=__member__&
+AddSupportedIpAddressType.2=__member__&
+AddSupportedIpAddressType.3=__member__&
+RemoveSupportedIpAddressType.1=__member__&
+RemoveSupportedIpAddressType.2=__member__&
+RemoveSupportedIpAddressType.3=__member__&
+AddSupportedRegion.1=__member__&
+AddSupportedRegion.2=__member__&
+AddSupportedRegion.3=__member__&
+RemoveSupportedRegion.1=__member__&
+RemoveSupportedRegion.2=__member__&
+RemoveSupportedRegion.3=__member__

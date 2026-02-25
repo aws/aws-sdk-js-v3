@@ -1,0 +1,106 @@
+PUT https://s3tables.us-east-1.amazonaws.com 
+/tables/__tableBucketARN__/__namespace__
+
+content-type: application/json
+content-length: 1136
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3tables#_.__ m/E,e
+host: s3tables.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 195c17bf19969c607648c3fcd73b9aeec730398f8c03c7d33cc7971b12db6760
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3tables/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "name": "__name__",
+  "format": "__format__",
+  "metadata": {
+    "iceberg": {
+      "schema": {
+        "fields": [
+          {
+            "name": "__name__",
+            "type": "__type__",
+            "id": 0,
+            "required": false
+          },
+          {
+            "name": "__name__",
+            "type": "__type__",
+            "id": 0,
+            "required": false
+          },
+          {
+            "name": "__name__",
+            "type": "__type__",
+            "id": 0,
+            "required": false
+          }
+        ]
+      },
+      "partitionSpec": {
+        "fields": [
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "name": "__name__",
+            "field-id": 0
+          },
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "name": "__name__",
+            "field-id": 0
+          },
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "name": "__name__",
+            "field-id": 0
+          }
+        ],
+        "spec-id": 0
+      },
+      "writeOrder": {
+        "order-id": 0,
+        "fields": [
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "direction": "__direction__",
+            "null-order": "__nullOrder__"
+          },
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "direction": "__direction__",
+            "null-order": "__nullOrder__"
+          },
+          {
+            "source-id": 0,
+            "transform": "__transform__",
+            "direction": "__direction__",
+            "null-order": "__nullOrder__"
+          }
+        ]
+      },
+      "properties": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  },
+  "encryptionConfiguration": {
+    "sseAlgorithm": "__sseAlgorithm__",
+    "kmsKeyArn": "__kmsKeyArn__"
+  },
+  "storageClassConfiguration": {
+    "storageClass": "__storageClass__"
+  },
+  "tags": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}

@@ -1,0 +1,208 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateProcessingJob
+content-length: 4050
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e862f94fff75f7c5f6c4889311eb976bab57652f289dae2aaf145a3cc42418fe
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "ProcessingJobName": "__ProcessingJobName__",
+  "ProcessingResources": {
+    "ClusterConfig": {
+      "InstanceCount": 0,
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+    }
+  },
+  "AppSpecification": {
+    "ImageUri": "__ImageUri__",
+    "ContainerEntrypoint": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ContainerArguments": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "RoleArn": "__RoleArn__",
+  "ProcessingInputs": [
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    }
+  ],
+  "ProcessingOutputConfig": {
+    "Outputs": [
+      {},
+      {},
+      {}
+    ],
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0
+  },
+  "Environment": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "NetworkConfig": {
+    "EnableInterContainerTrafficEncryption": false,
+    "EnableNetworkIsolation": false,
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "ExperimentConfig": {
+    "ExperimentName": "__ExperimentName__",
+    "TrialName": "__TrialName__",
+    "TrialComponentDisplayName": "__TrialComponentDisplayName__",
+    "RunName": "__RunName__"
+  }
+}

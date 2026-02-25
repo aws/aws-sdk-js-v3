@@ -1,0 +1,103 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdateComputeQuota
+content-length: 1228
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: eabc4e11c16e5935dc9ea2c63275ca88c6e1e0d6696cd8bba1881125cb22d8e7
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "ComputeQuotaId": "__ComputeQuotaId__",
+  "TargetVersion": 0,
+  "ComputeQuotaConfig": {
+    "ComputeQuotaResources": [
+      {
+        "InstanceType": "__InstanceType__",
+        "Count": 0,
+        "Accelerators": 0,
+        "VCpu": 0,
+        "MemoryInGiB": 0,
+        "AcceleratorPartition": {
+          "Type": "__Type__",
+          "Count": 0
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "Count": 0,
+        "Accelerators": 0,
+        "VCpu": 0,
+        "MemoryInGiB": 0,
+        "AcceleratorPartition": {
+          "Type": "__Type__",
+          "Count": 0
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "Count": 0,
+        "Accelerators": 0,
+        "VCpu": 0,
+        "MemoryInGiB": 0,
+        "AcceleratorPartition": {
+          "Type": "__Type__",
+          "Count": 0
+        }
+      }
+    ],
+    "ResourceSharingConfig": {
+      "Strategy": "__Strategy__",
+      "BorrowLimit": 0,
+      "AbsoluteBorrowLimits": [
+        {
+          "InstanceType": "__InstanceType__",
+          "Count": 0,
+          "Accelerators": 0,
+          "VCpu": 0,
+          "MemoryInGiB": 0,
+          "AcceleratorPartition": {
+            "Type": "__Type__",
+            "Count": 0
+          }
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Count": 0,
+          "Accelerators": 0,
+          "VCpu": 0,
+          "MemoryInGiB": 0,
+          "AcceleratorPartition": {
+            "Type": "__Type__",
+            "Count": 0
+          }
+        },
+        {
+          "InstanceType": "__InstanceType__",
+          "Count": 0,
+          "Accelerators": 0,
+          "VCpu": 0,
+          "MemoryInGiB": 0,
+          "AcceleratorPartition": {
+            "Type": "__Type__",
+            "Count": 0
+          }
+        }
+      ]
+    },
+    "PreemptTeamTasks": "__PreemptTeamTasks__"
+  },
+  "ComputeQuotaTarget": {
+    "TeamName": "__TeamName__",
+    "FairShareWeight": 0
+  },
+  "ActivationState": "__ActivationState__",
+  "Description": "__Description__"
+}
