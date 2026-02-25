@@ -4,6 +4,7 @@
     "removeComments": false,
     "declaration": true,
     "declarationDir": "dist-types",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "noCheck": false
   }
 }

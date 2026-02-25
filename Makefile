@@ -22,15 +22,14 @@ test-unit: bundles
 	yarn g:vitest run -c vitest.config.clients.unit.mts
 	npx jest -c jest.config.js
 
-test-client-codegen:
-	rm -rf ./codegen/new-client-test-codegen/build
-	rm -rf ./private/client-test-weather
-	cd codegen && ./gradlew :new-client-test-codegen:build
-	mkdir -p ./private/client-test-weather
-	cp -r ./codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen/* ./private/client-test-weather/
-	cat ./private/client-test-weather/package.json
-	yarn update:versions:default
-	git checkout HEAD -- ./private/client-test-weather/CHANGELOG.md ./private/client-test-weather/package.json
+test-codegen:
+	cp ./private/aws-protocoltests-restjson/package.json /tmp/pkg.json.bak
+	cp ./private/aws-protocoltests-restjson/CHANGELOG.md /tmp/changelog.bak
+	rm -rf ./private/aws-protocoltests-restjson
+	yarn generate-clients -p
+	node ./scripts/restore-pkg-version.js /tmp/pkg.json.bak ./private/aws-protocoltests-restjson/package.json
+	cp /tmp/changelog.bak ./private/aws-protocoltests-restjson/CHANGELOG.md
+	git diff --exit-code ./private/aws-protocoltests-restjson
 
 # typecheck for test code.
 test-types:
