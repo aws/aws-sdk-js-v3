@@ -22,6 +22,13 @@ const buildSmithyTypeScript = async (repo, commit) => {
 
   // Switch to branch with commit
   const tempBranchName = `temp-${commit}`;
+
+  // Delete temp branch if it exists
+  try {
+    await spawnProcess("git", ["branch", "-D", tempBranchName], { cwd: repo });
+  } catch (error) {
+    // Branch doesn't exist, ignore error
+  }
   await spawnProcess("git", ["checkout", "-b", tempBranchName, commit], { cwd: repo });
 
   // Build smithy-typescript and publish to maven local

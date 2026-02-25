@@ -55,9 +55,11 @@ test-integration: bundles
 	node ./scripts/validation/no-generic-byte-arrays.js
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
+	yarn generate-clients -p;
+	git diff --exit-code ./private
 	make test-protocols
 	make test-types
-	# make snapshot-compare
+	make snapshot-compare
 	make test-indices
 	make test-endpoints
 
@@ -111,7 +113,7 @@ b-auth:
 
 # run turbo build for packages only.
 tpk:
-	npx turbo run build --filter='./{packages,packages-internal}/*'
+	node ./scripts/turbo build --filter='./{packages,packages-internal}/*'
 
 # builds only packages that have no build at all.
 # for development only - packages may be stale.

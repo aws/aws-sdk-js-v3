@@ -1,0 +1,27 @@
+PUT https://restjson.us-east-1.amazonaws.com 
+/SimpleScalarProperties
+
+x-foo: __foo__
+content-type: application/json
+content-length: 177
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-json-protocol#_.__ m/E,e
+host: restjson.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: aea62e06f5ca73c3a1b0ddd0c2f4796485fe44d1cf20a607065ba721bf8268f3
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent;x-foo, Signature=***
+
+[string (json)]
+{
+  "stringValue": "__stringValue__",
+  "trueBooleanValue": false,
+  "falseBooleanValue": false,
+  "byteValue": 0,
+  "shortValue": 0,
+  "integerValue": 0,
+  "longValue": 0,
+  "floatValue": 0,
+  "DoubleDribble": 0
+}
