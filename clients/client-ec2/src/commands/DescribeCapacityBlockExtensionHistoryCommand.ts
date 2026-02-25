@@ -74,6 +74,7 @@ export interface DescribeCapacityBlockExtensionHistoryCommandOutput extends Desc
  * //       CapacityBlockExtensionEndDate: new Date("TIMESTAMP"),
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
+ * //       ZoneType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -64,6 +64,7 @@ export interface DescribeCapacityBlockExtensionOfferingsCommandOutput extends De
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
  * //       Tenancy: "default" || "dedicated",
+ * //       ZoneType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

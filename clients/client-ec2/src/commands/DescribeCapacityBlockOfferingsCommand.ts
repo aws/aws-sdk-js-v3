@@ -50,6 +50,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCap
  *   MaxResults: Number("int"),
  *   UltraserverType: "STRING_VALUE",
  *   UltraserverCount: Number("int"),
+ *   AllAvailabilityZones: true || false,
  * };
  * const command = new DescribeCapacityBlockOfferingsCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput extends DescribeCap
  * //       UltraserverType: "STRING_VALUE",
  * //       UltraserverCount: Number("int"),
  * //       CapacityBlockDurationMinutes: Number("int"),
+ * //       ZoneType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

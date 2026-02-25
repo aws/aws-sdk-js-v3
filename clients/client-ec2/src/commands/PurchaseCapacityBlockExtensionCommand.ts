@@ -60,6 +60,7 @@ export interface PurchaseCapacityBlockExtensionCommandOutput extends PurchaseCap
  * //       CapacityBlockExtensionEndDate: new Date("TIMESTAMP"),
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
+ * //       ZoneType: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

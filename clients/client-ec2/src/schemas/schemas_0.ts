@@ -9348,7 +9348,7 @@ export var CapacityBlock$: StaticStructureSchema = [3, n0, _CBa,
 ];
 export var CapacityBlockExtension$: StaticStructureSchema = [3, n0, _CBE,
   0,
-  [_CRI, _IT, _IC, _AZ, _AZI, _CBEOI, _CBEDH, _CBES, _CBEPD, _CBESD, _CBEED, _UF, _CC],
+  [_CRI, _IT, _IC, _AZ, _AZI, _CBEOI, _CBEDH, _CBES, _CBEPD, _CBESD, _CBEED, _UF, _CC, _ZT],
   [[0, { [_eQN]: `CapacityReservationId`
   , [_xN]: _cRI }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [1, { [_eQN]: `InstanceCount`
@@ -9362,11 +9362,12 @@ export var CapacityBlockExtension$: StaticStructureSchema = [3, n0, _CBE,
   , [_xN]: _cBESD }], [4, { [_eQN]: `CapacityBlockExtensionEndDate`
   , [_xN]: _cBEED }], [0, { [_eQN]: `UpfrontFee`
   , [_xN]: _uF }], [0, { [_eQN]: `CurrencyCode`
-  , [_xN]: _cC }]]
+  , [_xN]: _cC }], [0, { [_eQN]: `ZoneType`
+  , [_xN]: _zT }]]
 ];
 export var CapacityBlockExtensionOffering$: StaticStructureSchema = [3, n0, _CBEO,
   0,
-  [_CBEOI, _IT, _IC, _AZ, _AZI, _SD, _CBESD, _CBEED, _CBEDH, _UF, _CC, _Te],
+  [_CBEOI, _IT, _IC, _AZ, _AZI, _SD, _CBESD, _CBEED, _CBEDH, _UF, _CC, _Te, _ZT],
   [[0, { [_eQN]: `CapacityBlockExtensionOfferingId`
   , [_xN]: _cBEOI }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [1, { [_eQN]: `InstanceCount`
@@ -9379,11 +9380,12 @@ export var CapacityBlockExtensionOffering$: StaticStructureSchema = [3, n0, _CBE
   , [_xN]: _cBEDH }], [0, { [_eQN]: `UpfrontFee`
   , [_xN]: _uF }], [0, { [_eQN]: `CurrencyCode`
   , [_xN]: _cC }], [0, { [_eQN]: `Tenancy`
-  , [_xN]: _t }]]
+  , [_xN]: _t }], [0, { [_eQN]: `ZoneType`
+  , [_xN]: _zT }]]
 ];
 export var CapacityBlockOffering$: StaticStructureSchema = [3, n0, _CBO,
   0,
-  [_CBOI, _IT, _AZ, _IC, _SD, _ED, _CBDH, _UF, _CC, _Te, _UTl, _UC, _CBDM],
+  [_CBOI, _IT, _AZ, _IC, _SD, _ED, _CBDH, _UF, _CC, _Te, _UTl, _UC, _CBDM, _ZT],
   [[0, { [_eQN]: `CapacityBlockOfferingId`
   , [_xN]: _cBOI }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `AvailabilityZone`
@@ -9397,7 +9399,8 @@ export var CapacityBlockOffering$: StaticStructureSchema = [3, n0, _CBO,
   , [_xN]: _t }], [0, { [_eQN]: `UltraserverType`
   , [_xN]: _uTl }], [1, { [_eQN]: `UltraserverCount`
   , [_xN]: _uC }], [1, { [_eQN]: `CapacityBlockDurationMinutes`
-  , [_xN]: _cBDM }]]
+  , [_xN]: _cBDM }], [0, { [_eQN]: `ZoneType`
+  , [_xN]: _zT }]]
 ];
 export var CapacityBlockStatus$: StaticStructureSchema = [3, n0, _CBS,
   0,
@@ -12644,8 +12647,8 @@ export var DescribeCapacityBlockExtensionOfferingsResult$: StaticStructureSchema
 ];
 export var DescribeCapacityBlockOfferingsRequest$: StaticStructureSchema = [3, n0, _DCBOR,
   0,
-  [_CDH, _DR, _IT, _IC, _SDR, _EDR, _NTe, _MR, _UTl, _UC],
-  [1, 2, 0, 1, 4, 4, 0, 1, 0, 1], 1
+  [_CDH, _DR, _IT, _IC, _SDR, _EDR, _NTe, _MR, _UTl, _UC, _AAZ],
+  [1, 2, 0, 1, 4, 4, 0, 1, 0, 1, 2], 1
 ];
 export var DescribeCapacityBlockOfferingsResult$: StaticStructureSchema = [3, n0, _DCBORe,
   0,

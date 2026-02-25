@@ -2497,6 +2497,12 @@ export interface CapacityBlockExtension {
    * @public
    */
   CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The type of zone where the Capacity Block extension is located.</p>
+   * @public
+   */
+  ZoneType?: string | undefined;
 }
 
 /**
@@ -2646,6 +2652,12 @@ export interface CapacityBlockExtensionOffering {
    * @public
    */
   Tenancy?: CapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The type of zone where the Capacity Block extension offering is available.</p>
+   * @public
+   */
+  ZoneType?: string | undefined;
 }
 
 /**
@@ -2731,6 +2743,16 @@ export interface DescribeCapacityBlockOfferingsRequest {
    * @public
    */
   UltraserverCount?: number | undefined;
+
+  /**
+   * <p>
+   * 			Include all Availability Zones and Local Zones, regardless of your opt-in status.
+   * 			If you do not use this parameter, the results include available offerings from all
+   * 			Availability Zones in the Amazon Web Services Region and Local Zones you are opted into.
+   * 		</p>
+   * @public
+   */
+  AllAvailabilityZones?: boolean | undefined;
 }
 
 /**
@@ -2819,6 +2841,12 @@ export interface CapacityBlockOffering {
    * @public
    */
   CapacityBlockDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The type of zone where the Capacity Block offering is available.</p>
+   * @public
+   */
+  ZoneType?: string | undefined;
 }
 
 /**
