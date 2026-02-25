@@ -1,5 +1,5 @@
 import type { UserAgent } from "@smithy/types";
-import { platform, release } from "os";
+import { platform, release } from "node:os";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { PreviouslyResolved } from "./defaultUserAgent";

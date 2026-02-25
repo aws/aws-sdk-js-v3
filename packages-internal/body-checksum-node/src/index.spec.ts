@@ -1,10 +1,10 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@smithy/protocol-http";
 import { fromUtf8 } from "@smithy/util-utf8";
-import { createReadStream, mkdtempSync, writeFileSync } from "fs";
-import { tmpdir } from "os";
-import { join } from "path";
-import { Readable } from "stream";
+import { createReadStream, mkdtempSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
 import { bodyChecksumGenerator } from ".";

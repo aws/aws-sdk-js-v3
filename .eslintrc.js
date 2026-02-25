@@ -8,7 +8,7 @@ module.exports = {
     // Uses the recommended rules from the @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-sort-export-all", "eslint-plugin-tsdoc"],
+  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-sort-export-all", "eslint-plugin-tsdoc", "n"],
   rules: {
     /** Turn off strict enforcement */
     "@typescript-eslint/ban-types": "off",
@@ -29,6 +29,7 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "sort-export-all/sort-export-all": "error",
     "@typescript-eslint/consistent-type-imports": "error",
+    "n/prefer-node-protocol": "error",
   },
   ignorePatterns: [
     "packages/nested-clients/src/submodules/**/protocols/*.ts",

@@ -1,7 +1,7 @@
 import { AwsCrc32 } from "@aws-crypto/crc32";
 import { numToUint8 } from "@aws-crypto/util";
-import { Checksum } from "@smithy/types";
-import * as zlib from "zlib";
+import type { Checksum } from "@smithy/types";
+import * as zlib from "node:zlib";
 
 class NodeCrc32 implements Checksum {
   private checksum = 0;

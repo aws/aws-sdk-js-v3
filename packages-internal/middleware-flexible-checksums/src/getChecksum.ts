@@ -1,4 +1,4 @@
-import { ChecksumConstructor, Encoder, HashConstructor } from "@smithy/types";
+import type { ChecksumConstructor, Encoder, HashConstructor } from "@smithy/types";
 
 import { stringHasher } from "./stringHasher";
 

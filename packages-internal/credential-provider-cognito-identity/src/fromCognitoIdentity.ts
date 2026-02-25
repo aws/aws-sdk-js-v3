@@ -2,7 +2,7 @@ import type { AwsIdentityProperties, CredentialProviderOptions, RuntimeConfigIde
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentity, Logger } from "@smithy/types";
 
-import { CognitoProviderParameters } from "./CognitoProviderParameters";
+import type { CognitoProviderParameters } from "./CognitoProviderParameters";
 import { resolveLogins } from "./resolveLogins";
 
 /**

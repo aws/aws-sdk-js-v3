@@ -1,4 +1,4 @@
-import { Exact } from "@smithy/types";
+import type { Exact } from "@smithy/types";
 
 import type { MergeFunctions } from "./function";
 

@@ -1,6 +1,6 @@
 import type { AwsCredentialIdentity, HttpRequest as IHttpRequest } from "@smithy/types";
 
-import { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
+import type { S3ExpressIdentity } from "../interfaces/S3ExpressIdentity";
 
 export const signS3Express = async (
   s3ExpressIdentity: S3ExpressIdentity,

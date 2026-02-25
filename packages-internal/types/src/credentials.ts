@@ -1,7 +1,7 @@
-import { Logger } from "@smithy/types";
+import type { Logger } from "@smithy/types";
 
-import { AwsCredentialIdentity } from "./identity";
-import { Provider } from "./util";
+import type { AwsCredentialIdentity } from "./identity";
+import type { Provider } from "./util";
 
 /**
  * @public

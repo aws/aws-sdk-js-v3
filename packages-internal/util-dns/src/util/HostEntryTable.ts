@@ -1,6 +1,6 @@
-import { HostAddress, HostResolverArguments } from "@aws-sdk/types";
+import type { HostAddress, HostResolverArguments } from "@aws-sdk/types";
 
-import { DnsCache } from "../DnsCache";
+import type { DnsCache } from "../DnsCache";
 import { HostEntry } from "./HostEntry";
 
 /**

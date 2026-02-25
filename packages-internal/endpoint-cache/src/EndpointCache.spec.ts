@@ -1,7 +1,7 @@
 import LRUCache from "mnemonist/lru-cache";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { Endpoint } from "./Endpoint";
+import type { Endpoint } from "./Endpoint";
 import { EndpointCache } from "./EndpointCache";
 
 vi.mock("mnemonist/lru-cache", () => ({

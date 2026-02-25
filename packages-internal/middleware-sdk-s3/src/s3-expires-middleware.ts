@@ -1,6 +1,6 @@
 import { HttpResponse } from "@smithy/protocol-http";
 import { parseRfc7231DateTime } from "@smithy/smithy-client";
-import {
+import type {
   DeserializeHandler,
   DeserializeHandlerArguments,
   DeserializeHandlerOutput,

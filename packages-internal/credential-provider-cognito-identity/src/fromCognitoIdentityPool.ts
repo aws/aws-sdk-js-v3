@@ -1,12 +1,13 @@
 import type { AwsIdentityProperties, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
-import { Logger } from "@smithy/types";
+import type { Logger } from "@smithy/types";
 
-import { CognitoProviderParameters } from "./CognitoProviderParameters";
-import { CognitoIdentityCredentialProvider, fromCognitoIdentity } from "./fromCognitoIdentity";
+import type { CognitoProviderParameters } from "./CognitoProviderParameters";
+import type { CognitoIdentityCredentialProvider } from "./fromCognitoIdentity";
+import { fromCognitoIdentity } from "./fromCognitoIdentity";
 import { localStorage } from "./localStorage";
 import { resolveLogins } from "./resolveLogins";
-import { Storage } from "./Storage";
+import type { Storage } from "./Storage";
 
 /**
  * @internal

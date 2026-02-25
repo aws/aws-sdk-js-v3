@@ -1,7 +1,7 @@
 import "./aws";
 
-import { existsSync, readdirSync } from "fs";
-import { resolve } from "path";
+import { existsSync, readdirSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, test as it } from "vitest";
 
 import { resolveEndpoint } from "./resolveEndpoint";

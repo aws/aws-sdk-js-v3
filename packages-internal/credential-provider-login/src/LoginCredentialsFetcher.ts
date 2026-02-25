@@ -1,4 +1,4 @@
-import { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
+import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
 import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { HttpRequest } from "@smithy/protocol-http";

@@ -34,9 +34,9 @@ vi.mock("@aws-sdk/core/client", () => ({
 const mock_login_session = "arn:aws:sts::012345678910:assumed-role/Admin/admin";
 const mockProfile = { login_session: mock_login_session };
 
-import { createHash } from "crypto";
-import { promises as fs } from "fs";
-import { dirname, join } from "path";
+import { createHash } from "node:crypto";
+import { promises as fs } from "node:fs";
+import { dirname, join } from "node:path";
 
 const mockReadFile = vi.mocked(fs.readFile);
 const mockMkdir = vi.mocked(fs.mkdir);

@@ -1,4 +1,5 @@
-import { EC2, EC2ServiceException, waitUntilSnapshotCompleted, waitUntilVolumeAvailable } from "@aws-sdk/client-ec2";
+import type { EC2ServiceException } from "@aws-sdk/client-ec2";
+import { EC2, waitUntilSnapshotCompleted, waitUntilVolumeAvailable } from "@aws-sdk/client-ec2";
 import { KMS } from "@aws-sdk/client-kms";
 import { getHttpDebugLogPlugin } from "@aws-sdk/middleware-http-debug-log";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";

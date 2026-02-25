@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { FinalizeHandlerArguments, HandlerExecutionContext } from "@aws-sdk/types";
+import type { FinalizeHandlerArguments, HandlerExecutionContext } from "@aws-sdk/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { queueUrlMiddleware, resolveQueueUrlConfig } from "./queue-url";

@@ -1,6 +1,6 @@
 import type { Provider, UserAgent } from "@smithy/types";
-import { platform, release } from "os";
-import { env } from "process";
+import { platform, release } from "node:os";
+import { env } from "node:process";
 
 import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";
 import { isCrtAvailable } from "./is-crt-available";

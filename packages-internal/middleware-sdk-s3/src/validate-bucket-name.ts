@@ -1,5 +1,5 @@
 import { validate as validateArn } from "@aws-sdk/util-arn-parser";
-import {
+import type {
   InitializeHandler,
   InitializeHandlerArguments,
   InitializeHandlerOptions,
@@ -10,7 +10,7 @@ import {
 } from "@smithy/types";
 
 import { bucketEndpointMiddleware, bucketEndpointMiddlewareOptions } from "./bucket-endpoint-middleware";
-import { S3ResolvedConfig } from "./s3Configuration";
+import type { S3ResolvedConfig } from "./s3Configuration";
 
 /**
  * @internal

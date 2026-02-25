@@ -1,7 +1,7 @@
 import { REFRESH_MESSAGE } from "@aws-sdk/token-providers/src/constants";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
-import { homedir } from "os";
-import { join } from "path";
+import { homedir } from "node:os";
+import { join } from "node:path";
 import { describe, expect, test as it } from "vitest";
 
 import { fromSSO } from "./fromSSO";

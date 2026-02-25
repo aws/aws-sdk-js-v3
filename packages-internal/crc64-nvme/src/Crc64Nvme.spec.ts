@@ -1,6 +1,6 @@
 import { CrtCrc64Nvme } from "@aws-sdk/crc64-nvme-crt";
 import { toBase64 } from "@smithy/util-base64";
-import { getRandomValues } from "crypto";
+import { getRandomValues } from "node:crypto";
 import { describe, expect, it } from "vitest";
 
 import { Crc64Nvme } from "./Crc64Nvme";

@@ -1,4 +1,4 @@
-import { AwsHandlerExecutionContext } from "@aws-sdk/types";
+import type { AwsHandlerExecutionContext } from "@aws-sdk/types";
 import { describe, expect, test as it, vi } from "vitest";
 
 import { checkFeatures } from "./check-features";

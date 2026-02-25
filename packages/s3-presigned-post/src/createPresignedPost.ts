@@ -1,12 +1,10 @@
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import type { S3Client } from "@aws-sdk/client-s3";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { formatUrl } from "@aws-sdk/util-format-url";
-import {
-  EndpointParameterInstructionsSupplier,
-  getEndpointFromInstructions,
-  toEndpointV1,
-} from "@smithy/middleware-endpoint";
+import type { EndpointParameterInstructionsSupplier } from "@smithy/middleware-endpoint";
+import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-endpoint";
 import { createScope, getSigningKey } from "@smithy/signature-v4";
-import { ChecksumConstructor, HashConstructor, SourceData } from "@smithy/types";
+import type { ChecksumConstructor, HashConstructor, SourceData } from "@smithy/types";
 import { toHex } from "@smithy/util-hex-encoding";
 import { toUint8Array } from "@smithy/util-utf8";
 
@@ -18,7 +16,7 @@ import {
   SIGNATURE_QUERY_PARAM,
   TOKEN_QUERY_PARAM,
 } from "./constants";
-import { Conditions as PolicyEntry } from "./types";
+import type { Conditions as PolicyEntry } from "./types";
 
 type Fields = Record<string, string>;
 
@@ -74,10 +72,10 @@ export const createPresignedPost = async (
     conditionsSet.add(stringifiedCondition);
   }
 
-  for (const [k,v] of Object.entries(fields)) {
-    conditionsSet.add(JSON.stringify({ [k]: v }))
-  }  
-  
+  for (const [k, v] of Object.entries(fields)) {
+    conditionsSet.add(JSON.stringify({ [k]: v }));
+  }
+
   if (Key.endsWith("${filename}")) {
     conditionsSet.add(JSON.stringify(["starts-with", "$key", Key.substring(0, Key.lastIndexOf("${filename}"))]));
   } else {

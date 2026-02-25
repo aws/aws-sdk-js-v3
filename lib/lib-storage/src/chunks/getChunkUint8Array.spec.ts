@@ -2,7 +2,7 @@ import { describe, expect, test as it } from "vitest";
 
 import { byteLength } from "../byteLength";
 import { BYTE_LENGTH_SOURCE, byteLengthSource } from "../byteLengthSource";
-import { RawDataPart } from "../Upload";
+import type { RawDataPart } from "../Upload";
 import { getChunkUint8Array } from "./getChunkUint8Array";
 
 describe(getChunkUint8Array.name, () => {

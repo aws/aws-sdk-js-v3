@@ -1,7 +1,8 @@
-import { TokenIdentityProvider } from "@aws-sdk/types";
+import type { TokenIdentityProvider } from "@aws-sdk/types";
 import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
 
-import { fromSso, FromSsoInit } from "./fromSso";
+import type { FromSsoInit } from "./fromSso";
+import { fromSso } from "./fromSso";
 
 /**
  * Creates a token provider that will attempt to find token from the

@@ -1,9 +1,10 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { SQS } from "@aws-sdk/client-sqs";
-import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 import type { AwsCredentialIdentity } from "@smithy/types";
-import crypto from "crypto";
-import { Readable } from "stream";
+import crypto from "node:crypto";
+import { Readable } from "node:stream";
 import { beforeEach, describe, expect, test as it } from "vitest";
 
 const sqsModel: any = require("../../../codegen/sdk-codegen/aws-models/sqs.json");

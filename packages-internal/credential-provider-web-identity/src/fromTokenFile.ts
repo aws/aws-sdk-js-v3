@@ -7,9 +7,10 @@ import type {
 } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { externalDataInterceptor } from "@smithy/shared-ini-file-loader";
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
-import { fromWebToken, FromWebTokenInit } from "./fromWebToken";
+import type { FromWebTokenInit } from "./fromWebToken";
+import { fromWebToken } from "./fromWebToken";
 
 const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";

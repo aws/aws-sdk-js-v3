@@ -1,5 +1,5 @@
 import type { CognitoIdentityClient, CognitoIdentityClientConfig } from "./loadCognitoIdentity";
-import { Logins } from "./Logins";
+import type { Logins } from "./Logins";
 
 /**
  * @internal

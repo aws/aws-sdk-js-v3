@@ -1,11 +1,8 @@
 import type { Provider } from "@smithy/types";
 import { normalizeProvider } from "@smithy/util-middleware";
 
-import {
-  AccountIdEndpointMode,
-  DEFAULT_ACCOUNT_ID_ENDPOINT_MODE,
-  validateAccountIdEndpointMode,
-} from "./AccountIdEndpointModeConstants";
+import type { AccountIdEndpointMode } from "./AccountIdEndpointModeConstants";
+import { DEFAULT_ACCOUNT_ID_ENDPOINT_MODE, validateAccountIdEndpointMode } from "./AccountIdEndpointModeConstants";
 
 /**
  * @public

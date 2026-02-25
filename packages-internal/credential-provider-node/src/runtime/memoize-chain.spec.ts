@@ -1,9 +1,9 @@
 import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/property-provider";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { credentialsWillNeedRefresh } from "../defaultProvider";
 import { memoizeChain } from "./memoize-chain";
-import { CredentialsProviderError } from "@smithy/property-provider";
 
 describe("memoize runtime config aware AWS credential chain", () => {
   let staticCredentials!: RuntimeConfigAwsCredentialIdentityProvider;

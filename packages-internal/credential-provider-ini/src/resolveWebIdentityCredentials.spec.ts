@@ -1,5 +1,5 @@
 import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";

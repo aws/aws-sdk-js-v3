@@ -1,4 +1,4 @@
-import { versions } from "process";
+import { versions } from "node:process";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";

@@ -1,5 +1,5 @@
 import { AssumeRoleCommand, STSClient } from "@aws-sdk/nested-clients/sts";
-import { LoadedConfigSelectors } from "@smithy/node-config-provider";
+import type { LoadedConfigSelectors } from "@smithy/node-config-provider";
 import type { ParsedIniData } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 

@@ -1,5 +1,5 @@
-import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
-import { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
+import type { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryPlugin";
+import type { EndpointDiscoveryResolvedConfig, PreviouslyResolved } from "./resolveEndpointDiscoveryConfig";
 
 export interface UpdateDiscoveredEndpointInCacheOptions extends EndpointDiscoveryMiddlewareConfig {
   cacheKey: string;

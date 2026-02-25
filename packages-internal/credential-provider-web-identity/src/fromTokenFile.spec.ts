@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTokenFile } from "./fromTokenFile";

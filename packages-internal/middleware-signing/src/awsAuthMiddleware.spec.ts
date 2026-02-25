@@ -1,8 +1,8 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { RequestSigner } from "@smithy/types";
+import type { RequestSigner } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
+import type { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";

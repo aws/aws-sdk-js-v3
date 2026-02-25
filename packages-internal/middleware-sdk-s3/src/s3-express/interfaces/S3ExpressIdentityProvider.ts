@@ -1,6 +1,6 @@
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import type { AwsCredentialIdentity } from "@aws-sdk/types";
 
-import { S3ExpressIdentity } from "./S3ExpressIdentity";
+import type { S3ExpressIdentity } from "./S3ExpressIdentity";
 
 /**
  * @public

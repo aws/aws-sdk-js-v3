@@ -1,7 +1,7 @@
 import { setFeature } from "@aws-sdk/core";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
-import { PreviouslyResolved } from "./configuration";
+import type { PreviouslyResolved } from "./configuration";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 import { flexibleChecksumsInputMiddleware } from "./flexibleChecksumsInputMiddleware";
 

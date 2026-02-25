@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { Provider, RelativeMiddlewareOptions, SerializeMiddleware } from "@smithy/types";
+import type { Provider, RelativeMiddlewareOptions, SerializeMiddleware } from "@smithy/types";
 
 import { CONTEXT_ACCOUNT_ID, CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID } from "../constants";
 import { getOutpostEndpoint } from "./getOutpostEndpoint";

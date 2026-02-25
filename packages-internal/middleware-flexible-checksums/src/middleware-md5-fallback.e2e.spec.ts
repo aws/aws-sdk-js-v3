@@ -1,12 +1,11 @@
 // see supplemental-docs/MD5_FALLBACK for more details
+import type { ServiceInputTypes, ServiceOutputTypes } from "@aws-sdk/client-s3";
 import {
   CreateBucketCommand,
   DeleteBucketCommand,
   DeleteObjectsCommand,
   PutObjectCommand,
   S3,
-  ServiceInputTypes,
-  ServiceOutputTypes,
 } from "@aws-sdk/client-s3";
 import type {
   FinalizeHandler,
@@ -15,7 +14,7 @@ import type {
   HandlerExecutionContext,
   HttpRequest,
 } from "@smithy/types";
-import { createHash } from "crypto";
+import { createHash } from "node:crypto";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("S3 MD5 Fallback for DeleteObjects", () => {

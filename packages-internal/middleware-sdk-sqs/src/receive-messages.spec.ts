@@ -1,4 +1,4 @@
-import { ChecksumConstructor } from "@smithy/types";
+import type { ChecksumConstructor } from "@smithy/types";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { receiveMessageMiddleware } from "./receive-message";

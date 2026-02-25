@@ -1,5 +1,5 @@
 import { HttpResponse } from "@smithy/protocol-http";
-import {
+import type {
   DeserializeMiddleware,
   Encoder,
   HandlerExecutionContext,

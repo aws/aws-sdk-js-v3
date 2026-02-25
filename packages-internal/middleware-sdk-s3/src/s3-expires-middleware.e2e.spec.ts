@@ -1,5 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
+import type { GetCallerIdentityCommandOutput } from "@aws-sdk/client-sts";
+import { STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 describe("S3 Expires e2e test", () => {

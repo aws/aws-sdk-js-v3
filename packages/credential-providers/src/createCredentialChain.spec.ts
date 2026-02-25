@@ -1,6 +1,6 @@
-import { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { ProviderError } from "@smithy/property-provider";
-import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { createCredentialChain } from "./createCredentialChain";

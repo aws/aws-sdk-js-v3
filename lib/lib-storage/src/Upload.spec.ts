@@ -1,6 +1,6 @@
+import type { CompleteMultipartUploadCommandOutput } from "@aws-sdk/client-s3";
 import {
   CompleteMultipartUploadCommand,
-  CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommand,
   PutObjectCommand,
   PutObjectTaggingCommand,
@@ -9,10 +9,11 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import { AbortController } from "@smithy/abort-controller";
-import { EventEmitter, Readable } from "stream";
+import { EventEmitter, Readable } from "node:stream";
 import { afterAll, afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { Progress, Upload } from "./index";
+import type { Progress } from "./index";
+import { Upload } from "./index";
 
 vi.mock("@aws-sdk/client-s3");
 

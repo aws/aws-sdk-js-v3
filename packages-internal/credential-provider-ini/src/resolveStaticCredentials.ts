@@ -1,7 +1,7 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import { AwsCredentialIdentity, Profile } from "@smithy/types";
+import type { AwsCredentialIdentity, Profile } from "@smithy/types";
 
-import { FromIniInit } from "./fromIni";
+import type { FromIniInit } from "./fromIni";
 
 /**
  * @internal

@@ -1,4 +1,4 @@
-import { AbsoluteLocation, BuildHandlerOptions } from "@smithy/types";
+import type { AbsoluteLocation, BuildHandlerOptions } from "@smithy/types";
 
 /**
  * @internal

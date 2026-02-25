@@ -1,12 +1,12 @@
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
 import { byteLength } from "../byteLength";
-import { RawDataPart as DataPart } from "../Upload";
+import type { RawDataPart as DataPart } from "../Upload";
 import { getChunkStream as chunkFromReadable } from "./getChunkStream";
 import { getDataReadable } from "./getDataReadable";
 
-const fs = require("fs");
+const fs = require("node:fs");
 
 describe(chunkFromReadable.name, () => {
   // larger than the 5mb min chunk size.

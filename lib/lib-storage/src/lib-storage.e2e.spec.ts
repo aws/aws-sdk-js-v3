@@ -1,9 +1,9 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { randomBytes } from "crypto";
+import { randomBytes } from "node:crypto";
 import fs from "node:fs";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("@aws-sdk/lib-storage", () => {

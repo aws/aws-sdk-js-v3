@@ -1,4 +1,4 @@
-import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
+import { Buffer } from "node:buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
 
 import { runtimeConfig } from "./runtimeConfig";
 

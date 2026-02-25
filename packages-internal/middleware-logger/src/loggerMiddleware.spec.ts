@@ -1,4 +1,4 @@
-import { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
+import type { HandlerExecutionContext, Logger, MiddlewareStack } from "@smithy/types";
 import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";

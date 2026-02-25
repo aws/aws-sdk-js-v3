@@ -14,7 +14,7 @@ import type {
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { XmlSettings } from "./XmlCodec";
+import type { XmlSettings } from "./XmlCodec";
 
 type XmlNamespaceAttributeValuePair = [string, string] | [undefined, undefined];
 

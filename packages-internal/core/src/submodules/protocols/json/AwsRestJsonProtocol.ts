@@ -19,7 +19,8 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import { JsonCodec, JsonSettings } from "./JsonCodec";
+import type { JsonSettings } from "./JsonCodec";
+import { JsonCodec } from "./JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
 
 /**

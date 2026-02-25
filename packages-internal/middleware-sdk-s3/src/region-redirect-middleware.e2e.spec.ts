@@ -1,5 +1,7 @@
-import { S3, S3ClientConfig, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
-import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
+import type { S3ClientConfig } from "@aws-sdk/client-s3";
+import { S3, waitUntilBucketExists, waitUntilBucketNotExists } from "@aws-sdk/client-s3";
+import type { GetCallerIdentityCommandOutput } from "@aws-sdk/client-sts";
+import { STS } from "@aws-sdk/client-sts";
 import { afterAll, beforeAll, describe, expect, onTestFailed, test as it } from "vitest";
 
 const testValue = "Hello S3 global client!";

@@ -1,8 +1,8 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { S3 } from "@aws-sdk/client-s3";
 import { version as sdkVersion } from "@aws-sdk/client-s3/package.json";
-import { platform, release } from "os";
-import { versions } from "process";
+import { platform, release } from "node:os";
+import { versions } from "node:process";
 import { describe, test as it } from "vitest";
 const { version: tscVersion } = await import("typescript");
 

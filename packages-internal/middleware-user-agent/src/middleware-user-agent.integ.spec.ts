@@ -5,7 +5,7 @@ import { S3 } from "@aws-sdk/client-s3";
 import { fromTemporaryCredentials } from "@aws-sdk/credential-providers";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 import { STSClient } from "@aws-sdk/nested-clients/sts";
-import { AwsSdkFeatures } from "@aws-sdk/types";
+import type { AwsSdkFeatures } from "@aws-sdk/types";
 import { describe, expect, test as it, vi } from "vitest";
 
 describe("middleware-user-agent", () => {

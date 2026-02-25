@@ -1,4 +1,5 @@
-import { GetObjectCommand, GetObjectCommandInput, S3, S3Client } from "@aws-sdk/client-s3";
+import type { GetObjectCommandInput } from "@aws-sdk/client-s3";
+import { GetObjectCommand, S3, S3Client } from "@aws-sdk/client-s3";
 import type { AssertiveClient, BrowserClient, NodeJsClient, NoUndefined, UncheckedClient } from "@smithy/types";
 import { describe, test as it } from "vitest";
 

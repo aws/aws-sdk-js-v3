@@ -1,5 +1,6 @@
 import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
-import { ChecksumAlgorithm, S3, UploadPartCommandOutput } from "@aws-sdk/client-s3";
+import type { UploadPartCommandOutput } from "@aws-sdk/client-s3";
+import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import type { HttpRequest, HttpResponse } from "@smithy/types";

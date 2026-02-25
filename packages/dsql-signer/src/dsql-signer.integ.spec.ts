@@ -1,7 +1,8 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { describe, expect, test as it } from "vitest";
 
-import { DsqlSigner, DsqlSignerConfig } from "./Signer";
+import type { DsqlSignerConfig } from "./Signer";
+import { DsqlSigner } from "./Signer";
 
 describe("dsql-signer integration", () => {
   it("creates a token", async () => {

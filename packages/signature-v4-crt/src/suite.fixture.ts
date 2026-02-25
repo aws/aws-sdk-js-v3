@@ -1,4 +1,4 @@
-import { HttpRequest } from "@smithy/types";
+import type { HttpRequest } from "@smithy/types";
 
 export interface TestCase {
   name: string;

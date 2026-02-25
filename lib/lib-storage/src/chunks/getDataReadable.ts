@@ -1,5 +1,5 @@
-import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
-import { Readable } from "stream";
+import { Buffer } from "node:buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
+import type { Readable } from "node:stream";
 
 export async function* getDataReadable(data: Readable): AsyncGenerator<Uint8Array> {
   for await (const chunk of data) {

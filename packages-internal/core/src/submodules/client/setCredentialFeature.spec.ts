@@ -1,4 +1,4 @@
-import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
+import type { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
 import { describe, expect, test as it } from "vitest";
 
 import { setCredentialFeature } from "./setCredentialFeature";

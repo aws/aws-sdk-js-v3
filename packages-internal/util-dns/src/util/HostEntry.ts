@@ -1,6 +1,7 @@
-import { HostAddress, HostAddressType } from "@aws-sdk/types";
+import type { HostAddress } from "@aws-sdk/types";
+import { HostAddressType } from "@aws-sdk/types";
 
-import { DnsCacheEntry, DnsCacheHostAddressEntry } from "../DnsCache";
+import type { DnsCacheEntry, DnsCacheHostAddressEntry } from "../DnsCache";
 import { HostAddressEntryCollection } from "./HostAddressEntryCollection";
 
 /**

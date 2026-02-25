@@ -1,5 +1,5 @@
 import { normalizeProvider } from "@smithy/core";
-import { Logger, Provider, UserAgent } from "@smithy/types";
+import type { Logger, Provider, UserAgent } from "@smithy/types";
 
 /**
  * @internal

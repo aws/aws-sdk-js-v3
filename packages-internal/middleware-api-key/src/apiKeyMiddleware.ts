@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import {
+import type {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
@@ -10,7 +10,7 @@ import {
   RelativeMiddlewareOptions,
 } from "@smithy/types";
 
-import { ApiKeyResolvedConfig } from "./apiKeyConfiguration";
+import type { ApiKeyResolvedConfig } from "./apiKeyConfiguration";
 
 /**
  * Middleware to inject the API key into the HTTP request.

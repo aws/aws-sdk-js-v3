@@ -1,5 +1,5 @@
-import { ChecksumConstructor } from "@smithy/types";
-import * as crypto from "crypto";
+import type { ChecksumConstructor } from "@smithy/types";
+import * as crypto from "node:crypto";
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isValidBase64EncodedSSECustomerKey, ssecMiddleware } from "./";

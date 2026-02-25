@@ -1,4 +1,4 @@
-import { Logins, ResolvedLogins } from "./Logins";
+import type { Logins, ResolvedLogins } from "./Logins";
 
 /**
  * @internal

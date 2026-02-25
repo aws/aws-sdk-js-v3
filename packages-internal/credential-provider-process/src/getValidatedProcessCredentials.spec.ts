@@ -1,9 +1,9 @@
-import { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
-import { ParsedIniData } from "@smithy/types";
+import type { AttributedAwsCredentialIdentity } from "@aws-sdk/types";
+import type { ParsedIniData } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
-import { ProcessCredentials } from "./ProcessCredentials";
+import type { ProcessCredentials } from "./ProcessCredentials";
 
 describe(getValidatedProcessCredentials.name, () => {
   const mockProfileName = "mockProfileName";

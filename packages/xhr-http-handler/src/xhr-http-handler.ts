@@ -1,7 +1,8 @@
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
+import { HttpResponse } from "@smithy/protocol-http";
 import { buildQueryString } from "@smithy/querystring-builder";
-import { HttpHandlerOptions, Provider } from "@smithy/types";
-import { EventEmitter } from "events";
+import type { HttpHandlerOptions, Provider } from "@smithy/types";
+import { EventEmitter } from "node:events";
 
 import { requestTimeout as requestTimeoutFn } from "./request-timeout";
 

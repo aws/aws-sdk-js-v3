@@ -1,5 +1,5 @@
 import { extendedEncodeURIComponent } from "@smithy/core/protocols";
-import { createSign } from "crypto";
+import { createSign } from "node:crypto";
 
 /**
  * Input type to getSignedUrl and getSignedCookies.
