@@ -1,6 +1,6 @@
 import { defaultEndpointResolver } from "@aws-sdk/client-s3/src/endpoint/endpointResolver";
 import { createScope, getSigningKey } from "@smithy/signature-v4";
-import { HttpRequest, SourceData } from "@smithy/types";
+import type { HttpRequest, SourceData } from "@smithy/types";
 import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import {
@@ -104,6 +104,25 @@ describe("createPresignedPost", () => {
     });
     const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
     expect(conditions).toContainEqual(["starts-with", "$key", "path/to/"]);
+  });
+
+  it("should use starts-with condition for fields containing ${filename}", async () => {
+    //@ts-ignore mock s3 client
+    const { fields } = await createPresignedPost(mockS3Client, {
+      Bucket,
+      Key: "uploads/${filename}",
+      Fields: {
+        success_action_redirect: "https://example.com/success?file=${filename}",
+      },
+    });
+    const { conditions } = JSON.parse(mockS3Client.config.utf8Decoder.mock.calls[0] as any);
+    // Field containing ${filename} should get a starts-with condition, not an exact match
+    expect(conditions).toContainEqual(["starts-with", "$success_action_redirect", "https://example.com/success?file="]);
+    expect(conditions).not.toContainEqual({
+      success_action_redirect: "https://example.com/success?file=${filename}",
+    });
+    // The field value itself should still contain ${filename} for S3 to substitute
+    expect(fields.success_action_redirect).toBe("https://example.com/success?file=${filename}");
   });
 
   it("should default expiration at 3600 seconds later", async () => {
