@@ -2,7 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "lib": ["dom"],
-    "module": "ESNext",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "outDir": "dist-es",
     "noCheck": true

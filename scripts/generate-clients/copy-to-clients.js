@@ -73,6 +73,12 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         if (fromContent[name]["test"]) {
           fromContent[name]["test"] = fromContent[name]["test"].replace(/yarn dlx vitest/g, "yarn g:vitest");
         }
+        if (fromContent[name]["test:watch"]) {
+          fromContent[name]["test:watch"] = fromContent[name]["test:watch"].replace(
+            /yarn dlx vitest/g,
+            "yarn g:vitest"
+          );
+        }
       }
 
       merged[name] = await mergeManifest(fromContent[name], toContent[name], name);
