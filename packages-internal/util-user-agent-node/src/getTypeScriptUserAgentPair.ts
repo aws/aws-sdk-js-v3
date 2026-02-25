@@ -1,19 +1,8 @@
 import type { UserAgentPair } from "@smithy/types";
 import { readFile } from "node:fs/promises";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 
 let tscVersion: string | null;
-
-const getCurrentDirPath = () => {
-  // ESM: import.meta.url is defined
-  if (typeof import.meta !== "undefined" && import.meta.url) {
-    return dirname(fileURLToPath(import.meta.url));
-  }
-
-  // CJS: __dirname is a global
-  return __dirname;
-};
 
 /**
  * Returns the tyescript name and version as a user agent pair, if present.
@@ -27,10 +16,9 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
     return ["md/tsc", tscVersion];
   }
 
-  const currentDirPath = getCurrentDirPath();
-  const nodeModulesIndex = currentDirPath.indexOf("node_modules");
+  const nodeModulesIndex = __dirname.indexOf("node_modules");
   const nodeModulesPath =
-    nodeModulesIndex !== -1 ? currentDirPath.slice(0, nodeModulesIndex + "node_modules".length) : currentDirPath;
+    nodeModulesIndex !== -1 ? __dirname.slice(0, nodeModulesIndex + "node_modules".length) : __dirname;
   const packageJsonPath = join(nodeModulesPath, "typescript", "package.json");
 
   try {
