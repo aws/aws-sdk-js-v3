@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Restores the version field from a backup package.json to the current one.
 
-const fs = require("fs");
+const fs = require("node:fs");
 
 const [oldPkgPath, newPkgPath] = process.argv.slice(2);
 const orig = JSON.parse(fs.readFileSync(oldPkgPath));
