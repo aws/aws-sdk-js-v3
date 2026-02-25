@@ -140,6 +140,11 @@ import {
   GetSampledRequestsCommandInput,
   GetSampledRequestsCommandOutput,
 } from "./commands/GetSampledRequestsCommand";
+import {
+  GetTopPathStatisticsByTrafficCommand,
+  GetTopPathStatisticsByTrafficCommandInput,
+  GetTopPathStatisticsByTrafficCommandOutput,
+} from "./commands/GetTopPathStatisticsByTrafficCommand";
 import { GetWebACLCommand, GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommand,
@@ -269,6 +274,7 @@ const commands = {
   GetRegexPatternSetCommand,
   GetRuleGroupCommand,
   GetSampledRequestsCommand,
+  GetTopPathStatisticsByTrafficCommand,
   GetWebACLCommand,
   GetWebACLForResourceCommand,
   ListAPIKeysCommand,
@@ -805,6 +811,23 @@ export interface WAFV2 {
     args: GetSampledRequestsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSampledRequestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTopPathStatisticsByTrafficCommand}
+   */
+  getTopPathStatisticsByTraffic(
+    args: GetTopPathStatisticsByTrafficCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTopPathStatisticsByTrafficCommandOutput>;
+  getTopPathStatisticsByTraffic(
+    args: GetTopPathStatisticsByTrafficCommandInput,
+    cb: (err: any, data?: GetTopPathStatisticsByTrafficCommandOutput) => void
+  ): void;
+  getTopPathStatisticsByTraffic(
+    args: GetTopPathStatisticsByTrafficCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTopPathStatisticsByTrafficCommandOutput) => void
   ): void;
 
   /**

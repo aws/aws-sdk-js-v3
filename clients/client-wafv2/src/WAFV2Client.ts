@@ -132,6 +132,10 @@ import {
 import { GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput } from "./commands/GetRegexPatternSetCommand";
 import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand";
 import { GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput } from "./commands/GetSampledRequestsCommand";
+import {
+  GetTopPathStatisticsByTrafficCommandInput,
+  GetTopPathStatisticsByTrafficCommandOutput,
+} from "./commands/GetTopPathStatisticsByTrafficCommand";
 import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommandInput,
@@ -243,6 +247,7 @@ export type ServiceInputTypes =
   | GetRegexPatternSetCommandInput
   | GetRuleGroupCommandInput
   | GetSampledRequestsCommandInput
+  | GetTopPathStatisticsByTrafficCommandInput
   | GetWebACLCommandInput
   | GetWebACLForResourceCommandInput
   | ListAPIKeysCommandInput
@@ -302,6 +307,7 @@ export type ServiceOutputTypes =
   | GetRegexPatternSetCommandOutput
   | GetRuleGroupCommandOutput
   | GetSampledRequestsCommandOutput
+  | GetTopPathStatisticsByTrafficCommandOutput
   | GetWebACLCommandOutput
   | GetWebACLForResourceCommandOutput
   | ListAPIKeysCommandOutput

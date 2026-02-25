@@ -29,6 +29,7 @@ export * from "./GetRateBasedStatementManagedKeysCommand";
 export * from "./GetRegexPatternSetCommand";
 export * from "./GetRuleGroupCommand";
 export * from "./GetSampledRequestsCommand";
+export * from "./GetTopPathStatisticsByTrafficCommand";
 export * from "./GetWebACLCommand";
 export * from "./GetWebACLForResourceCommand";
 export * from "./ListAPIKeysCommand";

@@ -35,8 +35,13 @@ const _All = "Allow";
 const _At = "Attributes";
 const _B = "Body";
 const _BA = "BlockAction";
-const _BC = "BodyContains";
+const _BC = "BotCategory";
+const _BCo = "BodyContains";
 const _BMS = "ByteMatchStatement";
+const _BN = "BotName";
+const _BO = "BotOrganization";
+const _BS = "BotStatistics";
+const _BSL = "BotStatisticsList";
 const _Be = "Behavior";
 const _Bl = "Block";
 const _C = "Capacity";
@@ -164,7 +169,8 @@ const _FMRG = "FirewallManagerRuleGroup";
 const _FMRGi = "FirewallManagerRuleGroups";
 const _FMS = "FirewallManagerStatement";
 const _FR = "FailureReason";
-const _FS = "FailureStrings";
+const _FS = "FilterSource";
+const _FSa = "FailureStrings";
 const _FT = "FieldType";
 const _FTM = "FieldToMatch";
 const _FTP = "FieldToProtect";
@@ -206,6 +212,9 @@ const _GRPSRe = "GetRegexPatternSetResponse";
 const _GSR = "GetSampledRequests";
 const _GSRR = "GetSampledRequestsRequest";
 const _GSRRe = "GetSampledRequestsResponse";
+const _GTPSBT = "GetTopPathStatisticsByTraffic";
+const _GTPSBTR = "GetTopPathStatisticsByTrafficRequest";
+const _GTPSBTRe = "GetTopPathStatisticsByTrafficResponse";
 const _GWACL = "GetWebACL";
 const _GWACLFR = "GetWebACLForResource";
 const _GWACLFRR = "GetWebACLForResourceRequest";
@@ -248,7 +257,7 @@ const _JAFi = "JA4Fingerprint";
 const _JB = "JsonBody";
 const _JMP = "JsonMatchPattern";
 const _K = "Key";
-const _L = "Label";
+const _L = "Limit";
 const _LAMRG = "ListAvailableManagedRuleGroups";
 const _LAMRGR = "ListAvailableManagedRuleGroupsRequest";
 const _LAMRGRi = "ListAvailableManagedRuleGroupsResponse";
@@ -300,8 +309,8 @@ const _LUT = "LastUpdateTimestamp";
 const _LWACL = "ListWebACLs";
 const _LWACLR = "ListWebACLsRequest";
 const _LWACLRi = "ListWebACLsResponse";
-const _La = "Labels";
-const _Li = "Limit";
+const _La = "Label";
+const _Lab = "Labels";
 const _M = "Message";
 const _MBFM = "ManagedByFirewallManager";
 const _MI = "MaxItems";
@@ -333,6 +342,7 @@ const _N = "Name";
 const _NA = "NoneAction";
 const _NLT = "NextLockToken";
 const _NM = "NextMarker";
+const _NOTTBPP = "NumberOfTopTrafficBotsPerPath";
 const _NS = "NotStatement";
 const _NWACLLT = "NextWebACLLockToken";
 const _Na = "Namespace";
@@ -362,10 +372,14 @@ const _PPP = "PutPermissionPolicy";
 const _PPPR = "PutPermissionPolicyRequest";
 const _PPPRu = "PutPermissionPolicyResponse";
 const _PS = "PopulationSize";
+const _PSL = "PathStatisticsList";
+const _PSa = "PathStatistics";
 const _PT = "ProductTitle";
 const _PTa = "PayloadType";
 const _PTu = "PublishTimestamp";
 const _PV = "PublishedVersions";
+const _Pa = "Path";
+const _Pe = "Percentage";
 const _Pl = "Platform";
 const _Po = "Policy";
 const _Pos = "Position";
@@ -386,8 +400,9 @@ const _RBS = "RateBasedStatement";
 const _RBSCK = "RateBasedStatementCustomKey";
 const _RBSCKa = "RateBasedStatementCustomKeys";
 const _RBSMKIPS = "RateBasedStatementManagedKeysIPSet";
-const _RC = "ResponseCode";
+const _RC = "RequestCount";
 const _RCS = "ResponseCodeSent";
+const _RCe = "ResponseCode";
 const _REL = "RegularExpressionList";
 const _RF = "RedactedFields";
 const _RG = "RuleGroup";
@@ -467,14 +482,18 @@ const _SV = "SuccessValues";
 const _Sc = "Scope";
 const _Se = "Sensitivity";
 const _Si = "Size";
+const _So = "Source";
 const _St = "Statement";
 const _Su = "Summary";
 const _T = "Tags";
+const _TB = "TopBots";
+const _TC = "TopCategories";
 const _TD = "TokenDomains";
 const _TIFR = "TagInfoForResource";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TR = "TagResource";
+const _TRC = "TotalRequestCount";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
 const _TT = "TextTransformations";
@@ -494,6 +513,7 @@ const _UMRSVEDR = "UpdateManagedRuleSetVersionExpiryDateRequest";
 const _UMRSVEDRp = "UpdateManagedRuleSetVersionExpiryDateResponse";
 const _UOA = "UsageOfAction";
 const _UP = "UriPath";
+const _UPP = "UriPathPrefix";
 const _UR = "UntagResource";
 const _URG = "UpdateRuleGroup";
 const _URGR = "UpdateRuleGroupRequest";
@@ -819,6 +839,11 @@ export var Body$: StaticStructureSchema = [3, n0, _B,
   [_OH],
   [0]
 ];
+export var BotStatistics$: StaticStructureSchema = [3, n0, _BS,
+  0,
+  [_BN, _RC, _Pe],
+  [0, 1, 1], 3
+];
 export var ByteMatchStatement$: StaticStructureSchema = [3, n0, _BMS,
   0,
   [_SS, _FTM, _TT, _PC],
@@ -836,7 +861,7 @@ export var CaptchaConfig$: StaticStructureSchema = [3, n0, _CC,
 ];
 export var CaptchaResponse$: StaticStructureSchema = [3, n0, _CRa,
   0,
-  [_RC, _STo, _FR],
+  [_RCe, _STo, _FR],
   [1, 1, 0]
 ];
 export var ChallengeAction$: StaticStructureSchema = [3, n0, _CAh,
@@ -851,7 +876,7 @@ export var ChallengeConfig$: StaticStructureSchema = [3, n0, _CCh,
 ];
 export var ChallengeResponse$: StaticStructureSchema = [3, n0, _CRh,
   0,
-  [_RC, _STo, _FR],
+  [_RCe, _STo, _FR],
   [1, 1, 0]
 ];
 export var CheckCapacityRequest$: StaticStructureSchema = [3, n0, _CCR,
@@ -956,7 +981,7 @@ export var CustomRequestHandling$: StaticStructureSchema = [3, n0, _CRH,
 ];
 export var CustomResponse$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_RC, _CRBK, _RH],
+  [_RCe, _CRBK, _RH],
   [1, 0, () => CustomHTTPHeaders], 1
 ];
 export var CustomResponseBody$: StaticStructureSchema = [3, n0, _CRBu,
@@ -1129,6 +1154,11 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   [_Be, _Re, _Cond],
   [0, 0, () => Conditions], 3
 ];
+export var FilterSource$: StaticStructureSchema = [3, n0, _FS,
+  0,
+  [_BC, _BO, _BN],
+  [0, 0, 0]
+];
 export var FirewallManagerRuleGroup$: StaticStructureSchema = [3, n0, _FMRG,
   0,
   [_N, _Pr, _FMS, _OA, _VC],
@@ -1259,6 +1289,16 @@ export var GetSampledRequestsResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   [_SR, _PS, _TW],
   [() => SampledHTTPRequests, 1, () => TimeWindow$]
 ];
+export var GetTopPathStatisticsByTrafficRequest$: StaticStructureSchema = [3, n0, _GTPSBTR,
+  0,
+  [_WAA, _Sc, _TW, _L, _NOTTBPP, _UPP, _BC, _BO, _BN, _NM],
+  [0, 0, () => TimeWindow$, 1, 1, 0, 0, 0, 0, 0], 5
+];
+export var GetTopPathStatisticsByTrafficResponse$: StaticStructureSchema = [3, n0, _GTPSBTRe,
+  0,
+  [_PSa, _TRC, _NM, _TC],
+  [() => PathStatisticsList, 1, 0, () => PathStatisticsList], 2
+];
 export var GetWebACLForResourceRequest$: StaticStructureSchema = [3, n0, _GWACLFRR,
   0,
   [_RA],
@@ -1349,7 +1389,7 @@ export var JsonMatchPattern$: StaticStructureSchema = [3, n0, _JMP,
   [_Al, _IP],
   [() => All$, 64 | 0]
 ];
-export var Label$: StaticStructureSchema = [3, n0, _L,
+export var Label$: StaticStructureSchema = [3, n0, _La,
   0,
   [_N],
   [0], 1
@@ -1371,7 +1411,7 @@ export var LabelSummary$: StaticStructureSchema = [3, n0, _LSa,
 ];
 export var ListAPIKeysRequest$: StaticStructureSchema = [3, n0, _LAPIKR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListAPIKeysResponse$: StaticStructureSchema = [3, n0, _LAPIKRi,
@@ -1381,7 +1421,7 @@ export var ListAPIKeysResponse$: StaticStructureSchema = [3, n0, _LAPIKRi,
 ];
 export var ListAvailableManagedRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LAMRGR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListAvailableManagedRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LAMRGRi,
@@ -1391,7 +1431,7 @@ export var ListAvailableManagedRuleGroupsResponse$: StaticStructureSchema = [3, 
 ];
 export var ListAvailableManagedRuleGroupVersionsRequest$: StaticStructureSchema = [3, n0, _LAMRGVR,
   0,
-  [_VN, _N, _Sc, _NM, _Li],
+  [_VN, _N, _Sc, _NM, _L],
   [0, 0, 0, 0, 1], 3
 ];
 export var ListAvailableManagedRuleGroupVersionsResponse$: StaticStructureSchema = [3, n0, _LAMRGVRi,
@@ -1401,7 +1441,7 @@ export var ListAvailableManagedRuleGroupVersionsResponse$: StaticStructureSchema
 ];
 export var ListIPSetsRequest$: StaticStructureSchema = [3, n0, _LIPSR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
@@ -1411,7 +1451,7 @@ export var ListIPSetsResponse$: StaticStructureSchema = [3, n0, _LIPSRi,
 ];
 export var ListLoggingConfigurationsRequest$: StaticStructureSchema = [3, n0, _LLCR,
   0,
-  [_Sc, _NM, _Li, _LS],
+  [_Sc, _NM, _L, _LS],
   [0, 0, 1, 0], 1
 ];
 export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _LLCRi,
@@ -1421,7 +1461,7 @@ export var ListLoggingConfigurationsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var ListManagedRuleSetsRequest$: StaticStructureSchema = [3, n0, _LMRSR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListManagedRuleSetsResponse$: StaticStructureSchema = [3, n0, _LMRSRi,
@@ -1431,7 +1471,7 @@ export var ListManagedRuleSetsResponse$: StaticStructureSchema = [3, n0, _LMRSRi
 ];
 export var ListMobileSdkReleasesRequest$: StaticStructureSchema = [3, n0, _LMSRR,
   0,
-  [_Pl, _NM, _Li],
+  [_Pl, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListMobileSdkReleasesResponse$: StaticStructureSchema = [3, n0, _LMSRRi,
@@ -1441,7 +1481,7 @@ export var ListMobileSdkReleasesResponse$: StaticStructureSchema = [3, n0, _LMSR
 ];
 export var ListRegexPatternSetsRequest$: StaticStructureSchema = [3, n0, _LRPSR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListRegexPatternSetsResponse$: StaticStructureSchema = [3, n0, _LRPSRi,
@@ -1461,7 +1501,7 @@ export var ListResourcesForWebACLResponse$: StaticStructureSchema = [3, n0, _LRF
 ];
 export var ListRuleGroupsRequest$: StaticStructureSchema = [3, n0, _LRGR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi,
@@ -1471,7 +1511,7 @@ export var ListRuleGroupsResponse$: StaticStructureSchema = [3, n0, _LRGRi,
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RARN, _NM, _Li],
+  [_RARN, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -1481,7 +1521,7 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListWebACLsRequest$: StaticStructureSchema = [3, n0, _LWACLR,
   0,
-  [_Sc, _NM, _Li],
+  [_Sc, _NM, _L],
   [0, 0, 1], 1
 ];
 export var ListWebACLsResponse$: StaticStructureSchema = [3, n0, _LWACLRi,
@@ -1579,6 +1619,11 @@ export var PasswordField$: StaticStructureSchema = [3, n0, _PF,
   [_I],
   [0], 1
 ];
+export var PathStatistics$: StaticStructureSchema = [3, n0, _PSa,
+  0,
+  [_Pa, _RC, _Pe, _So, _TB],
+  [0, 1, 1, () => FilterSource$, () => BotStatisticsList], 3
+];
 export var PhoneNumberField$: StaticStructureSchema = [3, n0, _PNF,
   0,
   [_I],
@@ -1621,7 +1666,7 @@ export var QueryString$: StaticStructureSchema = [3, n0, _QS,
 ];
 export var RateBasedStatement$: StaticStructureSchema = [3, n0, _RBS,
   0,
-  [_Li, _AKT, _EWS, _SDS, _FIPC, _CK],
+  [_L, _AKT, _EWS, _SDS, _FIPC, _CK],
   [1, 0, 1, () => Statement$, () => ForwardedIPConfig$, () => RateBasedStatementCustomKeys], 2
 ];
 export var RateBasedStatementCustomKey$: StaticStructureSchema = [3, n0, _RBSCK,
@@ -1741,12 +1786,12 @@ export var RequestInspectionACFP$: StaticStructureSchema = [3, n0, _RIACFP,
 ];
 export var ResponseInspection$: StaticStructureSchema = [3, n0, _RIe,
   0,
-  [_SC, _He, _BC, _J],
+  [_SC, _He, _BCo, _J],
   [() => ResponseInspectionStatusCode$, () => ResponseInspectionHeader$, () => ResponseInspectionBodyContains$, () => ResponseInspectionJson$]
 ];
 export var ResponseInspectionBodyContains$: StaticStructureSchema = [3, n0, _RIBC,
   0,
-  [_SSu, _FS],
+  [_SSu, _FSa],
   [64 | 0, 64 | 0], 2
 ];
 export var ResponseInspectionHeader$: StaticStructureSchema = [3, n0, _RIH,
@@ -1801,7 +1846,7 @@ export var RuleSummary$: StaticStructureSchema = [3, n0, _RSu,
 ];
 export var SampledHTTPRequest$: StaticStructureSchema = [3, n0, _SHTTPR,
   0,
-  [_Req, _W, _Ti, _A, _RNWRG, _RHI, _RCS, _La, _CRa, _CRh, _OAv],
+  [_Req, _W, _Ti, _A, _RNWRG, _RHI, _RCS, _Lab, _CRa, _CRh, _OAv],
   [() => HTTPRequest$, 1, 4, 0, 0, () => HTTPHeaders, 1, () => Labels, () => CaptchaResponse$, () => ChallengeResponse$, 0], 2
 ];
 export var SingleHeader$: StaticStructureSchema = [3, n0, _SH,
@@ -1971,6 +2016,9 @@ var ApplicationAttributes: StaticListSchema = [1, n0, _AApp,
 ];
 var AsnList = 64 | 1;
 var AttributeValues = 64 | 0;
+var BotStatisticsList: StaticListSchema = [1, n0, _BSL,
+  0, () => BotStatistics$
+];
 var Conditions: StaticListSchema = [1, n0, _Cond,
   0, () => Condition$
 ];
@@ -2004,7 +2052,7 @@ var IPSetSummaries: StaticListSchema = [1, n0, _IPSSe,
   0, () => IPSetSummary$
 ];
 var JsonPointerPaths = 64 | 0;
-var Labels: StaticListSchema = [1, n0, _La,
+var Labels: StaticListSchema = [1, n0, _Lab,
   0, () => Label$
 ];
 var LabelSummaries: StaticListSchema = [1, n0, _LSab,
@@ -2028,6 +2076,9 @@ var ManagedRuleGroupVersions: StaticListSchema = [1, n0, _MRGVa,
 ];
 var ManagedRuleSetSummaries: StaticListSchema = [1, n0, _MRSSa,
   0, () => ManagedRuleSetSummary$
+];
+var PathStatisticsList: StaticListSchema = [1, n0, _PSL,
+  0, () => PathStatistics$
 ];
 var PhoneNumberFields: StaticListSchema = [1, n0, _PNFh,
   0, () => PhoneNumberField$
@@ -2186,6 +2237,9 @@ export var GetRuleGroup$: StaticOperationSchema = [9, n0, _GRG,
 ];
 export var GetSampledRequests$: StaticOperationSchema = [9, n0, _GSR,
   0, () => GetSampledRequestsRequest$, () => GetSampledRequestsResponse$
+];
+export var GetTopPathStatisticsByTraffic$: StaticOperationSchema = [9, n0, _GTPSBT,
+  0, () => GetTopPathStatisticsByTrafficRequest$, () => GetTopPathStatisticsByTrafficResponse$
 ];
 export var GetWebACL$: StaticOperationSchema = [9, n0, _GWACL,
   0, () => GetWebACLRequest$, () => GetWebACLResponse$

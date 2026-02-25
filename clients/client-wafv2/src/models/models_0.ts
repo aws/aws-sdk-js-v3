@@ -5681,6 +5681,199 @@ export interface GetSampledRequestsResponse {
 /**
  * @public
  */
+export interface GetTopPathStatisticsByTrafficRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the web ACL for which you want to retrieve path statistics.</p>
+   * @public
+   */
+  WebAclArn: string | undefined;
+
+  /**
+   * <p>Specifies whether the web ACL is for an Amazon Web Services CloudFront distribution or for a regional application.
+   *          A regional application can be an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool,
+   *          an Amazon Web Services App Runner service, or an Amazon Web Services Verified Access instance.</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+
+  /**
+   * <p>A URI path prefix to filter the results. When you specify this parameter, the operation returns statistics for individual URIs within the specified path prefix.
+   *          For example, if you specify <code>/api</code>, the response includes statistics for paths like <code>/api/v1/users</code> and <code>/api/v2/orders</code>.
+   *          If you don't specify this parameter, the operation returns top-level path statistics.</p>
+   * @public
+   */
+  UriPathPrefix?: string | undefined;
+
+  /**
+   * <p>The time window for which you want to retrieve path statistics. The time window must be within the data retention period for your web ACL.</p>
+   * @public
+   */
+  TimeWindow: TimeWindow | undefined;
+
+  /**
+   * <p>Filters the results to include only traffic from bots in the specified category. For example, you can filter by <code>ai</code>
+   *          to see only AI crawler traffic, or <code>search_engine</code> to see only search engine bot traffic.
+   *          When you apply this filter, the <code>Source</code> field is populated in the response.</p>
+   * @public
+   */
+  BotCategory?: string | undefined;
+
+  /**
+   * <p>Filters the results to include only traffic from bots belonging to the specified organization. For example, you can filter by <code>openai</code> or <code>google</code>.
+   *          When you apply this filter, the <code>Source</code> field is populated in the response.</p>
+   * @public
+   */
+  BotOrganization?: string | undefined;
+
+  /**
+   * <p>Filters the results to include only traffic from the specified bot. For example, you can filter by <code>gptbot</code> or <code>googlebot</code>.
+   *          When you apply this filter, the <code>Source</code> field is populated in the response.</p>
+   * @public
+   */
+  BotName?: string | undefined;
+
+  /**
+   * <p>The maximum number of path statistics to return. Valid values are 1 to 100.</p>
+   * @public
+   */
+  Limit: number | undefined;
+
+  /**
+   * <p>The maximum number of top bots to include in the statistics for each path. Valid values are 1 to 10.</p>
+   * @public
+   */
+  NumberOfTopTrafficBotsPerPath: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF
+   *          returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects,
+   *          provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * <p>Information about the bot filter that was applied to the request. This structure is populated in the response when you filter by bot category, organization, or name.</p>
+ * @public
+ */
+export interface FilterSource {
+  /**
+   * <p>The bot category that was used to filter the results. For example, <code>ai</code> or <code>search_engine</code>.</p>
+   * @public
+   */
+  BotCategory?: string | undefined;
+
+  /**
+   * <p>The bot organization that was used to filter the results. For example, <code>OpenAI</code> or <code>Google</code>.</p>
+   * @public
+   */
+  BotOrganization?: string | undefined;
+
+  /**
+   * <p>The bot name that was used to filter the results. For example, <code>gptbot</code> or <code>googlebot</code>.</p>
+   * @public
+   */
+  BotName?: string | undefined;
+}
+
+/**
+ * <p>Statistics about a specific bot's traffic to a path, including the bot name, request count, and percentage of traffic.</p>
+ * @public
+ */
+export interface BotStatistics {
+  /**
+   * <p>The name of the bot. For example, <code>gptbot</code> or <code>googlebot</code>.</p>
+   * @public
+   */
+  BotName: string | undefined;
+
+  /**
+   * <p>The number of requests from this bot to the associated path within the specified time window.</p>
+   * @public
+   */
+  RequestCount: number | undefined;
+
+  /**
+   * <p>The percentage of total requests to the associated path that came from this bot.</p>
+   * @public
+   */
+  Percentage: number | undefined;
+}
+
+/**
+ * <p>Statistics about bot traffic to a specific URI path, including the path, request count, percentage of total traffic, and the top bots accessing that path.</p>
+ * @public
+ */
+export interface PathStatistics {
+  /**
+   * <p>Information about the bot filter that was applied to generate these statistics. This field is only populated when you filter by bot category, organization, or name.</p>
+   * @public
+   */
+  Source?: FilterSource | undefined;
+
+  /**
+   * <p>The URI path. For example, <code>/api/</code> or <code>/api/v1/users</code>.</p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The number of requests to this path within the specified time window.</p>
+   * @public
+   */
+  RequestCount: number | undefined;
+
+  /**
+   * <p>The percentage of total requests that were made to this path.</p>
+   * @public
+   */
+  Percentage: number | undefined;
+
+  /**
+   * <p>The list of top bots accessing this path, ordered by request count. The number of bots included is determined by the
+   *          <code>NumberOfTopTrafficBotsPerPath</code> parameter in the request.</p>
+   * @public
+   */
+  TopBots?: BotStatistics[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTopPathStatisticsByTrafficResponse {
+  /**
+   * <p>The list of path statistics, ordered by request count. Each entry includes the path, request count,
+   *          percentage of total traffic, and the top bots accessing that path.</p>
+   * @public
+   */
+  PathStatistics: PathStatistics[] | undefined;
+
+  /**
+   * <p>The total number of requests that match the query criteria within the specified time window.</p>
+   * @public
+   */
+  TotalRequestCount: number | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that
+   *          are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response.
+   *          To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>Category-level aggregations for visualizing bot category to path relationships. This field is only populated when no bot filters are applied to the request.
+   *          Each entry includes the bot category and the paths accessed by bots in that category.</p>
+   * @public
+   */
+  TopCategories?: PathStatistics[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetWebACLRequest {
   /**
    * <p>The name of the web ACL. You cannot change the name of a web ACL after you create it.</p>

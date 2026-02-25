@@ -23,6 +23,7 @@ import {
   BlockAction$,
   Body$,
   BodyParsingFallbackBehavior,
+  BotStatistics$,
   ByteMatchStatement$,
   CaptchaAction$,
   CaptchaConfig$,
@@ -129,6 +130,7 @@ import {
   Filter$,
   FilterBehavior,
   FilterRequirement,
+  FilterSource$,
   FirewallManagerRuleGroup$,
   FirewallManagerStatement$,
   ForwardedIPConfig$,
@@ -178,6 +180,10 @@ import {
   GetSampledRequestsCommand,
   GetSampledRequestsRequest$,
   GetSampledRequestsResponse$,
+  GetTopPathStatisticsByTraffic$,
+  GetTopPathStatisticsByTrafficCommand,
+  GetTopPathStatisticsByTrafficRequest$,
+  GetTopPathStatisticsByTrafficResponse$,
   GetWebACL$,
   GetWebACLCommand,
   GetWebACLForResource$,
@@ -280,6 +286,7 @@ import {
   OversizeHandling,
   ParameterExceptionField,
   PasswordField$,
+  PathStatistics$,
   PayloadType,
   PhoneNumberField$,
   Platform,
@@ -497,6 +504,8 @@ assert(typeof GetRuleGroupCommand === "function");
 assert(typeof GetRuleGroup$ === "object");
 assert(typeof GetSampledRequestsCommand === "function");
 assert(typeof GetSampledRequests$ === "object");
+assert(typeof GetTopPathStatisticsByTrafficCommand === "function");
+assert(typeof GetTopPathStatisticsByTraffic$ === "object");
 assert(typeof GetWebACLCommand === "function");
 assert(typeof GetWebACL$ === "object");
 assert(typeof GetWebACLForResourceCommand === "function");
@@ -565,6 +574,7 @@ assert(typeof AWSManagedRulesATPRuleSet$ === "object");
 assert(typeof AWSManagedRulesBotControlRuleSet$ === "object");
 assert(typeof BlockAction$ === "object");
 assert(typeof Body$ === "object");
+assert(typeof BotStatistics$ === "object");
 assert(typeof ByteMatchStatement$ === "object");
 assert(typeof CaptchaAction$ === "object");
 assert(typeof CaptchaConfig$ === "object");
@@ -627,6 +637,7 @@ assert(typeof ExcludedRule$ === "object");
 assert(typeof FieldToMatch$ === "object");
 assert(typeof FieldToProtect$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FilterSource$ === "object");
 assert(typeof FirewallManagerRuleGroup$ === "object");
 assert(typeof FirewallManagerStatement$ === "object");
 assert(typeof ForwardedIPConfig$ === "object");
@@ -653,6 +664,8 @@ assert(typeof GetRuleGroupRequest$ === "object");
 assert(typeof GetRuleGroupResponse$ === "object");
 assert(typeof GetSampledRequestsRequest$ === "object");
 assert(typeof GetSampledRequestsResponse$ === "object");
+assert(typeof GetTopPathStatisticsByTrafficRequest$ === "object");
+assert(typeof GetTopPathStatisticsByTrafficResponse$ === "object");
 assert(typeof GetWebACLForResourceRequest$ === "object");
 assert(typeof GetWebACLForResourceResponse$ === "object");
 assert(typeof GetWebACLRequest$ === "object");
@@ -717,6 +730,7 @@ assert(typeof OnSourceDDoSProtectionConfig$ === "object");
 assert(typeof OrStatement$ === "object");
 assert(typeof OverrideAction$ === "object");
 assert(typeof PasswordField$ === "object");
+assert(typeof PathStatistics$ === "object");
 assert(typeof PhoneNumberField$ === "object");
 assert(typeof PutLoggingConfigurationRequest$ === "object");
 assert(typeof PutLoggingConfigurationResponse$ === "object");
