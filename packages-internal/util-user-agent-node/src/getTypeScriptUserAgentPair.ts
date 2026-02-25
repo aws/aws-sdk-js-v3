@@ -1,6 +1,7 @@
 import type { UserAgentPair } from "@smithy/types";
 import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+
+import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
 
 let tscVersion: string | null;
 
@@ -16,13 +17,8 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
     return ["md/tsc", tscVersion];
   }
 
-  const nodeModulesIndex = __dirname.indexOf("node_modules");
-  const nodeModulesPath =
-    nodeModulesIndex !== -1 ? __dirname.slice(0, nodeModulesIndex + "node_modules".length) : __dirname;
-  const packageJsonPath = join(nodeModulesPath, "typescript", "package.json");
-
   try {
-    const packageJson = await readFile(packageJsonPath, "utf-8");
+    const packageJson = await readFile(getTypeScriptPackageJsonPath(__dirname), "utf-8");
     tscVersion = JSON.parse(packageJson).version as string;
     return ["md/tsc", tscVersion];
   } catch {
