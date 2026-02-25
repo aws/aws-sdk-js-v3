@@ -23,13 +23,12 @@ test-unit: bundles
 	npx jest -c jest.config.js
 
 test-codegen:
-	cp ./private/aws-protocoltests-restjson/package.json /tmp/pkg.json.bak
-	cp ./private/aws-protocoltests-restjson/CHANGELOG.md /tmp/changelog.bak
+	cp ./private/aws-protocoltests-restjson/package.json ./tmp/pkg.json.bak
+	cp ./private/aws-protocoltests-restjson/CHANGELOG.md ./tmp/changelog.bak
 	rm -rf ./private/aws-protocoltests-restjson
 	yarn generate-clients -p
-	node ./scripts/restore-pkg-version.js /tmp/pkg.json.bak ./private/aws-protocoltests-restjson/package.json
-	cp /tmp/changelog.bak ./private/aws-protocoltests-restjson/CHANGELOG.md
-	git diff --exit-code ./private/aws-protocoltests-restjson
+	node ./scripts/restore-pkg-version.js ./tmp/pkg.json.bak ./private/aws-protocoltests-restjson/package.json
+	cp ./tmp/changelog.bak ./private/aws-protocoltests-restjson/CHANGELOG.md
 
 # typecheck for test code.
 test-types:
@@ -55,7 +54,7 @@ test-integration: bundles
 	node ./scripts/validation/no-generic-byte-arrays.js
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
-	yarn generate-clients -p;
+	make test-codegen
 	git diff --exit-code ./private
 	make test-protocols
 	make test-types

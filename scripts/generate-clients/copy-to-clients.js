@@ -70,6 +70,9 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         // build CJS after types and ES because of rollup inliner.
         fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
         fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
+        if (fromContent[name]["test"]) {
+          fromContent[name]["test"] = fromContent[name]["test"].replace(/yarn dlx vitest/g, "yarn g:vitest");
+        }
       }
 
       merged[name] = await mergeManifest(fromContent[name], toContent[name], name);

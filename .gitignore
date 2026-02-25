@@ -80,5 +80,8 @@ temp/
 temp-packages/
 temp-lib/
 
+/tmp/*
+!/tmp/.gitkeep
+
 # Gradle composite build properties
 codegen/local.properties
