@@ -24,7 +24,8 @@ import { getEndpointFromInstructions, toEndpointV1 } from "@smithy/middleware-en
 import type { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
 import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
-import { EventEmitter } from "node:events";
+// eslint-disable-next-line n/prefer-node-protocol
+import { EventEmitter } from "events";
 
 import { byteLength } from "./byteLength";
 import type { BYTE_LENGTH_SOURCE } from "./byteLengthSource";

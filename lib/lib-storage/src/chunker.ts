@@ -1,5 +1,7 @@
-import { Buffer } from "node:buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
-import { Readable } from "node:stream";
+// eslint-disable-next-line n/prefer-node-protocol
+import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
+// eslint-disable-next-line n/prefer-node-protocol
+import { Readable } from "stream";
 
 import { getChunkStream } from "./chunks/getChunkStream";
 import { getChunkUint8Array } from "./chunks/getChunkUint8Array";

@@ -31204,7 +31204,7 @@ __metadata:
     esbuild: "npm:0.25.0"
     eslint: "npm:8.36.0"
     eslint-config-prettier: "npm:8.5.0"
-    eslint-plugin-n: "npm:^17.24.0"
+    eslint-plugin-n: "npm:17.24.0"
     eslint-plugin-prettier: "npm:4.0.0"
     eslint-plugin-simple-import-sort: "npm:7.0.0"
     eslint-plugin-sort-export-all: "npm:1.2.2"
@@ -33486,7 +33486,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^17.24.0":
+"eslint-plugin-n@npm:17.24.0":
   version: 17.24.0
   resolution: "eslint-plugin-n@npm:17.24.0"
   dependencies:

@@ -1,4 +1,5 @@
-import { Buffer } from "node:buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
+// eslint-disable-next-line n/prefer-node-protocol
+import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
 
 import type { RawDataPart } from "../Upload";
 
