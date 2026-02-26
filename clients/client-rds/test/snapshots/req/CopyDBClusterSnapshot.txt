@@ -1,0 +1,28 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 408
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 74dbc683f61394045d7e020f1dafecd9c5d48cc3a94045233a9b6cb4b74c3d37
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CopyDBClusterSnapshot&
+Version=2014-10-31&
+SourceDBClusterSnapshotIdentifier=__SourceDBClusterSnapshotIdentifier__&
+TargetDBClusterSnapshotIdentifier=__TargetDBClusterSnapshotIdentifier__&
+KmsKeyId=__KmsKeyId__&
+PreSignedUrl=__PreSignedUrl__&
+CopyTags=false&
+Tags.Tag.1.Key=__Key__&
+Tags.Tag.1.Value=__Value__&
+Tags.Tag.2.Key=__Key__&
+Tags.Tag.2.Value=__Value__&
+Tags.Tag.3.Key=__Key__&
+Tags.Tag.3.Value=__Value__

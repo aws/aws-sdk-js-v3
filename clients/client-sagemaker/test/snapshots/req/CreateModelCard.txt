@@ -1,0 +1,38 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateModelCard
+content-length: 269
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 33d414fddf45317d7f5f6c092fe5d7edaf928f3e6dbc1d4e98250b6e5a2e317c
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "ModelCardName": "__ModelCardName__",
+  "Content": "__Content__",
+  "ModelCardStatus": "__ModelCardStatus__",
+  "SecurityConfig": {
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

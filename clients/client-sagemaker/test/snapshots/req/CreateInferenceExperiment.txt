@@ -1,0 +1,110 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateInferenceExperiment
+content-length: 1539
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 56e987e00477b3952a673831240aa6c3a8e4c65d5eae6dbb9298f2545af37f9d
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Name": "__Name__",
+  "Type": "__Type__",
+  "RoleArn": "__RoleArn__",
+  "EndpointName": "__EndpointName__",
+  "ModelVariants": [
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    }
+  ],
+  "ShadowModeConfig": {
+    "SourceModelVariantName": "__SourceModelVariantName__",
+    "ShadowModelVariants": [
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      }
+    ]
+  },
+  "Schedule": {
+    "StartTime": 946702799.999,
+    "EndTime": 946702799.999
+  },
+  "Description": "__Description__",
+  "DataStorageConfig": {
+    "Destination": "__Destination__",
+    "KmsKey": "__KmsKey__",
+    "ContentType": {
+      "CsvContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "JsonContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "KmsKey": "__KmsKey__",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

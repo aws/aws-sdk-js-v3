@@ -1,0 +1,27 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 426
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d9cd6576f56237259d195e36a269870794459963ac58a746b94586092c408c12
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=GetReservedInstancesExchangeQuote&
+Version=2016-11-15&
+ReservedInstanceId.1=__member__&
+ReservedInstanceId.2=__member__&
+ReservedInstanceId.3=__member__&
+DryRun=false&
+TargetConfiguration.1.OfferingId=__OfferingId__&
+TargetConfiguration.1.InstanceCount=0&
+TargetConfiguration.2.OfferingId=__OfferingId__&
+TargetConfiguration.2.InstanceCount=0&
+TargetConfiguration.3.OfferingId=__OfferingId__&
+TargetConfiguration.3.InstanceCount=0

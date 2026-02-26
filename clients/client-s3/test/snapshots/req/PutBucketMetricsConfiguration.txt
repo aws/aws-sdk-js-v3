@@ -1,0 +1,27 @@
+PUT https://s3.us-east-1.amazonaws.com 
+/__Bucket__/?metrics=&id=__Id__
+
+x-amz-expected-bucket-owner: __ExpectedBucketOwner__
+content-type: application/xml
+content-length: 190
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3#_.__ m/E,e
+host: s3.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 8f1f0750701420a46ae092972e6ab98b768d1f765a05e04815250b349c100822
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-expected-bucket-owner;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<MetricsConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <Id>
+        __Id__
+    </Id>
+    <Filter>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </Filter>
+</MetricsConfiguration>

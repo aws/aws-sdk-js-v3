@@ -1,0 +1,63 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 2304
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4f572be89b1811b2f9405b5797a20f32a44de629e601d370ea98bad09244fa9e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateClientVpnEndpoint&
+Version=2016-11-15&
+ServerCertificateArn=__ServerCertificateArn__&
+Authentication.1.Type=__Type__&
+Authentication.1.ActiveDirectory.DirectoryId=__DirectoryId__&
+Authentication.1.MutualAuthentication.ClientRootCertificateChainArn=__ClientRootCertificateChainArn__&
+Authentication.1.FederatedAuthentication.SAMLProviderArn=__SAMLProviderArn__&
+Authentication.1.FederatedAuthentication.SelfServiceSAMLProviderArn=__SelfServiceSAMLProviderArn__&
+Authentication.2.Type=__Type__&
+Authentication.2.ActiveDirectory.DirectoryId=__DirectoryId__&
+Authentication.2.MutualAuthentication.ClientRootCertificateChainArn=__ClientRootCertificateChainArn__&
+Authentication.2.FederatedAuthentication.SAMLProviderArn=__SAMLProviderArn__&
+Authentication.2.FederatedAuthentication.SelfServiceSAMLProviderArn=__SelfServiceSAMLProviderArn__&
+Authentication.3.Type=__Type__&
+Authentication.3.ActiveDirectory.DirectoryId=__DirectoryId__&
+Authentication.3.MutualAuthentication.ClientRootCertificateChainArn=__ClientRootCertificateChainArn__&
+Authentication.3.FederatedAuthentication.SAMLProviderArn=__SAMLProviderArn__&
+Authentication.3.FederatedAuthentication.SelfServiceSAMLProviderArn=__SelfServiceSAMLProviderArn__&
+ConnectionLogOptions.Enabled=false&
+ConnectionLogOptions.CloudwatchLogGroup=__CloudwatchLogGroup__&
+ConnectionLogOptions.CloudwatchLogStream=__CloudwatchLogStream__&
+ClientCidrBlock=__ClientCidrBlock__&
+DnsServers.1=__member__&
+DnsServers.2=__member__&
+DnsServers.3=__member__&
+TransportProtocol=__TransportProtocol__&
+VpnPort=0&
+Description=__Description__&
+SplitTunnel=false&
+DryRun=false&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+SecurityGroupId.1=__member__&
+SecurityGroupId.2=__member__&
+SecurityGroupId.3=__member__&
+VpcId=__VpcId__&
+SelfServicePortal=__SelfServicePortal__&
+ClientConnectOptions.Enabled=false&
+ClientConnectOptions.LambdaFunctionArn=__LambdaFunctionArn__&
+SessionTimeoutHours=0&
+ClientLoginBannerOptions.Enabled=false&
+ClientLoginBannerOptions.BannerText=__BannerText__&
+ClientRouteEnforcementOptions.Enforced=false&
+DisconnectOnSessionTimeout=false&
+EndpointIpAddressType=__EndpointIpAddressType__&
+TrafficIpAddressType=__TrafficIpAddressType__

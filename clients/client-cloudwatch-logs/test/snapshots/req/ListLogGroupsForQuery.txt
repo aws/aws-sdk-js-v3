@@ -1,0 +1,21 @@
+POST https://logs.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: Logs_20140328.ListLogGroupsForQuery
+content-length: 68
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch-logs#_.__ m/E,e
+host: logs.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4afa0d26057889c777d30c104244ad471bb23c7913ef4c4fd2705e6fbdd16900
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "queryId": "__queryId__",
+  "nextToken": "__nextToken__",
+  "maxResults": 0
+}

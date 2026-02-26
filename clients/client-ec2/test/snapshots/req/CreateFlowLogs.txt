@@ -1,0 +1,37 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 756
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 242b7ff1aa574d230d31de7fb22e6c62593602c9bf5b512e42af77cc272742b3
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateFlowLogs&
+Version=2016-11-15&
+ResourceId.1=__member__&
+ResourceId.2=__member__&
+ResourceId.3=__member__&
+ResourceType=__ResourceType__&
+DryRun=false&
+ClientToken=__ClientToken__&
+DeliverLogsPermissionArn=__DeliverLogsPermissionArn__&
+DeliverCrossAccountRole=__DeliverCrossAccountRole__&
+LogGroupName=__LogGroupName__&
+TrafficType=__TrafficType__&
+LogDestinationType=__LogDestinationType__&
+LogDestination=__LogDestination__&
+LogFormat=__LogFormat__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+MaxAggregationInterval=0&
+DestinationOptions.FileFormat=__FileFormat__&
+DestinationOptions.HiveCompatiblePartitions=false&
+DestinationOptions.PerHourPartition=false

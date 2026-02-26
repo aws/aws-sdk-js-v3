@@ -1,0 +1,26 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.ListArtifacts
+content-length: 215
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f3784f58d91a2f14bf66ab59c4c4e1bdac01057c7e90df02ae8e5cb0dd2f21c1
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "SourceUri": "__SourceUri__",
+  "ArtifactType": "__ArtifactType__",
+  "CreatedAfter": 946702799.999,
+  "CreatedBefore": 946702799.999,
+  "SortBy": "__SortBy__",
+  "SortOrder": "__SortOrder__",
+  "NextToken": "__NextToken__",
+  "MaxResults": 0
+}

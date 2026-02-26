@@ -1,0 +1,78 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 2555
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 29e45202807b46785951392dab1cc6bdd170b3438d69671c52085f56d744de09
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyDBCluster&
+Version=2014-10-31&
+DBClusterIdentifier=__DBClusterIdentifier__&
+NewDBClusterIdentifier=__NewDBClusterIdentifier__&
+ApplyImmediately=false&
+BackupRetentionPeriod=0&
+DBClusterParameterGroupName=__DBClusterParameterGroupName__&
+VpcSecurityGroupIds.VpcSecurityGroupId.1=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.2=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.3=__member__&
+Port=0&
+MasterUserPassword=__MasterUserPassword__&
+OptionGroupName=__OptionGroupName__&
+PreferredBackupWindow=__PreferredBackupWindow__&
+PreferredMaintenanceWindow=__PreferredMaintenanceWindow__&
+EnableIAMDatabaseAuthentication=false&
+BacktrackWindow=0&
+CloudwatchLogsExportConfiguration.EnableLogTypes.member.1=__member__&
+CloudwatchLogsExportConfiguration.EnableLogTypes.member.2=__member__&
+CloudwatchLogsExportConfiguration.EnableLogTypes.member.3=__member__&
+CloudwatchLogsExportConfiguration.DisableLogTypes.member.1=__member__&
+CloudwatchLogsExportConfiguration.DisableLogTypes.member.2=__member__&
+CloudwatchLogsExportConfiguration.DisableLogTypes.member.3=__member__&
+EngineVersion=__EngineVersion__&
+AllowMajorVersionUpgrade=false&
+DBInstanceParameterGroupName=__DBInstanceParameterGroupName__&
+Domain=__Domain__&
+DomainIAMRoleName=__DomainIAMRoleName__&
+ScalingConfiguration.MinCapacity=0&
+ScalingConfiguration.MaxCapacity=0&
+ScalingConfiguration.AutoPause=false&
+ScalingConfiguration.SecondsUntilAutoPause=0&
+ScalingConfiguration.TimeoutAction=__TimeoutAction__&
+ScalingConfiguration.SecondsBeforeTimeout=0&
+DeletionProtection=false&
+EnableHttpEndpoint=false&
+CopyTagsToSnapshot=false&
+EnableGlobalWriteForwarding=false&
+DBClusterInstanceClass=__DBClusterInstanceClass__&
+AllocatedStorage=0&
+StorageType=__StorageType__&
+Iops=0&
+AutoMinorVersionUpgrade=false&
+NetworkType=__NetworkType__&
+ServerlessV2ScalingConfiguration.MinCapacity=0&
+ServerlessV2ScalingConfiguration.MaxCapacity=0&
+ServerlessV2ScalingConfiguration.SecondsUntilAutoPause=0&
+MonitoringInterval=0&
+MonitoringRoleArn=__MonitoringRoleArn__&
+DatabaseInsightsMode=__DatabaseInsightsMode__&
+EnablePerformanceInsights=false&
+PerformanceInsightsKMSKeyId=__PerformanceInsightsKMSKeyId__&
+PerformanceInsightsRetentionPeriod=0&
+ManageMasterUserPassword=false&
+RotateMasterUserPassword=false&
+EnableLocalWriteForwarding=false&
+MasterUserSecretKmsKeyId=__MasterUserSecretKmsKeyId__&
+EngineMode=__EngineMode__&
+AllowEngineModeChange=false&
+AwsBackupRecoveryPointArn=__AwsBackupRecoveryPointArn__&
+EnableLimitlessDatabase=false&
+CACertificateIdentifier=__CACertificateIdentifier__&
+MasterUserAuthenticationType=__MasterUserAuthenticationType__

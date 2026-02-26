@@ -1,0 +1,19 @@
+POST https://cognito-identity.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: AWSCognitoIdentityService.DescribeIdentity
+content-length: 31
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cognito-identity#_.__ m/E,e
+host: cognito-identity.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 74a4f2a685253bd8a7863cb56d442e5f6687c9eb76608ccf48a016f9ad51d1ea
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cognito-identity/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "IdentityId": "__IdentityId__"
+}

@@ -1,0 +1,55 @@
+PATCH https://123456789012.s3-control.us-east-1.amazonaws.com 
+/v20180820/mrap/instances/__Mrap__/routes
+
+x-amz-account-id: 123456789012
+content-type: application/xml
+content-length: 563
+content-md5: ALMbAs5sQsJ90SL/1ohiMw==
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3-control#_.__ m/E,e
+host: 123456789012.s3-control.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4228138c1c86ac9a038864f6a6956e96505b4a27a2a1db2e76e391fe0705fc1b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-account-id;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<SubmitMultiRegionAccessPointRoutesRequest xmlns="http://awss3control.amazonaws.com/doc/2018-08-20/">
+    <RouteUpdates>
+        <Route>
+            <TrafficDialPercentage>
+                0
+            </TrafficDialPercentage>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Region>
+                __Region__
+            </Region>
+        </Route>
+        <Route>
+            <TrafficDialPercentage>
+                0
+            </TrafficDialPercentage>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Region>
+                __Region__
+            </Region>
+        </Route>
+        <Route>
+            <TrafficDialPercentage>
+                0
+            </TrafficDialPercentage>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Region>
+                __Region__
+            </Region>
+        </Route>
+    </RouteUpdates>
+</SubmitMultiRegionAccessPointRoutesRequest>

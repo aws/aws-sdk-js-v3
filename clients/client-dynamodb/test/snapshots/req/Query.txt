@@ -1,0 +1,159 @@
+POST https://dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDB_20120810.Query
+content-length: 1434
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb#_.__ m/E,P,e
+host: dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 22a549d1f59f75799faa1ca592dff58d9fcb73c38e106ede4422ec12a3c95c08
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "TableName": "__TableName__",
+  "IndexName": "__IndexName__",
+  "Select": "__Select__",
+  "AttributesToGet": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "Limit": 0,
+  "ConsistentRead": false,
+  "KeyConditions": {
+    "key1": {
+      "ComparisonOperator": "__ComparisonOperator__",
+      "AttributeValueList": [
+        {
+          "NS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        {
+          "M": {
+            "key1": {},
+            "key2": {}
+          }
+        }
+      ]
+    },
+    "key2": {
+      "ComparisonOperator": "__ComparisonOperator__",
+      "AttributeValueList": [
+        {
+          "M": {
+            "key1": {},
+            "key2": {}
+          }
+        },
+        {
+          "L": [
+            {},
+            {},
+            {}
+          ]
+        },
+        {
+          "NULL": false
+        }
+      ]
+    }
+  },
+  "QueryFilter": {
+    "key1": {
+      "ComparisonOperator": "__ComparisonOperator__",
+      "AttributeValueList": [
+        {
+          "SS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "NS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        }
+      ]
+    },
+    "key2": {
+      "ComparisonOperator": "__ComparisonOperator__",
+      "AttributeValueList": [
+        {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        {
+          "M": {
+            "key1": {},
+            "key2": {}
+          }
+        },
+        {
+          "L": [
+            {},
+            {},
+            {}
+          ]
+        }
+      ]
+    }
+  },
+  "ConditionalOperator": "__ConditionalOperator__",
+  "ScanIndexForward": false,
+  "ExclusiveStartKey": {
+    "key1": {
+      "B": "AQAAAQ=="
+    },
+    "key2": {
+      "NS": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "ReturnConsumedCapacity": "__ReturnConsumedCapacity__",
+  "ProjectionExpression": "__ProjectionExpression__",
+  "FilterExpression": "__FilterExpression__",
+  "KeyConditionExpression": "__KeyConditionExpression__",
+  "ExpressionAttributeNames": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "ExpressionAttributeValues": {
+    "key1": {
+      "BOOL": false
+    },
+    "key2": {
+      "N": "__N__"
+    }
+  }
+}

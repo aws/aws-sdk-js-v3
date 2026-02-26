@@ -1,0 +1,46 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1751
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: b9cf452e3a5dd1469435e22b57d59e109db820f1ce278579e36ffdf016003eaf
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifySecurityGroupRules&
+Version=2016-11-15&
+GroupId=__GroupId__&
+SecurityGroupRule.1.SecurityGroupRuleId=__SecurityGroupRuleId__&
+SecurityGroupRule.1.SecurityGroupRule.IpProtocol=__IpProtocol__&
+SecurityGroupRule.1.SecurityGroupRule.FromPort=0&
+SecurityGroupRule.1.SecurityGroupRule.ToPort=0&
+SecurityGroupRule.1.SecurityGroupRule.CidrIpv4=__CidrIpv4__&
+SecurityGroupRule.1.SecurityGroupRule.CidrIpv6=__CidrIpv6__&
+SecurityGroupRule.1.SecurityGroupRule.PrefixListId=__PrefixListId__&
+SecurityGroupRule.1.SecurityGroupRule.ReferencedGroupId=__ReferencedGroupId__&
+SecurityGroupRule.1.SecurityGroupRule.Description=__Description__&
+SecurityGroupRule.2.SecurityGroupRuleId=__SecurityGroupRuleId__&
+SecurityGroupRule.2.SecurityGroupRule.IpProtocol=__IpProtocol__&
+SecurityGroupRule.2.SecurityGroupRule.FromPort=0&
+SecurityGroupRule.2.SecurityGroupRule.ToPort=0&
+SecurityGroupRule.2.SecurityGroupRule.CidrIpv4=__CidrIpv4__&
+SecurityGroupRule.2.SecurityGroupRule.CidrIpv6=__CidrIpv6__&
+SecurityGroupRule.2.SecurityGroupRule.PrefixListId=__PrefixListId__&
+SecurityGroupRule.2.SecurityGroupRule.ReferencedGroupId=__ReferencedGroupId__&
+SecurityGroupRule.2.SecurityGroupRule.Description=__Description__&
+SecurityGroupRule.3.SecurityGroupRuleId=__SecurityGroupRuleId__&
+SecurityGroupRule.3.SecurityGroupRule.IpProtocol=__IpProtocol__&
+SecurityGroupRule.3.SecurityGroupRule.FromPort=0&
+SecurityGroupRule.3.SecurityGroupRule.ToPort=0&
+SecurityGroupRule.3.SecurityGroupRule.CidrIpv4=__CidrIpv4__&
+SecurityGroupRule.3.SecurityGroupRule.CidrIpv6=__CidrIpv6__&
+SecurityGroupRule.3.SecurityGroupRule.PrefixListId=__PrefixListId__&
+SecurityGroupRule.3.SecurityGroupRule.ReferencedGroupId=__ReferencedGroupId__&
+SecurityGroupRule.3.SecurityGroupRule.Description=__Description__&
+DryRun=false

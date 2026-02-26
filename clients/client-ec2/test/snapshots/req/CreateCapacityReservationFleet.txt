@@ -1,0 +1,48 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1583
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 25cb1c0f930090686bd31bb5b353ad4579666fc71cb7e32273c0411e582ab4d4
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateCapacityReservationFleet&
+Version=2016-11-15&
+InstanceTypeSpecification.1.InstanceType=__InstanceType__&
+InstanceTypeSpecification.1.InstancePlatform=__InstancePlatform__&
+InstanceTypeSpecification.1.Weight=0&
+InstanceTypeSpecification.1.AvailabilityZone=__AvailabilityZone__&
+InstanceTypeSpecification.1.AvailabilityZoneId=__AvailabilityZoneId__&
+InstanceTypeSpecification.1.EbsOptimized=false&
+InstanceTypeSpecification.1.Priority=0&
+InstanceTypeSpecification.2.InstanceType=__InstanceType__&
+InstanceTypeSpecification.2.InstancePlatform=__InstancePlatform__&
+InstanceTypeSpecification.2.Weight=0&
+InstanceTypeSpecification.2.AvailabilityZone=__AvailabilityZone__&
+InstanceTypeSpecification.2.AvailabilityZoneId=__AvailabilityZoneId__&
+InstanceTypeSpecification.2.EbsOptimized=false&
+InstanceTypeSpecification.2.Priority=0&
+InstanceTypeSpecification.3.InstanceType=__InstanceType__&
+InstanceTypeSpecification.3.InstancePlatform=__InstancePlatform__&
+InstanceTypeSpecification.3.Weight=0&
+InstanceTypeSpecification.3.AvailabilityZone=__AvailabilityZone__&
+InstanceTypeSpecification.3.AvailabilityZoneId=__AvailabilityZoneId__&
+InstanceTypeSpecification.3.EbsOptimized=false&
+InstanceTypeSpecification.3.Priority=0&
+TotalTargetCapacity=0&
+AllocationStrategy=__AllocationStrategy__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+Tenancy=__Tenancy__&
+EndDate=2000-01-01T04%3A59%3A59.999Z&
+InstanceMatchCriteria=__InstanceMatchCriteria__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+DryRun=false

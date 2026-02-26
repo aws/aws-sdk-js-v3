@@ -1,0 +1,36 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 594
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d35f32e02fc5a2662f6de70336801eee8836198023e5d0dde617dda8e8c5f14b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=DescribeTrafficMirrorFilterRules&
+Version=2016-11-15&
+TrafficMirrorFilterRuleId.1=__member__&
+TrafficMirrorFilterRuleId.2=__member__&
+TrafficMirrorFilterRuleId.3=__member__&
+TrafficMirrorFilterId=__TrafficMirrorFilterId__&
+DryRun=false&
+Filter.1.Name=__Name__&
+Filter.1.Value.1=__member__&
+Filter.1.Value.2=__member__&
+Filter.1.Value.3=__member__&
+Filter.2.Name=__Name__&
+Filter.2.Value.1=__member__&
+Filter.2.Value.2=__member__&
+Filter.2.Value.3=__member__&
+Filter.3.Name=__Name__&
+Filter.3.Value.1=__member__&
+Filter.3.Value.2=__member__&
+Filter.3.Value.3=__member__&
+MaxResults=0&
+NextToken=__NextToken__

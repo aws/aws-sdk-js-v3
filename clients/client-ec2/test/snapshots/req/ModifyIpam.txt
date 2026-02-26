@@ -1,0 +1,29 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 457
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 55c738103e8b7f68b357fc060d239896da942574093a36cc9ba1c7d0e1ca761a
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyIpam&
+Version=2016-11-15&
+IpamId=__IpamId__&
+DryRun=false&
+Description=__Description__&
+AddOperatingRegion.1.RegionName=__RegionName__&
+AddOperatingRegion.2.RegionName=__RegionName__&
+AddOperatingRegion.3.RegionName=__RegionName__&
+RemoveOperatingRegion.1.RegionName=__RegionName__&
+RemoveOperatingRegion.2.RegionName=__RegionName__&
+RemoveOperatingRegion.3.RegionName=__RegionName__&
+Tier=__Tier__&
+EnablePrivateGua=false&
+MeteredAccount=__MeteredAccount__

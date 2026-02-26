@@ -1,0 +1,207 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdateMonitoringSchedule
+content-length: 4639
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: ae2c0ad5f64db556cf1414d11fca4e9c88456af73445e613028a9f7424d850a1
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "MonitoringScheduleName": "__MonitoringScheduleName__",
+  "MonitoringScheduleConfig": {
+    "ScheduleConfig": {
+      "ScheduleExpression": "__ScheduleExpression__",
+      "DataAnalysisStartTime": "__DataAnalysisStartTime__",
+      "DataAnalysisEndTime": "__DataAnalysisEndTime__"
+    },
+    "MonitoringJobDefinition": {
+      "MonitoringInputs": [
+        {
+          "EndpointInput": {
+            "EndpointName": "__EndpointName__",
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          },
+          "BatchTransformInput": {
+            "DataCapturedDestinationS3Uri": "__DataCapturedDestinationS3Uri__",
+            "DatasetFormat": {
+              "Csv": {
+                "Header": false
+              },
+              "Json": {
+                "Line": false
+              },
+              "Parquet": {}
+            },
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          }
+        },
+        {
+          "EndpointInput": {
+            "EndpointName": "__EndpointName__",
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          },
+          "BatchTransformInput": {
+            "DataCapturedDestinationS3Uri": "__DataCapturedDestinationS3Uri__",
+            "DatasetFormat": {
+              "Csv": {
+                "Header": false
+              },
+              "Json": {
+                "Line": false
+              },
+              "Parquet": {}
+            },
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          }
+        },
+        {
+          "EndpointInput": {
+            "EndpointName": "__EndpointName__",
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          },
+          "BatchTransformInput": {
+            "DataCapturedDestinationS3Uri": "__DataCapturedDestinationS3Uri__",
+            "DatasetFormat": {
+              "Csv": {
+                "Header": false
+              },
+              "Json": {
+                "Line": false
+              },
+              "Parquet": {}
+            },
+            "LocalPath": "__LocalPath__",
+            "S3InputMode": "__S3InputMode__",
+            "S3DataDistributionType": "__S3DataDistributionType__",
+            "FeaturesAttribute": "__FeaturesAttribute__",
+            "InferenceAttribute": "__InferenceAttribute__",
+            "ProbabilityAttribute": "__ProbabilityAttribute__",
+            "ProbabilityThresholdAttribute": 0,
+            "StartTimeOffset": "__StartTimeOffset__",
+            "EndTimeOffset": "__EndTimeOffset__",
+            "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+          }
+        }
+      ],
+      "MonitoringOutputConfig": {
+        "MonitoringOutputs": [
+          {},
+          {},
+          {}
+        ],
+        "KmsKeyId": "__KmsKeyId__"
+      },
+      "MonitoringResources": {
+        "ClusterConfig": {
+          "InstanceCount": 0,
+          "InstanceType": "__InstanceType__",
+          "VolumeSizeInGB": 0,
+          "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+        }
+      },
+      "MonitoringAppSpecification": {
+        "ImageUri": "__ImageUri__",
+        "ContainerEntrypoint": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ContainerArguments": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "RecordPreprocessorSourceUri": "__RecordPreprocessorSourceUri__",
+        "PostAnalyticsProcessorSourceUri": "__PostAnalyticsProcessorSourceUri__"
+      },
+      "RoleArn": "__RoleArn__",
+      "BaselineConfig": {
+        "BaseliningJobName": "__BaseliningJobName__",
+        "ConstraintsResource": {
+          "S3Uri": "__S3Uri__"
+        },
+        "StatisticsResource": {
+          "S3Uri": "__S3Uri__"
+        }
+      },
+      "StoppingCondition": {
+        "MaxRuntimeInSeconds": 0
+      },
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "NetworkConfig": {
+        "EnableInterContainerTrafficEncryption": false,
+        "EnableNetworkIsolation": false,
+        "VpcConfig": {
+          "SecurityGroupIds": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "Subnets": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+    "MonitoringType": "__MonitoringType__"
+  }
+}

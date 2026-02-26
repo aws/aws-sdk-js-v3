@@ -1,0 +1,100 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 3407
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 6bb9bd094f4b1d5b13e59b7ccb4ebec55712126f390e213d5c070cf30ba6a6fe
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=RestoreDBInstanceFromDBSnapshot&
+Version=2014-10-31&
+DBInstanceIdentifier=__DBInstanceIdentifier__&
+DBSnapshotIdentifier=__DBSnapshotIdentifier__&
+DBInstanceClass=__DBInstanceClass__&
+Port=0&
+AvailabilityZone=__AvailabilityZone__&
+DBSubnetGroupName=__DBSubnetGroupName__&
+MultiAZ=false&
+PubliclyAccessible=false&
+AutoMinorVersionUpgrade=false&
+LicenseModel=__LicenseModel__&
+DBName=__DBName__&
+Engine=__Engine__&
+Iops=0&
+StorageThroughput=0&
+OptionGroupName=__OptionGroupName__&
+Tags.Tag.1.Key=__Key__&
+Tags.Tag.1.Value=__Value__&
+Tags.Tag.2.Key=__Key__&
+Tags.Tag.2.Value=__Value__&
+Tags.Tag.3.Key=__Key__&
+Tags.Tag.3.Value=__Value__&
+StorageType=__StorageType__&
+TdeCredentialArn=__TdeCredentialArn__&
+TdeCredentialPassword=__TdeCredentialPassword__&
+VpcSecurityGroupIds.VpcSecurityGroupId.1=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.2=__member__&
+VpcSecurityGroupIds.VpcSecurityGroupId.3=__member__&
+Domain=__Domain__&
+DomainFqdn=__DomainFqdn__&
+DomainOu=__DomainOu__&
+DomainAuthSecretArn=__DomainAuthSecretArn__&
+DomainDnsIps.member.1=__member__&
+DomainDnsIps.member.2=__member__&
+DomainDnsIps.member.3=__member__&
+CopyTagsToSnapshot=false&
+DomainIAMRoleName=__DomainIAMRoleName__&
+EnableIAMDatabaseAuthentication=false&
+EnableCloudwatchLogsExports.member.1=__member__&
+EnableCloudwatchLogsExports.member.2=__member__&
+EnableCloudwatchLogsExports.member.3=__member__&
+ProcessorFeatures.ProcessorFeature.1.Name=__Name__&
+ProcessorFeatures.ProcessorFeature.1.Value=__Value__&
+ProcessorFeatures.ProcessorFeature.2.Name=__Name__&
+ProcessorFeatures.ProcessorFeature.2.Value=__Value__&
+ProcessorFeatures.ProcessorFeature.3.Name=__Name__&
+ProcessorFeatures.ProcessorFeature.3.Value=__Value__&
+UseDefaultProcessorFeatures=false&
+DBParameterGroupName=__DBParameterGroupName__&
+DeletionProtection=false&
+EnableCustomerOwnedIp=false&
+NetworkType=__NetworkType__&
+BackupTarget=__BackupTarget__&
+CustomIamInstanceProfile=__CustomIamInstanceProfile__&
+AllocatedStorage=0&
+DBClusterSnapshotIdentifier=__DBClusterSnapshotIdentifier__&
+BackupRetentionPeriod=0&
+PreferredBackupWindow=__PreferredBackupWindow__&
+DedicatedLogVolume=false&
+CACertificateIdentifier=__CACertificateIdentifier__&
+EngineLifecycleSupport=__EngineLifecycleSupport__&
+AdditionalStorageVolumes.member.1.VolumeName=__VolumeName__&
+AdditionalStorageVolumes.member.1.AllocatedStorage=0&
+AdditionalStorageVolumes.member.1.IOPS=0&
+AdditionalStorageVolumes.member.1.MaxAllocatedStorage=0&
+AdditionalStorageVolumes.member.1.StorageThroughput=0&
+AdditionalStorageVolumes.member.1.StorageType=__StorageType__&
+AdditionalStorageVolumes.member.2.VolumeName=__VolumeName__&
+AdditionalStorageVolumes.member.2.AllocatedStorage=0&
+AdditionalStorageVolumes.member.2.IOPS=0&
+AdditionalStorageVolumes.member.2.MaxAllocatedStorage=0&
+AdditionalStorageVolumes.member.2.StorageThroughput=0&
+AdditionalStorageVolumes.member.2.StorageType=__StorageType__&
+AdditionalStorageVolumes.member.3.VolumeName=__VolumeName__&
+AdditionalStorageVolumes.member.3.AllocatedStorage=0&
+AdditionalStorageVolumes.member.3.IOPS=0&
+AdditionalStorageVolumes.member.3.MaxAllocatedStorage=0&
+AdditionalStorageVolumes.member.3.StorageThroughput=0&
+AdditionalStorageVolumes.member.3.StorageType=__StorageType__&
+TagSpecifications.item.1.ResourceType=__ResourceType__&
+TagSpecifications.item.2.ResourceType=__ResourceType__&
+TagSpecifications.item.3.ResourceType=__ResourceType__&
+ManageMasterUserPassword=false&
+MasterUserSecretKmsKeyId=__MasterUserSecretKmsKeyId__

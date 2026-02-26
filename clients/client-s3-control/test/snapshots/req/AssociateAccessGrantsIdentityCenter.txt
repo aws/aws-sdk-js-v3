@@ -1,0 +1,23 @@
+POST https://123456789012.s3-control.us-east-1.amazonaws.com 
+/v20180820/accessgrantsinstance/identitycenter
+
+x-amz-account-id: 123456789012
+content-type: application/xml
+content-length: 245
+content-md5: S3gzJC79CRMIxH5Bd6YM9A==
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3-control#_.__ m/E,e
+host: 123456789012.s3-control.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4ace93b750ac47bc1759dafba5bba786b43360d481d8980d3ce1660cc28ce800
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-account-id;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<AssociateAccessGrantsIdentityCenterRequest xmlns="http://awss3control.amazonaws.com/doc/2018-08-20/">
+    <IdentityCenterArn>
+        __IdentityCenterArn__
+    </IdentityCenterArn>
+</AssociateAccessGrantsIdentityCenterRequest>

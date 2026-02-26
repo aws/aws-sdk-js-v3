@@ -1,0 +1,26 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 304
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: b9713040b1f545889a6ef43119f9b2e100f027740244c3cf8f71c6261f0a9002
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=StartExportTask&
+Version=2014-10-31&
+ExportTaskIdentifier=__ExportTaskIdentifier__&
+SourceArn=__SourceArn__&
+S3BucketName=__S3BucketName__&
+IamRoleArn=__IamRoleArn__&
+KmsKeyId=__KmsKeyId__&
+S3Prefix=__S3Prefix__&
+ExportOnly.member.1=__member__&
+ExportOnly.member.2=__member__&
+ExportOnly.member.3=__member__

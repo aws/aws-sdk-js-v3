@@ -1,0 +1,80 @@
+POST https://route53.amazonaws.com 
+/2013-04-01/cidrcollection/__Id__
+
+content-type: application/xml
+content-length: 747
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
+host: route53.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: ef2456a35b7ed3f2fe8a107e66c5e8e23e8d471328a2b3aee4cd48fe1c489c88
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<ChangeCidrCollectionRequest xmlns="https://route53.amazonaws.com/doc/2013-04-01/">
+    <Changes>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+            <Action>
+                __Action__
+            </Action>
+            <CidrList>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+            </CidrList>
+        </member>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+            <Action>
+                __Action__
+            </Action>
+            <CidrList>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+            </CidrList>
+        </member>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+            <Action>
+                __Action__
+            </Action>
+            <CidrList>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+                <Cidr>
+                    __member__
+                </Cidr>
+            </CidrList>
+        </member>
+    </Changes>
+    <CollectionVersion>
+        0
+    </CollectionVersion>
+</ChangeCidrCollectionRequest>

@@ -1,0 +1,99 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateFeatureGroup
+content-length: 1424
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f908120323fbe1d9272cb697bd402b7dd9e77cc7a0a43fb03115ab011a211930
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "FeatureGroupName": "__FeatureGroupName__",
+  "RecordIdentifierFeatureName": "__RecordIdentifierFeatureName__",
+  "EventTimeFeatureName": "__EventTimeFeatureName__",
+  "FeatureDefinitions": [
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    }
+  ],
+  "OnlineStoreConfig": {
+    "SecurityConfig": {
+      "KmsKeyId": "__KmsKeyId__"
+    },
+    "EnableOnlineStore": false,
+    "TtlDuration": {
+      "Unit": "__Unit__",
+      "Value": 0
+    },
+    "StorageType": "__StorageType__"
+  },
+  "OfflineStoreConfig": {
+    "S3StorageConfig": {
+      "S3Uri": "__S3Uri__",
+      "KmsKeyId": "__KmsKeyId__",
+      "ResolvedOutputS3Uri": "__ResolvedOutputS3Uri__"
+    },
+    "DisableGlueTableCreation": false,
+    "DataCatalogConfig": {
+      "TableName": "__TableName__",
+      "Catalog": "__Catalog__",
+      "Database": "__Database__"
+    },
+    "TableFormat": "__TableFormat__"
+  },
+  "ThroughputConfig": {
+    "ThroughputMode": "__ThroughputMode__",
+    "ProvisionedReadCapacityUnits": 0,
+    "ProvisionedWriteCapacityUnits": 0
+  },
+  "RoleArn": "__RoleArn__",
+  "Description": "__Description__",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

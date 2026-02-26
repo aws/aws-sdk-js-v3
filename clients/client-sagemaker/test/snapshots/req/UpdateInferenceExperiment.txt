@@ -1,0 +1,92 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdateInferenceExperiment
+content-length: 1318
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 93468f8c5e6d1c509a12058f5bcbbc3aed2fd8ed724a59effbedabf160d3dfad
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Name": "__Name__",
+  "Schedule": {
+    "StartTime": 946702799.999,
+    "EndTime": 946702799.999
+  },
+  "Description": "__Description__",
+  "ModelVariants": [
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      }
+    }
+  ],
+  "DataStorageConfig": {
+    "Destination": "__Destination__",
+    "KmsKey": "__KmsKey__",
+    "ContentType": {
+      "CsvContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "JsonContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "ShadowModeConfig": {
+    "SourceModelVariantName": "__SourceModelVariantName__",
+    "ShadowModelVariants": [
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      }
+    ]
+  }
+}

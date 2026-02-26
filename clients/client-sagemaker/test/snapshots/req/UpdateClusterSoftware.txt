@@ -1,0 +1,55 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdateClusterSoftware
+content-length: 511
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: a0c9354ab4bcb7317ab9cec650c6242739c6aa129da6e6a2d52cb6c1e19b3f5e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "ClusterName": "__ClusterName__",
+  "InstanceGroups": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__"
+    }
+  ],
+  "DeploymentConfig": {
+    "RollingUpdatePolicy": {
+      "MaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      },
+      "RollbackMaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      }
+    },
+    "WaitIntervalInSeconds": 0,
+    "AutoRollbackConfiguration": [
+      {
+        "AlarmName": "__AlarmName__"
+      },
+      {
+        "AlarmName": "__AlarmName__"
+      },
+      {
+        "AlarmName": "__AlarmName__"
+      }
+    ]
+  },
+  "ImageId": "__ImageId__"
+}

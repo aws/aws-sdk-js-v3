@@ -133,10 +133,30 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                 // e.g. "S3" - use this as exclusion list if needed.
             )
             val generateSnapshotTests = setOf<String>(
-                // "S3",
-                // "EC2", "DynamoDB", "CloudWatch",
-                // "Bedrock Runtime", "IAM", "Route 53", "SageMaker",
-                // "S3Tables"
+                // REST JSON
+                "Bedrock Runtime", "S3Tables", "Transcribe Streaming",
+                "AppConfigData", "SageMaker Runtime HTTP2",
+
+                // JSON RPC 1.0
+                "DynamoDB", "DynamoDB Streams", "CloudWatch", "SQS",
+
+                // JSON RPC 1.1
+                "CloudWatch Logs", "SageMaker", "Secrets Manager",
+
+                // Query
+                "IAM", "RDS",
+
+                // REST XML
+                "S3", "S3 Control", "Route 53",
+
+                // EC2Query
+                "EC2",
+
+                // RPCv2 CBOR
+                // (TBD)
+
+                // auth
+                "STS", "Cognito Identity", "Signin", "SSO", "SSO OIDC",
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))

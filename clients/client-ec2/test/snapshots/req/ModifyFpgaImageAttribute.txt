@@ -1,0 +1,44 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 867
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4db4ad551b84917141b810f04bb68f69ef337f203b28a994bafb1ca40be26f35
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyFpgaImageAttribute&
+Version=2016-11-15&
+FpgaImageId=__FpgaImageId__&
+DryRun=false&
+Attribute=__Attribute__&
+OperationType=__OperationType__&
+UserId.1=__member__&
+UserId.2=__member__&
+UserId.3=__member__&
+UserGroup.1=__member__&
+UserGroup.2=__member__&
+UserGroup.3=__member__&
+ProductCode.1=__member__&
+ProductCode.2=__member__&
+ProductCode.3=__member__&
+LoadPermission.Add.1.Group=__Group__&
+LoadPermission.Add.1.UserId=__UserId__&
+LoadPermission.Add.2.Group=__Group__&
+LoadPermission.Add.2.UserId=__UserId__&
+LoadPermission.Add.3.Group=__Group__&
+LoadPermission.Add.3.UserId=__UserId__&
+LoadPermission.Remove.1.Group=__Group__&
+LoadPermission.Remove.1.UserId=__UserId__&
+LoadPermission.Remove.2.Group=__Group__&
+LoadPermission.Remove.2.UserId=__UserId__&
+LoadPermission.Remove.3.Group=__Group__&
+LoadPermission.Remove.3.UserId=__UserId__&
+Description=__Description__&
+Name=__Name__

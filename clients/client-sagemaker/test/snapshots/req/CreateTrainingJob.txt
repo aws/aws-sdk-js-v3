@@ -1,0 +1,433 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.CreateTrainingJob
+content-length: 7954
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 8f9d7dcd5dcf130466e2557c2f6c4307f2fc269a5dac24b7d50a538a0714e74b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "TrainingJobName": "__TrainingJobName__",
+  "RoleArn": "__RoleArn__",
+  "OutputDataConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "KmsKeyId": "__KmsKeyId__",
+    "CompressionType": "__CompressionType__"
+  },
+  "HyperParameters": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "AlgorithmSpecification": {
+    "TrainingInputMode": "__TrainingInputMode__",
+    "TrainingImage": "__TrainingImage__",
+    "AlgorithmName": "__AlgorithmName__",
+    "MetricDefinitions": [
+      {
+        "Name": "__Name__",
+        "Regex": "__Regex__"
+      },
+      {
+        "Name": "__Name__",
+        "Regex": "__Regex__"
+      },
+      {
+        "Name": "__Name__",
+        "Regex": "__Regex__"
+      }
+    ],
+    "EnableSageMakerMetricsTimeSeries": false,
+    "ContainerEntrypoint": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ContainerArguments": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "TrainingImageConfig": {
+      "TrainingRepositoryAccessMode": "__TrainingRepositoryAccessMode__",
+      "TrainingRepositoryAuthConfig": {
+        "TrainingRepositoryCredentialsProviderArn": "__TrainingRepositoryCredentialsProviderArn__"
+      }
+    }
+  },
+  "InputDataConfig": [
+    {
+      "ChannelName": "__ChannelName__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "S3DataDistributionType": "__S3DataDistributionType__",
+          "AttributeNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "InstanceGroupNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          }
+        },
+        "FileSystemDataSource": {
+          "FileSystemId": "__FileSystemId__",
+          "FileSystemAccessMode": "__FileSystemAccessMode__",
+          "FileSystemType": "__FileSystemType__",
+          "DirectoryPath": "__DirectoryPath__"
+        },
+        "DatasetSource": {
+          "DatasetArn": "__DatasetArn__"
+        }
+      },
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "RecordWrapperType": "__RecordWrapperType__",
+      "InputMode": "__InputMode__",
+      "ShuffleConfig": {
+        "Seed": 0
+      }
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "S3DataDistributionType": "__S3DataDistributionType__",
+          "AttributeNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "InstanceGroupNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          }
+        },
+        "FileSystemDataSource": {
+          "FileSystemId": "__FileSystemId__",
+          "FileSystemAccessMode": "__FileSystemAccessMode__",
+          "FileSystemType": "__FileSystemType__",
+          "DirectoryPath": "__DirectoryPath__"
+        },
+        "DatasetSource": {
+          "DatasetArn": "__DatasetArn__"
+        }
+      },
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "RecordWrapperType": "__RecordWrapperType__",
+      "InputMode": "__InputMode__",
+      "ShuffleConfig": {
+        "Seed": 0
+      }
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__",
+          "S3DataDistributionType": "__S3DataDistributionType__",
+          "AttributeNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "InstanceGroupNames": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          }
+        },
+        "FileSystemDataSource": {
+          "FileSystemId": "__FileSystemId__",
+          "FileSystemAccessMode": "__FileSystemAccessMode__",
+          "FileSystemType": "__FileSystemType__",
+          "DirectoryPath": "__DirectoryPath__"
+        },
+        "DatasetSource": {
+          "DatasetArn": "__DatasetArn__"
+        }
+      },
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "RecordWrapperType": "__RecordWrapperType__",
+      "InputMode": "__InputMode__",
+      "ShuffleConfig": {
+        "Seed": 0
+      }
+    }
+  ],
+  "ResourceConfig": {
+    "InstanceType": "__InstanceType__",
+    "InstanceCount": 0,
+    "VolumeSizeInGB": 0,
+    "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+    "KeepAlivePeriodInSeconds": 0,
+    "InstanceGroups": [
+      {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "InstanceGroupName": "__InstanceGroupName__"
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "InstanceGroupName": "__InstanceGroupName__"
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "InstanceCount": 0,
+        "InstanceGroupName": "__InstanceGroupName__"
+      }
+    ],
+    "TrainingPlanArn": "__TrainingPlanArn__",
+    "InstancePlacementConfig": {
+      "EnableMultipleJobs": false,
+      "PlacementSpecifications": [
+        {
+          "InstanceCount": 0,
+          "UltraServerId": "__UltraServerId__"
+        },
+        {
+          "InstanceCount": 0,
+          "UltraServerId": "__UltraServerId__"
+        },
+        {
+          "InstanceCount": 0,
+          "UltraServerId": "__UltraServerId__"
+        }
+      ]
+    }
+  },
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0,
+    "MaxWaitTimeInSeconds": 0,
+    "MaxPendingTimeInSeconds": 0
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "EnableNetworkIsolation": false,
+  "EnableInterContainerTrafficEncryption": false,
+  "EnableManagedSpotTraining": false,
+  "CheckpointConfig": {
+    "S3Uri": "__S3Uri__",
+    "LocalPath": "__LocalPath__"
+  },
+  "DebugHookConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "LocalPath": "__LocalPath__",
+    "HookParameters": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "CollectionConfigurations": [
+      {
+        "CollectionName": "__CollectionName__",
+        "CollectionParameters": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "CollectionName": "__CollectionName__",
+        "CollectionParameters": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "CollectionName": "__CollectionName__",
+        "CollectionParameters": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    ]
+  },
+  "DebugRuleConfigurations": [
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  ],
+  "TensorBoardOutputConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "LocalPath": "__LocalPath__"
+  },
+  "ExperimentConfig": {
+    "ExperimentName": "__ExperimentName__",
+    "TrialName": "__TrialName__",
+    "TrialComponentDisplayName": "__TrialComponentDisplayName__",
+    "RunName": "__RunName__"
+  },
+  "ProfilerConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "ProfilingIntervalInMilliseconds": 0,
+    "ProfilingParameters": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "DisableProfiler": false
+  },
+  "ProfilerRuleConfigurations": [
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "RuleConfigurationName": "__RuleConfigurationName__",
+      "RuleEvaluatorImage": "__RuleEvaluatorImage__",
+      "LocalPath": "__LocalPath__",
+      "S3OutputPath": "__S3OutputPath__",
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "RuleParameters": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  ],
+  "Environment": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "RetryStrategy": {
+    "MaximumRetryAttempts": 0
+  },
+  "RemoteDebugConfig": {
+    "EnableRemoteDebug": false
+  },
+  "InfraCheckConfig": {
+    "EnableInfraCheck": false
+  },
+  "SessionChainingConfig": {
+    "EnableSessionTagChaining": false
+  },
+  "ServerlessJobConfig": {
+    "BaseModelArn": "__BaseModelArn__",
+    "JobType": "__JobType__",
+    "AcceptEula": false,
+    "CustomizationTechnique": "__CustomizationTechnique__",
+    "Peft": "__Peft__",
+    "EvaluationType": "__EvaluationType__",
+    "EvaluatorArn": "__EvaluatorArn__"
+  },
+  "MlflowConfig": {
+    "MlflowResourceArn": "__MlflowResourceArn__",
+    "MlflowExperimentName": "__MlflowExperimentName__",
+    "MlflowRunName": "__MlflowRunName__"
+  },
+  "ModelPackageConfig": {
+    "ModelPackageGroupArn": "__ModelPackageGroupArn__",
+    "SourceModelPackageArn": "__SourceModelPackageArn__"
+  }
+}

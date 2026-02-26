@@ -1,0 +1,50 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1552
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: f7bd6f35dad2116be40fe544f7913c015207737da0a5a6a249eeb326d153c50e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateNatGateway&
+Version=2016-11-15&
+AvailabilityMode=__AvailabilityMode__&
+AllocationId=__AllocationId__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false&
+SubnetId=__SubnetId__&
+VpcId=__VpcId__&
+AvailabilityZoneAddress.1.AvailabilityZone=__AvailabilityZone__&
+AvailabilityZoneAddress.1.AvailabilityZoneId=__AvailabilityZoneId__&
+AvailabilityZoneAddress.1.AllocationId.1=__member__&
+AvailabilityZoneAddress.1.AllocationId.2=__member__&
+AvailabilityZoneAddress.1.AllocationId.3=__member__&
+AvailabilityZoneAddress.2.AvailabilityZone=__AvailabilityZone__&
+AvailabilityZoneAddress.2.AvailabilityZoneId=__AvailabilityZoneId__&
+AvailabilityZoneAddress.2.AllocationId.1=__member__&
+AvailabilityZoneAddress.2.AllocationId.2=__member__&
+AvailabilityZoneAddress.2.AllocationId.3=__member__&
+AvailabilityZoneAddress.3.AvailabilityZone=__AvailabilityZone__&
+AvailabilityZoneAddress.3.AvailabilityZoneId=__AvailabilityZoneId__&
+AvailabilityZoneAddress.3.AllocationId.1=__member__&
+AvailabilityZoneAddress.3.AllocationId.2=__member__&
+AvailabilityZoneAddress.3.AllocationId.3=__member__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+ConnectivityType=__ConnectivityType__&
+PrivateIpAddress=__PrivateIpAddress__&
+SecondaryAllocationId.1=__member__&
+SecondaryAllocationId.2=__member__&
+SecondaryAllocationId.3=__member__&
+SecondaryPrivateIpAddress.1=__member__&
+SecondaryPrivateIpAddress.2=__member__&
+SecondaryPrivateIpAddress.3=__member__&
+SecondaryPrivateIpAddressCount=0

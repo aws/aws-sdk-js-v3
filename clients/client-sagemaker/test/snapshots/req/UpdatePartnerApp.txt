@@ -1,0 +1,83 @@
+POST https://api.sagemaker.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: SageMaker.UpdatePartnerApp
+content-length: 866
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
+host: api.sagemaker.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4fa3ee92e44b735eaa0e1815efe1674d4eec122777b06dd5f98f256bda1f3061
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "Arn": "__Arn__",
+  "MaintenanceConfig": {
+    "MaintenanceWindowStart": "__MaintenanceWindowStart__"
+  },
+  "Tier": "__Tier__",
+  "ApplicationConfig": {
+    "AdminUsers": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Arguments": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "AssignedGroupPatterns": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "RoleGroupAssignments": [
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  },
+  "EnableIamSessionBasedIdentity": false,
+  "EnableAutoMinorVersionUpgrade": false,
+  "AppVersion": "__AppVersion__",
+  "ClientToken": "1111abcd-uuid-uuid-uuid-000000001111",
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ]
+}

@@ -29,8 +29,8 @@ export function changeResourceRecordSetsMiddleware(): InitializeMiddleware<any, 
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       const { ChangeBatch } = args.input;
       const Changes: Array<Change> = [];
-      for (const change of ChangeBatch.Changes) {
-        const { AliasTarget } = change.ResourceRecordSet;
+      for (const change of ChangeBatch?.Changes ?? []) {
+        const { AliasTarget } = change.ResourceRecordSet ?? {};
         if (AliasTarget) {
           Changes.push({
             ...change,

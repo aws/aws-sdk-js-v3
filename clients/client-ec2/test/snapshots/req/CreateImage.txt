@@ -1,0 +1,74 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 2601
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 47e48dfd02384e228c95cca0dbff5e325d2de91101099118fe2166bdab9fe568
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateImage&
+Version=2016-11-15&
+InstanceId=__InstanceId__&
+Name=__Name__&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+SnapshotLocation=__SnapshotLocation__&
+DryRun=false&
+Description=__Description__&
+NoReboot=false&
+BlockDeviceMapping.1.Ebs.DeleteOnTermination=false&
+BlockDeviceMapping.1.Ebs.Iops=0&
+BlockDeviceMapping.1.Ebs.SnapshotId=__SnapshotId__&
+BlockDeviceMapping.1.Ebs.VolumeSize=0&
+BlockDeviceMapping.1.Ebs.VolumeType=__VolumeType__&
+BlockDeviceMapping.1.Ebs.KmsKeyId=__KmsKeyId__&
+BlockDeviceMapping.1.Ebs.Throughput=0&
+BlockDeviceMapping.1.Ebs.OutpostArn=__OutpostArn__&
+BlockDeviceMapping.1.Ebs.AvailabilityZone=__AvailabilityZone__&
+BlockDeviceMapping.1.Ebs.Encrypted=false&
+BlockDeviceMapping.1.Ebs.VolumeInitializationRate=0&
+BlockDeviceMapping.1.Ebs.AvailabilityZoneId=__AvailabilityZoneId__&
+BlockDeviceMapping.1.Ebs.EbsCardIndex=0&
+BlockDeviceMapping.1.NoDevice=__NoDevice__&
+BlockDeviceMapping.1.DeviceName=__DeviceName__&
+BlockDeviceMapping.1.VirtualName=__VirtualName__&
+BlockDeviceMapping.2.Ebs.DeleteOnTermination=false&
+BlockDeviceMapping.2.Ebs.Iops=0&
+BlockDeviceMapping.2.Ebs.SnapshotId=__SnapshotId__&
+BlockDeviceMapping.2.Ebs.VolumeSize=0&
+BlockDeviceMapping.2.Ebs.VolumeType=__VolumeType__&
+BlockDeviceMapping.2.Ebs.KmsKeyId=__KmsKeyId__&
+BlockDeviceMapping.2.Ebs.Throughput=0&
+BlockDeviceMapping.2.Ebs.OutpostArn=__OutpostArn__&
+BlockDeviceMapping.2.Ebs.AvailabilityZone=__AvailabilityZone__&
+BlockDeviceMapping.2.Ebs.Encrypted=false&
+BlockDeviceMapping.2.Ebs.VolumeInitializationRate=0&
+BlockDeviceMapping.2.Ebs.AvailabilityZoneId=__AvailabilityZoneId__&
+BlockDeviceMapping.2.Ebs.EbsCardIndex=0&
+BlockDeviceMapping.2.NoDevice=__NoDevice__&
+BlockDeviceMapping.2.DeviceName=__DeviceName__&
+BlockDeviceMapping.2.VirtualName=__VirtualName__&
+BlockDeviceMapping.3.Ebs.DeleteOnTermination=false&
+BlockDeviceMapping.3.Ebs.Iops=0&
+BlockDeviceMapping.3.Ebs.SnapshotId=__SnapshotId__&
+BlockDeviceMapping.3.Ebs.VolumeSize=0&
+BlockDeviceMapping.3.Ebs.VolumeType=__VolumeType__&
+BlockDeviceMapping.3.Ebs.KmsKeyId=__KmsKeyId__&
+BlockDeviceMapping.3.Ebs.Throughput=0&
+BlockDeviceMapping.3.Ebs.OutpostArn=__OutpostArn__&
+BlockDeviceMapping.3.Ebs.AvailabilityZone=__AvailabilityZone__&
+BlockDeviceMapping.3.Ebs.Encrypted=false&
+BlockDeviceMapping.3.Ebs.VolumeInitializationRate=0&
+BlockDeviceMapping.3.Ebs.AvailabilityZoneId=__AvailabilityZoneId__&
+BlockDeviceMapping.3.Ebs.EbsCardIndex=0&
+BlockDeviceMapping.3.NoDevice=__NoDevice__&
+BlockDeviceMapping.3.DeviceName=__DeviceName__&
+BlockDeviceMapping.3.VirtualName=__VirtualName__

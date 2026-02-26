@@ -1,0 +1,49 @@
+POST https://bedrock-runtime.us-east-1.amazonaws.com 
+/guardrail/__guardrailIdentifier__/version/__guardrailVersion__/apply
+
+content-type: application/json
+content-length: 297
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
+host: bedrock-runtime.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 9c7975b8031b79ec9d5eb191697d8c7eeedac2e46613cd0822bf0de0472cbe6b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "source": "__source__",
+  "content": [
+    {
+      "text": {
+        "text": "__text__",
+        "qualifiers": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      "image": {
+        "format": "__format__",
+        "source": {
+          "bytes": "AQAAAQ=="
+        }
+      }
+    },
+    {
+      "text": {
+        "text": "__text__",
+        "qualifiers": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ],
+  "outputScope": "__outputScope__"
+}

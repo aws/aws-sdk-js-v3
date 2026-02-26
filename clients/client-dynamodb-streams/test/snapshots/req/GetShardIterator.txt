@@ -1,0 +1,22 @@
+POST https://streams.dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDBStreams_20120810.GetShardIterator
+content-length: 135
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb-streams#_.__ m/E,e
+host: streams.dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 42a7d43e7a67a9487b64f73eead8e78cafd1cb5626e2b98a2e549b4260b1de7b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "StreamArn": "__StreamArn__",
+  "ShardId": "__ShardId__",
+  "ShardIteratorType": "__ShardIteratorType__",
+  "SequenceNumber": "__SequenceNumber__"
+}

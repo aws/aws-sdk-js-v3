@@ -1,0 +1,23 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 205
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 4718313ed3f95969f3db689dc8c963e72f9485568a0ed0a996e033d74940b0bb
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=DisassociateNatGatewayAddress&
+Version=2016-11-15&
+NatGatewayId=__NatGatewayId__&
+AssociationId.1=__member__&
+AssociationId.2=__member__&
+AssociationId.3=__member__&
+MaxDrainDurationSeconds=0&
+DryRun=false

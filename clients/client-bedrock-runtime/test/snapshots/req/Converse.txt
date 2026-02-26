@@ -1,0 +1,232 @@
+POST https://bedrock-runtime.us-east-1.amazonaws.com 
+/model/__modelId__/converse
+
+content-type: application/json
+content-length: 2170
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
+host: bedrock-runtime.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 047dc06aa254d88f6ac2a9160e5c512891b6bda58cf27050665de37330d6f6e3
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "messages": [
+    {
+      "role": "__role__",
+      "content": [
+        {
+          "searchResult": {
+            "source": "__source__",
+            "title": "__title__",
+            "content": [
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
+              }
+            ],
+            "citations": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "text": "__text__"
+        },
+        {
+          "image": {
+            "format": "__format__",
+            "source": {
+              "s3Location": {
+                "uri": "__uri__",
+                "bucketOwner": "__bucketOwner__"
+              }
+            },
+            "error": {
+              "message": "__message__"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "__role__",
+      "content": [
+        {
+          "text": "__text__"
+        },
+        {
+          "image": {
+            "format": "__format__",
+            "source": {
+              "s3Location": {
+                "uri": "__uri__",
+                "bucketOwner": "__bucketOwner__"
+              }
+            },
+            "error": {
+              "message": "__message__"
+            }
+          }
+        },
+        {
+          "document": {
+            "name": "__name__",
+            "source": {
+              "bytes": "AQAAAQ=="
+            },
+            "format": "__format__",
+            "context": "__context__",
+            "citations": {
+              "enabled": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "role": "__role__",
+      "content": [
+        {
+          "image": {
+            "format": "__format__",
+            "source": {
+              "s3Location": {
+                "uri": "__uri__",
+                "bucketOwner": "__bucketOwner__"
+              }
+            },
+            "error": {
+              "message": "__message__"
+            }
+          }
+        },
+        {
+          "document": {
+            "name": "__name__",
+            "source": {
+              "bytes": "AQAAAQ=="
+            },
+            "format": "__format__",
+            "context": "__context__",
+            "citations": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "video": {
+            "format": "__format__",
+            "source": {
+              "s3Location": {
+                "uri": "__uri__",
+                "bucketOwner": "__bucketOwner__"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "system": [
+    {
+      "cachePoint": {
+        "type": "__type__",
+        "ttl": "__ttl__"
+      }
+    },
+    {
+      "text": "__text__"
+    },
+    {
+      "guardContent": {
+        "image": {
+          "format": "__format__",
+          "source": {
+            "bytes": "AQAAAQ=="
+          }
+        }
+      }
+    }
+  ],
+  "inferenceConfig": {
+    "maxTokens": 0,
+    "temperature": 0,
+    "topP": 0,
+    "stopSequences": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "toolConfig": {
+    "tools": [
+      {},
+      {},
+      {}
+    ],
+    "toolChoice": {
+      "auto": {}
+    }
+  },
+  "guardrailConfig": {
+    "guardrailIdentifier": "__guardrailIdentifier__",
+    "guardrailVersion": "__guardrailVersion__",
+    "trace": "__trace__"
+  },
+  "additionalModelRequestFields": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "promptVariables": {
+    "key1": {
+      "text": "__text__"
+    },
+    "key2": {
+      "text": "__text__"
+    }
+  },
+  "additionalModelResponseFieldPaths": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "requestMetadata": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "performanceConfig": {
+    "latency": "__latency__"
+  },
+  "serviceTier": {
+    "type": "__type__"
+  },
+  "outputConfig": {
+    "textFormat": {
+      "type": "__type__",
+      "structure": {
+        "jsonSchema": {
+          "schema": "__schema__",
+          "name": "__name__",
+          "description": "__description__"
+        }
+      }
+    }
+  }
+}

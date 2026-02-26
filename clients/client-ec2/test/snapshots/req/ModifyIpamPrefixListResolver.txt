@@ -1,0 +1,104 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 3791
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: b185134b4cdb51455ba49c452f23f82ae841fc2324ca819c8d00acb9830c7de0
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyIpamPrefixListResolver&
+Version=2016-11-15&
+IpamPrefixListResolverId=__IpamPrefixListResolverId__&
+DryRun=false&
+Description=__Description__&
+Rule.1.RuleType=__RuleType__&
+Rule.1.StaticCidr=__StaticCidr__&
+Rule.1.IpamScopeId=__IpamScopeId__&
+Rule.1.ResourceType=__ResourceType__&
+Rule.1.Condition.1.Operation=__Operation__&
+Rule.1.Condition.1.IpamPoolId=__IpamPoolId__&
+Rule.1.Condition.1.ResourceId=__ResourceId__&
+Rule.1.Condition.1.ResourceOwner=__ResourceOwner__&
+Rule.1.Condition.1.ResourceRegion=__ResourceRegion__&
+Rule.1.Condition.1.ResourceTag.Key=__Key__&
+Rule.1.Condition.1.ResourceTag.Value=__Value__&
+Rule.1.Condition.1.Cidr=__Cidr__&
+Rule.1.Condition.2.Operation=__Operation__&
+Rule.1.Condition.2.IpamPoolId=__IpamPoolId__&
+Rule.1.Condition.2.ResourceId=__ResourceId__&
+Rule.1.Condition.2.ResourceOwner=__ResourceOwner__&
+Rule.1.Condition.2.ResourceRegion=__ResourceRegion__&
+Rule.1.Condition.2.ResourceTag.Key=__Key__&
+Rule.1.Condition.2.ResourceTag.Value=__Value__&
+Rule.1.Condition.2.Cidr=__Cidr__&
+Rule.1.Condition.3.Operation=__Operation__&
+Rule.1.Condition.3.IpamPoolId=__IpamPoolId__&
+Rule.1.Condition.3.ResourceId=__ResourceId__&
+Rule.1.Condition.3.ResourceOwner=__ResourceOwner__&
+Rule.1.Condition.3.ResourceRegion=__ResourceRegion__&
+Rule.1.Condition.3.ResourceTag.Key=__Key__&
+Rule.1.Condition.3.ResourceTag.Value=__Value__&
+Rule.1.Condition.3.Cidr=__Cidr__&
+Rule.2.RuleType=__RuleType__&
+Rule.2.StaticCidr=__StaticCidr__&
+Rule.2.IpamScopeId=__IpamScopeId__&
+Rule.2.ResourceType=__ResourceType__&
+Rule.2.Condition.1.Operation=__Operation__&
+Rule.2.Condition.1.IpamPoolId=__IpamPoolId__&
+Rule.2.Condition.1.ResourceId=__ResourceId__&
+Rule.2.Condition.1.ResourceOwner=__ResourceOwner__&
+Rule.2.Condition.1.ResourceRegion=__ResourceRegion__&
+Rule.2.Condition.1.ResourceTag.Key=__Key__&
+Rule.2.Condition.1.ResourceTag.Value=__Value__&
+Rule.2.Condition.1.Cidr=__Cidr__&
+Rule.2.Condition.2.Operation=__Operation__&
+Rule.2.Condition.2.IpamPoolId=__IpamPoolId__&
+Rule.2.Condition.2.ResourceId=__ResourceId__&
+Rule.2.Condition.2.ResourceOwner=__ResourceOwner__&
+Rule.2.Condition.2.ResourceRegion=__ResourceRegion__&
+Rule.2.Condition.2.ResourceTag.Key=__Key__&
+Rule.2.Condition.2.ResourceTag.Value=__Value__&
+Rule.2.Condition.2.Cidr=__Cidr__&
+Rule.2.Condition.3.Operation=__Operation__&
+Rule.2.Condition.3.IpamPoolId=__IpamPoolId__&
+Rule.2.Condition.3.ResourceId=__ResourceId__&
+Rule.2.Condition.3.ResourceOwner=__ResourceOwner__&
+Rule.2.Condition.3.ResourceRegion=__ResourceRegion__&
+Rule.2.Condition.3.ResourceTag.Key=__Key__&
+Rule.2.Condition.3.ResourceTag.Value=__Value__&
+Rule.2.Condition.3.Cidr=__Cidr__&
+Rule.3.RuleType=__RuleType__&
+Rule.3.StaticCidr=__StaticCidr__&
+Rule.3.IpamScopeId=__IpamScopeId__&
+Rule.3.ResourceType=__ResourceType__&
+Rule.3.Condition.1.Operation=__Operation__&
+Rule.3.Condition.1.IpamPoolId=__IpamPoolId__&
+Rule.3.Condition.1.ResourceId=__ResourceId__&
+Rule.3.Condition.1.ResourceOwner=__ResourceOwner__&
+Rule.3.Condition.1.ResourceRegion=__ResourceRegion__&
+Rule.3.Condition.1.ResourceTag.Key=__Key__&
+Rule.3.Condition.1.ResourceTag.Value=__Value__&
+Rule.3.Condition.1.Cidr=__Cidr__&
+Rule.3.Condition.2.Operation=__Operation__&
+Rule.3.Condition.2.IpamPoolId=__IpamPoolId__&
+Rule.3.Condition.2.ResourceId=__ResourceId__&
+Rule.3.Condition.2.ResourceOwner=__ResourceOwner__&
+Rule.3.Condition.2.ResourceRegion=__ResourceRegion__&
+Rule.3.Condition.2.ResourceTag.Key=__Key__&
+Rule.3.Condition.2.ResourceTag.Value=__Value__&
+Rule.3.Condition.2.Cidr=__Cidr__&
+Rule.3.Condition.3.Operation=__Operation__&
+Rule.3.Condition.3.IpamPoolId=__IpamPoolId__&
+Rule.3.Condition.3.ResourceId=__ResourceId__&
+Rule.3.Condition.3.ResourceOwner=__ResourceOwner__&
+Rule.3.Condition.3.ResourceRegion=__ResourceRegion__&
+Rule.3.Condition.3.ResourceTag.Key=__Key__&
+Rule.3.Condition.3.ResourceTag.Value=__Value__&
+Rule.3.Condition.3.Cidr=__Cidr__

@@ -1,0 +1,30 @@
+PUT https://s3-outposts.us-east-1.amazonaws.com 
+/v20180820/bucket/__Bucket__
+
+x-amz-acl: __ACL__
+x-amz-grant-full-control: __GrantFullControl__
+x-amz-grant-read: __GrantRead__
+x-amz-grant-read-acp: __GrantReadACP__
+x-amz-grant-write: __GrantWrite__
+x-amz-grant-write-acp: __GrantWriteACP__
+x-amz-bucket-object-lock-enabled: false
+x-amz-outpost-id: OutpostId
+content-type: application/xml
+content-length: 214
+content-md5: VS72/PVat8CjHnGdvHPogw==
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/s3-control#_.__ m/E,e
+host: s3-outposts.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 91e5960143e581952c2441f0a52e72855377c3c334dff4863c8ecf367f7d431b
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/s3-outposts/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-md5;content-type;host;x-amz-acl;x-amz-bucket-object-lock-enabled;x-amz-content-sha256;x-amz-date;x-amz-grant-full-control;x-amz-grant-read;x-amz-grant-read-acp;x-amz-grant-write;x-amz-grant-write-acp;x-amz-outpost-id;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateBucketConfiguration xmlns="http://awss3control.amazonaws.com/doc/2018-08-20/">
+    <LocationConstraint>
+        __LocationConstraint__
+    </LocationConstraint>
+</CreateBucketConfiguration>

@@ -1,0 +1,45 @@
+POST https://rds.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1084
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rds#_.__ m/E,e
+host: rds.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: fe575ee67dc9a44cb835aeb4cd1d88f7cc8209e715c7b746c4322ba393cfb2ad
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/rds/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyDBProxy&
+Version=2014-10-31&
+DBProxyName=__DBProxyName__&
+NewDBProxyName=__NewDBProxyName__&
+DefaultAuthScheme=__DefaultAuthScheme__&
+Auth.member.1.Description=__Description__&
+Auth.member.1.UserName=__UserName__&
+Auth.member.1.AuthScheme=__AuthScheme__&
+Auth.member.1.SecretArn=__SecretArn__&
+Auth.member.1.IAMAuth=__IAMAuth__&
+Auth.member.1.ClientPasswordAuthType=__ClientPasswordAuthType__&
+Auth.member.2.Description=__Description__&
+Auth.member.2.UserName=__UserName__&
+Auth.member.2.AuthScheme=__AuthScheme__&
+Auth.member.2.SecretArn=__SecretArn__&
+Auth.member.2.IAMAuth=__IAMAuth__&
+Auth.member.2.ClientPasswordAuthType=__ClientPasswordAuthType__&
+Auth.member.3.Description=__Description__&
+Auth.member.3.UserName=__UserName__&
+Auth.member.3.AuthScheme=__AuthScheme__&
+Auth.member.3.SecretArn=__SecretArn__&
+Auth.member.3.IAMAuth=__IAMAuth__&
+Auth.member.3.ClientPasswordAuthType=__ClientPasswordAuthType__&
+RequireTLS=false&
+IdleClientTimeout=0&
+DebugLogging=false&
+RoleArn=__RoleArn__&
+SecurityGroups.member.1=__member__&
+SecurityGroups.member.2=__member__&
+SecurityGroups.member.3=__member__

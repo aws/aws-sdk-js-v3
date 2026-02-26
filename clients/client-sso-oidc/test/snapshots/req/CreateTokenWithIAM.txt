@@ -1,0 +1,32 @@
+POST https://oidc.us-east-1.amazonaws.com 
+/token?aws_iam=t
+
+content-type: application/json
+content-length: 372
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sso-oidc#_.__ m/E,e
+host: oidc.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 668143974cadda05db355a82520e636978c0f751fa9e4a54386a0e0498b2f2cd
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sso-oauth/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "clientId": "__clientId__",
+  "grantType": "__grantType__",
+  "code": "__code__",
+  "refreshToken": "__refreshToken__",
+  "assertion": "__assertion__",
+  "scope": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "redirectUri": "__redirectUri__",
+  "subjectToken": "__subjectToken__",
+  "subjectTokenType": "__subjectTokenType__",
+  "requestedTokenType": "__requestedTokenType__",
+  "codeVerifier": "__codeVerifier__"
+}

@@ -1,0 +1,122 @@
+POST https://monitoring.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: GraniteServiceVersion20100801.PutMetricAlarm
+x-amzn-query-mode: true
+content-length: 1554
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/cloudwatch#_.__ m/E,e
+host: monitoring.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d5e5e9ff6cadfc774c840234652408e945b6f7562c52acbb8ce3c6b51f8a4be6
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
+
+[string (json)]
+{
+  "AlarmName": "__AlarmName__",
+  "EvaluationPeriods": 0,
+  "ComparisonOperator": "__ComparisonOperator__",
+  "AlarmDescription": "__AlarmDescription__",
+  "ActionsEnabled": false,
+  "OKActions": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "AlarmActions": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "InsufficientDataActions": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "MetricName": "__MetricName__",
+  "Namespace": "__Namespace__",
+  "Statistic": "__Statistic__",
+  "ExtendedStatistic": "__ExtendedStatistic__",
+  "Dimensions": [
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    },
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    },
+    {
+      "Name": "__Name__",
+      "Value": "__Value__"
+    }
+  ],
+  "Period": 0,
+  "Unit": "__Unit__",
+  "DatapointsToAlarm": 0,
+  "Threshold": 0,
+  "TreatMissingData": "__TreatMissingData__",
+  "EvaluateLowSampleCountPercentile": "__EvaluateLowSampleCountPercentile__",
+  "Metrics": [
+    {
+      "Id": "__Id__",
+      "MetricStat": {
+        "Metric": {},
+        "Period": 0,
+        "Stat": "__Stat__",
+        "Unit": "__Unit__"
+      },
+      "Expression": "__Expression__",
+      "Label": "__Label__",
+      "ReturnData": false,
+      "Period": 0,
+      "AccountId": "123456789012"
+    },
+    {
+      "Id": "__Id__",
+      "MetricStat": {
+        "Metric": {},
+        "Period": 0,
+        "Stat": "__Stat__",
+        "Unit": "__Unit__"
+      },
+      "Expression": "__Expression__",
+      "Label": "__Label__",
+      "ReturnData": false,
+      "Period": 0,
+      "AccountId": "123456789012"
+    },
+    {
+      "Id": "__Id__",
+      "MetricStat": {
+        "Metric": {},
+        "Period": 0,
+        "Stat": "__Stat__",
+        "Unit": "__Unit__"
+      },
+      "Expression": "__Expression__",
+      "Label": "__Label__",
+      "ReturnData": false,
+      "Period": 0,
+      "AccountId": "123456789012"
+    }
+  ],
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "ThresholdMetricId": "__ThresholdMetricId__"
+}

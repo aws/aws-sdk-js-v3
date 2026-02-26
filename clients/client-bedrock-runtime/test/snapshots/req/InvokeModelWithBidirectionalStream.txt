@@ -1,0 +1,46 @@
+POST https://bedrock-runtime.us-east-1.amazonaws.com 
+/model/__modelId__/invoke-with-bidirectional-stream
+
+content-type: application/vnd.amazon.eventstream
+x-amz-content-sha256: STREAMING-AWS4-HMAC-SHA256-EVENTS
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
+host: bedrock-runtime.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[async_iterable (PassThrough)]
+
+[chunk (event-stream object view)]
+  [total-size] 194 [header-size] 67 [prelude-crc] 421688568
+    [total-size] 111 [header-size] 75 [prelude-crc] 2672732141
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 152,177,226,203,178,210,12,185,114,162,254,142,197,34,9,82,63,198,226,226,79,85,162,214,97,127,228,81,31,255,79,10 (binary)
+
+:event-type: chunk
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "bytes": "AQAAAQ=="
+}
+
+  [message-crc] 3888096204
+[message-crc] 2798999348
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 83 [header-size] 67 [prelude-crc] 4114905688
+:date: Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time (timestamp)
+:chunk-signature: 102,217,39,198,81,176,6,144,198,27,243,53,152,134,142,214,107,184,241,12,191,114,80,46,121,252,168,105,171,136,64,168 (binary)
+
+[empty]
+
+
+[message-crc] 3764169050
+============================================================
+
+

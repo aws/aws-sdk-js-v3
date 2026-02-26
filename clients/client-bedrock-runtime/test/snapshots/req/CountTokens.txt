@@ -1,0 +1,186 @@
+POST https://bedrock-runtime.us-east-1.amazonaws.com 
+/model/__modelId__/count-tokens
+
+content-type: application/json
+content-length: 1507
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
+host: bedrock-runtime.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: c14406302addd7625a7e5312ae16c9ad4ce25feae6c7135b90139f5fe095f161
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "input": {
+    "converse": {
+      "messages": [
+        {
+          "role": "__role__",
+          "content": [
+            {
+              "searchResult": {
+                "source": "__source__",
+                "title": "__title__",
+                "content": [
+                  {
+                    "text": "__text__"
+                  },
+                  {
+                    "text": "__text__"
+                  },
+                  {
+                    "text": "__text__"
+                  }
+                ],
+                "citations": {
+                  "enabled": false
+                }
+              }
+            },
+            {
+              "text": "__text__"
+            },
+            {
+              "image": {
+                "format": "__format__",
+                "source": {
+                  "s3Location": {
+                    "uri": "__uri__",
+                    "bucketOwner": "__bucketOwner__"
+                  }
+                },
+                "error": {
+                  "message": "__message__"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "role": "__role__",
+          "content": [
+            {
+              "text": "__text__"
+            },
+            {
+              "image": {
+                "format": "__format__",
+                "source": {
+                  "s3Location": {
+                    "uri": "__uri__",
+                    "bucketOwner": "__bucketOwner__"
+                  }
+                },
+                "error": {
+                  "message": "__message__"
+                }
+              }
+            },
+            {
+              "document": {
+                "name": "__name__",
+                "source": {
+                  "bytes": "AQAAAQ=="
+                },
+                "format": "__format__",
+                "context": "__context__",
+                "citations": {
+                  "enabled": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "role": "__role__",
+          "content": [
+            {
+              "image": {
+                "format": "__format__",
+                "source": {
+                  "s3Location": {
+                    "uri": "__uri__",
+                    "bucketOwner": "__bucketOwner__"
+                  }
+                },
+                "error": {
+                  "message": "__message__"
+                }
+              }
+            },
+            {
+              "document": {
+                "name": "__name__",
+                "source": {
+                  "bytes": "AQAAAQ=="
+                },
+                "format": "__format__",
+                "context": "__context__",
+                "citations": {
+                  "enabled": false
+                }
+              }
+            },
+            {
+              "video": {
+                "format": "__format__",
+                "source": {
+                  "s3Location": {
+                    "uri": "__uri__",
+                    "bucketOwner": "__bucketOwner__"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "system": [
+        {
+          "cachePoint": {
+            "type": "__type__",
+            "ttl": "__ttl__"
+          }
+        },
+        {
+          "text": "__text__"
+        },
+        {
+          "guardContent": {
+            "image": {
+              "format": "__format__",
+              "source": {
+                "bytes": "AQAAAQ=="
+              }
+            }
+          }
+        }
+      ],
+      "toolConfig": {
+        "tools": [
+          {},
+          {},
+          {}
+        ],
+        "toolChoice": {
+          "auto": {}
+        }
+      },
+      "additionalModelRequestFields": {
+        "doc_note": "this is a document",
+        "doc_date": 946702799.999,
+        "doc_blob": "AQAAAQ==",
+        "doc_list": [
+          -7,
+          -3,
+          0,
+          1,
+          5
+        ]
+      }
+    }
+  }
+}

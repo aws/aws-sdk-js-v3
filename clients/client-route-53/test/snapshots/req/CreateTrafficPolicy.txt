@@ -1,0 +1,27 @@
+POST https://route53.amazonaws.com 
+/2013-04-01/trafficpolicy
+
+content-type: application/xml
+content-length: 233
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/route-53#_.__ m/E,e
+host: route53.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 352e268b3e16c4c4a6a612e5e4464bb5bcd2b9f22a67fdf75501390afeae578c
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/route53/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (xml)]
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateTrafficPolicyRequest xmlns="https://route53.amazonaws.com/doc/2013-04-01/">
+    <Name>
+        __Name__
+    </Name>
+    <Document>
+        __Document__
+    </Document>
+    <Comment>
+        __Comment__
+    </Comment>
+</CreateTrafficPolicyRequest>

@@ -1,0 +1,28 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 462
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 0b58c08548df0e06214fde4c338c70d40b91c95ebf988ebb2e8e02d22337b9ad
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateTransitGatewayConnectPeer&
+Version=2016-11-15&
+TransitGatewayAttachmentId=__TransitGatewayAttachmentId__&
+PeerAddress=__PeerAddress__&
+InsideCidrBlocks.1=__member__&
+InsideCidrBlocks.2=__member__&
+InsideCidrBlocks.3=__member__&
+TransitGatewayAddress=__TransitGatewayAddress__&
+BgpOptions.PeerAsn=0&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+DryRun=false

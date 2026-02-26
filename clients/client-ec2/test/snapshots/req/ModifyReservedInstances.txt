@@ -1,0 +1,39 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1460
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 2329f11a9994de056c16bb77436f4c095fc8e49efcf5e2dfef3012d6fd1ad4f5
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=ModifyReservedInstances&
+Version=2016-11-15&
+ReservedInstancesId.1=__member__&
+ReservedInstancesId.2=__member__&
+ReservedInstancesId.3=__member__&
+ReservedInstancesConfigurationSetItemType.1.AvailabilityZone=__AvailabilityZone__&
+ReservedInstancesConfigurationSetItemType.1.InstanceCount=0&
+ReservedInstancesConfigurationSetItemType.1.InstanceType=__InstanceType__&
+ReservedInstancesConfigurationSetItemType.1.Platform=__Platform__&
+ReservedInstancesConfigurationSetItemType.1.Scope=__Scope__&
+ReservedInstancesConfigurationSetItemType.1.AvailabilityZoneId=__AvailabilityZoneId__&
+ReservedInstancesConfigurationSetItemType.2.AvailabilityZone=__AvailabilityZone__&
+ReservedInstancesConfigurationSetItemType.2.InstanceCount=0&
+ReservedInstancesConfigurationSetItemType.2.InstanceType=__InstanceType__&
+ReservedInstancesConfigurationSetItemType.2.Platform=__Platform__&
+ReservedInstancesConfigurationSetItemType.2.Scope=__Scope__&
+ReservedInstancesConfigurationSetItemType.2.AvailabilityZoneId=__AvailabilityZoneId__&
+ReservedInstancesConfigurationSetItemType.3.AvailabilityZone=__AvailabilityZone__&
+ReservedInstancesConfigurationSetItemType.3.InstanceCount=0&
+ReservedInstancesConfigurationSetItemType.3.InstanceType=__InstanceType__&
+ReservedInstancesConfigurationSetItemType.3.Platform=__Platform__&
+ReservedInstancesConfigurationSetItemType.3.Scope=__Scope__&
+ReservedInstancesConfigurationSetItemType.3.AvailabilityZoneId=__AvailabilityZoneId__&
+ClientToken=__ClientToken__

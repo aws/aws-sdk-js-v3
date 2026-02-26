@@ -1,0 +1,34 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 672
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: e49de163680214eae707f05d290e61aa3a4e5d3f3bc708f128d9b5de6dfbb259
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateRoute&
+Version=2016-11-15&
+RouteTableId=__RouteTableId__&
+DestinationPrefixListId=__DestinationPrefixListId__&
+VpcEndpointId=__VpcEndpointId__&
+TransitGatewayId=__TransitGatewayId__&
+LocalGatewayId=__LocalGatewayId__&
+CarrierGatewayId=__CarrierGatewayId__&
+CoreNetworkArn=__CoreNetworkArn__&
+OdbNetworkArn=__OdbNetworkArn__&
+DryRun=false&
+DestinationCidrBlock=__DestinationCidrBlock__&
+GatewayId=__GatewayId__&
+DestinationIpv6CidrBlock=__DestinationIpv6CidrBlock__&
+EgressOnlyInternetGatewayId=__EgressOnlyInternetGatewayId__&
+InstanceId=__InstanceId__&
+NetworkInterfaceId=__NetworkInterfaceId__&
+VpcPeeringConnectionId=__VpcPeeringConnectionId__&
+NatGatewayId=__NatGatewayId__
