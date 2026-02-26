@@ -20,8 +20,11 @@ export interface GetEntitlementsRequest {
    *         <i>unioned</i> for each value in the value list, and then
    *         <i>intersected</i> for each filter key.</p>
    *          <p>
-   *             <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> are mutually exclusive. You can't specify both in the same request.
+   *             <code>CustomerIdentifier</code> and <code>CustomerAWSAccountId</code> are mutually exclusive parameters. You must use one or the other, but not both in the same request.
    *    </p>
+   *          <note>
+   *             <p>If you're migrating an existing integration, use <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html">Account Feeds</a> to map <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code>, and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html">Agreements Feeds</a> to map <code>CustomerAWSAccountId</code> and <code>LicenseArn</code>.</p>
+   *          </note>
    * @public
    */
   Filter?: Partial<Record<GetEntitlementFilterName, string[]>> | undefined;
@@ -108,7 +111,7 @@ export interface Entitlement {
 
   /**
    * <p>
-   *       The <code>CustomerAWSAccountID</code> parameter specifies the AWS account ID of the buyer.
+   *       The <code>CustomerAWSAccountId</code> parameter specifies the AWS account ID of the buyer.
    *     </p>
    * @public
    */
@@ -129,6 +132,12 @@ export interface Entitlement {
    * @public
    */
   ExpirationDate?: Date | undefined;
+
+  /**
+   * <p>The <code>LicenseArn</code> is a unique identifier for a specific granted license. These are used for software purchased through AWS Marketplace.</p>
+   * @public
+   */
+  LicenseArn?: string | undefined;
 }
 
 /**

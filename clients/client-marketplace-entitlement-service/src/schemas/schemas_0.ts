@@ -16,6 +16,7 @@ const _GERe = "GetEntitlementsResult";
 const _IPE = "InvalidParameterException";
 const _ISEE = "InternalServiceErrorException";
 const _IV = "IntegerValue";
+const _LA = "LicenseArn";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _PC = "ProductCode";
@@ -76,8 +77,8 @@ export const errorTypeRegistries = [
 ]
 export var Entitlement$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_PC, _D, _CI, _CAWSAI, _V, _ED],
-  [0, 0, 0, 0, () => EntitlementValue$, 4]
+  [_PC, _D, _CI, _CAWSAI, _V, _ED, _LA],
+  [0, 0, 0, 0, () => EntitlementValue$, 4, 0]
 ];
 export var EntitlementValue$: StaticStructureSchema = [3, n0, _EV,
   0,

@@ -7,6 +7,7 @@ export const GetEntitlementFilterName = {
   CUSTOMER_AWS_ACCOUNT_ID: "CUSTOMER_AWS_ACCOUNT_ID",
   CUSTOMER_IDENTIFIER: "CUSTOMER_IDENTIFIER",
   DIMENSION: "DIMENSION",
+  LICENSE_ARN: "LICENSE_ARN",
 } as const;
 /**
  * @public
