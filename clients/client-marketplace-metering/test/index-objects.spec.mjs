@@ -19,6 +19,8 @@ import {
   InvalidCustomerIdentifierException$,
   InvalidEndpointRegionException,
   InvalidEndpointRegionException$,
+  InvalidLicenseException,
+  InvalidLicenseException$,
   InvalidProductCodeException,
   InvalidProductCodeException$,
   InvalidPublicKeyVersionException,
@@ -105,6 +107,8 @@ assert(InvalidCustomerIdentifierException.prototype instanceof MarketplaceMeteri
 assert(typeof InvalidCustomerIdentifierException$ === "object");
 assert(InvalidEndpointRegionException.prototype instanceof MarketplaceMeteringServiceException);
 assert(typeof InvalidEndpointRegionException$ === "object");
+assert(InvalidLicenseException.prototype instanceof MarketplaceMeteringServiceException);
+assert(typeof InvalidLicenseException$ === "object");
 assert(InvalidProductCodeException.prototype instanceof MarketplaceMeteringServiceException);
 assert(typeof InvalidProductCodeException$ === "object");
 assert(InvalidPublicKeyVersionException.prototype instanceof MarketplaceMeteringServiceException);

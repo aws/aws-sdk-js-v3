@@ -62,7 +62,7 @@
  *             <li>
  *                <p>Resolves the registration token that the buyer submits through the browser
  *                     during the registration process. Obtains a <code>CustomerIdentifier</code> along
- *                     with the <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p>
+ *                     with the <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
  *             </li>
  *             <li>
  *                <p>Called from: SaaS application during the registration process</p>

@@ -66,6 +66,26 @@ export class InvalidCustomerIdentifierException extends __BaseException {
 }
 
 /**
+ * <p>Ensure the <code>LicenseArn</code> is valid, matches the customer, and usage is within the license activation period.</p>
+ * @public
+ */
+export class InvalidLicenseException extends __BaseException {
+  readonly name = "InvalidLicenseException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLicenseException, __BaseException>) {
+    super({
+      name: "InvalidLicenseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLicenseException.prototype);
+  }
+}
+
+/**
  * <p>The product code passed does not match the product code used for publishing the
  *             product.</p>
  * @public

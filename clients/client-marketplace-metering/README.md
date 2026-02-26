@@ -67,7 +67,7 @@ Guide</a>.</p>
 <li>
 <p>Resolves the registration token that the buyer submits through the browser
 during the registration process. Obtains a <code>CustomerIdentifier</code> along
-with the <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p>
+with the <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
 </li>
 <li>
 <p>Called from: SaaS application during the registration process</p>
@@ -159,16 +159,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceMeteringClient` and
-the commands you need, for example `ResolveCustomerCommand`:
+the commands you need, for example `BatchMeterUsageCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering");
+const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering";
+import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering";
 ```
 
 ### Usage
@@ -185,7 +185,7 @@ To send a request, you:
 const client = new MarketplaceMeteringClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ResolveCustomerCommand(params);
+const command = new BatchMeterUsageCommand(params);
 ```
 
 #### Async/await
@@ -264,7 +264,7 @@ const client = new AWS.MarketplaceMetering({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.resolveCustomer(params);
+  const data = await client.batchMeterUsage(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -272,7 +272,7 @@ try {
 
 // Promises.
 client
-  .resolveCustomer(params)
+  .batchMeterUsage(params)
   .then((data) => {
     // process data.
   })
@@ -281,7 +281,7 @@ client
   });
 
 // callbacks.
-client.resolveCustomer(params, (err, data) => {
+client.batchMeterUsage(params, (err, data) => {
   // process err and data.
 });
 ```

@@ -32,10 +32,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
 
 /**
  * <important>
- *             <p>
- *                 The <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> are mutually exclusive parameters. You must use one or the other, but not both in the same API request.
- * For new implementations, we recommend using the <code>CustomerAWSAccountID</code>. Your current integration will continue to work. When updating your implementation, consider migrating to <code>CustomerAWSAccountID</code> for improved integration.
- *             </p>
+ *             <p>Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling buyers to make multiple purchases per Amazon Web Services account. Starting June 1, 2026, new SaaS products must use <code>CustomerAWSAccountId</code> (instead of <code>CustomerIdentifier</code>), <code>LicenseArn</code> (instead of <code>ProductCode</code>) to support this feature. Existing integrations will continue to work. Review the new integration for Concurrent Agreements <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>.</p>
  *          </important>
  *          <p>To post metering records for customers, SaaS applications call
  *         <code>BatchMeterUsage</code>, which is used for metering SaaS flexible
@@ -91,9 +88,10 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *         },
  *       ],
  *       CustomerAWSAccountId: "STRING_VALUE",
+ *       LicenseArn: "STRING_VALUE",
  *     },
  *   ],
- *   ProductCode: "STRING_VALUE", // required
+ *   ProductCode: "STRING_VALUE",
  * };
  * const command = new BatchMeterUsageCommand(input);
  * const response = await client.send(command);
@@ -117,6 +115,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //           },
  * //         ],
  * //         CustomerAWSAccountId: "STRING_VALUE",
+ * //         LicenseArn: "STRING_VALUE",
  * //       },
  * //       MeteringRecordId: "STRING_VALUE",
  * //       Status: "Success" || "CustomerNotSubscribed" || "DuplicateRecord",
@@ -140,6 +139,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //         },
  * //       ],
  * //       CustomerAWSAccountId: "STRING_VALUE",
+ * //       LicenseArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -162,6 +162,9 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link InvalidCustomerIdentifierException} (client fault)
  *  <p>You have metered usage for a <code>CustomerIdentifier</code> that does not
  *             exist.</p>
+ *
+ * @throws {@link InvalidLicenseException} (client fault)
+ *  <p>Ensure the <code>LicenseArn</code> is valid, matches the customer, and usage is within the license activation period.</p>
  *
  * @throws {@link InvalidProductCodeException} (client fault)
  *  <p>The product code passed does not match the product code used for publishing the

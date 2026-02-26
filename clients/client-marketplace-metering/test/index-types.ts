@@ -35,6 +35,7 @@ export type {
   InternalServiceErrorException,
   InvalidCustomerIdentifierException,
   InvalidEndpointRegionException,
+  InvalidLicenseException,
   InvalidProductCodeException,
   InvalidPublicKeyVersionException,
   InvalidRegionException,

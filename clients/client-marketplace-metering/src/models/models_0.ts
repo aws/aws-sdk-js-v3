@@ -90,12 +90,22 @@ export interface UsageRecord {
   UsageAllocations?: UsageAllocation[] | undefined;
 
   /**
-   * <p>
-   *             The <code>CustomerAWSAccountID</code> parameter specifies the AWS account ID of the buyer.
-   *         </p>
+   * <p>The <code>CustomerAWSAccountId</code> parameter specifies the AWS account ID of the buyer.</p>
+   *          <note>
+   *             <p>For existing integrations, to access your <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code> mapping, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html">Account Feeds</a>.</p>
+   *          </note>
    * @public
    */
   CustomerAWSAccountId?: string | undefined;
+
+  /**
+   * <p>The <code>LicenseArn</code> is a unique identifier for a specific granted license. These are used for software purchased through Amazon Web Services Marketplace.</p>
+   *          <note>
+   *             <p>To access your <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> mapping, visit <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-agreements.html">Agreements Feeds</a>.</p>
+   *          </note>
+   * @public
+   */
+  LicenseArn?: string | undefined;
 }
 
 /**
@@ -116,7 +126,7 @@ export interface BatchMeterUsageRequest {
    *             be the same as the one used during the publishing of a new product.</p>
    * @public
    */
-  ProductCode: string | undefined;
+  ProductCode?: string | undefined;
 }
 
 /**
@@ -334,8 +344,8 @@ export interface ResolveCustomerRequest {
   /**
    * <p>When a buyer visits your website during the registration process, the buyer submits a
    *             registration token through the browser. The registration token is resolved to obtain a
-   *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and
-   *                 <code>ProductCode</code>.</p>
+   *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>,
+   *                 <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
    * @public
    */
   RegistrationToken: string | undefined;
@@ -343,15 +353,14 @@ export interface ResolveCustomerRequest {
 
 /**
  * <p>The result of the <code>ResolveCustomer</code> operation. Contains the
- *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code> and
- *                 <code>ProductCode</code>.</p>
+ *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>,
+ *                 <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
  * @public
  */
 export interface ResolveCustomerResult {
   /**
    * <p>The <code>CustomerIdentifier</code> is used to identify an individual customer in your
-   *             application. Calls to <code>BatchMeterUsage</code> require
-   *                 <code>CustomerIdentifiers</code> for each <code>UsageRecord</code>.</p>
+   *             application.</p>
    * @public
    */
   CustomerIdentifier?: string | undefined;
@@ -366,8 +375,18 @@ export interface ResolveCustomerResult {
 
   /**
    * <p>The <code>CustomerAWSAccountId</code> provides the Amazon Web Services account ID associated with
-   *             the <code>CustomerIdentifier</code> for the individual customer.</p>
+   *             the <code>CustomerIdentifier</code> for the individual customer. Calls to <code>BatchMeterUsage</code> require
+   *             <code>CustomerAWSAccountId</code> for each <code>UsageRecord</code>.</p>
    * @public
    */
   CustomerAWSAccountId?: string | undefined;
+
+  /**
+   * <p>The <code>LicenseArn</code> is a unique identifier for a specific granted license. These are typically used for software purchased through Amazon Web Services Marketplace. Calls to <code>BatchMeterUsage</code> require <code>LicenseArn</code> for each <code>UsageRecord</code>.</p>
+   *          <note>
+   *             <p>Once you receive the <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> in the response, store that for future purposes/API calls/integrations.</p>
+   *          </note>
+   * @public
+   */
+  LicenseArn?: string | undefined;
 }

@@ -36,7 +36,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *             process. When a buyer visits your website during the registration process, the buyer
  *             submits a registration token through their browser. The registration token is resolved
  *             through this API to obtain a <code>CustomerIdentifier</code> along with the
- *                 <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p>
+ *                 <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
  *          <note>
  *             <p>To successfully resolve the token, the API must be called from the account that was used to publish the SaaS
  *                 application. For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>Amazon Web Services Marketplace Seller
@@ -65,6 +65,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * //   CustomerIdentifier: "STRING_VALUE",
  * //   ProductCode: "STRING_VALUE",
  * //   CustomerAWSAccountId: "STRING_VALUE",
+ * //   LicenseArn: "STRING_VALUE",
  * // };
  *
  * ```

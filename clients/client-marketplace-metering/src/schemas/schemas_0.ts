@@ -14,6 +14,7 @@ const _ETE = "ExpiredTokenException";
 const _ICE = "IdempotencyConflictException";
 const _ICIE = "InvalidCustomerIdentifierException";
 const _IERE = "InvalidEndpointRegionException";
+const _ILE = "InvalidLicenseException";
 const _IPCE = "InvalidProductCodeException";
 const _IPKVE = "InvalidPublicKeyVersionException";
 const _IRE = "InvalidRegionException";
@@ -23,6 +24,7 @@ const _ITEn = "InvalidTokenException";
 const _IUAE = "InvalidUsageAllocationsException";
 const _IUDE = "InvalidUsageDimensionException";
 const _K = "Key";
+const _LA = "LicenseArn";
 const _MRI = "MeteringRecordId";
 const _MU = "MeterUsage";
 const _MUR = "MeterUsageRequest";
@@ -81,6 +83,7 @@ import {
   InternalServiceErrorException,
   InvalidCustomerIdentifierException,
   InvalidEndpointRegionException,
+  InvalidLicenseException,
   InvalidProductCodeException,
   InvalidPublicKeyVersionException,
   InvalidRegionException,
@@ -147,6 +150,12 @@ export var InvalidEndpointRegionException$: StaticErrorSchema = [-3, n0, _IERE,
   [0]
 ];
 n0_registry.registerError(InvalidEndpointRegionException$, InvalidEndpointRegionException);
+export var InvalidLicenseException$: StaticErrorSchema = [-3, n0, _ILE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InvalidLicenseException$, InvalidLicenseException);
 export var InvalidProductCodeException$: StaticErrorSchema = [-3, n0, _IPCE,
   { [_e]: _c },
   [_m],
@@ -219,7 +228,7 @@ export const errorTypeRegistries = [
 export var BatchMeterUsageRequest$: StaticStructureSchema = [3, n0, _BMUR,
   0,
   [_UR, _PC],
-  [() => UsageRecordList, 0], 2
+  [() => UsageRecordList, 0], 1
 ];
 export var BatchMeterUsageResult$: StaticStructureSchema = [3, n0, _BMURa,
   0,
@@ -253,8 +262,8 @@ export var ResolveCustomerRequest$: StaticStructureSchema = [3, n0, _RCR,
 ];
 export var ResolveCustomerResult$: StaticStructureSchema = [3, n0, _RCRe,
   0,
-  [_CI, _PC, _CAWSAI],
-  [0, 0, 0]
+  [_CI, _PC, _CAWSAI, _LA],
+  [0, 0, 0, 0]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Ta,
   0,
@@ -268,8 +277,8 @@ export var UsageAllocation$: StaticStructureSchema = [3, n0, _UAs,
 ];
 export var UsageRecord$: StaticStructureSchema = [3, n0, _URs,
   0,
-  [_T, _D, _CI, _Q, _UA, _CAWSAI],
-  [4, 0, 0, 1, () => UsageAllocations, 0], 2
+  [_T, _D, _CI, _Q, _UA, _CAWSAI, _LA],
+  [4, 0, 0, 1, () => UsageAllocations, 0, 0], 2
 ];
 export var UsageRecordResult$: StaticStructureSchema = [3, n0, _URR,
   0,
