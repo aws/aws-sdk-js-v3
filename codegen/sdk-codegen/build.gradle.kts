@@ -134,13 +134,14 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
             )
             val generateSnapshotTests = setOf<String>(
                 // REST JSON
-                "Bedrock Runtime", "S3Tables",
+                "Bedrock Runtime", "S3Tables", "Transcribe Streaming",
+                "AppConfigData", "SageMaker Runtime HTTP2",
 
                 // JSON RPC 1.0
-                "DynamoDB", "DynamoDB Streams", "CloudWatch",
+                "DynamoDB", "DynamoDB Streams", "CloudWatch", "SQS",
 
                 // JSON RPC 1.1
-                "CloudWatch Logs", "SageMaker",
+                "CloudWatch Logs", "SageMaker", "Secrets Manager",
 
                 // Query
                 "IAM", "RDS",
@@ -151,8 +152,11 @@ abstract class GenerateSmithyBuildTask : DefaultTask() {
                 // EC2Query
                 "EC2",
 
-                // CBOR
+                // RPCv2 CBOR
                 // (TBD)
+
+                // auth
+                "STS", "Cognito Identity", "Signin", "SSO", "SSO OIDC",
             )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${modelsDirFile.absolutePath}${File.separator}${file.name}"))

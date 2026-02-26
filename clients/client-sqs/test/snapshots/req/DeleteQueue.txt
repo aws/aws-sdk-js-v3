@@ -1,0 +1,20 @@
+POST https://sqs.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: AmazonSQS.DeleteQueue
+x-amzn-query-mode: true
+content-length: 71
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sqs#_.__ m/E,e
+host: sqs.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 66e2e7fefc45cd0fd97531d6d5e7fa8184029de3ce0781a64e3d02a59e9b8a96
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
+
+[string (json)]
+{
+  "QueueUrl": "https://sqs.us-east-1.amazonaws.com/012345678901/MyQueue"
+}

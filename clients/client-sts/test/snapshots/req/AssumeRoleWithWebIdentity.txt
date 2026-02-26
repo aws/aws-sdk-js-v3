@@ -1,0 +1,23 @@
+POST https://sts.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 303
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sts#_.__ m/E
+host: sts.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+
+[string (query)]
+Action=AssumeRoleWithWebIdentity&
+Version=2011-06-15&
+RoleArn=__RoleArn__&
+RoleSessionName=__RoleSessionName__&
+WebIdentityToken=__WebIdentityToken__&
+ProviderId=__ProviderId__&
+PolicyArns.member.1.arn=__arn__&
+PolicyArns.member.2.arn=__arn__&
+PolicyArns.member.3.arn=__arn__&
+Policy=__Policy__&
+DurationSeconds=0

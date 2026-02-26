@@ -12,13 +12,13 @@
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo iam",
-    "test": "yarn dlx vitest run --passWithNoTests",
+    "test": "yarn g:vitest run --passWithNoTests",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs",
-    "test:integration": "yarn dlx vitest run --passWithNoTests -c vitest.config.integ.mts",
-    "test:integration:watch": "yarn dlx vitest run --passWithNoTests -c vitest.config.integ.mts",
-    "test:watch": "yarn dlx vitest watch --passWithNoTests"
+    "test:integration": "yarn g:vitest run --passWithNoTests -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest run --passWithNoTests -c vitest.config.integ.mts",
+    "test:watch": "yarn g:vitest watch --passWithNoTests"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -67,7 +67,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/snapshot-testing": "^1.0.6",
+    "@smithy/snapshot-testing": "^1.0.7",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
