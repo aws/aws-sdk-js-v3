@@ -58,9 +58,6 @@ export interface BandwidthRateLimitInterval {
    * <p>The average upload rate limit component of the bandwidth rate limit
    *       interval, in bits per second. This field does not appear in the response if
    *       the upload rate limit is not set.</p>
-   *          <note>
-   *             <p>For Backup Gateway, the minimum value is <code>(Value)</code>.</p>
-   *          </note>
    * @public
    */
   AverageUploadRateLimitInBitsPerSec?: number | undefined;
@@ -165,8 +162,8 @@ export interface PutBandwidthRateLimitScheduleOutput {
 
 /**
  * <p>A key-value pair you can use to manage, filter, and search for your resources. Allowed
- *       characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ :
- *       /.</p>
+ *       characters include UTF-8 letters, numbers, and the following characters: + - = . _ :
+ *       /. Spaces are not allowed in tag values.</p>
  * @public
  */
 export interface Tag {
@@ -372,6 +369,18 @@ export interface GatewayDetails {
    * @public
    */
   VpcEndpoint?: string | undefined;
+
+  /**
+   * <p>Date after which this gateway will not receive software updates for new features and bug fixes.</p>
+   * @public
+   */
+  DeprecationDate?: Date | undefined;
+
+  /**
+   * <p>The version number of the software running on the gateway appliance.</p>
+   * @public
+   */
+  SoftwareVersion?: string | undefined;
 }
 
 /**
@@ -725,7 +734,7 @@ export interface GetHypervisorPropertyMappingsInput {
 }
 
 /**
- * <p>This displays the mapping of on-premises VMware tags to the
+ * <p>This displays the mapping of VMware tags to the
  *       corresponding Amazon Web Services tags.</p>
  * @public
  */
@@ -766,7 +775,7 @@ export interface GetHypervisorPropertyMappingsOutput {
   HypervisorArn?: string | undefined;
 
   /**
-   * <p>This is a display of the mappings of on-premises VMware tags to the
+   * <p>This is a display of the mappings of VMware tags to the
    *       Amazon Web Services tags.</p>
    * @public
    */
@@ -790,7 +799,7 @@ export interface PutHypervisorPropertyMappingsInput {
   HypervisorArn: string | undefined;
 
   /**
-   * <p>This action requests the mappings of on-premises VMware tags to the
+   * <p>This action requests the mappings of VMware tags to the
    *       Amazon Web Services tags.</p>
    * @public
    */

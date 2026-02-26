@@ -57,6 +57,8 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  * //     },
  * //     NextUpdateAvailabilityTime: new Date("TIMESTAMP"),
  * //     VpcEndpoint: "STRING_VALUE",
+ * //     DeprecationDate: new Date("TIMESTAMP"),
+ * //     SoftwareVersion: "STRING_VALUE",
  * //   },
  * // };
  *

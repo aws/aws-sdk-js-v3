@@ -29,7 +29,7 @@ export interface GetHypervisorPropertyMappingsCommandOutput extends GetHyperviso
 /**
  * <p>This action retrieves the property mappings for the specified hypervisor.
  *       A hypervisor property mapping displays the relationship of entity properties
- *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
+ *       available from the hypervisor to the properties available in Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

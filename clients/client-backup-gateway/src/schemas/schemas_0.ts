@@ -12,6 +12,7 @@ const _CE = "ConflictException";
 const _CG = "CreateGateway";
 const _CGI = "CreateGatewayInput";
 const _CGO = "CreateGatewayOutput";
+const _DD = "DeprecationDate";
 const _DG = "DeleteGateway";
 const _DGFS = "DisassociateGatewayFromServer";
 const _DGFSI = "DisassociateGatewayFromServerInput";
@@ -106,6 +107,7 @@ const _S = "State";
 const _SA = "ServerArn";
 const _SHOD = "StartHourOfDay";
 const _SMOH = "StartMinuteOfHour";
+const _SV = "SoftwareVersion";
 const _SVMMS = "StartVirtualMachinesMetadataSync";
 const _SVMMSI = "StartVirtualMachinesMetadataSyncInput";
 const _SVMMSO = "StartVirtualMachinesMetadataSyncOutput";
@@ -286,8 +288,8 @@ export var Gateway$: StaticStructureSchema = [3, n0, _G,
 ];
 export var GatewayDetails$: StaticStructureSchema = [3, n0, _GD,
   0,
-  [_GA, _GDN, _GT, _HI, _LST, _MST, _NUAT, _VEp],
-  [0, 0, 0, 0, 4, () => MaintenanceStartTime$, 4, 0]
+  [_GA, _GDN, _GT, _HI, _LST, _MST, _NUAT, _VEp, _DD, _SV],
+  [0, 0, 0, 0, 4, () => MaintenanceStartTime$, 4, 0, 4, 0]
 ];
 export var GetBandwidthRateLimitScheduleInput$: StaticStructureSchema = [3, n0, _GBRLSI,
   0,
