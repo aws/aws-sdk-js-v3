@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-http",
-  "version": "3.972.14",
+  "version": "3.972.15",
   "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -28,8 +28,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.14",
-    "@aws-sdk/types": "workspace:^3.973.3",
+    "@aws-sdk/core": "workspace:^3.973.15",
+    "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/fetch-http-handler": "^5.3.11",
     "@smithy/node-http-handler": "^4.4.12",
     "@smithy/property-provider": "^4.2.10",

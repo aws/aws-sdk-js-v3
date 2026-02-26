@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
+
+
+### Features
+
+* **client-backup-gateway:** This release updates GetGateway API to include deprecationDate and softwareVersion in the response, enabling customers to track gateway software versions and upcoming deprecation dates. ([9dd68dd](https://github.com/aws/aws-sdk-js-v3/commit/9dd68ddc18d5f288921085fcdb26f5b34f295b81))
+
+
+
+
+
 # [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
 
 **Note:** Version bump only for package @aws-sdk/client-backup-gateway

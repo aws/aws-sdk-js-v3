@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
+
+
+### Features
+
+* **client-ec2:** Add c8id, m8id and hpc8a instance types. ([f49cb0c](https://github.com/aws/aws-sdk-js-v3/commit/f49cb0c1d0d17b719175aa0b9fc54b10c18efe84))
+
+
+
+
+
 # [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
 
 

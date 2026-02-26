@@ -15,6 +15,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.1 (2026-02-25)
+### Chores
+* **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))
+
+
+
 # 3.973.0 (2026-02-24)
 ### Features
 * **middleware-flexible-checksums:** allow custom checksum algorithm implementations ([#7746](https://github.com/aws/aws-sdk-js-v3/issues/7746)) ([34e99cd](https://github.com/aws/aws-sdk-js-v3/commit/34e99cdda62d79edeb7ca353d8ceabc60c68abda))

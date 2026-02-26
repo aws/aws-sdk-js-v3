@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
+
+
+### Features
+
+* **client-backup-gateway:** This release updates GetGateway API to include deprecationDate and softwareVersion in the response, enabling customers to track gateway software versions and upcoming deprecation dates. ([9dd68dd](https://github.com/aws/aws-sdk-js-v3/commit/9dd68ddc18d5f288921085fcdb26f5b34f295b81))
+* **client-ec2:** Add c8id, m8id and hpc8a instance types. ([f49cb0c](https://github.com/aws/aws-sdk-js-v3/commit/f49cb0c1d0d17b719175aa0b9fc54b10c18efe84))
+* **client-ecs:** Adding support for Capacity Reservations for ECS Managed Instances by introducing a new "capacityOptionType" value of "RESERVED" and new field "capacityReservations" for CreateCapacityProvider and UpdateCapacityProvider APIs. ([4a7cfd0](https://github.com/aws/aws-sdk-js-v3/commit/4a7cfd05ca2682bda2dbb5856d47b27563a56925))
+* **client-marketplace-entitlement-service:** Added License Arn as a new optional filter for GetEntitlements and LicenseArn field in each entitlement in the response. ([b884b35](https://github.com/aws/aws-sdk-js-v3/commit/b884b35b49f5244c177a6ad24f423741887929e5))
+* **client-marketplace-metering:** Added LicenseArn to ResolveCustomer response and BatchMeterUsage usage records. BatchMeterUsage now accepts LicenseArn in each UsageRecord to report usage at the license level. Added InvalidLicenseException error response for invalid license parameters. ([f5f5c09](https://github.com/aws/aws-sdk-js-v3/commit/f5f5c096e816e517098f601389e6e6ff2cba908e))
+* **client-securityhub:** Security Hub added EXTENDED PLAN integration type to DescribeProductsV2 and added metadata.product.vendor name GroupBy support to GetFindingStatisticsV2 ([1d1c982](https://github.com/aws/aws-sdk-js-v3/commit/1d1c9825970e4b464ffc3f3573003a1c61f7b4a6))
+* **util-user-agent-node:** populate typescript version in user agent when available ([#7786](https://github.com/aws/aws-sdk-js-v3/issues/7786)) ([0a5ab57](https://github.com/aws/aws-sdk-js-v3/commit/0a5ab579ac6a0496ba8b856562d76407b5666298))
+
+
+
+
+
 # [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-sso",
-  "version": "3.972.12",
+  "version": "3.972.13",
   "description": "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,10 +26,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.973.14",
-    "@aws-sdk/nested-clients": "workspace:^3.996.2",
-    "@aws-sdk/token-providers": "workspace:3.998.0",
-    "@aws-sdk/types": "workspace:^3.973.3",
+    "@aws-sdk/core": "workspace:^3.973.15",
+    "@aws-sdk/nested-clients": "workspace:^3.996.3",
+    "@aws-sdk/token-providers": "workspace:3.999.0",
+    "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/property-provider": "^4.2.10",
     "@smithy/shared-ini-file-loader": "^4.4.5",
     "@smithy/types": "^4.13.0",

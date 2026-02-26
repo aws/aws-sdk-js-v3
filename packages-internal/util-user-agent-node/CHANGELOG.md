@@ -16,6 +16,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.0 (2026-02-26)
+### Features
+* **util-user-agent-node:** populate typescript version in user agent when available ([#7786](https://github.com/aws/aws-sdk-js-v3/issues/7786)) ([0a5ab57](https://github.com/aws/aws-sdk-js-v3/commit/0a5ab579ac6a0496ba8b856562d76407b5666298))
+### Chores
+* **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))
+
+
+
 # 3.972.13 (2026-02-25)
 ### Chores
 * **codegen:** sync for checksum algorithm extensions ([#7781](https://github.com/aws/aws-sdk-js-v3/issues/7781)) ([ae4f994](https://github.com/aws/aws-sdk-js-v3/commit/ae4f994f679b8814d2ce6ba121fd1ffa38df9a99))

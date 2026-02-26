@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
+
+
+### Features
+
+* **client-ecs:** Adding support for Capacity Reservations for ECS Managed Instances by introducing a new "capacityOptionType" value of "RESERVED" and new field "capacityReservations" for CreateCapacityProvider and UpdateCapacityProvider APIs. ([4a7cfd0](https://github.com/aws/aws-sdk-js-v3/commit/4a7cfd05ca2682bda2dbb5856d47b27563a56925))
+
+
+
+
+
 # [3.998.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.997.0...v3.998.0) (2026-02-25)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

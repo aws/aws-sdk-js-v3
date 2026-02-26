@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3-control",
-  "version": "3.972.5",
+  "version": "3.972.6",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3-control",
@@ -25,10 +25,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.5",
-    "@aws-sdk/types": "workspace:^3.973.3",
+    "@aws-sdk/middleware-bucket-endpoint": "workspace:^3.972.6",
+    "@aws-sdk/types": "workspace:^3.973.4",
     "@aws-sdk/util-arn-parser": "workspace:^3.972.2",
-    "@aws-sdk/util-endpoints": "workspace:^3.996.2",
+    "@aws-sdk/util-endpoints": "workspace:^3.996.3",
     "@smithy/protocol-http": "^5.3.10",
     "@smithy/types": "^4.13.0",
     "@smithy/util-endpoints": "^3.3.1",
