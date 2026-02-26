@@ -84,7 +84,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //             storageSizeGiB: Number("int"),
  * //           },
  * //           monitoring: "BASIC" || "DETAILED",
- * //           capacityOptionType: "ON_DEMAND" || "SPOT",
+ * //           capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",
  * //           instanceRequirements: { // InstanceRequirementsRequest
  * //             vCpuCount: { // VCpuCountRangeRequest
  * //               min: Number("int"), // required
@@ -155,6 +155,10 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //             maxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
  * //           },
  * //           fipsEnabled: true || false,
+ * //           capacityReservations: { // CapacityReservationRequest
+ * //             reservationGroupArn: "STRING_VALUE",
+ * //             reservationPreference: "RESERVATIONS_ONLY" || "RESERVATIONS_FIRST" || "RESERVATIONS_EXCLUDED",
+ * //           },
  * //         },
  * //         propagateTags: "CAPACITY_PROVIDER" || "NONE",
  * //         infrastructureOptimization: { // InfrastructureOptimization

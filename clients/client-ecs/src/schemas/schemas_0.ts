@@ -62,6 +62,7 @@ const _CPS = "CapacityProviderStrategy";
 const _CPSI = "CapacityProviderStrategyItem";
 const _CPa = "CapacityProviders";
 const _CRP = "ContainerRestartPolicy";
+const _CRR = "CapacityReservationRequest";
 const _CS = "ClusterSetting";
 const _CSC = "ContainerStateChange";
 const _CSCD = "ClusterServiceConnectDefaults";
@@ -562,6 +563,7 @@ const _cPap = "capacityProviders";
 const _cPo = "containerPath";
 const _cPon = "containerPort";
 const _cPr = "credentialsParameter";
+const _cR = "capacityReservations";
 const _cS = "credentialSpecs";
 const _cSD = "currentServiceDeployment";
 const _cSR = "currentServiceRevisions";
@@ -827,14 +829,16 @@ const _rCe = "requiresCompatibilities";
 const _rCes = "resolvedConfiguration";
 const _rCu = "runningCount";
 const _rD = "rootDirectory";
+const _rGA = "reservationGroupArn";
 const _rHS = "requireHibernateSupport";
 const _rI = "resourceIds";
 const _rIe = "referenceId";
 const _rIu = "runtimeId";
 const _rMT = "resourceManagementType";
 const _rO = "readOnly";
-const _rP = "restartPolicy";
+const _rP = "reservationPreference";
 const _rPTW = "requestedProductionTrafficWeight";
+const _rPe = "restartPolicy";
 const _rPu = "runtimePlatform";
 const _rR = "resourceRequirements";
 const _rRF = "readonlyRootFilesystem";
@@ -1281,6 +1285,11 @@ export var CapacityProviderStrategyItem$: StaticStructureSchema = [3, n0, _CPSI,
   [_cPa, _w, _b],
   [0, 1, 1], 1
 ];
+export var CapacityReservationRequest$: StaticStructureSchema = [3, n0, _CRR,
+  0,
+  [_rGA, _rP],
+  [0, 0]
+];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
   [_cA, _cN, _co, _st, _rCIC, _rTC, _pTC, _aSC, _sta, _ta, _set, _cPap, _dCPS, _a, _aS, _sCD],
@@ -1313,7 +1322,7 @@ export var Container$: StaticStructureSchema = [3, n0, _Co,
 ];
 export var ContainerDefinition$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_n, _im, _rC, _cp, _me, _mR, _l, _pM, _es, _rP, _eP, _com, _en, _eF, _mP, _vF, _lP, _sec, _dO, _sT, _sTt, _vC, _h, _u, _wD, _dN, _p, _rRF, _dS, _dSD, _eH, _dSO, _in, _pT, _dL, _ul, _lC, _hC, _sC, _rR, _fC, _cS],
+  [_n, _im, _rC, _cp, _me, _mR, _l, _pM, _es, _rPe, _eP, _com, _en, _eF, _mP, _vF, _lP, _sec, _dO, _sT, _sTt, _vC, _h, _u, _wD, _dN, _p, _rRF, _dS, _dSD, _eH, _dSO, _in, _pT, _dL, _ul, _lC, _hC, _sC, _rR, _fC, _cS],
   [0, 0, () => RepositoryCredentials$, 1, 1, 1, 64 | 0, () => PortMappingList, 2, () => ContainerRestartPolicy$, 64 | 0, 64 | 0, () => EnvironmentVariables, () => EnvironmentFiles, () => MountPointList, () => VolumeFromList, () => LinuxParameters$, () => SecretList, () => ContainerDependencies, 1, 1, 0, 0, 0, 0, 2, 2, 2, 64 | 0, 64 | 0, () => HostEntryList, 64 | 0, 2, 2, 128 | 0, () => UlimitList, () => LogConfiguration$, () => HealthCheck$, () => SystemControls, () => ResourceRequirements, () => FirelensConfiguration$, 64 | 0]
 ];
 export var ContainerDependency$: StaticStructureSchema = [3, n0, _CDo,
@@ -1828,13 +1837,13 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _mo, _cOT, _iR, _fE],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0], 2], 2
+  [_eIPA, _nC, _sCto, _mo, _cOT, _iR, _fE, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
-  [_eIPA, _nC, _sCto, _mo, _iR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, [() => InstanceRequirementsRequest$, 0]]
+  [_eIPA, _nC, _sCto, _mo, _iR, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,

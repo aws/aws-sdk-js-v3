@@ -128,12 +128,28 @@ export type ManagedTerminationProtection =
  */
 export const CapacityOptionType = {
   ON_DEMAND: "ON_DEMAND",
+  RESERVED: "RESERVED",
   SPOT: "SPOT",
 } as const;
 /**
  * @public
  */
 export type CapacityOptionType = (typeof CapacityOptionType)[keyof typeof CapacityOptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationPreference = {
+  RESERVATIONS_EXCLUDED: "RESERVATIONS_EXCLUDED",
+  RESERVATIONS_FIRST: "RESERVATIONS_FIRST",
+  RESERVATIONS_ONLY: "RESERVATIONS_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationPreference =
+  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
 
 /**
  * @public

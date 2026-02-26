@@ -17,6 +17,7 @@ import {
   CapacityProviderStatus,
   CapacityProviderType,
   CapacityProviderUpdateStatus,
+  CapacityReservationPreference,
   ClusterField,
   ClusterSettingName,
   Compatibility,
@@ -237,6 +238,24 @@ export interface InfrastructureOptimization {
    * @public
    */
   scaleInAfter?: number | undefined;
+}
+
+/**
+ * <p>The Capacity Reservation configurations to be used when using the <code>RESERVED</code> capacity option type.</p>
+ * @public
+ */
+export interface CapacityReservationRequest {
+  /**
+   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+   * @public
+   */
+  reservationGroupArn?: string | undefined;
+
+  /**
+   * <p>The preference on when capacity reservations should be used.</p> <p>Valid values are:</p> <ul> <li> <p> <code>RESERVATIONS_ONLY</code> - Exclusively launch instances into capacity reservations that match the instance requirements configured for the capacity provider. If none exist, instances will fail to provision.</p> </li> <li> <p> <code>RESERVATIONS_FIRST</code> - Prefer to launch instances into a capacity reservation if any exist that match the instance requirements configured for the capacity provider. If none exist, fall back to launching instances On-Demand.</p> </li> <li> <p> <code>RESERVATIONS_EXCLUDED</code> - Avoid using capacity reservations and launch exclusively On-Demand.</p> </li> </ul>
+   * @public
+   */
+  reservationPreference?: CapacityReservationPreference | undefined;
 }
 
 /**
@@ -575,7 +594,7 @@ export interface InstanceLaunchTemplate {
   monitoring?: ManagedInstancesMonitoringOptions | undefined;
 
   /**
-   * <p>The capacity option type. This determines whether Amazon ECS launches On-Demand or Spot Instances for your managed instance capacity provider.</p> <p>Valid values are:</p> <ul> <li> <p> <code>ON_DEMAND</code> - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.</p> </li> <li> <p> <code>SPOT</code> - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.</p> </li> </ul> <p>The default is On-Demand</p> <p>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The capacity option type. This determines whether Amazon ECS launches On-Demand, Spot or Capacity Reservation Instances for your managed instance capacity provider.</p> <p>Valid values are:</p> <ul> <li> <p> <code>ON_DEMAND</code> - Launches standard On-Demand Instances. On-Demand Instances provide predictable pricing and availability.</p> </li> <li> <p> <code>SPOT</code> - Launches Spot Instances that use spare Amazon EC2 capacity at reduced cost. Spot Instances can be interrupted by Amazon EC2 with a two-minute notification when the capacity is needed back.</p> </li> <li> <p> <code>RESERVED</code> - Launches Instances using Amazon EC2 Capacity Reservations. Capacity Reservations allow you to reserve compute capacity for Amazon EC2 instances in a specific Availability Zone.</p> </li> </ul> <p>The default is On-Demand</p> <p>For more information about Amazon EC2 capacity options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-purchasing-options.html">Instance purchasing options</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   capacityOptionType?: CapacityOptionType | undefined;
@@ -591,6 +610,12 @@ export interface InstanceLaunchTemplate {
    * @public
    */
   fipsEnabled?: boolean | undefined;
+
+  /**
+   * <p>Capacity reservation specifications. You can specify:</p> <ul> <li> <p>Capacity reservation preference</p> </li> <li> <p>Reservation resource group to be used for targeted capacity reservations</p> </li> </ul> <p>Amazon ECS will launch instances according to the specified criteria.</p>
+   * @public
+   */
+  capacityReservations?: CapacityReservationRequest | undefined;
 }
 
 /**
@@ -951,6 +976,12 @@ export interface InstanceLaunchTemplateUpdate {
    * @public
    */
   instanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The updated capacity reservations specifications for Amazon ECS Managed Instances. Changes to capacity reservations settings apply to new instances launched after the update.</p>
+   * @public
+   */
+  capacityReservations?: CapacityReservationRequest | undefined;
 }
 
 /**

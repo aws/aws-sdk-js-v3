@@ -33,6 +33,8 @@ import {
   CapacityProviderStrategyItem$,
   CapacityProviderType,
   CapacityProviderUpdateStatus,
+  CapacityReservationPreference,
+  CapacityReservationRequest$,
   ClientException,
   ClientException$,
   Cluster$,
@@ -733,6 +735,7 @@ assert(typeof BaselineEbsBandwidthMbpsRequest$ === "object");
 assert(typeof CanaryConfiguration$ === "object");
 assert(typeof CapacityProvider$ === "object");
 assert(typeof CapacityProviderStrategyItem$ === "object");
+assert(typeof CapacityReservationRequest$ === "object");
 assert(typeof Cluster$ === "object");
 assert(typeof ClusterConfiguration$ === "object");
 assert(typeof ClusterServiceConnectDefaults$ === "object");
@@ -1027,6 +1030,7 @@ assert(typeof CapacityProviderField === "object");
 assert(typeof CapacityProviderStatus === "object");
 assert(typeof CapacityProviderType === "object");
 assert(typeof CapacityProviderUpdateStatus === "object");
+assert(typeof CapacityReservationPreference === "object");
 assert(typeof ClusterField === "object");
 assert(typeof ClusterSettingName === "object");
 assert(typeof Compatibility === "object");
