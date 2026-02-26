@@ -4,13 +4,13 @@ import { describe, expect, it } from "vitest";
 import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
 
 describe(getTypeScriptPackageJsonPath.name, () => {
-  it("returns typescript/package.json when dirname is empty", () => {
-    expect(getTypeScriptPackageJsonPath()).toBe(join("", "typescript", "package.json"));
+  it("returns node_modules/typescript/package.json when dirname is empty", () => {
+    expect(getTypeScriptPackageJsonPath()).toBe(join("node_modules", "typescript", "package.json"));
   });
 
   it("returns path relative to dirname when not inside node_modules", () => {
     const dirname = join("some", "path");
-    expect(getTypeScriptPackageJsonPath(dirname)).toBe(join(dirname, "typescript", "package.json"));
+    expect(getTypeScriptPackageJsonPath(dirname)).toBe(join(dirname, "node_modules", "typescript", "package.json"));
   });
 
   it("returns path relative to first node_modules when inside node_modules", () => {
@@ -28,6 +28,8 @@ describe(getTypeScriptPackageJsonPath.name, () => {
     [["foo", "..", "bar"].join(sep), "bar"],
     [["foo", ".", "bar"].join(sep), join("foo", "bar")],
   ])("normalizes mixed path separators for '%s'", (dirname, nodeModulesPath) => {
-    expect(getTypeScriptPackageJsonPath(dirname)).toBe(join(nodeModulesPath, "typescript", "package.json"));
+    expect(getTypeScriptPackageJsonPath(dirname)).toBe(
+      join(nodeModulesPath, "node_modules", "typescript", "package.json")
+    );
   });
 });

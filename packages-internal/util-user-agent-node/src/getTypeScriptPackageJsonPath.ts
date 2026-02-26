@@ -14,11 +14,11 @@ export const getTypeScriptPackageJsonPath = (dirname = ""): string => {
 
   if (nodeModulesIndex !== -1) {
     // If we are inside node_modules, we use the first occurrence of 'node_modules'
-    nodeModulesPath = parts.slice(0, nodeModulesIndex + 1).join(sep);
+    nodeModulesPath = parts.slice(0, nodeModulesIndex).join(sep);
   } else {
     // If we are not inside node_modules, we can use the current directory.
     nodeModulesPath = dirname;
   }
 
-  return join(nodeModulesPath, "typescript", "package.json");
+  return join(nodeModulesPath, "node_modules", "typescript", "package.json");
 };
