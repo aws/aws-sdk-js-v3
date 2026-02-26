@@ -963,7 +963,7 @@ export class S3TransferManager implements IS3TransferManager {
     contentLength: number,
     transferOptions?: TransferOptions
   ): Promise<PutObjectCommandOutput> {
-    const requestChecksumCalculation = await this.s3ClientInstance.config.requestChecksumCalculation();
+    const requestChecksumCalculation = await this.s3ClientInstance.config?.requestChecksumCalculation?.();
 
     const putObjectRequest = { ...request };
     if (requestChecksumCalculation === "WHEN_SUPPORTED") {
@@ -1000,7 +1000,7 @@ export class S3TransferManager implements IS3TransferManager {
     const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
 
     this.checkAborted(transferOptions);
-    const requestChecksumCalculation = await this.s3ClientInstance.config.requestChecksumCalculation();
+    const requestChecksumCalculation = await this.s3ClientInstance.config?.requestChecksumCalculation?.();
 
     const createMpuRequest: CreateMultipartUploadCommandInput = { ...request };
 
