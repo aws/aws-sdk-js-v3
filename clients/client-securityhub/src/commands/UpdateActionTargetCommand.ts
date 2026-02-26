@@ -27,7 +27,7 @@ export interface UpdateActionTargetCommandInput extends UpdateActionTargetReques
 export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name and description of a custom action target in Security Hub.</p>
+ * <p>Updates the name and description of a custom action target in Security Hub CSPM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

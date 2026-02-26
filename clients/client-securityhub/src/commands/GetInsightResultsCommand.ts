@@ -27,7 +27,7 @@ export interface GetInsightResultsCommandInput extends GetInsightResultsRequest 
 export interface GetInsightResultsCommandOutput extends GetInsightResultsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the results of the Security Hub insight specified by the insight ARN.</p>
+ * <p>Lists the results of the Security Hub CSPM insight specified by the insight ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

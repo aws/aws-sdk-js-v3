@@ -28,7 +28,7 @@ export interface CreateConfigurationPolicyCommandOutput extends CreateConfigurat
 
 /**
  * <p>
- *             Creates a configuration policy with the defined configuration. Only the Security Hub delegated administrator
+ *             Creates a configuration policy with the defined configuration. Only the Security Hub CSPM delegated administrator
  *             can invoke this operation from the home Region.
  *         </p>
  * @example

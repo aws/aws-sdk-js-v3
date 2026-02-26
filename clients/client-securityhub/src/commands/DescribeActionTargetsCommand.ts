@@ -27,7 +27,7 @@ export interface DescribeActionTargetsCommandInput extends DescribeActionTargets
 export interface DescribeActionTargetsCommandOutput extends DescribeActionTargetsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the custom action targets in Security Hub in your account.</p>
+ * <p>Returns a list of the custom action targets in Security Hub CSPM in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

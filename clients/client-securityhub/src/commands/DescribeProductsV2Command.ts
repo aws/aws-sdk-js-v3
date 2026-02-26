@@ -52,10 +52,11 @@ export interface DescribeProductsV2CommandOutput extends DescribeProductsV2Respo
  * //         "STRING_VALUE",
  * //       ],
  * //       IntegrationV2Types: [ // IntegrationV2TypeList
- * //         "SEND_FINDINGS_TO_SECURITY_HUB" || "RECEIVE_FINDINGS_FROM_SECURITY_HUB" || "UPDATE_FINDINGS_IN_SECURITY_HUB",
+ * //         "SEND_FINDINGS_TO_SECURITY_HUB" || "RECEIVE_FINDINGS_FROM_SECURITY_HUB" || "UPDATE_FINDINGS_IN_SECURITY_HUB" || "EXTENDED_PLAN",
  * //       ],
  * //       MarketplaceUrl: "STRING_VALUE",
  * //       ActivationUrl: "STRING_VALUE",
+ * //       MarketplaceProductId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

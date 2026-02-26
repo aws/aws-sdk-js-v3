@@ -27,7 +27,7 @@ export interface DescribeProductsCommandInput extends DescribeProductsRequest {}
 export interface DescribeProductsCommandOutput extends DescribeProductsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about product integrations in Security Hub.</p>
+ * <p>Returns information about product integrations in Security Hub CSPM.</p>
  *          <p>You can optionally provide an integration ARN. If you provide an integration ARN, then
  *          the results only include that integration.</p>
  *          <p>If you don't provide an integration ARN, then the results include all of the available

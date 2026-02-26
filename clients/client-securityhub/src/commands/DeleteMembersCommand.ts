@@ -27,7 +27,7 @@ export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
 export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified member accounts from Security Hub.</p>
+ * <p>Deletes the specified member accounts from Security Hub CSPM.</p>
  *          <p>You can invoke this API only to delete accounts that became members through invitation. You can't invoke this
  *         API to delete accounts that belong to an Organizations organization.</p>
  * @example

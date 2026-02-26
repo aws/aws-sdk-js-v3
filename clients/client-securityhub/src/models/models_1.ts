@@ -1643,7 +1643,7 @@ export interface AwsElbLoadBalancerDetails {
 
   /**
    * <p>Indicates when the load balancer was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedTime?: string | undefined;
@@ -1785,7 +1785,7 @@ export interface AwsElbv2LoadBalancerDetails {
 
   /**
    * <p>Indicates when the load balancer was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedTime?: string | undefined;
@@ -2389,7 +2389,7 @@ export interface AwsIamAccessKeySessionContextAttributes {
 
   /**
    * <p>Indicates when the session was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreationDate?: string | undefined;
@@ -2474,7 +2474,7 @@ export interface AwsIamAccessKeyDetails {
 
   /**
    * <p>Indicates when the IAM access key was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedAt?: string | undefined;
@@ -2559,7 +2559,7 @@ export interface AwsIamGroupDetails {
 
   /**
    * <p>Indicates when the IAM group was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2608,7 +2608,7 @@ export interface AwsIamInstanceProfileRole {
 
   /**
    * <p>Indicates when the role was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2645,7 +2645,7 @@ export interface AwsIamInstanceProfile {
 
   /**
    * <p>Indicates when the instance profile was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2713,7 +2713,7 @@ export interface AwsIamPolicyVersion {
 
   /**
    * <p>Indicates when the version was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2732,7 +2732,7 @@ export interface AwsIamPolicyDetails {
 
   /**
    * <p>When the policy was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2788,7 +2788,7 @@ export interface AwsIamPolicyDetails {
 
   /**
    * <p>When the policy was most recently updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   UpdateDate?: string | undefined;
@@ -2825,7 +2825,7 @@ export interface AwsIamRoleDetails {
 
   /**
    * <p>Indicates when the role was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -2899,7 +2899,7 @@ export interface AwsIamUserDetails {
 
   /**
    * <p>Indicates when the user was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreateDate?: string | undefined;
@@ -3018,7 +3018,7 @@ export interface AwsKmsKeyDetails {
 
   /**
    * <p>Indicates when the KMS key was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreationDate?: number | undefined;
@@ -3272,7 +3272,7 @@ export interface AwsLambdaFunctionDetails {
 
   /**
    * <p>Indicates when the function was last updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastModified?: string | undefined;
@@ -3375,7 +3375,7 @@ export interface AwsLambdaLayerVersionDetails {
 
   /**
    * <p>Indicates when the version was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedDate?: string | undefined;
@@ -5045,7 +5045,7 @@ export interface AwsRdsDbClusterDetails {
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ClusterCreateTime?: string | undefined;
@@ -5237,7 +5237,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
 
   /**
    * <p>Indicates when the snapshot was taken.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   SnapshotCreateTime?: string | undefined;
@@ -5274,7 +5274,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ClusterCreateTime?: string | undefined;
@@ -5809,7 +5809,7 @@ export interface AwsRdsDbInstanceDetails {
 
   /**
    * <p>Indicates when the DB instance was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   InstanceCreateTime?: string | undefined;
@@ -5939,7 +5939,7 @@ export interface AwsRdsDbInstanceDetails {
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
    *          restore.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LatestRestorableTime?: string | undefined;
@@ -6515,7 +6515,7 @@ export interface AwsRdsEventSubscriptionDetails {
 
   /**
    * <p>The datetime when the event notification subscription was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   SubscriptionCreationTime?: string | undefined;
@@ -6663,7 +6663,7 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
 export interface AwsRedshiftClusterDeferredMaintenanceWindow {
   /**
    * <p>The end of the time window for which maintenance was deferred.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   DeferMaintenanceEndTime?: string | undefined;
@@ -6676,7 +6676,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
 
   /**
    * <p>The start of the time window for which maintenance was deferred.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   DeferMaintenanceStartTime?: string | undefined;
@@ -6789,14 +6789,14 @@ export interface AwsRedshiftClusterLoggingStatus {
 
   /**
    * <p>The last time when logs failed to be delivered.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastFailureTime?: string | undefined;
 
   /**
    * <p>The last time that logs were delivered successfully.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastSuccessfulDeliveryTime?: string | undefined;
@@ -7037,7 +7037,7 @@ export interface AwsRedshiftClusterDetails {
 
   /**
    * <p>Indicates when the cluster was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ClusterCreateTime?: string | undefined;
@@ -7163,7 +7163,7 @@ export interface AwsRedshiftClusterDetails {
   /**
    * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
    *          snapshot schedule and have backups enabled.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ExpectedNextSnapshotScheduleTime?: string | undefined;
@@ -7221,7 +7221,7 @@ export interface AwsRedshiftClusterDetails {
 
   /**
    * <p>Indicates the start of the next maintenance window.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   NextMaintenanceWindowStartTime?: string | undefined;
@@ -7725,7 +7725,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTr
 export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails {
   /**
    * <p>A date on which to transition objects to the specified storage class. If you provide <code>Date</code>, you cannot provide <code>Days</code>.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   Date?: string | undefined;
@@ -7784,7 +7784,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
 
   /**
    * <p>The date when objects are moved or deleted.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   ExpirationDate?: string | undefined;
@@ -8274,7 +8274,7 @@ export interface AwsS3BucketDetails {
 
   /**
    * <p>Indicates when the S3 bucket was created.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   CreatedAt?: string | undefined;
@@ -8351,7 +8351,7 @@ export interface AwsS3BucketDetails {
 export interface AwsS3ObjectDetails {
   /**
    * <p>Indicates when the object was last modified.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LastModified?: string | undefined;
@@ -8676,7 +8676,7 @@ export interface StatusReason {
   /**
    * <p>A code that represents a reason for the control status. For the list of status reason
    *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-asff-compliance">Compliance details for control findings</a> in the
-   *             <i>Security Hub User Guide</i>. </p>
+   *             <i>Security Hub CSPM User Guide</i>. </p>
    * @public
    */
   ReasonCode: string | undefined;
@@ -8691,13 +8691,13 @@ export interface StatusReason {
 /**
  * <p>This object typically provides details about a control finding, such as applicable standards and the status of
  *             control checks. While finding providers can add custom content in <code>Compliance</code> object fields, they are
- *             typically used to review details of Security Hub control findings.</p>
+ *             typically used to review details of Security Hub CSPM control findings.</p>
  * @public
  */
 export interface Compliance {
   /**
    * <p>Typically summarizes the result of a control check.</p>
-   *          <p>For Security Hub controls, valid values for <code>Status</code> are as follows.</p>
+   *          <p>For Security Hub CSPM controls, valid values for <code>Status</code> are as follows.</p>
    *          <ul>
    *             <li>
    *                <ul>
@@ -8721,7 +8721,7 @@ export interface Compliance {
    *                         <code>NOT_AVAILABLE</code> - Check could not be performed due to a service
    *                      outage, API error, or because the result of the Config evaluation was
    *                         <code>NOT_APPLICABLE</code>. If the Config evaluation result was
-   *                      <code>NOT_APPLICABLE</code> for a Security Hub control, Security Hub automatically archives
+   *                      <code>NOT_APPLICABLE</code> for a Security Hub CSPM control, Security Hub CSPM automatically archives
    *                      the finding after 3 days.</p>
    *                   </li>
    *                </ul>
@@ -8747,7 +8747,7 @@ export interface Compliance {
 
   /**
    * <p>
-   *          Typically provides the unique identifier of a control across standards. For Security Hub controls, this field consists of an
+   *          Typically provides the unique identifier of a control across standards. For Security Hub CSPM controls, this field consists of an
    *           Amazon Web Services service and a unique number, such as <code>APIGateway.5</code>.
    *       </p>
    * @public
@@ -8774,7 +8774,7 @@ export interface Compliance {
  * <p>
  *             Contains information about the Autonomous System (AS) of the network
  *             endpoints involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  * @public
@@ -8800,7 +8800,7 @@ export interface NetworkAutonomousSystem {
 /**
  * <p>
  *             Contains information about the network connection involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  * @public
@@ -8819,7 +8819,7 @@ export interface NetworkConnection {
  * <p>
  *             Contains information about the location of a network endpoint involved in an Amazon GuardDuty Extended Threat Detection attack sequence.
  * GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  * @public
@@ -8861,7 +8861,7 @@ export interface NetworkGeoLocation {
 /**
  * <p>
  *             Contains information about network endpoints involved in an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  *          <p>This field can provide information about the network endpoints associated with the resource in the attack sequence finding,
@@ -8930,7 +8930,7 @@ export interface NetworkEndpoint {
  * <p>
  *             Contains information about the indicators observed in an Amazon GuardDuty Extended Threat Detection attack sequence.
  *             Indicators include a set of signals, which can be API activities or findings that GuardDuty uses to detect an attack sequence finding. GuardDuty
- *             generates an attack sequence finding when multiple signals align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             generates an attack sequence finding when multiple signals align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  *             must have GuardDuty and GuardDuty S3 Protection enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  * @public
@@ -8973,8 +8973,8 @@ export interface Indicator {
  * <p>
  *             Contains information about the signals involved in an Amazon GuardDuty Extended Threat Detection attack sequence. An attack sequence is a
  * type of threat detected by GuardDuty. GuardDuty generates an attack sequence finding when multiple events, or
- * signals, align to a potentially suspicious activity. When GuardDuty and Security Hub are integrated, GuardDuty
- * sends attack sequence findings to Security Hub.</p>
+ * signals, align to a potentially suspicious activity. When GuardDuty and Security Hub CSPM are integrated, GuardDuty
+ * sends attack sequence findings to Security Hub CSPM.</p>
  *          <p>A signal can be an API activity or a finding that GuardDuty uses to detect an attack sequence finding.</p>
  * @public
  */
@@ -9130,7 +9130,7 @@ export interface Signal {
 /**
  * <p>
  *             Contains information about an Amazon GuardDuty Extended Threat Detection attack sequence finding. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.
  *         </p>
  * @public
@@ -9181,7 +9181,7 @@ export interface Sequence {
 /**
  * <p>
  *             A top-level object field that provides details about an Amazon GuardDuty Extended Threat Detection attack sequence. GuardDuty generates an attack
- *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub, you
+ *             sequence finding when multiple events align to a potentially suspicious activity. To receive GuardDuty attack sequence findings in Security Hub CSPM, you
  * 				must have GuardDuty enabled. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html">GuardDuty Extended Threat Detection </a> in the <i>Amazon GuardDuty User Guide</i>.</p>
  * @public
  */
@@ -9223,7 +9223,7 @@ export interface Detection {
  *          <p>If a <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html">
  *                <code>BatchImportFindings</code>
  *             </a> request for a
- *            new finding only provides <code>Label</code> or only provides <code>Normalized</code>, Security Hub
+ *            new finding only provides <code>Label</code> or only provides <code>Normalized</code>, Security Hub CSPM
  *            automatically populates the value of the other field.</p>
  *          <p>The <code>Normalized</code> and <code>Product</code> attributes are included in the <code>FindingProviderSeverity</code>
  *            structure to preserve the historical information associated with the finding, even if the top-level
@@ -9231,7 +9231,7 @@ export interface Detection {
  *                <code>BatchUpdateFindings</code>
  *             </a> operation.</p>
  *          <p>If the top-level <code>Finding.Severity</code> object is present, but <code>Finding.FindingProviderFields</code> isn't present,
- *            Security Hub creates the <code>FindingProviderFields.Severity</code> object and copies the entire <code>Finding.Severity</code> object into it.
+ *            Security Hub CSPM creates the <code>FindingProviderFields.Severity</code> object and copies the entire <code>Finding.Severity</code> object into it.
  *            This ensures that the original, provider-supplied details are retained within the <code>FindingProviderFields.Severity</code>
  *            object, even if the top-level <code>Severity</code> object is overwritten.
  *        </p>
@@ -9285,7 +9285,7 @@ export interface FindingProviderSeverity {
  *             </li>
  *          </ul>
  *          <p>The preceding fields are nested under the <code>FindingProviderFields</code> object, but also have analogues of the same name
- *            as top-level ASFF fields. When a new finding is sent to Security Hub by a finding provider, Security Hub populates the
+ *            as top-level ASFF fields. When a new finding is sent to Security Hub CSPM by a finding provider, Security Hub CSPM populates the
  *            <code>FindingProviderFields</code> object automatically, if it is empty, based on the corresponding top-level fields.</p>
  *          <p>Finding providers can update <code>FindingProviderFields</code> only by using the <code>BatchImportFindings</code>
  *         operation. Finding providers can't update
@@ -9293,10 +9293,10 @@ export interface FindingProviderSeverity {
  *                <code>BatchUpdateFindings</code>
  *             </a> operation. Customers can update the top-level fields by using the <code>BatchUpdateFindings</code> operation. Customers can't
  *            update <code>FindingProviderFields</code>.</p>
- *          <p>For information about how Security Hub handles updates from <code>BatchImportFindings</code> to
+ *          <p>For information about how Security Hub CSPM handles updates from <code>BatchImportFindings</code> to
  *            <code>FindingProviderFields</code> and to the corresponding top-level
  *            attributes, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchimportfindings.html#batchimportfindings-findingproviderfields">Using <code>FindingProviderFields</code>
- *             </a> in the <i>Security Hub User Guide</i>.</p>
+ *             </a> in the <i>Security Hub CSPM User Guide</i>.</p>
  *          <p></p>
  * @public
  */
@@ -9345,7 +9345,7 @@ export interface FindingProviderFields {
  *                 Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to
  *                 findings that relate to Lambda functions. Amazon Inspector identifies policy violations and
  *                 vulnerabilities in Lambda function code based on internal detectors developed
- *                 in collaboration with Amazon CodeGuru. Security Hub receives those findings.
+ *                 in collaboration with Amazon CodeGuru. Security Hub CSPM receives those findings.
  *         </p>
  * @public
  */
@@ -9606,7 +9606,7 @@ export interface Note {
 
   /**
    * <p>A timestamp that indicates when the note was updated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   UpdatedAt: string | undefined;
@@ -9674,14 +9674,14 @@ export interface PatchSummary {
 
   /**
    * <p>Indicates when the operation started.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   OperationStartTime?: string | undefined;
 
   /**
    * <p>Indicates when the operation completed.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   OperationEndTime?: string | undefined;
@@ -9735,14 +9735,14 @@ export interface ProcessDetails {
 
   /**
    * <p>Indicates when the process was launched.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   LaunchedAt?: string | undefined;
 
   /**
    * <p>Indicates when the process was terminated.</p>
-   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
+   *          <p>For more information about the validation and formatting of timestamp fields in Security Hub CSPM, see <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps">Timestamps</a>.</p>
    * @public
    */
   TerminatedAt?: string | undefined;

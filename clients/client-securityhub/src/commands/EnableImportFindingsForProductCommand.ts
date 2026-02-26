@@ -27,10 +27,10 @@ export interface EnableImportFindingsForProductCommandInput extends EnableImport
 export interface EnableImportFindingsForProductCommandOutput extends EnableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
- * <p>Enables the integration of a partner product with Security Hub. Integrated products send
- *          findings to Security Hub.</p>
+ * <p>Enables the integration of a partner product with Security Hub CSPM. Integrated products send
+ *          findings to Security Hub CSPM.</p>
  *          <p>When you enable a product integration, a permissions policy that grants permission for
- *          the product to send findings to Security Hub is applied.</p>
+ *          the product to send findings to Security Hub CSPM is applied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,7 +27,7 @@ export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizat
 export interface ListOrganizationAdminAccountsCommandOutput extends ListOrganizationAdminAccountsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Security Hub administrator accounts. Can only be called by the organization
+ * <p>Lists the Security Hub CSPM administrator accounts. Can only be called by the organization
  *          management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

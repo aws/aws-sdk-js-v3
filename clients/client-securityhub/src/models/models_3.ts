@@ -199,7 +199,7 @@ export interface StartConfigurationPolicyAssociationResponse {
   /**
    * <p>
    *             Indicates whether the association between the specified target and the configuration was directly applied by the
-   *             Security Hub delegated administrator or inherited from a parent.
+   *             Security Hub CSPM delegated administrator or inherited from a parent.
    *         </p>
    * @public
    */
@@ -425,10 +425,10 @@ export interface UpdateConfigurationPolicyRequest {
 
   /**
    * <p>
-   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
    *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
-   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
-   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
+   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly
+   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM
    *             enables all other controls (including newly released controls).
    *         </p>
    *          <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list
@@ -492,11 +492,11 @@ export interface UpdateConfigurationPolicyResponse {
 
   /**
    * <p>
-   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             An object that defines how Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or
    *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a
-   *             list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including
+   *             list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including
    *             newly released controls). If the request included a list of security controls that are disabled in the configuration policy,
-   *             Security Hub enables all other controls (including newly released controls).
+   *             Security Hub CSPM enables all other controls (including newly released controls).
    *         </p>
    * @public
    */
@@ -542,23 +542,23 @@ export interface UpdateFindingAggregatorRequest {
   FindingAggregatorArn: string | undefined;
 
   /**
-   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub CSPM supports them and you opt into them.</p>
    *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
    *          <p>The options are as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Aggregates findings from all of the Regions where Security Hub CSPM is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub CSPM also automatically aggregates findings from new Regions as Security Hub CSPM supports them and you opt into them.
    *          </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *                   <code>SPECIFIED_REGIONS</code> - Aggregates findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub CSPM does not automatically aggregate findings from new Regions.
    *          </p>
    *             </li>
    *             <li>
@@ -677,21 +677,21 @@ export interface UpdateInsightResponse {}
  */
 export interface UpdateOrganizationConfigurationRequest {
   /**
-   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
-   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
+   * <p>Whether to automatically enable Security Hub CSPM in new member accounts when they join the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub CSPM is automatically enabled in new accounts. If set to <code>false</code>,
+   *            then Security Hub CSPM isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
    *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
    *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
-   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
+   *             policy in which Security Hub CSPM is enabled and associate the policy with new organization accounts.</p>
    * @public
    */
   AutoEnable: boolean | undefined;
 
   /**
-   * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
+   * <p>Whether to automatically enable Security Hub CSPM <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
    *            in new member accounts when they join the organization.</p>
    *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
-   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub CSPM default standards are automatically enabled for new member
    *            accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
    *            accounts.</p>
    *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
@@ -703,7 +703,7 @@ export interface UpdateOrganizationConfigurationRequest {
 
   /**
    * <p>
-   *             Provides information about the way an organization is configured in Security Hub.
+   *             Provides information about the way an organization is configured in Security Hub CSPM.
    *         </p>
    * @public
    */
@@ -762,9 +762,9 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       </p>
    *          <p>When you automatically enable new controls, you can interact with the controls in
    *            the console and programmatically immediately after release. However, automatically enabled controls have a temporary default status of
-   *            <code>DISABLED</code>. It can take up to several days for Security Hub to process the control release and designate the
+   *            <code>DISABLED</code>. It can take up to several days for Security Hub CSPM to process the control release and designate the
    *            control as <code>ENABLED</code> in your account. During the processing period, you can manually enable or disable a
-   *            control, and Security Hub will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
+   *            control, and Security Hub CSPM will maintain that designation regardless of whether you have <code>AutoEnableControls</code> set to
    *            <code>true</code>.</p>
    * @public
    */
@@ -773,9 +773,9 @@ export interface UpdateSecurityHubConfigurationRequest {
   /**
    * <p>Updates whether the calling account has consolidated control findings turned on.
    *       If the value for this field is set to
-   *       <code>SECURITY_CONTROL</code>, Security Hub generates a single finding for a control check even when the check
+   *       <code>SECURITY_CONTROL</code>, Security Hub CSPM generates a single finding for a control check even when the check
    *       applies to multiple enabled standards.</p>
-   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub generates separate findings
+   *          <p>If the value for this field is set to <code>STANDARD_CONTROL</code>, Security Hub CSPM generates separate findings
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
    * @public
@@ -901,7 +901,7 @@ export interface FindingsTrendsCompositeFilter {
 }
 
 /**
- * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub.</p>
+ * <p>Enables the creation of criteria for Amazon Web Services resources in Security Hub CSPM.</p>
  * @public
  */
 export interface ResourcesCompositeFilter {

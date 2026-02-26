@@ -27,14 +27,14 @@ export interface DisableSecurityHubCommandInput extends DisableSecurityHubReques
 export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**
- * <p>Disables Security Hub in your account only in the current Amazon Web Services Region. To disable Security Hub in all
- *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
- *          <p>You can't disable Security Hub in an account that is currently the Security Hub administrator.</p>
- *          <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration
+ * <p>Disables Security Hub CSPM in your account only in the current Amazon Web Services Region. To disable Security Hub CSPM in all
+ *          Regions, you must submit one request per Region where you have enabled Security Hub CSPM.</p>
+ *          <p>You can't disable Security Hub CSPM in an account that is currently the Security Hub CSPM administrator.</p>
+ *          <p>When you disable Security Hub CSPM, your existing findings and insights and any Security Hub CSPM configuration
  *          settings are deleted after 90 days and cannot be recovered. Any standards that were enabled
  *          are disabled, and your administrator and member account associations are removed.</p>
  *          <p>If you want to save your existing findings, you must export them before you disable
- *          Security Hub.</p>
+ *          Security Hub CSPM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

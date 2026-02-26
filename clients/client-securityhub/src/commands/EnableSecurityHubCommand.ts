@@ -27,11 +27,11 @@ export interface EnableSecurityHubCommandInput extends EnableSecurityHubRequest 
 export interface EnableSecurityHubCommandOutput extends EnableSecurityHubResponse, __MetadataBearer {}
 
 /**
- * <p>Enables Security Hub for your account in the current Region or the Region you specify in the
+ * <p>Enables Security Hub CSPM for your account in the current Region or the Region you specify in the
  *          request.</p>
- *          <p>When you enable Security Hub, you grant to Security Hub the permissions necessary to gather findings
- *          from other services that are integrated with Security Hub.</p>
- *          <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub, you also
+ *          <p>When you enable Security Hub CSPM, you grant to Security Hub CSPM the permissions necessary to gather findings
+ *          from other services that are integrated with Security Hub CSPM.</p>
+ *          <p>When you use the <code>EnableSecurityHub</code> operation to enable Security Hub CSPM, you also
  *          automatically enable the following standards:</p>
  *          <ul>
  *             <li>
@@ -44,9 +44,9 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *          <p>Other standards are not automatically enabled. </p>
  *          <p>To opt out of automatically enabled standards, set
  *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
- *          <p>After you enable Security Hub, to enable a standard, use the <code>BatchEnableStandards</code> operation. To disable a standard, use the
+ *          <p>After you enable Security Hub CSPM, to enable a standard, use the <code>BatchEnableStandards</code> operation. To disable a standard, use the
  *                <code>BatchDisableStandards</code> operation.</p>
- *          <p>To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup information</a> in the <i>Security Hub User Guide</i>.</p>
+ *          <p>To learn more, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">setup information</a> in the <i>Security Hub CSPM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

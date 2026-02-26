@@ -28,7 +28,7 @@ export interface UpdateConfigurationPolicyCommandOutput extends UpdateConfigurat
 
 /**
  * <p>
- *             Updates a configuration policy. Only the Security Hub delegated
+ *             Updates a configuration policy. Only the Security Hub CSPM delegated
  *             administrator can invoke this operation from the home Region.
  *         </p>
  * @example

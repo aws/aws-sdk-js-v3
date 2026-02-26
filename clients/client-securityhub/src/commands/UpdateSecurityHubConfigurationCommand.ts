@@ -27,7 +27,7 @@ export interface UpdateSecurityHubConfigurationCommandInput extends UpdateSecuri
 export interface UpdateSecurityHubConfigurationCommandOutput extends UpdateSecurityHubConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates configuration options for Security Hub.</p>
+ * <p>Updates configuration options for Security Hub CSPM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

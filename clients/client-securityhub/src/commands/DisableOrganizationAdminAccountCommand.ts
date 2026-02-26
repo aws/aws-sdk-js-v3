@@ -30,7 +30,7 @@ export interface DisableOrganizationAdminAccountCommandInput extends DisableOrga
 export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Disables a Security Hub administrator account. Can only be called by the organization
+ * <p>Disables a Security Hub CSPM administrator account. Can only be called by the organization
  *          management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

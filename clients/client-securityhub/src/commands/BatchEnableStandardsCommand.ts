@@ -31,7 +31,7 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  *          ARN for a standard, use the <code>DescribeStandards</code>
  *          operation.</p>
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a>
- *          section of the <i>Security Hub User Guide</i>.</p>
+ *          section of the <i>Security Hub CSPM User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

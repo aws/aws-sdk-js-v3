@@ -28,7 +28,7 @@ export interface GetConfigurationPolicyCommandOutput extends GetConfigurationPol
 
 /**
  * <p>
- *             Provides information about a configuration policy. Only the Security Hub delegated administrator can invoke
+ *             Provides information about a configuration policy. Only the Security Hub CSPM delegated administrator can invoke
  *             this operation from the home Region.
  *         </p>
  * @example

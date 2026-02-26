@@ -27,7 +27,7 @@ export interface DeleteActionTargetCommandInput extends DeleteActionTargetReques
 export interface DeleteActionTargetCommandOutput extends DeleteActionTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom action target from Security Hub.</p>
+ * <p>Deletes a custom action target from Security Hub CSPM.</p>
  *          <p>Deleting a custom action target does not affect any findings or insights that were
  *          already sent to Amazon CloudWatch Events using the custom action.</p>
  * @example

@@ -30,7 +30,7 @@ export interface DisassociateFromAdministratorAccountCommandInput extends Disass
 export interface DisassociateFromAdministratorAccountCommandOutput extends DisassociateFromAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the current Security Hub member account from the associated administrator
+ * <p>Disassociates the current Security Hub CSPM member account from the associated administrator
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
  *          organization accounts, only the administrator account can

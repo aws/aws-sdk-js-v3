@@ -2249,6 +2249,7 @@ const _MO = "MetadataOptions";
 const _MOa = "MaintenanceOptions";
 const _MOo = "MountOptions";
 const _MP = "MaxPrice";
+const _MPI = "MarketplaceProductId";
 const _MPIOL = "MapPublicIpOnLaunch";
 const _MPU = "MetadataProductUid";
 const _MPV = "MinimumProtocolVersion";
@@ -7584,8 +7585,8 @@ export var Product$: StaticStructureSchema = [3, n0, _Produ,
 ];
 export var ProductV2$: StaticStructureSchema = [3, n0, _PVro,
   0,
-  [_PVN, _CN, _D, _Cate, _IVT, _MUa, _AUc],
-  [0, 0, 0, 64 | 0, 64 | 0, 0, 0]
+  [_PVN, _CN, _D, _Cate, _IVT, _MUa, _AUc, _MPI],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, 0, 0]
 ];
 export var PropagatingVgwSetDetails$: StaticStructureSchema = [3, n0, _PVSD,
   0,

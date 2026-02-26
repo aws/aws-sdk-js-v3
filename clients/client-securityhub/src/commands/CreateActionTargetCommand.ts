@@ -27,8 +27,8 @@ export interface CreateActionTargetCommandInput extends CreateActionTargetReques
 export interface CreateActionTargetCommandOutput extends CreateActionTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a custom action target in Security Hub.</p>
- *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
+ * <p>Creates a custom action target in Security Hub CSPM.</p>
+ *          <p>You can use custom actions on findings and insights in Security Hub CSPM to trigger target actions
  *          in Amazon CloudWatch Events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

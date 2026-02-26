@@ -27,7 +27,7 @@ export interface EnableOrganizationAdminAccountCommandInput extends EnableOrgani
 export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrganizationAdminAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Designates the Security Hub administrator account for an organization. Can only be called by
+ * <p>Designates the Security Hub CSPM administrator account for an organization. Can only be called by
  *          the organization management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

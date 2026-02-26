@@ -28,11 +28,11 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
 
 /**
  * <note>
- *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
- *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
- *            in the <i>Security Hub User Guide</i>.</p>
+ *             <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub CSPM administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub CSPM User Guide</i>.</p>
  *          </note>
- *          <p>Lists all Security Hub membership invitations that were sent to the calling account.</p>
+ *          <p>Lists all Security Hub CSPM membership invitations that were sent to the calling account.</p>
  *          <p>Only accounts that are managed by invitation can use this operation.
  *          Accounts that are managed using the integration with Organizations don't receive invitations.</p>
  * @example

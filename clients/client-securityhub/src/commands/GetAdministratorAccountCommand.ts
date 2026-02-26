@@ -27,7 +27,7 @@ export interface GetAdministratorAccountCommandInput extends GetAdministratorAcc
 export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
+ * <p>Provides the details for the Security Hub CSPM administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
  * @example

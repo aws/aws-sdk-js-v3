@@ -30,8 +30,8 @@ export interface DisableImportFindingsForProductCommandInput extends DisableImpo
 export interface DisableImportFindingsForProductCommandOutput extends DisableImportFindingsForProductResponse, __MetadataBearer {}
 
 /**
- * <p>Disables the integration of the specified product with Security Hub. After the integration is
- *          disabled, findings from that product are no longer sent to Security Hub.</p>
+ * <p>Disables the integration of the specified product with Security Hub CSPM. After the integration is
+ *          disabled, findings from that product are no longer sent to Security Hub CSPM.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

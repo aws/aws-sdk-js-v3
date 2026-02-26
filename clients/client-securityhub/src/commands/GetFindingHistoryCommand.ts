@@ -28,7 +28,7 @@ export interface GetFindingHistoryCommandOutput extends GetFindingHistoryRespons
 
 /**
  * <p>
- *          Returns the history of a Security Hub finding. The history includes changes made to any fields in
+ *          Returns the history of a Security Hub CSPM finding. The history includes changes made to any fields in
  *          the Amazon Web Services Security Finding Format (ASFF) except top-level timestamp fields, such as the <code>CreatedAt</code> and
  *          <code>UpdatedAt</code> fields.
  *       </p>

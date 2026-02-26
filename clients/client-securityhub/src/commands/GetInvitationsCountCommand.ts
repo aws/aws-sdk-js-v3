@@ -28,11 +28,11 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
 
 /**
  * <note>
- *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
- *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
- *            in the <i>Security Hub User Guide</i>.</p>
+ *             <p>We recommend using Organizations instead of Security Hub CSPM invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub CSPM administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub CSPM User Guide</i>.</p>
  *          </note>
- *          <p>Returns the count of all Security Hub membership invitations that were sent to the
+ *          <p>Returns the count of all Security Hub CSPM membership invitations that were sent to the
  *          calling member account, not including the currently accepted invitation. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -30,8 +30,8 @@ export interface UpdateOrganizationConfigurationCommandInput extends UpdateOrgan
 export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of your organization in Security Hub. Only the
- *          Security Hub administrator account can invoke this operation.</p>
+ * <p>Updates the configuration of your organization in Security Hub CSPM. Only the
+ *          Security Hub CSPM administrator account can invoke this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

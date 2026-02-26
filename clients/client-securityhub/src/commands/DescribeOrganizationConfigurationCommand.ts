@@ -30,8 +30,8 @@ export interface DescribeOrganizationConfigurationCommandInput extends DescribeO
 export interface DescribeOrganizationConfigurationCommandOutput extends DescribeOrganizationConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about the way your organization is configured in Security Hub. Only the
- *          Security Hub administrator account can invoke this operation.</p>
+ * <p>Returns information about the way your organization is configured in Security Hub CSPM. Only the
+ *          Security Hub CSPM administrator account can invoke this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

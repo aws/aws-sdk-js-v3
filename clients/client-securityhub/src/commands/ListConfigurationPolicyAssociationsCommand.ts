@@ -32,7 +32,7 @@ export interface ListConfigurationPolicyAssociationsCommandOutput extends ListCo
 /**
  * <p>
  *             Provides information about the associations for your configuration policies and self-managed behavior. Only the
- *             Security Hub delegated administrator can invoke this operation from the home Region.
+ *             Security Hub CSPM delegated administrator can invoke this operation from the home Region.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

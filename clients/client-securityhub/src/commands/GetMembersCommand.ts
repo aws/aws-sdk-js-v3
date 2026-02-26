@@ -27,9 +27,9 @@ export interface GetMembersCommandInput extends GetMembersRequest {}
 export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
- *          <p>An administrator account can be either the delegated Security Hub administrator account for an
- *          organization or an administrator account that enabled Security Hub manually.</p>
+ * <p>Returns the details for the Security Hub CSPM member accounts for the specified account IDs.</p>
+ *          <p>An administrator account can be either the delegated Security Hub CSPM administrator account for an
+ *          organization or an administrator account that enabled Security Hub CSPM manually.</p>
  *          <p>The results include both member accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
  * @example

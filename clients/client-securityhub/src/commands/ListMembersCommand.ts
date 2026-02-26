@@ -27,7 +27,7 @@ export interface ListMembersCommandInput extends ListMembersRequest {}
 export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists details about all member accounts for the current Security Hub administrator
+ * <p>Lists details about all member accounts for the current Security Hub CSPM administrator
  *          account.</p>
  *          <p>The results include both member accounts that belong to an organization and member
  *          accounts that were invited manually.</p>

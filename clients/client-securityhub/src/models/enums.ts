@@ -890,6 +890,7 @@ export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationT
  * @enum
  */
 export const IntegrationV2Type = {
+  EXTENDED_PLAN: "EXTENDED_PLAN",
   RECEIVE_FINDINGS_FROM_SECURITY_HUB: "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
   SEND_FINDINGS_TO_SECURITY_HUB: "SEND_FINDINGS_TO_SECURITY_HUB",
   UPDATE_FINDINGS_IN_SECURITY_HUB: "UPDATE_FINDINGS_IN_SECURITY_HUB",
@@ -981,6 +982,7 @@ export const GroupByField = {
   FINDING_INFO_TYPES: "finding_info.types",
   METADATA_PRODUCT_NAME: "metadata.product.name",
   METADATA_PRODUCT_UID: "metadata.product.uid",
+  METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
   RESOURCES_TYPE: "resources.type",
   RESOURCES_UID: "resources.uid",
   SEVERITY: "severity",

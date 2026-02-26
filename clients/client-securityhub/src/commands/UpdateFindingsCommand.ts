@@ -30,11 +30,11 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * <p>
  *             <code>UpdateFindings</code> is a deprecated operation. Instead of <code>UpdateFindings</code>, use
  *             the <code>BatchUpdateFindings</code> operation.</p>
- *          <p>The <code>UpdateFindings</code> operation updates the <code>Note</code> and <code>RecordState</code> of the Security Hub aggregated
+ *          <p>The <code>UpdateFindings</code> operation updates the <code>Note</code> and <code>RecordState</code> of the Security Hub CSPM aggregated
  *          findings that the filter attributes specify. Any member account that can view the finding
  *          can also see the update to the finding.</p>
  *          <p>Finding updates made with <code>UpdateFindings</code> aren't persisted if the same finding is later updated by the
- *             finding provider through the <code>BatchImportFindings</code> operation. In addition, Security Hub doesn't
+ *             finding provider through the <code>BatchImportFindings</code> operation. In addition, Security Hub CSPM doesn't
  *             record updates made with <code>UpdateFindings</code> in the finding history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

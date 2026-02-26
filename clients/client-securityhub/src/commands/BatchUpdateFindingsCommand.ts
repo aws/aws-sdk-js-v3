@@ -28,7 +28,7 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
 
 /**
  * <p>
- *          Used by Security Hub customers to update information about their investigation into one or more findings.
+ *          Used by Security Hub CSPM customers to update information about their investigation into one or more findings.
  *          Requested by administrator accounts or member accounts.
  *          Administrator accounts can update findings for their account and their member accounts.
  *          A member account can update findings only for their own account.
@@ -83,12 +83,12 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *          </ul>
  *          <p>
  *          If you use this operation to update a finding, your updates don’t affect the value for the <code>UpdatedAt</code> field of the finding.
- *          Also note that it can take several minutes for Security Hub to process your request and update each finding specified in the request.
+ *          Also note that it can take several minutes for Security Hub CSPM to process your request and update each finding specified in the request.
  *       </p>
  *          <p>
  *          You can configure IAM policies to restrict access to fields and field values.
  *          For example, you might not want member accounts to be able to suppress findings or change the finding severity.
- *          For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>.
+ *          For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the <i>Security Hub CSPM User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

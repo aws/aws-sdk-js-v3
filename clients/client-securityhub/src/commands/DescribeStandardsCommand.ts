@@ -27,7 +27,7 @@ export interface DescribeStandardsCommandInput extends DescribeStandardsRequest 
 export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the available standards in Security Hub.</p>
+ * <p>Returns a list of the available standards in Security Hub CSPM.</p>
  *          <p>For each standard, the results include the standard ARN, the name, and a description. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

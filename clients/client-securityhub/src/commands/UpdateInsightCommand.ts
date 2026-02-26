@@ -27,7 +27,7 @@ export interface UpdateInsightCommandInput extends UpdateInsightRequest {}
 export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the Security Hub insight identified by the specified insight ARN.</p>
+ * <p>Updates the Security Hub CSPM insight identified by the specified insight ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
