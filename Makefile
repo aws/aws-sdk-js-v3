@@ -41,10 +41,12 @@ test-protocols: bundles
 	yarn g:vitest run -c vitest.config.protocols.integ.mts
 
 snapshot-compare:
-	SNAPSHOT_MODE=compare yarn g:vitest run -c vitest.config.snapshots.integ.mts
+	NODE_OPTIONS='--max-old-space-size=8192' SNAPSHOT_MODE=compare \
+	yarn g:vitest run -c vitest.config.snapshots.integ.mts
 
 snapshot-write:
-	SNAPSHOT_MODE=write yarn g:vitest run -c vitest.config.snapshots.integ.mts
+	NODE_OPTIONS='--max-old-space-size=8192' SNAPSHOT_MODE=write \
+	yarn g:vitest run -c vitest.config.snapshots.integ.mts
 
 test-schema: bundles
 	yarn g:vitest run -c vitest.config.protocols-schema.integ.mts

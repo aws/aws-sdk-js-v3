@@ -29303,22 +29303,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/snapshot-testing@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "@smithy/snapshot-testing@npm:1.0.7"
-  dependencies:
-    "@smithy/core": "npm:^3.23.6"
-    "@smithy/eventstream-codec": "npm:^4.2.10"
-    "@smithy/protocol-http": "npm:^5.3.10"
-    "@smithy/types": "npm:^4.13.0"
-    "@smithy/util-base64": "npm:^4.3.1"
-    "@smithy/util-hex-encoding": "npm:^4.2.1"
-    "@smithy/util-utf8": "npm:^4.2.1"
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/a8cc9121c094992a2abf34d8e578df9f4e4ca9453ed6785949549fa4f8036c4659d3e11fe80cb88a931106a1e1b7c80cd9199d9bdf3bfa75871e994d3af9e37b
-  languageName: node
-  linkType: hard
-
 "@smithy/typecheck@npm:^1.0.14":
   version: 1.0.14
   resolution: "@smithy/typecheck@npm:1.0.14"
