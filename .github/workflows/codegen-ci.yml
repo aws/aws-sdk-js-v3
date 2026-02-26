@@ -47,3 +47,12 @@ jobs:
         run: |
           cd ./codegen
           ./gradlew :smithy-aws-typescript-codegen:publish
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: test-codegen
+        run: make test-codegen
