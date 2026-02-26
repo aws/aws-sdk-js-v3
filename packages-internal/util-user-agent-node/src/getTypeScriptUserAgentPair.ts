@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 
 import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
 
-let tscVersion: string | null;
+let tscVersion: string | null | undefined;
 
 /**
  * Returns the tyescript name and version as a user agent pair, if present.
