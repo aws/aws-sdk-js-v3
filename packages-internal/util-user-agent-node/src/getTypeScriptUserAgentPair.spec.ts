@@ -48,6 +48,16 @@ describe("getTypeScriptUserAgentPair", () => {
 
       expect(readFile).toHaveBeenCalledTimes(1);
     });
+
+    it("returns cached version on subsequent calls if version is not defined", async () => {
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ name: "blah" }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+
+      expect(readFile).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe("when reading typescript/package.json throws error", () => {

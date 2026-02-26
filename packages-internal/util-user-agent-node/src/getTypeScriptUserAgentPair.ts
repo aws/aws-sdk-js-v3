@@ -19,7 +19,12 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
 
   try {
     const packageJson = await readFile(getTypeScriptPackageJsonPath(__dirname), "utf-8");
-    tscVersion = JSON.parse(packageJson).version as string;
+    const { version } = JSON.parse(packageJson);
+    if (typeof version !== "string") {
+      tscVersion = null;
+      return undefined;
+    }
+    tscVersion = version;
     return ["md/tsc", tscVersion];
   } catch {
     // Ignore error in case of failure in file read or JSON parsing.
