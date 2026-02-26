@@ -13,7 +13,7 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   // If tscVersion is set from previous calls.
   if (tscVersion === null) {
     return undefined;
-  } else if (tscVersion) {
+  } else if (typeof tscVersion === "string") {
     return ["md/tsc", tscVersion];
   }
 

@@ -22,7 +22,7 @@ describe("getTypeScriptUserAgentPair", () => {
 
   describe("when typescript/package.json is available", () => {
     beforeEach(() => {
-      vi.mocked(readFile).mockResolvedValueOnce(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
     });
 
     it("returns version", async () => {
@@ -35,6 +35,16 @@ describe("getTypeScriptUserAgentPair", () => {
 
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockTscVersion]);
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockTscVersion]);
+
+      expect(readFile).toHaveBeenCalledTimes(1);
+    });
+
+    it("returns cached version on subsequent calls even if it's an empty string", async () => {
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: "" }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", ""]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", ""]);
 
       expect(readFile).toHaveBeenCalledTimes(1);
     });
@@ -62,7 +72,7 @@ describe("getTypeScriptUserAgentPair", () => {
 
   describe("when typescript/package.json is not a valid JSON", () => {
     beforeEach(() => {
-      vi.mocked(readFile).mockResolvedValueOnce("Not a JSON");
+      vi.mocked(readFile).mockResolvedValue("Not a JSON");
     });
 
     it("returns undefined when typescript package.json parse fails", async () => {
