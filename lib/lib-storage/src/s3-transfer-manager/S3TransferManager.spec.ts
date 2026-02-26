@@ -801,6 +801,109 @@ describe("S3TransferManager Unit Tests", () => {
       expect(expectedPartsCount).toBe(3); // 15MB / 5MB = 3 parts
     });
   });
+
+  describe("Client-level vs Request-level listeners with mocked uploads", () => {
+    let tm: S3TransferManager;
+    let mockSend: any;
+
+    beforeEach(() => {
+      mockSend = vi.fn().mockResolvedValue({
+        ETag: '"mock-etag"',
+        $metadata: { httpStatusCode: 200 },
+      });
+
+      const mockClient = {
+        send: mockSend,
+      } as any;
+
+      tm = new S3TransferManager({
+        s3ClientInstance: mockClient,
+      });
+    });
+
+    it("Should fire client-level listener for every upload request", async () => {
+      const clientLevelCallback = vi.fn();
+      tm.addEventListener("transferComplete", clientLevelCallback);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content1" });
+      await tm.upload({ Bucket: "test-bucket", Key: "file2.txt", Body: "content2" });
+      await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "content3" });
+
+      expect(clientLevelCallback).toHaveBeenCalledTimes(3);
+    });
+
+    it("Should fire request-level listener only for that specific request", async () => {
+      const requestLevelCallback = vi.fn();
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content1" });
+
+      await tm.upload(
+        { Bucket: "test-bucket", Key: "file2.txt", Body: "content2" },
+        { eventListeners: { transferComplete: [requestLevelCallback] } }
+      );
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "content3" });
+
+      expect(requestLevelCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("Should fire both client-level and request-level listeners when both are registered", async () => {
+      const clientCallback = vi.fn();
+      const requestCallback = vi.fn();
+
+      tm.addEventListener("transferComplete", clientCallback);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "a" });
+      await tm.upload(
+        { Bucket: "test-bucket", Key: "file2.txt", Body: "b" },
+        { eventListeners: { transferComplete: [requestCallback] } }
+      );
+      await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "c" });
+
+      expect(clientCallback).toHaveBeenCalledTimes(3);
+      expect(requestCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("Should fire transferInitiated exactly once per upload", async () => {
+      const initiatedCallback = vi.fn();
+      tm.addEventListener("transferInitiated", initiatedCallback);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+
+      expect(initiatedCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("Should fire transferComplete exactly once per successful upload", async () => {
+      const completeCallback = vi.fn();
+      tm.addEventListener("transferComplete", completeCallback);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+
+      expect(completeCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("Should fire transferFailed exactly once when upload fails", async () => {
+      const failedCallback = vi.fn();
+      tm.addEventListener("transferFailed", failedCallback);
+
+      mockSend.mockRejectedValueOnce(new Error("Upload failed"));
+
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" })).rejects.toThrow(
+        "Upload failed"
+      );
+
+      expect(failedCallback).toHaveBeenCalledTimes(1);
+    });
+
+    it("Should fire bytesTransferred at least once for successful upload", async () => {
+      const bytesCallback = vi.fn();
+      tm.addEventListener("bytesTransferred", bytesCallback);
+
+      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+
+      expect(bytesCallback.mock.calls.length).toBeGreaterThanOrEqual(1);
+    });
+  });
 });
 
 describe("join-streams tests", () => {

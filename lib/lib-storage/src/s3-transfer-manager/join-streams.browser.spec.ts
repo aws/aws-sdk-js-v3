@@ -314,4 +314,62 @@ describe(joinStreams.name, () => {
 
     expect(completionData).toEqual({ bytes: 8, index: 1 });
   });
+
+  it("should handle Blob streams", async () => {
+    const streams = [
+      Promise.resolve(new Blob(["abcd"]) as any),
+      Promise.resolve(new Blob(["efgh"]) as any),
+      Promise.resolve(new Blob(["ijkl"]) as any),
+    ];
+
+    const joined = (await joinStreams(streams)) as ReadableStream;
+    const reader = joined.getReader();
+
+    const chunks: string[] = [];
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(new TextDecoder().decode(value));
+    }
+
+    expect(chunks).toEqual(["abcd", "efgh", "ijkl"]);
+  });
+
+  it("should handle mixed ReadableStream and Blob streams", async () => {
+    const streams = [
+      Promise.resolve(
+        sdkStreamMixin(
+          new ReadableStream({
+            start(c) {
+              c.enqueue(new TextEncoder().encode("abcd"));
+              c.close();
+            },
+          })
+        )
+      ),
+      Promise.resolve(new Blob(["efgh"]) as any),
+      Promise.resolve(
+        sdkStreamMixin(
+          new ReadableStream({
+            start(c) {
+              c.enqueue(new TextEncoder().encode("ijkl"));
+              c.close();
+            },
+          })
+        )
+      ),
+    ];
+
+    const joined = (await joinStreams(streams)) as ReadableStream;
+    const reader = joined.getReader();
+
+    const chunks: string[] = [];
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(new TextDecoder().decode(value));
+    }
+
+    expect(chunks).toEqual(["abcd", "efgh", "ijkl"]);
+  });
 });

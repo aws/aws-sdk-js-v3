@@ -13,7 +13,7 @@ export async function joinStreams(
   eventListeners?: JoinStreamIterationEvents
 ): Promise<StreamingBlobPayloadOutputTypes> {
   const firstStream = await streams[0];
-  if (isReadableStream(firstStream)) {
+  if (isReadableStream(firstStream) || firstStream instanceof Blob) {
     const newReadableStream = new ReadableStream({
       async start(controller) {
         for await (const chunk of iterateStreams(streams, eventListeners)) {
@@ -36,7 +36,7 @@ export async function joinStreams(
 export async function* iterateStreams(
   promises: Promise<StreamingBlobPayloadOutputTypes>[],
   eventListeners?: JoinStreamIterationEvents
-): AsyncIterable<StreamingBlobPayloadOutputTypes, void, void> {
+): AsyncIterable<Uint8Array, void, void> {
   let bytesTransferred = 0;
   let index = 0;
   for (const streamPromise of promises) {
@@ -69,7 +69,29 @@ export async function* iterateStreams(
       } finally {
         reader.releaseLock();
       }
+    } else if (stream instanceof Blob) {
+      // Blob response body when using XMLHttpRequest handler & receiving arraybuffer response type
+      const blobStream = stream.stream();
+      const reader = blobStream.getReader();
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) {
+            break;
+          }
+          yield value;
+          bytesTransferred += value.byteLength;
+          eventListeners?.onBytes?.(bytesTransferred, index);
+        }
+      } catch (e) {
+        await destroy(promises);
+        eventListeners?.onFailure?.(e, index);
+        throw e;
+      } finally {
+        reader.releaseLock();
+      }
     } else {
+      await destroy(promises);
       const failure = new Error(`unhandled stream type ${(stream as any)?.constructor?.name}`);
       eventListeners?.onFailure?.(failure, index);
       throw failure;
