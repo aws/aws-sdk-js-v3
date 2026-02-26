@@ -418,7 +418,7 @@
           "package": "@aws-sdk/aws-protocoltests-restjson-schema",
           "generateSchemas": true,
           "generateSnapshotTests": true,
-          "packageVersion": "1.0.0-alpha.1",
+          "packageVersion": "1.0.0",
           "packageJson": {
             "author": {
               "name": "AWS SDK for JavaScript Team",

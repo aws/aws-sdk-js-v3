@@ -22,14 +22,13 @@ test-unit: bundles
 	yarn g:vitest run -c vitest.config.clients.unit.mts
 	npx jest -c jest.config.js
 
-test-client-codegen:
-	rm -rf ./codegen/new-client-test-codegen/build
-	rm -rf ./private/client-test-weather
-	cd codegen && ./gradlew :new-client-test-codegen:build
-	mkdir -p ./private/client-test-weather
-	cp -r ./codegen/new-client-test-codegen/build/smithyprojections/new-client-test-codegen/source/typescript-client-codegen/* ./private/client-test-weather/
-	cat ./private/client-test-weather/package.json
-	yarn update:versions:default
+test-codegen:
+	cp ./private/aws-protocoltests-restjson-schema/package.json ./tmp/pkg.json.bak
+	cp ./private/aws-protocoltests-restjson-schema/CHANGELOG.md ./tmp/changelog.bak
+	rm -rf ./private/aws-protocoltests-restjson-schema
+	yarn generate-clients -p
+	node ./scripts/restore-pkg-version.js ./tmp/pkg.json.bak ./private/aws-protocoltests-restjson-schema/package.json
+	cp ./tmp/changelog.bak ./private/aws-protocoltests-restjson-schema/CHANGELOG.md
 
 # typecheck for test code.
 test-types:
@@ -55,7 +54,7 @@ test-integration: bundles
 	node ./scripts/validation/no-generic-byte-arrays.js
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
-	yarn generate-clients -p;
+	make test-codegen
 	git diff --exit-code ./private
 	make test-protocols
 	make test-types

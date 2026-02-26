@@ -21,7 +21,6 @@ include(":smithy-aws-typescript-codegen")
 include(":sdk-codegen")
 include(":protocol-test-codegen")
 include(":generic-client-test-codegen")
-include(":new-client-test-codegen")
 
 file(
     java.nio.file.Paths.get(rootProject.projectDir.absolutePath, "local.properties"))
