@@ -1,4 +1,4 @@
-import { StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { sdkStreamMixin } from "@smithy/util-stream";
 import { describe, expect, it, vi } from "vitest";
 
@@ -138,9 +138,9 @@ describe("join-streams tests", () => {
       });
 
       it("should throw error for unsupported stream types", async () => {
-        const blob = new Blob(["test"]);
+        const unsupportedType = { notAStream: true };
         await expect(
-          joinStreams([Promise.resolve(blob as unknown as StreamingBlobPayloadOutputTypes)])
+          joinStreams([Promise.resolve(unsupportedType as unknown as StreamingBlobPayloadOutputTypes)])
         ).rejects.toThrow("Unsupported Stream Type");
       });
     });
