@@ -1176,7 +1176,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.3.6"
+    fast-xml-parser: "npm:5.4.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -1236,7 +1236,7 @@ __metadata:
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
     entities: "npm:2.2.0"
-    fast-xml-parser: "npm:5.3.6"
+    fast-xml-parser: "npm:5.4.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -24963,7 +24963,7 @@ __metadata:
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
-    fast-xml-parser: "npm:5.3.6"
+    fast-xml-parser: "npm:5.4.1"
     premove: "npm:4.0.0"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.8.3"
@@ -34033,14 +34033,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:5.3.6":
-  version: 5.3.6
-  resolution: "fast-xml-parser@npm:5.3.6"
+"fast-xml-builder@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "fast-xml-builder@npm:1.0.0"
+  checksum: 10c0/2631fda265c81e8008884d08944eeed4e284430116faa5b8b7a43a3602af367223b7bf01c933215c9ad2358b8666e45041bc038d64877156a2f88821841b3014
+  languageName: node
+  linkType: hard
+
+"fast-xml-parser@npm:5.4.1":
+  version: 5.4.1
+  resolution: "fast-xml-parser@npm:5.4.1"
   dependencies:
+    fast-xml-builder: "npm:^1.0.0"
     strnum: "npm:^2.1.2"
   bin:
     fxparser: src/cli/cli.js
-  checksum: 10c0/0150cc0566f327a76115de8b11628d717fb179010ed9bb77c52e579a7e6055a0f92f42f83678a6f1ec5b74411faec09713cb1f9b94bc687068ad86884a9199fa
+  checksum: 10c0/8c696438a0c64135faf93ea6a93879208d649b7c9a3293d30d6eb750dc7f766fd083c0df5a82786b60809c3ead64fad155f28dbed25efea91017aaf9f64c91e5
   languageName: node
   linkType: hard
 
