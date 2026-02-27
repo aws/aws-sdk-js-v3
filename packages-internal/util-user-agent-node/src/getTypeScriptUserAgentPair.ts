@@ -1,6 +1,7 @@
 import type { UserAgentPair } from "@smithy/types";
 import { readFile } from "node:fs/promises";
 
+import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
 
 let tscVersion: string | null | undefined;
@@ -20,11 +21,12 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   try {
     const packageJson = await readFile(getTypeScriptPackageJsonPath(__dirname), "utf-8");
     const { version } = JSON.parse(packageJson);
-    if (typeof version !== "string") {
+    const sanitizedVersion = getSanitizedTypeScriptVersion(version);
+    if (typeof sanitizedVersion !== "string") {
       tscVersion = null;
       return undefined;
     }
-    tscVersion = version;
+    tscVersion = sanitizedVersion;
     return ["md/tsc", tscVersion];
   } catch {
     // Ignore error in case of failure in file read or JSON parsing.
