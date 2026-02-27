@@ -105,6 +105,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *   IdentifyMultipleLanguages: true || false,
  *   VocabularyNames: "STRING_VALUE",
  *   VocabularyFilterNames: "STRING_VALUE",
+ *   SessionResumeWindow: Number("int"),
  * };
  * const command = new StartStreamTranscriptionCommand(input);
  * const response = await client.send(command);
@@ -196,6 +197,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * //   IdentifyMultipleLanguages: true || false,
  * //   VocabularyNames: "STRING_VALUE",
  * //   VocabularyFilterNames: "STRING_VALUE",
+ * //   SessionResumeWindow: Number("int"),
  * // };
  *
  * ```

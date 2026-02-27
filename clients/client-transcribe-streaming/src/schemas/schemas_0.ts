@@ -137,6 +137,7 @@ const _SMSSRt = "StartMedicalScribeStreamResponse";
 const _SMST = "StartMedicalStreamTranscription";
 const _SMSTR = "StartMedicalStreamTranscriptionRequest";
 const _SMSTRt = "StartMedicalStreamTranscriptionResponse";
+const _SRW = "SessionResumeWindow";
 const _SS = "StreamStatus";
 const _SSL = "ShowSpeakerLabel";
 const _SST = "StartStreamTranscription";
@@ -192,6 +193,7 @@ const _xatprs = "x-amzn-transcribe-partial-results-stability";
 const _xats = "x-amzn-transcribe-specialty";
 const _xatsi = "x-amzn-transcribe-session-id";
 const _xatsr = "x-amzn-transcribe-sample-rate";
+const _xatsrw = "x-amzn-transcribe-session-resume-window";
 const _xatssl = "x-amzn-transcribe-show-speaker-label";
 const _xatt = "x-amzn-transcribe-type";
 const _xatvfm = "x-amzn-transcribe-vocabulary-filter-method";
@@ -501,13 +503,13 @@ export var StartMedicalStreamTranscriptionResponse$: StaticStructureSchema = [3,
 ];
 export var StartStreamTranscriptionRequest$: StaticStructureSchema = [3, n0, _SSTR,
   0,
-  [_MSRH, _MEe, _AS, _LC, _VN, _SI, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo],
-  [[1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => AudioStream$, 16], [0, { [_hH]: _xatlc }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }]], 3
+  [_MSRH, _MEe, _AS, _LC, _VN, _SI, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo, _SRW],
+  [[1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [() => AudioStream$, 16], [0, { [_hH]: _xatlc }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }], [1, { [_hH]: _xatsrw }]], 3
 ];
 export var StartStreamTranscriptionResponse$: StaticStructureSchema = [3, n0, _SSTRt,
   0,
-  [_RIe, _LC, _MSRH, _MEe, _VN, _SI, _TRS, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo],
-  [[0, { [_hH]: _xari }], [0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [() => TranscriptResultStream$, 16], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }]]
+  [_RIe, _LC, _MSRH, _MEe, _VN, _SI, _TRS, _VFN, _VFMo, _SSL, _ECI, _NOC, _EPRS, _PRS, _CIT, _CRT, _PET, _LMN, _IL, _LO, _PL, _IML, _VNo, _VFNo, _SRW],
+  [[0, { [_hH]: _xari }], [0, { [_hH]: _xatlc }], [1, { [_hH]: _xatsr }], [0, { [_hH]: _xatme }], [0, { [_hH]: _xatvn }], [0, { [_hH]: _xatsi }], [() => TranscriptResultStream$, 16], [0, { [_hH]: _xatvfn }], [0, { [_hH]: _xatvfm }], [2, { [_hH]: _xatssl }], [2, { [_hH]: _xateci }], [1, { [_hH]: _xatnoc }], [2, { [_hH]: _xateprs }], [0, { [_hH]: _xatprs }], [0, { [_hH]: _xatcit }], [0, { [_hH]: _xatcrt }], [0, { [_hH]: _xatpet }], [0, { [_hH]: _xatlmn }], [2, { [_hH]: _xatil }], [0, { [_hH]: _xatlo }], [0, { [_hH]: _xatpl }], [2, { [_hH]: _xatiml }], [0, { [_hH]: _xatvn_ }], [0, { [_hH]: _xatvfn_ }], [1, { [_hH]: _xatsrw }]]
 ];
 export var TimestampRange$: StaticStructureSchema = [3, n0, _TRi,
   0,

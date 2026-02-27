@@ -3038,7 +3038,9 @@ export interface StartStreamTranscriptionRequest {
    *       <code>CREDIT_DEBIT_CVV</code>, <code>CREDIT_DEBIT_EXPIRY</code>,
    *       <code>CREDIT_DEBIT_NUMBER</code>, <code>EMAIL</code>,
    *       <code>NAME</code>, <code>PHONE</code>, <code>PIN</code>,
-   *       <code>SSN</code>, or <code>ALL</code>.</p>
+   *       <code>SSN</code>, <code>AGE</code>, <code>DATE_TIME</code>,
+   *       <code>LICENSE_PLATE</code>, <code>PASSPORT_NUMBER</code>,
+   *       <code>PASSWORD</code>, <code>USERNAME</code>, <code>VEHICLE_IDENTIFICATION_NUMBER</code>, or <code>ALL</code>.</p>
    *          <p>Note that if you include <code>PiiEntityTypes</code> in your request, you must also include
    *       <code>ContentIdentificationType</code> or <code>ContentRedactionType</code>.</p>
    *          <p>If you include <code>ContentRedactionType</code> or
@@ -3146,6 +3148,15 @@ export interface StartStreamTranscriptionRequest {
    * @public
    */
   VocabularyFilterNames?: string | undefined;
+
+  /**
+   * <p>Specify the time window, in minutes, during which your transcription session can be resumed,
+   *        measured from the stream start time. This optional parameter accepts integer values from 1 to 300 (5 hours).</p>
+   *          <p> For example, if your stream starts at 1 PM and you specify a <code>SessionResumeWindow</code> of 30 minutes,
+   *       you can reconnect to the session as many times as you want until 1:30 PM. </p>
+   * @public
+   */
+  SessionResumeWindow?: number | undefined;
 }
 
 /**
@@ -3472,4 +3483,10 @@ export interface StartStreamTranscriptionResponse {
    * @public
    */
   VocabularyFilterNames?: string | undefined;
+
+  /**
+   * <p>Provides the session resume window, in minutes, that you specified in your request.</p>
+   * @public
+   */
+  SessionResumeWindow?: number | undefined;
 }
