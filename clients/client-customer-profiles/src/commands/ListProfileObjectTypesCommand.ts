@@ -56,6 +56,7 @@ export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTy
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       MaxProfileObjectCount: Number("int"),
  * //       MaxAvailableProfileObjectCount: Number("int"),
+ * //       SourcePriority: Number("int"),
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

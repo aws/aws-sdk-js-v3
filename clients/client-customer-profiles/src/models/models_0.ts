@@ -5720,6 +5720,12 @@ export interface GetProfileObjectTypeResponse {
   MaxProfileObjectCount?: number | undefined;
 
   /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
+
+  /**
    * <p>A map of the name and ObjectType field.</p>
    * @public
    */
@@ -8093,6 +8099,12 @@ export interface ListProfileObjectTypeItem {
   MaxAvailableProfileObjectCount?: number | undefined;
 
   /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource.</p>
    * @public
    */
@@ -9208,6 +9220,12 @@ export interface PutProfileObjectTypeRequest {
   MaxProfileObjectCount?: number | undefined;
 
   /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
+
+  /**
    * <p>A map of the name and ObjectType field.</p>
    * @public
    */
@@ -9290,6 +9308,12 @@ export interface PutProfileObjectTypeResponse {
    * @public
    */
   MaxAvailableProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
 
   /**
    * <p>A map of the name and ObjectType field.</p>

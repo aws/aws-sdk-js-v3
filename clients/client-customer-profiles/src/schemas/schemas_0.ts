@@ -641,9 +641,10 @@ const _SNSP = "ServiceNowSourceProperties";
 const _SNe = "ServiceNow";
 const _SO = "SourceObject";
 const _SOc = "ScheduleOffset";
-const _SP = "SearchProfiles";
+const _SP = "SourcePriority";
 const _SPR = "SearchProfilesRequest";
 const _SPRe = "SearchProfilesResponse";
+const _SPe = "SearchProfiles";
 const _SQ = "SegmentQuery";
 const _SR = "StatusReason";
 const _SRR = "StartRecommenderRequest";
@@ -1573,8 +1574,8 @@ export var GetProfileObjectTypeRequest$: StaticStructureSchema = [3, n0, _GPOTR,
 ];
 export var GetProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _GPOTRe,
   0,
-  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MAPOC, _MPOC, _Fi, _K, _CA, _LUA, _Ta],
-  [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
+  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MAPOC, _MPOC, _SP, _Fi, _K, _CA, _LUA, _Ta],
+  [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
 ];
 export var GetProfileObjectTypeTemplateRequest$: StaticStructureSchema = [3, n0, _GPOTTR,
   0,
@@ -1908,8 +1909,8 @@ export var ListProfileObjectsResponse$: StaticStructureSchema = [3, n0, _LPORi,
 ];
 export var ListProfileObjectTypeItem$: StaticStructureSchema = [3, n0, _LPOTI,
   0,
-  [_OTN, _D, _CA, _LUA, _MPOC, _MAPOC, _Ta],
-  [0, 0, 4, 4, 1, 1, 128 | 0], 2
+  [_OTN, _D, _CA, _LUA, _MPOC, _MAPOC, _SP, _Ta],
+  [0, 0, 4, 4, 1, 1, 1, 128 | 0], 2
 ];
 export var ListProfileObjectTypesRequest$: StaticStructureSchema = [3, n0, _LPOTR,
   0,
@@ -2148,13 +2149,13 @@ export var PutProfileObjectResponse$: StaticStructureSchema = [3, n0, _PPORu,
 ];
 export var PutProfileObjectTypeRequest$: StaticStructureSchema = [3, n0, _PPOTR,
   0,
-  [_DN, _OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _Fi, _K, _Ta],
-  [[0, 1], [0, 1], [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, [() => FieldMap, 0], [() => KeyMap, 0], 128 | 0], 3
+  [_DN, _OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _SP, _Fi, _K, _Ta],
+  [[0, 1], [0, 1], [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 128 | 0], 3
 ];
 export var PutProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _PPOTRu,
   0,
-  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _MAPOC, _Fi, _K, _CA, _LUA, _Ta],
-  [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
+  [_OTN, _D, _TI, _ED, _EK, _APC, _SLUTF, _MPOC, _MAPOC, _SP, _Fi, _K, _CA, _LUA, _Ta],
+  [0, [() => sensitiveText, 0], 0, 1, 0, 2, 0, 1, 1, 1, [() => FieldMap, 0], [() => KeyMap, 0], 4, 4, 128 | 0], 2
 ];
 export var Range$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -2961,7 +2962,7 @@ export var PutProfileObject$: StaticOperationSchema = [9, n0, _PPO,
 export var PutProfileObjectType$: StaticOperationSchema = [9, n0, _PPOT,
   { [_h]: ["PUT", "/domains/{DomainName}/object-types/{ObjectTypeName}", 200] }, () => PutProfileObjectTypeRequest$, () => PutProfileObjectTypeResponse$
 ];
-export var SearchProfiles$: StaticOperationSchema = [9, n0, _SP,
+export var SearchProfiles$: StaticOperationSchema = [9, n0, _SPe,
   { [_h]: ["POST", "/domains/{DomainName}/profiles/search", 200] }, () => SearchProfilesRequest$, () => SearchProfilesResponse$
 ];
 export var StartRecommender$: StaticOperationSchema = [9, n0, _SRt,
