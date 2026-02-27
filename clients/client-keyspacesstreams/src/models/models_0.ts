@@ -6,13 +6,13 @@ import { OriginType, ShardFilterType, ShardIteratorType, StreamStatus, StreamVie
  */
 export interface GetRecordsInput {
   /**
-   * <p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator</code> operation. Each shard iterator is valid for 15 minutes after creation. </p>
+   * <p> The unique identifier of the shard iterator. A shard iterator specifies the position in the shard from which you want to start reading data records sequentially. You obtain this value by calling the <code>GetShardIterator </code> operation. Each shard iterator is valid for 15 minutes after creation. </p>
    * @public
    */
   shardIterator: string | undefined;
 
   /**
-   * <p> The maximum number of records to return in a single <code>GetRecords</code> request. Default value is 1000. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>
+   * <p> The maximum number of records to return in a single <code>GetRecords</code> request. The default value is 100. You can specify a limit between 1 and 1000, but the actual number returned might be less than the specified maximum if the size of the data for the returned records exceeds the internal size limit. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -53,7 +53,7 @@ export interface GetShardIteratorInput {
   shardId: string | undefined;
 
   /**
-   * <p> Determines how the shard iterator is positioned. Must be one of the following:</p> <ul> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the shard, which is the oldest data record in the shard.</p> </li> <li> <p> <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the specified sequence number.</p> </li> <li> <p> <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the specified sequence number.</p> </li> <li> <p> <code>LATEST</code> - Start reading just after the most recent record in the shard, so that you always read the most recent data.</p> </li> </ul>
+   * <p> Determines how the shard iterator is positioned. Must be one of the following: </p> <ul> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the shard, which is the oldest data record in the shard.</p> </li> <li> <p> <code>AT_SEQUENCE_NUMBER</code> - Start reading exactly from the specified sequence number.</p> </li> <li> <p> <code>AFTER_SEQUENCE_NUMBER</code> - Start reading right after the specified sequence number. </p> </li> <li> <p> <code>LATEST</code> - Start reading just after the most recent record in the shard, so that you always read the most recent data. </p> </li> </ul>
    * @public
    */
   shardIteratorType: ShardIteratorType | undefined;
@@ -105,19 +105,19 @@ export interface GetStreamInput {
   streamArn: string | undefined;
 
   /**
-   * <p> The maximum number of shard objects to return in a single <code>GetStream</code> request. Default value is 100. The minimum value is 1 and the maximum value is 100. </p>
+   * <p> The maximum number of shard objects to return in a single <code>GetStream</code> request. The default value is 100. The minimum value is 1 and the maximum value is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
 
   /**
-   * <p> Optional filter criteria to apply when retrieving shards. You can filter shards based on their state or other attributes to narrow down the results returned by the <code>GetStream</code> operation. </p>
+   * <p> Optional filter criteria to apply when retrieving shards. You can filter shards based on their parent <code>shardID</code> to get a list of children shards to narrow down the results returned by the <code>GetStream</code> operation. </p>
    * @public
    */
   shardFilter?: ShardFilter | undefined;
 
   /**
-   * <p> An optional pagination token provided by a previous <code>GetStream</code> operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>maxResults</code>. </p>
+   * <p> An optional pagination token provided by a previous <code>GetStream</code> operation. If this parameter is specified, the response includes only records beyond the token, up to the value specified by <code>MaxResults</code>. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -188,7 +188,7 @@ export interface GetStreamOutput {
   streamStatus: StreamStatus | undefined;
 
   /**
-   * <p> The format of the data records in this stream. Currently, this can be one of the following options:</p> <ul> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - both versions of the row, before and after the change. This is the default.</p> </li> <li> <p> <code>NEW_IMAGE</code> - the version of the row after the change.</p> </li> <li> <p> <code>OLD_IMAGE</code> - the version of the row before the change.</p> </li> <li> <p> <code>KEYS_ONLY</code> - the partition and clustering keys of the row that was changed.</p> </li> </ul>
+   * <p> The format of the data records in this stream. Currently, this can be one of the following options: </p> <ul> <li> <p> <code>NEW_AND_OLD_IMAGES</code> - both versions of the row, before and after the change. This is the default.</p> </li> <li> <p> <code>NEW_IMAGE</code> - the version of the row after the change.</p> </li> <li> <p> <code>OLD_IMAGE</code> - the version of the row before the change.</p> </li> <li> <p> <code>KEYS_ONLY</code> - the partition and clustering keys of the row that was changed.</p> </li> </ul>
    * @public
    */
   streamViewType: StreamViewType | undefined;
@@ -241,7 +241,7 @@ export interface ListStreamsInput {
   tableName?: string | undefined;
 
   /**
-   * <p> The maximum number of streams to return in a single <code>ListStreams</code> request. Default value is 100. The minimum value is 1 and the maximum value is 100. </p>
+   * <p> The maximum number of streams to return in a single <code>ListStreams</code> request. The default value is 100. The minimum value is 1 and the maximum value is 100. </p>
    * @public
    */
   maxResults?: number | undefined;
@@ -294,7 +294,7 @@ export interface ListStreamsOutput {
   streams?: _Stream[] | undefined;
 
   /**
-   * <p> A pagination token that can be used in a subsequent <code>ListStreams</code> request. This token is returned if the response contains more streams than can be returned in a single response based on the <code>MaxResults</code> parameter. </p>
+   * <p> A pagination token that can be used in a subsequent <code>ListStreams</code> request. This token is returned if the response contains more streams than can be returned in a single response based on the <code>maxResults</code> parameter. </p>
    * @public
    */
   nextToken?: string | undefined;
@@ -313,6 +313,7 @@ export type KeyspacesCellValue =
   | KeyspacesCellValue.DateTMember
   | KeyspacesCellValue.DecimalTMember
   | KeyspacesCellValue.DoubleTMember
+  | KeyspacesCellValue.DurationTMember
   | KeyspacesCellValue.FloatTMember
   | KeyspacesCellValue.InetTMember
   | KeyspacesCellValue.IntTMember
@@ -349,6 +350,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -382,6 +384,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -415,6 +418,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -448,6 +452,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -481,6 +486,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -514,6 +520,7 @@ export namespace KeyspacesCellValue {
     dateT: string;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -547,6 +554,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT: string;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -580,6 +588,41 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT: string;
+    durationT?: never;
+    floatT?: never;
+    inetT?: never;
+    intT?: never;
+    listT?: never;
+    mapT?: never;
+    setT?: never;
+    smallintT?: never;
+    textT?: never;
+    timeT?: never;
+    timestampT?: never;
+    timeuuidT?: never;
+    tinyintT?: never;
+    tupleT?: never;
+    uuidT?: never;
+    varcharT?: never;
+    varintT?: never;
+    udtT?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A duration value with nanosecond precision, representing a period of time encoded as 32-bit months, 32-bit days, and 64-bit nanoseconds. </p>
+   * @public
+   */
+  export interface DurationTMember {
+    asciiT?: never;
+    bigintT?: never;
+    blobT?: never;
+    boolT?: never;
+    counterT?: never;
+    dateT?: never;
+    decimalT?: never;
+    doubleT?: never;
+    durationT: string;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -613,6 +656,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT: string;
     inetT?: never;
     intT?: never;
@@ -646,6 +690,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT: string;
     intT?: never;
@@ -679,6 +724,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT: string;
@@ -712,6 +758,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -745,6 +792,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -778,6 +826,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -811,6 +860,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -844,6 +894,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -877,6 +928,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -910,6 +962,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -943,6 +996,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -976,6 +1030,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1009,6 +1064,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1042,6 +1098,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1075,6 +1132,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1096,7 +1154,7 @@ export namespace KeyspacesCellValue {
   }
 
   /**
-   * <p>A variable precision integer value with arbitrary length. </p>
+   * <p>An integer value within the +/-10^38 range. </p>
    * @public
    */
   export interface VarintTMember {
@@ -1108,6 +1166,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1141,6 +1200,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1173,6 +1233,7 @@ export namespace KeyspacesCellValue {
     dateT?: never;
     decimalT?: never;
     doubleT?: never;
+    durationT?: never;
     floatT?: never;
     inetT?: never;
     intT?: never;
@@ -1206,6 +1267,7 @@ export namespace KeyspacesCellValue {
     dateT: (value: string) => T;
     decimalT: (value: string) => T;
     doubleT: (value: string) => T;
+    durationT: (value: string) => T;
     floatT: (value: string) => T;
     inetT: (value: string) => T;
     intT: (value: string) => T;
@@ -1358,7 +1420,7 @@ export interface GetRecordsOutput {
   changeRecords?: _Record[] | undefined;
 
   /**
-   * <p> The next position in the shard from which to start sequentially reading data records. If null, the shard has been closed and the requested iterator doesn't return any more data. </p>
+   * <p> The next position in the shard from which to start sequentially reading data records. If null, the shard has been closed and the requested iterator will not return any more data. </p>
    * @public
    */
   nextShardIterator?: string | undefined;

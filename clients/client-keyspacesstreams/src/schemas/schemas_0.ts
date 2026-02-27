@@ -47,6 +47,7 @@ const _cT = "counterT";
 const _dT = "dateT";
 const _dTe = "decimalT";
 const _dTo = "doubleT";
+const _dTu = "durationT";
 const _e = "error";
 const _eC = "errorCode";
 const _eSN = "endingSequenceNumber";
@@ -282,8 +283,8 @@ var KeyspacesUdtMap: StaticMapSchema = [2, n0, _KUM,
 ];
 export var KeyspacesCellValue$: StaticUnionSchema = [4, n0, _KCV,
   0,
-  [_aT, _bT, _bTl, _bTo, _cT, _dT, _dTe, _dTo, _fT, _iT, _iTn, _lT, _mT, _sT, _sTm, _tT, _tTi, _tTim, _tTime, _tTin, _tTu, _uT, _vT, _vTa, _uTd],
-  [0, 0, 21, 2, 0, 0, 0, 0, 0, 0, 0, () => KeyspacesCellList, () => KeyspacesCellMap, () => KeyspacesCellList, 0, 0, 0, 0, 0, 0, () => KeyspacesCellList, 0, 0, 0, () => KeyspacesUdtMap]
+  [_aT, _bT, _bTl, _bTo, _cT, _dT, _dTe, _dTo, _dTu, _fT, _iT, _iTn, _lT, _mT, _sT, _sTm, _tT, _tTi, _tTim, _tTime, _tTin, _tTu, _uT, _vT, _vTa, _uTd],
+  [0, 0, 21, 2, 0, 0, 0, 0, 0, 0, 0, 0, () => KeyspacesCellList, () => KeyspacesCellMap, () => KeyspacesCellList, 0, 0, 0, 0, 0, 0, () => KeyspacesCellList, 0, 0, 0, () => KeyspacesUdtMap]
 ];
 export var GetRecords$: StaticOperationSchema = [9, n0, _GR,
   0, () => GetRecordsInput$, () => GetRecordsOutput$
