@@ -8,7 +8,7 @@ const parser = new XMLParser({
   parseTagValue: false,
   trimValues: false,
   tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
-  maxNestedTags: 512,
+  maxNestedTags: 1024,
 });
 parser.addEntity("#xD", "\r");
 parser.addEntity("#10", "\n");
