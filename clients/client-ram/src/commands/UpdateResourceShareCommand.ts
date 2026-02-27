@@ -61,6 +61,9 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdatedTime: new Date("TIMESTAMP"),
  * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //     resourceShareConfiguration: { // ResourceShareConfiguration
+ * //       retainSharingOnAccountLeaveOrganization: true || false,
+ * //     },
  * //   },
  * //   clientToken: "STRING_VALUE",
  * // };

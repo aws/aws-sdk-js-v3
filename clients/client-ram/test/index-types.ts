@@ -190,6 +190,7 @@ export type {
   Resource,
   ResourceShare,
   ResourceShareAssociation,
+  ResourceShareConfiguration,
   ResourceShareInvitation,
   ResourceSharePermissionDetail,
   ResourceSharePermissionSummary,

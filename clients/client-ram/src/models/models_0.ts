@@ -895,6 +895,18 @@ export interface CreatePermissionVersionResponse {
 }
 
 /**
+ * <p>The configuration of the resource share</p>
+ * @public
+ */
+export interface ResourceShareConfiguration {
+  /**
+   * <p>Specifies whether the consumer account retains access to the resource share after leaving the organization.</p>
+   * @public
+   */
+  retainSharingOnAccountLeaveOrganization?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateResourceShareRequest {
@@ -1000,6 +1012,12 @@ export interface CreateResourceShareRequest {
    * @public
    */
   sources?: string[] | undefined;
+
+  /**
+   * <p>Specifies the configuration of this resource share.</p>
+   * @public
+   */
+  resourceShareConfiguration?: ResourceShareConfiguration | undefined;
 }
 
 /**
@@ -1108,6 +1126,12 @@ export interface ResourceShare {
    * @public
    */
   featureSet?: ResourceShareFeatureSet | undefined;
+
+  /**
+   * <p>The configuration of the resource share</p>
+   * @public
+   */
+  resourceShareConfiguration?: ResourceShareConfiguration | undefined;
 }
 
 /**

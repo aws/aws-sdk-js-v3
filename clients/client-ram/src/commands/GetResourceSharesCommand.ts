@@ -83,6 +83,9 @@ export interface GetResourceSharesCommandOutput extends GetResourceSharesRespons
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
  * //       featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //       resourceShareConfiguration: { // ResourceShareConfiguration
+ * //         retainSharingOnAccountLeaveOrganization: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

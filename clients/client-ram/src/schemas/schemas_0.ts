@@ -126,6 +126,7 @@ const _RS = "ResourceShare";
 const _RSA = "ResourceShareAssociation";
 const _RSAL = "ResourceShareArnList";
 const _RSALe = "ResourceShareAssociationList";
+const _RSC = "ResourceShareConfiguration";
 const _RSI = "ResourceShareInvitation";
 const _RSIAAE = "ResourceShareInvitationAlreadyAcceptedException";
 const _RSIAL = "ResourceShareInvitationArnList";
@@ -218,11 +219,13 @@ const _rS = "resourceShare";
 const _rSA = "resourceShareArn";
 const _rSAe = "resourceShareAssociations";
 const _rSAes = "resourceShareArns";
+const _rSC = "resourceShareConfiguration";
 const _rSI = "resourceShareInvitation";
 const _rSIA = "resourceShareInvitationArn";
 const _rSIAe = "resourceShareInvitationArns";
 const _rSIe = "resourceShareInvitations";
 const _rSN = "resourceShareName";
+const _rSOALO = "retainSharingOnAccountLeaveOrganization";
 const _rSS = "resourceShareStatus";
 const _rSe = "resourceShares";
 const _rT = "resourceType";
@@ -534,8 +537,8 @@ export var CreatePermissionVersionResponse$: StaticStructureSchema = [3, n0, _CP
 ];
 export var CreateResourceShareRequest$: StaticStructureSchema = [3, n0, _CRSR,
   0,
-  [_n, _rA, _p, _t, _aEP, _cT, _pAe, _so],
-  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0]], 1
+  [_n, _rA, _p, _t, _aEP, _cT, _pAe, _so, _rSC],
+  [0, [() => ResourceArnList, 0], [() => PrincipalArnOrIdList, 0], () => TagList, 2, 0, [() => PermissionArnList, 0], [() => SourceArnOrAccountList, 0], () => ResourceShareConfiguration$], 1
 ];
 export var CreateResourceShareResponse$: StaticStructureSchema = [3, n0, _CRSRr,
   0,
@@ -809,13 +812,18 @@ export var Resource$: StaticStructureSchema = [3, n0, _R,
 ];
 export var ResourceShare$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_rSA, _n, _oAI, _aEP, _st, _sM, _t, _cTr, _lUT, _fS],
-  [0, 0, 0, 2, 0, 0, () => TagList, 4, 4, 0]
+  [_rSA, _n, _oAI, _aEP, _st, _sM, _t, _cTr, _lUT, _fS, _rSC],
+  [0, 0, 0, 2, 0, 0, () => TagList, 4, 4, 0, () => ResourceShareConfiguration$]
 ];
 export var ResourceShareAssociation$: StaticStructureSchema = [3, n0, _RSA,
   0,
   [_rSA, _rSN, _aE, _aT, _st, _sM, _cTr, _lUT, _ex],
   [0, 0, 0, 0, 0, 0, 4, 4, 2]
+];
+export var ResourceShareConfiguration$: StaticStructureSchema = [3, n0, _RSC,
+  0,
+  [_rSOALO],
+  [2]
 ];
 export var ResourceShareInvitation$: StaticStructureSchema = [3, n0, _RSI,
   0,

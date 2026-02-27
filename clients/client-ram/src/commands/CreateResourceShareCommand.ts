@@ -65,6 +65,9 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *   sources: [ // SourceArnOrAccountList
  *     "STRING_VALUE",
  *   ],
+ *   resourceShareConfiguration: { // ResourceShareConfiguration
+ *     retainSharingOnAccountLeaveOrganization: true || false,
+ *   },
  * };
  * const command = new CreateResourceShareCommand(input);
  * const response = await client.send(command);
@@ -85,6 +88,9 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  * //     creationTime: new Date("TIMESTAMP"),
  * //     lastUpdatedTime: new Date("TIMESTAMP"),
  * //     featureSet: "CREATED_FROM_POLICY" || "PROMOTING_TO_STANDARD" || "STANDARD",
+ * //     resourceShareConfiguration: { // ResourceShareConfiguration
+ * //       retainSharingOnAccountLeaveOrganization: true || false,
+ * //     },
  * //   },
  * //   clientToken: "STRING_VALUE",
  * // };

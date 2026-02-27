@@ -189,6 +189,7 @@ import {
   ResourceShareAssociation$,
   ResourceShareAssociationStatus,
   ResourceShareAssociationType,
+  ResourceShareConfiguration$,
   ResourceShareFeatureSet,
   ResourceShareInvitation$,
   ResourceShareInvitationAlreadyAcceptedException,
@@ -385,6 +386,7 @@ assert(typeof ReplacePermissionAssociationsWork$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceShare$ === "object");
 assert(typeof ResourceShareAssociation$ === "object");
+assert(typeof ResourceShareConfiguration$ === "object");
 assert(typeof ResourceShareInvitation$ === "object");
 assert(typeof ResourceSharePermissionDetail$ === "object");
 assert(typeof ResourceSharePermissionSummary$ === "object");
