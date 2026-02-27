@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  AccessDeniedException$,
   AccountRecoverySettingType$,
   AccountTakeoverActionsType$,
   AccountTakeoverActionType$,
@@ -8,6 +10,10 @@ import {
   AddCustomAttributesCommand,
   AddCustomAttributesRequest$,
   AddCustomAttributesResponse$,
+  AddUserPoolClientSecret$,
+  AddUserPoolClientSecretCommand,
+  AddUserPoolClientSecretRequest$,
+  AddUserPoolClientSecretResponse$,
   AdminAddUserToGroup$,
   AdminAddUserToGroupCommand,
   AdminAddUserToGroupRequest$,
@@ -138,6 +144,7 @@ import {
   ChangePasswordCommand,
   ChangePasswordRequest$,
   ChangePasswordResponse$,
+  ClientSecretDescriptorType$,
   CloudWatchLogsConfigurationType$,
   CodeDeliveryDetailsType$,
   CodeDeliveryFailureException,
@@ -237,6 +244,10 @@ import {
   DeleteUserPoolClient$,
   DeleteUserPoolClientCommand,
   DeleteUserPoolClientRequest$,
+  DeleteUserPoolClientSecret$,
+  DeleteUserPoolClientSecretCommand,
+  DeleteUserPoolClientSecretRequest$,
+  DeleteUserPoolClientSecretResponse$,
   DeleteUserPoolCommand,
   DeleteUserPoolDomain$,
   DeleteUserPoolDomainCommand,
@@ -396,6 +407,8 @@ import {
   InitiateAuthResponse$,
   InternalErrorException,
   InternalErrorException$,
+  InternalServerException,
+  InternalServerException$,
   InvalidEmailRoleAccessPolicyException,
   InvalidEmailRoleAccessPolicyException$,
   InvalidLambdaResponseException,
@@ -445,6 +458,10 @@ import {
   ListUserImportJobsResponse$,
   ListUserPoolClients$,
   ListUserPoolClientsCommand,
+  ListUserPoolClientSecrets$,
+  ListUserPoolClientSecretsCommand,
+  ListUserPoolClientSecretsRequest$,
+  ListUserPoolClientSecretsResponse$,
   ListUserPoolClientsRequest$,
   ListUserPoolClientsResponse$,
   ListUserPools$,
@@ -726,6 +743,8 @@ assert(typeof CognitoIdentityProvider === "function");
 // commands
 assert(typeof AddCustomAttributesCommand === "function");
 assert(typeof AddCustomAttributes$ === "object");
+assert(typeof AddUserPoolClientSecretCommand === "function");
+assert(typeof AddUserPoolClientSecret$ === "object");
 assert(typeof AdminAddUserToGroupCommand === "function");
 assert(typeof AdminAddUserToGroup$ === "object");
 assert(typeof AdminConfirmSignUpCommand === "function");
@@ -826,6 +845,8 @@ assert(typeof DeleteUserPoolCommand === "function");
 assert(typeof DeleteUserPool$ === "object");
 assert(typeof DeleteUserPoolClientCommand === "function");
 assert(typeof DeleteUserPoolClient$ === "object");
+assert(typeof DeleteUserPoolClientSecretCommand === "function");
+assert(typeof DeleteUserPoolClientSecret$ === "object");
 assert(typeof DeleteUserPoolDomainCommand === "function");
 assert(typeof DeleteUserPoolDomain$ === "object");
 assert(typeof DeleteWebAuthnCredentialCommand === "function");
@@ -898,6 +919,8 @@ assert(typeof ListUserImportJobsCommand === "function");
 assert(typeof ListUserImportJobs$ === "object");
 assert(typeof ListUserPoolClientsCommand === "function");
 assert(typeof ListUserPoolClients$ === "object");
+assert(typeof ListUserPoolClientSecretsCommand === "function");
+assert(typeof ListUserPoolClientSecrets$ === "object");
 assert(typeof ListUserPoolsCommand === "function");
 assert(typeof ListUserPools$ === "object");
 assert(typeof ListUsersCommand === "function");
@@ -969,6 +992,8 @@ assert(typeof AccountTakeoverActionType$ === "object");
 assert(typeof AccountTakeoverRiskConfigurationType$ === "object");
 assert(typeof AddCustomAttributesRequest$ === "object");
 assert(typeof AddCustomAttributesResponse$ === "object");
+assert(typeof AddUserPoolClientSecretRequest$ === "object");
+assert(typeof AddUserPoolClientSecretResponse$ === "object");
 assert(typeof AdminAddUserToGroupRequest$ === "object");
 assert(typeof AdminConfirmSignUpRequest$ === "object");
 assert(typeof AdminConfirmSignUpResponse$ === "object");
@@ -1030,6 +1055,7 @@ assert(typeof AuthEventType$ === "object");
 assert(typeof ChallengeResponseType$ === "object");
 assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ChangePasswordResponse$ === "object");
+assert(typeof ClientSecretDescriptorType$ === "object");
 assert(typeof CloudWatchLogsConfigurationType$ === "object");
 assert(typeof CodeDeliveryDetailsType$ === "object");
 assert(typeof CompleteWebAuthnRegistrationRequest$ === "object");
@@ -1072,6 +1098,8 @@ assert(typeof DeleteTermsRequest$ === "object");
 assert(typeof DeleteUserAttributesRequest$ === "object");
 assert(typeof DeleteUserAttributesResponse$ === "object");
 assert(typeof DeleteUserPoolClientRequest$ === "object");
+assert(typeof DeleteUserPoolClientSecretRequest$ === "object");
+assert(typeof DeleteUserPoolClientSecretResponse$ === "object");
 assert(typeof DeleteUserPoolDomainRequest$ === "object");
 assert(typeof DeleteUserPoolDomainResponse$ === "object");
 assert(typeof DeleteUserPoolRequest$ === "object");
@@ -1159,6 +1187,8 @@ assert(typeof ListTermsRequest$ === "object");
 assert(typeof ListTermsResponse$ === "object");
 assert(typeof ListUserImportJobsRequest$ === "object");
 assert(typeof ListUserImportJobsResponse$ === "object");
+assert(typeof ListUserPoolClientSecretsRequest$ === "object");
+assert(typeof ListUserPoolClientSecretsResponse$ === "object");
 assert(typeof ListUserPoolClientsRequest$ === "object");
 assert(typeof ListUserPoolClientsResponse$ === "object");
 assert(typeof ListUserPoolsRequest$ === "object");
@@ -1324,6 +1354,8 @@ assert(typeof UserVerificationType === "object");
 assert(typeof VerifiedAttributeType === "object");
 assert(typeof VerifySoftwareTokenResponseType === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof CognitoIdentityProviderServiceException);
+assert(typeof AccessDeniedException$ === "object");
 assert(AliasExistsException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof AliasExistsException$ === "object");
 assert(CodeDeliveryFailureException.prototype instanceof CognitoIdentityProviderServiceException);
@@ -1348,6 +1380,8 @@ assert(GroupExistsException.prototype instanceof CognitoIdentityProviderServiceE
 assert(typeof GroupExistsException$ === "object");
 assert(InternalErrorException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof InternalErrorException$ === "object");
+assert(InternalServerException.prototype instanceof CognitoIdentityProviderServiceException);
+assert(typeof InternalServerException$ === "object");
 assert(InvalidEmailRoleAccessPolicyException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof InvalidEmailRoleAccessPolicyException$ === "object");
 assert(InvalidLambdaResponseException.prototype instanceof CognitoIdentityProviderServiceException);

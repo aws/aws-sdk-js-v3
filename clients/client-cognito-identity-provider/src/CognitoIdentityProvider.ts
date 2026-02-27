@@ -9,6 +9,11 @@ import {
   AddCustomAttributesCommandOutput,
 } from "./commands/AddCustomAttributesCommand";
 import {
+  AddUserPoolClientSecretCommand,
+  AddUserPoolClientSecretCommandInput,
+  AddUserPoolClientSecretCommandOutput,
+} from "./commands/AddUserPoolClientSecretCommand";
+import {
   AdminAddUserToGroupCommand,
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput,
@@ -234,6 +239,11 @@ import {
   DeleteUserPoolClientCommandOutput,
 } from "./commands/DeleteUserPoolClientCommand";
 import {
+  DeleteUserPoolClientSecretCommand,
+  DeleteUserPoolClientSecretCommandInput,
+  DeleteUserPoolClientSecretCommandOutput,
+} from "./commands/DeleteUserPoolClientSecretCommand";
+import {
   DeleteUserPoolCommand,
   DeleteUserPoolCommandInput,
   DeleteUserPoolCommandOutput,
@@ -395,6 +405,11 @@ import {
   ListUserPoolClientsCommandOutput,
 } from "./commands/ListUserPoolClientsCommand";
 import {
+  ListUserPoolClientSecretsCommand,
+  ListUserPoolClientSecretsCommandInput,
+  ListUserPoolClientSecretsCommandOutput,
+} from "./commands/ListUserPoolClientSecretsCommand";
+import {
   ListUserPoolsCommand,
   ListUserPoolsCommandInput,
   ListUserPoolsCommandOutput,
@@ -542,6 +557,7 @@ import { paginateListUsers } from "./pagination/ListUsersPaginator";
 
 const commands = {
   AddCustomAttributesCommand,
+  AddUserPoolClientSecretCommand,
   AdminAddUserToGroupCommand,
   AdminConfirmSignUpCommand,
   AdminCreateUserCommand,
@@ -592,6 +608,7 @@ const commands = {
   DeleteUserAttributesCommand,
   DeleteUserPoolCommand,
   DeleteUserPoolClientCommand,
+  DeleteUserPoolClientSecretCommand,
   DeleteUserPoolDomainCommand,
   DeleteWebAuthnCredentialCommand,
   DescribeIdentityProviderCommand,
@@ -628,6 +645,7 @@ const commands = {
   ListTermsCommand,
   ListUserImportJobsCommand,
   ListUserPoolClientsCommand,
+  ListUserPoolClientSecretsCommand,
   ListUserPoolsCommand,
   ListUsersCommand,
   ListUsersInGroupCommand,
@@ -689,6 +707,23 @@ export interface CognitoIdentityProvider {
     args: AddCustomAttributesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddCustomAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AddUserPoolClientSecretCommand}
+   */
+  addUserPoolClientSecret(
+    args: AddUserPoolClientSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AddUserPoolClientSecretCommandOutput>;
+  addUserPoolClientSecret(
+    args: AddUserPoolClientSecretCommandInput,
+    cb: (err: any, data?: AddUserPoolClientSecretCommandOutput) => void
+  ): void;
+  addUserPoolClientSecret(
+    args: AddUserPoolClientSecretCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddUserPoolClientSecretCommandOutput) => void
   ): void;
 
   /**
@@ -1543,6 +1578,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DeleteUserPoolClientSecretCommand}
+   */
+  deleteUserPoolClientSecret(
+    args: DeleteUserPoolClientSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserPoolClientSecretCommandOutput>;
+  deleteUserPoolClientSecret(
+    args: DeleteUserPoolClientSecretCommandInput,
+    cb: (err: any, data?: DeleteUserPoolClientSecretCommandOutput) => void
+  ): void;
+  deleteUserPoolClientSecret(
+    args: DeleteUserPoolClientSecretCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserPoolClientSecretCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteUserPoolDomainCommand}
    */
   deleteUserPoolDomain(
@@ -2152,6 +2204,23 @@ export interface CognitoIdentityProvider {
     args: ListUserPoolClientsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListUserPoolClientsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListUserPoolClientSecretsCommand}
+   */
+  listUserPoolClientSecrets(
+    args: ListUserPoolClientSecretsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListUserPoolClientSecretsCommandOutput>;
+  listUserPoolClientSecrets(
+    args: ListUserPoolClientSecretsCommandInput,
+    cb: (err: any, data?: ListUserPoolClientSecretsCommandOutput) => void
+  ): void;
+  listUserPoolClientSecrets(
+    args: ListUserPoolClientSecretsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListUserPoolClientSecretsCommandOutput) => void
   ): void;
 
   /**

@@ -19,6 +19,7 @@ const _ACUCT = "AdminCreateUserConfigType";
 const _ACUR = "AdminCreateUserRequest";
 const _ACURd = "AdminCreateUserResponse";
 const _ACn = "AnalyticsConfiguration";
+const _ADE = "AccessDeniedException";
 const _ADPFU = "AdminDisableProviderForUser";
 const _ADPFUR = "AdminDisableProviderForUserRequest";
 const _ADPFURd = "AdminDisableProviderForUserResponse";
@@ -124,6 +125,9 @@ const _AUDSRd = "AdminUpdateDeviceStatusResponse";
 const _AUGSO = "AdminUserGlobalSignOut";
 const _AUGSOR = "AdminUserGlobalSignOutRequest";
 const _AUGSORd = "AdminUserGlobalSignOutResponse";
+const _AUPCS = "AddUserPoolClientSecret";
+const _AUPCSR = "AddUserPoolClientSecretRequest";
+const _AUPCSRd = "AddUserPoolClientSecretResponse";
 const _AUUA = "AdminUpdateUserAttributes";
 const _AUUAR = "AdminUpdateUserAttributesRequest";
 const _AUUARd = "AdminUpdateUserAttributesResponse";
@@ -205,7 +209,12 @@ const _CRSRr = "CreateResourceServerResponse";
 const _CRT = "ChallengeResponseType";
 const _CRTh = "ChallengeResponsesType";
 const _CRh = "ChallengeResponse";
-const _CS = "ConfigurationSet";
+const _CS = "ClientSecret";
+const _CSCD = "ClientSecretCreateDate";
+const _CSD = "ClientSecretDescriptor";
+const _CSDLT = "ClientSecretDescriptorListType";
+const _CSDT = "ClientSecretDescriptorType";
+const _CSI = "ClientSecretId";
 const _CSMSLVCT = "CustomSMSLambdaVersionConfigType";
 const _CSMSS = "CustomSMSSender";
 const _CSS = "CSS";
@@ -214,9 +223,11 @@ const _CST = "ClientSecretType";
 const _CSU = "ConfirmSignUp";
 const _CSUR = "ConfirmSignUpRequest";
 const _CSURo = "ConfirmSignUpResponse";
+const _CSV = "ClientSecretValue";
 const _CSVH = "CSVHeader";
 const _CSa = "CaseSensitive";
-const _CSl = "ClientSecret";
+const _CSl = "ClientSecrets";
+const _CSo = "ConfigurationSet";
 const _CT = "CreateTerms";
 const _CTR = "CreateTermsRequest";
 const _CTRr = "CreateTermsResponse";
@@ -313,6 +324,9 @@ const _DUPC = "DeleteUserPoolClient";
 const _DUPCR = "DeleteUserPoolClientRequest";
 const _DUPCRe = "DescribeUserPoolClientRequest";
 const _DUPCRes = "DescribeUserPoolClientResponse";
+const _DUPCS = "DeleteUserPoolClientSecret";
+const _DUPCSR = "DeleteUserPoolClientSecretRequest";
+const _DUPCSRe = "DeleteUserPoolClientSecretResponse";
 const _DUPCe = "DescribeUserPoolClient";
 const _DUPD = "DeleteUserPoolDomain";
 const _DUPDR = "DeleteUserPoolDomainRequest";
@@ -460,6 +474,7 @@ const _IP = "IdentityProvider";
 const _IPE = "InvalidParameterException";
 const _IPEn = "InvalidPasswordException";
 const _IPT = "IdentityProviderType";
+const _ISE = "InternalServerException";
 const _ISRAPE = "InvalidSmsRoleAccessPolicyException";
 const _ISRTRE = "InvalidSmsRoleTrustRelationshipException";
 const _IT = "IdToken";
@@ -514,6 +529,9 @@ const _LUP = "ListUserPools";
 const _LUPC = "ListUserPoolClients";
 const _LUPCR = "ListUserPoolClientsRequest";
 const _LUPCRi = "ListUserPoolClientsResponse";
+const _LUPCS = "ListUserPoolClientSecrets";
+const _LUPCSR = "ListUserPoolClientSecretsRequest";
+const _LUPCSRi = "ListUserPoolClientSecretsResponse";
 const _LUPR = "ListUserPoolsRequest";
 const _LUPRi = "ListUserPoolsResponse";
 const _LUR = "ListUsersRequest";
@@ -895,6 +913,7 @@ import type {
 
 import { CognitoIdentityProviderServiceException } from "../models/CognitoIdentityProviderServiceException";
 import {
+  AccessDeniedException,
   AliasExistsException,
   CodeDeliveryFailureException,
   CodeMismatchException,
@@ -907,6 +926,7 @@ import {
   ForbiddenException,
   GroupExistsException,
   InternalErrorException,
+  InternalServerException,
   InvalidEmailRoleAccessPolicyException,
   InvalidLambdaResponseException,
   InvalidOAuthFlowException,
@@ -957,6 +977,12 @@ const _s_registry = TypeRegistry.for(_s);
 export var CognitoIdentityProviderServiceException$: StaticErrorSchema = [-3, _s, "CognitoIdentityProviderServiceException", 0, [], []];
 _s_registry.registerError(CognitoIdentityProviderServiceException$, CognitoIdentityProviderServiceException);
 const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var AliasExistsException$: StaticErrorSchema = [-3, n0, _AEE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1029,6 +1055,12 @@ export var InternalErrorException$: StaticErrorSchema = [-3, n0, _IEE,
   [0]
 ];
 n0_registry.registerError(InternalErrorException$, InternalErrorException);
+export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
+  { [_e]: _se },
+  [_m],
+  [0]
+];
+n0_registry.registerError(InternalServerException$, InternalServerException);
 export var InvalidEmailRoleAccessPolicyException$: StaticErrorSchema = [-3, n0, _IERAPE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1336,6 +1368,16 @@ export var AddCustomAttributesResponse$: StaticStructureSchema = [3, n0, _ACARd,
   [],
   []
 ];
+export var AddUserPoolClientSecretRequest$: StaticStructureSchema = [3, n0, _AUPCSR,
+  0,
+  [_UPI, _CI, _CS],
+  [0, [() => ClientIdType, 0], [() => ClientSecretType, 0]], 2
+];
+export var AddUserPoolClientSecretResponse$: StaticStructureSchema = [3, n0, _AUPCSRd,
+  0,
+  [_CSD],
+  [[() => ClientSecretDescriptorType$, 0]]
+];
 export var AdminAddUserToGroupRequest$: StaticStructureSchema = [3, n0, _AAUTGR,
   0,
   [_UPI, _U, _GN],
@@ -1641,6 +1683,11 @@ export var ChangePasswordResponse$: StaticStructureSchema = [3, n0, _CPRh,
   [],
   []
 ];
+export var ClientSecretDescriptorType$: StaticStructureSchema = [3, n0, _CSDT,
+  0,
+  [_CSI, _CSV, _CSCD],
+  [0, [() => ClientSecretType, 0], 4]
+];
 export var CloudWatchLogsConfigurationType$: StaticStructureSchema = [3, n0, _CWLCT,
   0,
   [_LGA],
@@ -1768,8 +1815,8 @@ export var CreateUserImportJobResponse$: StaticStructureSchema = [3, n0, _CUIJRr
 ];
 export var CreateUserPoolClientRequest$: StaticStructureSchema = [3, n0, _CUPCR,
   0,
-  [_UPI, _CNl, _GS, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
-  [0, 0, 2, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$], 2
+  [_UPI, _CNl, _GS, _CS, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
+  [0, 0, 2, [() => ClientSecretType, 0], 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$], 2
 ];
 export var CreateUserPoolClientResponse$: StaticStructureSchema = [3, n0, _CUPCRr,
   0,
@@ -1850,6 +1897,16 @@ export var DeleteUserPoolClientRequest$: StaticStructureSchema = [3, n0, _DUPCR,
   0,
   [_UPI, _CI],
   [0, [() => ClientIdType, 0]], 2
+];
+export var DeleteUserPoolClientSecretRequest$: StaticStructureSchema = [3, n0, _DUPCSR,
+  0,
+  [_UPI, _CI, _CSI],
+  [0, [() => ClientIdType, 0], 0], 3
+];
+export var DeleteUserPoolClientSecretResponse$: StaticStructureSchema = [3, n0, _DUPCSRe,
+  0,
+  [],
+  []
 ];
 export var DeleteUserPoolDomainRequest$: StaticStructureSchema = [3, n0, _DUPDR,
   0,
@@ -2003,7 +2060,7 @@ export var DomainDescriptionType$: StaticStructureSchema = [3, n0, _DDT,
 ];
 export var EmailConfigurationType$: StaticStructureSchema = [3, n0, _ECT,
   0,
-  [_SA, _RTEA, _ESA, _F, _CS],
+  [_SA, _RTEA, _ESA, _F, _CSo],
   [0, 0, 0, 0, 0]
 ];
 export var EmailMfaConfigType$: StaticStructureSchema = [3, n0, _EMCT,
@@ -2113,7 +2170,7 @@ export var GetSigningCertificateResponse$: StaticStructureSchema = [3, n0, _GSCR
 ];
 export var GetTokensFromRefreshTokenRequest$: StaticStructureSchema = [3, n0, _GTFRTR,
   0,
-  [_RT, _CI, _CSl, _DK, _CM],
+  [_RT, _CI, _CS, _DK, _CM],
   [[() => TokenModelType, 0], [() => ClientIdType, 0], [() => ClientSecretType, 0], 0, 128 | 0], 2
 ];
 export var GetTokensFromRefreshTokenResponse$: StaticStructureSchema = [3, n0, _GTFRTRe,
@@ -2286,6 +2343,16 @@ export var ListUserImportJobsResponse$: StaticStructureSchema = [3, n0, _LUIJRi,
   [_UIJs, _PTa],
   [() => UserImportJobsListType, 0]
 ];
+export var ListUserPoolClientSecretsRequest$: StaticStructureSchema = [3, n0, _LUPCSR,
+  0,
+  [_UPI, _CI, _NT],
+  [0, [() => ClientIdType, 0], 0], 2
+];
+export var ListUserPoolClientSecretsResponse$: StaticStructureSchema = [3, n0, _LUPCSRi,
+  0,
+  [_CSl, _NT],
+  [[() => ClientSecretDescriptorListType, 0], 0]
+];
 export var ListUserPoolClientsRequest$: StaticStructureSchema = [3, n0, _LUPCR,
   0,
   [_UPI, _MR, _NT],
@@ -2443,7 +2510,7 @@ export var RespondToAuthChallengeResponse$: StaticStructureSchema = [3, n0, _RTA
 ];
 export var RevokeTokenRequest$: StaticStructureSchema = [3, n0, _RTRe,
   0,
-  [_To, _CI, _CSl],
+  [_To, _CI, _CS],
   [[() => TokenModelType, 0], [() => ClientIdType, 0], [() => ClientSecretType, 0]], 2
 ];
 export var RevokeTokenResponse$: StaticStructureSchema = [3, n0, _RTRev,
@@ -2788,7 +2855,7 @@ export var UserPoolClientDescription$: StaticStructureSchema = [3, n0, _UPCD,
 ];
 export var UserPoolClientType$: StaticStructureSchema = [3, n0, _UPCT,
   0,
-  [_UPI, _CNl, _CI, _CSl, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
+  [_UPI, _CNl, _CI, _CS, _LMD, _CDr, _RTV, _ATV, _ITV, _TVU, _RAe, _WA, _EAF, _SIP, _CURL, _LURL, _DRURI, _AOAF, _AOAS, _AOAFUPC, _ACn, _PUEE, _ETR, _EPAUCD, _ASV, _RTR],
   [0, 0, [() => ClientIdType, 0], [() => ClientSecretType, 0], 4, 4, 1, 1, 1, () => TokenValidityUnitsType$, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 2, () => AnalyticsConfigurationType$, 0, 2, 2, 1, () => RefreshTokenRotationType$]
 ];
 export var UserPoolDescriptionType$: StaticStructureSchema = [3, n0, _UPDT,
@@ -2868,6 +2935,10 @@ var ChallengeResponseListType: StaticListSchema = [1, n0, _CRLT,
   0, () => ChallengeResponseType$
 ];
 var ClientPermissionListType = 64 | 0;
+var ClientSecretDescriptorListType: StaticListSchema = [1, n0, _CSDLT,
+  0, [() => ClientSecretDescriptorType$,
+    0]
+];
 var CodeDeliveryDetailsListType: StaticListSchema = [1, n0, _CDDLT,
   0, () => CodeDeliveryDetailsType$
 ];
@@ -2956,6 +3027,9 @@ var ProviderDetailsType = 128 | 0;
 var UserPoolTagsType = 128 | 0;
 export var AddCustomAttributes$: StaticOperationSchema = [9, n0, _ACA,
   0, () => AddCustomAttributesRequest$, () => AddCustomAttributesResponse$
+];
+export var AddUserPoolClientSecret$: StaticOperationSchema = [9, n0, _AUPCS,
+  0, () => AddUserPoolClientSecretRequest$, () => AddUserPoolClientSecretResponse$
 ];
 export var AdminAddUserToGroup$: StaticOperationSchema = [9, n0, _AAUTG,
   0, () => AdminAddUserToGroupRequest$, () => __Unit
@@ -3107,6 +3181,9 @@ export var DeleteUserPool$: StaticOperationSchema = [9, n0, _DUP,
 export var DeleteUserPoolClient$: StaticOperationSchema = [9, n0, _DUPC,
   0, () => DeleteUserPoolClientRequest$, () => __Unit
 ];
+export var DeleteUserPoolClientSecret$: StaticOperationSchema = [9, n0, _DUPCS,
+  0, () => DeleteUserPoolClientSecretRequest$, () => DeleteUserPoolClientSecretResponse$
+];
 export var DeleteUserPoolDomain$: StaticOperationSchema = [9, n0, _DUPD,
   0, () => DeleteUserPoolDomainRequest$, () => DeleteUserPoolDomainResponse$
 ];
@@ -3214,6 +3291,9 @@ export var ListUserImportJobs$: StaticOperationSchema = [9, n0, _LUIJ,
 ];
 export var ListUserPoolClients$: StaticOperationSchema = [9, n0, _LUPC,
   0, () => ListUserPoolClientsRequest$, () => ListUserPoolClientsResponse$
+];
+export var ListUserPoolClientSecrets$: StaticOperationSchema = [9, n0, _LUPCS,
+  0, () => ListUserPoolClientSecretsRequest$, () => ListUserPoolClientSecretsResponse$
 ];
 export var ListUserPools$: StaticOperationSchema = [9, n0, _LUP,
   0, () => ListUserPoolsRequest$, () => ListUserPoolsResponse$

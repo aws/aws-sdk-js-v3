@@ -1,17 +1,381 @@
 // smithy-typescript generated code
 import {
+  DeletionProtectionType,
   ExplicitAuthFlowsType,
   OAuthFlowType,
   PreventUserExistenceErrorTypes,
+  TermsEnforcementType,
+  TermsSourceType,
+  UserPoolMfaType,
+  UserPoolTierType,
+  VerifiedAttributeType,
   VerifySoftwareTokenResponseType,
 } from "./enums";
-import type {
-  AnalyticsConfigurationType,
-  CustomDomainConfigType,
-  RefreshTokenRotationType,
-  TokenValidityUnitsType,
-  UserPoolClientType,
+import {
+  type AccountRecoverySettingType,
+  type AdminCreateUserConfigType,
+  type AnalyticsConfigurationType,
+  type CustomDomainConfigType,
+  type DeviceConfigurationType,
+  type EmailConfigurationType,
+  type LambdaConfigType,
+  type RefreshTokenRotationType,
+  type ResourceServerType,
+  type SmsConfigurationType,
+  type TermsType,
+  type TokenValidityUnitsType,
+  type UserAttributeUpdateSettingsType,
+  type UserPoolAddOnsType,
+  type UserPoolClientType,
+  type UserPoolPolicyType,
+  type VerificationMessageTemplateType,
+  AttributeType,
+  CodeDeliveryDetailsType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateResourceServerResponse {
+  /**
+   * <p>The updated details of the requested resource server.</p>
+   * @public
+   */
+  ResourceServer: ResourceServerType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTermsRequest {
+  /**
+   * <p>The ID of the terms document that you want to update.</p>
+   * @public
+   */
+  TermsId: string | undefined;
+
+  /**
+   * <p>The ID of the user pool that contains the terms that you want to update.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The new name that you want to apply to the requested terms documents.</p>
+   * @public
+   */
+  TermsName?: string | undefined;
+
+  /**
+   * <p>This parameter is reserved for future use and currently accepts only one value.</p>
+   * @public
+   */
+  TermsSource?: TermsSourceType | undefined;
+
+  /**
+   * <p>This parameter is reserved for future use and currently accepts only one value.</p>
+   * @public
+   */
+  Enforcement?: TermsEnforcementType | undefined;
+
+  /**
+   * <p>A map of URLs to languages. For each localized language that will view the requested
+   *             <code>TermsName</code>, assign a URL. A selection of <code>cognito:default</code>
+   *             displays for all languages that don't have a language-specific URL.</p>
+   *          <p>For example, <code>"cognito:default": "https://terms.example.com", "cognito:spanish":
+   *                 "https://terms.example.com/es"</code>.</p>
+   * @public
+   */
+  Links?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTermsResponse {
+  /**
+   * <p>A summary of the updates to your terms documents.</p>
+   * @public
+   */
+  Terms?: TermsType | undefined;
+}
+
+/**
+ * <p>Represents the request to update user attributes.</p>
+ * @public
+ */
+export interface UpdateUserAttributesRequest {
+  /**
+   * <p>An array of name-value pairs representing user attributes.</p>
+   *          <p>For custom attributes, you must add a <code>custom:</code> prefix to the attribute
+   *             name.</p>
+   *          <p>If you have set an attribute to require verification before Amazon Cognito updates its value,
+   *             this request doesn’t immediately update the value of that attribute. After your user
+   *             receives and responds to a verification message to verify the new value, Amazon Cognito updates
+   *             the attribute value. Your user can sign in and receive messages with the original
+   *             attribute value until they verify the new value.</p>
+   * @public
+   */
+  UserAttributes: AttributeType[] | undefined;
+
+  /**
+   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
+   * <code>aws.cognito.signin.user.admin</code>.</p>
+   * @public
+   */
+  AccessToken: string | undefined;
+
+  /**
+   * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
+   *             that this action triggers. You create custom workflows by assigning Lambda functions
+   *             to user pool triggers.</p>
+   *          <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the
+   *             function receives as input. This payload contains a <code>clientMetadata</code>
+   *             attribute that provides the data that you assigned to the ClientMetadata parameter in
+   *             your request. In your function code, you can process the <code>clientMetadata</code>
+   *             value to enhance your workflow for your specific needs.</p>
+   *          <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event">
+   * Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *          <note>
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
+   *                 following:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  ClientMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Represents the response from the server for the request to update user
+ *             attributes.</p>
+ * @public
+ */
+export interface UpdateUserAttributesResponse {
+  /**
+   * <p>When the attribute-update request includes an email address or phone number attribute,
+   *             Amazon Cognito sends a message to users with a code that confirms ownership of the new value that
+   *             they entered. The <code>CodeDeliveryDetails</code> object is information about the
+   *             delivery destination for that link or code. This behavior happens in user pools
+   *             configured to automatically verify changes to those attributes. For more information,
+   *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#verifying-when-users-change-their-email-or-phone-number">Verifying when users change their email or phone
+   *             number</a>.</p>
+   * @public
+   */
+  CodeDeliveryDetailsList?: CodeDeliveryDetailsType[] | undefined;
+}
+
+/**
+ * <p>Represents the request to update the user pool.</p>
+ * @public
+ */
+export interface UpdateUserPoolRequest {
+  /**
+   * <p>The ID of the user pool you want to update.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The password policy and sign-in policy in the user pool. The password policy sets
+   *             options like password complexity requirements and password history. The sign-in policy
+   *             sets the options available to applications in <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-selection-sdk.html#authentication-flows-selection-choice">choice-based authentication</a>.</p>
+   * @public
+   */
+  Policies?: UserPoolPolicyType | undefined;
+
+  /**
+   * <p>When active, <code>DeletionProtection</code> prevents accidental deletion of your user
+   * pool. Before you can delete a user pool that you have protected against deletion, you
+   * must deactivate this feature.</p>
+   *          <p>When you try to delete a protected user pool in a <code>DeleteUserPool</code> API request,
+   * Amazon Cognito returns an <code>InvalidParameterException</code> error. To delete a protected user pool,
+   * send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
+   * <code>UpdateUserPool</code> API request.</p>
+   * @public
+   */
+  DeletionProtection?: DeletionProtectionType | undefined;
+
+  /**
+   * <p>A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible
+   *             stages of authentication operations. Triggers can modify the outcome of the operations
+   *             that invoked them.</p>
+   * @public
+   */
+  LambdaConfig?: LambdaConfigType | undefined;
+
+  /**
+   * <p>The attributes that you want your user pool to automatically verify. Possible values:
+   *                 <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying contact information at sign-up</a>.</p>
+   * @public
+   */
+  AutoVerifiedAttributes?: VerifiedAttributeType[] | undefined;
+
+  /**
+   * <p>This parameter is no longer used.</p>
+   * @public
+   */
+  SmsVerificationMessage?: string | undefined;
+
+  /**
+   * <p>This parameter is no longer used.</p>
+   * @public
+   */
+  EmailVerificationMessage?: string | undefined;
+
+  /**
+   * <p>This parameter is no longer used.</p>
+   * @public
+   */
+  EmailVerificationSubject?: string | undefined;
+
+  /**
+   * <p>The template for the verification message that your user pool delivers to users who
+   *             set an email address or phone number attribute.</p>
+   *          <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code>
+   *             selection. For <code>CONFIRM_WITH_LINK</code>, specify an
+   *                 <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For
+   *                 <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave
+   *                 <code>EmailMessageByLink</code> blank. When you supply both parameters with either
+   *             choice, Amazon Cognito returns an error.</p>
+   * @public
+   */
+  VerificationMessageTemplate?: VerificationMessageTemplateType | undefined;
+
+  /**
+   * <p>The contents of the SMS message that your user pool sends to users in SMS
+   *             authentication.</p>
+   * @public
+   */
+  SmsAuthenticationMessage?: string | undefined;
+
+  /**
+   * <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>,
+   * a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
+   * more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates">
+   * Verifying updates to email addresses and phone numbers</a>.</p>
+   * @public
+   */
+  UserAttributeUpdateSettings?: UserAttributeUpdateSettingsType | undefined;
+
+  /**
+   * <p>Sets multi-factor authentication (MFA) to be on, off, or optional. When
+   *                 <code>ON</code>, all users must set up MFA before they can sign in. When
+   *                 <code>OPTIONAL</code>, your application must make a client-side determination of
+   *             whether a user wants to register an MFA device. For user pools with adaptive
+   *             authentication with threat protection, choose <code>OPTIONAL</code>.</p>
+   *          <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login
+   *             doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in
+   *             API responses and in managed login for users who have chosen and configured a preferred
+   *             MFA factor.</p>
+   * @public
+   */
+  MfaConfiguration?: UserPoolMfaType | undefined;
+
+  /**
+   * <p>The device-remembering configuration for a user pool. Device remembering or device
+   *             tracking is a "Remember me on this device" option for user pools that perform
+   *             authentication with the device key of a trusted device in the back end, instead of a
+   *             user-provided MFA code. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>. A null value indicates that
+   *             you have deactivated device remembering in your user pool.</p>
+   *          <note>
+   *             <p>When you provide a value for any <code>DeviceConfiguration</code> field, you
+   *                 activate the Amazon Cognito device-remembering feature. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
+   *          </note>
+   * @public
+   */
+  DeviceConfiguration?: DeviceConfigurationType | undefined;
+
+  /**
+   * <p>The email configuration of your user pool. The email configuration type sets your
+   *             preferred sending method, Amazon Web Services Region, and sender for email invitation and verification
+   *             messages from your user pool.</p>
+   * @public
+   */
+  EmailConfiguration?: EmailConfigurationType | undefined;
+
+  /**
+   * <p>The SMS configuration with the settings for your Amazon Cognito user pool to send SMS message
+   *             with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the Amazon Web Services Region that you want, the
+   *             Amazon Cognito user pool uses an Identity and Access Management (IAM) role in your Amazon Web Services account. For
+   *             more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html">SMS message settings</a>.</p>
+   * @public
+   */
+  SmsConfiguration?: SmsConfigurationType | undefined;
+
+  /**
+   * <p>The tag keys and values to assign to the user pool. A tag is a label that you can use
+   *             to categorize and manage user pools in different ways, such as by purpose, owner,
+   *             environment, or other criteria.</p>
+   * @public
+   */
+  UserPoolTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for administrative creation of users. Includes the template for the
+   *             invitation message for new users, the duration of temporary passwords, and permitting
+   *             self-service sign-up.</p>
+   * @public
+   */
+  AdminCreateUserConfig?: AdminCreateUserConfigType | undefined;
+
+  /**
+   * <p>Contains settings for activation of threat protection, including the operating
+   * mode and additional authentication types. To log user security information but take
+   * no action, set to <code>AUDIT</code>. To configure automatic security responses to
+   * potentially unwanted traffic to your user pool, set to <code>ENFORCED</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">Adding advanced security to a user pool</a>. To activate this setting, your user pool must be on the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html">
+   *                      Plus tier</a>.</p>
+   * @public
+   */
+  UserPoolAddOns?: UserPoolAddOnsType | undefined;
+
+  /**
+   * <p>The available verified method a user can use to recover their password when they call
+   *                 <code>ForgotPassword</code>. You can use this setting to define a preferred method
+   *             when a user has more than one method available. With this setting, SMS doesn't qualify
+   *             for a valid password recovery mechanism if the user also has SMS multi-factor
+   *             authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy
+   *             behavior to determine the recovery method where SMS is preferred through email.</p>
+   * @public
+   */
+  AccountRecoverySetting?: AccountRecoverySettingType | undefined;
+
+  /**
+   * <p>The updated name of your user pool.</p>
+   * @public
+   */
+  PoolName?: string | undefined;
+
+  /**
+   * <p>The user pool <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature plan</a>, or tier. This parameter determines the
+   *             eligibility of the user pool for features like managed login, access-token
+   *             customization, and threat protection. Defaults to <code>ESSENTIALS</code>.</p>
+   * @public
+   */
+  UserPoolTier?: UserPoolTierType | undefined;
+}
+
+/**
+ * <p>Represents the response from the server when you make a request to update the user
+ *             pool.</p>
+ * @public
+ */
+export interface UpdateUserPoolResponse {}
 
 /**
  * <p>Represents the request to update the user pool client.</p>

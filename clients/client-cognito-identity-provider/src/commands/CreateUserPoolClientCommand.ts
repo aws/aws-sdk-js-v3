@@ -71,6 +71,7 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientName: "STRING_VALUE", // required
  *   GenerateSecret: true || false,
+ *   ClientSecret: "STRING_VALUE",
  *   RefreshTokenValidity: Number("int"),
  *   AccessTokenValidity: Number("int"),
  *   IdTokenValidity: Number("int"),

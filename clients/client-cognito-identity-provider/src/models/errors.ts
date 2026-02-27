@@ -4,6 +4,26 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smith
 import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
 
 /**
+ * <p>This exception is thrown when you don't have sufficient permissions to perform the requested operation.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name = "AccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  * @public
  */
@@ -135,6 +155,47 @@ export class UserImportInProgressException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when Amazon Cognito encounters an internal server error.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name = "InternalServerException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
+ *             resource.</p>
+ * @public
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name = "LimitExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when a user isn't found.</p>
  * @public
  */
@@ -171,27 +232,6 @@ export class InvalidLambdaResponseException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidLambdaResponseException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
- * @public
- */
-export class LimitExceededException extends __BaseException {
-  readonly name = "LimitExceededException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
   }
 }
 

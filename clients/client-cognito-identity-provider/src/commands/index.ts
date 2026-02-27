@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AddCustomAttributesCommand";
+export * from "./AddUserPoolClientSecretCommand";
 export * from "./AdminAddUserToGroupCommand";
 export * from "./AdminConfirmSignUpCommand";
 export * from "./AdminCreateUserCommand";
@@ -49,6 +50,7 @@ export * from "./DeleteTermsCommand";
 export * from "./DeleteUserAttributesCommand";
 export * from "./DeleteUserCommand";
 export * from "./DeleteUserPoolClientCommand";
+export * from "./DeleteUserPoolClientSecretCommand";
 export * from "./DeleteUserPoolCommand";
 export * from "./DeleteUserPoolDomainCommand";
 export * from "./DeleteWebAuthnCredentialCommand";
@@ -85,6 +87,7 @@ export * from "./ListResourceServersCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTermsCommand";
 export * from "./ListUserImportJobsCommand";
+export * from "./ListUserPoolClientSecretsCommand";
 export * from "./ListUserPoolClientsCommand";
 export * from "./ListUserPoolsCommand";
 export * from "./ListUsersCommand";

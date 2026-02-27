@@ -97,6 +97,9 @@ export interface ListWebAuthnCredentialsCommandOutput extends ListWebAuthnCreden
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>

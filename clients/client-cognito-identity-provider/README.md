@@ -238,6 +238,13 @@ AddCustomAttributes
 </details>
 <details>
 <summary>
+AddUserPoolClientSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AddUserPoolClientSecretCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AddUserPoolClientSecretCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AddUserPoolClientSecretCommandOutput/)
+</details>
+<details>
+<summary>
 AdminAddUserToGroup
 </summary>
 
@@ -588,6 +595,13 @@ DeleteUserPoolClient
 </details>
 <details>
 <summary>
+DeleteUserPoolClientSecret
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteUserPoolClientSecretCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteUserPoolClientSecretCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteUserPoolClientSecretCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteUserPoolDomain
 </summary>
 
@@ -837,6 +851,13 @@ ListUserPoolClients
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUserPoolClientsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListUserPoolClientsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListUserPoolClientsCommandOutput/)
+</details>
+<details>
+<summary>
+ListUserPoolClientSecrets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListUserPoolClientSecretsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListUserPoolClientSecretsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListUserPoolClientSecretsCommandOutput/)
 </details>
 <details>
 <summary>

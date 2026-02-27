@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateUserPoolRequest, UpdateUserPoolResponse } from "../models/models_0";
+import type { UpdateUserPoolRequest, UpdateUserPoolResponse } from "../models/models_1";
 import { UpdateUserPool$ } from "../schemas/schemas_0";
 
 /**
@@ -35,7 +35,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *             defaults, construct this API request to pass the existing configuration of your user
  *             pool, modified to include the changes that you want to make.</p>
  *          <important>
- *             <p>If you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
+ *             <p>With the exception of <code>UserPoolTier</code>, if you don't provide a value for an attribute, Amazon Cognito sets it to its default value.</p>
  *          </important>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers

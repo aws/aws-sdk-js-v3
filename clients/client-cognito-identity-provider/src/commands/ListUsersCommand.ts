@@ -33,6 +33,9 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 /**
  * <p>Given a user pool ID, returns a list of users and their basic details in a user
  *             pool.</p>
+ *          <p>This operation is eventually consistent. You might experience a delay before results
+ *             are up-to-date. To validate the existence or configuration of an individual user, use
+ *                 <code>AdminGetUser</code>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

@@ -82,6 +82,9 @@ export interface DeleteWebAuthnCredentialCommandOutput extends DeleteWebAuthnCre
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
+ * @throws {@link PasswordResetRequiredException} (client fault)
+ *  <p>This exception is thrown when a password reset is required.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>

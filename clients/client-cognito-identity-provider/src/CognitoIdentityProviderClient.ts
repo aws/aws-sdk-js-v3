@@ -68,6 +68,10 @@ import {
   AddCustomAttributesCommandOutput,
 } from "./commands/AddCustomAttributesCommand";
 import {
+  AddUserPoolClientSecretCommandInput,
+  AddUserPoolClientSecretCommandOutput,
+} from "./commands/AddUserPoolClientSecretCommand";
+import {
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput,
 } from "./commands/AdminAddUserToGroupCommand";
@@ -206,6 +210,10 @@ import {
   DeleteUserPoolClientCommandInput,
   DeleteUserPoolClientCommandOutput,
 } from "./commands/DeleteUserPoolClientCommand";
+import {
+  DeleteUserPoolClientSecretCommandInput,
+  DeleteUserPoolClientSecretCommandOutput,
+} from "./commands/DeleteUserPoolClientSecretCommand";
 import { DeleteUserPoolCommandInput, DeleteUserPoolCommandOutput } from "./commands/DeleteUserPoolCommand";
 import {
   DeleteUserPoolDomainCommandInput,
@@ -303,6 +311,10 @@ import {
   ListUserPoolClientsCommandInput,
   ListUserPoolClientsCommandOutput,
 } from "./commands/ListUserPoolClientsCommand";
+import {
+  ListUserPoolClientSecretsCommandInput,
+  ListUserPoolClientSecretsCommandOutput,
+} from "./commands/ListUserPoolClientSecretsCommand";
 import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./commands/ListUserPoolsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
@@ -402,6 +414,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddCustomAttributesCommandInput
+  | AddUserPoolClientSecretCommandInput
   | AdminAddUserToGroupCommandInput
   | AdminConfirmSignUpCommandInput
   | AdminCreateUserCommandInput
@@ -451,6 +464,7 @@ export type ServiceInputTypes =
   | DeleteUserAttributesCommandInput
   | DeleteUserCommandInput
   | DeleteUserPoolClientCommandInput
+  | DeleteUserPoolClientSecretCommandInput
   | DeleteUserPoolCommandInput
   | DeleteUserPoolDomainCommandInput
   | DeleteWebAuthnCredentialCommandInput
@@ -487,6 +501,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTermsCommandInput
   | ListUserImportJobsCommandInput
+  | ListUserPoolClientSecretsCommandInput
   | ListUserPoolClientsCommandInput
   | ListUserPoolsCommandInput
   | ListUsersCommandInput
@@ -526,6 +541,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddCustomAttributesCommandOutput
+  | AddUserPoolClientSecretCommandOutput
   | AdminAddUserToGroupCommandOutput
   | AdminConfirmSignUpCommandOutput
   | AdminCreateUserCommandOutput
@@ -575,6 +591,7 @@ export type ServiceOutputTypes =
   | DeleteUserAttributesCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserPoolClientCommandOutput
+  | DeleteUserPoolClientSecretCommandOutput
   | DeleteUserPoolCommandOutput
   | DeleteUserPoolDomainCommandOutput
   | DeleteWebAuthnCredentialCommandOutput
@@ -611,6 +628,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTermsCommandOutput
   | ListUserImportJobsCommandOutput
+  | ListUserPoolClientSecretsCommandOutput
   | ListUserPoolClientsCommandOutput
   | ListUserPoolsCommandOutput
   | ListUsersCommandOutput
