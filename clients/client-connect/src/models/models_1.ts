@@ -2472,13 +2472,13 @@ export interface EvaluationReviewRequestComment {
   Comment?: string | undefined;
 
   /**
-   * <p>The timestamp when the review request comment was created.</p>
+   * <p>The timestamp when the evaluation review request comment was created.</p>
    * @public
    */
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The user who created the review request comment.</p>
+   * <p>The user who created the evaluation review request comment.</p>
    * @public
    */
   CreatedBy?: string | undefined;
@@ -2496,16 +2496,32 @@ export interface EvaluationReviewMetadata {
   ReviewId?: string | undefined;
 
   /**
-   * <p>The timestamp when the evaluation review was created.</p>
+   * <p>The timestamp when the evaluation review was requested.</p>
    * @public
    */
-  CreatedTime: Date | undefined;
+  RequestedTime?: Date | undefined;
+
+  /**
+   * <p>The user who requested the evaluation review.</p>
+   * @public
+   */
+  RequestedBy?: string | undefined;
+
+  /**
+   * <p>The timestamp when the evaluation review was created.</p>
+   *
+   * @deprecated CreatedTime is deprecated.
+   * @public
+   */
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The user who created the evaluation review.</p>
+   *
+   * @deprecated CreatedBy is deprecated.
    * @public
    */
-  CreatedBy: string | undefined;
+  CreatedBy?: string | undefined;
 
   /**
    * <p>Comments provided when requesting the evaluation review.</p>

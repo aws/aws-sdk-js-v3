@@ -1863,6 +1863,7 @@ const _RAep = "ReplicaAlias";
 const _RAu = "RuleArn";
 const _RAul = "RuleAction";
 const _RAule = "RuleActions";
+const _RB = "RequestedBy";
 const _RC = "RoutingCriteria";
 const _RCAS = "RealtimeContactAnalysisSegments";
 const _RCASe = "RealtimeContactAnalysisSegment";
@@ -1982,6 +1983,7 @@ const _RTTF = "RequiredTaskTemplateFields";
 const _RTe = "RehydrationType";
 const _RTef = "RefreshToken";
 const _RTefe = "ReferenceTypes";
+const _RTeq = "RequestedTime";
 const _RTes = "ResourceTypes";
 const _Ra = "Range";
 const _Re = "Recordings";
@@ -5332,8 +5334,8 @@ export var EvaluationReviewConfiguration$: StaticStructureSchema = [3, n0, _ERC,
 ];
 export var EvaluationReviewMetadata$: StaticStructureSchema = [3, n0, _ERM,
   0,
-  [_CTre, _CB, _RRC, _RIev],
-  [4, 0, () => EvaluationReviewRequestCommentList, 0], 3
+  [_RRC, _RIev, _RTeq, _RB, _CTre, _CB],
+  [() => EvaluationReviewRequestCommentList, 0, 4, 0, 4, 0], 1
 ];
 export var EvaluationReviewNotificationRecipient$: StaticStructureSchema = [3, n0, _ERNR,
   0,

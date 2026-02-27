@@ -69,8 +69,10 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //       },
  * //       Review: { // EvaluationReviewMetadata
  * //         ReviewId: "STRING_VALUE",
- * //         CreatedTime: new Date("TIMESTAMP"), // required
- * //         CreatedBy: "STRING_VALUE", // required
+ * //         RequestedTime: new Date("TIMESTAMP"),
+ * //         RequestedBy: "STRING_VALUE",
+ * //         CreatedTime: new Date("TIMESTAMP"),
+ * //         CreatedBy: "STRING_VALUE",
  * //         ReviewRequestComments: [ // EvaluationReviewRequestCommentList // required
  * //           { // EvaluationReviewRequestComment
  * //             Comment: "STRING_VALUE",

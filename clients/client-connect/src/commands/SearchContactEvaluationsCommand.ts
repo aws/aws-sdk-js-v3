@@ -48,8 +48,7 @@ export interface SearchContactEvaluationsCommandOutput extends SearchContactEval
  *             <li>
  *                <p>A Search operation, unlike a List operation, takes time to index changes to resource (create, update or
  *      delete). If you don't see updated information for recently changed contact evaluations, try calling the API again
- *      in a few seconds. Contact Evaluations may not be fully backfilled with historical data in all regions yet, however
- *      all recently created Contact Evaluations should be available for search.</p>
+ *      in a few seconds.</p>
  *             </li>
  *          </ul>
  *          <p>
