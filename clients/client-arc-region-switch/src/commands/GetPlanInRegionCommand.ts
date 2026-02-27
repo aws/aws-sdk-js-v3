@@ -66,7 +66,7 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                   },
  * //                 ],
  * //                 retryIntervalMinutes: Number("float"), // required
- * //                 regionToRun: "activatingRegion" || "deactivatingRegion", // required
+ * //                 regionToRun: "activatingRegion" || "deactivatingRegion" || "activeRegion" || "inactiveRegion", // required
  * //                 ungraceful: { // LambdaUngraceful
  * //                   behavior: "skip",
  * //                 },
@@ -132,7 +132,7 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                           },
  * //                         ],
  * //                         retryIntervalMinutes: Number("float"), // required
- * //                         regionToRun: "activatingRegion" || "deactivatingRegion", // required
+ * //                         regionToRun: "activatingRegion" || "deactivatingRegion" || "activeRegion" || "inactiveRegion", // required
  * //                         ungraceful: {
  * //                           behavior: "skip",
  * //                         },
@@ -262,8 +262,24 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                           "STRING_VALUE",
  * //                         ],
  * //                       },
+ * //                       rdsPromoteReadReplicaConfig: { // RdsPromoteReadReplicaConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         dbInstanceArnMap: { // RdsDbInstanceArnMap // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                       },
+ * //                       rdsCreateCrossRegionReadReplicaConfig: { // RdsCreateCrossRegionReplicaConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         dbInstanceArnMap: { // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica", // required
  * //                   },
  * //                 ],
  * //               },
@@ -344,11 +360,27 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
+ * //               rdsPromoteReadReplicaConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 dbInstanceArnMap: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               rdsCreateCrossRegionReadReplicaConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 dbInstanceArnMap: { // required
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica", // required
  * //           },
  * //         ],
- * //         workflowTargetAction: "activate" || "deactivate", // required
+ * //         workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required
  * //         workflowTargetRegion: "STRING_VALUE",
  * //         workflowDescription: "STRING_VALUE",
  * //       },
@@ -367,7 +399,7 @@ export interface GetPlanInRegionCommandOutput extends GetPlanInRegionResponse, _
  * //       { // Trigger
  * //         description: "STRING_VALUE",
  * //         targetRegion: "STRING_VALUE", // required
- * //         action: "activate" || "deactivate", // required
+ * //         action: "activate" || "deactivate" || "postRecovery", // required
  * //         conditions: [ // TriggerConditionList // required
  * //           { // TriggerCondition
  * //             associatedAlarmName: "STRING_VALUE", // required

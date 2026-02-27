@@ -55,7 +55,7 @@ export interface ListPlanExecutionEventsCommandOutput extends ListPlanExecutionE
  * //       timestamp: new Date("TIMESTAMP"),
  * //       type: "unknown" || "executionPending" || "executionStarted" || "executionSucceeded" || "executionFailed" || "executionPausing" || "executionPaused" || "executionCanceling" || "executionCanceled" || "executionPendingApproval" || "executionBehaviorChangedToUngraceful" || "executionBehaviorChangedToGraceful" || "executionPendingChildPlanManualApproval" || "executionSuccessMonitoringApplicationHealth" || "stepStarted" || "stepUpdate" || "stepSucceeded" || "stepFailed" || "stepSkipped" || "stepPausedByError" || "stepPausedByOperator" || "stepCanceled" || "stepPendingApproval" || "stepExecutionBehaviorChangedToUngraceful" || "stepPendingApplicationHealthMonitor" || "planEvaluationWarning",
  * //       stepName: "STRING_VALUE",
- * //       executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb",
+ * //       executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica",
  * //       resources: [ // Resources
  * //         "STRING_VALUE",
  * //       ],

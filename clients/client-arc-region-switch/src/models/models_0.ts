@@ -101,6 +101,12 @@ export interface AbbreviatedExecution {
   executionRegion: string | undefined;
 
   /**
+   * <p>The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.</p>
+   * @public
+   */
+  recoveryExecutionId?: string | undefined;
+
+  /**
    * <p>The actual recovery time that Region switch calculates for a plan execution. Actual recovery time includes the time for the plan to run added to the time elapsed until the application health alarms that you've specified are healthy again.</p>
    * @public
    */
@@ -780,7 +786,7 @@ export interface CustomActionLambdaConfiguration {
   retryIntervalMinutes: number | undefined;
 
   /**
-   * <p>The Amazon Web Services Region for the function to run in.</p>
+   * <p>The Amazon Web Services Region for the function to run in. For recovery workflows use <code>activatingRegion</code> or <code>deactivatingRegion</code>. For post-recovery workflows, use <code>activeRegion</code> (the Region with customer traffic) or <code>inactiveRegion</code> (the Region with no customer traffic).</p>
    * @public
    */
   regionToRun: RegionToRunIn | undefined;
@@ -1204,6 +1210,66 @@ export interface GlobalAuroraConfiguration {
    * @public
    */
   databaseClusterArns: string[] | undefined;
+}
+
+/**
+ * <p>Configuration for creating an Amazon RDS cross-Region read replica during post-recovery in a Region switch.</p>
+ * @public
+ */
+export interface RdsCreateCrossRegionReplicaConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross-account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * @public
+   */
+  dbInstanceArnMap: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration for promoting an Amazon RDS read replica to a standalone database instance during a Region switch.</p>
+ * @public
+ */
+export interface RdsPromoteReadReplicaConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross-account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * @public
+   */
+  dbInstanceArnMap: Record<string, string> | undefined;
 }
 
 /**
@@ -1835,6 +1901,12 @@ export interface StartPlanExecutionRequest {
    * @public
    */
   latestVersion?: string | undefined;
+
+  /**
+   * <p>The execution identifier of the recovery execution that ran in the opposite region post-recovery is ran in. Required when starting a post-recovery execution.</p>
+   * @public
+   */
+  recoveryExecutionId?: string | undefined;
 }
 
 /**
@@ -1960,6 +2032,8 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.ExecutionApprovalConfigMember
   | ExecutionBlockConfiguration.GlobalAuroraConfigMember
   | ExecutionBlockConfiguration.ParallelConfigMember
+  | ExecutionBlockConfiguration.RdsCreateCrossRegionReadReplicaConfigMember
+  | ExecutionBlockConfiguration.RdsPromoteReadReplicaConfigMember
   | ExecutionBlockConfiguration.RegionSwitchPlanConfigMember
   | ExecutionBlockConfiguration.Route53HealthCheckConfigMember
   | ExecutionBlockConfiguration.$UnknownMember;
@@ -1984,6 +2058,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2003,6 +2079,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2022,6 +2100,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2041,6 +2121,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2060,6 +2142,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2079,6 +2163,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2098,6 +2184,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2117,6 +2205,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2136,6 +2226,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig: EksResourceScalingConfiguration;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2155,6 +2247,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig: Route53HealthCheckConfiguration;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2174,6 +2268,50 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig: DocumentDbConfiguration;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Amazon RDS promote read replica execution block.</p>
+   * @public
+   */
+  export interface RdsPromoteReadReplicaConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig: RdsPromoteReadReplicaConfiguration;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Amazon RDS create cross-Region replica execution block.</p>
+   * @public
+   */
+  export interface RdsCreateCrossRegionReadReplicaConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig: RdsCreateCrossRegionReplicaConfiguration;
     $unknown?: never;
   }
 
@@ -2192,6 +2330,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig?: never;
     route53HealthCheckConfig?: never;
     documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2211,6 +2351,8 @@ export namespace ExecutionBlockConfiguration {
     eksResourceScalingConfig: (value: EksResourceScalingConfiguration) => T;
     route53HealthCheckConfig: (value: Route53HealthCheckConfiguration) => T;
     documentDbConfig: (value: DocumentDbConfiguration) => T;
+    rdsPromoteReadReplicaConfig: (value: RdsPromoteReadReplicaConfiguration) => T;
+    rdsCreateCrossRegionReadReplicaConfig: (value: RdsCreateCrossRegionReplicaConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2593,6 +2735,12 @@ export interface GetPlanExecutionResponse {
    * @public
    */
   executionRegion: string | undefined;
+
+  /**
+   * <p>The unique identifier of the most recent recovery execution. Required when starting a post-recovery execution.</p>
+   * @public
+   */
+  recoveryExecutionId?: string | undefined;
 
   /**
    * <p>The states of the steps in the plan execution.</p>

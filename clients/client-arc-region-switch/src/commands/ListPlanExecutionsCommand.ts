@@ -60,8 +60,9 @@ export interface ListPlanExecutionsCommandOutput extends ListPlanExecutionsRespo
  * //       endTime: new Date("TIMESTAMP"),
  * //       mode: "graceful" || "ungraceful", // required
  * //       executionState: "inProgress" || "pausedByFailedStep" || "pausedByOperator" || "completed" || "completedWithExceptions" || "canceled" || "planExecutionTimedOut" || "pendingManualApproval" || "failed" || "pending" || "completedMonitoringApplicationHealth", // required
- * //       executionAction: "activate" || "deactivate", // required
+ * //       executionAction: "activate" || "deactivate" || "postRecovery", // required
  * //       executionRegion: "STRING_VALUE", // required
+ * //       recoveryExecutionId: "STRING_VALUE",
  * //       actualRecoveryTime: "STRING_VALUE",
  * //     },
  * //   ],

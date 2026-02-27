@@ -43,10 +43,11 @@ export interface StartPlanExecutionCommandOutput extends StartPlanExecutionRespo
  * const input = { // StartPlanExecutionRequest
  *   planArn: "STRING_VALUE", // required
  *   targetRegion: "STRING_VALUE", // required
- *   action: "activate" || "deactivate", // required
+ *   action: "activate" || "deactivate" || "postRecovery", // required
  *   mode: "graceful" || "ungraceful",
  *   comment: "STRING_VALUE",
  *   latestVersion: "STRING_VALUE",
+ *   recoveryExecutionId: "STRING_VALUE",
  * };
  * const command = new StartPlanExecutionCommand(input);
  * const response = await client.send(command);

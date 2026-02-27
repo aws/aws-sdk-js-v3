@@ -6,6 +6,7 @@
 export const ExecutionAction = {
   ACTIVATE: "activate",
   DEACTIVATE: "deactivate",
+  POST_RECOVERY: "postRecovery",
 } as const;
 /**
  * @public
@@ -148,6 +149,7 @@ export type FailedReportErrorCode = (typeof FailedReportErrorCode)[keyof typeof 
 export const WorkflowTargetAction = {
   ACTIVATE: "activate",
   DEACTIVATE: "deactivate",
+  POST_RECOVERY: "postRecovery",
 } as const;
 /**
  * @public
@@ -173,7 +175,9 @@ export type RoutingControlStateChange = (typeof RoutingControlStateChange)[keyof
  */
 export const RegionToRunIn = {
   ACTIVATING_REGION: "activatingRegion",
+  ACTIVE_REGION: "activeRegion",
   DEACTIVATING_REGION: "deactivatingRegion",
+  INACTIVE_REGION: "inactiveRegion",
 } as const;
 /**
  * @public
@@ -299,6 +303,8 @@ export const ExecutionBlockType = {
   EKS_RESOURCE_SCALING: "EKSResourceScaling",
   EXECUTION_APPROVAL: "ManualApproval",
   PARALLEL: "Parallel",
+  RDS_CREATE_CROSS_REGION_REPLICA: "RdsCreateCrossRegionReplica",
+  RDS_PROMOTE_READ_REPLICA: "RdsPromoteReadReplica",
   REGION_SWITCH: "ARCRegionSwitchPlan",
   ROUTE53_HEALTH_CHECK: "Route53HealthCheck",
   ROUTING_CONTROL: "ARCRoutingControl",

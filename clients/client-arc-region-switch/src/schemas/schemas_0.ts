@@ -91,6 +91,7 @@ const _PL = "PlanList";
 const _PW = "PlanWarnings";
 const _RARC = "RegionAndRoutingControls";
 const _RC = "ReportConfiguration";
+const _RCCRRC = "RdsCreateCrossRegionReplicaConfiguration";
 const _RHC = "Route53HealthCheck";
 const _RHCC = "Route53HealthCheckConfiguration";
 const _RHCL = "Route53HealthCheckList";
@@ -98,6 +99,7 @@ const _RNFE = "ResourceNotFoundException";
 const _RO = "ReportOutput";
 const _ROC = "ReportOutputConfiguration";
 const _ROL = "ReportOutputList";
+const _RPRRC = "RdsPromoteReadReplicaConfiguration";
 const _RRRS = "Route53ResourceRecordSet";
 const _RRRSL = "Route53ResourceRecordSetList";
 const _RSPC = "RegionSwitchPlanConfiguration";
@@ -163,6 +165,7 @@ const _cond = "condition";
 const _d = "description";
 const _dCA = "databaseClusterArns";
 const _dDC = "documentDbConfig";
+const _dIAM = "dbInstanceArnMap";
 const _dR = "deactivateRegion";
 const _e = "error";
 const _eA = "executionAction";
@@ -221,12 +224,15 @@ const _rARC = "regionAndRoutingControls";
 const _rAe = "resourceArn";
 const _rC = "reportConfiguration";
 const _rCA = "routingControlArn";
+const _rCCRRRC = "rdsCreateCrossRegionReadReplicaConfig";
+const _rEI = "recoveryExecutionId";
 const _rGT = "reportGenerationTime";
 const _rHCC = "route53HealthCheckConfig";
 const _rI = "resourceIdentifier";
 const _rIM = "retryIntervalMinutes";
 const _rN = "recordName";
 const _rO = "reportOutput";
+const _rPRRC = "rdsPromoteReadReplicaConfig";
 const _rS = "recordSets";
 const _rSI = "recordSetIdentifier";
 const _rSPC = "regionSwitchPlanConfig";
@@ -338,8 +344,8 @@ export const errorTypeRegistries = [
 ]
 export var AbbreviatedExecution$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _aRT],
-  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0], 7
+  [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _rEI, _aRT],
+  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0], 7
 ];
 export var AbbreviatedPlan$: StaticStructureSchema = [3, n0, _AP,
   0,
@@ -493,8 +499,8 @@ export var GetPlanExecutionRequest$: StaticStructureSchema = [3, n0, _GPER,
 ];
 export var GetPlanExecutionResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _sS, _p, _aRT, _gRD, _nT],
-  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0], 7
+  [_pA, _eI, _sT, _mo, _eS, _eA, _eR, _v, _uA, _co, _eT, _rEI, _sS, _p, _aRT, _gRD, _nT],
+  [0, 0, 4, 0, 0, 0, 0, 0, 4, 0, 4, 0, () => StepStates, () => Plan$, 0, () => GeneratedReportDetails, 0], 7
 ];
 export var GetPlanInRegionRequest$: StaticStructureSchema = [3, n0, _GPIRR,
   0,
@@ -631,6 +637,16 @@ export var Plan$: StaticStructureSchema = [3, n0, _P,
   [_a, _w, _eRx, _n, _r, _rA, _o, _d, _rTOM, _aA, _t, _rC, _pR, _v, _uA],
   [0, () => WorkflowList, 0, 0, 64 | 0, 0, 0, 0, 1, () => AssociatedAlarmMap, () => TriggerList, () => ReportConfiguration$, 0, 0, 4], 7
 ];
+export var RdsCreateCrossRegionReplicaConfiguration$: StaticStructureSchema = [3, n0, _RCCRRC,
+  0,
+  [_dIAM, _tM, _cAR, _eIx],
+  [128 | 0, 1, 0, 0], 1
+];
+export var RdsPromoteReadReplicaConfiguration$: StaticStructureSchema = [3, n0, _RPRRC,
+  0,
+  [_dIAM, _tM, _cAR, _eIx],
+  [128 | 0, 1, 0, 0], 1
+];
 export var RegionSwitchPlanConfiguration$: StaticStructureSchema = [3, n0, _RSPC,
   0,
   [_a, _cAR, _eIx],
@@ -678,8 +694,8 @@ export var Service$: StaticStructureSchema = [3, n0, _S,
 ];
 export var StartPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
-  [_pA, _tR, _ac, _mo, _co, _lV],
-  [0, 0, 0, 0, 0, 0], 3
+  [_pA, _tR, _ac, _mo, _co, _lV, _rEI],
+  [0, 0, 0, 0, 0, 0, 0], 3
 ];
 export var StartPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
   0,
@@ -829,6 +845,7 @@ var AssociatedAlarmMap: StaticMapSchema = [2, n0, _AAM,
 var KubernetesScalingApplication: StaticMapSchema = [2, n0, _KSAu,
   0, 0, () => RegionalScalingResource
 ];
+var RdsDbInstanceArnMap = 128 | 0;
 var RegionalScalingResource: StaticMapSchema = [2, n0, _RSR,
   0, 0, () => KubernetesScalingResource$
 ];
@@ -838,8 +855,8 @@ var RegionAndRoutingControls: StaticMapSchema = [2, n0, _RARC,
 var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$]
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC],
+  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,

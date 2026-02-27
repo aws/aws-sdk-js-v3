@@ -152,6 +152,8 @@ export type {
   MinimalWorkflow,
   ParallelExecutionBlockConfiguration,
   Plan,
+  RdsCreateCrossRegionReplicaConfiguration,
+  RdsPromoteReadReplicaConfiguration,
   RegionSwitchPlanConfiguration,
   ReportConfiguration,
   ReportOutput,

@@ -126,6 +126,8 @@ import {
   paginateListRoute53HealthChecksInRegion,
   ParallelExecutionBlockConfiguration$,
   Plan$,
+  RdsCreateCrossRegionReplicaConfiguration$,
+  RdsPromoteReadReplicaConfiguration$,
   RecoveryApproach,
   RegionSwitchPlanConfiguration$,
   RegionToRunIn,
@@ -290,6 +292,8 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof MinimalWorkflow$ === "object");
 assert(typeof ParallelExecutionBlockConfiguration$ === "object");
 assert(typeof Plan$ === "object");
+assert(typeof RdsCreateCrossRegionReplicaConfiguration$ === "object");
+assert(typeof RdsPromoteReadReplicaConfiguration$ === "object");
 assert(typeof RegionSwitchPlanConfiguration$ === "object");
 assert(typeof ReportConfiguration$ === "object");
 assert(typeof ReportOutput$ === "object");

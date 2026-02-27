@@ -56,7 +56,7 @@ export interface GetPlanEvaluationStatusCommandOutput extends GetPlanEvaluationS
  * //   warnings: [ // PlanWarnings
  * //     { // ResourceWarning
  * //       workflow: { // MinimalWorkflow
- * //         action: "activate" || "deactivate",
+ * //         action: "activate" || "deactivate" || "postRecovery",
  * //         name: "STRING_VALUE",
  * //       },
  * //       version: "STRING_VALUE", // required
