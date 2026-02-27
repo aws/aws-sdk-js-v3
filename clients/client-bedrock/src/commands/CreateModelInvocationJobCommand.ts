@@ -70,6 +70,7 @@ export interface CreateModelInvocationJobCommandOutput extends CreateModelInvoca
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   modelInvocationType: "InvokeModel" || "Converse",
  * };
  * const command = new CreateModelInvocationJobCommand(input);
  * const response = await client.send(command);

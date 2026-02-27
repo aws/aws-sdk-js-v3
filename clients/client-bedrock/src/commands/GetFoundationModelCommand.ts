@@ -62,6 +62,10 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * //     ],
  * //     modelLifecycle: { // FoundationModelLifecycle
  * //       status: "ACTIVE" || "LEGACY", // required
+ * //       startOfLifeTime: new Date("TIMESTAMP"),
+ * //       endOfLifeTime: new Date("TIMESTAMP"),
+ * //       legacyTime: new Date("TIMESTAMP"),
+ * //       publicExtendedAccessTime: new Date("TIMESTAMP"),
  * //     },
  * //   },
  * // };

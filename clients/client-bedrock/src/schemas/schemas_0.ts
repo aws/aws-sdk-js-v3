@@ -845,6 +845,7 @@ const _eM = "errorMessage";
 const _eMC = "evaluatorModelConfig";
 const _eMI = "evaluatorModelIdentifiers";
 const _eN = "endpointName";
+const _eOLT = "endOfLifeTime";
 const _eR = "expectedResult";
 const _eRx = "executionRole";
 const _eS = "endpointStatus";
@@ -974,7 +975,8 @@ const _lN = "lineNumber";
 const _lR = "learningRate";
 const _lT = "lineText";
 const _lTOE = "lessThanOrEquals";
-const _lTe = "legalTerm";
+const _lTe = "legacyTime";
+const _lTeg = "legalTerm";
 const _lTes = "lessThan";
 const _lUA = "lastUpdatedAt";
 const _lUASH = "lastUpdatedAnnotationSetHash";
@@ -1000,6 +1002,7 @@ const _mDS = "modelDataSource";
 const _mDSo = "modelDeploymentSummaries";
 const _mI = "modelIdentifier";
 const _mIJS = "modelImportJobSummaries";
+const _mIT = "modelInvocationType";
 const _mIo = "modelId";
 const _mIod = "modelIdentifiers";
 const _mKKA = "modelKmsKeyArn";
@@ -1065,6 +1068,7 @@ const _pDR = "policyDefinitionRule";
 const _pDT = "policyDefinitionType";
 const _pDV = "policyDefinitionVariable";
 const _pE = "priorElement";
+const _pEAT = "publicExtendedAccessTime";
 const _pEC = "piiEntitiesConfig";
 const _pEi = "piiEntities";
 const _pI = "policyId";
@@ -1155,6 +1159,7 @@ const _sMa = "sageMaker";
 const _sMe = "selectionMode";
 const _sO = "sortOrder";
 const _sODC = "s3OutputDataConfig";
+const _sOLT = "startOfLifeTime";
 const _sR = "supportingRules";
 const _sRt = "statusReasons";
 const _sS = "stopSequences";
@@ -2009,8 +2014,8 @@ export var CreateModelImportJobResponse$: StaticStructureSchema = [3, n0, _CMIJR
 ];
 export var CreateModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _CMIJRre,
   0,
-  [_jN, _rA, _mIo, _iDC, _oDC, _cRT, _vCp, _tDIH, _ta],
-  [0, 0, 0, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, [0, 4], () => VpcConfig$, 1, () => TagList], 5
+  [_jN, _rA, _mIo, _iDC, _oDC, _cRT, _vCp, _tDIH, _ta, _mIT],
+  [0, 0, 0, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, [0, 4], () => VpcConfig$, 1, () => TagList, 0], 5
 ];
 export var CreateModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _CMIJRrea,
   0,
@@ -2334,8 +2339,8 @@ export var FoundationModelDetails$: StaticStructureSchema = [3, n0, _FMD,
 ];
 export var FoundationModelLifecycle$: StaticStructureSchema = [3, n0, _FML,
   0,
-  [_st],
-  [0], 1
+  [_st, _sOLT, _eOLT, _lTe, _pEAT],
+  [0, 5, 5, 5, 5], 1
 ];
 export var FoundationModelSummary$: StaticStructureSchema = [3, n0, _FMS,
   0,
@@ -2544,8 +2549,8 @@ export var GetModelInvocationJobRequest$: StaticStructureSchema = [3, n0, _GMIJR
 ];
 export var GetModelInvocationJobResponse$: StaticStructureSchema = [3, n0, _GMIJReto,
   0,
-  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET],
-  [0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5], 6
+  [_jA, _mIo, _rA, _sTu, _iDC, _oDC, _jN, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT],
+  [0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0], 6
 ];
 export var GetModelInvocationLoggingConfigurationRequest$: StaticStructureSchema = [3, n0, _GMILCR,
   0,
@@ -3089,8 +3094,8 @@ export var ModelInvocationJobS3OutputDataConfig$: StaticStructureSchema = [3, n0
 ];
 export var ModelInvocationJobSummary$: StaticStructureSchema = [3, n0, _MIJSo,
   0,
-  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET],
-  [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5], 7
+  [_jA, _jN, _mIo, _rA, _sTu, _iDC, _oDC, _cRT, _st, _m, _lMT, _eT, _vCp, _tDIH, _jET, _mIT],
+  [0, 0, 0, 0, 5, () => ModelInvocationJobInputDataConfig$, () => ModelInvocationJobOutputDataConfig$, 0, 0, [() => Message, 0], 5, 5, () => VpcConfig$, 1, 5, 0], 7
 ];
 export var Offer$: StaticStructureSchema = [3, n0, _O,
   0,
@@ -3319,7 +3324,7 @@ export var TeacherModelConfig$: StaticStructureSchema = [3, n0, _TMC,
 ];
 export var TermDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_uBPT, _lTe, _sTup, _vT],
+  [_uBPT, _lTeg, _sTup, _vT],
   [() => PricingTerm$, () => LegalTerm$, () => SupportTerm$, () => ValidityTerm$], 3
 ];
 export var TextInferenceConfig$: StaticStructureSchema = [3, n0, _TIC,

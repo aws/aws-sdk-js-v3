@@ -801,6 +801,19 @@ export type S3InputFormat = (typeof S3InputFormat)[keyof typeof S3InputFormat];
  * @public
  * @enum
  */
+export const ModelInvocationType = {
+  Converse: "Converse",
+  InvokeModel: "InvokeModel",
+} as const;
+/**
+ * @public
+ */
+export type ModelInvocationType = (typeof ModelInvocationType)[keyof typeof ModelInvocationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ModelInvocationJobStatus = {
   COMPLETED: "Completed",
   EXPIRED: "Expired",

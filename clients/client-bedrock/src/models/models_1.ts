@@ -23,6 +23,7 @@ import {
   ModelCustomizationJobStatus,
   ModelImportJobStatus,
   ModelInvocationJobStatus,
+  ModelInvocationType,
   ModelModality,
   OfferType,
   PromptRouterStatus,
@@ -1956,6 +1957,12 @@ export interface CreateModelInvocationJobRequest {
    * @public
    */
   tags?: Tag[] | undefined;
+
+  /**
+   * <p>The invocation endpoint for ModelInvocationJob</p>
+   * @public
+   */
+  modelInvocationType?: ModelInvocationType | undefined;
 }
 
 /**
@@ -2073,6 +2080,12 @@ export interface GetModelInvocationJobResponse {
    * @public
    */
   jobExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The invocation endpoint for ModelInvocationJob</p>
+   * @public
+   */
+  modelInvocationType?: ModelInvocationType | undefined;
 }
 
 /**
@@ -2222,6 +2235,12 @@ export interface ModelInvocationJobSummary {
    * @public
    */
   jobExpirationTime?: Date | undefined;
+
+  /**
+   * <p>The invocation endpoint for ModelInvocationJob</p>
+   * @public
+   */
+  modelInvocationType?: ModelInvocationType | undefined;
 }
 
 /**
@@ -2278,6 +2297,30 @@ export interface FoundationModelLifecycle {
    * @public
    */
   status: FoundationModelLifecycleStatus | undefined;
+
+  /**
+   * <p>Launch time when the model first becomes available</p>
+   * @public
+   */
+  startOfLifeTime?: Date | undefined;
+
+  /**
+   * <p>Time when the model is no longer available for use</p>
+   * @public
+   */
+  endOfLifeTime?: Date | undefined;
+
+  /**
+   * <p>Time when the model enters legacy state. Models in legacy state can still be used, but users should plan to transition to an Active model before the end of life time</p>
+   * @public
+   */
+  legacyTime?: Date | undefined;
+
+  /**
+   * <p>Public extended access portion of the legacy period, when users should expect higher pricing</p>
+   * @public
+   */
+  publicExtendedAccessTime?: Date | undefined;
 }
 
 /**

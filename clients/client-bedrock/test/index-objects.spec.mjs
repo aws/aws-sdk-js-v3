@@ -579,6 +579,7 @@ import {
   ModelInvocationJobS3OutputDataConfig$,
   ModelInvocationJobStatus,
   ModelInvocationJobSummary$,
+  ModelInvocationType,
   ModelModality,
   ModelStatus,
   Offer$,
@@ -1442,6 +1443,7 @@ assert(typeof ModelCustomization === "object");
 assert(typeof ModelCustomizationJobStatus === "object");
 assert(typeof ModelImportJobStatus === "object");
 assert(typeof ModelInvocationJobStatus === "object");
+assert(typeof ModelInvocationType === "object");
 assert(typeof ModelModality === "object");
 assert(typeof ModelStatus === "object");
 assert(typeof OfferType === "object");

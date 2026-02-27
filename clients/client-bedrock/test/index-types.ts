@@ -347,6 +347,7 @@ export type {
   ModelCustomizationJobStatus,
   ModelImportJobStatus,
   ModelInvocationJobStatus,
+  ModelInvocationType,
   ModelModality,
   ModelStatus,
   OfferType,
