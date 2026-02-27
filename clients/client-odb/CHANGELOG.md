@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
+
+
+### Features
+
+* **client-odb:** ODB Networking Route Management is a feature improvement which allows for implicit creation and deletion of EC2 Routes in the Peer Network Route Table designated by the customer via new optional input. This feature release is combined with Multiple App-VPC functionality for ODB Network Peering(s). ([d372d85](https://github.com/aws/aws-sdk-js-v3/commit/d372d85d42922bd3059659ad94af2a677f0236e2))
+
+
+
+
+
 # [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
 
 **Note:** Version bump only for package @aws-sdk/client-odb

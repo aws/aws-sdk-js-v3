@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
+
+
+### Features
+
+* **client-arc-region-switch:** Post-Recovery Workflows enable customers to maintain comprehensive disaster recovery automation. This allows customer SREs and leadership to have complete recovery orchestration from failover through post-recovery preparation, ensuring Regions remain ready for subsequent recovery events. ([3abb520](https://github.com/aws/aws-sdk-js-v3/commit/3abb5202facd67fd9527cb60eae725fff8961142))
+
+
+
+
+
 # [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-region-switch

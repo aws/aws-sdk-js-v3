@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
+
+
+### Features
+
+* **client-customer-profiles:** This release introduces an optional SourcePriority parameter to the ProfileObjectType APIs, allowing you to control the precedence of object types when ingesting data from multiple sources. Additionally, WebAnalytics and Device have been added as new StandardIdentifier values. ([6166dfb](https://github.com/aws/aws-sdk-js-v3/commit/6166dfb71125b62795dc564894acbf5c7e6242fa))
+
+
+
+
+
 # [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

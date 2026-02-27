@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
+
+
+### Features
+
+* **client-arc-region-switch:** Post-Recovery Workflows enable customers to maintain comprehensive disaster recovery automation. This allows customer SREs and leadership to have complete recovery orchestration from failover through post-recovery preparation, ensuring Regions remain ready for subsequent recovery events. ([3abb520](https://github.com/aws/aws-sdk-js-v3/commit/3abb5202facd67fd9527cb60eae725fff8961142))
+* **client-batch:** This feature allows customers to specify the minimum time (in minutes) that AWS Batch keeps instances running in a compute environment after all jobs on the instance complete ([25f4947](https://github.com/aws/aws-sdk-js-v3/commit/25f4947adc15dcb0d9f212492cbdf142cda71d06))
+* **client-bedrock:** Added four new model lifecycle date fields, startOfLifeTime, endOfLifeTime, legacyTime, and publicExtendedAccessTime. Adds support for using the Converse API with Bedrock Batch inference jobs. ([29b1fe6](https://github.com/aws/aws-sdk-js-v3/commit/29b1fe6db67d7eb796f13ef4389e7bb7fff2473a))
+* **client-cognito-identity-provider:** Cognito is introducing a two-secret rotation model for app clients, enabling seamless credential rotation without downtime. Dedicated APIs support passing in a custom secret. Custom secrets need to be at least 24 characters. This eliminates reconfiguration needs and reduces security risks. ([582a381](https://github.com/aws/aws-sdk-js-v3/commit/582a3813cab7d2451c432ad01c5963de5df5f769))
+* **client-connect:** Deprecate EvaluationReviewMetadata's CreatedBy and CreatedTime, add EvaluationReviewMetadata's RequestedBy and RequestedTime ([df058de](https://github.com/aws/aws-sdk-js-v3/commit/df058ded3268f7f6e6f633e411d9131b9794c0bb))
+* **client-customer-profiles:** This release introduces an optional SourcePriority parameter to the ProfileObjectType APIs, allowing you to control the precedence of object types when ingesting data from multiple sources. Additionally, WebAnalytics and Device have been added as new StandardIdentifier values. ([6166dfb](https://github.com/aws/aws-sdk-js-v3/commit/6166dfb71125b62795dc564894acbf5c7e6242fa))
+* **client-health:** Updates the regex for validating availabilityZone strings used in the describe events filters. ([eded08f](https://github.com/aws/aws-sdk-js-v3/commit/eded08f6fc17241801b04a5718896ef2476578f9))
+* **client-keyspacesstreams:** Added support for Change Data Capture (CDC) streams with Duration DataType. ([59b9432](https://github.com/aws/aws-sdk-js-v3/commit/59b943286312fc05729ea9187490c1558c88d726))
+* **client-odb:** ODB Networking Route Management is a feature improvement which allows for implicit creation and deletion of EC2 Routes in the Peer Network Route Table designated by the customer via new optional input. This feature release is combined with Multiple App-VPC functionality for ODB Network Peering(s). ([d372d85](https://github.com/aws/aws-sdk-js-v3/commit/d372d85d42922bd3059659ad94af2a677f0236e2))
+* **client-ram:** Resource owners can now specify ResourceShareConfiguration request parameter for CreateResourceShare API including RetainSharingOnAccountLeaveOrganization boolean parameter ([3cc0ca9](https://github.com/aws/aws-sdk-js-v3/commit/3cc0ca9da4da4345d13b45d6ca47019cd3ae3968))
+* **client-transcribe-streaming:** AWS Transcribe Streaming now supports specifying a resumption window for the stream through the SessionResumeWindow parameter, allowing customers to reconnect to their streams for a longer duration beyond stream start time. ([56168c5](https://github.com/aws/aws-sdk-js-v3/commit/56168c57a66f87ae5d94db8a9158aeac27e0c2e6))
+
+
+
+
+
 # [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
 
 

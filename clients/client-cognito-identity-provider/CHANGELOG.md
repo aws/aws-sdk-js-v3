@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Cognito is introducing a two-secret rotation model for app clients, enabling seamless credential rotation without downtime. Dedicated APIs support passing in a custom secret. Custom secrets need to be at least 24 characters. This eliminates reconfiguration needs and reduces security risks. ([582a381](https://github.com/aws/aws-sdk-js-v3/commit/582a3813cab7d2451c432ad01c5963de5df5f769))
+
+
+
+
+
 # [3.999.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.998.0...v3.999.0) (2026-02-26)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

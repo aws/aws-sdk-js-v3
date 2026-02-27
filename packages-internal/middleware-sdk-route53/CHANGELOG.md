@@ -10,6 +10,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.8 (2026-02-26)
+### Tests
+* **clients:** enable snapshots for small subset of clients ([#7790](https://github.com/aws/aws-sdk-js-v3/issues/7790)) ([822c995](https://github.com/aws/aws-sdk-js-v3/commit/822c995d9d88decafc6c478cad0e42d41ed62b4b))
+
+
+
 # 3.972.7 (2026-02-25)
 ### Chores
 * **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))

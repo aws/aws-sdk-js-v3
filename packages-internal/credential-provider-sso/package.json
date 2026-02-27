@@ -28,7 +28,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.15",
     "@aws-sdk/nested-clients": "workspace:^3.996.3",
-    "@aws-sdk/token-providers": "workspace:3.999.0",
+    "@aws-sdk/token-providers": "workspace:3.1000.0",
     "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/property-provider": "^4.2.10",
     "@smithy/shared-ini-file-loader": "^4.4.5",
