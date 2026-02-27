@@ -1,17 +1,21 @@
 import { readFile } from "node:fs/promises";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
 
 vi.mock("node:fs/promises");
+vi.mock("./getSanitizedTypeScriptVersion");
 vi.mock("./getTypeScriptPackageJsonPath");
 
 describe("getTypeScriptUserAgentPair", () => {
-  const mockTscVersion = "5.9.3";
+  const mockTscVersion = "5.9.3+build123";
+  const mockSanitizedVersion = "5.9.3";
   const mockPackageJsonPath = "/mock/node_modules/typescript/package.json";
 
   beforeEach(() => {
     vi.mocked(getTypeScriptPackageJsonPath).mockReturnValue(mockPackageJsonPath);
+    vi.mocked(getSanitizedTypeScriptVersion).mockReturnValue(mockSanitizedVersion);
   });
 
   afterEach(() => {
@@ -27,30 +31,20 @@ describe("getTypeScriptUserAgentPair", () => {
 
     it("returns version", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockTscVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
     });
 
     it("returns cached version on subsequent calls", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
 
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockTscVersion]);
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockTscVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
 
       expect(readFile).toHaveBeenCalledTimes(1);
     });
 
-    it("returns cached version on subsequent calls even if it's an empty string", async () => {
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: "" }));
-
-      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", ""]);
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", ""]);
-
-      expect(readFile).toHaveBeenCalledTimes(1);
-    });
-
-    it("returns cached version on subsequent calls if version is not defined", async () => {
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ name: "blah" }));
+    it("returns undefined when getSanitizedTypeScriptVersion returns undefined", async () => {
+      vi.mocked(getSanitizedTypeScriptVersion).mockReturnValue(undefined);
 
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
