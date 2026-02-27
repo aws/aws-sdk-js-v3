@@ -401,6 +401,7 @@ const _pNC = "peerNetworkCidrs";
 const _pNCTBA = "peerNetworkCidrsToBeAdded";
 const _pNCTBR = "peerNetworkCidrsToBeRemoved";
 const _pNI = "peerNetworkId";
+const _pNRTI = "peerNetworkRouteTableIds";
 const _pP = "percentProgress";
 const _pS = "patchingStatus";
 const _qC = "quotaCode";
@@ -654,8 +655,8 @@ export var CreateOdbNetworkOutput$: StaticStructureSchema = [3, n0, _CONO,
 ];
 export var CreateOdbPeeringConnectionInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oNI, _pNI, _dN, _pNCTBA, _cT, _t],
-  [0, 0, 0, 64 | 0, [0, 4], 128 | 0], 2
+  [_oNI, _pNI, _dN, _pNCTBA, _pNRTI, _cT, _t],
+  [0, 0, 0, 64 | 0, 64 | 0, [0, 4], 128 | 0], 2
 ];
 export var CreateOdbPeeringConnectionOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
@@ -1236,6 +1237,7 @@ var OdbPeeringConnectionList: StaticListSchema = [1, n0, _OPCL,
   0, () => OdbPeeringConnectionSummary$
 ];
 var PeeredCidrList = 64 | 0;
+var PeerNetworkRouteTableIdList = 64 | 0;
 var SensitiveStringList: StaticListSchema = [1, n0, _SSL,
   0, [() => SensitiveString,
     0]

@@ -43,6 +43,9 @@ export interface CreateOdbPeeringConnectionCommandOutput extends CreateOdbPeerin
  *   peerNetworkCidrsToBeAdded: [ // PeeredCidrList
  *     "STRING_VALUE",
  *   ],
+ *   peerNetworkRouteTableIds: [ // PeerNetworkRouteTableIdList
+ *     "STRING_VALUE",
+ *   ],
  *   clientToken: "STRING_VALUE",
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",

@@ -3335,6 +3335,12 @@ export interface CreateOdbPeeringConnectionInput {
   peerNetworkCidrsToBeAdded?: string[] | undefined;
 
   /**
+   * <p>The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.</p>
+   * @public
+   */
+  peerNetworkRouteTableIds?: string[] | undefined;
+
+  /**
    * <p>The client token for the ODB peering connection request.</p> <p>Constraints:</p> <ul> <li> <p>Must be unique for each request.</p> </li> </ul>
    * @public
    */
