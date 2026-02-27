@@ -165,6 +165,7 @@ export type {
   ComputeEnvironmentOrder,
   ComputeResource,
   ComputeResourceUpdate,
+  ComputeScalingPolicy,
   ConsumableResourceProperties,
   ConsumableResourceRequirement,
   ConsumableResourceSummary,

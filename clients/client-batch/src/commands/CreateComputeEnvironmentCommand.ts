@@ -113,6 +113,9 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *         imageKubernetesVersion: "STRING_VALUE",
  *       },
  *     ],
+ *     scalingPolicy: { // ComputeScalingPolicy
+ *       minScaleDownDelayMinutes: Number("int"),
+ *     },
  *   },
  *   serviceRole: "STRING_VALUE",
  *   tags: { // TagrisTagsMap

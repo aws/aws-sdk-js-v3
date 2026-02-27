@@ -613,6 +613,36 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * <p>An object that represents a scaling policy for a compute environment.</p>
+ * @public
+ */
+export interface ComputeScalingPolicy {
+  /**
+   * <p>The minimum time (in minutes) that Batch keeps instances running in the compute environment
+   *    after their jobs complete. For each instance, the delay period begins when the last job finishes.
+   *    If no new jobs are placed on the instance during this delay, Batch terminates the instance once
+   *    the delay expires.</p>
+   *          <p>Valid Range: Minimum value of 20. Maximum value of 10080. Use 0 to unset and disable the scale down delay.</p>
+   *          <note>
+   *             <p>The scale down delay does not apply to:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Instances being replaced during infrastructure updates</p>
+   *                </li>
+   *                <li>
+   *                   <p>Newly launched instances that have not yet run any jobs</p>
+   *                </li>
+   *                <li>
+   *                   <p>Spot instances reclaimed due to interruption</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  minScaleDownDelayMinutes?: number | undefined;
+}
+
+/**
  * <p>An object that represents an Batch compute resource. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in
  *    the <i>Batch User Guide</i>.</p>
  * @public
@@ -940,6 +970,15 @@ export interface ComputeResource {
    * @public
    */
   ec2Configuration?: Ec2Configuration[] | undefined;
+
+  /**
+   * <p>The scaling policy configuration for the compute environment.</p>
+   *          <note>
+   *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
+   *          </note>
+   * @public
+   */
+  scalingPolicy?: ComputeScalingPolicy | undefined;
 }
 
 /**
@@ -8796,6 +8835,15 @@ export interface ComputeResourceUpdate {
    * @public
    */
   imageId?: string | undefined;
+
+  /**
+   * <p>The scaling policy configuration for the compute environment.</p>
+   *          <note>
+   *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
+   *          </note>
+   * @public
+   */
+  scalingPolicy?: ComputeScalingPolicy | undefined;
 }
 
 /**

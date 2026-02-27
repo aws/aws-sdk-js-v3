@@ -25,6 +25,7 @@ import {
   ComputeEnvironmentOrder$,
   ComputeResource$,
   ComputeResourceUpdate$,
+  ComputeScalingPolicy$,
   ConsumableResourceProperties$,
   ConsumableResourceRequirement$,
   ConsumableResourceSummary$,
@@ -418,6 +419,7 @@ assert(typeof ComputeEnvironmentDetail$ === "object");
 assert(typeof ComputeEnvironmentOrder$ === "object");
 assert(typeof ComputeResource$ === "object");
 assert(typeof ComputeResourceUpdate$ === "object");
+assert(typeof ComputeScalingPolicy$ === "object");
 assert(typeof ConsumableResourceProperties$ === "object");
 assert(typeof ConsumableResourceRequirement$ === "object");
 assert(typeof ConsumableResourceSummary$ === "object");

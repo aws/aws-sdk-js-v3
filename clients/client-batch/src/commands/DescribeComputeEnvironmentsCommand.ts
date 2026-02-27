@@ -110,6 +110,9 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //             imageKubernetesVersion: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         scalingPolicy: { // ComputeScalingPolicy
+ * //           minScaleDownDelayMinutes: Number("int"),
+ * //         },
  * //       },
  * //       serviceRole: "STRING_VALUE",
  * //       updatePolicy: { // UpdatePolicy

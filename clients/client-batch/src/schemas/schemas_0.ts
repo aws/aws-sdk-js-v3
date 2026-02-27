@@ -39,9 +39,10 @@ const _CS = "ContainerSummary";
 const _CSE = "CreateServiceEnvironment";
 const _CSER = "CreateServiceEnvironmentRequest";
 const _CSERr = "CreateServiceEnvironmentResponse";
-const _CSP = "CreateSchedulingPolicy";
+const _CSP = "ComputeScalingPolicy";
 const _CSPR = "CreateSchedulingPolicyRequest";
 const _CSPRr = "CreateSchedulingPolicyResponse";
+const _CSPr = "CreateSchedulingPolicy";
 const _D = "Device";
 const _DCE = "DeleteComputeEnvironment";
 const _DCER = "DeleteComputeEnvironmentRequest";
@@ -450,6 +451,7 @@ const _mP = "mountPoints";
 const _mPo = "mountPath";
 const _mR = "maxResults";
 const _mS = "maxSwap";
+const _mSDDM = "minScaleDownDelayMinutes";
 const _mTS = "maxTimeSeconds";
 const _me = "memory";
 const _med = "medium";
@@ -534,11 +536,12 @@ const _sLo = "softLimit";
 const _sMS = "sharedMemorySize";
 const _sN = "secretName";
 const _sO = "secretOptions";
-const _sP = "schedulingPolicies";
+const _sP = "scalingPolicy";
 const _sPA = "schedulingPolicyArn";
 const _sPN = "shareProcessNamespace";
 const _sPO = "schedulingPriorityOverride";
-const _sPc = "schedulingPriority";
+const _sPc = "schedulingPolicies";
+const _sPch = "schedulingPriority";
 const _sPo = "sourcePath";
 const _sPu = "subPath";
 const _sR = "statusReason";
@@ -691,13 +694,18 @@ export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var ComputeResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ty, _mCa, _su, _aS, _mCi, _dC, _iT, _iI, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc],
-  [0, 1, 64 | 0, 0, 1, 1, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList], 3
+  [_ty, _mCa, _su, _aS, _mCi, _dC, _iT, _iI, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP],
+  [0, 1, 64 | 0, 0, 1, 1, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$], 3
 ];
 export var ComputeResourceUpdate$: StaticStructureSchema = [3, n0, _CRU,
   0,
-  [_mCi, _mCa, _dC, _su, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI],
-  [1, 1, 1, 64 | 0, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, 2, 0, 0]
+  [_mCi, _mCa, _dC, _su, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI, _sP],
+  [1, 1, 1, 64 | 0, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, 2, 0, 0, () => ComputeScalingPolicy$]
+];
+export var ComputeScalingPolicy$: StaticStructureSchema = [3, n0, _CSP,
+  0,
+  [_mSDDM],
+  [1]
 ];
 export var ConsumableResourceProperties$: StaticStructureSchema = [3, n0, _CRP,
   0,
@@ -901,7 +909,7 @@ export var DescribeSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeSchedulingPoliciesResponse$: StaticStructureSchema = [3, n0, _DSPResc,
   0,
-  [_sP],
+  [_sPc],
   [() => SchedulingPolicyDetailList]
 ];
 export var DescribeServiceEnvironmentsRequest$: StaticStructureSchema = [3, n0, _DSERes,
@@ -921,7 +929,7 @@ export var DescribeServiceJobRequest$: StaticStructureSchema = [3, n0, _DSJR,
 ];
 export var DescribeServiceJobResponse$: StaticStructureSchema = [3, n0, _DSJRe,
   0,
-  [_jI, _jN, _jQ, _sJT, _sA, _sta, _at, _cUa, _cA, _iTs, _jA, _lA, _rS, _sAc, _sPc, _sRP, _sI, _sR, _sAt, _t, _tC],
+  [_jI, _jN, _jQ, _sJT, _sA, _sta, _at, _cUa, _cA, _iTs, _jA, _lA, _rS, _sAc, _sPch, _sRP, _sI, _sR, _sAt, _t, _tC],
   [0, 0, 0, 0, 1, 0, () => ServiceJobAttemptDetails, () => ServiceJobCapacityUsageDetailList, 1, 2, 0, () => LatestServiceJobAttempt$, () => ServiceJobRetryStrategy$, 1, 1, 0, 0, 0, 1, 128 | 0, () => ServiceJobTimeout$], 6
 ];
 export var Device$: StaticStructureSchema = [3, n0, _D,
@@ -1156,7 +1164,7 @@ export var JobCapacityUsageSummary$: StaticStructureSchema = [3, n0, _JCUS,
 ];
 export var JobDefinition$: StaticStructureSchema = [3, n0, _JD,
   0,
-  [_jDN, _jDA, _rev, _ty, _sta, _sPc, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pC, _eP, _ePk, _cOT, _cRP],
+  [_jDN, _jDA, _rev, _ty, _sta, _sPch, _par, _rS, _cPo, _ti, _nP, _t, _pT, _pC, _eP, _ePk, _cOT, _cRP],
   [0, 0, 1, 0, 0, 1, 128 | 0, () => RetryStrategy$, () => ContainerProperties$, () => JobTimeout$, () => NodeProperties$, 128 | 0, 2, 64 | 0, () => EcsProperties$, () => EksProperties$, 0, () => ConsumableResourceProperties$], 4
 ];
 export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
@@ -1166,7 +1174,7 @@ export var JobDependency$: StaticStructureSchema = [3, n0, _JDo,
 ];
 export var JobDetail$: StaticStructureSchema = [3, n0, _JDob,
   0,
-  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPc, _at, _sR, _cA, _rS, _sAt, _dO, _par, _co, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
+  [_jN, _jI, _jQ, _sta, _sA, _jD, _jA, _sI, _sPch, _at, _sR, _cA, _rS, _sAt, _dO, _par, _co, _nD, _nP, _aP, _ti, _t, _pT, _pC, _ePk, _eA, _eP, _iCs, _iTs, _cRP],
   [0, 0, 0, 0, 1, 0, 0, 0, 1, () => AttemptDetails, 0, 1, () => RetryStrategy$, 1, () => JobDependencyList, 128 | 0, () => ContainerDetail$, () => NodeDetails$, () => NodeProperties$, () => ArrayPropertiesDetail$, () => JobTimeout$, 128 | 0, 2, 64 | 0, () => EksPropertiesDetail$, () => EksAttemptDetails, () => EcsPropertiesDetail$, 2, 2, () => ConsumableResourceProperties$], 6
 ];
 export var JobQueueDetail$: StaticStructureSchema = [3, n0, _JQD,
@@ -1261,7 +1269,7 @@ export var ListSchedulingPoliciesRequest$: StaticStructureSchema = [3, n0, _LSPR
 ];
 export var ListSchedulingPoliciesResponse$: StaticStructureSchema = [3, n0, _LSPRi,
   0,
-  [_sP, _nT],
+  [_sPc, _nT],
   [() => SchedulingPolicyListingDetailList, 0]
 ];
 export var ListServiceJobsRequest$: StaticStructureSchema = [3, n0, _LSJR,
@@ -1346,7 +1354,7 @@ export var QueueSnapshotUtilizationDetail$: StaticStructureSchema = [3, n0, _QSU
 ];
 export var RegisterJobDefinitionRequest$: StaticStructureSchema = [3, n0, _RJDR,
   0,
-  [_jDN, _ty, _par, _sPc, _cPo, _nP, _rS, _pT, _ti, _t, _pC, _ePk, _eP, _cRP],
+  [_jDN, _ty, _par, _sPch, _cPo, _nP, _rS, _pT, _ti, _t, _pC, _ePk, _eP, _cRP],
   [0, 0, 128 | 0, 1, () => ContainerProperties$, () => NodeProperties$, () => RetryStrategy$, 2, () => JobTimeout$, 128 | 0, 64 | 0, () => EksProperties$, () => EcsProperties$, () => ConsumableResourceProperties$], 2
 ];
 export var RegisterJobDefinitionResponse$: StaticStructureSchema = [3, n0, _RJDRe,
@@ -1456,7 +1464,7 @@ export var SubmitJobResponse$: StaticStructureSchema = [3, n0, _SJRu,
 ];
 export var SubmitServiceJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
-  [_jN, _jQ, _sRP, _sJT, _rS, _sPc, _sI, _tC, _t, _cT],
+  [_jN, _jQ, _sRP, _sJT, _rS, _sPch, _sI, _tC, _t, _cT],
   [0, 0, 0, 0, () => ServiceJobRetryStrategy$, 1, 0, () => ServiceJobTimeout$, 128 | 0, [0, 4]], 4
 ];
 export var SubmitServiceJobResponse$: StaticStructureSchema = [3, n0, _SSJRu,
@@ -1814,7 +1822,7 @@ export var CreateConsumableResource$: StaticOperationSchema = [9, n0, _CCR,
 export var CreateJobQueue$: StaticOperationSchema = [9, n0, _CJQ,
   { [_ht]: ["POST", "/v1/createjobqueue", 200] }, () => CreateJobQueueRequest$, () => CreateJobQueueResponse$
 ];
-export var CreateSchedulingPolicy$: StaticOperationSchema = [9, n0, _CSP,
+export var CreateSchedulingPolicy$: StaticOperationSchema = [9, n0, _CSPr,
   { [_ht]: ["POST", "/v1/createschedulingpolicy", 200] }, () => CreateSchedulingPolicyRequest$, () => CreateSchedulingPolicyResponse$
 ];
 export var CreateServiceEnvironment$: StaticOperationSchema = [9, n0, _CSE,

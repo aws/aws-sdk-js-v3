@@ -88,6 +88,9 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     updateToLatestImageVersion: true || false,
  *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT",
  *     imageId: "STRING_VALUE",
+ *     scalingPolicy: { // ComputeScalingPolicy
+ *       minScaleDownDelayMinutes: Number("int"),
+ *     },
  *   },
  *   serviceRole: "STRING_VALUE",
  *   updatePolicy: { // UpdatePolicy
