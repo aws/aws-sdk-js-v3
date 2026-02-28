@@ -95,9 +95,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         const out = [] as any[];
         const sparse = !!ns.getMergedTraits().sparse;
         for (const item of value) {
-          if (sparse || item != null) {
-            out.push(this._read(listMember, item));
+          if (item == null && !sparse) {
+            throw new Error(`Encountered null value in non-sparse list. `);
           }
+          out.push(this._read(listMember, item));
         }
         return out;
       }
@@ -106,9 +107,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         const out = {} as any;
         const sparse = !!ns.getMergedTraits().sparse;
         for (const [_k, _v] of Object.entries(value)) {
-          if (sparse || _v != null) {
-            out[_k] = this._read(mapMember, _v);
+          if (_v == null && !sparse) {
+            throw new Error(`Encountered null value in non-sparse map. `);
           }
+          out[_k] = this._read(mapMember, _v);
         }
         return out;
       }
