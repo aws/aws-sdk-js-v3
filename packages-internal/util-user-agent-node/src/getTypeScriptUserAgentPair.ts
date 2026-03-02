@@ -2,7 +2,7 @@ import type { UserAgentPair } from "@smithy/types";
 import { readFile } from "node:fs/promises";
 
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
-import { getTypeScriptPackageJsonPath } from "./getTypeScriptPackageJsonPath";
+import { getTypeScriptPackageJsonPaths } from "./getTypeScriptPackageJsonPaths";
 
 let tscVersion: string | null | undefined;
 
@@ -18,18 +18,22 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
     return ["md/tsc", tscVersion];
   }
 
-  try {
-    const packageJson = await readFile(getTypeScriptPackageJsonPath(__dirname), "utf-8");
-    const { version } = JSON.parse(packageJson);
-    const sanitizedVersion = getSanitizedTypeScriptVersion(version);
-    if (typeof sanitizedVersion !== "string") {
-      tscVersion = null;
-      return undefined;
+  for (const typescriptPackageJsonPath of getTypeScriptPackageJsonPaths(__dirname)) {
+    try {
+      const packageJson = await readFile(typescriptPackageJsonPath, "utf-8");
+      const { version } = JSON.parse(packageJson);
+      const sanitizedVersion = getSanitizedTypeScriptVersion(version);
+      if (typeof sanitizedVersion !== "string") {
+        continue;
+      }
+      tscVersion = sanitizedVersion;
+      return ["md/tsc", tscVersion];
+    } catch {
+      // Ignore error in case of failure in file read or JSON parsing.
     }
-    tscVersion = sanitizedVersion;
-    return ["md/tsc", tscVersion];
-  } catch {
-    // Ignore error in case of failure in file read or JSON parsing.
-    tscVersion = null;
   }
+
+  // If we reach here, we couldn't find the TypeScript version, so we set tscVersion to null
+  tscVersion = null;
+  return undefined;
 };

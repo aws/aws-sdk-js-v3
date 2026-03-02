@@ -1,15 +1,21 @@
 import { join, normalize, sep } from "node:path";
 
+const typeScriptPackageJsonPath = join("node_modules", "typescript", "package.json");
+
 /**
- * Returns the path to the TypeScript package.json file relative to the given directory.
+ * Returns the paths to the TypeScript package.json file relative to the given directory.
  *
  * @param dirname - The directory path to resolve from.
  * @returns The path to the TypeScript package.json file.
  *
  * @internal
  */
-export const getTypeScriptPackageJsonPath = (dirname = ""): string => {
-  let nodeModulesPath: string;
+export const getTypeScriptPackageJsonPaths = (dirname?: string): string[] => {
+  const typescriptPackageJsonPaths = [join(process.cwd(), typeScriptPackageJsonPath)];
+
+  if (!dirname) return typescriptPackageJsonPaths;
+
+  let nodeModulesParentDirPath: string;
 
   // Normalize the path to handle mixed separators
   const normalizedPath = normalize(dirname);
@@ -22,11 +28,13 @@ export const getTypeScriptPackageJsonPath = (dirname = ""): string => {
 
   if (nodeModulesIndex !== -1) {
     // If we are inside node_modules, we use the first occurrence of 'node_modules'
-    nodeModulesPath = parts.slice(0, nodeModulesIndex).join(sep);
+    nodeModulesParentDirPath = parts.slice(0, nodeModulesIndex).join(sep);
   } else {
     // If we are not inside node_modules, we can use the current directory.
-    nodeModulesPath = dirname;
+    nodeModulesParentDirPath = dirname;
   }
 
-  return join(nodeModulesPath, "node_modules", "typescript", "package.json");
+  typescriptPackageJsonPaths.push(join(nodeModulesParentDirPath, typeScriptPackageJsonPath));
+
+  return typescriptPackageJsonPaths;
 };
