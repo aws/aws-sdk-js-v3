@@ -29,7 +29,7 @@ test-codegen:
 	yarn generate-clients -p
 	node ./scripts/restore-pkg-version.js ./tmp/pkg.json.bak ./private/aws-protocoltests-restjson-schema/package.json
 	cp ./tmp/changelog.bak ./private/aws-protocoltests-restjson-schema/CHANGELOG.md
-	git diff --exit-code ./private
+	git diff --exit-code ./
 
 # typecheck for test code.
 test-types:
