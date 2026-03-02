@@ -1,6 +1,6 @@
 import { join, normalize, sep } from "node:path";
 
-const typeScriptPackageJsonPath = join("node_modules", "typescript", "package.json");
+const typescriptPackageJsonPath = join("node_modules", "typescript", "package.json");
 
 /**
  * Returns the paths to the TypeScript package.json file relative to the given directory.
@@ -12,14 +12,14 @@ const typeScriptPackageJsonPath = join("node_modules", "typescript", "package.js
  */
 export const getTypeScriptPackageJsonPaths = (dirname?: string): string[] => {
   const paths = new Set<string>();
-  paths.add(join(process.cwd(), typeScriptPackageJsonPath));
+  paths.add(join(process.cwd(), typescriptPackageJsonPath));
 
   if (dirname) {
     const normalizedPath = normalize(dirname);
     const parts = normalizedPath.split(sep);
     const nodeModulesIndex = parts.indexOf("node_modules");
     const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : dirname;
-    paths.add(join(parentDir, typeScriptPackageJsonPath));
+    paths.add(join(parentDir, typescriptPackageJsonPath));
   }
 
   return [...paths];
