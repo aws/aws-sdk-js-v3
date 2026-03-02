@@ -42,7 +42,7 @@ describe(getTypeScriptPackageJsonPaths.name, () => {
     [["foo", "."].join(sep), "foo"],
     [["foo", "..", "bar"].join(sep), "bar"],
     [["foo", ".", "bar"].join(sep), join("foo", "bar")],
-  ])("normalizes mixed path separators for '%s'", (dirname, nodeModulesPath) => {
+  ])("normalizes dot segments in paths for '%s'", (dirname, nodeModulesPath) => {
     expect(getTypeScriptPackageJsonPaths(dirname)).toEqual([
       cwdPath,
       join(nodeModulesPath, "node_modules", "typescript", "package.json"),
