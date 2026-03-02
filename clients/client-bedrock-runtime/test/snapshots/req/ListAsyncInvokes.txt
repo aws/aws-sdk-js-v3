@@ -2,7 +2,7 @@ GET https://bedrock-runtime.us-east-1.amazonaws.com
 /async-invoke?submitTimeAfter=2000-01-01T04:59:59.999Z&submitTimeBefore=2000-01-01T04:59:59.999Z&statusEquals=__statusEquals__&maxResults=0&nextToken=__nextToken__&sortBy=__sortBy__&sortOrder=__sortOrder__
 
 x-amz-user-agent: aws-sdk-js/3.___._
-user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/bedrock-runtime#_.__ m/E,e
 host: bedrock-runtime.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
