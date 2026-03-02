@@ -10,6 +10,10 @@ describe(getTypeScriptPackageJsonPaths.name, () => {
     expect(getTypeScriptPackageJsonPaths()).toEqual([cwdPath]);
   });
 
+  it("returns single path when dirname resolves to same as cwd", () => {
+    expect(getTypeScriptPackageJsonPaths(process.cwd())).toEqual([cwdPath]);
+  });
+
   it("returns path relative to dirname when not inside node_modules", () => {
     const dirname = join("some", "path");
     expect(getTypeScriptPackageJsonPaths(dirname)).toEqual([

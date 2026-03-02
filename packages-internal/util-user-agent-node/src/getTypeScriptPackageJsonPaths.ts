@@ -6,35 +6,21 @@ const typeScriptPackageJsonPath = join("node_modules", "typescript", "package.js
  * Returns the paths to the TypeScript package.json file relative to the given directory.
  *
  * @param dirname - The directory path to resolve from.
- * @returns The path to the TypeScript package.json file.
+ * @returns An array of unique paths to the TypeScript package.json file.
  *
  * @internal
  */
 export const getTypeScriptPackageJsonPaths = (dirname?: string): string[] => {
-  const typescriptPackageJsonPaths = [join(process.cwd(), typeScriptPackageJsonPath)];
+  const paths = new Set<string>();
+  paths.add(join(process.cwd(), typeScriptPackageJsonPath));
 
-  if (!dirname) return typescriptPackageJsonPaths;
-
-  let nodeModulesParentDirPath: string;
-
-  // Normalize the path to handle mixed separators
-  const normalizedPath = normalize(dirname);
-
-  // Split into parts
-  const parts = normalizedPath.split(sep);
-
-  // Find the index of the first "node_modules" segment
-  const nodeModulesIndex = parts.indexOf("node_modules");
-
-  if (nodeModulesIndex !== -1) {
-    // If we are inside node_modules, we use the first occurrence of 'node_modules'
-    nodeModulesParentDirPath = parts.slice(0, nodeModulesIndex).join(sep);
-  } else {
-    // If we are not inside node_modules, we can use the current directory.
-    nodeModulesParentDirPath = dirname;
+  if (dirname) {
+    const normalizedPath = normalize(dirname);
+    const parts = normalizedPath.split(sep);
+    const nodeModulesIndex = parts.indexOf("node_modules");
+    const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : dirname;
+    paths.add(join(parentDir, typeScriptPackageJsonPath));
   }
 
-  typescriptPackageJsonPaths.push(join(nodeModulesParentDirPath, typeScriptPackageJsonPath));
-
-  return typescriptPackageJsonPaths;
+  return [...paths];
 };
