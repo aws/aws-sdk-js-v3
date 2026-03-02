@@ -18,18 +18,15 @@ export const getTypeScriptPackageJsonPaths = (dirname?: string): string[] => {
     return [cwdPath];
   }
 
-  const paths = [];
-
   const normalizedPath = normalize(dirname);
   const parts = normalizedPath.split(sep);
   const nodeModulesIndex = parts.indexOf("node_modules");
   const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : dirname;
   const parentDirPath = join(parentDir, typescriptPackageJsonPath);
-  paths.push(parentDirPath);
 
-  if (cwdPath !== parentDirPath) {
-    paths.push(cwdPath);
+  if (cwdPath === parentDirPath) {
+    return [cwdPath];
   }
 
-  return paths;
+  return [parentDirPath, cwdPath];
 };
