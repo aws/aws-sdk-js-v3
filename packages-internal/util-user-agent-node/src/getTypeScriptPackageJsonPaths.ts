@@ -12,16 +12,24 @@ const typescriptPackageJsonPath = join("node_modules", "typescript", "package.js
  * @internal
  */
 export const getTypeScriptPackageJsonPaths = (dirname?: string): string[] => {
-  const paths = new Set<string>();
-  paths.add(join(process.cwd(), typescriptPackageJsonPath));
+  const cwdPath = join(process.cwd(), typescriptPackageJsonPath);
 
-  if (dirname) {
-    const normalizedPath = normalize(dirname);
-    const parts = normalizedPath.split(sep);
-    const nodeModulesIndex = parts.indexOf("node_modules");
-    const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : dirname;
-    paths.add(join(parentDir, typescriptPackageJsonPath));
+  if (!dirname) {
+    return [cwdPath];
   }
 
-  return [...paths];
+  const paths = [];
+
+  const normalizedPath = normalize(dirname);
+  const parts = normalizedPath.split(sep);
+  const nodeModulesIndex = parts.indexOf("node_modules");
+  const parentDir = nodeModulesIndex !== -1 ? parts.slice(0, nodeModulesIndex).join(sep) : dirname;
+  const parentDirPath = join(parentDir, typescriptPackageJsonPath);
+  paths.push(parentDirPath);
+
+  if (cwdPath !== parentDirPath) {
+    paths.push(cwdPath);
+  }
+
+  return paths;
 };
