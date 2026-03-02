@@ -3,10 +3,11 @@ import { join, normalize, sep } from "node:path";
 const typescriptPackageJsonPath = join("node_modules", "typescript", "package.json");
 
 /**
- * Returns the paths to the TypeScript package.json file relative to the given directory.
+ * Returns candidate paths to the TypeScript package.json file derived from the current
+ * working directory and, if provided, from the given directory.
  *
- * @param dirname - The directory path to resolve from.
- * @returns An array of unique paths to the TypeScript package.json file.
+ * @param dirname - Optional directory path to derive an additional candidate path from.
+ * @returns An array of unique candidate paths to the TypeScript package.json file.
  *
  * @internal
  */
