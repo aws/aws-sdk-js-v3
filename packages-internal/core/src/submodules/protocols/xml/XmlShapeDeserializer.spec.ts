@@ -40,6 +40,55 @@ describe(XmlShapeDeserializer.name, () => {
     });
   });
 
+  it("ignores sparseness in the deserialization path", async () => {
+    const listMapSchema = [
+      3,
+      "",
+      "Widget",
+      0,
+      ["list", "sparseList", "map", "sparseMap"],
+      [
+        [() => [1, "", "StringList", {}, 0], {}],
+        [() => [1, "", "StringList", { sparse: 1 }, 0], {}],
+        [() => [2, "", "StringMap", {}, 0, 0], {}],
+        [() => [2, "", "StringMap", { sparse: 1 }, 0, 0], {}],
+      ],
+    ];
+
+    const xml = `<Widget xmlns="namespace">
+  <list>
+    <member>a</member>
+    <member>b</member>
+    <member/>
+    <member>c</member>
+  </list>
+  <sparseList>
+    <member>a</member>
+    <member>b</member>
+    <member/>
+    <member>c</member>
+  </sparseList>
+  <map>
+    <entry><key>a</key><value>a</value></entry>
+    <entry><key>b</key><value>b</value></entry>
+    <entry><key>c</key><value/></entry>
+  </map>
+  <sparseMap>
+    <entry><key>a</key><value>a</value></entry>
+    <entry><key>b</key><value>b</value></entry>
+    <entry><key>c</key><value/></entry>
+  </sparseMap>
+</Widget>`;
+
+    const result = await deserializer.read(listMapSchema, xml);
+    expect(result).toEqual({
+      list: ["a", "b", "", "c"],
+      sparseList: ["a", "b", "", "c"],
+      map: { a: "a", b: "b", c: "" },
+      sparseMap: { a: "a", b: "b", c: "" },
+    });
+  });
+
   it("deserializes unknown union members", async () => {
     const xml = `<UnionStruct xmlns="namespace"><union><UK>UV</UK></union></UnionStruct>`;
     {

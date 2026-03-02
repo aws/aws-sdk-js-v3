@@ -19,7 +19,7 @@ describe(JsonShapeDeserializer.name, () => {
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
   });
 
-  it("understands list sparseness", async () => {
+  it("ignores list sparseness in the deserialization path", async () => {
     const json = JSON.stringify({
       list: ["a", "b", null, "c"],
       sparseList: ["a", "b", null, "c"],
@@ -32,7 +32,7 @@ describe(JsonShapeDeserializer.name, () => {
     });
   });
 
-  it("understands map sparseness", async () => {
+  it("ignores map sparseness in the deserialization path, taking server output as-is", async () => {
     const json = JSON.stringify({
       map: {
         a: "a",
