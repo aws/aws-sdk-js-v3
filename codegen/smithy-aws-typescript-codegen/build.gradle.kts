@@ -83,13 +83,12 @@ abstract class SetAwsSdkVersionsTask : DefaultTask() {
         }
     }
 
-    private fun dirToList(dir: DirectoryProperty): List<File> {
-        return dir.asFile
+    private fun dirToList(dir: DirectoryProperty): List<File> =
+        dir.asFile
             .get()
             .listFiles()
             .orEmpty()
             .toMutableList()
-    }
 }
 
 tasks.register<SetAwsSdkVersionsTask>("set-aws-sdk-versions") {
