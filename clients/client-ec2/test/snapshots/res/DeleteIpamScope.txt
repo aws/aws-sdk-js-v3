@@ -1,0 +1,141 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamScopeResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamScopeResult xmlns="https://placeholder.amazonaws.com">
+    <ipamScope>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamScopeId>
+            __IpamScopeId__
+        </ipamScopeId>
+        <ipamScopeArn>
+            __IpamScopeArn__
+        </ipamScopeArn>
+        <ipamArn>
+            __IpamArn__
+        </ipamArn>
+        <ipamRegion>
+            __IpamRegion__
+        </ipamRegion>
+        <ipamScopeType>
+            __IpamScopeType__
+        </ipamScopeType>
+        <isDefault>
+            false
+        </isDefault>
+        <description>
+            __Description__
+        </description>
+        <poolCount>
+            0
+        </poolCount>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <externalAuthorityConfiguration>
+            <type>
+                __Type__
+            </type>
+            <externalResourceIdentifier>
+                __ExternalResourceIdentifier__
+            </externalResourceIdentifier>
+        </externalAuthorityConfiguration>
+    </ipamScope>
+</DeleteIpamScopeResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamScope: {
+    OwnerId: "__OwnerId__",
+    IpamScopeId: "__IpamScopeId__",
+    IpamScopeArn: "__IpamScopeArn__",
+    IpamArn: "__IpamArn__",
+    IpamRegion: "__IpamRegion__",
+    IpamScopeType: "__IpamScopeType__",
+    IsDefault: (boolean) false,
+    Description: "__Description__",
+    PoolCount: (number) 0,
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    ExternalAuthorityConfiguration: {
+      Type: "__Type__",
+      ExternalResourceIdentifier: "__ExternalResourceIdentifier__"
+    }
+  }
+}
+

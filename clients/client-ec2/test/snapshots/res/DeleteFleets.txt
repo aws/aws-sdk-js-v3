@@ -1,0 +1,131 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteFleetsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteFleetsResult xmlns="https://placeholder.amazonaws.com">
+    <successfulFleetDeletionSet>
+        <item>
+            <currentFleetState>
+                __CurrentFleetState__
+            </currentFleetState>
+            <previousFleetState>
+                __PreviousFleetState__
+            </previousFleetState>
+            <fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+        <item>
+            <currentFleetState>
+                __CurrentFleetState__
+            </currentFleetState>
+            <previousFleetState>
+                __PreviousFleetState__
+            </previousFleetState>
+            <fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+        <item>
+            <currentFleetState>
+                __CurrentFleetState__
+            </currentFleetState>
+            <previousFleetState>
+                __PreviousFleetState__
+            </previousFleetState>
+            <fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+    </successfulFleetDeletionSet>
+    <unsuccessfulFleetDeletionSet>
+        <item>
+            <error/>
+<fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+        <item>
+            <error/>
+<fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+        <item>
+            <error/>
+<fleetId>
+                __FleetId__
+            </fleetId>
+        </item>
+    </unsuccessfulFleetDeletionSet>
+</DeleteFleetsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SuccessfulFleetDeletions: [
+    {
+      CurrentFleetState: "__CurrentFleetState__",
+      PreviousFleetState: "__PreviousFleetState__",
+      FleetId: "__FleetId__"
+    },
+    {
+      CurrentFleetState: "__CurrentFleetState__",
+      PreviousFleetState: "__PreviousFleetState__",
+      FleetId: "__FleetId__"
+    },
+    {
+      CurrentFleetState: "__CurrentFleetState__",
+      PreviousFleetState: "__PreviousFleetState__",
+      FleetId: "__FleetId__"
+    }
+  ],
+  UnsuccessfulFleetDeletions: [
+    {
+      Error: {},
+      FleetId: "__FleetId__"
+    },
+    {
+      Error: {},
+      FleetId: "__FleetId__"
+    },
+    {
+      Error: {},
+      FleetId: "__FleetId__"
+    }
+  ]
+}
+

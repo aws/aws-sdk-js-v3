@@ -1,0 +1,162 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ServerSideEncryptionConfiguration xmlns="https://placeholder.amazonaws.com">
+    <Rule>
+        <ApplyServerSideEncryptionByDefault>
+            <SSEAlgorithm>
+                __SSEAlgorithm__
+            </SSEAlgorithm>
+            <KMSMasterKeyID>
+                __KMSMasterKeyID__
+            </KMSMasterKeyID>
+        </ApplyServerSideEncryptionByDefault>
+        <BucketKeyEnabled>
+            false
+        </BucketKeyEnabled>
+        <BlockedEncryptionTypes>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+        </BlockedEncryptionTypes>
+    </Rule>
+    <Rule>
+        <ApplyServerSideEncryptionByDefault>
+            <SSEAlgorithm>
+                __SSEAlgorithm__
+            </SSEAlgorithm>
+            <KMSMasterKeyID>
+                __KMSMasterKeyID__
+            </KMSMasterKeyID>
+        </ApplyServerSideEncryptionByDefault>
+        <BucketKeyEnabled>
+            false
+        </BucketKeyEnabled>
+        <BlockedEncryptionTypes>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+        </BlockedEncryptionTypes>
+    </Rule>
+    <Rule>
+        <ApplyServerSideEncryptionByDefault>
+            <SSEAlgorithm>
+                __SSEAlgorithm__
+            </SSEAlgorithm>
+            <KMSMasterKeyID>
+                __KMSMasterKeyID__
+            </KMSMasterKeyID>
+        </ApplyServerSideEncryptionByDefault>
+        <BucketKeyEnabled>
+            false
+        </BucketKeyEnabled>
+        <BlockedEncryptionTypes>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+            <EncryptionType>
+                __member__
+            </EncryptionType>
+        </BlockedEncryptionTypes>
+    </Rule>
+</ServerSideEncryptionConfiguration>
+
+
+--- [output object] ---
+{
+  ServerSideEncryptionConfiguration: {
+    Rules: [
+      {
+        ApplyServerSideEncryptionByDefault: {
+          SSEAlgorithm: "__SSEAlgorithm__",
+          KMSMasterKeyID: "__KMSMasterKeyID__"
+        },
+        BucketKeyEnabled: (boolean) false,
+        BlockedEncryptionTypes: {
+          EncryptionType: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        ApplyServerSideEncryptionByDefault: {
+          SSEAlgorithm: "__SSEAlgorithm__",
+          KMSMasterKeyID: "__KMSMasterKeyID__"
+        },
+        BucketKeyEnabled: (boolean) false,
+        BlockedEncryptionTypes: {
+          EncryptionType: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        ApplyServerSideEncryptionByDefault: {
+          SSEAlgorithm: "__SSEAlgorithm__",
+          KMSMasterKeyID: "__KMSMasterKeyID__"
+        },
+        BucketKeyEnabled: (boolean) false,
+        BlockedEncryptionTypes: {
+          EncryptionType: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

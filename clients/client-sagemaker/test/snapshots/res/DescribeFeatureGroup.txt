@@ -1,0 +1,330 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "FeatureGroupArn": "__FeatureGroupArn__",
+  "FeatureGroupName": "__FeatureGroupName__",
+  "RecordIdentifierFeatureName": "__RecordIdentifierFeatureName__",
+  "EventTimeFeatureName": "__EventTimeFeatureName__",
+  "FeatureDefinitions": [
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {}
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {}
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {}
+    }
+  ],
+  "CreationTime": 946702799.999,
+  "NextToken": "__NextToken__",
+  "LastModifiedTime": 946702799.999,
+  "OnlineStoreConfig": {},
+  "OfflineStoreConfig": {
+    "S3StorageConfig": {
+      "S3Uri": "__S3Uri__",
+      "KmsKeyId": "__KmsKeyId__",
+      "ResolvedOutputS3Uri": "__ResolvedOutputS3Uri__"
+    },
+    "DisableGlueTableCreation": false,
+    "DataCatalogConfig": {
+      "TableName": "__TableName__",
+      "Catalog": "__Catalog__",
+      "Database": "__Database__"
+    },
+    "TableFormat": "__TableFormat__"
+  },
+  "ThroughputConfig": {
+    "ThroughputMode": "__ThroughputMode__",
+    "ProvisionedReadCapacityUnits": 0,
+    "ProvisionedWriteCapacityUnits": 0
+  },
+  "RoleArn": "__RoleArn__",
+  "FeatureGroupStatus": "__FeatureGroupStatus__",
+  "OfflineStoreStatus": {
+    "Status": "__Status__",
+    "BlockedReason": "__BlockedReason__"
+  },
+  "LastUpdateStatus": {
+    "Status": "__Status__",
+    "FailureReason": "__FailureReason__"
+  },
+  "FailureReason": "__FailureReason__",
+  "Description": "__Description__",
+  "OnlineStoreTotalSizeBytes": 0
+}
+
+
+--- [output object] ---
+{
+  FeatureGroupArn: "__FeatureGroupArn__",
+  FeatureGroupName: "__FeatureGroupName__",
+  RecordIdentifierFeatureName: "__RecordIdentifierFeatureName__",
+  EventTimeFeatureName: "__EventTimeFeatureName__",
+  FeatureDefinitions: [
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {}
+    },
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {}
+    },
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {}
+    }
+  ],
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  NextToken: "__NextToken__",
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  OnlineStoreConfig: {},
+  OfflineStoreConfig: {
+    S3StorageConfig: {
+      S3Uri: "__S3Uri__",
+      KmsKeyId: "__KmsKeyId__",
+      ResolvedOutputS3Uri: "__ResolvedOutputS3Uri__"
+    },
+    DisableGlueTableCreation: (boolean) false,
+    DataCatalogConfig: {
+      TableName: "__TableName__",
+      Catalog: "__Catalog__",
+      Database: "__Database__"
+    },
+    TableFormat: "__TableFormat__"
+  },
+  ThroughputConfig: {
+    ThroughputMode: "__ThroughputMode__",
+    ProvisionedReadCapacityUnits: (number) 0,
+    ProvisionedWriteCapacityUnits: (number) 0
+  },
+  RoleArn: "__RoleArn__",
+  FeatureGroupStatus: "__FeatureGroupStatus__",
+  OfflineStoreStatus: {
+    Status: "__Status__",
+    BlockedReason: "__BlockedReason__"
+  },
+  LastUpdateStatus: {
+    Status: "__Status__",
+    FailureReason: "__FailureReason__"
+  },
+  FailureReason: "__FailureReason__",
+  Description: "__Description__",
+  OnlineStoreTotalSizeBytes: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "FeatureGroupArn": "__FeatureGroupArn__",
+  "FeatureGroupName": "__FeatureGroupName__",
+  "RecordIdentifierFeatureName": "__RecordIdentifierFeatureName__",
+  "EventTimeFeatureName": "__EventTimeFeatureName__",
+  "FeatureDefinitions": [
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    },
+    {
+      "FeatureName": "__FeatureName__",
+      "FeatureType": "__FeatureType__",
+      "CollectionType": "__CollectionType__",
+      "CollectionConfig": {
+        "VectorConfig": {
+          "Dimension": 0
+        }
+      }
+    }
+  ],
+  "CreationTime": 946702799.999,
+  "NextToken": "__NextToken__",
+  "LastModifiedTime": 946702799.999,
+  "OnlineStoreConfig": {
+    "SecurityConfig": {
+      "KmsKeyId": "__KmsKeyId__"
+    },
+    "EnableOnlineStore": false,
+    "TtlDuration": {
+      "Unit": "__Unit__",
+      "Value": 0
+    },
+    "StorageType": "__StorageType__"
+  },
+  "OfflineStoreConfig": {
+    "S3StorageConfig": {
+      "S3Uri": "__S3Uri__",
+      "KmsKeyId": "__KmsKeyId__",
+      "ResolvedOutputS3Uri": "__ResolvedOutputS3Uri__"
+    },
+    "DisableGlueTableCreation": false,
+    "DataCatalogConfig": {
+      "TableName": "__TableName__",
+      "Catalog": "__Catalog__",
+      "Database": "__Database__"
+    },
+    "TableFormat": "__TableFormat__"
+  },
+  "ThroughputConfig": {
+    "ThroughputMode": "__ThroughputMode__",
+    "ProvisionedReadCapacityUnits": 0,
+    "ProvisionedWriteCapacityUnits": 0
+  },
+  "RoleArn": "__RoleArn__",
+  "FeatureGroupStatus": "__FeatureGroupStatus__",
+  "OfflineStoreStatus": {
+    "Status": "__Status__",
+    "BlockedReason": "__BlockedReason__"
+  },
+  "LastUpdateStatus": {
+    "Status": "__Status__",
+    "FailureReason": "__FailureReason__"
+  },
+  "FailureReason": "__FailureReason__",
+  "Description": "__Description__",
+  "OnlineStoreTotalSizeBytes": 0
+}
+
+
+--- [output object] ---
+{
+  FeatureGroupArn: "__FeatureGroupArn__",
+  FeatureGroupName: "__FeatureGroupName__",
+  RecordIdentifierFeatureName: "__RecordIdentifierFeatureName__",
+  EventTimeFeatureName: "__EventTimeFeatureName__",
+  FeatureDefinitions: [
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {
+        VectorConfig: {
+          Dimension: (number) 0
+        }
+      }
+    },
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {
+        VectorConfig: {
+          Dimension: (number) 0
+        }
+      }
+    },
+    {
+      FeatureName: "__FeatureName__",
+      FeatureType: "__FeatureType__",
+      CollectionType: "__CollectionType__",
+      CollectionConfig: {
+        VectorConfig: {
+          Dimension: (number) 0
+        }
+      }
+    }
+  ],
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  NextToken: "__NextToken__",
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  OnlineStoreConfig: {
+    SecurityConfig: {
+      KmsKeyId: "__KmsKeyId__"
+    },
+    EnableOnlineStore: (boolean) false,
+    TtlDuration: {
+      Unit: "__Unit__",
+      Value: (number) 0
+    },
+    StorageType: "__StorageType__"
+  },
+  OfflineStoreConfig: {
+    S3StorageConfig: {
+      S3Uri: "__S3Uri__",
+      KmsKeyId: "__KmsKeyId__",
+      ResolvedOutputS3Uri: "__ResolvedOutputS3Uri__"
+    },
+    DisableGlueTableCreation: (boolean) false,
+    DataCatalogConfig: {
+      TableName: "__TableName__",
+      Catalog: "__Catalog__",
+      Database: "__Database__"
+    },
+    TableFormat: "__TableFormat__"
+  },
+  ThroughputConfig: {
+    ThroughputMode: "__ThroughputMode__",
+    ProvisionedReadCapacityUnits: (number) 0,
+    ProvisionedWriteCapacityUnits: (number) 0
+  },
+  RoleArn: "__RoleArn__",
+  FeatureGroupStatus: "__FeatureGroupStatus__",
+  OfflineStoreStatus: {
+    Status: "__Status__",
+    BlockedReason: "__BlockedReason__"
+  },
+  LastUpdateStatus: {
+    Status: "__Status__",
+    FailureReason: "__FailureReason__"
+  },
+  FailureReason: "__FailureReason__",
+  Description: "__Description__",
+  OnlineStoreTotalSizeBytes: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "events": [
+    {
+      "logStreamName": "__logStreamName__",
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0,
+      "eventId": "__eventId__"
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0,
+      "eventId": "__eventId__"
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0,
+      "eventId": "__eventId__"
+    }
+  ],
+  "searchedLogStreams": [
+    {
+      "logStreamName": "__logStreamName__",
+      "searchedCompletely": false
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "searchedCompletely": false
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "searchedCompletely": false
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  events: [
+    {
+      logStreamName: "__logStreamName__",
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0,
+      eventId: "__eventId__"
+    },
+    {
+      logStreamName: "__logStreamName__",
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0,
+      eventId: "__eventId__"
+    },
+    {
+      logStreamName: "__logStreamName__",
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0,
+      eventId: "__eventId__"
+    }
+  ],
+  searchedLogStreams: [
+    {
+      logStreamName: "__logStreamName__",
+      searchedCompletely: (boolean) false
+    },
+    {
+      logStreamName: "__logStreamName__",
+      searchedCompletely: (boolean) false
+    },
+    {
+      logStreamName: "__logStreamName__",
+      searchedCompletely: (boolean) false
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

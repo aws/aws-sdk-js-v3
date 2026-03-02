@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Name": "__Name__",
+  "AlarmMuteRuleArn": "__AlarmMuteRuleArn__",
+  "Description": "__Description__",
+  "Rule": {
+    "Schedule": {
+      "Expression": "__Expression__",
+      "Duration": "__Duration__",
+      "Timezone": "__Timezone__"
+    }
+  },
+  "MuteTargets": {
+    "AlarmNames": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "StartDate": 946702799.999,
+  "ExpireDate": 946702799.999,
+  "Status": "__Status__",
+  "LastUpdatedTimestamp": 946702799.999,
+  "MuteType": "__MuteType__"
+}
+
+
+--- [output object] ---
+{
+  Name: "__Name__",
+  AlarmMuteRuleArn: "__AlarmMuteRuleArn__",
+  Description: "__Description__",
+  Rule: {
+    Schedule: {
+      Expression: "__Expression__",
+      Duration: "__Duration__",
+      Timezone: "__Timezone__"
+    }
+  },
+  MuteTargets: {
+    AlarmNames: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ExpireDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Status: "__Status__",
+  LastUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  MuteType: "__MuteType__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

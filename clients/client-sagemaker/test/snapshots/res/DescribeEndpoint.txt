@@ -1,0 +1,3216 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EndpointName": "__EndpointName__",
+  "EndpointArn": "__EndpointArn__",
+  "EndpointStatus": "__EndpointStatus__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "EndpointConfigName": "__EndpointConfigName__",
+  "ProductionVariants": [
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    }
+  ],
+  "DataCaptureConfig": {
+    "EnableCapture": false,
+    "CaptureStatus": "__CaptureStatus__",
+    "CurrentSamplingPercentage": 0,
+    "DestinationS3Uri": "__DestinationS3Uri__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "FailureReason": "__FailureReason__",
+  "LastDeploymentConfig": {},
+  "AsyncInferenceConfig": {
+    "OutputConfig": {},
+    "ClientConfig": {}
+  },
+  "PendingDeploymentSummary": {
+    "EndpointConfigName": "__EndpointConfigName__",
+    "ProductionVariants": [
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      }
+    ],
+    "StartTime": 946702799.999,
+    "ShadowProductionVariants": [
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {},
+          {},
+          {}
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {},
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      }
+    ]
+  },
+  "ExplainerConfig": {},
+  "ShadowProductionVariants": [
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {},
+        {},
+        {}
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {},
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {}
+    }
+  ],
+  "MetricsConfig": {}
+}
+
+
+--- [output object] ---
+{
+  EndpointName: "__EndpointName__",
+  EndpointArn: "__EndpointArn__",
+  EndpointStatus: "__EndpointStatus__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndpointConfigName: "__EndpointConfigName__",
+  ProductionVariants: [
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    }
+  ],
+  DataCaptureConfig: {
+    EnableCapture: (boolean) false,
+    CaptureStatus: "__CaptureStatus__",
+    CurrentSamplingPercentage: (number) 0,
+    DestinationS3Uri: "__DestinationS3Uri__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  FailureReason: "__FailureReason__",
+  LastDeploymentConfig: {},
+  AsyncInferenceConfig: {
+    OutputConfig: {},
+    ClientConfig: {}
+  },
+  PendingDeploymentSummary: {
+    EndpointConfigName: "__EndpointConfigName__",
+    ProductionVariants: [
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      }
+    ],
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ShadowProductionVariants: [
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {},
+          {},
+          {}
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {},
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      }
+    ]
+  },
+  ExplainerConfig: {},
+  ShadowProductionVariants: [
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {},
+        {},
+        {}
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {},
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {}
+    }
+  ],
+  MetricsConfig: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EndpointName": "__EndpointName__",
+  "EndpointArn": "__EndpointArn__",
+  "EndpointStatus": "__EndpointStatus__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "EndpointConfigName": "__EndpointConfigName__",
+  "ProductionVariants": [
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    }
+  ],
+  "DataCaptureConfig": {
+    "EnableCapture": false,
+    "CaptureStatus": "__CaptureStatus__",
+    "CurrentSamplingPercentage": 0,
+    "DestinationS3Uri": "__DestinationS3Uri__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "FailureReason": "__FailureReason__",
+  "LastDeploymentConfig": {
+    "BlueGreenUpdatePolicy": {
+      "TrafficRoutingConfiguration": {
+        "Type": "__Type__",
+        "WaitIntervalInSeconds": 0,
+        "CanarySize": {
+          "Type": "__Type__",
+          "Value": 0
+        },
+        "LinearStepSize": {
+          "Type": "__Type__",
+          "Value": 0
+        }
+      },
+      "TerminationWaitInSeconds": 0,
+      "MaximumExecutionTimeoutInSeconds": 0
+    },
+    "RollingUpdatePolicy": {
+      "MaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      },
+      "WaitIntervalInSeconds": 0,
+      "MaximumExecutionTimeoutInSeconds": 0,
+      "RollbackMaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      }
+    },
+    "AutoRollbackConfiguration": {
+      "Alarms": [
+        {
+          "AlarmName": "__AlarmName__"
+        },
+        {
+          "AlarmName": "__AlarmName__"
+        },
+        {
+          "AlarmName": "__AlarmName__"
+        }
+      ]
+    }
+  },
+  "AsyncInferenceConfig": {
+    "OutputConfig": {
+      "KmsKeyId": "__KmsKeyId__",
+      "S3OutputPath": "__S3OutputPath__",
+      "NotificationConfig": {
+        "SuccessTopic": "__SuccessTopic__",
+        "ErrorTopic": "__ErrorTopic__",
+        "IncludeInferenceResponseIn": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "S3FailurePath": "__S3FailurePath__"
+    },
+    "ClientConfig": {
+      "MaxConcurrentInvocationsPerInstance": 0
+    }
+  },
+  "PendingDeploymentSummary": {
+    "EndpointConfigName": "__EndpointConfigName__",
+    "ProductionVariants": [
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      }
+    ],
+    "StartTime": 946702799.999,
+    "ShadowProductionVariants": [
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      },
+      {
+        "VariantName": "__VariantName__",
+        "DeployedImages": [
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          },
+          {
+            "SpecifiedImage": "__SpecifiedImage__",
+            "ResolvedImage": "__ResolvedImage__",
+            "ResolutionTime": 946702799.999
+          }
+        ],
+        "CurrentWeight": 0,
+        "DesiredWeight": 0,
+        "CurrentInstanceCount": 0,
+        "DesiredInstanceCount": 0,
+        "InstanceType": "__InstanceType__",
+        "AcceleratorType": "__AcceleratorType__",
+        "VariantStatus": [
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          },
+          {
+            "Status": "__Status__",
+            "StatusMessage": "__StatusMessage__",
+            "StartTime": 946702799.999
+          }
+        ],
+        "CurrentServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "DesiredServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "ManagedInstanceScaling": {
+          "Status": "__Status__",
+          "MinInstanceCount": 0,
+          "MaxInstanceCount": 0
+        },
+        "RoutingConfig": {
+          "RoutingStrategy": "__RoutingStrategy__"
+        }
+      }
+    ]
+  },
+  "ExplainerConfig": {
+    "ClarifyExplainerConfig": {
+      "ShapConfig": {
+        "ShapBaselineConfig": {
+          "MimeType": "__MimeType__",
+          "ShapBaseline": "__ShapBaseline__",
+          "ShapBaselineUri": "__ShapBaselineUri__"
+        },
+        "NumberOfSamples": 0,
+        "UseLogit": false,
+        "Seed": 0,
+        "TextConfig": {
+          "Language": "__Language__",
+          "Granularity": "__Granularity__"
+        }
+      },
+      "EnableExplanations": "__EnableExplanations__",
+      "InferenceConfig": {
+        "FeaturesAttribute": "__FeaturesAttribute__",
+        "ContentTemplate": "__ContentTemplate__",
+        "MaxRecordCount": 0,
+        "MaxPayloadInMB": 0,
+        "ProbabilityIndex": 0,
+        "LabelIndex": 0,
+        "ProbabilityAttribute": "__ProbabilityAttribute__",
+        "LabelAttribute": "__LabelAttribute__",
+        "LabelHeaders": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "FeatureHeaders": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "FeatureTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  },
+  "ShadowProductionVariants": [
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    },
+    {
+      "VariantName": "__VariantName__",
+      "DeployedImages": [
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        },
+        {
+          "SpecifiedImage": "__SpecifiedImage__",
+          "ResolvedImage": "__ResolvedImage__",
+          "ResolutionTime": 946702799.999
+        }
+      ],
+      "CurrentWeight": 0,
+      "DesiredWeight": 0,
+      "CurrentInstanceCount": 0,
+      "DesiredInstanceCount": 0,
+      "VariantStatus": [
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        },
+        {
+          "Status": "__Status__",
+          "StatusMessage": "__StatusMessage__",
+          "StartTime": 946702799.999
+        }
+      ],
+      "CurrentServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "DesiredServerlessConfig": {
+        "MemorySizeInMB": 0,
+        "MaxConcurrency": 0,
+        "ProvisionedConcurrency": 0
+      },
+      "ManagedInstanceScaling": {
+        "Status": "__Status__",
+        "MinInstanceCount": 0,
+        "MaxInstanceCount": 0
+      },
+      "RoutingConfig": {
+        "RoutingStrategy": "__RoutingStrategy__"
+      },
+      "CapacityReservationConfig": {
+        "MlReservationArn": "__MlReservationArn__",
+        "CapacityReservationPreference": "__CapacityReservationPreference__",
+        "TotalInstanceCount": 0,
+        "AvailableInstanceCount": 0,
+        "UsedByCurrentEndpoint": 0,
+        "Ec2CapacityReservations": [
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          },
+          {
+            "Ec2CapacityReservationId": "__Ec2CapacityReservationId__",
+            "TotalInstanceCount": 0,
+            "AvailableInstanceCount": 0,
+            "UsedByCurrentEndpoint": 0
+          }
+        ]
+      }
+    }
+  ],
+  "MetricsConfig": {
+    "EnableEnhancedMetrics": false,
+    "MetricPublishFrequencyInSeconds": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  EndpointName: "__EndpointName__",
+  EndpointArn: "__EndpointArn__",
+  EndpointStatus: "__EndpointStatus__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndpointConfigName: "__EndpointConfigName__",
+  ProductionVariants: [
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    }
+  ],
+  DataCaptureConfig: {
+    EnableCapture: (boolean) false,
+    CaptureStatus: "__CaptureStatus__",
+    CurrentSamplingPercentage: (number) 0,
+    DestinationS3Uri: "__DestinationS3Uri__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  FailureReason: "__FailureReason__",
+  LastDeploymentConfig: {
+    BlueGreenUpdatePolicy: {
+      TrafficRoutingConfiguration: {
+        Type: "__Type__",
+        WaitIntervalInSeconds: (number) 0,
+        CanarySize: {
+          Type: "__Type__",
+          Value: (number) 0
+        },
+        LinearStepSize: {
+          Type: "__Type__",
+          Value: (number) 0
+        }
+      },
+      TerminationWaitInSeconds: (number) 0,
+      MaximumExecutionTimeoutInSeconds: (number) 0
+    },
+    RollingUpdatePolicy: {
+      MaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      },
+      WaitIntervalInSeconds: (number) 0,
+      MaximumExecutionTimeoutInSeconds: (number) 0,
+      RollbackMaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      }
+    },
+    AutoRollbackConfiguration: {
+      Alarms: [
+        {
+          AlarmName: "__AlarmName__"
+        },
+        {
+          AlarmName: "__AlarmName__"
+        },
+        {
+          AlarmName: "__AlarmName__"
+        }
+      ]
+    }
+  },
+  AsyncInferenceConfig: {
+    OutputConfig: {
+      KmsKeyId: "__KmsKeyId__",
+      S3OutputPath: "__S3OutputPath__",
+      NotificationConfig: {
+        SuccessTopic: "__SuccessTopic__",
+        ErrorTopic: "__ErrorTopic__",
+        IncludeInferenceResponseIn: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      S3FailurePath: "__S3FailurePath__"
+    },
+    ClientConfig: {
+      MaxConcurrentInvocationsPerInstance: (number) 0
+    }
+  },
+  PendingDeploymentSummary: {
+    EndpointConfigName: "__EndpointConfigName__",
+    ProductionVariants: [
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      }
+    ],
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ShadowProductionVariants: [
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      },
+      {
+        VariantName: "__VariantName__",
+        DeployedImages: [
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            SpecifiedImage: "__SpecifiedImage__",
+            ResolvedImage: "__ResolvedImage__",
+            ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentWeight: (number) 0,
+        DesiredWeight: (number) 0,
+        CurrentInstanceCount: (number) 0,
+        DesiredInstanceCount: (number) 0,
+        InstanceType: "__InstanceType__",
+        AcceleratorType: "__AcceleratorType__",
+        VariantStatus: [
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            Status: "__Status__",
+            StatusMessage: "__StatusMessage__",
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        CurrentServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        DesiredServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        ManagedInstanceScaling: {
+          Status: "__Status__",
+          MinInstanceCount: (number) 0,
+          MaxInstanceCount: (number) 0
+        },
+        RoutingConfig: {
+          RoutingStrategy: "__RoutingStrategy__"
+        }
+      }
+    ]
+  },
+  ExplainerConfig: {
+    ClarifyExplainerConfig: {
+      ShapConfig: {
+        ShapBaselineConfig: {
+          MimeType: "__MimeType__",
+          ShapBaseline: "__ShapBaseline__",
+          ShapBaselineUri: "__ShapBaselineUri__"
+        },
+        NumberOfSamples: (number) 0,
+        UseLogit: (boolean) false,
+        Seed: (number) 0,
+        TextConfig: {
+          Language: "__Language__",
+          Granularity: "__Granularity__"
+        }
+      },
+      EnableExplanations: "__EnableExplanations__",
+      InferenceConfig: {
+        FeaturesAttribute: "__FeaturesAttribute__",
+        ContentTemplate: "__ContentTemplate__",
+        MaxRecordCount: (number) 0,
+        MaxPayloadInMB: (number) 0,
+        ProbabilityIndex: (number) 0,
+        LabelIndex: (number) 0,
+        ProbabilityAttribute: "__ProbabilityAttribute__",
+        LabelAttribute: "__LabelAttribute__",
+        LabelHeaders: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        FeatureHeaders: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        FeatureTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  },
+  ShadowProductionVariants: [
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    },
+    {
+      VariantName: "__VariantName__",
+      DeployedImages: [
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          SpecifiedImage: "__SpecifiedImage__",
+          ResolvedImage: "__ResolvedImage__",
+          ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentWeight: (number) 0,
+      DesiredWeight: (number) 0,
+      CurrentInstanceCount: (number) 0,
+      DesiredInstanceCount: (number) 0,
+      VariantStatus: [
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      CurrentServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      DesiredServerlessConfig: {
+        MemorySizeInMB: (number) 0,
+        MaxConcurrency: (number) 0,
+        ProvisionedConcurrency: (number) 0
+      },
+      ManagedInstanceScaling: {
+        Status: "__Status__",
+        MinInstanceCount: (number) 0,
+        MaxInstanceCount: (number) 0
+      },
+      RoutingConfig: {
+        RoutingStrategy: "__RoutingStrategy__"
+      },
+      CapacityReservationConfig: {
+        MlReservationArn: "__MlReservationArn__",
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        TotalInstanceCount: (number) 0,
+        AvailableInstanceCount: (number) 0,
+        UsedByCurrentEndpoint: (number) 0,
+        Ec2CapacityReservations: [
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          },
+          {
+            Ec2CapacityReservationId: "__Ec2CapacityReservationId__",
+            TotalInstanceCount: (number) 0,
+            AvailableInstanceCount: (number) 0,
+            UsedByCurrentEndpoint: (number) 0
+          }
+        ]
+      }
+    }
+  ],
+  MetricsConfig: {
+    EnableEnhancedMetrics: (boolean) false,
+    MetricPublishFrequencyInSeconds: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

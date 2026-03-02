@@ -1,0 +1,257 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceSqlHaStatesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceSqlHaStatesResult xmlns="https://placeholder.amazonaws.com">
+    <instanceSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <sqlServerLicenseUsage>
+                __SqlServerLicenseUsage__
+            </sqlServerLicenseUsage>
+            <haStatus>
+                __HaStatus__
+            </haStatus>
+            <processingStatus>
+                __ProcessingStatus__
+            </processingStatus>
+            <lastUpdatedTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdatedTime>
+            <sqlServerCredentials>
+                __SqlServerCredentials__
+            </sqlServerCredentials>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <sqlServerLicenseUsage>
+                __SqlServerLicenseUsage__
+            </sqlServerLicenseUsage>
+            <haStatus>
+                __HaStatus__
+            </haStatus>
+            <processingStatus>
+                __ProcessingStatus__
+            </processingStatus>
+            <lastUpdatedTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdatedTime>
+            <sqlServerCredentials>
+                __SqlServerCredentials__
+            </sqlServerCredentials>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <sqlServerLicenseUsage>
+                __SqlServerLicenseUsage__
+            </sqlServerLicenseUsage>
+            <haStatus>
+                __HaStatus__
+            </haStatus>
+            <processingStatus>
+                __ProcessingStatus__
+            </processingStatus>
+            <lastUpdatedTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdatedTime>
+            <sqlServerCredentials>
+                __SqlServerCredentials__
+            </sqlServerCredentials>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </instanceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInstanceSqlHaStatesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Instances: [
+    {
+      InstanceId: "__InstanceId__",
+      SqlServerLicenseUsage: "__SqlServerLicenseUsage__",
+      HaStatus: "__HaStatus__",
+      ProcessingStatus: "__ProcessingStatus__",
+      LastUpdatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SqlServerCredentials: "__SqlServerCredentials__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      InstanceId: "__InstanceId__",
+      SqlServerLicenseUsage: "__SqlServerLicenseUsage__",
+      HaStatus: "__HaStatus__",
+      ProcessingStatus: "__ProcessingStatus__",
+      LastUpdatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SqlServerCredentials: "__SqlServerCredentials__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      InstanceId: "__InstanceId__",
+      SqlServerLicenseUsage: "__SqlServerLicenseUsage__",
+      HaStatus: "__HaStatus__",
+      ProcessingStatus: "__ProcessingStatus__",
+      LastUpdatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SqlServerCredentials: "__SqlServerCredentials__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,307 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Messages": [
+    {
+      "MessageId": "__MessageId__",
+      "ReceiptHandle": "__ReceiptHandle__",
+      "MD5OfBody": "07261c767f72c87a6c6e6e62c93c2664",
+      "Body": "__Body__",
+      "Attributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
+      "MessageAttributes": {
+        "key1": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        }
+      }
+    },
+    {
+      "MessageId": "__MessageId__",
+      "ReceiptHandle": "__ReceiptHandle__",
+      "MD5OfBody": "07261c767f72c87a6c6e6e62c93c2664",
+      "Body": "__Body__",
+      "Attributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
+      "MessageAttributes": {
+        "key1": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        }
+      }
+    },
+    {
+      "MessageId": "__MessageId__",
+      "ReceiptHandle": "__ReceiptHandle__",
+      "MD5OfBody": "07261c767f72c87a6c6e6e62c93c2664",
+      "Body": "__Body__",
+      "Attributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "MD5OfMessageAttributes": "__MD5OfMessageAttributes__",
+      "MessageAttributes": {
+        "key1": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key2": {
+          "DataType": "__DataType__",
+          "StringValue": "__StringValue__",
+          "BinaryValue": "AQAAAQ==",
+          "StringListValues": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "BinaryListValues": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        }
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Messages: [
+    {
+      MessageId: "__MessageId__",
+      ReceiptHandle: "__ReceiptHandle__",
+      MD5OfBody: "07261c767f72c87a6c6e6e62c93c2664",
+      Body: "__Body__",
+      Attributes: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
+      MessageAttributes: {
+        key1: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        }
+      }
+    },
+    {
+      MessageId: "__MessageId__",
+      ReceiptHandle: "__ReceiptHandle__",
+      MD5OfBody: "07261c767f72c87a6c6e6e62c93c2664",
+      Body: "__Body__",
+      Attributes: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
+      MessageAttributes: {
+        key1: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        }
+      }
+    },
+    {
+      MessageId: "__MessageId__",
+      ReceiptHandle: "__ReceiptHandle__",
+      MD5OfBody: "07261c767f72c87a6c6e6e62c93c2664",
+      Body: "__Body__",
+      Attributes: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      MD5OfMessageAttributes: "__MD5OfMessageAttributes__",
+      MessageAttributes: {
+        key1: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key2: {
+          DataType: "__DataType__",
+          StringValue: "__StringValue__",
+          BinaryValue: (Uint8Array) bytes[1, 0, 0, 1],
+          StringListValues: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          BinaryListValues: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        }
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeManagedPrefixListsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeManagedPrefixListsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <prefixListSet>
+        <item>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <prefixListArn>
+                __PrefixListArn__
+            </prefixListArn>
+            <prefixListName>
+                __PrefixListName__
+            </prefixListName>
+            <maxEntries>
+                0
+            </maxEntries>
+            <version>
+                0
+            </version>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverSyncEnabled>
+                false
+            </ipamPrefixListResolverSyncEnabled>
+        </item>
+        <item>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <prefixListArn>
+                __PrefixListArn__
+            </prefixListArn>
+            <prefixListName>
+                __PrefixListName__
+            </prefixListName>
+            <maxEntries>
+                0
+            </maxEntries>
+            <version>
+                0
+            </version>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverSyncEnabled>
+                false
+            </ipamPrefixListResolverSyncEnabled>
+        </item>
+        <item>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <prefixListArn>
+                __PrefixListArn__
+            </prefixListArn>
+            <prefixListName>
+                __PrefixListName__
+            </prefixListName>
+            <maxEntries>
+                0
+            </maxEntries>
+            <version>
+                0
+            </version>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverSyncEnabled>
+                false
+            </ipamPrefixListResolverSyncEnabled>
+        </item>
+    </prefixListSet>
+</DescribeManagedPrefixListsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  PrefixLists: [
+    {
+      PrefixListId: "__PrefixListId__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      PrefixListArn: "__PrefixListArn__",
+      PrefixListName: "__PrefixListName__",
+      MaxEntries: (number) 0,
+      Version: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverSyncEnabled: (boolean) false
+    },
+    {
+      PrefixListId: "__PrefixListId__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      PrefixListArn: "__PrefixListArn__",
+      PrefixListName: "__PrefixListName__",
+      MaxEntries: (number) 0,
+      Version: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverSyncEnabled: (boolean) false
+    },
+    {
+      PrefixListId: "__PrefixListId__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      PrefixListArn: "__PrefixListArn__",
+      PrefixListName: "__PrefixListName__",
+      MaxEntries: (number) 0,
+      Version: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverSyncEnabled: (boolean) false
+    }
+  ]
+}
+

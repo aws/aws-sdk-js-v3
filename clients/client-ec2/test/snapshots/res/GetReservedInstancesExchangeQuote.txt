@@ -1,0 +1,273 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetReservedInstancesExchangeQuoteResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetReservedInstancesExchangeQuoteResult xmlns="https://placeholder.amazonaws.com">
+    <currencyCode>
+        __CurrencyCode__
+    </currencyCode>
+    <isValidExchange>
+        false
+    </isValidExchange>
+    <outputReservedInstancesWillExpireAt>
+        2000-01-01T04:59:59.999Z
+    </outputReservedInstancesWillExpireAt>
+    <paymentDue>
+        __PaymentDue__
+    </paymentDue>
+    <reservedInstanceValueRollup>
+        <hourlyPrice>
+            __HourlyPrice__
+        </hourlyPrice>
+        <remainingTotalValue>
+            __RemainingTotalValue__
+        </remainingTotalValue>
+        <remainingUpfrontValue>
+            __RemainingUpfrontValue__
+        </remainingUpfrontValue>
+    </reservedInstanceValueRollup>
+    <reservedInstanceValueSet>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <reservedInstanceId>
+                __ReservedInstanceId__
+            </reservedInstanceId>
+        </item>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <reservedInstanceId>
+                __ReservedInstanceId__
+            </reservedInstanceId>
+        </item>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <reservedInstanceId>
+                __ReservedInstanceId__
+            </reservedInstanceId>
+        </item>
+    </reservedInstanceValueSet>
+    <targetConfigurationValueRollup>
+        <hourlyPrice>
+            __HourlyPrice__
+        </hourlyPrice>
+        <remainingTotalValue>
+            __RemainingTotalValue__
+        </remainingTotalValue>
+        <remainingUpfrontValue>
+            __RemainingUpfrontValue__
+        </remainingUpfrontValue>
+    </targetConfigurationValueRollup>
+    <targetConfigurationValueSet>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <targetConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <offeringId>
+                    __OfferingId__
+                </offeringId>
+            </targetConfiguration>
+        </item>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <targetConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <offeringId>
+                    __OfferingId__
+                </offeringId>
+            </targetConfiguration>
+        </item>
+        <item>
+            <reservationValue>
+                <hourlyPrice>
+                    __HourlyPrice__
+                </hourlyPrice>
+                <remainingTotalValue>
+                    __RemainingTotalValue__
+                </remainingTotalValue>
+                <remainingUpfrontValue>
+                    __RemainingUpfrontValue__
+                </remainingUpfrontValue>
+            </reservationValue>
+            <targetConfiguration>
+                <instanceCount>
+                    0
+                </instanceCount>
+                <offeringId>
+                    __OfferingId__
+                </offeringId>
+            </targetConfiguration>
+        </item>
+    </targetConfigurationValueSet>
+    <validationFailureReason>
+        __ValidationFailureReason__
+    </validationFailureReason>
+</GetReservedInstancesExchangeQuoteResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CurrencyCode: "__CurrencyCode__",
+  IsValidExchange: (boolean) false,
+  OutputReservedInstancesWillExpireAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  PaymentDue: "__PaymentDue__",
+  ReservedInstanceValueRollup: {
+    HourlyPrice: "__HourlyPrice__",
+    RemainingTotalValue: "__RemainingTotalValue__",
+    RemainingUpfrontValue: "__RemainingUpfrontValue__"
+  },
+  ReservedInstanceValueSet: [
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      ReservedInstanceId: "__ReservedInstanceId__"
+    },
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      ReservedInstanceId: "__ReservedInstanceId__"
+    },
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      ReservedInstanceId: "__ReservedInstanceId__"
+    }
+  ],
+  TargetConfigurationValueRollup: {
+    HourlyPrice: "__HourlyPrice__",
+    RemainingTotalValue: "__RemainingTotalValue__",
+    RemainingUpfrontValue: "__RemainingUpfrontValue__"
+  },
+  TargetConfigurationValueSet: [
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      TargetConfiguration: {
+        InstanceCount: (number) 0,
+        OfferingId: "__OfferingId__"
+      }
+    },
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      TargetConfiguration: {
+        InstanceCount: (number) 0,
+        OfferingId: "__OfferingId__"
+      }
+    },
+    {
+      ReservationValue: {
+        HourlyPrice: "__HourlyPrice__",
+        RemainingTotalValue: "__RemainingTotalValue__",
+        RemainingUpfrontValue: "__RemainingUpfrontValue__"
+      },
+      TargetConfiguration: {
+        InstanceCount: (number) 0,
+        OfferingId: "__OfferingId__"
+      }
+    }
+  ],
+  ValidationFailureReason: "__ValidationFailureReason__"
+}
+

@@ -1,0 +1,173 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnRoutesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnRoutesResult xmlns="https://placeholder.amazonaws.com">
+    <routes>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <targetSubnet>
+                __TargetSubnet__
+            </targetSubnet>
+            <type>
+                __Type__
+            </type>
+            <origin>
+                __Origin__
+            </origin>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <targetSubnet>
+                __TargetSubnet__
+            </targetSubnet>
+            <type>
+                __Type__
+            </type>
+            <origin>
+                __Origin__
+            </origin>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <targetSubnet>
+                __TargetSubnet__
+            </targetSubnet>
+            <type>
+                __Type__
+            </type>
+            <origin>
+                __Origin__
+            </origin>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+        </item>
+    </routes>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClientVpnRoutesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Routes: [
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      DestinationCidr: "__DestinationCidr__",
+      TargetSubnet: "__TargetSubnet__",
+      Type: "__Type__",
+      Origin: "__Origin__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__"
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      DestinationCidr: "__DestinationCidr__",
+      TargetSubnet: "__TargetSubnet__",
+      Type: "__Type__",
+      Origin: "__Origin__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__"
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      DestinationCidr: "__DestinationCidr__",
+      TargetSubnet: "__TargetSubnet__",
+      Type: "__Type__",
+      Origin: "__Origin__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,214 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "UltraServers": [
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    },
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    },
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  UltraServers: [
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    },
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    },
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "UltraServers": [
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    },
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    },
+    {
+      "UltraServerId": "__UltraServerId__",
+      "UltraServerType": "__UltraServerType__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "InstanceType": "__InstanceType__",
+      "TotalInstanceCount": 0,
+      "ConfiguredSpareInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "AvailableSpareInstanceCount": 0,
+      "UnhealthyInstanceCount": 0,
+      "HealthStatus": "__HealthStatus__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  UltraServers: [
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    },
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    },
+    {
+      UltraServerId: "__UltraServerId__",
+      UltraServerType: "__UltraServerType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      InstanceType: "__InstanceType__",
+      TotalInstanceCount: (number) 0,
+      ConfiguredSpareInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      AvailableSpareInstanceCount: (number) 0,
+      UnhealthyInstanceCount: (number) 0,
+      HealthStatus: "__HealthStatus__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,371 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisableFastSnapshotRestoresResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisableFastSnapshotRestoresResult xmlns="https://placeholder.amazonaws.com">
+    <successful>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <state>
+                __State__
+            </state>
+            <stateTransitionReason>
+                __StateTransitionReason__
+            </stateTransitionReason>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ownerAlias>
+                __OwnerAlias__
+            </ownerAlias>
+            <enablingTime>
+                2000-01-01T04:59:59.999Z
+            </enablingTime>
+            <optimizingTime>
+                2000-01-01T04:59:59.999Z
+            </optimizingTime>
+            <enabledTime>
+                2000-01-01T04:59:59.999Z
+            </enabledTime>
+            <disablingTime>
+                2000-01-01T04:59:59.999Z
+            </disablingTime>
+            <disabledTime>
+                2000-01-01T04:59:59.999Z
+            </disabledTime>
+        </item>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <state>
+                __State__
+            </state>
+            <stateTransitionReason>
+                __StateTransitionReason__
+            </stateTransitionReason>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ownerAlias>
+                __OwnerAlias__
+            </ownerAlias>
+            <enablingTime>
+                2000-01-01T04:59:59.999Z
+            </enablingTime>
+            <optimizingTime>
+                2000-01-01T04:59:59.999Z
+            </optimizingTime>
+            <enabledTime>
+                2000-01-01T04:59:59.999Z
+            </enabledTime>
+            <disablingTime>
+                2000-01-01T04:59:59.999Z
+            </disablingTime>
+            <disabledTime>
+                2000-01-01T04:59:59.999Z
+            </disabledTime>
+        </item>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <state>
+                __State__
+            </state>
+            <stateTransitionReason>
+                __StateTransitionReason__
+            </stateTransitionReason>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ownerAlias>
+                __OwnerAlias__
+            </ownerAlias>
+            <enablingTime>
+                2000-01-01T04:59:59.999Z
+            </enablingTime>
+            <optimizingTime>
+                2000-01-01T04:59:59.999Z
+            </optimizingTime>
+            <enabledTime>
+                2000-01-01T04:59:59.999Z
+            </enabledTime>
+            <disablingTime>
+                2000-01-01T04:59:59.999Z
+            </disablingTime>
+            <disabledTime>
+                2000-01-01T04:59:59.999Z
+            </disabledTime>
+        </item>
+    </successful>
+    <unsuccessful>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <fastSnapshotRestoreStateErrorSet>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+            </fastSnapshotRestoreStateErrorSet>
+        </item>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <fastSnapshotRestoreStateErrorSet>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+            </fastSnapshotRestoreStateErrorSet>
+        </item>
+        <item>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <fastSnapshotRestoreStateErrorSet>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <error/>
+                </item>
+            </fastSnapshotRestoreStateErrorSet>
+        </item>
+    </unsuccessful>
+</DisableFastSnapshotRestoresResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Successful: [
+    {
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      State: "__State__",
+      StateTransitionReason: "__StateTransitionReason__",
+      OwnerId: "__OwnerId__",
+      OwnerAlias: "__OwnerAlias__",
+      EnablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EnabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      State: "__State__",
+      StateTransitionReason: "__StateTransitionReason__",
+      OwnerId: "__OwnerId__",
+      OwnerAlias: "__OwnerAlias__",
+      EnablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EnabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      State: "__State__",
+      StateTransitionReason: "__StateTransitionReason__",
+      OwnerId: "__OwnerId__",
+      OwnerAlias: "__OwnerAlias__",
+      EnablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EnabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisablingTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DisabledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  Unsuccessful: [
+    {
+      SnapshotId: "__SnapshotId__",
+      FastSnapshotRestoreStateErrors: [
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        }
+      ]
+    },
+    {
+      SnapshotId: "__SnapshotId__",
+      FastSnapshotRestoreStateErrors: [
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        }
+      ]
+    },
+    {
+      SnapshotId: "__SnapshotId__",
+      FastSnapshotRestoreStateErrors: [
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          Error: {}
+        }
+      ]
+    }
+  ]
+}
+

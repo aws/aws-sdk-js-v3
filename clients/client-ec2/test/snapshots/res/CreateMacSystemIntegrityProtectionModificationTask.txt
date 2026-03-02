@@ -1,0 +1,145 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateMacSystemIntegrityProtectionModificationTaskResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateMacSystemIntegrityProtectionModificationTaskResult xmlns="https://placeholder.amazonaws.com">
+    <macModificationTask>
+        <instanceId>
+            __InstanceId__
+        </instanceId>
+        <macModificationTaskId>
+            __MacModificationTaskId__
+        </macModificationTaskId>
+        <macSystemIntegrityProtectionConfig>
+            <appleInternal>
+                __AppleInternal__
+            </appleInternal>
+            <baseSystem>
+                __BaseSystem__
+            </baseSystem>
+            <debuggingRestrictions>
+                __DebuggingRestrictions__
+            </debuggingRestrictions>
+            <dTraceRestrictions>
+                __DTraceRestrictions__
+            </dTraceRestrictions>
+            <filesystemProtections>
+                __FilesystemProtections__
+            </filesystemProtections>
+            <kextSigning>
+                __KextSigning__
+            </kextSigning>
+            <nvramProtections>
+                __NvramProtections__
+            </nvramProtections>
+            <status>
+                __Status__
+            </status>
+        </macSystemIntegrityProtectionConfig>
+        <startTime>
+            2000-01-01T04:59:59.999Z
+        </startTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <taskState>
+            __TaskState__
+        </taskState>
+        <taskType>
+            __TaskType__
+        </taskType>
+    </macModificationTask>
+</CreateMacSystemIntegrityProtectionModificationTaskResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  MacModificationTask: {
+    InstanceId: "__InstanceId__",
+    MacModificationTaskId: "__MacModificationTaskId__",
+    MacSystemIntegrityProtectionConfig: {
+      AppleInternal: "__AppleInternal__",
+      BaseSystem: "__BaseSystem__",
+      DebuggingRestrictions: "__DebuggingRestrictions__",
+      DTraceRestrictions: "__DTraceRestrictions__",
+      FilesystemProtections: "__FilesystemProtections__",
+      KextSigning: "__KextSigning__",
+      NvramProtections: "__NvramProtections__",
+      Status: "__Status__"
+    },
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    TaskState: "__TaskState__",
+    TaskType: "__TaskType__"
+  }
+}
+

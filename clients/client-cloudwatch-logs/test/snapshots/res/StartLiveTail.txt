@@ -1,0 +1,211 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  responseStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 403 [header-size] 92 [prelude-crc] 1510296787
+:event-type: sessionStart
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "requestId": "__requestId__",
+  "sessionId": "__sessionId__",
+  "logGroupIdentifiers": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "logStreamNames": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "logStreamNamePrefixes": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "logEventFilterPattern": "__logEventFilterPattern__"
+}
+
+[message-crc] 3093635983
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 585 [header-size] 93 [prelude-crc] 1758685459
+:event-type: sessionUpdate
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "sessionMetadata": {
+    "sampled": false
+  },
+  "sessionResults": [
+    {
+      "logStreamName": "__logStreamName__",
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "message": "__message__",
+      "timestamp": 0,
+      "ingestionTime": 0
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "message": "__message__",
+      "timestamp": 0,
+      "ingestionTime": 0
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "message": "__message__",
+      "timestamp": 0,
+      "ingestionTime": 0
+    }
+  ]
+}
+
+[message-crc] 2182847701
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 144 [header-size] 103 [prelude-crc] 1743916162
+:event-type: SessionTimeoutException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 509604194
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 146 [header-size] 105 [prelude-crc] 4203377381
+:event-type: SessionStreamingException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1171405751
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  responseStream: async_it[
+    {
+      sessionStart: {
+        requestId: "__requestId__",
+        sessionId: "__sessionId__",
+        logGroupIdentifiers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        logStreamNames: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        logStreamNamePrefixes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        logEventFilterPattern: "__logEventFilterPattern__"
+      }
+    },
+    {
+      sessionUpdate: {
+        sessionMetadata: {
+          sampled: (boolean) false
+        },
+        sessionResults: [
+          {
+            logStreamName: "__logStreamName__",
+            logGroupIdentifier: "__logGroupIdentifier__",
+            message: "__message__",
+            timestamp: (number) 0,
+            ingestionTime: (number) 0
+          },
+          {
+            logStreamName: "__logStreamName__",
+            logGroupIdentifier: "__logGroupIdentifier__",
+            message: "__message__",
+            timestamp: (number) 0,
+            ingestionTime: (number) 0
+          },
+          {
+            logStreamName: "__logStreamName__",
+            logGroupIdentifier: "__logGroupIdentifier__",
+            message: "__message__",
+            timestamp: (number) 0,
+            ingestionTime: (number) 0
+          }
+        ]
+      }
+    },
+    {
+      SessionTimeoutException: {
+        message: "__message__"
+      }
+    },
+    {
+      SessionStreamingException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

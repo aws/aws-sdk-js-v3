@@ -1,0 +1,99 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ExportDescription": {
+    "ExportArn": "__ExportArn__",
+    "ExportStatus": "__ExportStatus__",
+    "StartTime": 946702799.999,
+    "EndTime": 946702799.999,
+    "ExportManifest": "__ExportManifest__",
+    "TableArn": "__TableArn__",
+    "TableId": "__TableId__",
+    "ExportTime": 946702799.999,
+    "ClientToken": "__ClientToken__",
+    "S3Bucket": "__S3Bucket__",
+    "S3BucketOwner": "__S3BucketOwner__",
+    "S3Prefix": "__S3Prefix__",
+    "S3SseAlgorithm": "__S3SseAlgorithm__",
+    "S3SseKmsKeyId": "__S3SseKmsKeyId__",
+    "FailureCode": "__FailureCode__",
+    "FailureMessage": "__FailureMessage__",
+    "ExportFormat": "__ExportFormat__",
+    "BilledSizeBytes": 0,
+    "ItemCount": 0,
+    "ExportType": "__ExportType__",
+    "IncrementalExportSpecification": {
+      "ExportFromTime": 946702799.999,
+      "ExportToTime": 946702799.999,
+      "ExportViewType": "__ExportViewType__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  ExportDescription: {
+    ExportArn: "__ExportArn__",
+    ExportStatus: "__ExportStatus__",
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ExportManifest: "__ExportManifest__",
+    TableArn: "__TableArn__",
+    TableId: "__TableId__",
+    ExportTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ClientToken: "__ClientToken__",
+    S3Bucket: "__S3Bucket__",
+    S3BucketOwner: "__S3BucketOwner__",
+    S3Prefix: "__S3Prefix__",
+    S3SseAlgorithm: "__S3SseAlgorithm__",
+    S3SseKmsKeyId: "__S3SseKmsKeyId__",
+    FailureCode: "__FailureCode__",
+    FailureMessage: "__FailureMessage__",
+    ExportFormat: "__ExportFormat__",
+    BilledSizeBytes: (number) 0,
+    ItemCount: (number) 0,
+    ExportType: "__ExportType__",
+    IncrementalExportSpecification: {
+      ExportFromTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExportToTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ExportViewType: "__ExportViewType__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

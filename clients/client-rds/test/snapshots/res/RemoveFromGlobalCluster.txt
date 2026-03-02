@@ -1,0 +1,200 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RemoveFromGlobalClusterResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RemoveFromGlobalClusterResult xmlns="https://placeholder.amazonaws.com">
+    <GlobalCluster>
+        <GlobalClusterIdentifier>
+            __GlobalClusterIdentifier__
+        </GlobalClusterIdentifier>
+        <GlobalClusterResourceId>
+            __GlobalClusterResourceId__
+        </GlobalClusterResourceId>
+        <GlobalClusterArn>
+            __GlobalClusterArn__
+        </GlobalClusterArn>
+        <Status>
+            __Status__
+        </Status>
+        <Engine>
+            __Engine__
+        </Engine>
+        <EngineVersion>
+            __EngineVersion__
+        </EngineVersion>
+        <EngineLifecycleSupport>
+            __EngineLifecycleSupport__
+        </EngineLifecycleSupport>
+        <DatabaseName>
+            __DatabaseName__
+        </DatabaseName>
+        <StorageEncrypted>
+            false
+        </StorageEncrypted>
+        <StorageEncryptionType>
+            __StorageEncryptionType__
+        </StorageEncryptionType>
+        <DeletionProtection>
+            false
+        </DeletionProtection>
+        <GlobalClusterMembers>
+            <GlobalClusterMember>
+                <DBClusterArn>
+                    __DBClusterArn__
+                </DBClusterArn>
+                <Readers>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </Readers>
+                <IsWriter>
+                    false
+                </IsWriter>
+                <GlobalWriteForwardingStatus>
+                    __GlobalWriteForwardingStatus__
+                </GlobalWriteForwardingStatus>
+                <SynchronizationStatus>
+                    __SynchronizationStatus__
+                </SynchronizationStatus>
+            </GlobalClusterMember>
+            <GlobalClusterMember>
+                <DBClusterArn>
+                    __DBClusterArn__
+                </DBClusterArn>
+                <Readers>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </Readers>
+                <IsWriter>
+                    false
+                </IsWriter>
+                <GlobalWriteForwardingStatus>
+                    __GlobalWriteForwardingStatus__
+                </GlobalWriteForwardingStatus>
+                <SynchronizationStatus>
+                    __SynchronizationStatus__
+                </SynchronizationStatus>
+            </GlobalClusterMember>
+            <GlobalClusterMember>
+                <DBClusterArn>
+                    __DBClusterArn__
+                </DBClusterArn>
+                <Readers>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </Readers>
+                <IsWriter>
+                    false
+                </IsWriter>
+                <GlobalWriteForwardingStatus>
+                    __GlobalWriteForwardingStatus__
+                </GlobalWriteForwardingStatus>
+                <SynchronizationStatus>
+                    __SynchronizationStatus__
+                </SynchronizationStatus>
+            </GlobalClusterMember>
+        </GlobalClusterMembers>
+        <Endpoint>
+            __Endpoint__
+        </Endpoint>
+        <FailoverState>
+            <Status>
+                __Status__
+            </Status>
+            <FromDbClusterArn>
+                __FromDbClusterArn__
+            </FromDbClusterArn>
+            <ToDbClusterArn>
+                __ToDbClusterArn__
+            </ToDbClusterArn>
+            <IsDataLossAllowed>
+                false
+            </IsDataLossAllowed>
+        </FailoverState>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+    </GlobalCluster>
+</RemoveFromGlobalClusterResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

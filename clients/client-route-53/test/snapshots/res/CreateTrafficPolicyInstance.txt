@@ -1,0 +1,130 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+
+[Uint8Array (xml)]
+<CreateTrafficPolicyInstanceResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicyInstance>
+        <Id>
+            __Id__
+        </Id>
+        <HostedZoneId>
+            __HostedZoneId__
+        </HostedZoneId>
+        <Name>
+            __Name__
+        </Name>
+        <TTL>
+            0
+        </TTL>
+        <State>
+            __State__
+        </State>
+        <Message>
+            __Message__
+        </Message>
+        <TrafficPolicyId>
+            __TrafficPolicyId__
+        </TrafficPolicyId>
+        <TrafficPolicyVersion>
+            0
+        </TrafficPolicyVersion>
+        <TrafficPolicyType>
+            __TrafficPolicyType__
+        </TrafficPolicyType>
+    </TrafficPolicyInstance>
+</CreateTrafficPolicyInstanceResponse>
+
+
+--- [output object] ---
+{
+  Location: "__Location__",
+  TrafficPolicyInstance: {
+    Id: "__Id__",
+    HostedZoneId: "__HostedZoneId__",
+    Name: "__Name__",
+    TTL: (number) 0,
+    State: "__State__",
+    Message: "__Message__",
+    TrafficPolicyId: "__TrafficPolicyId__",
+    TrafficPolicyVersion: (number) 0,
+    TrafficPolicyType: "__TrafficPolicyType__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+
+[Uint8Array (xml)]
+<CreateTrafficPolicyInstanceResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicyInstance>
+        <Id>
+            __Id__
+        </Id>
+        <HostedZoneId>
+            __HostedZoneId__
+        </HostedZoneId>
+        <Name>
+            __Name__
+        </Name>
+        <TTL>
+            0
+        </TTL>
+        <State>
+            __State__
+        </State>
+        <Message>
+            __Message__
+        </Message>
+        <TrafficPolicyId>
+            __TrafficPolicyId__
+        </TrafficPolicyId>
+        <TrafficPolicyVersion>
+            0
+        </TrafficPolicyVersion>
+        <TrafficPolicyType>
+            __TrafficPolicyType__
+        </TrafficPolicyType>
+    </TrafficPolicyInstance>
+</CreateTrafficPolicyInstanceResponse>
+
+
+--- [output object] ---
+{
+  Location: "__Location__",
+  TrafficPolicyInstance: {
+    Id: "__Id__",
+    HostedZoneId: "__HostedZoneId__",
+    Name: "__Name__",
+    TTL: (number) 0,
+    State: "__State__",
+    Message: "__Message__",
+    TrafficPolicyId: "__TrafficPolicyId__",
+    TrafficPolicyVersion: (number) 0,
+    TrafficPolicyType: "__TrafficPolicyType__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

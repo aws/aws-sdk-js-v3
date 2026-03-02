@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCoipPoolUsageResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCoipPoolUsageResult xmlns="https://placeholder.amazonaws.com">
+    <coipPoolId>
+        __CoipPoolId__
+    </coipPoolId>
+    <coipAddressUsageSet>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <awsAccountId>
+                __AwsAccountId__
+            </awsAccountId>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <coIp>
+                __CoIp__
+            </coIp>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <awsAccountId>
+                __AwsAccountId__
+            </awsAccountId>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <coIp>
+                __CoIp__
+            </coIp>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <awsAccountId>
+                __AwsAccountId__
+            </awsAccountId>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <coIp>
+                __CoIp__
+            </coIp>
+        </item>
+    </coipAddressUsageSet>
+    <localGatewayRouteTableId>
+        __LocalGatewayRouteTableId__
+    </localGatewayRouteTableId>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetCoipPoolUsageResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CoipPoolId: "__CoipPoolId__",
+  CoipAddressUsages: [
+    {
+      AllocationId: "__AllocationId__",
+      AwsAccountId: "__AwsAccountId__",
+      AwsService: "__AwsService__",
+      CoIp: "__CoIp__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      AwsAccountId: "__AwsAccountId__",
+      AwsService: "__AwsService__",
+      CoIp: "__CoIp__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      AwsAccountId: "__AwsAccountId__",
+      AwsService: "__AwsService__",
+      CoIp: "__CoIp__"
+    }
+  ],
+  LocalGatewayRouteTableId: "__LocalGatewayRouteTableId__",
+  NextToken: "__NextToken__"
+}
+

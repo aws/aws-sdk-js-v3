@@ -1,0 +1,993 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "PipelineExecutionSteps": [
+    {
+      "StepName": "__StepName__",
+      "StepDisplayName": "__StepDisplayName__",
+      "StepDescription": "__StepDescription__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StepStatus": "__StepStatus__",
+      "CacheHitResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "FailureReason": "__FailureReason__",
+      "Metadata": {
+        "TrainingJob": {
+          "Arn": "__Arn__"
+        },
+        "ProcessingJob": {
+          "Arn": "__Arn__"
+        },
+        "TransformJob": {
+          "Arn": "__Arn__"
+        },
+        "TuningJob": {
+          "Arn": "__Arn__"
+        },
+        "Model": {
+          "Arn": "__Arn__"
+        },
+        "RegisterModel": {
+          "Arn": "__Arn__"
+        },
+        "Condition": {
+          "Outcome": "__Outcome__"
+        },
+        "Callback": {
+          "CallbackToken": "__CallbackToken__",
+          "SqsQueueUrl": "__SqsQueueUrl__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "Lambda": {
+          "Arn": "__Arn__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "EMR": {
+          "ClusterId": "__ClusterId__",
+          "StepId": "__StepId__",
+          "StepName": "__StepName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "QualityCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckStatistics": "__BaselineUsedForDriftCheckStatistics__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineStatistics": "__CalculatedBaselineStatistics__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "ClarifyCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "Fail": {
+          "ErrorMessage": "__ErrorMessage__"
+        },
+        "AutoMLJob": {
+          "Arn": "__Arn__"
+        },
+        "Endpoint": {
+          "Arn": "__Arn__"
+        },
+        "EndpointConfig": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModel": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModelDeployment": {
+          "Arn": "__Arn__"
+        },
+        "BedrockProvisionedModelThroughput": {
+          "Arn": "__Arn__"
+        },
+        "BedrockModelImport": {
+          "Arn": "__Arn__"
+        },
+        "InferenceComponent": {
+          "Arn": "__Arn__"
+        },
+        "Lineage": {
+          "ActionArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ArtifactArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ContextArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "Associations": [
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      "AttemptCount": 0,
+      "SelectiveExecutionResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      }
+    },
+    {
+      "StepName": "__StepName__",
+      "StepDisplayName": "__StepDisplayName__",
+      "StepDescription": "__StepDescription__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StepStatus": "__StepStatus__",
+      "CacheHitResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "FailureReason": "__FailureReason__",
+      "Metadata": {
+        "TrainingJob": {
+          "Arn": "__Arn__"
+        },
+        "ProcessingJob": {
+          "Arn": "__Arn__"
+        },
+        "TransformJob": {
+          "Arn": "__Arn__"
+        },
+        "TuningJob": {
+          "Arn": "__Arn__"
+        },
+        "Model": {
+          "Arn": "__Arn__"
+        },
+        "RegisterModel": {
+          "Arn": "__Arn__"
+        },
+        "Condition": {
+          "Outcome": "__Outcome__"
+        },
+        "Callback": {
+          "CallbackToken": "__CallbackToken__",
+          "SqsQueueUrl": "__SqsQueueUrl__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "Lambda": {
+          "Arn": "__Arn__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "EMR": {
+          "ClusterId": "__ClusterId__",
+          "StepId": "__StepId__",
+          "StepName": "__StepName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "QualityCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckStatistics": "__BaselineUsedForDriftCheckStatistics__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineStatistics": "__CalculatedBaselineStatistics__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "ClarifyCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "Fail": {
+          "ErrorMessage": "__ErrorMessage__"
+        },
+        "AutoMLJob": {
+          "Arn": "__Arn__"
+        },
+        "Endpoint": {
+          "Arn": "__Arn__"
+        },
+        "EndpointConfig": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModel": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModelDeployment": {
+          "Arn": "__Arn__"
+        },
+        "BedrockProvisionedModelThroughput": {
+          "Arn": "__Arn__"
+        },
+        "BedrockModelImport": {
+          "Arn": "__Arn__"
+        },
+        "InferenceComponent": {
+          "Arn": "__Arn__"
+        },
+        "Lineage": {
+          "ActionArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ArtifactArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ContextArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "Associations": [
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      "AttemptCount": 0,
+      "SelectiveExecutionResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      }
+    },
+    {
+      "StepName": "__StepName__",
+      "StepDisplayName": "__StepDisplayName__",
+      "StepDescription": "__StepDescription__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "StepStatus": "__StepStatus__",
+      "CacheHitResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      },
+      "FailureReason": "__FailureReason__",
+      "Metadata": {
+        "TrainingJob": {
+          "Arn": "__Arn__"
+        },
+        "ProcessingJob": {
+          "Arn": "__Arn__"
+        },
+        "TransformJob": {
+          "Arn": "__Arn__"
+        },
+        "TuningJob": {
+          "Arn": "__Arn__"
+        },
+        "Model": {
+          "Arn": "__Arn__"
+        },
+        "RegisterModel": {
+          "Arn": "__Arn__"
+        },
+        "Condition": {
+          "Outcome": "__Outcome__"
+        },
+        "Callback": {
+          "CallbackToken": "__CallbackToken__",
+          "SqsQueueUrl": "__SqsQueueUrl__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "Lambda": {
+          "Arn": "__Arn__",
+          "OutputParameters": [
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            },
+            {
+              "Name": "__Name__",
+              "Value": "__Value__"
+            }
+          ]
+        },
+        "EMR": {
+          "ClusterId": "__ClusterId__",
+          "StepId": "__StepId__",
+          "StepName": "__StepName__",
+          "LogFilePath": "__LogFilePath__"
+        },
+        "QualityCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckStatistics": "__BaselineUsedForDriftCheckStatistics__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineStatistics": "__CalculatedBaselineStatistics__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "ClarifyCheck": {
+          "CheckType": "__CheckType__",
+          "BaselineUsedForDriftCheckConstraints": "__BaselineUsedForDriftCheckConstraints__",
+          "CalculatedBaselineConstraints": "__CalculatedBaselineConstraints__",
+          "ModelPackageGroupName": "__ModelPackageGroupName__",
+          "ViolationReport": "__ViolationReport__",
+          "CheckJobArn": "__CheckJobArn__",
+          "SkipCheck": false,
+          "RegisterNewBaseline": false
+        },
+        "Fail": {
+          "ErrorMessage": "__ErrorMessage__"
+        },
+        "AutoMLJob": {
+          "Arn": "__Arn__"
+        },
+        "Endpoint": {
+          "Arn": "__Arn__"
+        },
+        "EndpointConfig": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModel": {
+          "Arn": "__Arn__"
+        },
+        "BedrockCustomModelDeployment": {
+          "Arn": "__Arn__"
+        },
+        "BedrockProvisionedModelThroughput": {
+          "Arn": "__Arn__"
+        },
+        "BedrockModelImport": {
+          "Arn": "__Arn__"
+        },
+        "InferenceComponent": {
+          "Arn": "__Arn__"
+        },
+        "Lineage": {
+          "ActionArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ArtifactArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "ContextArns": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "Associations": [
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            },
+            {
+              "SourceArn": "__SourceArn__",
+              "DestinationArn": "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      "AttemptCount": 0,
+      "SelectiveExecutionResult": {
+        "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  PipelineExecutionSteps: [
+    {
+      StepName: "__StepName__",
+      StepDisplayName: "__StepDisplayName__",
+      StepDescription: "__StepDescription__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StepStatus: "__StepStatus__",
+      CacheHitResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      FailureReason: "__FailureReason__",
+      Metadata: {
+        TrainingJob: {
+          Arn: "__Arn__"
+        },
+        ProcessingJob: {
+          Arn: "__Arn__"
+        },
+        TransformJob: {
+          Arn: "__Arn__"
+        },
+        TuningJob: {
+          Arn: "__Arn__"
+        },
+        Model: {
+          Arn: "__Arn__"
+        },
+        RegisterModel: {
+          Arn: "__Arn__"
+        },
+        Condition: {
+          Outcome: "__Outcome__"
+        },
+        Callback: {
+          CallbackToken: "__CallbackToken__",
+          SqsQueueUrl: "__SqsQueueUrl__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        Lambda: {
+          Arn: "__Arn__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        EMR: {
+          ClusterId: "__ClusterId__",
+          StepId: "__StepId__",
+          StepName: "__StepName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        QualityCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckStatistics: "__BaselineUsedForDriftCheckStatistics__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineStatistics: "__CalculatedBaselineStatistics__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        ClarifyCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        Fail: {
+          ErrorMessage: "__ErrorMessage__"
+        },
+        AutoMLJob: {
+          Arn: "__Arn__"
+        },
+        Endpoint: {
+          Arn: "__Arn__"
+        },
+        EndpointConfig: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModel: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModelDeployment: {
+          Arn: "__Arn__"
+        },
+        BedrockProvisionedModelThroughput: {
+          Arn: "__Arn__"
+        },
+        BedrockModelImport: {
+          Arn: "__Arn__"
+        },
+        InferenceComponent: {
+          Arn: "__Arn__"
+        },
+        Lineage: {
+          ActionArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ArtifactArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ContextArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          Associations: [
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      AttemptCount: (number) 0,
+      SelectiveExecutionResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      }
+    },
+    {
+      StepName: "__StepName__",
+      StepDisplayName: "__StepDisplayName__",
+      StepDescription: "__StepDescription__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StepStatus: "__StepStatus__",
+      CacheHitResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      FailureReason: "__FailureReason__",
+      Metadata: {
+        TrainingJob: {
+          Arn: "__Arn__"
+        },
+        ProcessingJob: {
+          Arn: "__Arn__"
+        },
+        TransformJob: {
+          Arn: "__Arn__"
+        },
+        TuningJob: {
+          Arn: "__Arn__"
+        },
+        Model: {
+          Arn: "__Arn__"
+        },
+        RegisterModel: {
+          Arn: "__Arn__"
+        },
+        Condition: {
+          Outcome: "__Outcome__"
+        },
+        Callback: {
+          CallbackToken: "__CallbackToken__",
+          SqsQueueUrl: "__SqsQueueUrl__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        Lambda: {
+          Arn: "__Arn__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        EMR: {
+          ClusterId: "__ClusterId__",
+          StepId: "__StepId__",
+          StepName: "__StepName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        QualityCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckStatistics: "__BaselineUsedForDriftCheckStatistics__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineStatistics: "__CalculatedBaselineStatistics__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        ClarifyCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        Fail: {
+          ErrorMessage: "__ErrorMessage__"
+        },
+        AutoMLJob: {
+          Arn: "__Arn__"
+        },
+        Endpoint: {
+          Arn: "__Arn__"
+        },
+        EndpointConfig: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModel: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModelDeployment: {
+          Arn: "__Arn__"
+        },
+        BedrockProvisionedModelThroughput: {
+          Arn: "__Arn__"
+        },
+        BedrockModelImport: {
+          Arn: "__Arn__"
+        },
+        InferenceComponent: {
+          Arn: "__Arn__"
+        },
+        Lineage: {
+          ActionArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ArtifactArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ContextArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          Associations: [
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      AttemptCount: (number) 0,
+      SelectiveExecutionResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      }
+    },
+    {
+      StepName: "__StepName__",
+      StepDisplayName: "__StepDisplayName__",
+      StepDescription: "__StepDescription__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StepStatus: "__StepStatus__",
+      CacheHitResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      },
+      FailureReason: "__FailureReason__",
+      Metadata: {
+        TrainingJob: {
+          Arn: "__Arn__"
+        },
+        ProcessingJob: {
+          Arn: "__Arn__"
+        },
+        TransformJob: {
+          Arn: "__Arn__"
+        },
+        TuningJob: {
+          Arn: "__Arn__"
+        },
+        Model: {
+          Arn: "__Arn__"
+        },
+        RegisterModel: {
+          Arn: "__Arn__"
+        },
+        Condition: {
+          Outcome: "__Outcome__"
+        },
+        Callback: {
+          CallbackToken: "__CallbackToken__",
+          SqsQueueUrl: "__SqsQueueUrl__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        Lambda: {
+          Arn: "__Arn__",
+          OutputParameters: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        EMR: {
+          ClusterId: "__ClusterId__",
+          StepId: "__StepId__",
+          StepName: "__StepName__",
+          LogFilePath: "__LogFilePath__"
+        },
+        QualityCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckStatistics: "__BaselineUsedForDriftCheckStatistics__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineStatistics: "__CalculatedBaselineStatistics__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        ClarifyCheck: {
+          CheckType: "__CheckType__",
+          BaselineUsedForDriftCheckConstraints: "__BaselineUsedForDriftCheckConstraints__",
+          CalculatedBaselineConstraints: "__CalculatedBaselineConstraints__",
+          ModelPackageGroupName: "__ModelPackageGroupName__",
+          ViolationReport: "__ViolationReport__",
+          CheckJobArn: "__CheckJobArn__",
+          SkipCheck: (boolean) false,
+          RegisterNewBaseline: (boolean) false
+        },
+        Fail: {
+          ErrorMessage: "__ErrorMessage__"
+        },
+        AutoMLJob: {
+          Arn: "__Arn__"
+        },
+        Endpoint: {
+          Arn: "__Arn__"
+        },
+        EndpointConfig: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModel: {
+          Arn: "__Arn__"
+        },
+        BedrockCustomModelDeployment: {
+          Arn: "__Arn__"
+        },
+        BedrockProvisionedModelThroughput: {
+          Arn: "__Arn__"
+        },
+        BedrockModelImport: {
+          Arn: "__Arn__"
+        },
+        InferenceComponent: {
+          Arn: "__Arn__"
+        },
+        Lineage: {
+          ActionArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ArtifactArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ContextArns: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          Associations: [
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            },
+            {
+              SourceArn: "__SourceArn__",
+              DestinationArn: "__DestinationArn__"
+            }
+          ]
+        }
+      },
+      AttemptCount: (number) 0,
+      SelectiveExecutionResult: {
+        SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

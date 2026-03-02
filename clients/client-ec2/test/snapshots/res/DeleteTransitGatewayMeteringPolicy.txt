@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteTransitGatewayMeteringPolicyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteTransitGatewayMeteringPolicyResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayMeteringPolicy>
+        <transitGatewayMeteringPolicyId>
+            __TransitGatewayMeteringPolicyId__
+        </transitGatewayMeteringPolicyId>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <middleboxAttachmentIdSet>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </middleboxAttachmentIdSet>
+        <state>
+            __State__
+        </state>
+        <updateEffectiveAt>
+            2000-01-01T04:59:59.999Z
+        </updateEffectiveAt>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </transitGatewayMeteringPolicy>
+</DeleteTransitGatewayMeteringPolicyResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGatewayMeteringPolicy: {
+    TransitGatewayMeteringPolicyId: "__TransitGatewayMeteringPolicyId__",
+    TransitGatewayId: "__TransitGatewayId__",
+    MiddleboxAttachmentIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    State: "__State__",
+    UpdateEffectiveAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

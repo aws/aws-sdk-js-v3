@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetManagedPrefixListAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetManagedPrefixListAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <prefixListAssociationSet>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceOwner>
+                __ResourceOwner__
+            </resourceOwner>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceOwner>
+                __ResourceOwner__
+            </resourceOwner>
+        </item>
+        <item>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceOwner>
+                __ResourceOwner__
+            </resourceOwner>
+        </item>
+    </prefixListAssociationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetManagedPrefixListAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  PrefixListAssociations: [
+    {
+      ResourceId: "__ResourceId__",
+      ResourceOwner: "__ResourceOwner__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      ResourceOwner: "__ResourceOwner__"
+    },
+    {
+      ResourceId: "__ResourceId__",
+      ResourceOwner: "__ResourceOwner__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

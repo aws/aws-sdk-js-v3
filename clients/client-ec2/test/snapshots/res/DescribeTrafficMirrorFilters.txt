@@ -1,0 +1,2153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrafficMirrorFiltersResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrafficMirrorFiltersResult xmlns="https://placeholder.amazonaws.com">
+    <trafficMirrorFilterSet>
+        <item>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <ingressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </ingressFilterRuleSet>
+            <egressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </egressFilterRuleSet>
+            <networkServiceSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkServiceSet>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <ingressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </ingressFilterRuleSet>
+            <egressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </egressFilterRuleSet>
+            <networkServiceSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkServiceSet>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <ingressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </ingressFilterRuleSet>
+            <egressFilterRuleSet>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <trafficMirrorFilterRuleId>
+                        __TrafficMirrorFilterRuleId__
+                    </trafficMirrorFilterRuleId>
+                    <trafficMirrorFilterId>
+                        __TrafficMirrorFilterId__
+                    </trafficMirrorFilterId>
+                    <trafficDirection>
+                        __TrafficDirection__
+                    </trafficDirection>
+                    <ruleNumber>
+                        0
+                    </ruleNumber>
+                    <ruleAction>
+                        __RuleAction__
+                    </ruleAction>
+                    <protocol>
+                        0
+                    </protocol>
+                    <destinationPortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </destinationPortRange>
+                    <sourcePortRange>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </sourcePortRange>
+                    <destinationCidrBlock>
+                        __DestinationCidrBlock__
+                    </destinationCidrBlock>
+                    <sourceCidrBlock>
+                        __SourceCidrBlock__
+                    </sourceCidrBlock>
+                    <description>
+                        __Description__
+                    </description>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </egressFilterRuleSet>
+            <networkServiceSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkServiceSet>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </trafficMirrorFilterSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeTrafficMirrorFiltersResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TrafficMirrorFilters: [
+    {
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      IngressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      EgressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      NetworkServices: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      IngressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      EgressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      NetworkServices: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      IngressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      EgressFilterRules: [
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          TrafficMirrorFilterRuleId: "__TrafficMirrorFilterRuleId__",
+          TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+          TrafficDirection: "__TrafficDirection__",
+          RuleNumber: (number) 0,
+          RuleAction: "__RuleAction__",
+          Protocol: (number) 0,
+          DestinationPortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          SourcePortRange: {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          DestinationCidrBlock: "__DestinationCidrBlock__",
+          SourceCidrBlock: "__SourceCidrBlock__",
+          Description: "__Description__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      NetworkServices: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

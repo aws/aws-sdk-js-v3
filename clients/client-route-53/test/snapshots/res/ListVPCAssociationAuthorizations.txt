@@ -1,0 +1,112 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListVPCAssociationAuthorizationsResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneId>
+        __HostedZoneId__
+    </HostedZoneId>
+    <VPCs>
+        <VPC/>
+<VPC/>
+<VPC/>
+    </VPCs>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListVPCAssociationAuthorizationsResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneId: "__HostedZoneId__",
+  VPCs: [
+    {},
+    {},
+    {}
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListVPCAssociationAuthorizationsResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneId>
+        __HostedZoneId__
+    </HostedZoneId>
+    <VPCs>
+        <VPC>
+            <VPCRegion>
+                __VPCRegion__
+            </VPCRegion>
+            <VPCId>
+                __VPCId__
+            </VPCId>
+        </VPC>
+        <VPC>
+            <VPCRegion>
+                __VPCRegion__
+            </VPCRegion>
+            <VPCId>
+                __VPCId__
+            </VPCId>
+        </VPC>
+        <VPC>
+            <VPCRegion>
+                __VPCRegion__
+            </VPCRegion>
+            <VPCId>
+                __VPCId__
+            </VPCId>
+        </VPC>
+    </VPCs>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListVPCAssociationAuthorizationsResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneId: "__HostedZoneId__",
+  VPCs: [
+    {
+      VPCRegion: "__VPCRegion__",
+      VPCId: "__VPCId__"
+    },
+    {
+      VPCRegion: "__VPCRegion__",
+      VPCId: "__VPCId__"
+    },
+    {
+      VPCRegion: "__VPCRegion__",
+      VPCId: "__VPCId__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

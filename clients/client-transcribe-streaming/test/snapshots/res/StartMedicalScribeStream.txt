@@ -1,0 +1,242 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  ResultStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SessionId: "__SessionId__"
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amzn-transcribe-session-id: __SessionId__
+x-amzn-request-id: __RequestId__
+x-amzn-transcribe-language-code: __LanguageCode__
+x-amzn-transcribe-sample-rate: 0
+x-amzn-transcribe-media-encoding: __MediaEncoding__
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 643 [header-size] 85 [prelude-crc] 3316453723
+:event-type: TranscriptEvent
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "TranscriptSegment": {
+    "SegmentId": "__SegmentId__",
+    "BeginAudioTime": 0,
+    "EndAudioTime": 0,
+    "Content": "__Content__",
+    "Items": [
+      {
+        "BeginAudioTime": 0,
+        "EndAudioTime": 0,
+        "Type": "__Type__",
+        "Confidence": 0,
+        "Content": "__Content__",
+        "VocabularyFilterMatch": false
+      },
+      {
+        "BeginAudioTime": 0,
+        "EndAudioTime": 0,
+        "Type": "__Type__",
+        "Confidence": 0,
+        "Content": "__Content__",
+        "VocabularyFilterMatch": false
+      },
+      {
+        "BeginAudioTime": 0,
+        "EndAudioTime": 0,
+        "Type": "__Type__",
+        "Confidence": 0,
+        "Content": "__Content__",
+        "VocabularyFilterMatch": false
+      }
+    ],
+    "IsPartial": false,
+    "ChannelId": "__ChannelId__"
+  }
+}
+
+[message-crc] 3100744950
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: BadRequestException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Message": "__Message__"
+}
+
+[message-crc] 3527602785
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 133 [header-size] 92 [prelude-crc] 2130312532
+:event-type: LimitExceededException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Message": "__Message__"
+}
+
+[message-crc] 4051346964
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 135 [header-size] 94 [prelude-crc] 3929526040
+:event-type: InternalFailureException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Message": "__Message__"
+}
+
+[message-crc] 280564743
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 128 [header-size] 87 [prelude-crc] 566995884
+:event-type: ConflictException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Message": "__Message__"
+}
+
+[message-crc] 3623801315
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 138 [header-size] 97 [prelude-crc] 2764121748
+:event-type: ServiceUnavailableException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "Message": "__Message__"
+}
+
+[message-crc] 715233848
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  SessionId: "__SessionId__",
+  RequestId: "__RequestId__",
+  LanguageCode: "__LanguageCode__",
+  MediaSampleRateHertz: (number) 0,
+  MediaEncoding: "__MediaEncoding__",
+  ResultStream: async_it[
+    {
+      TranscriptEvent: {
+        TranscriptSegment: {
+          SegmentId: "__SegmentId__",
+          BeginAudioTime: (number) 0,
+          EndAudioTime: (number) 0,
+          Content: "__Content__",
+          Items: [
+            {
+              BeginAudioTime: (number) 0,
+              EndAudioTime: (number) 0,
+              Type: "__Type__",
+              Confidence: (number) 0,
+              Content: "__Content__",
+              VocabularyFilterMatch: (boolean) false
+            },
+            {
+              BeginAudioTime: (number) 0,
+              EndAudioTime: (number) 0,
+              Type: "__Type__",
+              Confidence: (number) 0,
+              Content: "__Content__",
+              VocabularyFilterMatch: (boolean) false
+            },
+            {
+              BeginAudioTime: (number) 0,
+              EndAudioTime: (number) 0,
+              Type: "__Type__",
+              Confidence: (number) 0,
+              Content: "__Content__",
+              VocabularyFilterMatch: (boolean) false
+            }
+          ],
+          IsPartial: (boolean) false,
+          ChannelId: "__ChannelId__"
+        }
+      }
+    },
+    {
+      BadRequestException: {
+        Message: "__Message__"
+      }
+    },
+    {
+      LimitExceededException: {
+        Message: "__Message__"
+      }
+    },
+    {
+      InternalFailureException: {
+        Message: "__Message__"
+      }
+    },
+    {
+      ConflictException: {
+        Message: "__Message__"
+      }
+    },
+    {
+      ServiceUnavailableException: {
+        Message: "__Message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

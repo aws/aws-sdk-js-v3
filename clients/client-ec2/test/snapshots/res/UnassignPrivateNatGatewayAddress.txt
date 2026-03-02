@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UnassignPrivateNatGatewayAddressResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UnassignPrivateNatGatewayAddressResult xmlns="https://placeholder.amazonaws.com">
+    <natGatewayId>
+        __NatGatewayId__
+    </natGatewayId>
+    <natGatewayAddressSet>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <privateIp>
+                __PrivateIp__
+            </privateIp>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <isPrimary>
+                false
+            </isPrimary>
+            <failureMessage>
+                __FailureMessage__
+            </failureMessage>
+            <status>
+                __Status__
+            </status>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <privateIp>
+                __PrivateIp__
+            </privateIp>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <isPrimary>
+                false
+            </isPrimary>
+            <failureMessage>
+                __FailureMessage__
+            </failureMessage>
+            <status>
+                __Status__
+            </status>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <privateIp>
+                __PrivateIp__
+            </privateIp>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <isPrimary>
+                false
+            </isPrimary>
+            <failureMessage>
+                __FailureMessage__
+            </failureMessage>
+            <status>
+                __Status__
+            </status>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+    </natGatewayAddressSet>
+</UnassignPrivateNatGatewayAddressResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NatGatewayId: "__NatGatewayId__",
+  NatGatewayAddresses: [
+    {
+      AllocationId: "__AllocationId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      PrivateIp: "__PrivateIp__",
+      PublicIp: "__PublicIp__",
+      AssociationId: "__AssociationId__",
+      IsPrimary: (boolean) false,
+      FailureMessage: "__FailureMessage__",
+      Status: "__Status__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      PrivateIp: "__PrivateIp__",
+      PublicIp: "__PublicIp__",
+      AssociationId: "__AssociationId__",
+      IsPrimary: (boolean) false,
+      FailureMessage: "__FailureMessage__",
+      Status: "__Status__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      PrivateIp: "__PrivateIp__",
+      PublicIp: "__PublicIp__",
+      AssociationId: "__AssociationId__",
+      IsPrimary: (boolean) false,
+      FailureMessage: "__FailureMessage__",
+      Status: "__Status__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    }
+  ]
+}
+

@@ -1,0 +1,341 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeLocalGatewayVirtualInterfacesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeLocalGatewayVirtualInterfacesResult xmlns="https://placeholder.amazonaws.com">
+    <localGatewayVirtualInterfaceSet>
+        <item>
+            <localGatewayVirtualInterfaceId>
+                __LocalGatewayVirtualInterfaceId__
+            </localGatewayVirtualInterfaceId>
+            <localGatewayId>
+                __LocalGatewayId__
+            </localGatewayId>
+            <localGatewayVirtualInterfaceGroupId>
+                __LocalGatewayVirtualInterfaceGroupId__
+            </localGatewayVirtualInterfaceGroupId>
+            <localGatewayVirtualInterfaceArn>
+                __LocalGatewayVirtualInterfaceArn__
+            </localGatewayVirtualInterfaceArn>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <vlan>
+                0
+            </vlan>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <localBgpAsn>
+                0
+            </localBgpAsn>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <peerBgpAsnExtended>
+                0
+            </peerBgpAsnExtended>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+        <item>
+            <localGatewayVirtualInterfaceId>
+                __LocalGatewayVirtualInterfaceId__
+            </localGatewayVirtualInterfaceId>
+            <localGatewayId>
+                __LocalGatewayId__
+            </localGatewayId>
+            <localGatewayVirtualInterfaceGroupId>
+                __LocalGatewayVirtualInterfaceGroupId__
+            </localGatewayVirtualInterfaceGroupId>
+            <localGatewayVirtualInterfaceArn>
+                __LocalGatewayVirtualInterfaceArn__
+            </localGatewayVirtualInterfaceArn>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <vlan>
+                0
+            </vlan>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <localBgpAsn>
+                0
+            </localBgpAsn>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <peerBgpAsnExtended>
+                0
+            </peerBgpAsnExtended>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+        <item>
+            <localGatewayVirtualInterfaceId>
+                __LocalGatewayVirtualInterfaceId__
+            </localGatewayVirtualInterfaceId>
+            <localGatewayId>
+                __LocalGatewayId__
+            </localGatewayId>
+            <localGatewayVirtualInterfaceGroupId>
+                __LocalGatewayVirtualInterfaceGroupId__
+            </localGatewayVirtualInterfaceGroupId>
+            <localGatewayVirtualInterfaceArn>
+                __LocalGatewayVirtualInterfaceArn__
+            </localGatewayVirtualInterfaceArn>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <vlan>
+                0
+            </vlan>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <localBgpAsn>
+                0
+            </localBgpAsn>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <peerBgpAsnExtended>
+                0
+            </peerBgpAsnExtended>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+    </localGatewayVirtualInterfaceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeLocalGatewayVirtualInterfacesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  LocalGatewayVirtualInterfaces: [
+    {
+      LocalGatewayVirtualInterfaceId: "__LocalGatewayVirtualInterfaceId__",
+      LocalGatewayId: "__LocalGatewayId__",
+      LocalGatewayVirtualInterfaceGroupId: "__LocalGatewayVirtualInterfaceGroupId__",
+      LocalGatewayVirtualInterfaceArn: "__LocalGatewayVirtualInterfaceArn__",
+      OutpostLagId: "__OutpostLagId__",
+      Vlan: (number) 0,
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      LocalBgpAsn: (number) 0,
+      PeerBgpAsn: (number) 0,
+      PeerBgpAsnExtended: (number) 0,
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    },
+    {
+      LocalGatewayVirtualInterfaceId: "__LocalGatewayVirtualInterfaceId__",
+      LocalGatewayId: "__LocalGatewayId__",
+      LocalGatewayVirtualInterfaceGroupId: "__LocalGatewayVirtualInterfaceGroupId__",
+      LocalGatewayVirtualInterfaceArn: "__LocalGatewayVirtualInterfaceArn__",
+      OutpostLagId: "__OutpostLagId__",
+      Vlan: (number) 0,
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      LocalBgpAsn: (number) 0,
+      PeerBgpAsn: (number) 0,
+      PeerBgpAsnExtended: (number) 0,
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    },
+    {
+      LocalGatewayVirtualInterfaceId: "__LocalGatewayVirtualInterfaceId__",
+      LocalGatewayId: "__LocalGatewayId__",
+      LocalGatewayVirtualInterfaceGroupId: "__LocalGatewayVirtualInterfaceGroupId__",
+      LocalGatewayVirtualInterfaceArn: "__LocalGatewayVirtualInterfaceArn__",
+      OutpostLagId: "__OutpostLagId__",
+      Vlan: (number) 0,
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      LocalBgpAsn: (number) 0,
+      PeerBgpAsn: (number) 0,
+      PeerBgpAsnExtended: (number) 0,
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

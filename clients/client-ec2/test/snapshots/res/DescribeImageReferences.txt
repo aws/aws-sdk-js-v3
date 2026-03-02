@@ -1,0 +1,101 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImageReferencesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImageReferencesResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <imageReferenceSet>
+        <item>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <arn>
+                __Arn__
+            </arn>
+        </item>
+        <item>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <arn>
+                __Arn__
+            </arn>
+        </item>
+        <item>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <arn>
+                __Arn__
+            </arn>
+        </item>
+    </imageReferenceSet>
+</DescribeImageReferencesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  ImageReferences: [
+    {
+      ImageId: "__ImageId__",
+      ResourceType: "__ResourceType__",
+      Arn: "__Arn__"
+    },
+    {
+      ImageId: "__ImageId__",
+      ResourceType: "__ResourceType__",
+      Arn: "__Arn__"
+    },
+    {
+      ImageId: "__ImageId__",
+      ResourceType: "__ResourceType__",
+      Arn: "__Arn__"
+    }
+  ]
+}
+

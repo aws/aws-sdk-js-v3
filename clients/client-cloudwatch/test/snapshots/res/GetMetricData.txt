@@ -1,0 +1,253 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "MetricDataResults": [
+    {
+      "Id": "__Id__",
+      "Label": "__Label__",
+      "Timestamps": [
+        946702799.999,
+        946702799.999,
+        946702799.999
+      ],
+      "Values": [
+        0,
+        0,
+        0
+      ],
+      "StatusCode": "__StatusCode__",
+      "Messages": [
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        }
+      ]
+    },
+    {
+      "Id": "__Id__",
+      "Label": "__Label__",
+      "Timestamps": [
+        946702799.999,
+        946702799.999,
+        946702799.999
+      ],
+      "Values": [
+        0,
+        0,
+        0
+      ],
+      "StatusCode": "__StatusCode__",
+      "Messages": [
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        }
+      ]
+    },
+    {
+      "Id": "__Id__",
+      "Label": "__Label__",
+      "Timestamps": [
+        946702799.999,
+        946702799.999,
+        946702799.999
+      ],
+      "Values": [
+        0,
+        0,
+        0
+      ],
+      "StatusCode": "__StatusCode__",
+      "Messages": [
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        },
+        {
+          "Code": "__Code__",
+          "Value": "__Value__"
+        }
+      ]
+    }
+  ],
+  "NextToken": "__NextToken__",
+  "Messages": [
+    {
+      "Code": "__Code__",
+      "Value": "__Value__"
+    },
+    {
+      "Code": "__Code__",
+      "Value": "__Value__"
+    },
+    {
+      "Code": "__Code__",
+      "Value": "__Value__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  MetricDataResults: [
+    {
+      Id: "__Id__",
+      Label: "__Label__",
+      Timestamps: [
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      ],
+      Values: [
+        (number) 0,
+        (number) 0,
+        (number) 0
+      ],
+      StatusCode: "__StatusCode__",
+      Messages: [
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Id: "__Id__",
+      Label: "__Label__",
+      Timestamps: [
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      ],
+      Values: [
+        (number) 0,
+        (number) 0,
+        (number) 0
+      ],
+      StatusCode: "__StatusCode__",
+      Messages: [
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Id: "__Id__",
+      Label: "__Label__",
+      Timestamps: [
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      ],
+      Values: [
+        (number) 0,
+        (number) 0,
+        (number) 0
+      ],
+      StatusCode: "__StatusCode__",
+      Messages: [
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        },
+        {
+          Code: "__Code__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__",
+  Messages: [
+    {
+      Code: "__Code__",
+      Value: "__Value__"
+    },
+    {
+      Code: "__Code__",
+      Value: "__Value__"
+    },
+    {
+      Code: "__Code__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

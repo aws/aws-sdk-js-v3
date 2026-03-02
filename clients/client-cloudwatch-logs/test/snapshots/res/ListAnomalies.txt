@@ -1,0 +1,483 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "anomalies": [
+    {
+      "anomalyId": "__anomalyId__",
+      "patternId": "__patternId__",
+      "anomalyDetectorArn": "__anomalyDetectorArn__",
+      "patternString": "__patternString__",
+      "firstSeen": 0,
+      "lastSeen": 0,
+      "description": "__description__",
+      "active": false,
+      "state": "__state__",
+      "histogram": {
+        "key1": 0,
+        "key2": 0
+      },
+      "logSamples": [
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        }
+      ],
+      "patternTokens": [
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        }
+      ],
+      "logGroupArnList": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "patternRegex": "__patternRegex__",
+      "priority": "__priority__",
+      "suppressed": false,
+      "suppressedDate": 0,
+      "suppressedUntil": 0,
+      "isPatternLevelSuppression": false
+    },
+    {
+      "anomalyId": "__anomalyId__",
+      "patternId": "__patternId__",
+      "anomalyDetectorArn": "__anomalyDetectorArn__",
+      "patternString": "__patternString__",
+      "firstSeen": 0,
+      "lastSeen": 0,
+      "description": "__description__",
+      "active": false,
+      "state": "__state__",
+      "histogram": {
+        "key1": 0,
+        "key2": 0
+      },
+      "logSamples": [
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        }
+      ],
+      "patternTokens": [
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        }
+      ],
+      "logGroupArnList": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "patternRegex": "__patternRegex__",
+      "priority": "__priority__",
+      "suppressed": false,
+      "suppressedDate": 0,
+      "suppressedUntil": 0,
+      "isPatternLevelSuppression": false
+    },
+    {
+      "anomalyId": "__anomalyId__",
+      "patternId": "__patternId__",
+      "anomalyDetectorArn": "__anomalyDetectorArn__",
+      "patternString": "__patternString__",
+      "firstSeen": 0,
+      "lastSeen": 0,
+      "description": "__description__",
+      "active": false,
+      "state": "__state__",
+      "histogram": {
+        "key1": 0,
+        "key2": 0
+      },
+      "logSamples": [
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        },
+        {
+          "timestamp": 0,
+          "message": "__message__"
+        }
+      ],
+      "patternTokens": [
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        },
+        {
+          "dynamicTokenPosition": 0,
+          "isDynamic": false,
+          "tokenString": "__tokenString__",
+          "enumerations": {
+            "key1": 0,
+            "key2": 0
+          },
+          "inferredTokenName": "__inferredTokenName__"
+        }
+      ],
+      "logGroupArnList": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "patternRegex": "__patternRegex__",
+      "priority": "__priority__",
+      "suppressed": false,
+      "suppressedDate": 0,
+      "suppressedUntil": 0,
+      "isPatternLevelSuppression": false
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  anomalies: [
+    {
+      anomalyId: "__anomalyId__",
+      patternId: "__patternId__",
+      anomalyDetectorArn: "__anomalyDetectorArn__",
+      patternString: "__patternString__",
+      firstSeen: (number) 0,
+      lastSeen: (number) 0,
+      description: "__description__",
+      active: (boolean) false,
+      state: "__state__",
+      histogram: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      logSamples: [
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        }
+      ],
+      patternTokens: [
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        }
+      ],
+      logGroupArnList: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      patternRegex: "__patternRegex__",
+      priority: "__priority__",
+      suppressed: (boolean) false,
+      suppressedDate: (number) 0,
+      suppressedUntil: (number) 0,
+      isPatternLevelSuppression: (boolean) false
+    },
+    {
+      anomalyId: "__anomalyId__",
+      patternId: "__patternId__",
+      anomalyDetectorArn: "__anomalyDetectorArn__",
+      patternString: "__patternString__",
+      firstSeen: (number) 0,
+      lastSeen: (number) 0,
+      description: "__description__",
+      active: (boolean) false,
+      state: "__state__",
+      histogram: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      logSamples: [
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        }
+      ],
+      patternTokens: [
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        }
+      ],
+      logGroupArnList: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      patternRegex: "__patternRegex__",
+      priority: "__priority__",
+      suppressed: (boolean) false,
+      suppressedDate: (number) 0,
+      suppressedUntil: (number) 0,
+      isPatternLevelSuppression: (boolean) false
+    },
+    {
+      anomalyId: "__anomalyId__",
+      patternId: "__patternId__",
+      anomalyDetectorArn: "__anomalyDetectorArn__",
+      patternString: "__patternString__",
+      firstSeen: (number) 0,
+      lastSeen: (number) 0,
+      description: "__description__",
+      active: (boolean) false,
+      state: "__state__",
+      histogram: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      logSamples: [
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        },
+        {
+          timestamp: (number) 0,
+          message: "__message__"
+        }
+      ],
+      patternTokens: [
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        },
+        {
+          dynamicTokenPosition: (number) 0,
+          isDynamic: (boolean) false,
+          tokenString: "__tokenString__",
+          enumerations: {
+            key1: (number) 0,
+            key2: (number) 0
+          },
+          inferredTokenName: "__inferredTokenName__"
+        }
+      ],
+      logGroupArnList: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      patternRegex: "__patternRegex__",
+      priority: "__priority__",
+      suppressed: (boolean) false,
+      suppressedDate: (number) 0,
+      suppressedUntil: (number) 0,
+      isPatternLevelSuppression: (boolean) false
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

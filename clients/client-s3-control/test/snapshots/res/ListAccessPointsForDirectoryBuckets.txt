@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessPointsForDirectoryBucketsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessPointsForDirectoryBucketsResult xmlns="https://placeholder.amazonaws.com">
+    <AccessPointList>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <NetworkOrigin>
+                __NetworkOrigin__
+            </NetworkOrigin>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <VpcConfiguration>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+            </VpcConfiguration>
+            <AccessPointArn>
+                __AccessPointArn__
+            </AccessPointArn>
+            <Alias>
+                __Alias__
+            </Alias>
+            <BucketAccountId>
+                __BucketAccountId__
+            </BucketAccountId>
+            <DataSourceId>
+                __DataSourceId__
+            </DataSourceId>
+            <DataSourceType>
+                __DataSourceType__
+            </DataSourceType>
+        </AccessPoint>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <NetworkOrigin>
+                __NetworkOrigin__
+            </NetworkOrigin>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <VpcConfiguration>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+            </VpcConfiguration>
+            <AccessPointArn>
+                __AccessPointArn__
+            </AccessPointArn>
+            <Alias>
+                __Alias__
+            </Alias>
+            <BucketAccountId>
+                __BucketAccountId__
+            </BucketAccountId>
+            <DataSourceId>
+                __DataSourceId__
+            </DataSourceId>
+            <DataSourceType>
+                __DataSourceType__
+            </DataSourceType>
+        </AccessPoint>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <NetworkOrigin>
+                __NetworkOrigin__
+            </NetworkOrigin>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <VpcConfiguration>
+                <VpcId>
+                    __VpcId__
+                </VpcId>
+            </VpcConfiguration>
+            <AccessPointArn>
+                __AccessPointArn__
+            </AccessPointArn>
+            <Alias>
+                __Alias__
+            </Alias>
+            <BucketAccountId>
+                __BucketAccountId__
+            </BucketAccountId>
+            <DataSourceId>
+                __DataSourceId__
+            </DataSourceId>
+            <DataSourceType>
+                __DataSourceType__
+            </DataSourceType>
+        </AccessPoint>
+    </AccessPointList>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListAccessPointsForDirectoryBucketsResult>
+
+
+--- [output object] ---
+{
+  AccessPointList: [
+    {
+      Name: "__Name__",
+      NetworkOrigin: "__NetworkOrigin__",
+      Bucket: "__Bucket__",
+      VpcConfiguration: {
+        VpcId: "__VpcId__"
+      },
+      AccessPointArn: "__AccessPointArn__",
+      Alias: "__Alias__",
+      BucketAccountId: "__BucketAccountId__",
+      DataSourceId: "__DataSourceId__",
+      DataSourceType: "__DataSourceType__"
+    },
+    {
+      Name: "__Name__",
+      NetworkOrigin: "__NetworkOrigin__",
+      Bucket: "__Bucket__",
+      VpcConfiguration: {
+        VpcId: "__VpcId__"
+      },
+      AccessPointArn: "__AccessPointArn__",
+      Alias: "__Alias__",
+      BucketAccountId: "__BucketAccountId__",
+      DataSourceId: "__DataSourceId__",
+      DataSourceType: "__DataSourceType__"
+    },
+    {
+      Name: "__Name__",
+      NetworkOrigin: "__NetworkOrigin__",
+      Bucket: "__Bucket__",
+      VpcConfiguration: {
+        VpcId: "__VpcId__"
+      },
+      AccessPointArn: "__AccessPointArn__",
+      Alias: "__Alias__",
+      BucketAccountId: "__BucketAccountId__",
+      DataSourceId: "__DataSourceId__",
+      DataSourceType: "__DataSourceType__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

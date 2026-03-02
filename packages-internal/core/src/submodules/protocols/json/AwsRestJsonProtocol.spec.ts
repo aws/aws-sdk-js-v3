@@ -166,6 +166,10 @@ describe(AwsRestJsonProtocol.name, () => {
       ],
     ];
 
+    it("should have a shapeId of aws.protocols#restJson1", () => {
+      expect(protocol.getShapeId()).toEqual("aws.protocols#restJson1");
+    });
+
     it("obeys jsonName and HTTP bindings during serialization", async () => {
       const request = await protocol.serializeRequest(
         {

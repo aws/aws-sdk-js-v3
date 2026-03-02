@@ -1,0 +1,246 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "CompilationJobName": "__CompilationJobName__",
+  "CompilationJobArn": "__CompilationJobArn__",
+  "CompilationJobStatus": "__CompilationJobStatus__",
+  "StoppingCondition": {},
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "ModelArtifacts": {
+    "S3ModelArtifacts": "__S3ModelArtifacts__"
+  },
+  "RoleArn": "__RoleArn__",
+  "InputConfig": {
+    "S3Uri": "__S3Uri__",
+    "Framework": "__Framework__",
+    "DataInputConfig": "__DataInputConfig__",
+    "FrameworkVersion": "__FrameworkVersion__"
+  },
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "TargetDevice": "__TargetDevice__",
+    "TargetPlatform": {
+      "Os": "__Os__",
+      "Arch": "__Arch__",
+      "Accelerator": "__Accelerator__"
+    },
+    "CompilerOptions": "__CompilerOptions__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "CompilationStartTime": 946702799.999,
+  "CompilationEndTime": 946702799.999,
+  "InferenceImage": "__InferenceImage__",
+  "ModelPackageVersionArn": "__ModelPackageVersionArn__",
+  "ModelDigests": {},
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "DerivedInformation": {}
+}
+
+
+--- [output object] ---
+{
+  CompilationJobName: "__CompilationJobName__",
+  CompilationJobArn: "__CompilationJobArn__",
+  CompilationJobStatus: "__CompilationJobStatus__",
+  StoppingCondition: {},
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  ModelArtifacts: {
+    S3ModelArtifacts: "__S3ModelArtifacts__"
+  },
+  RoleArn: "__RoleArn__",
+  InputConfig: {
+    S3Uri: "__S3Uri__",
+    Framework: "__Framework__",
+    DataInputConfig: "__DataInputConfig__",
+    FrameworkVersion: "__FrameworkVersion__"
+  },
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    TargetDevice: "__TargetDevice__",
+    TargetPlatform: {
+      Os: "__Os__",
+      Arch: "__Arch__",
+      Accelerator: "__Accelerator__"
+    },
+    CompilerOptions: "__CompilerOptions__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  CompilationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CompilationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  InferenceImage: "__InferenceImage__",
+  ModelPackageVersionArn: "__ModelPackageVersionArn__",
+  ModelDigests: {},
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  DerivedInformation: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "CompilationJobName": "__CompilationJobName__",
+  "CompilationJobArn": "__CompilationJobArn__",
+  "CompilationJobStatus": "__CompilationJobStatus__",
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0,
+    "MaxWaitTimeInSeconds": 0,
+    "MaxPendingTimeInSeconds": 0
+  },
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "ModelArtifacts": {
+    "S3ModelArtifacts": "__S3ModelArtifacts__"
+  },
+  "RoleArn": "__RoleArn__",
+  "InputConfig": {
+    "S3Uri": "__S3Uri__",
+    "Framework": "__Framework__",
+    "DataInputConfig": "__DataInputConfig__",
+    "FrameworkVersion": "__FrameworkVersion__"
+  },
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "TargetDevice": "__TargetDevice__",
+    "TargetPlatform": {
+      "Os": "__Os__",
+      "Arch": "__Arch__",
+      "Accelerator": "__Accelerator__"
+    },
+    "CompilerOptions": "__CompilerOptions__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "CompilationStartTime": 946702799.999,
+  "CompilationEndTime": 946702799.999,
+  "InferenceImage": "__InferenceImage__",
+  "ModelPackageVersionArn": "__ModelPackageVersionArn__",
+  "ModelDigests": {
+    "ArtifactDigest": "__ArtifactDigest__"
+  },
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "DerivedInformation": {
+    "DerivedDataInputConfig": "__DerivedDataInputConfig__"
+  }
+}
+
+
+--- [output object] ---
+{
+  CompilationJobName: "__CompilationJobName__",
+  CompilationJobArn: "__CompilationJobArn__",
+  CompilationJobStatus: "__CompilationJobStatus__",
+  StoppingCondition: {
+    MaxRuntimeInSeconds: (number) 0,
+    MaxWaitTimeInSeconds: (number) 0,
+    MaxPendingTimeInSeconds: (number) 0
+  },
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  ModelArtifacts: {
+    S3ModelArtifacts: "__S3ModelArtifacts__"
+  },
+  RoleArn: "__RoleArn__",
+  InputConfig: {
+    S3Uri: "__S3Uri__",
+    Framework: "__Framework__",
+    DataInputConfig: "__DataInputConfig__",
+    FrameworkVersion: "__FrameworkVersion__"
+  },
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    TargetDevice: "__TargetDevice__",
+    TargetPlatform: {
+      Os: "__Os__",
+      Arch: "__Arch__",
+      Accelerator: "__Accelerator__"
+    },
+    CompilerOptions: "__CompilerOptions__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  CompilationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CompilationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  InferenceImage: "__InferenceImage__",
+  ModelPackageVersionArn: "__ModelPackageVersionArn__",
+  ModelDigests: {
+    ArtifactDigest: "__ArtifactDigest__"
+  },
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  DerivedInformation: {
+    DerivedDataInputConfig: "__DerivedDataInputConfig__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

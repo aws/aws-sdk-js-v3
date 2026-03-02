@@ -1,0 +1,79 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<InitiateMultipartUploadResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-abort-date: Sat, 01 Jan 2000 04:59:59 GMT
+x-amz-abort-rule-id: __AbortRuleId__
+x-amz-server-side-encryption: __ServerSideEncryption__
+x-amz-server-side-encryption-customer-algorithm: __SSECustomerAlgorithm__
+x-amz-server-side-encryption-customer-key-MD5: __SSECustomerKeyMD5__
+x-amz-server-side-encryption-aws-kms-key-id: __SSEKMSKeyId__
+x-amz-server-side-encryption-context: __SSEKMSEncryptionContext__
+x-amz-server-side-encryption-bucket-key-enabled: false
+x-amz-request-charged: __RequestCharged__
+x-amz-checksum-algorithm: CRC64NVME
+x-amz-checksum-type: __ChecksumType__
+
+[Uint8Array (xml)]
+<InitiateMultipartUploadResult xmlns="https://placeholder.amazonaws.com">
+    <Bucket>
+        __Bucket__
+    </Bucket>
+    <Key>
+        __Key__
+    </Key>
+    <UploadId>
+        __UploadId__
+    </UploadId>
+</InitiateMultipartUploadResult>
+
+
+--- [output object] ---
+{
+  AbortDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AbortRuleId: "__AbortRuleId__",
+  ServerSideEncryption: "__ServerSideEncryption__",
+  SSECustomerAlgorithm: "__SSECustomerAlgorithm__",
+  SSECustomerKeyMD5: "__SSECustomerKeyMD5__",
+  SSEKMSKeyId: "__SSEKMSKeyId__",
+  SSEKMSEncryptionContext: "__SSEKMSEncryptionContext__",
+  BucketKeyEnabled: (boolean) false,
+  RequestCharged: "__RequestCharged__",
+  ChecksumAlgorithm: "CRC64NVME",
+  ChecksumType: "__ChecksumType__",
+  Bucket: "__Bucket__",
+  Key: "__Key__",
+  UploadId: "__UploadId__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

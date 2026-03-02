@@ -1,0 +1,91 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DBClusterEndpoint xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DBClusterEndpoint xmlns="https://placeholder.amazonaws.com">
+    <DBClusterEndpointIdentifier>
+        __DBClusterEndpointIdentifier__
+    </DBClusterEndpointIdentifier>
+    <DBClusterIdentifier>
+        __DBClusterIdentifier__
+    </DBClusterIdentifier>
+    <DBClusterEndpointResourceIdentifier>
+        __DBClusterEndpointResourceIdentifier__
+    </DBClusterEndpointResourceIdentifier>
+    <Endpoint>
+        __Endpoint__
+    </Endpoint>
+    <Status>
+        __Status__
+    </Status>
+    <EndpointType>
+        __EndpointType__
+    </EndpointType>
+    <CustomEndpointType>
+        __CustomEndpointType__
+    </CustomEndpointType>
+    <StaticMembers>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+    </StaticMembers>
+    <ExcludedMembers>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+    </ExcludedMembers>
+    <DBClusterEndpointArn>
+        __DBClusterEndpointArn__
+    </DBClusterEndpointArn>
+</DBClusterEndpoint>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

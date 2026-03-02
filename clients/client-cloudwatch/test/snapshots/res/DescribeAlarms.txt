@@ -1,0 +1,847 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "CompositeAlarms": [
+    {
+      "ActionsEnabled": false,
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmArn": "__AlarmArn__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmName": "__AlarmName__",
+      "AlarmRule": "__AlarmRule__",
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "StateValue": "__StateValue__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "ActionsSuppressedBy": "__ActionsSuppressedBy__",
+      "ActionsSuppressedReason": "__ActionsSuppressedReason__",
+      "ActionsSuppressor": "__ActionsSuppressor__",
+      "ActionsSuppressorWaitPeriod": 0,
+      "ActionsSuppressorExtensionPeriod": 0
+    },
+    {
+      "ActionsEnabled": false,
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmArn": "__AlarmArn__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmName": "__AlarmName__",
+      "AlarmRule": "__AlarmRule__",
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "StateValue": "__StateValue__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "ActionsSuppressedBy": "__ActionsSuppressedBy__",
+      "ActionsSuppressedReason": "__ActionsSuppressedReason__",
+      "ActionsSuppressor": "__ActionsSuppressor__",
+      "ActionsSuppressorWaitPeriod": 0,
+      "ActionsSuppressorExtensionPeriod": 0
+    },
+    {
+      "ActionsEnabled": false,
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmArn": "__AlarmArn__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmName": "__AlarmName__",
+      "AlarmRule": "__AlarmRule__",
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "StateValue": "__StateValue__",
+      "StateTransitionedTimestamp": 946702799.999,
+      "ActionsSuppressedBy": "__ActionsSuppressedBy__",
+      "ActionsSuppressedReason": "__ActionsSuppressedReason__",
+      "ActionsSuppressor": "__ActionsSuppressor__",
+      "ActionsSuppressorWaitPeriod": 0,
+      "ActionsSuppressorExtensionPeriod": 0
+    }
+  ],
+  "MetricAlarms": [
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "MetricName": "__MetricName__",
+      "Namespace": "__Namespace__",
+      "Statistic": "__Statistic__",
+      "ExtendedStatistic": "__ExtendedStatistic__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Period": 0,
+      "Unit": "__Unit__",
+      "EvaluationPeriods": 0,
+      "DatapointsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "EvaluateLowSampleCountPercentile": "__EvaluateLowSampleCountPercentile__",
+      "Metrics": [
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        }
+      ],
+      "ThresholdMetricId": "__ThresholdMetricId__",
+      "EvaluationState": "__EvaluationState__",
+      "StateTransitionedTimestamp": 946702799.999
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "MetricName": "__MetricName__",
+      "Namespace": "__Namespace__",
+      "Statistic": "__Statistic__",
+      "ExtendedStatistic": "__ExtendedStatistic__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Period": 0,
+      "Unit": "__Unit__",
+      "EvaluationPeriods": 0,
+      "DatapointsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "EvaluateLowSampleCountPercentile": "__EvaluateLowSampleCountPercentile__",
+      "Metrics": [
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        }
+      ],
+      "ThresholdMetricId": "__ThresholdMetricId__",
+      "EvaluationState": "__EvaluationState__",
+      "StateTransitionedTimestamp": 946702799.999
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmArn": "__AlarmArn__",
+      "AlarmDescription": "__AlarmDescription__",
+      "AlarmConfigurationUpdatedTimestamp": 946702799.999,
+      "ActionsEnabled": false,
+      "OKActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "AlarmActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "InsufficientDataActions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "StateValue": "__StateValue__",
+      "StateReason": "__StateReason__",
+      "StateReasonData": "__StateReasonData__",
+      "StateUpdatedTimestamp": 946702799.999,
+      "MetricName": "__MetricName__",
+      "Namespace": "__Namespace__",
+      "Statistic": "__Statistic__",
+      "ExtendedStatistic": "__ExtendedStatistic__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Period": 0,
+      "Unit": "__Unit__",
+      "EvaluationPeriods": 0,
+      "DatapointsToAlarm": 0,
+      "Threshold": 0,
+      "ComparisonOperator": "__ComparisonOperator__",
+      "TreatMissingData": "__TreatMissingData__",
+      "EvaluateLowSampleCountPercentile": "__EvaluateLowSampleCountPercentile__",
+      "Metrics": [
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        },
+        {
+          "Id": "__Id__",
+          "MetricStat": {
+            "Metric": {},
+            "Period": 0,
+            "Stat": "__Stat__",
+            "Unit": "__Unit__"
+          },
+          "Expression": "__Expression__",
+          "Label": "__Label__",
+          "ReturnData": false,
+          "Period": 0,
+          "AccountId": "123456789012"
+        }
+      ],
+      "ThresholdMetricId": "__ThresholdMetricId__",
+      "EvaluationState": "__EvaluationState__",
+      "StateTransitionedTimestamp": 946702799.999
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  CompositeAlarms: [
+    {
+      ActionsEnabled: (boolean) false,
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmArn: "__AlarmArn__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AlarmDescription: "__AlarmDescription__",
+      AlarmName: "__AlarmName__",
+      AlarmRule: "__AlarmRule__",
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StateValue: "__StateValue__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsSuppressedBy: "__ActionsSuppressedBy__",
+      ActionsSuppressedReason: "__ActionsSuppressedReason__",
+      ActionsSuppressor: "__ActionsSuppressor__",
+      ActionsSuppressorWaitPeriod: (number) 0,
+      ActionsSuppressorExtensionPeriod: (number) 0
+    },
+    {
+      ActionsEnabled: (boolean) false,
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmArn: "__AlarmArn__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AlarmDescription: "__AlarmDescription__",
+      AlarmName: "__AlarmName__",
+      AlarmRule: "__AlarmRule__",
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StateValue: "__StateValue__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsSuppressedBy: "__ActionsSuppressedBy__",
+      ActionsSuppressedReason: "__ActionsSuppressedReason__",
+      ActionsSuppressor: "__ActionsSuppressor__",
+      ActionsSuppressorWaitPeriod: (number) 0,
+      ActionsSuppressorExtensionPeriod: (number) 0
+    },
+    {
+      ActionsEnabled: (boolean) false,
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmArn: "__AlarmArn__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AlarmDescription: "__AlarmDescription__",
+      AlarmName: "__AlarmName__",
+      AlarmRule: "__AlarmRule__",
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StateValue: "__StateValue__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsSuppressedBy: "__ActionsSuppressedBy__",
+      ActionsSuppressedReason: "__ActionsSuppressedReason__",
+      ActionsSuppressor: "__ActionsSuppressor__",
+      ActionsSuppressorWaitPeriod: (number) 0,
+      ActionsSuppressorExtensionPeriod: (number) 0
+    }
+  ],
+  MetricAlarms: [
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MetricName: "__MetricName__",
+      Namespace: "__Namespace__",
+      Statistic: "__Statistic__",
+      ExtendedStatistic: "__ExtendedStatistic__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Period: (number) 0,
+      Unit: "__Unit__",
+      EvaluationPeriods: (number) 0,
+      DatapointsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      EvaluateLowSampleCountPercentile: "__EvaluateLowSampleCountPercentile__",
+      Metrics: [
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        }
+      ],
+      ThresholdMetricId: "__ThresholdMetricId__",
+      EvaluationState: "__EvaluationState__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MetricName: "__MetricName__",
+      Namespace: "__Namespace__",
+      Statistic: "__Statistic__",
+      ExtendedStatistic: "__ExtendedStatistic__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Period: (number) 0,
+      Unit: "__Unit__",
+      EvaluationPeriods: (number) 0,
+      DatapointsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      EvaluateLowSampleCountPercentile: "__EvaluateLowSampleCountPercentile__",
+      Metrics: [
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        }
+      ],
+      ThresholdMetricId: "__ThresholdMetricId__",
+      EvaluationState: "__EvaluationState__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmArn: "__AlarmArn__",
+      AlarmDescription: "__AlarmDescription__",
+      AlarmConfigurationUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ActionsEnabled: (boolean) false,
+      OKActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AlarmActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InsufficientDataActions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      StateValue: "__StateValue__",
+      StateReason: "__StateReason__",
+      StateReasonData: "__StateReasonData__",
+      StateUpdatedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MetricName: "__MetricName__",
+      Namespace: "__Namespace__",
+      Statistic: "__Statistic__",
+      ExtendedStatistic: "__ExtendedStatistic__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Period: (number) 0,
+      Unit: "__Unit__",
+      EvaluationPeriods: (number) 0,
+      DatapointsToAlarm: (number) 0,
+      Threshold: (number) 0,
+      ComparisonOperator: "__ComparisonOperator__",
+      TreatMissingData: "__TreatMissingData__",
+      EvaluateLowSampleCountPercentile: "__EvaluateLowSampleCountPercentile__",
+      Metrics: [
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        },
+        {
+          Id: "__Id__",
+          MetricStat: {
+            Metric: {},
+            Period: (number) 0,
+            Stat: "__Stat__",
+            Unit: "__Unit__"
+          },
+          Expression: "__Expression__",
+          Label: "__Label__",
+          ReturnData: (boolean) false,
+          Period: (number) 0,
+          AccountId: "123456789012"
+        }
+      ],
+      ThresholdMetricId: "__ThresholdMetricId__",
+      EvaluationState: "__EvaluationState__",
+      StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

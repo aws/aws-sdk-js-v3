@@ -1,0 +1,621 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkInterfaceResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkInterfaceResult xmlns="https://placeholder.amazonaws.com">
+    <networkInterface>
+        <association>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <ipOwnerId>
+                __IpOwnerId__
+            </ipOwnerId>
+            <publicDnsName>
+                __PublicDnsName__
+            </publicDnsName>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+            <customerOwnedIp>
+                __CustomerOwnedIp__
+            </customerOwnedIp>
+            <carrierIp>
+                __CarrierIp__
+            </carrierIp>
+        </association>
+        <attachment>
+            <attachTime>
+                2000-01-01T04:59:59.999Z
+            </attachTime>
+            <attachmentId>
+                __AttachmentId__
+            </attachmentId>
+            <deleteOnTermination>
+                false
+            </deleteOnTermination>
+            <deviceIndex>
+                0
+            </deviceIndex>
+            <networkCardIndex>
+                0
+            </networkCardIndex>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceOwnerId>
+                __InstanceOwnerId__
+            </instanceOwnerId>
+            <status>
+                __Status__
+            </status>
+            <enaSrdSpecification>
+                <enaSrdEnabled>
+                    false
+                </enaSrdEnabled>
+                <enaSrdUdpSpecification>
+                    <enaSrdUdpEnabled>
+                        false
+                    </enaSrdUdpEnabled>
+                </enaSrdUdpSpecification>
+            </enaSrdSpecification>
+            <enaQueueCount>
+                0
+            </enaQueueCount>
+        </attachment>
+        <availabilityZone>
+            __AvailabilityZone__
+        </availabilityZone>
+        <connectionTrackingConfiguration>
+            <tcpEstablishedTimeout>
+                0
+            </tcpEstablishedTimeout>
+            <udpStreamTimeout>
+                0
+            </udpStreamTimeout>
+            <udpTimeout>
+                0
+            </udpTimeout>
+        </connectionTrackingConfiguration>
+        <description>
+            __Description__
+        </description>
+        <groupSet>
+            <item>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <groupName>
+                    __GroupName__
+                </groupName>
+            </item>
+            <item>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <groupName>
+                    __GroupName__
+                </groupName>
+            </item>
+            <item>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <groupName>
+                    __GroupName__
+                </groupName>
+            </item>
+        </groupSet>
+        <interfaceType>
+            __InterfaceType__
+        </interfaceType>
+        <ipv6AddressesSet>
+            <item>
+                <ipv6Address>
+                    __Ipv6Address__
+                </ipv6Address>
+                <publicIpv6DnsName>
+                    __PublicIpv6DnsName__
+                </publicIpv6DnsName>
+                <isPrimaryIpv6>
+                    false
+                </isPrimaryIpv6>
+            </item>
+            <item>
+                <ipv6Address>
+                    __Ipv6Address__
+                </ipv6Address>
+                <publicIpv6DnsName>
+                    __PublicIpv6DnsName__
+                </publicIpv6DnsName>
+                <isPrimaryIpv6>
+                    false
+                </isPrimaryIpv6>
+            </item>
+            <item>
+                <ipv6Address>
+                    __Ipv6Address__
+                </ipv6Address>
+                <publicIpv6DnsName>
+                    __PublicIpv6DnsName__
+                </publicIpv6DnsName>
+                <isPrimaryIpv6>
+                    false
+                </isPrimaryIpv6>
+            </item>
+        </ipv6AddressesSet>
+        <macAddress>
+            __MacAddress__
+        </macAddress>
+        <networkInterfaceId>
+            __NetworkInterfaceId__
+        </networkInterfaceId>
+        <outpostArn>
+            __OutpostArn__
+        </outpostArn>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <privateDnsName>
+            __PrivateDnsName__
+        </privateDnsName>
+        <publicDnsName>
+            __PublicDnsName__
+        </publicDnsName>
+        <publicIpDnsNameOptions>
+            <dnsHostnameType>
+                __DnsHostnameType__
+            </dnsHostnameType>
+            <publicIpv4DnsName>
+                __PublicIpv4DnsName__
+            </publicIpv4DnsName>
+            <publicIpv6DnsName>
+                __PublicIpv6DnsName__
+            </publicIpv6DnsName>
+            <publicDualStackDnsName>
+                __PublicDualStackDnsName__
+            </publicDualStackDnsName>
+        </publicIpDnsNameOptions>
+        <privateIpAddress>
+            __PrivateIpAddress__
+        </privateIpAddress>
+        <privateIpAddressesSet>
+            <item>
+                <association>
+                    <allocationId>
+                        __AllocationId__
+                    </allocationId>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipOwnerId>
+                        __IpOwnerId__
+                    </ipOwnerId>
+                    <publicDnsName>
+                        __PublicDnsName__
+                    </publicDnsName>
+                    <publicIp>
+                        __PublicIp__
+                    </publicIp>
+                    <customerOwnedIp>
+                        __CustomerOwnedIp__
+                    </customerOwnedIp>
+                    <carrierIp>
+                        __CarrierIp__
+                    </carrierIp>
+                </association>
+                <primary>
+                    false
+                </primary>
+                <privateDnsName>
+                    __PrivateDnsName__
+                </privateDnsName>
+                <privateIpAddress>
+                    __PrivateIpAddress__
+                </privateIpAddress>
+            </item>
+            <item>
+                <association>
+                    <allocationId>
+                        __AllocationId__
+                    </allocationId>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipOwnerId>
+                        __IpOwnerId__
+                    </ipOwnerId>
+                    <publicDnsName>
+                        __PublicDnsName__
+                    </publicDnsName>
+                    <publicIp>
+                        __PublicIp__
+                    </publicIp>
+                    <customerOwnedIp>
+                        __CustomerOwnedIp__
+                    </customerOwnedIp>
+                    <carrierIp>
+                        __CarrierIp__
+                    </carrierIp>
+                </association>
+                <primary>
+                    false
+                </primary>
+                <privateDnsName>
+                    __PrivateDnsName__
+                </privateDnsName>
+                <privateIpAddress>
+                    __PrivateIpAddress__
+                </privateIpAddress>
+            </item>
+            <item>
+                <association>
+                    <allocationId>
+                        __AllocationId__
+                    </allocationId>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipOwnerId>
+                        __IpOwnerId__
+                    </ipOwnerId>
+                    <publicDnsName>
+                        __PublicDnsName__
+                    </publicDnsName>
+                    <publicIp>
+                        __PublicIp__
+                    </publicIp>
+                    <customerOwnedIp>
+                        __CustomerOwnedIp__
+                    </customerOwnedIp>
+                    <carrierIp>
+                        __CarrierIp__
+                    </carrierIp>
+                </association>
+                <primary>
+                    false
+                </primary>
+                <privateDnsName>
+                    __PrivateDnsName__
+                </privateDnsName>
+                <privateIpAddress>
+                    __PrivateIpAddress__
+                </privateIpAddress>
+            </item>
+        </privateIpAddressesSet>
+        <ipv4PrefixSet>
+            <item>
+                <ipv4Prefix>
+                    __Ipv4Prefix__
+                </ipv4Prefix>
+            </item>
+            <item>
+                <ipv4Prefix>
+                    __Ipv4Prefix__
+                </ipv4Prefix>
+            </item>
+            <item>
+                <ipv4Prefix>
+                    __Ipv4Prefix__
+                </ipv4Prefix>
+            </item>
+        </ipv4PrefixSet>
+        <ipv6PrefixSet>
+            <item>
+                <ipv6Prefix>
+                    __Ipv6Prefix__
+                </ipv6Prefix>
+            </item>
+            <item>
+                <ipv6Prefix>
+                    __Ipv6Prefix__
+                </ipv6Prefix>
+            </item>
+            <item>
+                <ipv6Prefix>
+                    __Ipv6Prefix__
+                </ipv6Prefix>
+            </item>
+        </ipv6PrefixSet>
+        <requesterId>
+            __RequesterId__
+        </requesterId>
+        <requesterManaged>
+            false
+        </requesterManaged>
+        <sourceDestCheck>
+            false
+        </sourceDestCheck>
+        <status>
+            __Status__
+        </status>
+        <subnetId>
+            __SubnetId__
+        </subnetId>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <denyAllIgwTraffic>
+            false
+        </denyAllIgwTraffic>
+        <ipv6Native>
+            false
+        </ipv6Native>
+        <ipv6Address>
+            __Ipv6Address__
+        </ipv6Address>
+        <operator>
+            <managed>
+                false
+            </managed>
+            <principal>
+                __Principal__
+            </principal>
+        </operator>
+        <associatedSubnetSet>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </associatedSubnetSet>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+    </networkInterface>
+    <clientToken>
+        __ClientToken__
+    </clientToken>
+</CreateNetworkInterfaceResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NetworkInterface: {
+    Association: {
+      AllocationId: "__AllocationId__",
+      AssociationId: "__AssociationId__",
+      IpOwnerId: "__IpOwnerId__",
+      PublicDnsName: "__PublicDnsName__",
+      PublicIp: "__PublicIp__",
+      CustomerOwnedIp: "__CustomerOwnedIp__",
+      CarrierIp: "__CarrierIp__"
+    },
+    Attachment: {
+      AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      AttachmentId: "__AttachmentId__",
+      DeleteOnTermination: (boolean) false,
+      DeviceIndex: (number) 0,
+      NetworkCardIndex: (number) 0,
+      InstanceId: "__InstanceId__",
+      InstanceOwnerId: "__InstanceOwnerId__",
+      Status: "__Status__",
+      EnaSrdSpecification: {
+        EnaSrdEnabled: (boolean) false,
+        EnaSrdUdpSpecification: {
+          EnaSrdUdpEnabled: (boolean) false
+        }
+      },
+      EnaQueueCount: (number) 0
+    },
+    AvailabilityZone: "__AvailabilityZone__",
+    ConnectionTrackingConfiguration: {
+      TcpEstablishedTimeout: (number) 0,
+      UdpStreamTimeout: (number) 0,
+      UdpTimeout: (number) 0
+    },
+    Description: "__Description__",
+    Groups: [
+      {
+        GroupId: "__GroupId__",
+        GroupName: "__GroupName__"
+      },
+      {
+        GroupId: "__GroupId__",
+        GroupName: "__GroupName__"
+      },
+      {
+        GroupId: "__GroupId__",
+        GroupName: "__GroupName__"
+      }
+    ],
+    InterfaceType: "__InterfaceType__",
+    Ipv6Addresses: [
+      {
+        Ipv6Address: "__Ipv6Address__",
+        PublicIpv6DnsName: "__PublicIpv6DnsName__",
+        IsPrimaryIpv6: (boolean) false
+      },
+      {
+        Ipv6Address: "__Ipv6Address__",
+        PublicIpv6DnsName: "__PublicIpv6DnsName__",
+        IsPrimaryIpv6: (boolean) false
+      },
+      {
+        Ipv6Address: "__Ipv6Address__",
+        PublicIpv6DnsName: "__PublicIpv6DnsName__",
+        IsPrimaryIpv6: (boolean) false
+      }
+    ],
+    MacAddress: "__MacAddress__",
+    NetworkInterfaceId: "__NetworkInterfaceId__",
+    OutpostArn: "__OutpostArn__",
+    OwnerId: "__OwnerId__",
+    PrivateDnsName: "__PrivateDnsName__",
+    PublicDnsName: "__PublicDnsName__",
+    PublicIpDnsNameOptions: {
+      DnsHostnameType: "__DnsHostnameType__",
+      PublicIpv4DnsName: "__PublicIpv4DnsName__",
+      PublicIpv6DnsName: "__PublicIpv6DnsName__",
+      PublicDualStackDnsName: "__PublicDualStackDnsName__"
+    },
+    PrivateIpAddress: "__PrivateIpAddress__",
+    PrivateIpAddresses: [
+      {
+        Association: {
+          AllocationId: "__AllocationId__",
+          AssociationId: "__AssociationId__",
+          IpOwnerId: "__IpOwnerId__",
+          PublicDnsName: "__PublicDnsName__",
+          PublicIp: "__PublicIp__",
+          CustomerOwnedIp: "__CustomerOwnedIp__",
+          CarrierIp: "__CarrierIp__"
+        },
+        Primary: (boolean) false,
+        PrivateDnsName: "__PrivateDnsName__",
+        PrivateIpAddress: "__PrivateIpAddress__"
+      },
+      {
+        Association: {
+          AllocationId: "__AllocationId__",
+          AssociationId: "__AssociationId__",
+          IpOwnerId: "__IpOwnerId__",
+          PublicDnsName: "__PublicDnsName__",
+          PublicIp: "__PublicIp__",
+          CustomerOwnedIp: "__CustomerOwnedIp__",
+          CarrierIp: "__CarrierIp__"
+        },
+        Primary: (boolean) false,
+        PrivateDnsName: "__PrivateDnsName__",
+        PrivateIpAddress: "__PrivateIpAddress__"
+      },
+      {
+        Association: {
+          AllocationId: "__AllocationId__",
+          AssociationId: "__AssociationId__",
+          IpOwnerId: "__IpOwnerId__",
+          PublicDnsName: "__PublicDnsName__",
+          PublicIp: "__PublicIp__",
+          CustomerOwnedIp: "__CustomerOwnedIp__",
+          CarrierIp: "__CarrierIp__"
+        },
+        Primary: (boolean) false,
+        PrivateDnsName: "__PrivateDnsName__",
+        PrivateIpAddress: "__PrivateIpAddress__"
+      }
+    ],
+    Ipv4Prefixes: [
+      {
+        Ipv4Prefix: "__Ipv4Prefix__"
+      },
+      {
+        Ipv4Prefix: "__Ipv4Prefix__"
+      },
+      {
+        Ipv4Prefix: "__Ipv4Prefix__"
+      }
+    ],
+    Ipv6Prefixes: [
+      {
+        Ipv6Prefix: "__Ipv6Prefix__"
+      },
+      {
+        Ipv6Prefix: "__Ipv6Prefix__"
+      },
+      {
+        Ipv6Prefix: "__Ipv6Prefix__"
+      }
+    ],
+    RequesterId: "__RequesterId__",
+    RequesterManaged: (boolean) false,
+    SourceDestCheck: (boolean) false,
+    Status: "__Status__",
+    SubnetId: "__SubnetId__",
+    TagSet: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    VpcId: "__VpcId__",
+    DenyAllIgwTraffic: (boolean) false,
+    Ipv6Native: (boolean) false,
+    Ipv6Address: "__Ipv6Address__",
+    Operator: {
+      Managed: (boolean) false,
+      Principal: "__Principal__"
+    },
+    AssociatedSubnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    AvailabilityZoneId: "__AvailabilityZoneId__"
+  },
+  ClientToken: "__ClientToken__"
+}
+

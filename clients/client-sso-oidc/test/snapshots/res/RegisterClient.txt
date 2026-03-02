@@ -1,0 +1,57 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "clientId": "__clientId__",
+  "clientSecret": "__clientSecret__",
+  "clientIdIssuedAt": 0,
+  "clientSecretExpiresAt": 0,
+  "authorizationEndpoint": "__authorizationEndpoint__",
+  "tokenEndpoint": "__tokenEndpoint__"
+}
+
+
+--- [output object] ---
+{
+  clientId: "__clientId__",
+  clientSecret: "__clientSecret__",
+  clientIdIssuedAt: (number) 0,
+  clientSecretExpiresAt: (number) 0,
+  authorizationEndpoint: "__authorizationEndpoint__",
+  tokenEndpoint: "__tokenEndpoint__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListMetricsConfigurationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListMetricsConfigurationsResult xmlns="https://placeholder.amazonaws.com">
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <ContinuationToken>
+        __ContinuationToken__
+    </ContinuationToken>
+    <NextContinuationToken>
+        __NextContinuationToken__
+    </NextContinuationToken>
+    <MetricsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <AccessPointArn>
+                __AccessPointArn__
+            </AccessPointArn>
+        </Filter>
+    </MetricsConfiguration>
+    <MetricsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <And>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <AccessPointArn>
+                    __AccessPointArn__
+                </AccessPointArn>
+            </And>
+        </Filter>
+    </MetricsConfiguration>
+    <MetricsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+        </Filter>
+    </MetricsConfiguration>
+</ListMetricsConfigurationsResult>
+
+
+--- [output object] ---
+{
+  IsTruncated: (boolean) false,
+  ContinuationToken: "__ContinuationToken__",
+  NextContinuationToken: "__NextContinuationToken__",
+  MetricsConfigurationList: [
+    {
+      Id: "__Id__",
+      Filter: {
+        AccessPointArn: "__AccessPointArn__"
+      }
+    },
+    {
+      Id: "__Id__",
+      Filter: {
+        And: {
+          Prefix: "__Prefix__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ],
+          AccessPointArn: "__AccessPointArn__"
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      Filter: {
+        Prefix: "__Prefix__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

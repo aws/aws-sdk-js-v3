@@ -1,0 +1,70 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ObjectLockConfiguration xmlns="https://placeholder.amazonaws.com">
+    <ObjectLockEnabled>
+        __ObjectLockEnabled__
+    </ObjectLockEnabled>
+    <Rule>
+        <DefaultRetention>
+            <Mode>
+                __Mode__
+            </Mode>
+            <Days>
+                0
+            </Days>
+            <Years>
+                0
+            </Years>
+        </DefaultRetention>
+    </Rule>
+</ObjectLockConfiguration>
+
+
+--- [output object] ---
+{
+  ObjectLockConfiguration: {
+    ObjectLockEnabled: "__ObjectLockEnabled__",
+    Rule: {
+      DefaultRetention: {
+        Mode: "__Mode__",
+        Days: (number) 0,
+        Years: (number) 0
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

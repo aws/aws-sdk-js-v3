@@ -1,0 +1,392 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "LabelingJobStatus": "__LabelingJobStatus__",
+  "LabelCounters": {},
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "JobReferenceCode": "__JobReferenceCode__",
+  "LabelingJobName": "__LabelingJobName__",
+  "LabelingJobArn": "__LabelingJobArn__",
+  "InputConfig": {
+    "DataSource": {},
+    "DataAttributes": {}
+  },
+  "OutputConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "KmsKeyId": "__KmsKeyId__",
+    "SnsTopicArn": "__SnsTopicArn__"
+  },
+  "RoleArn": "__RoleArn__",
+  "HumanTaskConfig": {
+    "WorkteamArn": "__WorkteamArn__",
+    "UiConfig": {},
+    "TaskTitle": "__TaskTitle__",
+    "TaskDescription": "__TaskDescription__",
+    "NumberOfHumanWorkersPerDataObject": 0,
+    "TaskTimeLimitInSeconds": 0,
+    "PreHumanTaskLambdaArn": "__PreHumanTaskLambdaArn__",
+    "TaskKeywords": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "TaskAvailabilityLifetimeInSeconds": 0,
+    "MaxConcurrentTaskCount": 0,
+    "AnnotationConsolidationConfig": {
+      "AnnotationConsolidationLambdaArn": "__AnnotationConsolidationLambdaArn__"
+    },
+    "PublicWorkforceTaskPrice": {}
+  },
+  "FailureReason": "__FailureReason__",
+  "LabelAttributeName": "__LabelAttributeName__",
+  "LabelCategoryConfigS3Uri": "__LabelCategoryConfigS3Uri__",
+  "StoppingConditions": {},
+  "LabelingJobAlgorithmsConfig": {
+    "LabelingJobAlgorithmSpecificationArn": "__LabelingJobAlgorithmSpecificationArn__",
+    "InitialActiveLearningModelArn": "__InitialActiveLearningModelArn__",
+    "LabelingJobResourceConfig": {}
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "LabelingJobOutput": {
+    "OutputDatasetS3Uri": "__OutputDatasetS3Uri__",
+    "FinalActiveLearningModelArn": "__FinalActiveLearningModelArn__"
+  }
+}
+
+
+--- [output object] ---
+{
+  LabelingJobStatus: "__LabelingJobStatus__",
+  LabelCounters: {},
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  JobReferenceCode: "__JobReferenceCode__",
+  LabelingJobName: "__LabelingJobName__",
+  LabelingJobArn: "__LabelingJobArn__",
+  InputConfig: {
+    DataSource: {},
+    DataAttributes: {}
+  },
+  OutputConfig: {
+    S3OutputPath: "__S3OutputPath__",
+    KmsKeyId: "__KmsKeyId__",
+    SnsTopicArn: "__SnsTopicArn__"
+  },
+  RoleArn: "__RoleArn__",
+  HumanTaskConfig: {
+    WorkteamArn: "__WorkteamArn__",
+    UiConfig: {},
+    TaskTitle: "__TaskTitle__",
+    TaskDescription: "__TaskDescription__",
+    NumberOfHumanWorkersPerDataObject: (number) 0,
+    TaskTimeLimitInSeconds: (number) 0,
+    PreHumanTaskLambdaArn: "__PreHumanTaskLambdaArn__",
+    TaskKeywords: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    TaskAvailabilityLifetimeInSeconds: (number) 0,
+    MaxConcurrentTaskCount: (number) 0,
+    AnnotationConsolidationConfig: {
+      AnnotationConsolidationLambdaArn: "__AnnotationConsolidationLambdaArn__"
+    },
+    PublicWorkforceTaskPrice: {}
+  },
+  FailureReason: "__FailureReason__",
+  LabelAttributeName: "__LabelAttributeName__",
+  LabelCategoryConfigS3Uri: "__LabelCategoryConfigS3Uri__",
+  StoppingConditions: {},
+  LabelingJobAlgorithmsConfig: {
+    LabelingJobAlgorithmSpecificationArn: "__LabelingJobAlgorithmSpecificationArn__",
+    InitialActiveLearningModelArn: "__InitialActiveLearningModelArn__",
+    LabelingJobResourceConfig: {}
+  },
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  LabelingJobOutput: {
+    OutputDatasetS3Uri: "__OutputDatasetS3Uri__",
+    FinalActiveLearningModelArn: "__FinalActiveLearningModelArn__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "LabelingJobStatus": "__LabelingJobStatus__",
+  "LabelCounters": {
+    "TotalLabeled": 0,
+    "HumanLabeled": 0,
+    "MachineLabeled": 0,
+    "FailedNonRetryableError": 0,
+    "Unlabeled": 0
+  },
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "JobReferenceCode": "__JobReferenceCode__",
+  "LabelingJobName": "__LabelingJobName__",
+  "LabelingJobArn": "__LabelingJobArn__",
+  "InputConfig": {
+    "DataSource": {
+      "S3DataSource": {
+        "ManifestS3Uri": "__ManifestS3Uri__"
+      },
+      "SnsDataSource": {
+        "SnsTopicArn": "__SnsTopicArn__"
+      }
+    },
+    "DataAttributes": {
+      "ContentClassifiers": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "OutputConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "KmsKeyId": "__KmsKeyId__",
+    "SnsTopicArn": "__SnsTopicArn__"
+  },
+  "RoleArn": "__RoleArn__",
+  "HumanTaskConfig": {
+    "WorkteamArn": "__WorkteamArn__",
+    "UiConfig": {
+      "UiTemplateS3Uri": "__UiTemplateS3Uri__",
+      "HumanTaskUiArn": "__HumanTaskUiArn__"
+    },
+    "TaskTitle": "__TaskTitle__",
+    "TaskDescription": "__TaskDescription__",
+    "NumberOfHumanWorkersPerDataObject": 0,
+    "TaskTimeLimitInSeconds": 0,
+    "PreHumanTaskLambdaArn": "__PreHumanTaskLambdaArn__",
+    "TaskKeywords": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "TaskAvailabilityLifetimeInSeconds": 0,
+    "MaxConcurrentTaskCount": 0,
+    "AnnotationConsolidationConfig": {
+      "AnnotationConsolidationLambdaArn": "__AnnotationConsolidationLambdaArn__"
+    },
+    "PublicWorkforceTaskPrice": {
+      "AmountInUsd": {
+        "Dollars": 0,
+        "Cents": 0,
+        "TenthFractionsOfACent": 0
+      }
+    }
+  },
+  "FailureReason": "__FailureReason__",
+  "LabelAttributeName": "__LabelAttributeName__",
+  "LabelCategoryConfigS3Uri": "__LabelCategoryConfigS3Uri__",
+  "StoppingConditions": {
+    "MaxHumanLabeledObjectCount": 0,
+    "MaxPercentageOfInputDatasetLabeled": 0
+  },
+  "LabelingJobAlgorithmsConfig": {
+    "LabelingJobAlgorithmSpecificationArn": "__LabelingJobAlgorithmSpecificationArn__",
+    "InitialActiveLearningModelArn": "__InitialActiveLearningModelArn__",
+    "LabelingJobResourceConfig": {
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+      "VpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  },
+  "Tags": [
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    },
+    {
+      "Key": "__Key__",
+      "Value": "__Value__"
+    }
+  ],
+  "LabelingJobOutput": {
+    "OutputDatasetS3Uri": "__OutputDatasetS3Uri__",
+    "FinalActiveLearningModelArn": "__FinalActiveLearningModelArn__"
+  }
+}
+
+
+--- [output object] ---
+{
+  LabelingJobStatus: "__LabelingJobStatus__",
+  LabelCounters: {
+    TotalLabeled: (number) 0,
+    HumanLabeled: (number) 0,
+    MachineLabeled: (number) 0,
+    FailedNonRetryableError: (number) 0,
+    Unlabeled: (number) 0
+  },
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  JobReferenceCode: "__JobReferenceCode__",
+  LabelingJobName: "__LabelingJobName__",
+  LabelingJobArn: "__LabelingJobArn__",
+  InputConfig: {
+    DataSource: {
+      S3DataSource: {
+        ManifestS3Uri: "__ManifestS3Uri__"
+      },
+      SnsDataSource: {
+        SnsTopicArn: "__SnsTopicArn__"
+      }
+    },
+    DataAttributes: {
+      ContentClassifiers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  OutputConfig: {
+    S3OutputPath: "__S3OutputPath__",
+    KmsKeyId: "__KmsKeyId__",
+    SnsTopicArn: "__SnsTopicArn__"
+  },
+  RoleArn: "__RoleArn__",
+  HumanTaskConfig: {
+    WorkteamArn: "__WorkteamArn__",
+    UiConfig: {
+      UiTemplateS3Uri: "__UiTemplateS3Uri__",
+      HumanTaskUiArn: "__HumanTaskUiArn__"
+    },
+    TaskTitle: "__TaskTitle__",
+    TaskDescription: "__TaskDescription__",
+    NumberOfHumanWorkersPerDataObject: (number) 0,
+    TaskTimeLimitInSeconds: (number) 0,
+    PreHumanTaskLambdaArn: "__PreHumanTaskLambdaArn__",
+    TaskKeywords: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    TaskAvailabilityLifetimeInSeconds: (number) 0,
+    MaxConcurrentTaskCount: (number) 0,
+    AnnotationConsolidationConfig: {
+      AnnotationConsolidationLambdaArn: "__AnnotationConsolidationLambdaArn__"
+    },
+    PublicWorkforceTaskPrice: {
+      AmountInUsd: {
+        Dollars: (number) 0,
+        Cents: (number) 0,
+        TenthFractionsOfACent: (number) 0
+      }
+    }
+  },
+  FailureReason: "__FailureReason__",
+  LabelAttributeName: "__LabelAttributeName__",
+  LabelCategoryConfigS3Uri: "__LabelCategoryConfigS3Uri__",
+  StoppingConditions: {
+    MaxHumanLabeledObjectCount: (number) 0,
+    MaxPercentageOfInputDatasetLabeled: (number) 0
+  },
+  LabelingJobAlgorithmsConfig: {
+    LabelingJobAlgorithmSpecificationArn: "__LabelingJobAlgorithmSpecificationArn__",
+    InitialActiveLearningModelArn: "__InitialActiveLearningModelArn__",
+    LabelingJobResourceConfig: {
+      VolumeKmsKeyId: "__VolumeKmsKeyId__",
+      VpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  },
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  LabelingJobOutput: {
+    OutputDatasetS3Uri: "__OutputDatasetS3Uri__",
+    FinalActiveLearningModelArn: "__FinalActiveLearningModelArn__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

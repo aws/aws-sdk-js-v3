@@ -1,0 +1,97 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<EnableFastLaunchResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<EnableFastLaunchResult xmlns="https://placeholder.amazonaws.com">
+    <imageId>
+        __ImageId__
+    </imageId>
+    <resourceType>
+        __ResourceType__
+    </resourceType>
+    <snapshotConfiguration>
+        <targetResourceCount>
+            0
+        </targetResourceCount>
+    </snapshotConfiguration>
+    <launchTemplate>
+        <launchTemplateId>
+            __LaunchTemplateId__
+        </launchTemplateId>
+        <launchTemplateName>
+            __LaunchTemplateName__
+        </launchTemplateName>
+        <version>
+            __Version__
+        </version>
+    </launchTemplate>
+    <maxParallelLaunches>
+        0
+    </maxParallelLaunches>
+    <ownerId>
+        __OwnerId__
+    </ownerId>
+    <state>
+        __State__
+    </state>
+    <stateTransitionReason>
+        __StateTransitionReason__
+    </stateTransitionReason>
+    <stateTransitionTime>
+        2000-01-01T04:59:59.999Z
+    </stateTransitionTime>
+</EnableFastLaunchResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ImageId: "__ImageId__",
+  ResourceType: "__ResourceType__",
+  SnapshotConfiguration: {
+    TargetResourceCount: (number) 0
+  },
+  LaunchTemplate: {
+    LaunchTemplateId: "__LaunchTemplateId__",
+    LaunchTemplateName: "__LaunchTemplateName__",
+    Version: "__Version__"
+  },
+  MaxParallelLaunches: (number) 0,
+  OwnerId: "__OwnerId__",
+  State: "__State__",
+  StateTransitionReason: "__StateTransitionReason__",
+  StateTransitionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+}
+

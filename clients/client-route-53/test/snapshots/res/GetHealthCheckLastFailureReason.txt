@@ -1,0 +1,132 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHealthCheckLastFailureReasonResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthCheckObservations>
+        <HealthCheckObservation/>
+<HealthCheckObservation/>
+<HealthCheckObservation/>
+    </HealthCheckObservations>
+</GetHealthCheckLastFailureReasonResponse>
+
+
+--- [output object] ---
+{
+  HealthCheckObservations: [
+    {},
+    {},
+    {}
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHealthCheckLastFailureReasonResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthCheckObservations>
+        <HealthCheckObservation>
+            <Region>
+                __Region__
+            </Region>
+            <IPAddress>
+                __IPAddress__
+            </IPAddress>
+            <StatusReport>
+                <Status>
+                    __Status__
+                </Status>
+                <CheckedTime>
+                    2000-01-01T04:59:59.999Z
+                </CheckedTime>
+            </StatusReport>
+        </HealthCheckObservation>
+        <HealthCheckObservation>
+            <Region>
+                __Region__
+            </Region>
+            <IPAddress>
+                __IPAddress__
+            </IPAddress>
+            <StatusReport>
+                <Status>
+                    __Status__
+                </Status>
+                <CheckedTime>
+                    2000-01-01T04:59:59.999Z
+                </CheckedTime>
+            </StatusReport>
+        </HealthCheckObservation>
+        <HealthCheckObservation>
+            <Region>
+                __Region__
+            </Region>
+            <IPAddress>
+                __IPAddress__
+            </IPAddress>
+            <StatusReport>
+                <Status>
+                    __Status__
+                </Status>
+                <CheckedTime>
+                    2000-01-01T04:59:59.999Z
+                </CheckedTime>
+            </StatusReport>
+        </HealthCheckObservation>
+    </HealthCheckObservations>
+</GetHealthCheckLastFailureReasonResponse>
+
+
+--- [output object] ---
+{
+  HealthCheckObservations: [
+    {
+      Region: "__Region__",
+      IPAddress: "__IPAddress__",
+      StatusReport: {
+        Status: "__Status__",
+        CheckedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      Region: "__Region__",
+      IPAddress: "__IPAddress__",
+      StatusReport: {
+        Status: "__Status__",
+        CheckedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      Region: "__Region__",
+      IPAddress: "__IPAddress__",
+      StatusReport: {
+        Status: "__Status__",
+        CheckedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

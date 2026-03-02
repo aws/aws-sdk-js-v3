@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSnapshotAttributeResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSnapshotAttributeResult xmlns="https://placeholder.amazonaws.com">
+    <productCodes>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+    </productCodes>
+    <snapshotId>
+        __SnapshotId__
+    </snapshotId>
+    <createVolumePermission>
+        <item>
+            <userId>
+                __UserId__
+            </userId>
+            <group>
+                __Group__
+            </group>
+        </item>
+        <item>
+            <userId>
+                __UserId__
+            </userId>
+            <group>
+                __Group__
+            </group>
+        </item>
+        <item>
+            <userId>
+                __UserId__
+            </userId>
+            <group>
+                __Group__
+            </group>
+        </item>
+    </createVolumePermission>
+</DescribeSnapshotAttributeResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ProductCodes: [
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    },
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    },
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    }
+  ],
+  SnapshotId: "__SnapshotId__",
+  CreateVolumePermissions: [
+    {
+      UserId: "__UserId__",
+      Group: "__Group__"
+    },
+    {
+      UserId: "__UserId__",
+      Group: "__Group__"
+    },
+    {
+      UserId: "__UserId__",
+      Group: "__Group__"
+    }
+  ]
+}
+

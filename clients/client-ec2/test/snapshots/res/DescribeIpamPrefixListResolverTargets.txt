@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPrefixListResolverTargetsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPrefixListResolverTargetsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <ipamPrefixListResolverTargetSet>
+        <item>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverTargetArn>
+                __IpamPrefixListResolverTargetArn__
+            </ipamPrefixListResolverTargetArn>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <prefixListRegion>
+                __PrefixListRegion__
+            </prefixListRegion>
+            <desiredVersion>
+                0
+            </desiredVersion>
+            <lastSyncedVersion>
+                0
+            </lastSyncedVersion>
+            <trackLatestVersion>
+                false
+            </trackLatestVersion>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverTargetArn>
+                __IpamPrefixListResolverTargetArn__
+            </ipamPrefixListResolverTargetArn>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <prefixListRegion>
+                __PrefixListRegion__
+            </prefixListRegion>
+            <desiredVersion>
+                0
+            </desiredVersion>
+            <lastSyncedVersion>
+                0
+            </lastSyncedVersion>
+            <trackLatestVersion>
+                false
+            </trackLatestVersion>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <ipamPrefixListResolverTargetId>
+                __IpamPrefixListResolverTargetId__
+            </ipamPrefixListResolverTargetId>
+            <ipamPrefixListResolverTargetArn>
+                __IpamPrefixListResolverTargetArn__
+            </ipamPrefixListResolverTargetArn>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <prefixListRegion>
+                __PrefixListRegion__
+            </prefixListRegion>
+            <desiredVersion>
+                0
+            </desiredVersion>
+            <lastSyncedVersion>
+                0
+            </lastSyncedVersion>
+            <trackLatestVersion>
+                false
+            </trackLatestVersion>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </ipamPrefixListResolverTargetSet>
+</DescribeIpamPrefixListResolverTargetsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  IpamPrefixListResolverTargets: [
+    {
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverTargetArn: "__IpamPrefixListResolverTargetArn__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      OwnerId: "__OwnerId__",
+      PrefixListId: "__PrefixListId__",
+      PrefixListRegion: "__PrefixListRegion__",
+      DesiredVersion: (number) 0,
+      LastSyncedVersion: (number) 0,
+      TrackLatestVersion: (boolean) false,
+      StateMessage: "__StateMessage__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverTargetArn: "__IpamPrefixListResolverTargetArn__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      OwnerId: "__OwnerId__",
+      PrefixListId: "__PrefixListId__",
+      PrefixListRegion: "__PrefixListRegion__",
+      DesiredVersion: (number) 0,
+      LastSyncedVersion: (number) 0,
+      TrackLatestVersion: (boolean) false,
+      StateMessage: "__StateMessage__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      IpamPrefixListResolverTargetId: "__IpamPrefixListResolverTargetId__",
+      IpamPrefixListResolverTargetArn: "__IpamPrefixListResolverTargetArn__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      OwnerId: "__OwnerId__",
+      PrefixListId: "__PrefixListId__",
+      PrefixListRegion: "__PrefixListRegion__",
+      DesiredVersion: (number) 0,
+      LastSyncedVersion: (number) 0,
+      TrackLatestVersion: (boolean) false,
+      StateMessage: "__StateMessage__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ]
+}
+

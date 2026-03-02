@@ -1,0 +1,603 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ComputeQuotaSummaries": [
+    {
+      "ComputeQuotaArn": "__ComputeQuotaArn__",
+      "ComputeQuotaId": "__ComputeQuotaId__",
+      "Name": "__Name__",
+      "Status": "__Status__",
+      "ComputeQuotaTarget": {
+        "TeamName": "__TeamName__",
+        "FairShareWeight": 0
+      },
+      "CreationTime": 946702799.999,
+      "ComputeQuotaVersion": 0,
+      "ClusterArn": "__ClusterArn__",
+      "ComputeQuotaConfig": {
+        "ComputeQuotaResources": [
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          }
+        ],
+        "ResourceSharingConfig": {
+          "Strategy": "__Strategy__",
+          "BorrowLimit": 0,
+          "AbsoluteBorrowLimits": [
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            }
+          ]
+        },
+        "PreemptTeamTasks": "__PreemptTeamTasks__"
+      },
+      "ActivationState": "__ActivationState__",
+      "LastModifiedTime": 946702799.999
+    },
+    {
+      "ComputeQuotaArn": "__ComputeQuotaArn__",
+      "ComputeQuotaId": "__ComputeQuotaId__",
+      "Name": "__Name__",
+      "Status": "__Status__",
+      "ComputeQuotaTarget": {
+        "TeamName": "__TeamName__",
+        "FairShareWeight": 0
+      },
+      "CreationTime": 946702799.999,
+      "ComputeQuotaVersion": 0,
+      "ClusterArn": "__ClusterArn__",
+      "ComputeQuotaConfig": {
+        "ComputeQuotaResources": [
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          }
+        ],
+        "ResourceSharingConfig": {
+          "Strategy": "__Strategy__",
+          "BorrowLimit": 0,
+          "AbsoluteBorrowLimits": [
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            }
+          ]
+        },
+        "PreemptTeamTasks": "__PreemptTeamTasks__"
+      },
+      "ActivationState": "__ActivationState__",
+      "LastModifiedTime": 946702799.999
+    },
+    {
+      "ComputeQuotaArn": "__ComputeQuotaArn__",
+      "ComputeQuotaId": "__ComputeQuotaId__",
+      "Name": "__Name__",
+      "Status": "__Status__",
+      "ComputeQuotaTarget": {
+        "TeamName": "__TeamName__",
+        "FairShareWeight": 0
+      },
+      "CreationTime": 946702799.999,
+      "ComputeQuotaVersion": 0,
+      "ClusterArn": "__ClusterArn__",
+      "ComputeQuotaConfig": {
+        "ComputeQuotaResources": [
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          },
+          {
+            "InstanceType": "__InstanceType__",
+            "Count": 0,
+            "Accelerators": 0,
+            "VCpu": 0,
+            "MemoryInGiB": 0,
+            "AcceleratorPartition": {
+              "Type": "__Type__",
+              "Count": 0
+            }
+          }
+        ],
+        "ResourceSharingConfig": {
+          "Strategy": "__Strategy__",
+          "BorrowLimit": 0,
+          "AbsoluteBorrowLimits": [
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            },
+            {
+              "InstanceType": "__InstanceType__",
+              "Count": 0,
+              "Accelerators": 0,
+              "VCpu": 0,
+              "MemoryInGiB": 0,
+              "AcceleratorPartition": {
+                "Type": "__Type__",
+                "Count": 0
+              }
+            }
+          ]
+        },
+        "PreemptTeamTasks": "__PreemptTeamTasks__"
+      },
+      "ActivationState": "__ActivationState__",
+      "LastModifiedTime": 946702799.999
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ComputeQuotaSummaries: [
+    {
+      ComputeQuotaArn: "__ComputeQuotaArn__",
+      ComputeQuotaId: "__ComputeQuotaId__",
+      Name: "__Name__",
+      Status: "__Status__",
+      ComputeQuotaTarget: {
+        TeamName: "__TeamName__",
+        FairShareWeight: (number) 0
+      },
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ComputeQuotaVersion: (number) 0,
+      ClusterArn: "__ClusterArn__",
+      ComputeQuotaConfig: {
+        ComputeQuotaResources: [
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          }
+        ],
+        ResourceSharingConfig: {
+          Strategy: "__Strategy__",
+          BorrowLimit: (number) 0,
+          AbsoluteBorrowLimits: [
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            }
+          ]
+        },
+        PreemptTeamTasks: "__PreemptTeamTasks__"
+      },
+      ActivationState: "__ActivationState__",
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ComputeQuotaArn: "__ComputeQuotaArn__",
+      ComputeQuotaId: "__ComputeQuotaId__",
+      Name: "__Name__",
+      Status: "__Status__",
+      ComputeQuotaTarget: {
+        TeamName: "__TeamName__",
+        FairShareWeight: (number) 0
+      },
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ComputeQuotaVersion: (number) 0,
+      ClusterArn: "__ClusterArn__",
+      ComputeQuotaConfig: {
+        ComputeQuotaResources: [
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          }
+        ],
+        ResourceSharingConfig: {
+          Strategy: "__Strategy__",
+          BorrowLimit: (number) 0,
+          AbsoluteBorrowLimits: [
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            }
+          ]
+        },
+        PreemptTeamTasks: "__PreemptTeamTasks__"
+      },
+      ActivationState: "__ActivationState__",
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ComputeQuotaArn: "__ComputeQuotaArn__",
+      ComputeQuotaId: "__ComputeQuotaId__",
+      Name: "__Name__",
+      Status: "__Status__",
+      ComputeQuotaTarget: {
+        TeamName: "__TeamName__",
+        FairShareWeight: (number) 0
+      },
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ComputeQuotaVersion: (number) 0,
+      ClusterArn: "__ClusterArn__",
+      ComputeQuotaConfig: {
+        ComputeQuotaResources: [
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          },
+          {
+            InstanceType: "__InstanceType__",
+            Count: (number) 0,
+            Accelerators: (number) 0,
+            VCpu: (number) 0,
+            MemoryInGiB: (number) 0,
+            AcceleratorPartition: {
+              Type: "__Type__",
+              Count: (number) 0
+            }
+          }
+        ],
+        ResourceSharingConfig: {
+          Strategy: "__Strategy__",
+          BorrowLimit: (number) 0,
+          AbsoluteBorrowLimits: [
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            },
+            {
+              InstanceType: "__InstanceType__",
+              Count: (number) 0,
+              Accelerators: (number) 0,
+              VCpu: (number) 0,
+              MemoryInGiB: (number) 0,
+              AcceleratorPartition: {
+                Type: "__Type__",
+                Count: (number) 0
+              }
+            }
+          ]
+        },
+        PreemptTeamTasks: "__PreemptTeamTasks__"
+      },
+      ActivationState: "__ActivationState__",
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

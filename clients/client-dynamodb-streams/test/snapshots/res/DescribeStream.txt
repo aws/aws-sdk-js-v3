@@ -1,0 +1,143 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "StreamDescription": {
+    "StreamArn": "__StreamArn__",
+    "StreamLabel": "__StreamLabel__",
+    "StreamStatus": "__StreamStatus__",
+    "StreamViewType": "__StreamViewType__",
+    "CreationRequestDateTime": 946702799.999,
+    "TableName": "__TableName__",
+    "KeySchema": [
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      }
+    ],
+    "Shards": [
+      {
+        "ShardId": "__ShardId__",
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__"
+      },
+      {
+        "ShardId": "__ShardId__",
+        "SequenceNumberRange": {
+          "StartingSequenceNumber": "__StartingSequenceNumber__",
+          "EndingSequenceNumber": "__EndingSequenceNumber__"
+        },
+        "ParentShardId": "__ParentShardId__"
+      }
+    ],
+    "LastEvaluatedShardId": "__LastEvaluatedShardId__"
+  }
+}
+
+
+--- [output object] ---
+{
+  StreamDescription: {
+    StreamArn: "__StreamArn__",
+    StreamLabel: "__StreamLabel__",
+    StreamStatus: "__StreamStatus__",
+    StreamViewType: "__StreamViewType__",
+    CreationRequestDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    TableName: "__TableName__",
+    KeySchema: [
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      },
+      {
+        AttributeName: "__AttributeName__",
+        KeyType: "__KeyType__"
+      }
+    ],
+    Shards: [
+      {
+        ShardId: "__ShardId__",
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__"
+      },
+      {
+        ShardId: "__ShardId__",
+        SequenceNumberRange: {
+          StartingSequenceNumber: "__StartingSequenceNumber__",
+          EndingSequenceNumber: "__EndingSequenceNumber__"
+        },
+        ParentShardId: "__ParentShardId__"
+      }
+    ],
+    LastEvaluatedShardId: "__LastEvaluatedShardId__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

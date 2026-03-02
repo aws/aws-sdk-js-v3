@@ -1,0 +1,73 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeregisterTransitGatewayMulticastGroupMembersResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeregisterTransitGatewayMulticastGroupMembersResult xmlns="https://placeholder.amazonaws.com">
+    <deregisteredMulticastGroupMembers>
+        <transitGatewayMulticastDomainId>
+            __TransitGatewayMulticastDomainId__
+        </transitGatewayMulticastDomainId>
+        <deregisteredNetworkInterfaceIds>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </deregisteredNetworkInterfaceIds>
+        <groupIpAddress>
+            __GroupIpAddress__
+        </groupIpAddress>
+    </deregisteredMulticastGroupMembers>
+</DeregisterTransitGatewayMulticastGroupMembersResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  DeregisteredMulticastGroupMembers: {
+    TransitGatewayMulticastDomainId: "__TransitGatewayMulticastDomainId__",
+    DeregisteredNetworkInterfaceIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    GroupIpAddress: "__GroupIpAddress__"
+  }
+}
+

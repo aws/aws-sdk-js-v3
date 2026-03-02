@@ -1,0 +1,170 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Successful": [
+    {
+      "Id": "__Id__"
+    },
+    {
+      "Id": "__Id__"
+    },
+    {
+      "Id": "__Id__"
+    }
+  ],
+  "Failed": [
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    },
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    },
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Successful: [
+    {
+      Id: "__Id__"
+    },
+    {
+      Id: "__Id__"
+    },
+    {
+      Id: "__Id__"
+    }
+  ],
+  Failed: [
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Successful": [
+    {
+      "Id": "__Id__"
+    },
+    {
+      "Id": "__Id__"
+    },
+    {
+      "Id": "__Id__"
+    }
+  ],
+  "Failed": [
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    },
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    },
+    {
+      "Id": "__Id__",
+      "SenderFault": false,
+      "Code": "__Code__",
+      "Message": "__Message__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Successful: [
+    {
+      Id: "__Id__"
+    },
+    {
+      Id: "__Id__"
+    },
+    {
+      Id: "__Id__"
+    }
+  ],
+  Failed: [
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Id: "__Id__",
+      SenderFault: (boolean) false,
+      Code: "__Code__",
+      Message: "__Message__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

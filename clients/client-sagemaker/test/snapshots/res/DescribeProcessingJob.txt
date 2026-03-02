@@ -1,0 +1,604 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ProcessingJobName": "__ProcessingJobName__",
+  "ProcessingResources": {
+    "ClusterConfig": {
+      "InstanceCount": 0,
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+    }
+  },
+  "AppSpecification": {
+    "ImageUri": "__ImageUri__",
+    "ContainerEntrypoint": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ContainerArguments": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "ProcessingJobArn": "__ProcessingJobArn__",
+  "ProcessingJobStatus": "__ProcessingJobStatus__",
+  "CreationTime": 946702799.999,
+  "ProcessingInputs": [
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {}
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {}
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {}
+    }
+  ],
+  "ProcessingOutputConfig": {
+    "Outputs": [
+      {},
+      {},
+      {}
+    ],
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0
+  },
+  "Environment": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "NetworkConfig": {},
+  "RoleArn": "__RoleArn__",
+  "ExperimentConfig": {},
+  "ExitMessage": "__ExitMessage__",
+  "FailureReason": "__FailureReason__",
+  "ProcessingEndTime": 946702799.999,
+  "ProcessingStartTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "MonitoringScheduleArn": "__MonitoringScheduleArn__",
+  "AutoMLJobArn": "__AutoMLJobArn__",
+  "TrainingJobArn": "__TrainingJobArn__"
+}
+
+
+--- [output object] ---
+{
+  ProcessingJobName: "__ProcessingJobName__",
+  ProcessingResources: {
+    ClusterConfig: {
+      InstanceCount: (number) 0,
+      InstanceType: "__InstanceType__",
+      VolumeSizeInGB: (number) 0,
+      VolumeKmsKeyId: "__VolumeKmsKeyId__"
+    }
+  },
+  AppSpecification: {
+    ImageUri: "__ImageUri__",
+    ContainerEntrypoint: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    ContainerArguments: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  ProcessingJobArn: "__ProcessingJobArn__",
+  ProcessingJobStatus: "__ProcessingJobStatus__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ProcessingInputs: [
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {}
+    },
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {}
+    },
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {}
+    }
+  ],
+  ProcessingOutputConfig: {
+    Outputs: [
+      {},
+      {},
+      {}
+    ],
+    KmsKeyId: "__KmsKeyId__"
+  },
+  StoppingCondition: {
+    MaxRuntimeInSeconds: (number) 0
+  },
+  Environment: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  NetworkConfig: {},
+  RoleArn: "__RoleArn__",
+  ExperimentConfig: {},
+  ExitMessage: "__ExitMessage__",
+  FailureReason: "__FailureReason__",
+  ProcessingEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ProcessingStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  MonitoringScheduleArn: "__MonitoringScheduleArn__",
+  AutoMLJobArn: "__AutoMLJobArn__",
+  TrainingJobArn: "__TrainingJobArn__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ProcessingJobName": "__ProcessingJobName__",
+  "ProcessingResources": {
+    "ClusterConfig": {
+      "InstanceCount": 0,
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+    }
+  },
+  "AppSpecification": {
+    "ImageUri": "__ImageUri__",
+    "ContainerEntrypoint": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ContainerArguments": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "ProcessingJobArn": "__ProcessingJobArn__",
+  "ProcessingJobStatus": "__ProcessingJobStatus__",
+  "CreationTime": 946702799.999,
+  "ProcessingInputs": [
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    },
+    {
+      "InputName": "__InputName__",
+      "AppManaged": false,
+      "S3Input": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "LocalPath": "__LocalPath__",
+        "S3InputMode": "__S3InputMode__",
+        "S3DataDistributionType": "__S3DataDistributionType__",
+        "S3CompressionType": "__S3CompressionType__"
+      },
+      "DatasetDefinition": {
+        "AthenaDatasetDefinition": {
+          "Catalog": "__Catalog__",
+          "Database": "__Database__",
+          "QueryString": "__QueryString__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "WorkGroup": "__WorkGroup__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "RedshiftDatasetDefinition": {
+          "ClusterId": "__ClusterId__",
+          "Database": "__Database__",
+          "DbUser": "__DbUser__",
+          "QueryString": "__QueryString__",
+          "ClusterRoleArn": "__ClusterRoleArn__",
+          "OutputS3Uri": "__OutputS3Uri__",
+          "OutputFormat": "__OutputFormat__",
+          "KmsKeyId": "__KmsKeyId__",
+          "OutputCompression": "__OutputCompression__"
+        },
+        "LocalPath": "__LocalPath__",
+        "DataDistributionType": "__DataDistributionType__",
+        "InputMode": "__InputMode__"
+      }
+    }
+  ],
+  "ProcessingOutputConfig": {
+    "Outputs": [
+      {},
+      {},
+      {}
+    ],
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0
+  },
+  "Environment": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "NetworkConfig": {
+    "EnableInterContainerTrafficEncryption": false,
+    "EnableNetworkIsolation": false,
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "RoleArn": "__RoleArn__",
+  "ExperimentConfig": {
+    "ExperimentName": "__ExperimentName__",
+    "TrialName": "__TrialName__",
+    "TrialComponentDisplayName": "__TrialComponentDisplayName__",
+    "RunName": "__RunName__"
+  },
+  "ExitMessage": "__ExitMessage__",
+  "FailureReason": "__FailureReason__",
+  "ProcessingEndTime": 946702799.999,
+  "ProcessingStartTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "MonitoringScheduleArn": "__MonitoringScheduleArn__",
+  "AutoMLJobArn": "__AutoMLJobArn__",
+  "TrainingJobArn": "__TrainingJobArn__"
+}
+
+
+--- [output object] ---
+{
+  ProcessingJobName: "__ProcessingJobName__",
+  ProcessingResources: {
+    ClusterConfig: {
+      InstanceCount: (number) 0,
+      InstanceType: "__InstanceType__",
+      VolumeSizeInGB: (number) 0,
+      VolumeKmsKeyId: "__VolumeKmsKeyId__"
+    }
+  },
+  AppSpecification: {
+    ImageUri: "__ImageUri__",
+    ContainerEntrypoint: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    ContainerArguments: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  ProcessingJobArn: "__ProcessingJobArn__",
+  ProcessingJobStatus: "__ProcessingJobStatus__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ProcessingInputs: [
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {
+        AthenaDatasetDefinition: {
+          Catalog: "__Catalog__",
+          Database: "__Database__",
+          QueryString: "__QueryString__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          WorkGroup: "__WorkGroup__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        RedshiftDatasetDefinition: {
+          ClusterId: "__ClusterId__",
+          Database: "__Database__",
+          DbUser: "__DbUser__",
+          QueryString: "__QueryString__",
+          ClusterRoleArn: "__ClusterRoleArn__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        LocalPath: "__LocalPath__",
+        DataDistributionType: "__DataDistributionType__",
+        InputMode: "__InputMode__"
+      }
+    },
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {
+        AthenaDatasetDefinition: {
+          Catalog: "__Catalog__",
+          Database: "__Database__",
+          QueryString: "__QueryString__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          WorkGroup: "__WorkGroup__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        RedshiftDatasetDefinition: {
+          ClusterId: "__ClusterId__",
+          Database: "__Database__",
+          DbUser: "__DbUser__",
+          QueryString: "__QueryString__",
+          ClusterRoleArn: "__ClusterRoleArn__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        LocalPath: "__LocalPath__",
+        DataDistributionType: "__DataDistributionType__",
+        InputMode: "__InputMode__"
+      }
+    },
+    {
+      InputName: "__InputName__",
+      AppManaged: (boolean) false,
+      S3Input: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        LocalPath: "__LocalPath__",
+        S3InputMode: "__S3InputMode__",
+        S3DataDistributionType: "__S3DataDistributionType__",
+        S3CompressionType: "__S3CompressionType__"
+      },
+      DatasetDefinition: {
+        AthenaDatasetDefinition: {
+          Catalog: "__Catalog__",
+          Database: "__Database__",
+          QueryString: "__QueryString__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          WorkGroup: "__WorkGroup__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        RedshiftDatasetDefinition: {
+          ClusterId: "__ClusterId__",
+          Database: "__Database__",
+          DbUser: "__DbUser__",
+          QueryString: "__QueryString__",
+          ClusterRoleArn: "__ClusterRoleArn__",
+          OutputS3Uri: "__OutputS3Uri__",
+          OutputFormat: "__OutputFormat__",
+          KmsKeyId: "__KmsKeyId__",
+          OutputCompression: "__OutputCompression__"
+        },
+        LocalPath: "__LocalPath__",
+        DataDistributionType: "__DataDistributionType__",
+        InputMode: "__InputMode__"
+      }
+    }
+  ],
+  ProcessingOutputConfig: {
+    Outputs: [
+      {},
+      {},
+      {}
+    ],
+    KmsKeyId: "__KmsKeyId__"
+  },
+  StoppingCondition: {
+    MaxRuntimeInSeconds: (number) 0
+  },
+  Environment: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  NetworkConfig: {
+    EnableInterContainerTrafficEncryption: (boolean) false,
+    EnableNetworkIsolation: (boolean) false,
+    VpcConfig: {
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  RoleArn: "__RoleArn__",
+  ExperimentConfig: {
+    ExperimentName: "__ExperimentName__",
+    TrialName: "__TrialName__",
+    TrialComponentDisplayName: "__TrialComponentDisplayName__",
+    RunName: "__RunName__"
+  },
+  ExitMessage: "__ExitMessage__",
+  FailureReason: "__FailureReason__",
+  ProcessingEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ProcessingStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  MonitoringScheduleArn: "__MonitoringScheduleArn__",
+  AutoMLJobArn: "__AutoMLJobArn__",
+  TrainingJobArn: "__TrainingJobArn__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,122 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ReservedCapacityArn": "__ReservedCapacityArn__",
+  "InstanceType": "__InstanceType__",
+  "TotalInstanceCount": 0,
+  "ReservedCapacityType": "__ReservedCapacityType__",
+  "Status": "__Status__",
+  "AvailabilityZone": "__AvailabilityZone__",
+  "DurationHours": 0,
+  "DurationMinutes": 0,
+  "StartTime": 946702799.999,
+  "EndTime": 946702799.999,
+  "AvailableInstanceCount": 0,
+  "InUseInstanceCount": 0,
+  "UltraServerSummary": {
+    "UltraServerType": "__UltraServerType__",
+    "InstanceType": "__InstanceType__",
+    "UltraServerCount": 0,
+    "AvailableSpareInstanceCount": 0,
+    "UnhealthyInstanceCount": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  ReservedCapacityArn: "__ReservedCapacityArn__",
+  InstanceType: "__InstanceType__",
+  TotalInstanceCount: (number) 0,
+  ReservedCapacityType: "__ReservedCapacityType__",
+  Status: "__Status__",
+  AvailabilityZone: "__AvailabilityZone__",
+  DurationHours: (number) 0,
+  DurationMinutes: (number) 0,
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AvailableInstanceCount: (number) 0,
+  InUseInstanceCount: (number) 0,
+  UltraServerSummary: {
+    UltraServerType: "__UltraServerType__",
+    InstanceType: "__InstanceType__",
+    UltraServerCount: (number) 0,
+    AvailableSpareInstanceCount: (number) 0,
+    UnhealthyInstanceCount: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ReservedCapacityArn": "__ReservedCapacityArn__",
+  "InstanceType": "__InstanceType__",
+  "TotalInstanceCount": 0,
+  "ReservedCapacityType": "__ReservedCapacityType__",
+  "Status": "__Status__",
+  "AvailabilityZone": "__AvailabilityZone__",
+  "DurationHours": 0,
+  "DurationMinutes": 0,
+  "StartTime": 946702799.999,
+  "EndTime": 946702799.999,
+  "AvailableInstanceCount": 0,
+  "InUseInstanceCount": 0,
+  "UltraServerSummary": {
+    "UltraServerType": "__UltraServerType__",
+    "InstanceType": "__InstanceType__",
+    "UltraServerCount": 0,
+    "AvailableSpareInstanceCount": 0,
+    "UnhealthyInstanceCount": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  ReservedCapacityArn: "__ReservedCapacityArn__",
+  InstanceType: "__InstanceType__",
+  TotalInstanceCount: (number) 0,
+  ReservedCapacityType: "__ReservedCapacityType__",
+  Status: "__Status__",
+  AvailabilityZone: "__AvailabilityZone__",
+  DurationHours: (number) 0,
+  DurationMinutes: (number) 0,
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AvailableInstanceCount: (number) 0,
+  InUseInstanceCount: (number) 0,
+  UltraServerSummary: {
+    UltraServerType: "__UltraServerType__",
+    InstanceType: "__InstanceType__",
+    UltraServerCount: (number) 0,
+    AvailableSpareInstanceCount: (number) 0,
+    UnhealthyInstanceCount: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

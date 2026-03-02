@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AlarmHistoryItems": [
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmContributorId": "__AlarmContributorId__",
+      "AlarmType": "__AlarmType__",
+      "Timestamp": 946702799.999,
+      "HistoryItemType": "__HistoryItemType__",
+      "HistorySummary": "__HistorySummary__",
+      "HistoryData": "__HistoryData__",
+      "AlarmContributorAttributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmContributorId": "__AlarmContributorId__",
+      "AlarmType": "__AlarmType__",
+      "Timestamp": 946702799.999,
+      "HistoryItemType": "__HistoryItemType__",
+      "HistorySummary": "__HistorySummary__",
+      "HistoryData": "__HistoryData__",
+      "AlarmContributorAttributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "AlarmName": "__AlarmName__",
+      "AlarmContributorId": "__AlarmContributorId__",
+      "AlarmType": "__AlarmType__",
+      "Timestamp": 946702799.999,
+      "HistoryItemType": "__HistoryItemType__",
+      "HistorySummary": "__HistorySummary__",
+      "HistoryData": "__HistoryData__",
+      "AlarmContributorAttributes": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  AlarmHistoryItems: [
+    {
+      AlarmName: "__AlarmName__",
+      AlarmContributorId: "__AlarmContributorId__",
+      AlarmType: "__AlarmType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HistoryItemType: "__HistoryItemType__",
+      HistorySummary: "__HistorySummary__",
+      HistoryData: "__HistoryData__",
+      AlarmContributorAttributes: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmContributorId: "__AlarmContributorId__",
+      AlarmType: "__AlarmType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HistoryItemType: "__HistoryItemType__",
+      HistorySummary: "__HistorySummary__",
+      HistoryData: "__HistoryData__",
+      AlarmContributorAttributes: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    {
+      AlarmName: "__AlarmName__",
+      AlarmContributorId: "__AlarmContributorId__",
+      AlarmType: "__AlarmType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HistoryItemType: "__HistoryItemType__",
+      HistorySummary: "__HistorySummary__",
+      HistoryData: "__HistoryData__",
+      AlarmContributorAttributes: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

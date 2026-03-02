@@ -1,0 +1,293 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpv6PoolsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpv6PoolsResult xmlns="https://placeholder.amazonaws.com">
+    <ipv6PoolSet>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolCidrBlockSet>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+            </poolCidrBlockSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolCidrBlockSet>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+            </poolCidrBlockSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolCidrBlockSet>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+                <item>
+                    <poolCidrBlock>
+                        __Cidr__
+                    </poolCidrBlock>
+                </item>
+            </poolCidrBlockSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </ipv6PoolSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeIpv6PoolsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Ipv6Pools: [
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolCidrBlocks: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolCidrBlocks: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolCidrBlocks: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

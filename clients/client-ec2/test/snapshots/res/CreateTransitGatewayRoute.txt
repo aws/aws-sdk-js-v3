@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayRouteResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayRouteResult xmlns="https://placeholder.amazonaws.com">
+    <route>
+        <destinationCidrBlock>
+            __DestinationCidrBlock__
+        </destinationCidrBlock>
+        <prefixListId>
+            __PrefixListId__
+        </prefixListId>
+        <transitGatewayRouteTableAnnouncementId>
+            __TransitGatewayRouteTableAnnouncementId__
+        </transitGatewayRouteTableAnnouncementId>
+        <transitGatewayAttachments>
+            <item>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+            </item>
+            <item>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+            </item>
+            <item>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <transitGatewayAttachmentId>
+                    __TransitGatewayAttachmentId__
+                </transitGatewayAttachmentId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+            </item>
+        </transitGatewayAttachments>
+        <type>
+            __Type__
+        </type>
+        <state>
+            __State__
+        </state>
+    </route>
+</CreateTransitGatewayRouteResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Route: {
+    DestinationCidrBlock: "__DestinationCidrBlock__",
+    PrefixListId: "__PrefixListId__",
+    TransitGatewayRouteTableAnnouncementId: "__TransitGatewayRouteTableAnnouncementId__",
+    TransitGatewayAttachments: [
+      {
+        ResourceId: "__ResourceId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        ResourceType: "__ResourceType__"
+      },
+      {
+        ResourceId: "__ResourceId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        ResourceType: "__ResourceType__"
+      },
+      {
+        ResourceId: "__ResourceId__",
+        TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+        ResourceType: "__ResourceType__"
+      }
+    ],
+    Type: "__Type__",
+    State: "__State__"
+  }
+}
+

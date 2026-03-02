@@ -1,0 +1,184 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListGeoLocationsResponse xmlns="https://placeholder.amazonaws.com">
+    <GeoLocationDetailsList>
+        <GeoLocationDetails/>
+<GeoLocationDetails/>
+<GeoLocationDetails/>
+    </GeoLocationDetailsList>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextContinentCode>
+        __NextContinentCode__
+    </NextContinentCode>
+    <NextCountryCode>
+        __NextCountryCode__
+    </NextCountryCode>
+    <NextSubdivisionCode>
+        __NextSubdivisionCode__
+    </NextSubdivisionCode>
+</ListGeoLocationsResponse>
+
+
+--- [output object] ---
+{
+  GeoLocationDetailsList: [
+    {},
+    {},
+    {}
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextContinentCode: "__NextContinentCode__",
+  NextCountryCode: "__NextCountryCode__",
+  NextSubdivisionCode: "__NextSubdivisionCode__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListGeoLocationsResponse xmlns="https://placeholder.amazonaws.com">
+    <GeoLocationDetailsList>
+        <GeoLocationDetails>
+            <ContinentCode>
+                __ContinentCode__
+            </ContinentCode>
+            <ContinentName>
+                __ContinentName__
+            </ContinentName>
+            <CountryCode>
+                __CountryCode__
+            </CountryCode>
+            <CountryName>
+                __CountryName__
+            </CountryName>
+            <SubdivisionCode>
+                __SubdivisionCode__
+            </SubdivisionCode>
+            <SubdivisionName>
+                __SubdivisionName__
+            </SubdivisionName>
+        </GeoLocationDetails>
+        <GeoLocationDetails>
+            <ContinentCode>
+                __ContinentCode__
+            </ContinentCode>
+            <ContinentName>
+                __ContinentName__
+            </ContinentName>
+            <CountryCode>
+                __CountryCode__
+            </CountryCode>
+            <CountryName>
+                __CountryName__
+            </CountryName>
+            <SubdivisionCode>
+                __SubdivisionCode__
+            </SubdivisionCode>
+            <SubdivisionName>
+                __SubdivisionName__
+            </SubdivisionName>
+        </GeoLocationDetails>
+        <GeoLocationDetails>
+            <ContinentCode>
+                __ContinentCode__
+            </ContinentCode>
+            <ContinentName>
+                __ContinentName__
+            </ContinentName>
+            <CountryCode>
+                __CountryCode__
+            </CountryCode>
+            <CountryName>
+                __CountryName__
+            </CountryName>
+            <SubdivisionCode>
+                __SubdivisionCode__
+            </SubdivisionCode>
+            <SubdivisionName>
+                __SubdivisionName__
+            </SubdivisionName>
+        </GeoLocationDetails>
+    </GeoLocationDetailsList>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextContinentCode>
+        __NextContinentCode__
+    </NextContinentCode>
+    <NextCountryCode>
+        __NextCountryCode__
+    </NextCountryCode>
+    <NextSubdivisionCode>
+        __NextSubdivisionCode__
+    </NextSubdivisionCode>
+</ListGeoLocationsResponse>
+
+
+--- [output object] ---
+{
+  GeoLocationDetailsList: [
+    {
+      ContinentCode: "__ContinentCode__",
+      ContinentName: "__ContinentName__",
+      CountryCode: "__CountryCode__",
+      CountryName: "__CountryName__",
+      SubdivisionCode: "__SubdivisionCode__",
+      SubdivisionName: "__SubdivisionName__"
+    },
+    {
+      ContinentCode: "__ContinentCode__",
+      ContinentName: "__ContinentName__",
+      CountryCode: "__CountryCode__",
+      CountryName: "__CountryName__",
+      SubdivisionCode: "__SubdivisionCode__",
+      SubdivisionName: "__SubdivisionName__"
+    },
+    {
+      ContinentCode: "__ContinentCode__",
+      ContinentName: "__ContinentName__",
+      CountryCode: "__CountryCode__",
+      CountryName: "__CountryName__",
+      SubdivisionCode: "__SubdivisionCode__",
+      SubdivisionName: "__SubdivisionName__"
+    }
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextContinentCode: "__NextContinentCode__",
+  NextCountryCode: "__NextCountryCode__",
+  NextSubdivisionCode: "__NextSubdivisionCode__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

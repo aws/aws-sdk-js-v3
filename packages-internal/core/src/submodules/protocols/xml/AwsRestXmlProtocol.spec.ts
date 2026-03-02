@@ -18,6 +18,10 @@ describe(AwsRestXmlProtocol.name, () => {
     defaultNamespace: "com.amazonaws.s3",
   });
 
+  it("should have a shapeId of aws.protocols#restXml", () => {
+    expect(protocol.getShapeId()).toEqual("aws.protocols#restXml");
+  });
+
   describe("serialization", () => {
     const testCases = [
       {

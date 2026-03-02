@@ -1,0 +1,56 @@
+======================== minimal response ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{}
+
+[actual bytes]
+160
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "datetime": {
+    "tag": 1,
+    "value": 946702799.999
+  }
+}
+
+[actual bytes]
+161, 104, 100, 97, 116, 101, 116, 105, 109, 101, 193, 251, 65, 204, 54, 196, 231, 255, 223, 59
+
+
+--- [output object] ---
+{
+  datetime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

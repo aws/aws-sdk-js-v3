@@ -1,0 +1,253 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StopDBInstanceAutomatedBackupsReplicationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StopDBInstanceAutomatedBackupsReplicationResult xmlns="https://placeholder.amazonaws.com">
+    <DBInstanceAutomatedBackup>
+        <DBInstanceArn>
+            __DBInstanceArn__
+        </DBInstanceArn>
+        <DbiResourceId>
+            __DbiResourceId__
+        </DbiResourceId>
+        <Region>
+            __Region__
+        </Region>
+        <DBInstanceIdentifier>
+            __DBInstanceIdentifier__
+        </DBInstanceIdentifier>
+        <RestoreWindow>
+            <EarliestTime>
+                2000-01-01T04:59:59.999Z
+            </EarliestTime>
+            <LatestTime>
+                2000-01-01T04:59:59.999Z
+            </LatestTime>
+        </RestoreWindow>
+        <AllocatedStorage>
+            0
+        </AllocatedStorage>
+        <Status>
+            __Status__
+        </Status>
+        <Port>
+            0
+        </Port>
+        <AvailabilityZone>
+            __AvailabilityZone__
+        </AvailabilityZone>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <InstanceCreateTime>
+            2000-01-01T04:59:59.999Z
+        </InstanceCreateTime>
+        <MasterUsername>
+            __MasterUsername__
+        </MasterUsername>
+        <Engine>
+            __Engine__
+        </Engine>
+        <EngineVersion>
+            __EngineVersion__
+        </EngineVersion>
+        <LicenseModel>
+            __LicenseModel__
+        </LicenseModel>
+        <Iops>
+            0
+        </Iops>
+        <StorageThroughput>
+            0
+        </StorageThroughput>
+        <OptionGroupName>
+            __OptionGroupName__
+        </OptionGroupName>
+        <TdeCredentialArn>
+            __TdeCredentialArn__
+        </TdeCredentialArn>
+        <Encrypted>
+            false
+        </Encrypted>
+        <StorageEncryptionType>
+            __StorageEncryptionType__
+        </StorageEncryptionType>
+        <StorageType>
+            __StorageType__
+        </StorageType>
+        <KmsKeyId>
+            __KmsKeyId__
+        </KmsKeyId>
+        <Timezone>
+            __Timezone__
+        </Timezone>
+        <IAMDatabaseAuthenticationEnabled>
+            false
+        </IAMDatabaseAuthenticationEnabled>
+        <BackupRetentionPeriod>
+            0
+        </BackupRetentionPeriod>
+        <PreferredBackupWindow>
+            __PreferredBackupWindow__
+        </PreferredBackupWindow>
+        <DBInstanceAutomatedBackupsArn>
+            __DBInstanceAutomatedBackupsArn__
+        </DBInstanceAutomatedBackupsArn>
+        <DBInstanceAutomatedBackupsReplications>
+            <DBInstanceAutomatedBackupsReplication>
+                <DBInstanceAutomatedBackupsArn>
+                    __DBInstanceAutomatedBackupsArn__
+                </DBInstanceAutomatedBackupsArn>
+            </DBInstanceAutomatedBackupsReplication>
+            <DBInstanceAutomatedBackupsReplication>
+                <DBInstanceAutomatedBackupsArn>
+                    __DBInstanceAutomatedBackupsArn__
+                </DBInstanceAutomatedBackupsArn>
+            </DBInstanceAutomatedBackupsReplication>
+            <DBInstanceAutomatedBackupsReplication>
+                <DBInstanceAutomatedBackupsArn>
+                    __DBInstanceAutomatedBackupsArn__
+                </DBInstanceAutomatedBackupsArn>
+            </DBInstanceAutomatedBackupsReplication>
+        </DBInstanceAutomatedBackupsReplications>
+        <BackupTarget>
+            __BackupTarget__
+        </BackupTarget>
+        <MultiTenant>
+            false
+        </MultiTenant>
+        <AwsBackupRecoveryPointArn>
+            __AwsBackupRecoveryPointArn__
+        </AwsBackupRecoveryPointArn>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+        <DedicatedLogVolume>
+            false
+        </DedicatedLogVolume>
+        <AdditionalStorageVolumes>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+        </AdditionalStorageVolumes>
+    </DBInstanceAutomatedBackup>
+</StopDBInstanceAutomatedBackupsReplicationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

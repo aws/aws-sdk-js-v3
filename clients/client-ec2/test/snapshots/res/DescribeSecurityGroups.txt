@@ -1,0 +1,4529 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <securityGroupInfo>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <ipPermissionsEgress>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissionsEgress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <securityGroupArn>
+                __SecurityGroupArn__
+            </securityGroupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <groupDescription>
+                __Description__
+            </groupDescription>
+            <ipPermissions>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissions>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <ipPermissionsEgress>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissionsEgress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <securityGroupArn>
+                __SecurityGroupArn__
+            </securityGroupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <groupDescription>
+                __Description__
+            </groupDescription>
+            <ipPermissions>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissions>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <ipPermissionsEgress>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissionsEgress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <securityGroupArn>
+                __SecurityGroupArn__
+            </securityGroupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <groupDescription>
+                __Description__
+            </groupDescription>
+            <ipPermissions>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+                <item>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                    <ipRanges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIp>
+                                __CidrIp__
+                            </cidrIp>
+                        </item>
+                    </ipRanges>
+                    <ipv6Ranges>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <cidrIpv6>
+                                __CidrIpv6__
+                            </cidrIpv6>
+                        </item>
+                    </ipv6Ranges>
+                    <prefixListIds>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <prefixListId>
+                                __PrefixListId__
+                            </prefixListId>
+                        </item>
+                    </prefixListIds>
+                </item>
+            </ipPermissions>
+        </item>
+    </securityGroupInfo>
+</DescribeSecurityGroupsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  SecurityGroups: [
+    {
+      GroupId: "__GroupId__",
+      IpPermissionsEgress: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__",
+      SecurityGroupArn: "__SecurityGroupArn__",
+      OwnerId: "__OwnerId__",
+      GroupName: "__GroupName__",
+      Description: "__Description__",
+      IpPermissions: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      GroupId: "__GroupId__",
+      IpPermissionsEgress: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__",
+      SecurityGroupArn: "__SecurityGroupArn__",
+      OwnerId: "__OwnerId__",
+      GroupName: "__GroupName__",
+      Description: "__Description__",
+      IpPermissions: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      GroupId: "__GroupId__",
+      IpPermissionsEgress: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__",
+      SecurityGroupArn: "__SecurityGroupArn__",
+      OwnerId: "__OwnerId__",
+      GroupName: "__GroupName__",
+      Description: "__Description__",
+      IpPermissions: [
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        },
+        {
+          IpProtocol: "__IpProtocol__",
+          FromPort: (number) 0,
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ],
+          IpRanges: [
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            },
+            {
+              Description: "__Description__",
+              CidrIp: "__CidrIp__"
+            }
+          ],
+          Ipv6Ranges: [
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            },
+            {
+              Description: "__Description__",
+              CidrIpv6: "__CidrIpv6__"
+            }
+          ],
+          PrefixListIds: [
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            },
+            {
+              Description: "__Description__",
+              PrefixListId: "__PrefixListId__"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

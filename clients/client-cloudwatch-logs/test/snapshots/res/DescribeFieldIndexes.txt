@@ -1,0 +1,99 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "fieldIndexes": [
+    {
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "fieldIndexName": "__fieldIndexName__",
+      "lastScanTime": 0,
+      "firstEventTime": 0,
+      "lastEventTime": 0,
+      "type": "__type__"
+    },
+    {
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "fieldIndexName": "__fieldIndexName__",
+      "lastScanTime": 0,
+      "firstEventTime": 0,
+      "lastEventTime": 0,
+      "type": "__type__"
+    },
+    {
+      "logGroupIdentifier": "__logGroupIdentifier__",
+      "fieldIndexName": "__fieldIndexName__",
+      "lastScanTime": 0,
+      "firstEventTime": 0,
+      "lastEventTime": 0,
+      "type": "__type__"
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  fieldIndexes: [
+    {
+      logGroupIdentifier: "__logGroupIdentifier__",
+      fieldIndexName: "__fieldIndexName__",
+      lastScanTime: (number) 0,
+      firstEventTime: (number) 0,
+      lastEventTime: (number) 0,
+      type: "__type__"
+    },
+    {
+      logGroupIdentifier: "__logGroupIdentifier__",
+      fieldIndexName: "__fieldIndexName__",
+      lastScanTime: (number) 0,
+      firstEventTime: (number) 0,
+      lastEventTime: (number) 0,
+      type: "__type__"
+    },
+    {
+      logGroupIdentifier: "__logGroupIdentifier__",
+      fieldIndexName: "__fieldIndexName__",
+      lastScanTime: (number) 0,
+      firstEventTime: (number) 0,
+      lastEventTime: (number) 0,
+      type: "__type__"
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

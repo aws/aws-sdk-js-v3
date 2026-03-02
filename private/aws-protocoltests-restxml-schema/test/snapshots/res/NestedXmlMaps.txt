@@ -1,0 +1,159 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<NestedXmlMapsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<NestedXmlMapsResponse xmlns="https://placeholder.amazonaws.com">
+    <nestedMap>
+        <entry>
+            <key>
+                key1
+            </key>
+            <value>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key2
+            </key>
+            <value>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </value>
+        </entry>
+    </nestedMap>
+    <flatNestedMap>
+        <key>
+            key1
+        </key>
+        <value>
+            <entry>
+                <key>
+                    key1
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    key2
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+        </value>
+    </flatNestedMap>
+    <flatNestedMap>
+        <key>
+            key2
+        </key>
+        <value>
+            <entry>
+                <key>
+                    key1
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+            <entry>
+                <key>
+                    key2
+                </key>
+                <value>
+                    __value__
+                </value>
+            </entry>
+        </value>
+    </flatNestedMap>
+</NestedXmlMapsResponse>
+
+
+--- [output object] ---
+{
+  nestedMap: {
+    key1: {
+      key1: "__value__",
+      key2: "__value__"
+    },
+    key2: {
+      key1: "__value__",
+      key2: "__value__"
+    }
+  },
+  flatNestedMap: {
+    key1: {
+      key1: "__value__",
+      key2: "__value__"
+    },
+    key2: {
+      key1: "__value__",
+      key2: "__value__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

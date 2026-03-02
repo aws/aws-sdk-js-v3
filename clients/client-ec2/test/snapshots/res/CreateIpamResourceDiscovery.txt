@@ -1,0 +1,173 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateIpamResourceDiscoveryResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateIpamResourceDiscoveryResult xmlns="https://placeholder.amazonaws.com">
+    <ipamResourceDiscovery>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamResourceDiscoveryId>
+            __IpamResourceDiscoveryId__
+        </ipamResourceDiscoveryId>
+        <ipamResourceDiscoveryArn>
+            __IpamResourceDiscoveryArn__
+        </ipamResourceDiscoveryArn>
+        <ipamResourceDiscoveryRegion>
+            __IpamResourceDiscoveryRegion__
+        </ipamResourceDiscoveryRegion>
+        <description>
+            __Description__
+        </description>
+        <operatingRegionSet>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+        </operatingRegionSet>
+        <isDefault>
+            false
+        </isDefault>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <organizationalUnitExclusionSet>
+            <item>
+                <organizationsEntityPath>
+                    __OrganizationsEntityPath__
+                </organizationsEntityPath>
+            </item>
+            <item>
+                <organizationsEntityPath>
+                    __OrganizationsEntityPath__
+                </organizationsEntityPath>
+            </item>
+            <item>
+                <organizationsEntityPath>
+                    __OrganizationsEntityPath__
+                </organizationsEntityPath>
+            </item>
+        </organizationalUnitExclusionSet>
+    </ipamResourceDiscovery>
+</CreateIpamResourceDiscoveryResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamResourceDiscovery: {
+    OwnerId: "__OwnerId__",
+    IpamResourceDiscoveryId: "__IpamResourceDiscoveryId__",
+    IpamResourceDiscoveryArn: "__IpamResourceDiscoveryArn__",
+    IpamResourceDiscoveryRegion: "__IpamResourceDiscoveryRegion__",
+    Description: "__Description__",
+    OperatingRegions: [
+      {
+        RegionName: "__RegionName__"
+      },
+      {
+        RegionName: "__RegionName__"
+      },
+      {
+        RegionName: "__RegionName__"
+      }
+    ],
+    IsDefault: (boolean) false,
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    OrganizationalUnitExclusions: [
+      {
+        OrganizationsEntityPath: "__OrganizationsEntityPath__"
+      },
+      {
+        OrganizationsEntityPath: "__OrganizationsEntityPath__"
+      },
+      {
+        OrganizationsEntityPath: "__OrganizationsEntityPath__"
+      }
+    ]
+  }
+}
+

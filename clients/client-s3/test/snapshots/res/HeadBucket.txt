@@ -1,0 +1,54 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<HeadBucketOutput xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-bucket-arn: __BucketArn__
+x-amz-bucket-location-type: __BucketLocationType__
+x-amz-bucket-location-name: __BucketLocationName__
+x-amz-bucket-region: __BucketRegion__
+x-amz-access-point-alias: false
+
+[Uint8Array (xml)]
+<HeadBucketOutput xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  BucketArn: "__BucketArn__",
+  BucketLocationType: "__BucketLocationType__",
+  BucketLocationName: "__BucketLocationName__",
+  BucketRegion: "__BucketRegion__",
+  AccessPointAlias: (boolean) false,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteSubnetCidrReservationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteSubnetCidrReservationResult xmlns="https://placeholder.amazonaws.com">
+    <deletedSubnetCidrReservation>
+        <subnetCidrReservationId>
+            __SubnetCidrReservationId__
+        </subnetCidrReservationId>
+        <subnetId>
+            __SubnetId__
+        </subnetId>
+        <cidr>
+            __Cidr__
+        </cidr>
+        <reservationType>
+            __ReservationType__
+        </reservationType>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <description>
+            __Description__
+        </description>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </deletedSubnetCidrReservation>
+</DeleteSubnetCidrReservationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  DeletedSubnetCidrReservation: {
+    SubnetCidrReservationId: "__SubnetCidrReservationId__",
+    SubnetId: "__SubnetId__",
+    Cidr: "__Cidr__",
+    ReservationType: "__ReservationType__",
+    OwnerId: "__OwnerId__",
+    Description: "__Description__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

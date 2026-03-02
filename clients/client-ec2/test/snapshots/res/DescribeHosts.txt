@@ -1,0 +1,785 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeHostsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeHostsResult xmlns="https://placeholder.amazonaws.com">
+    <hostSet>
+        <item>
+            <autoPlacement>
+                __AutoPlacement__
+            </autoPlacement>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableCapacity>
+                <availableInstanceCapacity>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                </availableInstanceCapacity>
+                <availableVCpus>
+                    0
+                </availableVCpus>
+            </availableCapacity>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <hostId>
+                __HostId__
+            </hostId>
+            <hostProperties>
+                <cores>
+                    0
+                </cores>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <instanceFamily>
+                    __InstanceFamily__
+                </instanceFamily>
+                <sockets>
+                    0
+                </sockets>
+                <totalVCpus>
+                    0
+                </totalVCpus>
+            </hostProperties>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <instances>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+            </instances>
+            <state>
+                __State__
+            </state>
+            <allocationTime>
+                2000-01-01T04:59:59.999Z
+            </allocationTime>
+            <releaseTime>
+                2000-01-01T04:59:59.999Z
+            </releaseTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <hostRecovery>
+                __HostRecovery__
+            </hostRecovery>
+            <allowsMultipleInstanceTypes>
+                __AllowsMultipleInstanceTypes__
+            </allowsMultipleInstanceTypes>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <memberOfServiceLinkedResourceGroup>
+                false
+            </memberOfServiceLinkedResourceGroup>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <hostMaintenance>
+                __HostMaintenance__
+            </hostMaintenance>
+            <assetId>
+                __AssetId__
+            </assetId>
+        </item>
+        <item>
+            <autoPlacement>
+                __AutoPlacement__
+            </autoPlacement>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableCapacity>
+                <availableInstanceCapacity>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                </availableInstanceCapacity>
+                <availableVCpus>
+                    0
+                </availableVCpus>
+            </availableCapacity>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <hostId>
+                __HostId__
+            </hostId>
+            <hostProperties>
+                <cores>
+                    0
+                </cores>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <instanceFamily>
+                    __InstanceFamily__
+                </instanceFamily>
+                <sockets>
+                    0
+                </sockets>
+                <totalVCpus>
+                    0
+                </totalVCpus>
+            </hostProperties>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <instances>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+            </instances>
+            <state>
+                __State__
+            </state>
+            <allocationTime>
+                2000-01-01T04:59:59.999Z
+            </allocationTime>
+            <releaseTime>
+                2000-01-01T04:59:59.999Z
+            </releaseTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <hostRecovery>
+                __HostRecovery__
+            </hostRecovery>
+            <allowsMultipleInstanceTypes>
+                __AllowsMultipleInstanceTypes__
+            </allowsMultipleInstanceTypes>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <memberOfServiceLinkedResourceGroup>
+                false
+            </memberOfServiceLinkedResourceGroup>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <hostMaintenance>
+                __HostMaintenance__
+            </hostMaintenance>
+            <assetId>
+                __AssetId__
+            </assetId>
+        </item>
+        <item>
+            <autoPlacement>
+                __AutoPlacement__
+            </autoPlacement>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableCapacity>
+                <availableInstanceCapacity>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                    <item>
+                        <availableCapacity>
+                            0
+                        </availableCapacity>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <totalCapacity>
+                            0
+                        </totalCapacity>
+                    </item>
+                </availableInstanceCapacity>
+                <availableVCpus>
+                    0
+                </availableVCpus>
+            </availableCapacity>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <hostId>
+                __HostId__
+            </hostId>
+            <hostProperties>
+                <cores>
+                    0
+                </cores>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <instanceFamily>
+                    __InstanceFamily__
+                </instanceFamily>
+                <sockets>
+                    0
+                </sockets>
+                <totalVCpus>
+                    0
+                </totalVCpus>
+            </hostProperties>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <instances>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+                <item>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <instanceType>
+                        __InstanceType__
+                    </instanceType>
+                    <ownerId>
+                        __OwnerId__
+                    </ownerId>
+                </item>
+            </instances>
+            <state>
+                __State__
+            </state>
+            <allocationTime>
+                2000-01-01T04:59:59.999Z
+            </allocationTime>
+            <releaseTime>
+                2000-01-01T04:59:59.999Z
+            </releaseTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <hostRecovery>
+                __HostRecovery__
+            </hostRecovery>
+            <allowsMultipleInstanceTypes>
+                __AllowsMultipleInstanceTypes__
+            </allowsMultipleInstanceTypes>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <memberOfServiceLinkedResourceGroup>
+                false
+            </memberOfServiceLinkedResourceGroup>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <hostMaintenance>
+                __HostMaintenance__
+            </hostMaintenance>
+            <assetId>
+                __AssetId__
+            </assetId>
+        </item>
+    </hostSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeHostsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Hosts: [
+    {
+      AutoPlacement: "__AutoPlacement__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableCapacity: {
+        AvailableInstanceCapacity: [
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          }
+        ],
+        AvailableVCpus: (number) 0
+      },
+      ClientToken: "__ClientToken__",
+      HostId: "__HostId__",
+      HostProperties: {
+        Cores: (number) 0,
+        InstanceType: "__InstanceType__",
+        InstanceFamily: "__InstanceFamily__",
+        Sockets: (number) 0,
+        TotalVCpus: (number) 0
+      },
+      HostReservationId: "__HostReservationId__",
+      Instances: [
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        }
+      ],
+      State: "__State__",
+      AllocationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReleaseTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      HostRecovery: "__HostRecovery__",
+      AllowsMultipleInstanceTypes: "__AllowsMultipleInstanceTypes__",
+      OwnerId: "__OwnerId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      MemberOfServiceLinkedResourceGroup: (boolean) false,
+      OutpostArn: "__OutpostArn__",
+      HostMaintenance: "__HostMaintenance__",
+      AssetId: "__AssetId__"
+    },
+    {
+      AutoPlacement: "__AutoPlacement__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableCapacity: {
+        AvailableInstanceCapacity: [
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          }
+        ],
+        AvailableVCpus: (number) 0
+      },
+      ClientToken: "__ClientToken__",
+      HostId: "__HostId__",
+      HostProperties: {
+        Cores: (number) 0,
+        InstanceType: "__InstanceType__",
+        InstanceFamily: "__InstanceFamily__",
+        Sockets: (number) 0,
+        TotalVCpus: (number) 0
+      },
+      HostReservationId: "__HostReservationId__",
+      Instances: [
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        }
+      ],
+      State: "__State__",
+      AllocationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReleaseTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      HostRecovery: "__HostRecovery__",
+      AllowsMultipleInstanceTypes: "__AllowsMultipleInstanceTypes__",
+      OwnerId: "__OwnerId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      MemberOfServiceLinkedResourceGroup: (boolean) false,
+      OutpostArn: "__OutpostArn__",
+      HostMaintenance: "__HostMaintenance__",
+      AssetId: "__AssetId__"
+    },
+    {
+      AutoPlacement: "__AutoPlacement__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableCapacity: {
+        AvailableInstanceCapacity: [
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          },
+          {
+            AvailableCapacity: (number) 0,
+            InstanceType: "__InstanceType__",
+            TotalCapacity: (number) 0
+          }
+        ],
+        AvailableVCpus: (number) 0
+      },
+      ClientToken: "__ClientToken__",
+      HostId: "__HostId__",
+      HostProperties: {
+        Cores: (number) 0,
+        InstanceType: "__InstanceType__",
+        InstanceFamily: "__InstanceFamily__",
+        Sockets: (number) 0,
+        TotalVCpus: (number) 0
+      },
+      HostReservationId: "__HostReservationId__",
+      Instances: [
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        },
+        {
+          InstanceId: "__InstanceId__",
+          InstanceType: "__InstanceType__",
+          OwnerId: "__OwnerId__"
+        }
+      ],
+      State: "__State__",
+      AllocationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReleaseTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      HostRecovery: "__HostRecovery__",
+      AllowsMultipleInstanceTypes: "__AllowsMultipleInstanceTypes__",
+      OwnerId: "__OwnerId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      MemberOfServiceLinkedResourceGroup: (boolean) false,
+      OutpostArn: "__OutpostArn__",
+      HostMaintenance: "__HostMaintenance__",
+      AssetId: "__AssetId__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

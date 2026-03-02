@@ -1,0 +1,65 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetMultiRegionAccessPointPolicyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetMultiRegionAccessPointPolicyResult xmlns="https://placeholder.amazonaws.com">
+    <Policy>
+        <Established>
+            <Policy>
+                __Policy__
+            </Policy>
+        </Established>
+        <Proposed>
+            <Policy>
+                __Policy__
+            </Policy>
+        </Proposed>
+    </Policy>
+</GetMultiRegionAccessPointPolicyResult>
+
+
+--- [output object] ---
+{
+  Policy: {
+    Established: {
+      Policy: "__Policy__"
+    },
+    Proposed: {
+      Policy: "__Policy__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  fieldStream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 121 [header-size] 86 [prelude-crc] 334014742
+:event-type: fields
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "data": "AQAAAQ=="
+}
+
+[message-crc] 421963909
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 147 [header-size] 106 [prelude-crc] 1591937775
+:event-type: InternalStreamingException
+:message-type: event
+:content-type: application/x-amz-json-1.1
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3305538111
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  fieldStream: async_it[
+    {
+      fields: {
+        data: (Uint8Array) bytes[1, 0, 0, 1]
+      }
+    },
+    {
+      InternalStreamingException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

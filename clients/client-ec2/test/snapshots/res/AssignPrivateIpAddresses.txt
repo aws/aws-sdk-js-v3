@@ -1,0 +1,105 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssignPrivateIpAddressesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssignPrivateIpAddressesResult xmlns="https://placeholder.amazonaws.com">
+    <networkInterfaceId>
+        __NetworkInterfaceId__
+    </networkInterfaceId>
+    <assignedPrivateIpAddressesSet>
+        <item>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+        </item>
+        <item>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+        </item>
+        <item>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+        </item>
+    </assignedPrivateIpAddressesSet>
+    <assignedIpv4PrefixSet>
+        <item>
+            <ipv4Prefix>
+                __Ipv4Prefix__
+            </ipv4Prefix>
+        </item>
+        <item>
+            <ipv4Prefix>
+                __Ipv4Prefix__
+            </ipv4Prefix>
+        </item>
+        <item>
+            <ipv4Prefix>
+                __Ipv4Prefix__
+            </ipv4Prefix>
+        </item>
+    </assignedIpv4PrefixSet>
+</AssignPrivateIpAddressesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NetworkInterfaceId: "__NetworkInterfaceId__",
+  AssignedPrivateIpAddresses: [
+    {
+      PrivateIpAddress: "__PrivateIpAddress__"
+    },
+    {
+      PrivateIpAddress: "__PrivateIpAddress__"
+    },
+    {
+      PrivateIpAddress: "__PrivateIpAddress__"
+    }
+  ],
+  AssignedIpv4Prefixes: [
+    {
+      Ipv4Prefix: "__Ipv4Prefix__"
+    },
+    {
+      Ipv4Prefix: "__Ipv4Prefix__"
+    },
+    {
+      Ipv4Prefix: "__Ipv4Prefix__"
+    }
+  ]
+}
+

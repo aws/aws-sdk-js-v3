@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAssociatedIpv6PoolCidrsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAssociatedIpv6PoolCidrsResult xmlns="https://placeholder.amazonaws.com">
+    <ipv6CidrAssociationSet>
+        <item>
+            <ipv6Cidr>
+                __Ipv6Cidr__
+            </ipv6Cidr>
+            <associatedResource>
+                __AssociatedResource__
+            </associatedResource>
+        </item>
+        <item>
+            <ipv6Cidr>
+                __Ipv6Cidr__
+            </ipv6Cidr>
+            <associatedResource>
+                __AssociatedResource__
+            </associatedResource>
+        </item>
+        <item>
+            <ipv6Cidr>
+                __Ipv6Cidr__
+            </ipv6Cidr>
+            <associatedResource>
+                __AssociatedResource__
+            </associatedResource>
+        </item>
+    </ipv6CidrAssociationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetAssociatedIpv6PoolCidrsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Ipv6CidrAssociations: [
+    {
+      Ipv6Cidr: "__Ipv6Cidr__",
+      AssociatedResource: "__AssociatedResource__"
+    },
+    {
+      Ipv6Cidr: "__Ipv6Cidr__",
+      AssociatedResource: "__AssociatedResource__"
+    },
+    {
+      Ipv6Cidr: "__Ipv6Cidr__",
+      AssociatedResource: "__AssociatedResource__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

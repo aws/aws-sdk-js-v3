@@ -1,0 +1,321 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DomainId": "__DomainId__",
+  "SpaceArn": "__SpaceArn__",
+  "SpaceName": "__SpaceName__",
+  "HomeEfsFileSystemUid": "__HomeEfsFileSystemUid__",
+  "Status": "__Status__",
+  "LastModifiedTime": 946702799.999,
+  "CreationTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "SpaceSettings": {
+    "JupyterServerAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "LifecycleConfigArns": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "CodeRepositories": [
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        }
+      ]
+    },
+    "KernelGatewayAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "CustomImages": [
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        },
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        },
+        {
+          "ImageName": "__ImageName__",
+          "AppImageConfigName": "__AppImageConfigName__",
+          "ImageVersionNumber": 0
+        }
+      ],
+      "LifecycleConfigArns": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "CodeEditorAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "AppLifecycleManagement": {
+        "IdleSettings": {
+          "IdleTimeoutInMinutes": 0
+        }
+      }
+    },
+    "JupyterLabAppSettings": {
+      "DefaultResourceSpec": {
+        "SageMakerImageArn": "__SageMakerImageArn__",
+        "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+        "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+        "InstanceType": "__InstanceType__",
+        "LifecycleConfigArn": "__LifecycleConfigArn__"
+      },
+      "CodeRepositories": [
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        },
+        {
+          "RepositoryUrl": "__RepositoryUrl__"
+        }
+      ],
+      "AppLifecycleManagement": {
+        "IdleSettings": {
+          "IdleTimeoutInMinutes": 0
+        }
+      }
+    },
+    "AppType": "__AppType__",
+    "SpaceStorageSettings": {
+      "EbsStorageSettings": {
+        "EbsVolumeSizeInGb": 0
+      }
+    },
+    "SpaceManagedResources": "__SpaceManagedResources__",
+    "CustomFileSystems": [
+      {
+        "S3FileSystem": {
+          "S3Uri": "__S3Uri__"
+        }
+      },
+      {
+        "EFSFileSystem": {
+          "FileSystemId": "__FileSystemId__"
+        }
+      },
+      {
+        "FSxLustreFileSystem": {
+          "FileSystemId": "__FileSystemId__"
+        }
+      }
+    ],
+    "RemoteAccess": "__RemoteAccess__"
+  },
+  "OwnershipSettings": {
+    "OwnerUserProfileName": "__OwnerUserProfileName__"
+  },
+  "SpaceSharingSettings": {
+    "SharingType": "__SharingType__"
+  },
+  "SpaceDisplayName": "__SpaceDisplayName__",
+  "Url": "__Url__"
+}
+
+
+--- [output object] ---
+{
+  DomainId: "__DomainId__",
+  SpaceArn: "__SpaceArn__",
+  SpaceName: "__SpaceName__",
+  HomeEfsFileSystemUid: "__HomeEfsFileSystemUid__",
+  Status: "__Status__",
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  SpaceSettings: {
+    JupyterServerAppSettings: {
+      DefaultResourceSpec: {
+        SageMakerImageArn: "__SageMakerImageArn__",
+        SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
+        SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
+        InstanceType: "__InstanceType__",
+        LifecycleConfigArn: "__LifecycleConfigArn__"
+      },
+      LifecycleConfigArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      CodeRepositories: [
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        },
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        },
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        }
+      ]
+    },
+    KernelGatewayAppSettings: {
+      DefaultResourceSpec: {
+        SageMakerImageArn: "__SageMakerImageArn__",
+        SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
+        SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
+        InstanceType: "__InstanceType__",
+        LifecycleConfigArn: "__LifecycleConfigArn__"
+      },
+      CustomImages: [
+        {
+          ImageName: "__ImageName__",
+          AppImageConfigName: "__AppImageConfigName__",
+          ImageVersionNumber: (number) 0
+        },
+        {
+          ImageName: "__ImageName__",
+          AppImageConfigName: "__AppImageConfigName__",
+          ImageVersionNumber: (number) 0
+        },
+        {
+          ImageName: "__ImageName__",
+          AppImageConfigName: "__AppImageConfigName__",
+          ImageVersionNumber: (number) 0
+        }
+      ],
+      LifecycleConfigArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    CodeEditorAppSettings: {
+      DefaultResourceSpec: {
+        SageMakerImageArn: "__SageMakerImageArn__",
+        SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
+        SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
+        InstanceType: "__InstanceType__",
+        LifecycleConfigArn: "__LifecycleConfigArn__"
+      },
+      AppLifecycleManagement: {
+        IdleSettings: {
+          IdleTimeoutInMinutes: (number) 0
+        }
+      }
+    },
+    JupyterLabAppSettings: {
+      DefaultResourceSpec: {
+        SageMakerImageArn: "__SageMakerImageArn__",
+        SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
+        SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
+        InstanceType: "__InstanceType__",
+        LifecycleConfigArn: "__LifecycleConfigArn__"
+      },
+      CodeRepositories: [
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        },
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        },
+        {
+          RepositoryUrl: "__RepositoryUrl__"
+        }
+      ],
+      AppLifecycleManagement: {
+        IdleSettings: {
+          IdleTimeoutInMinutes: (number) 0
+        }
+      }
+    },
+    AppType: "__AppType__",
+    SpaceStorageSettings: {
+      EbsStorageSettings: {
+        EbsVolumeSizeInGb: (number) 0
+      }
+    },
+    SpaceManagedResources: "__SpaceManagedResources__",
+    CustomFileSystems: [
+      {
+        S3FileSystem: {
+          S3Uri: "__S3Uri__"
+        }
+      },
+      {
+        EFSFileSystem: {
+          FileSystemId: "__FileSystemId__"
+        }
+      },
+      {
+        FSxLustreFileSystem: {
+          FileSystemId: "__FileSystemId__"
+        }
+      }
+    ],
+    RemoteAccess: "__RemoteAccess__"
+  },
+  OwnershipSettings: {
+    OwnerUserProfileName: "__OwnerUserProfileName__"
+  },
+  SpaceSharingSettings: {
+    SharingType: "__SharingType__"
+  },
+  SpaceDisplayName: "__SpaceDisplayName__",
+  Url: "__Url__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

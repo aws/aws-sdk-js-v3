@@ -1,0 +1,99 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "scheduledQueryArn": "__scheduledQueryArn__",
+  "name": "__name__",
+  "description": "__description__",
+  "queryLanguage": "__queryLanguage__",
+  "queryString": "__queryString__",
+  "logGroupIdentifiers": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "scheduleExpression": "__scheduleExpression__",
+  "timezone": "__timezone__",
+  "startTimeOffset": 0,
+  "destinationConfiguration": {
+    "s3Configuration": {
+      "destinationIdentifier": "__destinationIdentifier__",
+      "roleArn": "__roleArn__"
+    }
+  },
+  "state": "__state__",
+  "lastTriggeredTime": 0,
+  "lastExecutionStatus": "__lastExecutionStatus__",
+  "scheduleStartTime": 0,
+  "scheduleEndTime": 0,
+  "executionRoleArn": "__executionRoleArn__",
+  "creationTime": 0,
+  "lastUpdatedTime": 0
+}
+
+
+--- [output object] ---
+{
+  scheduledQueryArn: "__scheduledQueryArn__",
+  name: "__name__",
+  description: "__description__",
+  queryLanguage: "__queryLanguage__",
+  queryString: "__queryString__",
+  logGroupIdentifiers: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  scheduleExpression: "__scheduleExpression__",
+  timezone: "__timezone__",
+  startTimeOffset: (number) 0,
+  destinationConfiguration: {
+    s3Configuration: {
+      destinationIdentifier: "__destinationIdentifier__",
+      roleArn: "__roleArn__"
+    }
+  },
+  state: "__state__",
+  lastTriggeredTime: (number) 0,
+  lastExecutionStatus: "__lastExecutionStatus__",
+  scheduleStartTime: (number) 0,
+  scheduleEndTime: (number) 0,
+  executionRoleArn: "__executionRoleArn__",
+  creationTime: (number) 0,
+  lastUpdatedTime: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

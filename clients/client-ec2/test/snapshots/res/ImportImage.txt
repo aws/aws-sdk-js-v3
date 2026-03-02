@@ -1,0 +1,325 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ImportImageResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ImportImageResult xmlns="https://placeholder.amazonaws.com">
+    <architecture>
+        __Architecture__
+    </architecture>
+    <description>
+        __Description__
+    </description>
+    <encrypted>
+        false
+    </encrypted>
+    <hypervisor>
+        __Hypervisor__
+    </hypervisor>
+    <imageId>
+        __ImageId__
+    </imageId>
+    <importTaskId>
+        __ImportTaskId__
+    </importTaskId>
+    <kmsKeyId>
+        __KmsKeyId__
+    </kmsKeyId>
+    <licenseType>
+        __LicenseType__
+    </licenseType>
+    <platform>
+        __Platform__
+    </platform>
+    <progress>
+        __Progress__
+    </progress>
+    <snapshotDetailSet>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <diskImageSize>
+                0
+            </diskImageSize>
+            <format>
+                __Format__
+            </format>
+            <progress>
+                __Progress__
+            </progress>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <url>
+                __Url__
+            </url>
+            <userBucket>
+                <s3Bucket>
+                    __S3Bucket__
+                </s3Bucket>
+                <s3Key>
+                    __S3Key__
+                </s3Key>
+            </userBucket>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <diskImageSize>
+                0
+            </diskImageSize>
+            <format>
+                __Format__
+            </format>
+            <progress>
+                __Progress__
+            </progress>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <url>
+                __Url__
+            </url>
+            <userBucket>
+                <s3Bucket>
+                    __S3Bucket__
+                </s3Bucket>
+                <s3Key>
+                    __S3Key__
+                </s3Key>
+            </userBucket>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <diskImageSize>
+                0
+            </diskImageSize>
+            <format>
+                __Format__
+            </format>
+            <progress>
+                __Progress__
+            </progress>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <url>
+                __Url__
+            </url>
+            <userBucket>
+                <s3Bucket>
+                    __S3Bucket__
+                </s3Bucket>
+                <s3Key>
+                    __S3Key__
+                </s3Key>
+            </userBucket>
+        </item>
+    </snapshotDetailSet>
+    <status>
+        __Status__
+    </status>
+    <statusMessage>
+        __StatusMessage__
+    </statusMessage>
+    <licenseSpecifications>
+        <item>
+            <licenseConfigurationArn>
+                __LicenseConfigurationArn__
+            </licenseConfigurationArn>
+        </item>
+        <item>
+            <licenseConfigurationArn>
+                __LicenseConfigurationArn__
+            </licenseConfigurationArn>
+        </item>
+        <item>
+            <licenseConfigurationArn>
+                __LicenseConfigurationArn__
+            </licenseConfigurationArn>
+        </item>
+    </licenseSpecifications>
+    <tagSet>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+    </tagSet>
+    <usageOperation>
+        __UsageOperation__
+    </usageOperation>
+</ImportImageResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Architecture: "__Architecture__",
+  Description: "__Description__",
+  Encrypted: (boolean) false,
+  Hypervisor: "__Hypervisor__",
+  ImageId: "__ImageId__",
+  ImportTaskId: "__ImportTaskId__",
+  KmsKeyId: "__KmsKeyId__",
+  LicenseType: "__LicenseType__",
+  Platform: "__Platform__",
+  Progress: "__Progress__",
+  SnapshotDetails: [
+    {
+      Description: "__Description__",
+      DeviceName: "__DeviceName__",
+      DiskImageSize: (number) 0,
+      Format: "__Format__",
+      Progress: "__Progress__",
+      SnapshotId: "__SnapshotId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      Url: "__Url__",
+      UserBucket: {
+        S3Bucket: "__S3Bucket__",
+        S3Key: "__S3Key__"
+      }
+    },
+    {
+      Description: "__Description__",
+      DeviceName: "__DeviceName__",
+      DiskImageSize: (number) 0,
+      Format: "__Format__",
+      Progress: "__Progress__",
+      SnapshotId: "__SnapshotId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      Url: "__Url__",
+      UserBucket: {
+        S3Bucket: "__S3Bucket__",
+        S3Key: "__S3Key__"
+      }
+    },
+    {
+      Description: "__Description__",
+      DeviceName: "__DeviceName__",
+      DiskImageSize: (number) 0,
+      Format: "__Format__",
+      Progress: "__Progress__",
+      SnapshotId: "__SnapshotId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      Url: "__Url__",
+      UserBucket: {
+        S3Bucket: "__S3Bucket__",
+        S3Key: "__S3Key__"
+      }
+    }
+  ],
+  Status: "__Status__",
+  StatusMessage: "__StatusMessage__",
+  LicenseSpecifications: [
+    {
+      LicenseConfigurationArn: "__LicenseConfigurationArn__"
+    },
+    {
+      LicenseConfigurationArn: "__LicenseConfigurationArn__"
+    },
+    {
+      LicenseConfigurationArn: "__LicenseConfigurationArn__"
+    }
+  ],
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  UsageOperation: "__UsageOperation__"
+}
+

@@ -1,0 +1,117 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamPolicyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamPolicyResult xmlns="https://placeholder.amazonaws.com">
+    <ipamPolicy>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamPolicyId>
+            __IpamPolicyId__
+        </ipamPolicyId>
+        <ipamPolicyArn>
+            __IpamPolicyArn__
+        </ipamPolicyArn>
+        <ipamPolicyRegion>
+            __IpamPolicyRegion__
+        </ipamPolicyRegion>
+        <state>
+            __State__
+        </state>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+    </ipamPolicy>
+</DeleteIpamPolicyResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamPolicy: {
+    OwnerId: "__OwnerId__",
+    IpamPolicyId: "__IpamPolicyId__",
+    IpamPolicyArn: "__IpamPolicyArn__",
+    IpamPolicyRegion: "__IpamPolicyRegion__",
+    State: "__State__",
+    StateMessage: "__StateMessage__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    IpamId: "__IpamId__"
+  }
+}
+

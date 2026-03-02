@@ -1,0 +1,1845 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TableAutoScalingDescription": {
+    "TableName": "__TableName__",
+    "TableStatus": "__TableStatus__",
+    "Replicas": [
+      {
+        "RegionName": "__RegionName__",
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaStatus": "__ReplicaStatus__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaStatus": "__ReplicaStatus__"
+      },
+      {
+        "RegionName": "__RegionName__",
+        "GlobalSecondaryIndexes": [
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "IndexName": "__IndexName__",
+            "IndexStatus": "__IndexStatus__",
+            "ProvisionedReadCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            },
+            "ProvisionedWriteCapacityAutoScalingSettings": {
+              "MinimumUnits": 0,
+              "MaximumUnits": 0,
+              "AutoScalingDisabled": false,
+              "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+              "ScalingPolicies": [
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                },
+                {
+                  "PolicyName": "__PolicyName__",
+                  "TargetTrackingScalingPolicyConfiguration": {
+                    "TargetValue": 0,
+                    "DisableScaleIn": false,
+                    "ScaleInCooldown": 0,
+                    "ScaleOutCooldown": 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": {
+          "MinimumUnits": 0,
+          "MaximumUnits": 0,
+          "AutoScalingDisabled": false,
+          "AutoScalingRoleArn": "__AutoScalingRoleArn__",
+          "ScalingPolicies": [
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            },
+            {
+              "PolicyName": "__PolicyName__",
+              "TargetTrackingScalingPolicyConfiguration": {
+                "TargetValue": 0,
+                "DisableScaleIn": false,
+                "ScaleInCooldown": 0,
+                "ScaleOutCooldown": 0
+              }
+            }
+          ]
+        },
+        "ReplicaStatus": "__ReplicaStatus__"
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  TableAutoScalingDescription: {
+    TableName: "__TableName__",
+    TableStatus: "__TableStatus__",
+    Replicas: [
+      {
+        RegionName: "__RegionName__",
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        ReplicaProvisionedReadCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaStatus: "__ReplicaStatus__"
+      },
+      {
+        RegionName: "__RegionName__",
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        ReplicaProvisionedReadCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaStatus: "__ReplicaStatus__"
+      },
+      {
+        RegionName: "__RegionName__",
+        GlobalSecondaryIndexes: [
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          },
+          {
+            IndexName: "__IndexName__",
+            IndexStatus: "__IndexStatus__",
+            ProvisionedReadCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            },
+            ProvisionedWriteCapacityAutoScalingSettings: {
+              MinimumUnits: (number) 0,
+              MaximumUnits: (number) 0,
+              AutoScalingDisabled: (boolean) false,
+              AutoScalingRoleArn: "__AutoScalingRoleArn__",
+              ScalingPolicies: [
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                },
+                {
+                  PolicyName: "__PolicyName__",
+                  TargetTrackingScalingPolicyConfiguration: {
+                    TargetValue: (number) 0,
+                    DisableScaleIn: (boolean) false,
+                    ScaleInCooldown: (number) 0,
+                    ScaleOutCooldown: (number) 0
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        ReplicaProvisionedReadCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaProvisionedWriteCapacityAutoScalingSettings: {
+          MinimumUnits: (number) 0,
+          MaximumUnits: (number) 0,
+          AutoScalingDisabled: (boolean) false,
+          AutoScalingRoleArn: "__AutoScalingRoleArn__",
+          ScalingPolicies: [
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            },
+            {
+              PolicyName: "__PolicyName__",
+              TargetTrackingScalingPolicyConfiguration: {
+                TargetValue: (number) 0,
+                DisableScaleIn: (boolean) false,
+                ScaleInCooldown: (number) 0,
+                ScaleOutCooldown: (number) 0
+              }
+            }
+          ]
+        },
+        ReplicaStatus: "__ReplicaStatus__"
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

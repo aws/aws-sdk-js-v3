@@ -1,0 +1,66 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  blob: async_it[
+    ""
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+X-Foo: __foo__
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+MQo=
+[chunk (b64)]
+MAo=
+[chunk (b64)]
+MAo=
+[chunk (b64)]
+MQo=
+
+
+
+--- [output object] ---
+{
+  foo: "__foo__",
+  blob: async_it[
+    (number) 1,
+    (number) 0,
+    (number) 0,
+    (number) 1
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

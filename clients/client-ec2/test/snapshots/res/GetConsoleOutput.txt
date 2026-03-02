@@ -1,0 +1,57 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetConsoleOutputResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetConsoleOutputResult xmlns="https://placeholder.amazonaws.com">
+    <instanceId>
+        __InstanceId__
+    </instanceId>
+    <timestamp>
+        2000-01-01T04:59:59.999Z
+    </timestamp>
+    <output>
+        __Output__
+    </output>
+</GetConsoleOutputResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceId: "__InstanceId__",
+  Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Output: "__Output__"
+}
+

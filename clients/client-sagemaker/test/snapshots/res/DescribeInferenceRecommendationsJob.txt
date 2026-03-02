@@ -1,0 +1,1018 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobName": "__JobName__",
+  "JobType": "__JobType__",
+  "JobArn": "__JobArn__",
+  "RoleArn": "__RoleArn__",
+  "Status": "__Status__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "InputConfig": {},
+  "JobDescription": "__JobDescription__",
+  "CompletionTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "StoppingConditions": {},
+  "InferenceRecommendations": [
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {},
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {},
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    },
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {},
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {},
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    },
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {},
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {},
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    }
+  ],
+  "EndpointPerformances": [
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {}
+    },
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {}
+    },
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {}
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  JobName: "__JobName__",
+  JobType: "__JobType__",
+  JobArn: "__JobArn__",
+  RoleArn: "__RoleArn__",
+  Status: "__Status__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  InputConfig: {},
+  JobDescription: "__JobDescription__",
+  CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  StoppingConditions: {},
+  InferenceRecommendations: [
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {},
+      RecommendationId: "__RecommendationId__",
+      Metrics: {},
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {},
+      RecommendationId: "__RecommendationId__",
+      Metrics: {},
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {},
+      RecommendationId: "__RecommendationId__",
+      Metrics: {},
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  EndpointPerformances: [
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {}
+    },
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {}
+    },
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {}
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobName": "__JobName__",
+  "JobType": "__JobType__",
+  "JobArn": "__JobArn__",
+  "RoleArn": "__RoleArn__",
+  "Status": "__Status__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "InputConfig": {
+    "ModelPackageVersionArn": "__ModelPackageVersionArn__",
+    "ModelName": "__ModelName__",
+    "JobDurationInSeconds": 0,
+    "TrafficPattern": {
+      "TrafficType": "__TrafficType__",
+      "Phases": [
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        },
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        },
+        {
+          "InitialNumberOfUsers": 0,
+          "SpawnRate": 0,
+          "DurationInSeconds": 0
+        }
+      ],
+      "Stairs": {
+        "DurationInSeconds": 0,
+        "NumberOfSteps": 0,
+        "UsersPerStep": 0
+      }
+    },
+    "ResourceLimit": {
+      "MaxNumberOfTests": 0,
+      "MaxParallelOfTests": 0
+    },
+    "EndpointConfigurations": [
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "InstanceType": "__InstanceType__",
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        },
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameterRanges": {
+          "CategoricalParameterRanges": [
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              "Name": "__Name__",
+              "Value": [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+    "ContainerConfig": {
+      "Domain": "__Domain__",
+      "Task": "__Task__",
+      "Framework": "__Framework__",
+      "FrameworkVersion": "__FrameworkVersion__",
+      "PayloadConfig": {
+        "SamplePayloadUrl": "__SamplePayloadUrl__",
+        "SupportedContentTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "NearestModelName": "__NearestModelName__",
+      "SupportedInstanceTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "SupportedEndpointType": "__SupportedEndpointType__",
+      "DataInputConfig": "__DataInputConfig__",
+      "SupportedResponseMIMETypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "Endpoints": [
+      {
+        "EndpointName": "__EndpointName__"
+      },
+      {
+        "EndpointName": "__EndpointName__"
+      },
+      {
+        "EndpointName": "__EndpointName__"
+      }
+    ],
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "JobDescription": "__JobDescription__",
+  "CompletionTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "StoppingConditions": {
+    "MaxInvocations": 0,
+    "ModelLatencyThresholds": [
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      },
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      },
+      {
+        "Percentile": "__Percentile__",
+        "ValueInMilliseconds": 0
+      }
+    ],
+    "FlatInvocations": "__FlatInvocations__"
+  },
+  "InferenceRecommendations": [
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameters": [
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          }
+        ],
+        "CompilationJobName": "__CompilationJobName__"
+      },
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {
+        "CostPerHour": 0,
+        "CostPerInference": 0,
+        "MaxInvocations": 0,
+        "ModelLatency": 0,
+        "CpuUtilization": 0,
+        "MemoryUtilization": 0,
+        "ModelSetupTime": 0
+      },
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    },
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameters": [
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          }
+        ],
+        "CompilationJobName": "__CompilationJobName__"
+      },
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {
+        "CostPerHour": 0,
+        "CostPerInference": 0,
+        "MaxInvocations": 0,
+        "ModelLatency": 0,
+        "CpuUtilization": 0,
+        "MemoryUtilization": 0,
+        "ModelSetupTime": 0
+      },
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    },
+    {
+      "EndpointConfiguration": {
+        "EndpointName": "__EndpointName__",
+        "VariantName": "__VariantName__",
+        "InstanceType": "__InstanceType__",
+        "InitialInstanceCount": 0,
+        "ServerlessConfig": {
+          "MemorySizeInMB": 0,
+          "MaxConcurrency": 0,
+          "ProvisionedConcurrency": 0
+        }
+      },
+      "ModelConfiguration": {
+        "InferenceSpecificationName": "__InferenceSpecificationName__",
+        "EnvironmentParameters": [
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "ValueType": "__ValueType__",
+            "Value": "__Value__"
+          }
+        ],
+        "CompilationJobName": "__CompilationJobName__"
+      },
+      "RecommendationId": "__RecommendationId__",
+      "Metrics": {
+        "CostPerHour": 0,
+        "CostPerInference": 0,
+        "MaxInvocations": 0,
+        "ModelLatency": 0,
+        "CpuUtilization": 0,
+        "MemoryUtilization": 0,
+        "ModelSetupTime": 0
+      },
+      "InvocationEndTime": 946702799.999,
+      "InvocationStartTime": 946702799.999
+    }
+  ],
+  "EndpointPerformances": [
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {
+        "EndpointName": "__EndpointName__"
+      }
+    },
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {
+        "EndpointName": "__EndpointName__"
+      }
+    },
+    {
+      "Metrics": {
+        "MaxInvocations": 0,
+        "ModelLatency": 0
+      },
+      "EndpointInfo": {
+        "EndpointName": "__EndpointName__"
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  JobName: "__JobName__",
+  JobType: "__JobType__",
+  JobArn: "__JobArn__",
+  RoleArn: "__RoleArn__",
+  Status: "__Status__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  InputConfig: {
+    ModelPackageVersionArn: "__ModelPackageVersionArn__",
+    ModelName: "__ModelName__",
+    JobDurationInSeconds: (number) 0,
+    TrafficPattern: {
+      TrafficType: "__TrafficType__",
+      Phases: [
+        {
+          InitialNumberOfUsers: (number) 0,
+          SpawnRate: (number) 0,
+          DurationInSeconds: (number) 0
+        },
+        {
+          InitialNumberOfUsers: (number) 0,
+          SpawnRate: (number) 0,
+          DurationInSeconds: (number) 0
+        },
+        {
+          InitialNumberOfUsers: (number) 0,
+          SpawnRate: (number) 0,
+          DurationInSeconds: (number) 0
+        }
+      ],
+      Stairs: {
+        DurationInSeconds: (number) 0,
+        NumberOfSteps: (number) 0,
+        UsersPerStep: (number) 0
+      }
+    },
+    ResourceLimit: {
+      MaxNumberOfTests: (number) 0,
+      MaxParallelOfTests: (number) 0
+    },
+    EndpointConfigurations: [
+      {
+        InstanceType: "__InstanceType__",
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameterRanges: {
+          CategoricalParameterRanges: [
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        InstanceType: "__InstanceType__",
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameterRanges: {
+          CategoricalParameterRanges: [
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        InstanceType: "__InstanceType__",
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        },
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameterRanges: {
+          CategoricalParameterRanges: [
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            },
+            {
+              Name: "__Name__",
+              Value: [
+                "__member__",
+                "__member__",
+                "__member__"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    VolumeKmsKeyId: "__VolumeKmsKeyId__",
+    ContainerConfig: {
+      Domain: "__Domain__",
+      Task: "__Task__",
+      Framework: "__Framework__",
+      FrameworkVersion: "__FrameworkVersion__",
+      PayloadConfig: {
+        SamplePayloadUrl: "__SamplePayloadUrl__",
+        SupportedContentTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      NearestModelName: "__NearestModelName__",
+      SupportedInstanceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedEndpointType: "__SupportedEndpointType__",
+      DataInputConfig: "__DataInputConfig__",
+      SupportedResponseMIMETypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    Endpoints: [
+      {
+        EndpointName: "__EndpointName__"
+      },
+      {
+        EndpointName: "__EndpointName__"
+      },
+      {
+        EndpointName: "__EndpointName__"
+      }
+    ],
+    VpcConfig: {
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  JobDescription: "__JobDescription__",
+  CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  StoppingConditions: {
+    MaxInvocations: (number) 0,
+    ModelLatencyThresholds: [
+      {
+        Percentile: "__Percentile__",
+        ValueInMilliseconds: (number) 0
+      },
+      {
+        Percentile: "__Percentile__",
+        ValueInMilliseconds: (number) 0
+      },
+      {
+        Percentile: "__Percentile__",
+        ValueInMilliseconds: (number) 0
+      }
+    ],
+    FlatInvocations: "__FlatInvocations__"
+  },
+  InferenceRecommendations: [
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameters: [
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          }
+        ],
+        CompilationJobName: "__CompilationJobName__"
+      },
+      RecommendationId: "__RecommendationId__",
+      Metrics: {
+        CostPerHour: (number) 0,
+        CostPerInference: (number) 0,
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0,
+        CpuUtilization: (number) 0,
+        MemoryUtilization: (number) 0,
+        ModelSetupTime: (number) 0
+      },
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameters: [
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          }
+        ],
+        CompilationJobName: "__CompilationJobName__"
+      },
+      RecommendationId: "__RecommendationId__",
+      Metrics: {
+        CostPerHour: (number) 0,
+        CostPerInference: (number) 0,
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0,
+        CpuUtilization: (number) 0,
+        MemoryUtilization: (number) 0,
+        ModelSetupTime: (number) 0
+      },
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfiguration: {
+        EndpointName: "__EndpointName__",
+        VariantName: "__VariantName__",
+        InstanceType: "__InstanceType__",
+        InitialInstanceCount: (number) 0,
+        ServerlessConfig: {
+          MemorySizeInMB: (number) 0,
+          MaxConcurrency: (number) 0,
+          ProvisionedConcurrency: (number) 0
+        }
+      },
+      ModelConfiguration: {
+        InferenceSpecificationName: "__InferenceSpecificationName__",
+        EnvironmentParameters: [
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            ValueType: "__ValueType__",
+            Value: "__Value__"
+          }
+        ],
+        CompilationJobName: "__CompilationJobName__"
+      },
+      RecommendationId: "__RecommendationId__",
+      Metrics: {
+        CostPerHour: (number) 0,
+        CostPerInference: (number) 0,
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0,
+        CpuUtilization: (number) 0,
+        MemoryUtilization: (number) 0,
+        ModelSetupTime: (number) 0
+      },
+      InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  EndpointPerformances: [
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {
+        EndpointName: "__EndpointName__"
+      }
+    },
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {
+        EndpointName: "__EndpointName__"
+      }
+    },
+    {
+      Metrics: {
+        MaxInvocations: (number) 0,
+        ModelLatency: (number) 0
+      },
+      EndpointInfo: {
+        EndpointName: "__EndpointName__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,228 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetOrganizationsAccessReportResponse xmlns="https://placeholder.amazonaws.com">
+    <JobStatus>
+        __JobStatus__
+    </JobStatus>
+    <JobCreationDate>
+        2000-01-01T04:59:59.999Z
+    </JobCreationDate>
+    <JobCompletionDate>
+        2000-01-01T04:59:59.999Z
+    </JobCompletionDate>
+    <NumberOfServicesAccessible>
+        0
+    </NumberOfServicesAccessible>
+    <NumberOfServicesNotAccessed>
+        0
+    </NumberOfServicesNotAccessed>
+    <AccessDetails>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+    </AccessDetails>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+    <ErrorDetails>
+        <Message>
+            __Message__
+        </Message>
+        <Code>
+            __Code__
+        </Code>
+    </ErrorDetails>
+</GetOrganizationsAccessReportResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetOrganizationsAccessReportResponse xmlns="https://placeholder.amazonaws.com">
+    <JobStatus>
+        __JobStatus__
+    </JobStatus>
+    <JobCreationDate>
+        2000-01-01T04:59:59.999Z
+    </JobCreationDate>
+    <JobCompletionDate>
+        2000-01-01T04:59:59.999Z
+    </JobCompletionDate>
+    <NumberOfServicesAccessible>
+        0
+    </NumberOfServicesAccessible>
+    <NumberOfServicesNotAccessed>
+        0
+    </NumberOfServicesNotAccessed>
+    <AccessDetails>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Region>
+                __Region__
+            </Region>
+            <EntityPath>
+                __EntityPath__
+            </EntityPath>
+            <LastAuthenticatedTime>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticatedTime>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+        </member>
+    </AccessDetails>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+    <ErrorDetails>
+        <Message>
+            __Message__
+        </Message>
+        <Code>
+            __Code__
+        </Code>
+    </ErrorDetails>
+</GetOrganizationsAccessReportResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

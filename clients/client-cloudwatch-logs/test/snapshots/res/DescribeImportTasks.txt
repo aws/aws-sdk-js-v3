@@ -1,0 +1,147 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "imports": [
+    {
+      "importId": "__importId__",
+      "importSourceArn": "__importSourceArn__",
+      "importStatus": "__importStatus__",
+      "importDestinationArn": "__importDestinationArn__",
+      "importStatistics": {
+        "bytesImported": 0
+      },
+      "importFilter": {
+        "startEventTime": 0,
+        "endEventTime": 0
+      },
+      "creationTime": 0,
+      "lastUpdatedTime": 0,
+      "errorMessage": "__errorMessage__"
+    },
+    {
+      "importId": "__importId__",
+      "importSourceArn": "__importSourceArn__",
+      "importStatus": "__importStatus__",
+      "importDestinationArn": "__importDestinationArn__",
+      "importStatistics": {
+        "bytesImported": 0
+      },
+      "importFilter": {
+        "startEventTime": 0,
+        "endEventTime": 0
+      },
+      "creationTime": 0,
+      "lastUpdatedTime": 0,
+      "errorMessage": "__errorMessage__"
+    },
+    {
+      "importId": "__importId__",
+      "importSourceArn": "__importSourceArn__",
+      "importStatus": "__importStatus__",
+      "importDestinationArn": "__importDestinationArn__",
+      "importStatistics": {
+        "bytesImported": 0
+      },
+      "importFilter": {
+        "startEventTime": 0,
+        "endEventTime": 0
+      },
+      "creationTime": 0,
+      "lastUpdatedTime": 0,
+      "errorMessage": "__errorMessage__"
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  imports: [
+    {
+      importId: "__importId__",
+      importSourceArn: "__importSourceArn__",
+      importStatus: "__importStatus__",
+      importDestinationArn: "__importDestinationArn__",
+      importStatistics: {
+        bytesImported: (number) 0
+      },
+      importFilter: {
+        startEventTime: (number) 0,
+        endEventTime: (number) 0
+      },
+      creationTime: (number) 0,
+      lastUpdatedTime: (number) 0,
+      errorMessage: "__errorMessage__"
+    },
+    {
+      importId: "__importId__",
+      importSourceArn: "__importSourceArn__",
+      importStatus: "__importStatus__",
+      importDestinationArn: "__importDestinationArn__",
+      importStatistics: {
+        bytesImported: (number) 0
+      },
+      importFilter: {
+        startEventTime: (number) 0,
+        endEventTime: (number) 0
+      },
+      creationTime: (number) 0,
+      lastUpdatedTime: (number) 0,
+      errorMessage: "__errorMessage__"
+    },
+    {
+      importId: "__importId__",
+      importSourceArn: "__importSourceArn__",
+      importStatus: "__importStatus__",
+      importDestinationArn: "__importDestinationArn__",
+      importStatistics: {
+        bytesImported: (number) 0
+      },
+      importFilter: {
+        startEventTime: (number) 0,
+        endEventTime: (number) 0
+      },
+      creationTime: (number) 0,
+      lastUpdatedTime: (number) 0,
+      errorMessage: "__errorMessage__"
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

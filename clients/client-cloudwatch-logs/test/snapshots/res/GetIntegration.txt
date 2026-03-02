@@ -1,0 +1,177 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "integrationName": "__integrationName__",
+  "integrationType": "__integrationType__",
+  "integrationStatus": "__integrationStatus__",
+  "integrationDetails": {
+    "openSearchIntegrationDetails": {
+      "dataSource": {
+        "dataSourceName": "__dataSourceName__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "application": {
+        "applicationEndpoint": "__applicationEndpoint__",
+        "applicationArn": "__applicationArn__",
+        "applicationId": "__applicationId__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "collection": {
+        "collectionEndpoint": "__collectionEndpoint__",
+        "collectionArn": "__collectionArn__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "workspace": {
+        "workspaceId": "__workspaceId__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "encryptionPolicy": {
+        "policyName": "__policyName__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "networkPolicy": {
+        "policyName": "__policyName__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "accessPolicy": {
+        "policyName": "__policyName__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      },
+      "lifecyclePolicy": {
+        "policyName": "__policyName__",
+        "status": {
+          "status": "__status__",
+          "statusMessage": "__statusMessage__"
+        }
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  integrationName: "__integrationName__",
+  integrationType: "__integrationType__",
+  integrationStatus: "__integrationStatus__",
+  integrationDetails: {
+    openSearchIntegrationDetails: {
+      dataSource: {
+        dataSourceName: "__dataSourceName__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      application: {
+        applicationEndpoint: "__applicationEndpoint__",
+        applicationArn: "__applicationArn__",
+        applicationId: "__applicationId__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      collection: {
+        collectionEndpoint: "__collectionEndpoint__",
+        collectionArn: "__collectionArn__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      workspace: {
+        workspaceId: "__workspaceId__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      encryptionPolicy: {
+        policyName: "__policyName__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      networkPolicy: {
+        policyName: "__policyName__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      accessPolicy: {
+        policyName: "__policyName__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      },
+      lifecyclePolicy: {
+        policyName: "__policyName__",
+        status: {
+          status: "__status__",
+          statusMessage: "__statusMessage__"
+        }
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,181 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRegionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRegionsResult xmlns="https://placeholder.amazonaws.com">
+    <regionInfo>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <regionEndpoint>
+                __Endpoint__
+            </regionEndpoint>
+        </item>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <regionEndpoint>
+                __Endpoint__
+            </regionEndpoint>
+        </item>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <regionEndpoint>
+                __Endpoint__
+            </regionEndpoint>
+        </item>
+    </regionInfo>
+</DescribeRegionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Regions: [
+    {
+      OptInStatus: "__OptInStatus__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      Endpoint: "__Endpoint__"
+    },
+    {
+      OptInStatus: "__OptInStatus__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      Endpoint: "__Endpoint__"
+    },
+    {
+      OptInStatus: "__OptInStatus__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      Endpoint: "__Endpoint__"
+    }
+  ]
+}
+

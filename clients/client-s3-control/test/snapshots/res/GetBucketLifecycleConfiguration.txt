@@ -1,0 +1,721 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetBucketLifecycleConfigurationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetBucketLifecycleConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <Rules>
+        <Rule>
+            <Status>
+                __Status__
+            </Status>
+            <Expiration>
+                <Date>
+                    2000-01-01T04:59:59.999Z
+                </Date>
+                <Days>
+                    0
+                </Days>
+                <ExpiredObjectDeleteMarker>
+                    false
+                </ExpiredObjectDeleteMarker>
+            </Expiration>
+            <ID>
+                __ID__
+            </ID>
+            <Filter>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <And>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tags>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                    </Tags>
+                    <ObjectSizeGreaterThan>
+                        0
+                    </ObjectSizeGreaterThan>
+                    <ObjectSizeLessThan>
+                        0
+                    </ObjectSizeLessThan>
+                </And>
+                <ObjectSizeGreaterThan>
+                    0
+                </ObjectSizeGreaterThan>
+                <ObjectSizeLessThan>
+                    0
+                </ObjectSizeLessThan>
+            </Filter>
+            <Transitions>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+            </Transitions>
+            <NoncurrentVersionTransitions>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+            </NoncurrentVersionTransitions>
+            <NoncurrentVersionExpiration>
+                <NoncurrentDays>
+                    0
+                </NoncurrentDays>
+                <NewerNoncurrentVersions>
+                    0
+                </NewerNoncurrentVersions>
+            </NoncurrentVersionExpiration>
+            <AbortIncompleteMultipartUpload>
+                <DaysAfterInitiation>
+                    0
+                </DaysAfterInitiation>
+            </AbortIncompleteMultipartUpload>
+        </Rule>
+        <Rule>
+            <Status>
+                __Status__
+            </Status>
+            <Expiration>
+                <Date>
+                    2000-01-01T04:59:59.999Z
+                </Date>
+                <Days>
+                    0
+                </Days>
+                <ExpiredObjectDeleteMarker>
+                    false
+                </ExpiredObjectDeleteMarker>
+            </Expiration>
+            <ID>
+                __ID__
+            </ID>
+            <Filter>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <And>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tags>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                    </Tags>
+                    <ObjectSizeGreaterThan>
+                        0
+                    </ObjectSizeGreaterThan>
+                    <ObjectSizeLessThan>
+                        0
+                    </ObjectSizeLessThan>
+                </And>
+                <ObjectSizeGreaterThan>
+                    0
+                </ObjectSizeGreaterThan>
+                <ObjectSizeLessThan>
+                    0
+                </ObjectSizeLessThan>
+            </Filter>
+            <Transitions>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+            </Transitions>
+            <NoncurrentVersionTransitions>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+            </NoncurrentVersionTransitions>
+            <NoncurrentVersionExpiration>
+                <NoncurrentDays>
+                    0
+                </NoncurrentDays>
+                <NewerNoncurrentVersions>
+                    0
+                </NewerNoncurrentVersions>
+            </NoncurrentVersionExpiration>
+            <AbortIncompleteMultipartUpload>
+                <DaysAfterInitiation>
+                    0
+                </DaysAfterInitiation>
+            </AbortIncompleteMultipartUpload>
+        </Rule>
+        <Rule>
+            <Status>
+                __Status__
+            </Status>
+            <Expiration>
+                <Date>
+                    2000-01-01T04:59:59.999Z
+                </Date>
+                <Days>
+                    0
+                </Days>
+                <ExpiredObjectDeleteMarker>
+                    false
+                </ExpiredObjectDeleteMarker>
+            </Expiration>
+            <ID>
+                __ID__
+            </ID>
+            <Filter>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <And>
+                    <Prefix>
+                        __Prefix__
+                    </Prefix>
+                    <Tags>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                        <member>
+                            <Key>
+                                __Key__
+                            </Key>
+                            <Value>
+                                __Value__
+                            </Value>
+                        </member>
+                    </Tags>
+                    <ObjectSizeGreaterThan>
+                        0
+                    </ObjectSizeGreaterThan>
+                    <ObjectSizeLessThan>
+                        0
+                    </ObjectSizeLessThan>
+                </And>
+                <ObjectSizeGreaterThan>
+                    0
+                </ObjectSizeGreaterThan>
+                <ObjectSizeLessThan>
+                    0
+                </ObjectSizeLessThan>
+            </Filter>
+            <Transitions>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+                <Transition>
+                    <Date>
+                        2000-01-01T04:59:59.999Z
+                    </Date>
+                    <Days>
+                        0
+                    </Days>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </Transition>
+            </Transitions>
+            <NoncurrentVersionTransitions>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+                <NoncurrentVersionTransition>
+                    <NoncurrentDays>
+                        0
+                    </NoncurrentDays>
+                    <StorageClass>
+                        __StorageClass__
+                    </StorageClass>
+                </NoncurrentVersionTransition>
+            </NoncurrentVersionTransitions>
+            <NoncurrentVersionExpiration>
+                <NoncurrentDays>
+                    0
+                </NoncurrentDays>
+                <NewerNoncurrentVersions>
+                    0
+                </NewerNoncurrentVersions>
+            </NoncurrentVersionExpiration>
+            <AbortIncompleteMultipartUpload>
+                <DaysAfterInitiation>
+                    0
+                </DaysAfterInitiation>
+            </AbortIncompleteMultipartUpload>
+        </Rule>
+    </Rules>
+</GetBucketLifecycleConfigurationResult>
+
+
+--- [output object] ---
+{
+  Rules: [
+    {
+      Status: "__Status__",
+      Expiration: {
+        Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Days: (number) 0,
+        ExpiredObjectDeleteMarker: (boolean) false
+      },
+      ID: "__ID__",
+      Filter: {
+        Prefix: "__Prefix__",
+        Tag: {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        And: {
+          Prefix: "__Prefix__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ],
+          ObjectSizeGreaterThan: (number) 0,
+          ObjectSizeLessThan: (number) 0
+        },
+        ObjectSizeGreaterThan: (number) 0,
+        ObjectSizeLessThan: (number) 0
+      },
+      Transitions: [
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionTransitions: [
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionExpiration: {
+        NoncurrentDays: (number) 0,
+        NewerNoncurrentVersions: (number) 0
+      },
+      AbortIncompleteMultipartUpload: {
+        DaysAfterInitiation: (number) 0
+      }
+    },
+    {
+      Status: "__Status__",
+      Expiration: {
+        Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Days: (number) 0,
+        ExpiredObjectDeleteMarker: (boolean) false
+      },
+      ID: "__ID__",
+      Filter: {
+        Prefix: "__Prefix__",
+        Tag: {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        And: {
+          Prefix: "__Prefix__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ],
+          ObjectSizeGreaterThan: (number) 0,
+          ObjectSizeLessThan: (number) 0
+        },
+        ObjectSizeGreaterThan: (number) 0,
+        ObjectSizeLessThan: (number) 0
+      },
+      Transitions: [
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionTransitions: [
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionExpiration: {
+        NoncurrentDays: (number) 0,
+        NewerNoncurrentVersions: (number) 0
+      },
+      AbortIncompleteMultipartUpload: {
+        DaysAfterInitiation: (number) 0
+      }
+    },
+    {
+      Status: "__Status__",
+      Expiration: {
+        Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Days: (number) 0,
+        ExpiredObjectDeleteMarker: (boolean) false
+      },
+      ID: "__ID__",
+      Filter: {
+        Prefix: "__Prefix__",
+        Tag: {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        And: {
+          Prefix: "__Prefix__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ],
+          ObjectSizeGreaterThan: (number) 0,
+          ObjectSizeLessThan: (number) 0
+        },
+        ObjectSizeGreaterThan: (number) 0,
+        ObjectSizeLessThan: (number) 0
+      },
+      Transitions: [
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          Date: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Days: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionTransitions: [
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        },
+        {
+          NoncurrentDays: (number) 0,
+          StorageClass: "__StorageClass__"
+        }
+      ],
+      NoncurrentVersionExpiration: {
+        NoncurrentDays: (number) 0,
+        NewerNoncurrentVersions: (number) 0
+      },
+      AbortIncompleteMultipartUpload: {
+        DaysAfterInitiation: (number) 0
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

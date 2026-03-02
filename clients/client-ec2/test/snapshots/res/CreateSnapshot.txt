@@ -1,0 +1,173 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<Snapshot xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<Snapshot xmlns="https://placeholder.amazonaws.com">
+    <ownerAlias>
+        __OwnerAlias__
+    </ownerAlias>
+    <outpostArn>
+        __OutpostArn__
+    </outpostArn>
+    <tagSet>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+    </tagSet>
+    <storageTier>
+        __StorageTier__
+    </storageTier>
+    <restoreExpiryTime>
+        2000-01-01T04:59:59.999Z
+    </restoreExpiryTime>
+    <sseType>
+        __SseType__
+    </sseType>
+    <availabilityZone>
+        __AvailabilityZone__
+    </availabilityZone>
+    <transferType>
+        __TransferType__
+    </transferType>
+    <completionDurationMinutes>
+        0
+    </completionDurationMinutes>
+    <completionTime>
+        2000-01-01T04:59:59.999Z
+    </completionTime>
+    <fullSnapshotSizeInBytes>
+        0
+    </fullSnapshotSizeInBytes>
+    <snapshotId>
+        __SnapshotId__
+    </snapshotId>
+    <volumeId>
+        __VolumeId__
+    </volumeId>
+    <status>
+        __State__
+    </status>
+    <statusMessage>
+        __StateMessage__
+    </statusMessage>
+    <startTime>
+        2000-01-01T04:59:59.999Z
+    </startTime>
+    <progress>
+        __Progress__
+    </progress>
+    <ownerId>
+        __OwnerId__
+    </ownerId>
+    <description>
+        __Description__
+    </description>
+    <volumeSize>
+        0
+    </volumeSize>
+    <encrypted>
+        false
+    </encrypted>
+    <kmsKeyId>
+        __KmsKeyId__
+    </kmsKeyId>
+    <dataEncryptionKeyId>
+        __DataEncryptionKeyId__
+    </dataEncryptionKeyId>
+</Snapshot>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  OwnerAlias: "__OwnerAlias__",
+  OutpostArn: "__OutpostArn__",
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  StorageTier: "__StorageTier__",
+  RestoreExpiryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  SseType: "__SseType__",
+  AvailabilityZone: "__AvailabilityZone__",
+  TransferType: "__TransferType__",
+  CompletionDurationMinutes: (number) 0,
+  CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FullSnapshotSizeInBytes: (number) 0,
+  SnapshotId: "__SnapshotId__",
+  VolumeId: "__VolumeId__",
+  State: "__State__",
+  StateMessage: "__StateMessage__",
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Progress: "__Progress__",
+  OwnerId: "__OwnerId__",
+  Description: "__Description__",
+  VolumeSize: (number) 0,
+  Encrypted: (boolean) false,
+  KmsKeyId: "__KmsKeyId__",
+  DataEncryptionKeyId: "__DataEncryptionKeyId__"
+}
+

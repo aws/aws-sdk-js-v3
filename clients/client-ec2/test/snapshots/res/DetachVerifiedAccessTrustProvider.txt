@@ -1,0 +1,373 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DetachVerifiedAccessTrustProviderResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DetachVerifiedAccessTrustProviderResult xmlns="https://placeholder.amazonaws.com">
+    <verifiedAccessTrustProvider>
+        <verifiedAccessTrustProviderId>
+            __VerifiedAccessTrustProviderId__
+        </verifiedAccessTrustProviderId>
+        <description>
+            __Description__
+        </description>
+        <trustProviderType>
+            __TrustProviderType__
+        </trustProviderType>
+        <userTrustProviderType>
+            __UserTrustProviderType__
+        </userTrustProviderType>
+        <deviceTrustProviderType>
+            __DeviceTrustProviderType__
+        </deviceTrustProviderType>
+        <oidcOptions>
+            <issuer>
+                __Issuer__
+            </issuer>
+            <authorizationEndpoint>
+                __AuthorizationEndpoint__
+            </authorizationEndpoint>
+            <tokenEndpoint>
+                __TokenEndpoint__
+            </tokenEndpoint>
+            <userInfoEndpoint>
+                __UserInfoEndpoint__
+            </userInfoEndpoint>
+            <clientId>
+                __ClientId__
+            </clientId>
+            <clientSecret>
+                __ClientSecret__
+            </clientSecret>
+            <scope>
+                __Scope__
+            </scope>
+        </oidcOptions>
+        <deviceOptions>
+            <tenantId>
+                __TenantId__
+            </tenantId>
+            <publicSigningKeyUrl>
+                __PublicSigningKeyUrl__
+            </publicSigningKeyUrl>
+        </deviceOptions>
+        <policyReferenceName>
+            __PolicyReferenceName__
+        </policyReferenceName>
+        <creationTime>
+            __CreationTime__
+        </creationTime>
+        <lastUpdatedTime>
+            __LastUpdatedTime__
+        </lastUpdatedTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <sseSpecification>
+            <customerManagedKeyEnabled>
+                false
+            </customerManagedKeyEnabled>
+            <kmsKeyArn>
+                __KmsKeyArn__
+            </kmsKeyArn>
+        </sseSpecification>
+        <nativeApplicationOidcOptions>
+            <publicSigningKeyEndpoint>
+                __PublicSigningKeyEndpoint__
+            </publicSigningKeyEndpoint>
+            <issuer>
+                __Issuer__
+            </issuer>
+            <authorizationEndpoint>
+                __AuthorizationEndpoint__
+            </authorizationEndpoint>
+            <tokenEndpoint>
+                __TokenEndpoint__
+            </tokenEndpoint>
+            <userInfoEndpoint>
+                __UserInfoEndpoint__
+            </userInfoEndpoint>
+            <clientId>
+                __ClientId__
+            </clientId>
+            <scope>
+                __Scope__
+            </scope>
+        </nativeApplicationOidcOptions>
+    </verifiedAccessTrustProvider>
+    <verifiedAccessInstance>
+        <verifiedAccessInstanceId>
+            __VerifiedAccessInstanceId__
+        </verifiedAccessInstanceId>
+        <description>
+            __Description__
+        </description>
+        <verifiedAccessTrustProviderSet>
+            <item>
+                <verifiedAccessTrustProviderId>
+                    __VerifiedAccessTrustProviderId__
+                </verifiedAccessTrustProviderId>
+                <description>
+                    __Description__
+                </description>
+                <trustProviderType>
+                    __TrustProviderType__
+                </trustProviderType>
+                <userTrustProviderType>
+                    __UserTrustProviderType__
+                </userTrustProviderType>
+                <deviceTrustProviderType>
+                    __DeviceTrustProviderType__
+                </deviceTrustProviderType>
+            </item>
+            <item>
+                <verifiedAccessTrustProviderId>
+                    __VerifiedAccessTrustProviderId__
+                </verifiedAccessTrustProviderId>
+                <description>
+                    __Description__
+                </description>
+                <trustProviderType>
+                    __TrustProviderType__
+                </trustProviderType>
+                <userTrustProviderType>
+                    __UserTrustProviderType__
+                </userTrustProviderType>
+                <deviceTrustProviderType>
+                    __DeviceTrustProviderType__
+                </deviceTrustProviderType>
+            </item>
+            <item>
+                <verifiedAccessTrustProviderId>
+                    __VerifiedAccessTrustProviderId__
+                </verifiedAccessTrustProviderId>
+                <description>
+                    __Description__
+                </description>
+                <trustProviderType>
+                    __TrustProviderType__
+                </trustProviderType>
+                <userTrustProviderType>
+                    __UserTrustProviderType__
+                </userTrustProviderType>
+                <deviceTrustProviderType>
+                    __DeviceTrustProviderType__
+                </deviceTrustProviderType>
+            </item>
+        </verifiedAccessTrustProviderSet>
+        <creationTime>
+            __CreationTime__
+        </creationTime>
+        <lastUpdatedTime>
+            __LastUpdatedTime__
+        </lastUpdatedTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <fipsEnabled>
+            false
+        </fipsEnabled>
+        <cidrEndpointsCustomSubDomain>
+            <subDomain>
+                __SubDomain__
+            </subDomain>
+            <nameserverSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </nameserverSet>
+        </cidrEndpointsCustomSubDomain>
+    </verifiedAccessInstance>
+</DetachVerifiedAccessTrustProviderResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VerifiedAccessTrustProvider: {
+    VerifiedAccessTrustProviderId: "__VerifiedAccessTrustProviderId__",
+    Description: "__Description__",
+    TrustProviderType: "__TrustProviderType__",
+    UserTrustProviderType: "__UserTrustProviderType__",
+    DeviceTrustProviderType: "__DeviceTrustProviderType__",
+    OidcOptions: {
+      Issuer: "__Issuer__",
+      AuthorizationEndpoint: "__AuthorizationEndpoint__",
+      TokenEndpoint: "__TokenEndpoint__",
+      UserInfoEndpoint: "__UserInfoEndpoint__",
+      ClientId: "__ClientId__",
+      ClientSecret: "__ClientSecret__",
+      Scope: "__Scope__"
+    },
+    DeviceOptions: {
+      TenantId: "__TenantId__",
+      PublicSigningKeyUrl: "__PublicSigningKeyUrl__"
+    },
+    PolicyReferenceName: "__PolicyReferenceName__",
+    CreationTime: "__CreationTime__",
+    LastUpdatedTime: "__LastUpdatedTime__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    SseSpecification: {
+      CustomerManagedKeyEnabled: (boolean) false,
+      KmsKeyArn: "__KmsKeyArn__"
+    },
+    NativeApplicationOidcOptions: {
+      PublicSigningKeyEndpoint: "__PublicSigningKeyEndpoint__",
+      Issuer: "__Issuer__",
+      AuthorizationEndpoint: "__AuthorizationEndpoint__",
+      TokenEndpoint: "__TokenEndpoint__",
+      UserInfoEndpoint: "__UserInfoEndpoint__",
+      ClientId: "__ClientId__",
+      Scope: "__Scope__"
+    }
+  },
+  VerifiedAccessInstance: {
+    VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+    Description: "__Description__",
+    VerifiedAccessTrustProviders: [
+      {
+        VerifiedAccessTrustProviderId: "__VerifiedAccessTrustProviderId__",
+        Description: "__Description__",
+        TrustProviderType: "__TrustProviderType__",
+        UserTrustProviderType: "__UserTrustProviderType__",
+        DeviceTrustProviderType: "__DeviceTrustProviderType__"
+      },
+      {
+        VerifiedAccessTrustProviderId: "__VerifiedAccessTrustProviderId__",
+        Description: "__Description__",
+        TrustProviderType: "__TrustProviderType__",
+        UserTrustProviderType: "__UserTrustProviderType__",
+        DeviceTrustProviderType: "__DeviceTrustProviderType__"
+      },
+      {
+        VerifiedAccessTrustProviderId: "__VerifiedAccessTrustProviderId__",
+        Description: "__Description__",
+        TrustProviderType: "__TrustProviderType__",
+        UserTrustProviderType: "__UserTrustProviderType__",
+        DeviceTrustProviderType: "__DeviceTrustProviderType__"
+      }
+    ],
+    CreationTime: "__CreationTime__",
+    LastUpdatedTime: "__LastUpdatedTime__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    FipsEnabled: (boolean) false,
+    CidrEndpointsCustomSubDomain: {
+      SubDomain: "__SubDomain__",
+      Nameservers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  }
+}
+

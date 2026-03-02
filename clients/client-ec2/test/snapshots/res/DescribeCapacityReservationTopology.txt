@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationTopologyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationTopologyResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <capacityReservationSet>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <state>
+                __State__
+            </state>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <state>
+                __State__
+            </state>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <state>
+                __State__
+            </state>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+        </item>
+    </capacityReservationSet>
+</DescribeCapacityReservationTopologyResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  CapacityReservations: [
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      CapacityBlockId: "__CapacityBlockId__",
+      State: "__State__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__"
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      CapacityBlockId: "__CapacityBlockId__",
+      State: "__State__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__"
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      CapacityBlockId: "__CapacityBlockId__",
+      State: "__State__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__"
+    }
+  ]
+}
+

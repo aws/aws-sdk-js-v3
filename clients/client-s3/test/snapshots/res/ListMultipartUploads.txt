@@ -1,0 +1,271 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListMultipartUploadsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<ListMultipartUploadsResult xmlns="https://placeholder.amazonaws.com">
+    <Bucket>
+        __Bucket__
+    </Bucket>
+    <KeyMarker>
+        __KeyMarker__
+    </KeyMarker>
+    <UploadIdMarker>
+        __UploadIdMarker__
+    </UploadIdMarker>
+    <NextKeyMarker>
+        __NextKeyMarker__
+    </NextKeyMarker>
+    <Prefix>
+        __Prefix__
+    </Prefix>
+    <Delimiter>
+        __Delimiter__
+    </Delimiter>
+    <NextUploadIdMarker>
+        __NextUploadIdMarker__
+    </NextUploadIdMarker>
+    <MaxUploads>
+        0
+    </MaxUploads>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Upload>
+        <UploadId>
+            __UploadId__
+        </UploadId>
+        <Key>
+            __Key__
+        </Key>
+        <Initiated>
+            2000-01-01T04:59:59.999Z
+        </Initiated>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <Initiator>
+            <ID>
+                __ID__
+            </ID>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+        </Initiator>
+        <ChecksumAlgorithm>
+            CRC64NVME
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+    </Upload>
+    <Upload>
+        <UploadId>
+            __UploadId__
+        </UploadId>
+        <Key>
+            __Key__
+        </Key>
+        <Initiated>
+            2000-01-01T04:59:59.999Z
+        </Initiated>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <Initiator>
+            <ID>
+                __ID__
+            </ID>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+        </Initiator>
+        <ChecksumAlgorithm>
+            CRC64NVME
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+    </Upload>
+    <Upload>
+        <UploadId>
+            __UploadId__
+        </UploadId>
+        <Key>
+            __Key__
+        </Key>
+        <Initiated>
+            2000-01-01T04:59:59.999Z
+        </Initiated>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <Initiator>
+            <ID>
+                __ID__
+            </ID>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+        </Initiator>
+        <ChecksumAlgorithm>
+            CRC64NVME
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+    </Upload>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <EncodingType>
+        __EncodingType__
+    </EncodingType>
+</ListMultipartUploadsResult>
+
+
+--- [output object] ---
+{
+  RequestCharged: "__RequestCharged__",
+  Bucket: "__Bucket__",
+  KeyMarker: "__KeyMarker__",
+  UploadIdMarker: "__UploadIdMarker__",
+  NextKeyMarker: "__NextKeyMarker__",
+  Prefix: "__Prefix__",
+  Delimiter: "__Delimiter__",
+  NextUploadIdMarker: "__NextUploadIdMarker__",
+  MaxUploads: (number) 0,
+  IsTruncated: (boolean) false,
+  Uploads: [
+    {
+      UploadId: "__UploadId__",
+      Key: "__Key__",
+      Initiated: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      Initiator: {
+        ID: "__ID__",
+        DisplayName: "__DisplayName__"
+      },
+      ChecksumAlgorithm: "CRC64NVME",
+      ChecksumType: "__ChecksumType__"
+    },
+    {
+      UploadId: "__UploadId__",
+      Key: "__Key__",
+      Initiated: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      Initiator: {
+        ID: "__ID__",
+        DisplayName: "__DisplayName__"
+      },
+      ChecksumAlgorithm: "CRC64NVME",
+      ChecksumType: "__ChecksumType__"
+    },
+    {
+      UploadId: "__UploadId__",
+      Key: "__Key__",
+      Initiated: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      Initiator: {
+        ID: "__ID__",
+        DisplayName: "__DisplayName__"
+      },
+      ChecksumAlgorithm: "CRC64NVME",
+      ChecksumType: "__ChecksumType__"
+    }
+  ],
+  CommonPrefixes: [
+    {
+      Prefix: "__Prefix__"
+    },
+    {
+      Prefix: "__Prefix__"
+    },
+    {
+      Prefix: "__Prefix__"
+    }
+  ],
+  EncodingType: "__EncodingType__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
