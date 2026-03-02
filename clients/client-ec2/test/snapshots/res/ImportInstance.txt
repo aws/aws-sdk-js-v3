@@ -1,0 +1,357 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ImportInstanceResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ImportInstanceResult xmlns="https://placeholder.amazonaws.com">
+    <conversionTask>
+        <conversionTaskId>
+            __ConversionTaskId__
+        </conversionTaskId>
+        <expirationTime>
+            __ExpirationTime__
+        </expirationTime>
+        <importInstance>
+            <description>
+                __Description__
+            </description>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <platform>
+                __Platform__
+            </platform>
+            <volumes>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <bytesConverted>
+                        0
+                    </bytesConverted>
+                    <description>
+                        __Description__
+                    </description>
+                    <image>
+                        <checksum>
+                            __Checksum__
+                        </checksum>
+                        <format>
+                            __Format__
+                        </format>
+                        <importManifestUrl>
+                            __ImportManifestUrl__
+                        </importManifestUrl>
+                        <size>
+                            0
+                        </size>
+                    </image>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusMessage>
+                        __StatusMessage__
+                    </statusMessage>
+                    <volume>
+                        <id>
+                            __Id__
+                        </id>
+                        <size>
+                            0
+                        </size>
+                    </volume>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <bytesConverted>
+                        0
+                    </bytesConverted>
+                    <description>
+                        __Description__
+                    </description>
+                    <image>
+                        <checksum>
+                            __Checksum__
+                        </checksum>
+                        <format>
+                            __Format__
+                        </format>
+                        <importManifestUrl>
+                            __ImportManifestUrl__
+                        </importManifestUrl>
+                        <size>
+                            0
+                        </size>
+                    </image>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusMessage>
+                        __StatusMessage__
+                    </statusMessage>
+                    <volume>
+                        <id>
+                            __Id__
+                        </id>
+                        <size>
+                            0
+                        </size>
+                    </volume>
+                </item>
+                <item>
+                    <availabilityZone>
+                        __AvailabilityZone__
+                    </availabilityZone>
+                    <availabilityZoneId>
+                        __AvailabilityZoneId__
+                    </availabilityZoneId>
+                    <bytesConverted>
+                        0
+                    </bytesConverted>
+                    <description>
+                        __Description__
+                    </description>
+                    <image>
+                        <checksum>
+                            __Checksum__
+                        </checksum>
+                        <format>
+                            __Format__
+                        </format>
+                        <importManifestUrl>
+                            __ImportManifestUrl__
+                        </importManifestUrl>
+                        <size>
+                            0
+                        </size>
+                    </image>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusMessage>
+                        __StatusMessage__
+                    </statusMessage>
+                    <volume>
+                        <id>
+                            __Id__
+                        </id>
+                        <size>
+                            0
+                        </size>
+                    </volume>
+                </item>
+            </volumes>
+        </importInstance>
+        <importVolume>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <bytesConverted>
+                0
+            </bytesConverted>
+            <description>
+                __Description__
+            </description>
+            <image>
+                <checksum>
+                    __Checksum__
+                </checksum>
+                <format>
+                    __Format__
+                </format>
+                <importManifestUrl>
+                    __ImportManifestUrl__
+                </importManifestUrl>
+                <size>
+                    0
+                </size>
+            </image>
+            <volume>
+                <id>
+                    __Id__
+                </id>
+                <size>
+                    0
+                </size>
+            </volume>
+        </importVolume>
+        <state>
+            __State__
+        </state>
+        <statusMessage>
+            __StatusMessage__
+        </statusMessage>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </conversionTask>
+</ImportInstanceResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ConversionTask: {
+    ConversionTaskId: "__ConversionTaskId__",
+    ExpirationTime: "__ExpirationTime__",
+    ImportInstance: {
+      Description: "__Description__",
+      InstanceId: "__InstanceId__",
+      Platform: "__Platform__",
+      Volumes: [
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          BytesConverted: (number) 0,
+          Description: "__Description__",
+          Image: {
+            Checksum: "__Checksum__",
+            Format: "__Format__",
+            ImportManifestUrl: "__ImportManifestUrl__",
+            Size: (number) 0
+          },
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          Volume: {
+            Id: "__Id__",
+            Size: (number) 0
+          }
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          BytesConverted: (number) 0,
+          Description: "__Description__",
+          Image: {
+            Checksum: "__Checksum__",
+            Format: "__Format__",
+            ImportManifestUrl: "__ImportManifestUrl__",
+            Size: (number) 0
+          },
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          Volume: {
+            Id: "__Id__",
+            Size: (number) 0
+          }
+        },
+        {
+          AvailabilityZone: "__AvailabilityZone__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          BytesConverted: (number) 0,
+          Description: "__Description__",
+          Image: {
+            Checksum: "__Checksum__",
+            Format: "__Format__",
+            ImportManifestUrl: "__ImportManifestUrl__",
+            Size: (number) 0
+          },
+          Status: "__Status__",
+          StatusMessage: "__StatusMessage__",
+          Volume: {
+            Id: "__Id__",
+            Size: (number) 0
+          }
+        }
+      ]
+    },
+    ImportVolume: {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      BytesConverted: (number) 0,
+      Description: "__Description__",
+      Image: {
+        Checksum: "__Checksum__",
+        Format: "__Format__",
+        ImportManifestUrl: "__ImportManifestUrl__",
+        Size: (number) 0
+      },
+      Volume: {
+        Id: "__Id__",
+        Size: (number) 0
+      }
+    },
+    State: "__State__",
+    StatusMessage: "__StatusMessage__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

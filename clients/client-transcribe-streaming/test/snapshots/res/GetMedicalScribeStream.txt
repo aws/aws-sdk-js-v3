@@ -1,0 +1,143 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "MedicalScribeStreamDetails": {
+    "SessionId": "__SessionId__",
+    "StreamCreatedAt": 946702799.999,
+    "StreamEndedAt": 946702799.999,
+    "LanguageCode": "__LanguageCode__",
+    "MediaSampleRateHertz": 0,
+    "MediaEncoding": "__MediaEncoding__",
+    "VocabularyName": "__VocabularyName__",
+    "VocabularyFilterName": "__VocabularyFilterName__",
+    "VocabularyFilterMethod": "__VocabularyFilterMethod__",
+    "ResourceAccessRoleArn": "__ResourceAccessRoleArn__",
+    "ChannelDefinitions": [
+      {
+        "ChannelId": 0,
+        "ParticipantRole": "__ParticipantRole__"
+      },
+      {
+        "ChannelId": 0,
+        "ParticipantRole": "__ParticipantRole__"
+      },
+      {
+        "ChannelId": 0,
+        "ParticipantRole": "__ParticipantRole__"
+      }
+    ],
+    "EncryptionSettings": {
+      "KmsKeyId": "__KmsKeyId__",
+      "KmsEncryptionContext": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    "StreamStatus": "__StreamStatus__",
+    "PostStreamAnalyticsSettings": {
+      "ClinicalNoteGenerationSettings": {
+        "OutputBucketName": "__OutputBucketName__",
+        "NoteTemplate": "__NoteTemplate__"
+      }
+    },
+    "PostStreamAnalyticsResult": {
+      "ClinicalNoteGenerationResult": {
+        "ClinicalNoteOutputLocation": "__ClinicalNoteOutputLocation__",
+        "TranscriptOutputLocation": "__TranscriptOutputLocation__",
+        "Status": "__Status__",
+        "FailureReason": "__FailureReason__"
+      }
+    },
+    "MedicalScribeContextProvided": false
+  }
+}
+
+
+--- [output object] ---
+{
+  MedicalScribeStreamDetails: {
+    SessionId: "__SessionId__",
+    StreamCreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    StreamEndedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LanguageCode: "__LanguageCode__",
+    MediaSampleRateHertz: (number) 0,
+    MediaEncoding: "__MediaEncoding__",
+    VocabularyName: "__VocabularyName__",
+    VocabularyFilterName: "__VocabularyFilterName__",
+    VocabularyFilterMethod: "__VocabularyFilterMethod__",
+    ResourceAccessRoleArn: "__ResourceAccessRoleArn__",
+    ChannelDefinitions: [
+      {
+        ChannelId: (number) 0,
+        ParticipantRole: "__ParticipantRole__"
+      },
+      {
+        ChannelId: (number) 0,
+        ParticipantRole: "__ParticipantRole__"
+      },
+      {
+        ChannelId: (number) 0,
+        ParticipantRole: "__ParticipantRole__"
+      }
+    ],
+    EncryptionSettings: {
+      KmsKeyId: "__KmsKeyId__",
+      KmsEncryptionContext: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    StreamStatus: "__StreamStatus__",
+    PostStreamAnalyticsSettings: {
+      ClinicalNoteGenerationSettings: {
+        OutputBucketName: "__OutputBucketName__",
+        NoteTemplate: "__NoteTemplate__"
+      }
+    },
+    PostStreamAnalyticsResult: {
+      ClinicalNoteGenerationResult: {
+        ClinicalNoteOutputLocation: "__ClinicalNoteOutputLocation__",
+        TranscriptOutputLocation: "__TranscriptOutputLocation__",
+        Status: "__Status__",
+        FailureReason: "__FailureReason__"
+      }
+    },
+    MedicalScribeContextProvided: (boolean) false
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

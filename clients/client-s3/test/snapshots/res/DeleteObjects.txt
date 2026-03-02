@@ -1,0 +1,171 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<DeleteResult xmlns="https://placeholder.amazonaws.com">
+    <Deleted>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <DeleteMarker>
+            false
+        </DeleteMarker>
+        <DeleteMarkerVersionId>
+            __DeleteMarkerVersionId__
+        </DeleteMarkerVersionId>
+    </Deleted>
+    <Deleted>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <DeleteMarker>
+            false
+        </DeleteMarker>
+        <DeleteMarkerVersionId>
+            __DeleteMarkerVersionId__
+        </DeleteMarkerVersionId>
+    </Deleted>
+    <Deleted>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <DeleteMarker>
+            false
+        </DeleteMarker>
+        <DeleteMarkerVersionId>
+            __DeleteMarkerVersionId__
+        </DeleteMarkerVersionId>
+    </Deleted>
+    <Error>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <Code>
+            __Code__
+        </Code>
+        <Message>
+            __Message__
+        </Message>
+    </Error>
+    <Error>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <Code>
+            __Code__
+        </Code>
+        <Message>
+            __Message__
+        </Message>
+    </Error>
+    <Error>
+        <Key>
+            __Key__
+        </Key>
+        <VersionId>
+            __VersionId__
+        </VersionId>
+        <Code>
+            __Code__
+        </Code>
+        <Message>
+            __Message__
+        </Message>
+    </Error>
+</DeleteResult>
+
+
+--- [output object] ---
+{
+  RequestCharged: "__RequestCharged__",
+  Deleted: [
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      DeleteMarker: (boolean) false,
+      DeleteMarkerVersionId: "__DeleteMarkerVersionId__"
+    },
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      DeleteMarker: (boolean) false,
+      DeleteMarkerVersionId: "__DeleteMarkerVersionId__"
+    },
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      DeleteMarker: (boolean) false,
+      DeleteMarkerVersionId: "__DeleteMarkerVersionId__"
+    }
+  ],
+  Errors: [
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    {
+      Key: "__Key__",
+      VersionId: "__VersionId__",
+      Code: "__Code__",
+      Message: "__Message__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

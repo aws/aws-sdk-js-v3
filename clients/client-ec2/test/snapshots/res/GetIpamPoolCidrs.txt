@@ -1,0 +1,149 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPoolCidrsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPoolCidrsResult xmlns="https://placeholder.amazonaws.com">
+    <ipamPoolCidrSet>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <ipamPoolCidrId>
+                __IpamPoolCidrId__
+            </ipamPoolCidrId>
+            <netmaskLength>
+                0
+            </netmaskLength>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <ipamPoolCidrId>
+                __IpamPoolCidrId__
+            </ipamPoolCidrId>
+            <netmaskLength>
+                0
+            </netmaskLength>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <ipamPoolCidrId>
+                __IpamPoolCidrId__
+            </ipamPoolCidrId>
+            <netmaskLength>
+                0
+            </netmaskLength>
+        </item>
+    </ipamPoolCidrSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamPoolCidrsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamPoolCidrs: [
+    {
+      Cidr: "__Cidr__",
+      State: "__State__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      IpamPoolCidrId: "__IpamPoolCidrId__",
+      NetmaskLength: (number) 0
+    },
+    {
+      Cidr: "__Cidr__",
+      State: "__State__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      IpamPoolCidrId: "__IpamPoolCidrId__",
+      NetmaskLength: (number) 0
+    },
+    {
+      Cidr: "__Cidr__",
+      State: "__State__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      IpamPoolCidrId: "__IpamPoolCidrId__",
+      NetmaskLength: (number) 0
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

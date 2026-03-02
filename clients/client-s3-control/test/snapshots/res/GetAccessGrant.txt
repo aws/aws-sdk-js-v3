@@ -1,0 +1,93 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessGrantResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessGrantResult xmlns="https://placeholder.amazonaws.com">
+    <CreatedAt>
+        2000-01-01T04:59:59.999Z
+    </CreatedAt>
+    <AccessGrantId>
+        __AccessGrantId__
+    </AccessGrantId>
+    <AccessGrantArn>
+        __AccessGrantArn__
+    </AccessGrantArn>
+    <Grantee>
+        <GranteeType>
+            __GranteeType__
+        </GranteeType>
+        <GranteeIdentifier>
+            __GranteeIdentifier__
+        </GranteeIdentifier>
+    </Grantee>
+    <Permission>
+        __Permission__
+    </Permission>
+    <AccessGrantsLocationId>
+        __AccessGrantsLocationId__
+    </AccessGrantsLocationId>
+    <AccessGrantsLocationConfiguration>
+        <S3SubPrefix>
+            __S3SubPrefix__
+        </S3SubPrefix>
+    </AccessGrantsLocationConfiguration>
+    <GrantScope>
+        __GrantScope__
+    </GrantScope>
+    <ApplicationArn>
+        __ApplicationArn__
+    </ApplicationArn>
+</GetAccessGrantResult>
+
+
+--- [output object] ---
+{
+  CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AccessGrantId: "__AccessGrantId__",
+  AccessGrantArn: "__AccessGrantArn__",
+  Grantee: {
+    GranteeType: "__GranteeType__",
+    GranteeIdentifier: "__GranteeIdentifier__"
+  },
+  Permission: "__Permission__",
+  AccessGrantsLocationId: "__AccessGrantsLocationId__",
+  AccessGrantsLocationConfiguration: {
+    S3SubPrefix: "__S3SubPrefix__"
+  },
+  GrantScope: "__GrantScope__",
+  ApplicationArn: "__ApplicationArn__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

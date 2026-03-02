@@ -1,0 +1,83 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<SimpleScalarPropertiesResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+X-Foo: __foo__
+
+[Uint8Array (xml)]
+<SimpleScalarPropertiesResponse xmlns="https://placeholder.amazonaws.com">
+    <stringValue>
+        __stringValue__
+    </stringValue>
+    <trueBooleanValue>
+        false
+    </trueBooleanValue>
+    <falseBooleanValue>
+        false
+    </falseBooleanValue>
+    <byteValue>
+        0
+    </byteValue>
+    <shortValue>
+        0
+    </shortValue>
+    <integerValue>
+        0
+    </integerValue>
+    <longValue>
+        0
+    </longValue>
+    <floatValue>
+        0
+    </floatValue>
+    <DoubleDribble>
+        0
+    </DoubleDribble>
+</SimpleScalarPropertiesResponse>
+
+
+--- [output object] ---
+{
+  foo: "__foo__",
+  stringValue: "__stringValue__",
+  trueBooleanValue: (boolean) false,
+  falseBooleanValue: (boolean) false,
+  byteValue: (number) 0,
+  shortValue: (number) 0,
+  integerValue: (number) 0,
+  longValue: (number) 0,
+  floatValue: (number) 0,
+  doubleValue: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

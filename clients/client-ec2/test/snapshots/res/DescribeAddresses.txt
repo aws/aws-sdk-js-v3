@@ -1,0 +1,361 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAddressesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAddressesResult xmlns="https://placeholder.amazonaws.com">
+    <addressesSet>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <domain>
+                __Domain__
+            </domain>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceOwnerId>
+                __NetworkInterfaceOwnerId__
+            </networkInterfaceOwnerId>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <publicIpv4Pool>
+                __PublicIpv4Pool__
+            </publicIpv4Pool>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <customerOwnedIp>
+                __CustomerOwnedIp__
+            </customerOwnedIp>
+            <customerOwnedIpv4Pool>
+                __CustomerOwnedIpv4Pool__
+            </customerOwnedIpv4Pool>
+            <carrierIp>
+                __CarrierIp__
+            </carrierIp>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <serviceManaged>
+                __ServiceManaged__
+            </serviceManaged>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <domain>
+                __Domain__
+            </domain>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceOwnerId>
+                __NetworkInterfaceOwnerId__
+            </networkInterfaceOwnerId>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <publicIpv4Pool>
+                __PublicIpv4Pool__
+            </publicIpv4Pool>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <customerOwnedIp>
+                __CustomerOwnedIp__
+            </customerOwnedIp>
+            <customerOwnedIpv4Pool>
+                __CustomerOwnedIpv4Pool__
+            </customerOwnedIpv4Pool>
+            <carrierIp>
+                __CarrierIp__
+            </carrierIp>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <serviceManaged>
+                __ServiceManaged__
+            </serviceManaged>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+        </item>
+        <item>
+            <allocationId>
+                __AllocationId__
+            </allocationId>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <domain>
+                __Domain__
+            </domain>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceOwnerId>
+                __NetworkInterfaceOwnerId__
+            </networkInterfaceOwnerId>
+            <privateIpAddress>
+                __PrivateIpAddress__
+            </privateIpAddress>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <publicIpv4Pool>
+                __PublicIpv4Pool__
+            </publicIpv4Pool>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <customerOwnedIp>
+                __CustomerOwnedIp__
+            </customerOwnedIp>
+            <customerOwnedIpv4Pool>
+                __CustomerOwnedIpv4Pool__
+            </customerOwnedIpv4Pool>
+            <carrierIp>
+                __CarrierIp__
+            </carrierIp>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <serviceManaged>
+                __ServiceManaged__
+            </serviceManaged>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <publicIp>
+                __PublicIp__
+            </publicIp>
+        </item>
+    </addressesSet>
+</DescribeAddressesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Addresses: [
+    {
+      AllocationId: "__AllocationId__",
+      AssociationId: "__AssociationId__",
+      Domain: "__Domain__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceOwnerId: "__NetworkInterfaceOwnerId__",
+      PrivateIpAddress: "__PrivateIpAddress__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PublicIpv4Pool: "__PublicIpv4Pool__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      CustomerOwnedIp: "__CustomerOwnedIp__",
+      CustomerOwnedIpv4Pool: "__CustomerOwnedIpv4Pool__",
+      CarrierIp: "__CarrierIp__",
+      SubnetId: "__SubnetId__",
+      ServiceManaged: "__ServiceManaged__",
+      InstanceId: "__InstanceId__",
+      PublicIp: "__PublicIp__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      AssociationId: "__AssociationId__",
+      Domain: "__Domain__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceOwnerId: "__NetworkInterfaceOwnerId__",
+      PrivateIpAddress: "__PrivateIpAddress__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PublicIpv4Pool: "__PublicIpv4Pool__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      CustomerOwnedIp: "__CustomerOwnedIp__",
+      CustomerOwnedIpv4Pool: "__CustomerOwnedIpv4Pool__",
+      CarrierIp: "__CarrierIp__",
+      SubnetId: "__SubnetId__",
+      ServiceManaged: "__ServiceManaged__",
+      InstanceId: "__InstanceId__",
+      PublicIp: "__PublicIp__"
+    },
+    {
+      AllocationId: "__AllocationId__",
+      AssociationId: "__AssociationId__",
+      Domain: "__Domain__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceOwnerId: "__NetworkInterfaceOwnerId__",
+      PrivateIpAddress: "__PrivateIpAddress__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PublicIpv4Pool: "__PublicIpv4Pool__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      CustomerOwnedIp: "__CustomerOwnedIp__",
+      CustomerOwnedIpv4Pool: "__CustomerOwnedIpv4Pool__",
+      CarrierIp: "__CarrierIp__",
+      SubnetId: "__SubnetId__",
+      ServiceManaged: "__ServiceManaged__",
+      InstanceId: "__InstanceId__",
+      PublicIp: "__PublicIp__"
+    }
+  ]
+}
+

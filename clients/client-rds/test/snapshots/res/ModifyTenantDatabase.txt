@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyTenantDatabaseResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyTenantDatabaseResult xmlns="https://placeholder.amazonaws.com">
+    <TenantDatabase>
+        <TenantDatabaseCreateTime>
+            2000-01-01T04:59:59.999Z
+        </TenantDatabaseCreateTime>
+        <DBInstanceIdentifier>
+            __DBInstanceIdentifier__
+        </DBInstanceIdentifier>
+        <TenantDBName>
+            __TenantDBName__
+        </TenantDBName>
+        <Status>
+            __Status__
+        </Status>
+        <MasterUsername>
+            __MasterUsername__
+        </MasterUsername>
+        <DbiResourceId>
+            __DbiResourceId__
+        </DbiResourceId>
+        <TenantDatabaseResourceId>
+            __TenantDatabaseResourceId__
+        </TenantDatabaseResourceId>
+        <TenantDatabaseARN>
+            __TenantDatabaseARN__
+        </TenantDatabaseARN>
+        <CharacterSetName>
+            __CharacterSetName__
+        </CharacterSetName>
+        <NcharCharacterSetName>
+            __NcharCharacterSetName__
+        </NcharCharacterSetName>
+        <DeletionProtection>
+            false
+        </DeletionProtection>
+        <PendingModifiedValues>
+            <MasterUserPassword>
+                __MasterUserPassword__
+            </MasterUserPassword>
+            <TenantDBName>
+                __TenantDBName__
+            </TenantDBName>
+        </PendingModifiedValues>
+        <MasterUserSecret>
+            <SecretArn>
+                __SecretArn__
+            </SecretArn>
+            <SecretStatus>
+                __SecretStatus__
+            </SecretStatus>
+            <KmsKeyId>
+                __KmsKeyId__
+            </KmsKeyId>
+        </MasterUserSecret>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+    </TenantDatabase>
+</ModifyTenantDatabaseResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

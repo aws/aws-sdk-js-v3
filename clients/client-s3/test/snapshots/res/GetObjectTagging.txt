@@ -1,0 +1,130 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-version-id: __VersionId__
+
+[Uint8Array (xml)]
+<Tagging xmlns="https://placeholder.amazonaws.com">
+    <TagSet>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+    </TagSet>
+</Tagging>
+
+
+--- [output object] ---
+{
+  VersionId: "__VersionId__",
+  TagSet: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-version-id: __VersionId__
+
+[Uint8Array (xml)]
+<Tagging xmlns="https://placeholder.amazonaws.com">
+    <TagSet>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+    </TagSet>
+</Tagging>
+
+
+--- [output object] ---
+{
+  VersionId: "__VersionId__",
+  TagSet: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

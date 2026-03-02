@@ -1,0 +1,701 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<NotificationConfiguration xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<NotificationConfiguration xmlns="https://placeholder.amazonaws.com">
+    <TopicConfiguration>
+        <Topic>
+            __TopicArn__
+        </Topic>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </TopicConfiguration>
+    <TopicConfiguration>
+        <Topic>
+            __TopicArn__
+        </Topic>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </TopicConfiguration>
+    <TopicConfiguration>
+        <Topic>
+            __TopicArn__
+        </Topic>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </TopicConfiguration>
+    <QueueConfiguration>
+        <Queue>
+            __QueueArn__
+        </Queue>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </QueueConfiguration>
+    <QueueConfiguration>
+        <Queue>
+            __QueueArn__
+        </Queue>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </QueueConfiguration>
+    <QueueConfiguration>
+        <Queue>
+            __QueueArn__
+        </Queue>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </QueueConfiguration>
+    <CloudFunctionConfiguration>
+        <CloudFunction>
+            __LambdaFunctionArn__
+        </CloudFunction>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </CloudFunctionConfiguration>
+    <CloudFunctionConfiguration>
+        <CloudFunction>
+            __LambdaFunctionArn__
+        </CloudFunction>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </CloudFunctionConfiguration>
+    <CloudFunctionConfiguration>
+        <CloudFunction>
+            __LambdaFunctionArn__
+        </CloudFunction>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Event>
+            __member__
+        </Event>
+        <Id>
+            __Id__
+        </Id>
+        <Filter>
+            <S3Key>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+                <FilterRule>
+                    <Name>
+                        __Name__
+                    </Name>
+                    <Value>
+                        __Value__
+                    </Value>
+                </FilterRule>
+            </S3Key>
+        </Filter>
+    </CloudFunctionConfiguration>
+    <EventBridgeConfiguration/>
+</NotificationConfiguration>
+
+
+--- [output object] ---
+{
+  TopicConfigurations: [
+    {
+      TopicArn: "__TopicArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      TopicArn: "__TopicArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      TopicArn: "__TopicArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  QueueConfigurations: [
+    {
+      QueueArn: "__QueueArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      QueueArn: "__QueueArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      QueueArn: "__QueueArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  LambdaFunctionConfigurations: [
+    {
+      LambdaFunctionArn: "__LambdaFunctionArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      LambdaFunctionArn: "__LambdaFunctionArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    },
+    {
+      LambdaFunctionArn: "__LambdaFunctionArn__",
+      Events: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      Filter: {
+        Key: {
+          FilterRules: [
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            },
+            {
+              Name: "__Name__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  EventBridgeConfiguration: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

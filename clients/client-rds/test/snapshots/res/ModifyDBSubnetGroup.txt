@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyDBSubnetGroupResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyDBSubnetGroupResult xmlns="https://placeholder.amazonaws.com">
+    <DBSubnetGroup>
+        <DBSubnetGroupName>
+            __DBSubnetGroupName__
+        </DBSubnetGroupName>
+        <DBSubnetGroupDescription>
+            __DBSubnetGroupDescription__
+        </DBSubnetGroupDescription>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <SubnetGroupStatus>
+            __SubnetGroupStatus__
+        </SubnetGroupStatus>
+        <Subnets>
+            <Subnet>
+                <SubnetIdentifier>
+                    __SubnetIdentifier__
+                </SubnetIdentifier>
+                <SubnetAvailabilityZone>
+                    <Name>
+                        __Name__
+                    </Name>
+                </SubnetAvailabilityZone>
+                <SubnetOutpost>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </SubnetOutpost>
+                <SubnetStatus>
+                    __SubnetStatus__
+                </SubnetStatus>
+            </Subnet>
+            <Subnet>
+                <SubnetIdentifier>
+                    __SubnetIdentifier__
+                </SubnetIdentifier>
+                <SubnetAvailabilityZone>
+                    <Name>
+                        __Name__
+                    </Name>
+                </SubnetAvailabilityZone>
+                <SubnetOutpost>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </SubnetOutpost>
+                <SubnetStatus>
+                    __SubnetStatus__
+                </SubnetStatus>
+            </Subnet>
+            <Subnet>
+                <SubnetIdentifier>
+                    __SubnetIdentifier__
+                </SubnetIdentifier>
+                <SubnetAvailabilityZone>
+                    <Name>
+                        __Name__
+                    </Name>
+                </SubnetAvailabilityZone>
+                <SubnetOutpost>
+                    <Arn>
+                        __Arn__
+                    </Arn>
+                </SubnetOutpost>
+                <SubnetStatus>
+                    __SubnetStatus__
+                </SubnetStatus>
+            </Subnet>
+        </Subnets>
+        <DBSubnetGroupArn>
+            __DBSubnetGroupArn__
+        </DBSubnetGroupArn>
+        <SupportedNetworkTypes>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+        </SupportedNetworkTypes>
+    </DBSubnetGroup>
+</ModifyDBSubnetGroupResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

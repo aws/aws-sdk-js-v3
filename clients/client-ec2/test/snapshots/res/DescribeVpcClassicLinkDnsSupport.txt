@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcClassicLinkDnsSupportResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcClassicLinkDnsSupportResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <vpcs>
+        <item>
+            <classicLinkDnsSupported>
+                false
+            </classicLinkDnsSupported>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <classicLinkDnsSupported>
+                false
+            </classicLinkDnsSupported>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <classicLinkDnsSupported>
+                false
+            </classicLinkDnsSupported>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+    </vpcs>
+</DescribeVpcClassicLinkDnsSupportResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Vpcs: [
+    {
+      ClassicLinkDnsSupported: (boolean) false,
+      VpcId: "__VpcId__"
+    },
+    {
+      ClassicLinkDnsSupported: (boolean) false,
+      VpcId: "__VpcId__"
+    },
+    {
+      ClassicLinkDnsSupported: (boolean) false,
+      VpcId: "__VpcId__"
+    }
+  ]
+}
+

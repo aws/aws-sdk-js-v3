@@ -1,0 +1,119 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Name": "__Name__",
+  "ArtifactStoreUri": "__ArtifactStoreUri__",
+  "MlflowVersion": "__MlflowVersion__",
+  "RoleArn": "__RoleArn__",
+  "Status": "__Status__",
+  "ModelRegistrationMode": "__ModelRegistrationMode__",
+  "AccountDefaultStatus": "__AccountDefaultStatus__",
+  "DefaultDomainIdList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "CreationTime": 946702799.999,
+  "CreatedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  },
+  "LastModifiedTime": 946702799.999,
+  "LastModifiedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  },
+  "WeeklyMaintenanceWindowStart": "__WeeklyMaintenanceWindowStart__",
+  "MaintenanceStatus": "__MaintenanceStatus__"
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Name: "__Name__",
+  ArtifactStoreUri: "__ArtifactStoreUri__",
+  MlflowVersion: "__MlflowVersion__",
+  RoleArn: "__RoleArn__",
+  Status: "__Status__",
+  ModelRegistrationMode: "__ModelRegistrationMode__",
+  AccountDefaultStatus: "__AccountDefaultStatus__",
+  DefaultDomainIdList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CreatedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
+  WeeklyMaintenanceWindowStart: "__WeeklyMaintenanceWindowStart__",
+  MaintenanceStatus: "__MaintenanceStatus__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

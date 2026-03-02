@@ -1,0 +1,194 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Successful": [
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    },
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    },
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    }
+  ],
+  "Failed": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Successful: [
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    },
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    },
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    }
+  ],
+  Failed: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Successful": [
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    },
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    },
+    {
+      "NodeLogicalId": "__NodeLogicalId__",
+      "InstanceGroupName": "__InstanceGroupName__",
+      "Status": "__Status__"
+    }
+  ],
+  "Failed": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "ErrorCode": "__ErrorCode__",
+      "FailedCount": 0,
+      "Message": "__Message__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Successful: [
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    },
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    },
+    {
+      NodeLogicalId: "__NodeLogicalId__",
+      InstanceGroupName: "__InstanceGroupName__",
+      Status: "__Status__"
+    }
+  ],
+  Failed: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      ErrorCode: "__ErrorCode__",
+      FailedCount: (number) 0,
+      Message: "__Message__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

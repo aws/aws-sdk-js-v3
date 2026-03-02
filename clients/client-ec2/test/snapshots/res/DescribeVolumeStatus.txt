@@ -1,0 +1,881 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumeStatusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumeStatusResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <volumeStatusSet>
+        <item>
+            <actionsSet>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+            </actionsSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <eventsSet>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </eventsSet>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <volumeStatus>
+                <details>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </volumeStatus>
+            <attachmentStatuses>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </attachmentStatuses>
+            <initializationStatusDetails>
+                <initializationType>
+                    __InitializationType__
+                </initializationType>
+                <progress>
+                    0
+                </progress>
+                <estimatedTimeToCompleteInSeconds>
+                    0
+                </estimatedTimeToCompleteInSeconds>
+            </initializationStatusDetails>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+        <item>
+            <actionsSet>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+            </actionsSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <eventsSet>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </eventsSet>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <volumeStatus>
+                <details>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </volumeStatus>
+            <attachmentStatuses>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </attachmentStatuses>
+            <initializationStatusDetails>
+                <initializationType>
+                    __InitializationType__
+                </initializationType>
+                <progress>
+                    0
+                </progress>
+                <estimatedTimeToCompleteInSeconds>
+                    0
+                </estimatedTimeToCompleteInSeconds>
+            </initializationStatusDetails>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+        <item>
+            <actionsSet>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+                <item>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                </item>
+            </actionsSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <eventsSet>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <description>
+                        __Description__
+                    </description>
+                    <eventId>
+                        __EventId__
+                    </eventId>
+                    <eventType>
+                        __EventType__
+                    </eventType>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </eventsSet>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <volumeStatus>
+                <details>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </volumeStatus>
+            <attachmentStatuses>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+                <item>
+                    <ioPerformance>
+                        __IoPerformance__
+                    </ioPerformance>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                </item>
+            </attachmentStatuses>
+            <initializationStatusDetails>
+                <initializationType>
+                    __InitializationType__
+                </initializationType>
+                <progress>
+                    0
+                </progress>
+                <estimatedTimeToCompleteInSeconds>
+                    0
+                </estimatedTimeToCompleteInSeconds>
+            </initializationStatusDetails>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+        </item>
+    </volumeStatusSet>
+</DescribeVolumeStatusResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  VolumeStatuses: [
+    {
+      Actions: [
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        }
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      OutpostArn: "__OutpostArn__",
+      Events: [
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      VolumeId: "__VolumeId__",
+      VolumeStatus: {
+        Details: [
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachmentStatuses: [
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      InitializationStatusDetails: {
+        InitializationType: "__InitializationType__",
+        Progress: (number) 0,
+        EstimatedTimeToCompleteInSeconds: (number) 0
+      },
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    },
+    {
+      Actions: [
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        }
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      OutpostArn: "__OutpostArn__",
+      Events: [
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      VolumeId: "__VolumeId__",
+      VolumeStatus: {
+        Details: [
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachmentStatuses: [
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      InitializationStatusDetails: {
+        InitializationType: "__InitializationType__",
+        Progress: (number) 0,
+        EstimatedTimeToCompleteInSeconds: (number) 0
+      },
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    },
+    {
+      Actions: [
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        },
+        {
+          Code: "__Code__",
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__"
+        }
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      OutpostArn: "__OutpostArn__",
+      Events: [
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        },
+        {
+          Description: "__Description__",
+          EventId: "__EventId__",
+          EventType: "__EventType__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      VolumeId: "__VolumeId__",
+      VolumeStatus: {
+        Details: [
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachmentStatuses: [
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        },
+        {
+          IoPerformance: "__IoPerformance__",
+          InstanceId: "__InstanceId__"
+        }
+      ],
+      InitializationStatusDetails: {
+        InitializationType: "__InitializationType__",
+        Progress: (number) 0,
+        EstimatedTimeToCompleteInSeconds: (number) 0
+      },
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    }
+  ]
+}
+

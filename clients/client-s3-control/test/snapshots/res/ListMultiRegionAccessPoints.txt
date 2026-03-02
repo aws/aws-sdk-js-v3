@@ -1,0 +1,329 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListMultiRegionAccessPointsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListMultiRegionAccessPointsResult xmlns="https://placeholder.amazonaws.com">
+    <AccessPoints>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <Alias>
+                __Alias__
+            </Alias>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <PublicAccessBlock>
+                <BlockPublicAcls>
+                    false
+                </BlockPublicAcls>
+                <IgnorePublicAcls>
+                    false
+                </IgnorePublicAcls>
+                <BlockPublicPolicy>
+                    false
+                </BlockPublicPolicy>
+                <RestrictPublicBuckets>
+                    false
+                </RestrictPublicBuckets>
+            </PublicAccessBlock>
+            <Status>
+                __Status__
+            </Status>
+            <Regions>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+            </Regions>
+        </AccessPoint>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <Alias>
+                __Alias__
+            </Alias>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <PublicAccessBlock>
+                <BlockPublicAcls>
+                    false
+                </BlockPublicAcls>
+                <IgnorePublicAcls>
+                    false
+                </IgnorePublicAcls>
+                <BlockPublicPolicy>
+                    false
+                </BlockPublicPolicy>
+                <RestrictPublicBuckets>
+                    false
+                </RestrictPublicBuckets>
+            </PublicAccessBlock>
+            <Status>
+                __Status__
+            </Status>
+            <Regions>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+            </Regions>
+        </AccessPoint>
+        <AccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <Alias>
+                __Alias__
+            </Alias>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <PublicAccessBlock>
+                <BlockPublicAcls>
+                    false
+                </BlockPublicAcls>
+                <IgnorePublicAcls>
+                    false
+                </IgnorePublicAcls>
+                <BlockPublicPolicy>
+                    false
+                </BlockPublicPolicy>
+                <RestrictPublicBuckets>
+                    false
+                </RestrictPublicBuckets>
+            </PublicAccessBlock>
+            <Status>
+                __Status__
+            </Status>
+            <Regions>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+                <Region>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <BucketAccountId>
+                        __BucketAccountId__
+                    </BucketAccountId>
+                </Region>
+            </Regions>
+        </AccessPoint>
+    </AccessPoints>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListMultiRegionAccessPointsResult>
+
+
+--- [output object] ---
+{
+  AccessPoints: [
+    {
+      Name: "__Name__",
+      Alias: "__Alias__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PublicAccessBlock: {
+        BlockPublicAcls: (boolean) false,
+        IgnorePublicAcls: (boolean) false,
+        BlockPublicPolicy: (boolean) false,
+        RestrictPublicBuckets: (boolean) false
+      },
+      Status: "__Status__",
+      Regions: [
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        }
+      ]
+    },
+    {
+      Name: "__Name__",
+      Alias: "__Alias__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PublicAccessBlock: {
+        BlockPublicAcls: (boolean) false,
+        IgnorePublicAcls: (boolean) false,
+        BlockPublicPolicy: (boolean) false,
+        RestrictPublicBuckets: (boolean) false
+      },
+      Status: "__Status__",
+      Regions: [
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        }
+      ]
+    },
+    {
+      Name: "__Name__",
+      Alias: "__Alias__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PublicAccessBlock: {
+        BlockPublicAcls: (boolean) false,
+        IgnorePublicAcls: (boolean) false,
+        BlockPublicPolicy: (boolean) false,
+        RestrictPublicBuckets: (boolean) false
+      },
+      Status: "__Status__",
+      Regions: [
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        },
+        {
+          Bucket: "__Bucket__",
+          Region: "__Region__",
+          BucketAccountId: "__BucketAccountId__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

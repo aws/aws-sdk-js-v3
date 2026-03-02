@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Streams": [
+    {
+      "StreamArn": "__StreamArn__",
+      "TableName": "__TableName__",
+      "StreamLabel": "__StreamLabel__"
+    },
+    {
+      "StreamArn": "__StreamArn__",
+      "TableName": "__TableName__",
+      "StreamLabel": "__StreamLabel__"
+    },
+    {
+      "StreamArn": "__StreamArn__",
+      "TableName": "__TableName__",
+      "StreamLabel": "__StreamLabel__"
+    }
+  ],
+  "LastEvaluatedStreamArn": "__LastEvaluatedStreamArn__"
+}
+
+
+--- [output object] ---
+{
+  Streams: [
+    {
+      StreamArn: "__StreamArn__",
+      TableName: "__TableName__",
+      StreamLabel: "__StreamLabel__"
+    },
+    {
+      StreamArn: "__StreamArn__",
+      TableName: "__TableName__",
+      StreamLabel: "__StreamLabel__"
+    },
+    {
+      StreamArn: "__StreamArn__",
+      TableName: "__TableName__",
+      StreamLabel: "__StreamLabel__"
+    }
+  ],
+  LastEvaluatedStreamArn: "__LastEvaluatedStreamArn__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

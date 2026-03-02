@@ -4,14 +4,14 @@ POST https://sqs.us-east-1.amazonaws.com
 content-type: application/x-amz-json-1.0
 x-amz-target: AmazonSQS.SendMessageBatch
 x-amzn-query-mode: true
-content-length: 3176
+content-length: 3155
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sqs#_.__ m/E,e
 host: sqs.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: e5f3bddc80e25d368797387e869bc03c3a055ca0d7b8089661c70db3230ab267
+x-amz-content-sha256: 1793d1207f9a5890837f7ae81db94482cf30950ad906735c3381258db45c7ac0
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
 [string (json)]
@@ -20,7 +20,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_reque
   "Entries": [
     {
       "Id": "__Id__",
-      "MessageBody": "__MessageBody__",
+      "MessageBody": "__Body__",
       "DelaySeconds": 0,
       "MessageAttributes": {
         "key1": {
@@ -91,7 +91,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_reque
     },
     {
       "Id": "__Id__",
-      "MessageBody": "__MessageBody__",
+      "MessageBody": "__Body__",
       "DelaySeconds": 0,
       "MessageAttributes": {
         "key1": {
@@ -162,7 +162,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_reque
     },
     {
       "Id": "__Id__",
-      "MessageBody": "__MessageBody__",
+      "MessageBody": "__Body__",
       "DelaySeconds": 0,
       "MessageAttributes": {
         "key1": {

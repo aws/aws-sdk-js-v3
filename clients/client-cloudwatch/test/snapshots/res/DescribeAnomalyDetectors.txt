@@ -1,0 +1,687 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AnomalyDetectors": [
+    {
+      "Namespace": "__Namespace__",
+      "MetricName": "__MetricName__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Stat": "__Stat__",
+      "Configuration": {
+        "ExcludedTimeRanges": [
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          }
+        ],
+        "MetricTimezone": "__MetricTimezone__"
+      },
+      "StateValue": "__StateValue__",
+      "MetricCharacteristics": {
+        "PeriodicSpikes": false
+      },
+      "SingleMetricAnomalyDetector": {
+        "AccountId": "123456789012",
+        "Namespace": "__Namespace__",
+        "MetricName": "__MetricName__",
+        "Dimensions": [
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          }
+        ],
+        "Stat": "__Stat__"
+      },
+      "MetricMathAnomalyDetector": {
+        "MetricDataQueries": [
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          }
+        ]
+      }
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricName": "__MetricName__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Stat": "__Stat__",
+      "Configuration": {
+        "ExcludedTimeRanges": [
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          }
+        ],
+        "MetricTimezone": "__MetricTimezone__"
+      },
+      "StateValue": "__StateValue__",
+      "MetricCharacteristics": {
+        "PeriodicSpikes": false
+      },
+      "SingleMetricAnomalyDetector": {
+        "AccountId": "123456789012",
+        "Namespace": "__Namespace__",
+        "MetricName": "__MetricName__",
+        "Dimensions": [
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          }
+        ],
+        "Stat": "__Stat__"
+      },
+      "MetricMathAnomalyDetector": {
+        "MetricDataQueries": [
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          }
+        ]
+      }
+    },
+    {
+      "Namespace": "__Namespace__",
+      "MetricName": "__MetricName__",
+      "Dimensions": [
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        },
+        {
+          "Name": "__Name__",
+          "Value": "__Value__"
+        }
+      ],
+      "Stat": "__Stat__",
+      "Configuration": {
+        "ExcludedTimeRanges": [
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          },
+          {
+            "StartTime": 946702799.999,
+            "EndTime": 946702799.999
+          }
+        ],
+        "MetricTimezone": "__MetricTimezone__"
+      },
+      "StateValue": "__StateValue__",
+      "MetricCharacteristics": {
+        "PeriodicSpikes": false
+      },
+      "SingleMetricAnomalyDetector": {
+        "AccountId": "123456789012",
+        "Namespace": "__Namespace__",
+        "MetricName": "__MetricName__",
+        "Dimensions": [
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          },
+          {
+            "Name": "__Name__",
+            "Value": "__Value__"
+          }
+        ],
+        "Stat": "__Stat__"
+      },
+      "MetricMathAnomalyDetector": {
+        "MetricDataQueries": [
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          },
+          {
+            "Id": "__Id__",
+            "MetricStat": {
+              "Metric": {},
+              "Period": 0,
+              "Stat": "__Stat__",
+              "Unit": "__Unit__"
+            },
+            "Expression": "__Expression__",
+            "Label": "__Label__",
+            "ReturnData": false,
+            "Period": 0,
+            "AccountId": "123456789012"
+          }
+        ]
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  AnomalyDetectors: [
+    {
+      Namespace: "__Namespace__",
+      MetricName: "__MetricName__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Stat: "__Stat__",
+      Configuration: {
+        ExcludedTimeRanges: [
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        MetricTimezone: "__MetricTimezone__"
+      },
+      StateValue: "__StateValue__",
+      MetricCharacteristics: {
+        PeriodicSpikes: (boolean) false
+      },
+      SingleMetricAnomalyDetector: {
+        AccountId: "123456789012",
+        Namespace: "__Namespace__",
+        MetricName: "__MetricName__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ],
+        Stat: "__Stat__"
+      },
+      MetricMathAnomalyDetector: {
+        MetricDataQueries: [
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          }
+        ]
+      }
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricName: "__MetricName__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Stat: "__Stat__",
+      Configuration: {
+        ExcludedTimeRanges: [
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        MetricTimezone: "__MetricTimezone__"
+      },
+      StateValue: "__StateValue__",
+      MetricCharacteristics: {
+        PeriodicSpikes: (boolean) false
+      },
+      SingleMetricAnomalyDetector: {
+        AccountId: "123456789012",
+        Namespace: "__Namespace__",
+        MetricName: "__MetricName__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ],
+        Stat: "__Stat__"
+      },
+      MetricMathAnomalyDetector: {
+        MetricDataQueries: [
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          }
+        ]
+      }
+    },
+    {
+      Namespace: "__Namespace__",
+      MetricName: "__MetricName__",
+      Dimensions: [
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        },
+        {
+          Name: "__Name__",
+          Value: "__Value__"
+        }
+      ],
+      Stat: "__Stat__",
+      Configuration: {
+        ExcludedTimeRanges: [
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          },
+          {
+            StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          }
+        ],
+        MetricTimezone: "__MetricTimezone__"
+      },
+      StateValue: "__StateValue__",
+      MetricCharacteristics: {
+        PeriodicSpikes: (boolean) false
+      },
+      SingleMetricAnomalyDetector: {
+        AccountId: "123456789012",
+        Namespace: "__Namespace__",
+        MetricName: "__MetricName__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ],
+        Stat: "__Stat__"
+      },
+      MetricMathAnomalyDetector: {
+        MetricDataQueries: [
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          },
+          {
+            Id: "__Id__",
+            MetricStat: {
+              Metric: {},
+              Period: (number) 0,
+              Stat: "__Stat__",
+              Unit: "__Unit__"
+            },
+            Expression: "__Expression__",
+            Label: "__Label__",
+            ReturnData: (boolean) false,
+            Period: (number) 0,
+            AccountId: "123456789012"
+          }
+        ]
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

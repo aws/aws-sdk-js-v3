@@ -1,0 +1,87 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "delivery": {
+    "id": "__id__",
+    "arn": "__arn__",
+    "deliverySourceName": "__deliverySourceName__",
+    "deliveryDestinationArn": "__deliveryDestinationArn__",
+    "deliveryDestinationType": "__deliveryDestinationType__",
+    "recordFields": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "fieldDelimiter": "__fieldDelimiter__",
+    "s3DeliveryConfiguration": {
+      "suffixPath": "__suffixPath__",
+      "enableHiveCompatiblePath": false
+    },
+    "tags": {
+      "key1": "__value__",
+      "key2": "__value__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  delivery: {
+    id: "__id__",
+    arn: "__arn__",
+    deliverySourceName: "__deliverySourceName__",
+    deliveryDestinationArn: "__deliveryDestinationArn__",
+    deliveryDestinationType: "__deliveryDestinationType__",
+    recordFields: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    fieldDelimiter: "__fieldDelimiter__",
+    s3DeliveryConfiguration: {
+      suffixPath: "__suffixPath__",
+      enableHiveCompatiblePath: (boolean) false
+    },
+    tags: {
+      key1: "__value__",
+      key2: "__value__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

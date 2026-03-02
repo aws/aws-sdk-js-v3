@@ -1,0 +1,1181 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpnTunnelCertificateResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpnTunnelCertificateResult xmlns="https://placeholder.amazonaws.com">
+    <vpnConnection>
+        <category>
+            __Category__
+        </category>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <vpnConcentratorId>
+            __VpnConcentratorId__
+        </vpnConcentratorId>
+        <coreNetworkArn>
+            __CoreNetworkArn__
+        </coreNetworkArn>
+        <coreNetworkAttachmentArn>
+            __CoreNetworkAttachmentArn__
+        </coreNetworkAttachmentArn>
+        <gatewayAssociationState>
+            __GatewayAssociationState__
+        </gatewayAssociationState>
+        <options>
+            <enableAcceleration>
+                false
+            </enableAcceleration>
+            <staticRoutesOnly>
+                false
+            </staticRoutesOnly>
+            <localIpv4NetworkCidr>
+                __LocalIpv4NetworkCidr__
+            </localIpv4NetworkCidr>
+            <remoteIpv4NetworkCidr>
+                __RemoteIpv4NetworkCidr__
+            </remoteIpv4NetworkCidr>
+            <localIpv6NetworkCidr>
+                __LocalIpv6NetworkCidr__
+            </localIpv6NetworkCidr>
+            <remoteIpv6NetworkCidr>
+                __RemoteIpv6NetworkCidr__
+            </remoteIpv6NetworkCidr>
+            <outsideIpAddressType>
+                __OutsideIpAddressType__
+            </outsideIpAddressType>
+            <transportTransitGatewayAttachmentId>
+                __TransportTransitGatewayAttachmentId__
+            </transportTransitGatewayAttachmentId>
+            <tunnelInsideIpVersion>
+                __TunnelInsideIpVersion__
+            </tunnelInsideIpVersion>
+            <tunnelOptionSet>
+                <item>
+                    <outsideIpAddress>
+                        __OutsideIpAddress__
+                    </outsideIpAddress>
+                    <tunnelInsideCidr>
+                        __TunnelInsideCidr__
+                    </tunnelInsideCidr>
+                    <tunnelInsideIpv6Cidr>
+                        __TunnelInsideIpv6Cidr__
+                    </tunnelInsideIpv6Cidr>
+                    <preSharedKey>
+                        __PreSharedKey__
+                    </preSharedKey>
+                    <phase1LifetimeSeconds>
+                        0
+                    </phase1LifetimeSeconds>
+                    <phase2LifetimeSeconds>
+                        0
+                    </phase2LifetimeSeconds>
+                    <rekeyMarginTimeSeconds>
+                        0
+                    </rekeyMarginTimeSeconds>
+                    <rekeyFuzzPercentage>
+                        0
+                    </rekeyFuzzPercentage>
+                    <replayWindowSize>
+                        0
+                    </replayWindowSize>
+                    <dpdTimeoutSeconds>
+                        0
+                    </dpdTimeoutSeconds>
+                    <dpdTimeoutAction>
+                        __DpdTimeoutAction__
+                    </dpdTimeoutAction>
+                    <phase1EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1EncryptionAlgorithmSet>
+                    <phase2EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2EncryptionAlgorithmSet>
+                    <phase1IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1IntegrityAlgorithmSet>
+                    <phase2IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2IntegrityAlgorithmSet>
+                    <phase1DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase1DHGroupNumberSet>
+                    <phase2DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase2DHGroupNumberSet>
+                    <ikeVersionSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </ikeVersionSet>
+                    <startupAction>
+                        __StartupAction__
+                    </startupAction>
+                    <logOptions>
+                        <cloudWatchLogOptions>
+                            <logEnabled>
+                                false
+                            </logEnabled>
+                            <logGroupArn>
+                                __LogGroupArn__
+                            </logGroupArn>
+                            <logOutputFormat>
+                                __LogOutputFormat__
+                            </logOutputFormat>
+                            <bgpLogEnabled>
+                                false
+                            </bgpLogEnabled>
+                            <bgpLogGroupArn>
+                                __BgpLogGroupArn__
+                            </bgpLogGroupArn>
+                            <bgpLogOutputFormat>
+                                __BgpLogOutputFormat__
+                            </bgpLogOutputFormat>
+                        </cloudWatchLogOptions>
+                    </logOptions>
+                    <enableTunnelLifecycleControl>
+                        false
+                    </enableTunnelLifecycleControl>
+                </item>
+                <item>
+                    <outsideIpAddress>
+                        __OutsideIpAddress__
+                    </outsideIpAddress>
+                    <tunnelInsideCidr>
+                        __TunnelInsideCidr__
+                    </tunnelInsideCidr>
+                    <tunnelInsideIpv6Cidr>
+                        __TunnelInsideIpv6Cidr__
+                    </tunnelInsideIpv6Cidr>
+                    <preSharedKey>
+                        __PreSharedKey__
+                    </preSharedKey>
+                    <phase1LifetimeSeconds>
+                        0
+                    </phase1LifetimeSeconds>
+                    <phase2LifetimeSeconds>
+                        0
+                    </phase2LifetimeSeconds>
+                    <rekeyMarginTimeSeconds>
+                        0
+                    </rekeyMarginTimeSeconds>
+                    <rekeyFuzzPercentage>
+                        0
+                    </rekeyFuzzPercentage>
+                    <replayWindowSize>
+                        0
+                    </replayWindowSize>
+                    <dpdTimeoutSeconds>
+                        0
+                    </dpdTimeoutSeconds>
+                    <dpdTimeoutAction>
+                        __DpdTimeoutAction__
+                    </dpdTimeoutAction>
+                    <phase1EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1EncryptionAlgorithmSet>
+                    <phase2EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2EncryptionAlgorithmSet>
+                    <phase1IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1IntegrityAlgorithmSet>
+                    <phase2IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2IntegrityAlgorithmSet>
+                    <phase1DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase1DHGroupNumberSet>
+                    <phase2DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase2DHGroupNumberSet>
+                    <ikeVersionSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </ikeVersionSet>
+                    <startupAction>
+                        __StartupAction__
+                    </startupAction>
+                    <logOptions>
+                        <cloudWatchLogOptions>
+                            <logEnabled>
+                                false
+                            </logEnabled>
+                            <logGroupArn>
+                                __LogGroupArn__
+                            </logGroupArn>
+                            <logOutputFormat>
+                                __LogOutputFormat__
+                            </logOutputFormat>
+                            <bgpLogEnabled>
+                                false
+                            </bgpLogEnabled>
+                            <bgpLogGroupArn>
+                                __BgpLogGroupArn__
+                            </bgpLogGroupArn>
+                            <bgpLogOutputFormat>
+                                __BgpLogOutputFormat__
+                            </bgpLogOutputFormat>
+                        </cloudWatchLogOptions>
+                    </logOptions>
+                    <enableTunnelLifecycleControl>
+                        false
+                    </enableTunnelLifecycleControl>
+                </item>
+                <item>
+                    <outsideIpAddress>
+                        __OutsideIpAddress__
+                    </outsideIpAddress>
+                    <tunnelInsideCidr>
+                        __TunnelInsideCidr__
+                    </tunnelInsideCidr>
+                    <tunnelInsideIpv6Cidr>
+                        __TunnelInsideIpv6Cidr__
+                    </tunnelInsideIpv6Cidr>
+                    <preSharedKey>
+                        __PreSharedKey__
+                    </preSharedKey>
+                    <phase1LifetimeSeconds>
+                        0
+                    </phase1LifetimeSeconds>
+                    <phase2LifetimeSeconds>
+                        0
+                    </phase2LifetimeSeconds>
+                    <rekeyMarginTimeSeconds>
+                        0
+                    </rekeyMarginTimeSeconds>
+                    <rekeyFuzzPercentage>
+                        0
+                    </rekeyFuzzPercentage>
+                    <replayWindowSize>
+                        0
+                    </replayWindowSize>
+                    <dpdTimeoutSeconds>
+                        0
+                    </dpdTimeoutSeconds>
+                    <dpdTimeoutAction>
+                        __DpdTimeoutAction__
+                    </dpdTimeoutAction>
+                    <phase1EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1EncryptionAlgorithmSet>
+                    <phase2EncryptionAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2EncryptionAlgorithmSet>
+                    <phase1IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase1IntegrityAlgorithmSet>
+                    <phase2IntegrityAlgorithmSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </phase2IntegrityAlgorithmSet>
+                    <phase1DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase1DHGroupNumberSet>
+                    <phase2DHGroupNumberSet>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                0
+                            </value>
+                        </item>
+                    </phase2DHGroupNumberSet>
+                    <ikeVersionSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </ikeVersionSet>
+                    <startupAction>
+                        __StartupAction__
+                    </startupAction>
+                    <logOptions>
+                        <cloudWatchLogOptions>
+                            <logEnabled>
+                                false
+                            </logEnabled>
+                            <logGroupArn>
+                                __LogGroupArn__
+                            </logGroupArn>
+                            <logOutputFormat>
+                                __LogOutputFormat__
+                            </logOutputFormat>
+                            <bgpLogEnabled>
+                                false
+                            </bgpLogEnabled>
+                            <bgpLogGroupArn>
+                                __BgpLogGroupArn__
+                            </bgpLogGroupArn>
+                            <bgpLogOutputFormat>
+                                __BgpLogOutputFormat__
+                            </bgpLogOutputFormat>
+                        </cloudWatchLogOptions>
+                    </logOptions>
+                    <enableTunnelLifecycleControl>
+                        false
+                    </enableTunnelLifecycleControl>
+                </item>
+            </tunnelOptionSet>
+            <tunnelBandwidth>
+                __TunnelBandwidth__
+            </tunnelBandwidth>
+        </options>
+        <routes>
+            <item>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <source>
+                    __Source__
+                </source>
+                <state>
+                    __State__
+                </state>
+            </item>
+            <item>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <source>
+                    __Source__
+                </source>
+                <state>
+                    __State__
+                </state>
+            </item>
+            <item>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <source>
+                    __Source__
+                </source>
+                <state>
+                    __State__
+                </state>
+            </item>
+        </routes>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <vgwTelemetry>
+            <item>
+                <acceptedRouteCount>
+                    0
+                </acceptedRouteCount>
+                <lastStatusChange>
+                    2000-01-01T04:59:59.999Z
+                </lastStatusChange>
+                <outsideIpAddress>
+                    __OutsideIpAddress__
+                </outsideIpAddress>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <certificateArn>
+                    __CertificateArn__
+                </certificateArn>
+            </item>
+            <item>
+                <acceptedRouteCount>
+                    0
+                </acceptedRouteCount>
+                <lastStatusChange>
+                    2000-01-01T04:59:59.999Z
+                </lastStatusChange>
+                <outsideIpAddress>
+                    __OutsideIpAddress__
+                </outsideIpAddress>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <certificateArn>
+                    __CertificateArn__
+                </certificateArn>
+            </item>
+            <item>
+                <acceptedRouteCount>
+                    0
+                </acceptedRouteCount>
+                <lastStatusChange>
+                    2000-01-01T04:59:59.999Z
+                </lastStatusChange>
+                <outsideIpAddress>
+                    __OutsideIpAddress__
+                </outsideIpAddress>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <certificateArn>
+                    __CertificateArn__
+                </certificateArn>
+            </item>
+        </vgwTelemetry>
+        <preSharedKeyArn>
+            __PreSharedKeyArn__
+        </preSharedKeyArn>
+        <vpnConnectionId>
+            __VpnConnectionId__
+        </vpnConnectionId>
+        <state>
+            __State__
+        </state>
+        <customerGatewayConfiguration>
+            __CustomerGatewayConfiguration__
+        </customerGatewayConfiguration>
+        <type>
+            __Type__
+        </type>
+        <customerGatewayId>
+            __CustomerGatewayId__
+        </customerGatewayId>
+        <vpnGatewayId>
+            __VpnGatewayId__
+        </vpnGatewayId>
+    </vpnConnection>
+</ModifyVpnTunnelCertificateResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpnConnection: {
+    Category: "__Category__",
+    TransitGatewayId: "__TransitGatewayId__",
+    VpnConcentratorId: "__VpnConcentratorId__",
+    CoreNetworkArn: "__CoreNetworkArn__",
+    CoreNetworkAttachmentArn: "__CoreNetworkAttachmentArn__",
+    GatewayAssociationState: "__GatewayAssociationState__",
+    Options: {
+      EnableAcceleration: (boolean) false,
+      StaticRoutesOnly: (boolean) false,
+      LocalIpv4NetworkCidr: "__LocalIpv4NetworkCidr__",
+      RemoteIpv4NetworkCidr: "__RemoteIpv4NetworkCidr__",
+      LocalIpv6NetworkCidr: "__LocalIpv6NetworkCidr__",
+      RemoteIpv6NetworkCidr: "__RemoteIpv6NetworkCidr__",
+      OutsideIpAddressType: "__OutsideIpAddressType__",
+      TransportTransitGatewayAttachmentId: "__TransportTransitGatewayAttachmentId__",
+      TunnelInsideIpVersion: "__TunnelInsideIpVersion__",
+      TunnelOptions: [
+        {
+          OutsideIpAddress: "__OutsideIpAddress__",
+          TunnelInsideCidr: "__TunnelInsideCidr__",
+          TunnelInsideIpv6Cidr: "__TunnelInsideIpv6Cidr__",
+          PreSharedKey: "__PreSharedKey__",
+          Phase1LifetimeSeconds: (number) 0,
+          Phase2LifetimeSeconds: (number) 0,
+          RekeyMarginTimeSeconds: (number) 0,
+          RekeyFuzzPercentage: (number) 0,
+          ReplayWindowSize: (number) 0,
+          DpdTimeoutSeconds: (number) 0,
+          DpdTimeoutAction: "__DpdTimeoutAction__",
+          Phase1EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          Phase2DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          IkeVersions: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          StartupAction: "__StartupAction__",
+          LogOptions: {
+            CloudWatchLogOptions: {
+              LogEnabled: (boolean) false,
+              LogGroupArn: "__LogGroupArn__",
+              LogOutputFormat: "__LogOutputFormat__",
+              BgpLogEnabled: (boolean) false,
+              BgpLogGroupArn: "__BgpLogGroupArn__",
+              BgpLogOutputFormat: "__BgpLogOutputFormat__"
+            }
+          },
+          EnableTunnelLifecycleControl: (boolean) false
+        },
+        {
+          OutsideIpAddress: "__OutsideIpAddress__",
+          TunnelInsideCidr: "__TunnelInsideCidr__",
+          TunnelInsideIpv6Cidr: "__TunnelInsideIpv6Cidr__",
+          PreSharedKey: "__PreSharedKey__",
+          Phase1LifetimeSeconds: (number) 0,
+          Phase2LifetimeSeconds: (number) 0,
+          RekeyMarginTimeSeconds: (number) 0,
+          RekeyFuzzPercentage: (number) 0,
+          ReplayWindowSize: (number) 0,
+          DpdTimeoutSeconds: (number) 0,
+          DpdTimeoutAction: "__DpdTimeoutAction__",
+          Phase1EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          Phase2DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          IkeVersions: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          StartupAction: "__StartupAction__",
+          LogOptions: {
+            CloudWatchLogOptions: {
+              LogEnabled: (boolean) false,
+              LogGroupArn: "__LogGroupArn__",
+              LogOutputFormat: "__LogOutputFormat__",
+              BgpLogEnabled: (boolean) false,
+              BgpLogGroupArn: "__BgpLogGroupArn__",
+              BgpLogOutputFormat: "__BgpLogOutputFormat__"
+            }
+          },
+          EnableTunnelLifecycleControl: (boolean) false
+        },
+        {
+          OutsideIpAddress: "__OutsideIpAddress__",
+          TunnelInsideCidr: "__TunnelInsideCidr__",
+          TunnelInsideIpv6Cidr: "__TunnelInsideIpv6Cidr__",
+          PreSharedKey: "__PreSharedKey__",
+          Phase1LifetimeSeconds: (number) 0,
+          Phase2LifetimeSeconds: (number) 0,
+          RekeyMarginTimeSeconds: (number) 0,
+          RekeyFuzzPercentage: (number) 0,
+          ReplayWindowSize: (number) 0,
+          DpdTimeoutSeconds: (number) 0,
+          DpdTimeoutAction: "__DpdTimeoutAction__",
+          Phase1EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2EncryptionAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase2IntegrityAlgorithms: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          Phase1DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          Phase2DHGroupNumbers: [
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            },
+            {
+              Value: (number) 0
+            }
+          ],
+          IkeVersions: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ],
+          StartupAction: "__StartupAction__",
+          LogOptions: {
+            CloudWatchLogOptions: {
+              LogEnabled: (boolean) false,
+              LogGroupArn: "__LogGroupArn__",
+              LogOutputFormat: "__LogOutputFormat__",
+              BgpLogEnabled: (boolean) false,
+              BgpLogGroupArn: "__BgpLogGroupArn__",
+              BgpLogOutputFormat: "__BgpLogOutputFormat__"
+            }
+          },
+          EnableTunnelLifecycleControl: (boolean) false
+        }
+      ],
+      TunnelBandwidth: "__TunnelBandwidth__"
+    },
+    Routes: [
+      {
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        Source: "__Source__",
+        State: "__State__"
+      },
+      {
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        Source: "__Source__",
+        State: "__State__"
+      },
+      {
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        Source: "__Source__",
+        State: "__State__"
+      }
+    ],
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    VgwTelemetry: [
+      {
+        AcceptedRouteCount: (number) 0,
+        LastStatusChange: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        OutsideIpAddress: "__OutsideIpAddress__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        CertificateArn: "__CertificateArn__"
+      },
+      {
+        AcceptedRouteCount: (number) 0,
+        LastStatusChange: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        OutsideIpAddress: "__OutsideIpAddress__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        CertificateArn: "__CertificateArn__"
+      },
+      {
+        AcceptedRouteCount: (number) 0,
+        LastStatusChange: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        OutsideIpAddress: "__OutsideIpAddress__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        CertificateArn: "__CertificateArn__"
+      }
+    ],
+    PreSharedKeyArn: "__PreSharedKeyArn__",
+    VpnConnectionId: "__VpnConnectionId__",
+    State: "__State__",
+    CustomerGatewayConfiguration: "__CustomerGatewayConfiguration__",
+    Type: "__Type__",
+    CustomerGatewayId: "__CustomerGatewayId__",
+    VpnGatewayId: "__VpnGatewayId__"
+  }
+}
+

@@ -1,0 +1,265 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListBucketAnalyticsConfigurationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListBucketAnalyticsConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <ContinuationToken>
+        __ContinuationToken__
+    </ContinuationToken>
+    <NextContinuationToken>
+        __NextContinuationToken__
+    </NextContinuationToken>
+    <AnalyticsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <StorageClassAnalysis>
+            <DataExport>
+                <OutputSchemaVersion>
+                    __OutputSchemaVersion__
+                </OutputSchemaVersion>
+                <Destination>
+                    <S3BucketDestination>
+                        <Format>
+                            __Format__
+                        </Format>
+                        <Bucket>
+                            __Bucket__
+                        </Bucket>
+                        <BucketAccountId>
+                            __BucketAccountId__
+                        </BucketAccountId>
+                        <Prefix>
+                            __Prefix__
+                        </Prefix>
+                    </S3BucketDestination>
+                </Destination>
+            </DataExport>
+        </StorageClassAnalysis>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+        </Filter>
+    </AnalyticsConfiguration>
+    <AnalyticsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <StorageClassAnalysis>
+            <DataExport>
+                <OutputSchemaVersion>
+                    __OutputSchemaVersion__
+                </OutputSchemaVersion>
+                <Destination>
+                    <S3BucketDestination>
+                        <Format>
+                            __Format__
+                        </Format>
+                        <Bucket>
+                            __Bucket__
+                        </Bucket>
+                        <BucketAccountId>
+                            __BucketAccountId__
+                        </BucketAccountId>
+                        <Prefix>
+                            __Prefix__
+                        </Prefix>
+                    </S3BucketDestination>
+                </Destination>
+            </DataExport>
+        </StorageClassAnalysis>
+        <Filter>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </Filter>
+    </AnalyticsConfiguration>
+    <AnalyticsConfiguration>
+        <Id>
+            __Id__
+        </Id>
+        <StorageClassAnalysis>
+            <DataExport>
+                <OutputSchemaVersion>
+                    __OutputSchemaVersion__
+                </OutputSchemaVersion>
+                <Destination>
+                    <S3BucketDestination>
+                        <Format>
+                            __Format__
+                        </Format>
+                        <Bucket>
+                            __Bucket__
+                        </Bucket>
+                        <BucketAccountId>
+                            __BucketAccountId__
+                        </BucketAccountId>
+                        <Prefix>
+                            __Prefix__
+                        </Prefix>
+                    </S3BucketDestination>
+                </Destination>
+            </DataExport>
+        </StorageClassAnalysis>
+        <Filter>
+            <And>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </And>
+        </Filter>
+    </AnalyticsConfiguration>
+</ListBucketAnalyticsConfigurationResult>
+
+
+--- [output object] ---
+{
+  IsTruncated: (boolean) false,
+  ContinuationToken: "__ContinuationToken__",
+  NextContinuationToken: "__NextContinuationToken__",
+  AnalyticsConfigurationList: [
+    {
+      Id: "__Id__",
+      StorageClassAnalysis: {
+        DataExport: {
+          OutputSchemaVersion: "__OutputSchemaVersion__",
+          Destination: {
+            S3BucketDestination: {
+              Format: "__Format__",
+              Bucket: "__Bucket__",
+              BucketAccountId: "__BucketAccountId__",
+              Prefix: "__Prefix__"
+            }
+          }
+        }
+      },
+      Filter: {
+        Prefix: "__Prefix__"
+      }
+    },
+    {
+      Id: "__Id__",
+      StorageClassAnalysis: {
+        DataExport: {
+          OutputSchemaVersion: "__OutputSchemaVersion__",
+          Destination: {
+            S3BucketDestination: {
+              Format: "__Format__",
+              Bucket: "__Bucket__",
+              BucketAccountId: "__BucketAccountId__",
+              Prefix: "__Prefix__"
+            }
+          }
+        }
+      },
+      Filter: {
+        Tag: {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      StorageClassAnalysis: {
+        DataExport: {
+          OutputSchemaVersion: "__OutputSchemaVersion__",
+          Destination: {
+            S3BucketDestination: {
+              Format: "__Format__",
+              Bucket: "__Bucket__",
+              BucketAccountId: "__BucketAccountId__",
+              Prefix: "__Prefix__"
+            }
+          }
+        }
+      },
+      Filter: {
+        And: {
+          Prefix: "__Prefix__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

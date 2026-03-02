@@ -1,0 +1,505 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReservedInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReservedInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <reservedInstancesSet>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <offeringClass>
+                __OfferingClass__
+            </offeringClass>
+            <offeringType>
+                __OfferingType__
+            </offeringType>
+            <recurringCharges>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+            </recurringCharges>
+            <scope>
+                __Scope__
+            </scope>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <start>
+                2000-01-01T04:59:59.999Z
+            </start>
+            <end>
+                2000-01-01T04:59:59.999Z
+            </end>
+            <duration>
+                0
+            </duration>
+            <usagePrice>
+                0
+            </usagePrice>
+            <fixedPrice>
+                0
+            </fixedPrice>
+            <instanceCount>
+                0
+            </instanceCount>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <offeringClass>
+                __OfferingClass__
+            </offeringClass>
+            <offeringType>
+                __OfferingType__
+            </offeringType>
+            <recurringCharges>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+            </recurringCharges>
+            <scope>
+                __Scope__
+            </scope>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <start>
+                2000-01-01T04:59:59.999Z
+            </start>
+            <end>
+                2000-01-01T04:59:59.999Z
+            </end>
+            <duration>
+                0
+            </duration>
+            <usagePrice>
+                0
+            </usagePrice>
+            <fixedPrice>
+                0
+            </fixedPrice>
+            <instanceCount>
+                0
+            </instanceCount>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <offeringClass>
+                __OfferingClass__
+            </offeringClass>
+            <offeringType>
+                __OfferingType__
+            </offeringType>
+            <recurringCharges>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+                <item>
+                    <amount>
+                        0
+                    </amount>
+                    <frequency>
+                        __Frequency__
+                    </frequency>
+                </item>
+            </recurringCharges>
+            <scope>
+                __Scope__
+            </scope>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <start>
+                2000-01-01T04:59:59.999Z
+            </start>
+            <end>
+                2000-01-01T04:59:59.999Z
+            </end>
+            <duration>
+                0
+            </duration>
+            <usagePrice>
+                0
+            </usagePrice>
+            <fixedPrice>
+                0
+            </fixedPrice>
+            <instanceCount>
+                0
+            </instanceCount>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <state>
+                __State__
+            </state>
+        </item>
+    </reservedInstancesSet>
+</DescribeReservedInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ReservedInstances: [
+    {
+      CurrencyCode: "__CurrencyCode__",
+      InstanceTenancy: "__InstanceTenancy__",
+      OfferingClass: "__OfferingClass__",
+      OfferingType: "__OfferingType__",
+      RecurringCharges: [
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        }
+      ],
+      Scope: "__Scope__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      ReservedInstancesId: "__ReservedInstancesId__",
+      InstanceType: "__InstanceType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      Start: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      End: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Duration: (number) 0,
+      UsagePrice: (number) 0,
+      FixedPrice: (number) 0,
+      InstanceCount: (number) 0,
+      ProductDescription: "__ProductDescription__",
+      State: "__State__"
+    },
+    {
+      CurrencyCode: "__CurrencyCode__",
+      InstanceTenancy: "__InstanceTenancy__",
+      OfferingClass: "__OfferingClass__",
+      OfferingType: "__OfferingType__",
+      RecurringCharges: [
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        }
+      ],
+      Scope: "__Scope__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      ReservedInstancesId: "__ReservedInstancesId__",
+      InstanceType: "__InstanceType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      Start: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      End: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Duration: (number) 0,
+      UsagePrice: (number) 0,
+      FixedPrice: (number) 0,
+      InstanceCount: (number) 0,
+      ProductDescription: "__ProductDescription__",
+      State: "__State__"
+    },
+    {
+      CurrencyCode: "__CurrencyCode__",
+      InstanceTenancy: "__InstanceTenancy__",
+      OfferingClass: "__OfferingClass__",
+      OfferingType: "__OfferingType__",
+      RecurringCharges: [
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        },
+        {
+          Amount: (number) 0,
+          Frequency: "__Frequency__"
+        }
+      ],
+      Scope: "__Scope__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      ReservedInstancesId: "__ReservedInstancesId__",
+      InstanceType: "__InstanceType__",
+      AvailabilityZone: "__AvailabilityZone__",
+      Start: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      End: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Duration: (number) 0,
+      UsagePrice: (number) 0,
+      FixedPrice: (number) 0,
+      InstanceCount: (number) 0,
+      ProductDescription: "__ProductDescription__",
+      State: "__State__"
+    }
+  ]
+}
+

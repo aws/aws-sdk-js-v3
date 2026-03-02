@@ -1,0 +1,165 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "logGroups": [
+    {
+      "logGroupName": "__logGroupName__",
+      "creationTime": 0,
+      "retentionInDays": 0,
+      "metricFilterCount": 0,
+      "arn": "__arn__",
+      "storedBytes": 0,
+      "kmsKeyId": "__kmsKeyId__",
+      "dataProtectionStatus": "__dataProtectionStatus__",
+      "inheritedProperties": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "logGroupClass": "__logGroupClass__",
+      "logGroupArn": "__logGroupArn__",
+      "deletionProtectionEnabled": false,
+      "bearerTokenAuthenticationEnabled": false
+    },
+    {
+      "logGroupName": "__logGroupName__",
+      "creationTime": 0,
+      "retentionInDays": 0,
+      "metricFilterCount": 0,
+      "arn": "__arn__",
+      "storedBytes": 0,
+      "kmsKeyId": "__kmsKeyId__",
+      "dataProtectionStatus": "__dataProtectionStatus__",
+      "inheritedProperties": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "logGroupClass": "__logGroupClass__",
+      "logGroupArn": "__logGroupArn__",
+      "deletionProtectionEnabled": false,
+      "bearerTokenAuthenticationEnabled": false
+    },
+    {
+      "logGroupName": "__logGroupName__",
+      "creationTime": 0,
+      "retentionInDays": 0,
+      "metricFilterCount": 0,
+      "arn": "__arn__",
+      "storedBytes": 0,
+      "kmsKeyId": "__kmsKeyId__",
+      "dataProtectionStatus": "__dataProtectionStatus__",
+      "inheritedProperties": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "logGroupClass": "__logGroupClass__",
+      "logGroupArn": "__logGroupArn__",
+      "deletionProtectionEnabled": false,
+      "bearerTokenAuthenticationEnabled": false
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  logGroups: [
+    {
+      logGroupName: "__logGroupName__",
+      creationTime: (number) 0,
+      retentionInDays: (number) 0,
+      metricFilterCount: (number) 0,
+      arn: "__arn__",
+      storedBytes: (number) 0,
+      kmsKeyId: "__kmsKeyId__",
+      dataProtectionStatus: "__dataProtectionStatus__",
+      inheritedProperties: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      logGroupClass: "__logGroupClass__",
+      logGroupArn: "__logGroupArn__",
+      deletionProtectionEnabled: (boolean) false,
+      bearerTokenAuthenticationEnabled: (boolean) false
+    },
+    {
+      logGroupName: "__logGroupName__",
+      creationTime: (number) 0,
+      retentionInDays: (number) 0,
+      metricFilterCount: (number) 0,
+      arn: "__arn__",
+      storedBytes: (number) 0,
+      kmsKeyId: "__kmsKeyId__",
+      dataProtectionStatus: "__dataProtectionStatus__",
+      inheritedProperties: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      logGroupClass: "__logGroupClass__",
+      logGroupArn: "__logGroupArn__",
+      deletionProtectionEnabled: (boolean) false,
+      bearerTokenAuthenticationEnabled: (boolean) false
+    },
+    {
+      logGroupName: "__logGroupName__",
+      creationTime: (number) 0,
+      retentionInDays: (number) 0,
+      metricFilterCount: (number) 0,
+      arn: "__arn__",
+      storedBytes: (number) 0,
+      kmsKeyId: "__kmsKeyId__",
+      dataProtectionStatus: "__dataProtectionStatus__",
+      inheritedProperties: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      logGroupClass: "__logGroupClass__",
+      logGroupArn: "__logGroupArn__",
+      deletionProtectionEnabled: (boolean) false,
+      bearerTokenAuthenticationEnabled: (boolean) false
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

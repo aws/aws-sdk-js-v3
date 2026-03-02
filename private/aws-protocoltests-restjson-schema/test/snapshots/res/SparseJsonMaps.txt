@@ -1,0 +1,109 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "sparseStructMap": {
+    "key1": {
+      "hi": "__hi__"
+    },
+    "key2": {
+      "hi": "__hi__"
+    }
+  },
+  "sparseNumberMap": {
+    "key1": 0,
+    "key2": 0
+  },
+  "sparseBooleanMap": {
+    "key1": false,
+    "key2": false
+  },
+  "sparseStringMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "sparseSetMap": {
+    "key1": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "key2": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  sparseStructMap: {
+    key1: {
+      hi: "__hi__"
+    },
+    key2: {
+      hi: "__hi__"
+    }
+  },
+  sparseNumberMap: {
+    key1: (number) 0,
+    key2: (number) 0
+  },
+  sparseBooleanMap: {
+    key1: (boolean) false,
+    key2: (boolean) false
+  },
+  sparseStringMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  sparseSetMap: {
+    key1: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    key2: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

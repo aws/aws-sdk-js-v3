@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceTopologyResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceTopologyResult xmlns="https://placeholder.amazonaws.com">
+    <instanceSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkNodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkNodeSet>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+        </item>
+    </instanceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInstanceTopologyResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Instances: [
+    {
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      ZoneId: "__ZoneId__",
+      CapacityBlockId: "__CapacityBlockId__"
+    },
+    {
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      ZoneId: "__ZoneId__",
+      CapacityBlockId: "__CapacityBlockId__"
+    },
+    {
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      GroupName: "__GroupName__",
+      NetworkNodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZone: "__AvailabilityZone__",
+      ZoneId: "__ZoneId__",
+      CapacityBlockId: "__CapacityBlockId__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

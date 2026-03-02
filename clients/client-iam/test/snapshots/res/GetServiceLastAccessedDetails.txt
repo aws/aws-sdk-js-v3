@@ -1,0 +1,369 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetServiceLastAccessedDetailsResponse xmlns="https://placeholder.amazonaws.com">
+    <JobStatus>
+        __JobStatus__
+    </JobStatus>
+    <JobCreationDate>
+        2000-01-01T04:59:59.999Z
+    </JobCreationDate>
+    <ServicesLastAccessed>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member/>
+<member/>
+<member/>
+            </TrackedActionsLastAccessed>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member/>
+<member/>
+<member/>
+            </TrackedActionsLastAccessed>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member/>
+<member/>
+<member/>
+            </TrackedActionsLastAccessed>
+        </member>
+    </ServicesLastAccessed>
+    <JobCompletionDate>
+        2000-01-01T04:59:59.999Z
+    </JobCompletionDate>
+    <JobType>
+        __JobType__
+    </JobType>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+    <Error>
+        <Message>
+            __Message__
+        </Message>
+        <Code>
+            __Code__
+        </Code>
+    </Error>
+</GetServiceLastAccessedDetailsResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetServiceLastAccessedDetailsResponse xmlns="https://placeholder.amazonaws.com">
+    <JobStatus>
+        __JobStatus__
+    </JobStatus>
+    <JobCreationDate>
+        2000-01-01T04:59:59.999Z
+    </JobCreationDate>
+    <ServicesLastAccessed>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+            </TrackedActionsLastAccessed>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+            </TrackedActionsLastAccessed>
+        </member>
+        <member>
+            <ServiceName>
+                __ServiceName__
+            </ServiceName>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <LastAuthenticated>
+                2000-01-01T04:59:59.999Z
+            </LastAuthenticated>
+            <LastAuthenticatedEntity>
+                __LastAuthenticatedEntity__
+            </LastAuthenticatedEntity>
+            <LastAuthenticatedRegion>
+                __LastAuthenticatedRegion__
+            </LastAuthenticatedRegion>
+            <TotalAuthenticatedEntities>
+                0
+            </TotalAuthenticatedEntities>
+            <TrackedActionsLastAccessed>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+                <member>
+                    <ActionName>
+                        __ActionName__
+                    </ActionName>
+                    <LastAccessedEntity>
+                        __LastAccessedEntity__
+                    </LastAccessedEntity>
+                    <LastAccessedTime>
+                        2000-01-01T04:59:59.999Z
+                    </LastAccessedTime>
+                    <LastAccessedRegion>
+                        __LastAccessedRegion__
+                    </LastAccessedRegion>
+                </member>
+            </TrackedActionsLastAccessed>
+        </member>
+    </ServicesLastAccessed>
+    <JobCompletionDate>
+        2000-01-01T04:59:59.999Z
+    </JobCompletionDate>
+    <JobType>
+        __JobType__
+    </JobType>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+    <Error>
+        <Message>
+            __Message__
+        </Message>
+        <Code>
+            __Code__
+        </Code>
+    </Error>
+</GetServiceLastAccessedDetailsResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

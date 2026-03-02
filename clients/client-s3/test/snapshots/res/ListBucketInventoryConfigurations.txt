@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListInventoryConfigurationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListInventoryConfigurationsResult xmlns="https://placeholder.amazonaws.com">
+    <ContinuationToken>
+        __ContinuationToken__
+    </ContinuationToken>
+    <InventoryConfiguration>
+        <Destination>
+            <S3BucketDestination>
+                <Bucket>
+                    __Bucket__
+                </Bucket>
+                <Format>
+                    __Format__
+                </Format>
+                <AccountId>
+                    123456789012
+                </AccountId>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Encryption>
+                    <SSE-S3/>
+<SSE-KMS>
+                        <KeyId>
+                            __KeyId__
+                        </KeyId>
+                    </SSE-KMS>
+                </Encryption>
+            </S3BucketDestination>
+        </Destination>
+        <IsEnabled>
+            false
+        </IsEnabled>
+        <Id>
+            __Id__
+        </Id>
+        <IncludedObjectVersions>
+            __IncludedObjectVersions__
+        </IncludedObjectVersions>
+        <Schedule>
+            <Frequency>
+                __Frequency__
+            </Frequency>
+        </Schedule>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+        </Filter>
+        <OptionalFields>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+        </OptionalFields>
+    </InventoryConfiguration>
+    <InventoryConfiguration>
+        <Destination>
+            <S3BucketDestination>
+                <Bucket>
+                    __Bucket__
+                </Bucket>
+                <Format>
+                    __Format__
+                </Format>
+                <AccountId>
+                    123456789012
+                </AccountId>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Encryption>
+                    <SSE-S3/>
+<SSE-KMS>
+                        <KeyId>
+                            __KeyId__
+                        </KeyId>
+                    </SSE-KMS>
+                </Encryption>
+            </S3BucketDestination>
+        </Destination>
+        <IsEnabled>
+            false
+        </IsEnabled>
+        <Id>
+            __Id__
+        </Id>
+        <IncludedObjectVersions>
+            __IncludedObjectVersions__
+        </IncludedObjectVersions>
+        <Schedule>
+            <Frequency>
+                __Frequency__
+            </Frequency>
+        </Schedule>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+        </Filter>
+        <OptionalFields>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+        </OptionalFields>
+    </InventoryConfiguration>
+    <InventoryConfiguration>
+        <Destination>
+            <S3BucketDestination>
+                <Bucket>
+                    __Bucket__
+                </Bucket>
+                <Format>
+                    __Format__
+                </Format>
+                <AccountId>
+                    123456789012
+                </AccountId>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Encryption>
+                    <SSE-S3/>
+<SSE-KMS>
+                        <KeyId>
+                            __KeyId__
+                        </KeyId>
+                    </SSE-KMS>
+                </Encryption>
+            </S3BucketDestination>
+        </Destination>
+        <IsEnabled>
+            false
+        </IsEnabled>
+        <Id>
+            __Id__
+        </Id>
+        <IncludedObjectVersions>
+            __IncludedObjectVersions__
+        </IncludedObjectVersions>
+        <Schedule>
+            <Frequency>
+                __Frequency__
+            </Frequency>
+        </Schedule>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+        </Filter>
+        <OptionalFields>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+            <Field>
+                __member__
+            </Field>
+        </OptionalFields>
+    </InventoryConfiguration>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <NextContinuationToken>
+        __NextContinuationToken__
+    </NextContinuationToken>
+</ListInventoryConfigurationsResult>
+
+
+--- [output object] ---
+{
+  ContinuationToken: "__ContinuationToken__",
+  InventoryConfigurationList: [
+    {
+      Destination: {
+        S3BucketDestination: {
+          Bucket: "__Bucket__",
+          Format: "__Format__",
+          AccountId: "123456789012",
+          Prefix: "__Prefix__",
+          Encryption: {
+            SSES3: {},
+            SSEKMS: {
+              KeyId: "__KeyId__"
+            }
+          }
+        }
+      },
+      IsEnabled: (boolean) false,
+      Id: "__Id__",
+      IncludedObjectVersions: "__IncludedObjectVersions__",
+      Schedule: {
+        Frequency: "__Frequency__"
+      },
+      Filter: {
+        Prefix: "__Prefix__"
+      },
+      OptionalFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Destination: {
+        S3BucketDestination: {
+          Bucket: "__Bucket__",
+          Format: "__Format__",
+          AccountId: "123456789012",
+          Prefix: "__Prefix__",
+          Encryption: {
+            SSES3: {},
+            SSEKMS: {
+              KeyId: "__KeyId__"
+            }
+          }
+        }
+      },
+      IsEnabled: (boolean) false,
+      Id: "__Id__",
+      IncludedObjectVersions: "__IncludedObjectVersions__",
+      Schedule: {
+        Frequency: "__Frequency__"
+      },
+      Filter: {
+        Prefix: "__Prefix__"
+      },
+      OptionalFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      Destination: {
+        S3BucketDestination: {
+          Bucket: "__Bucket__",
+          Format: "__Format__",
+          AccountId: "123456789012",
+          Prefix: "__Prefix__",
+          Encryption: {
+            SSES3: {},
+            SSEKMS: {
+              KeyId: "__KeyId__"
+            }
+          }
+        }
+      },
+      IsEnabled: (boolean) false,
+      Id: "__Id__",
+      IncludedObjectVersions: "__IncludedObjectVersions__",
+      Schedule: {
+        Frequency: "__Frequency__"
+      },
+      Filter: {
+        Prefix: "__Prefix__"
+      },
+      OptionalFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  IsTruncated: (boolean) false,
+  NextContinuationToken: "__NextContinuationToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

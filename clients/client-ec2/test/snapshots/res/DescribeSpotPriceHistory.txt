@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSpotPriceHistoryResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSpotPriceHistoryResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <spotPriceHistorySet>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <spotPrice>
+                __SpotPrice__
+            </spotPrice>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <spotPrice>
+                __SpotPrice__
+            </spotPrice>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <productDescription>
+                __ProductDescription__
+            </productDescription>
+            <spotPrice>
+                __SpotPrice__
+            </spotPrice>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+    </spotPriceHistorySet>
+</DescribeSpotPriceHistoryResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  SpotPriceHistory: [
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      ProductDescription: "__ProductDescription__",
+      SpotPrice: "__SpotPrice__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      ProductDescription: "__ProductDescription__",
+      SpotPrice: "__SpotPrice__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      ProductDescription: "__ProductDescription__",
+      SpotPrice: "__SpotPrice__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ]
+}
+

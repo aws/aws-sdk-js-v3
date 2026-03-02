@@ -1,0 +1,329 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClassicLinkInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClassicLinkInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <instancesSet>
+        <item>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+    </instancesSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClassicLinkInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Instances: [
+    {
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__"
+    },
+    {
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__"
+    },
+    {
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcId: "__VpcId__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

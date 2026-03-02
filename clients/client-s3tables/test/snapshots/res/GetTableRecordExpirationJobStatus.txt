@@ -1,0 +1,70 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "status": "__status__",
+  "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+  "failureMessage": "__failureMessage__",
+  "metrics": {}
+}
+
+
+--- [output object] ---
+{
+  status: "__status__",
+  lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  failureMessage: "__failureMessage__",
+  metrics: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "status": "__status__",
+  "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+  "failureMessage": "__failureMessage__",
+  "metrics": {
+    "deletedDataFiles": 0,
+    "deletedRecords": 0,
+    "removedFilesSize": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  status: "__status__",
+  lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  failureMessage: "__failureMessage__",
+  metrics: {
+    deletedDataFiles: (number) 0,
+    deletedRecords: (number) 0,
+    removedFilesSize: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

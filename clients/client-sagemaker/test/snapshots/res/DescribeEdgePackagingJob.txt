@@ -1,0 +1,146 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EdgePackagingJobArn": "__EdgePackagingJobArn__",
+  "EdgePackagingJobName": "__EdgePackagingJobName__",
+  "EdgePackagingJobStatus": "__EdgePackagingJobStatus__",
+  "CompilationJobName": "__CompilationJobName__",
+  "ModelName": "__ModelName__",
+  "ModelVersion": "__ModelVersion__",
+  "RoleArn": "__RoleArn__",
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "KmsKeyId": "__KmsKeyId__",
+    "PresetDeploymentType": "__PresetDeploymentType__",
+    "PresetDeploymentConfig": "__PresetDeploymentConfig__"
+  },
+  "ResourceKey": "__ResourceKey__",
+  "EdgePackagingJobStatusMessage": "__EdgePackagingJobStatusMessage__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "ModelArtifact": "__ModelArtifact__",
+  "ModelSignature": "__ModelSignature__",
+  "PresetDeploymentOutput": {
+    "Type": "__Type__",
+    "Artifact": "__Artifact__",
+    "Status": "__Status__",
+    "StatusMessage": "__StatusMessage__"
+  }
+}
+
+
+--- [output object] ---
+{
+  EdgePackagingJobArn: "__EdgePackagingJobArn__",
+  EdgePackagingJobName: "__EdgePackagingJobName__",
+  EdgePackagingJobStatus: "__EdgePackagingJobStatus__",
+  CompilationJobName: "__CompilationJobName__",
+  ModelName: "__ModelName__",
+  ModelVersion: "__ModelVersion__",
+  RoleArn: "__RoleArn__",
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    KmsKeyId: "__KmsKeyId__",
+    PresetDeploymentType: "__PresetDeploymentType__",
+    PresetDeploymentConfig: "__PresetDeploymentConfig__"
+  },
+  ResourceKey: "__ResourceKey__",
+  EdgePackagingJobStatusMessage: "__EdgePackagingJobStatusMessage__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelArtifact: "__ModelArtifact__",
+  ModelSignature: "__ModelSignature__",
+  PresetDeploymentOutput: {
+    Type: "__Type__",
+    Artifact: "__Artifact__",
+    Status: "__Status__",
+    StatusMessage: "__StatusMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EdgePackagingJobArn": "__EdgePackagingJobArn__",
+  "EdgePackagingJobName": "__EdgePackagingJobName__",
+  "EdgePackagingJobStatus": "__EdgePackagingJobStatus__",
+  "CompilationJobName": "__CompilationJobName__",
+  "ModelName": "__ModelName__",
+  "ModelVersion": "__ModelVersion__",
+  "RoleArn": "__RoleArn__",
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "KmsKeyId": "__KmsKeyId__",
+    "PresetDeploymentType": "__PresetDeploymentType__",
+    "PresetDeploymentConfig": "__PresetDeploymentConfig__"
+  },
+  "ResourceKey": "__ResourceKey__",
+  "EdgePackagingJobStatusMessage": "__EdgePackagingJobStatusMessage__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "ModelArtifact": "__ModelArtifact__",
+  "ModelSignature": "__ModelSignature__",
+  "PresetDeploymentOutput": {
+    "Type": "__Type__",
+    "Artifact": "__Artifact__",
+    "Status": "__Status__",
+    "StatusMessage": "__StatusMessage__"
+  }
+}
+
+
+--- [output object] ---
+{
+  EdgePackagingJobArn: "__EdgePackagingJobArn__",
+  EdgePackagingJobName: "__EdgePackagingJobName__",
+  EdgePackagingJobStatus: "__EdgePackagingJobStatus__",
+  CompilationJobName: "__CompilationJobName__",
+  ModelName: "__ModelName__",
+  ModelVersion: "__ModelVersion__",
+  RoleArn: "__RoleArn__",
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    KmsKeyId: "__KmsKeyId__",
+    PresetDeploymentType: "__PresetDeploymentType__",
+    PresetDeploymentConfig: "__PresetDeploymentConfig__"
+  },
+  ResourceKey: "__ResourceKey__",
+  EdgePackagingJobStatusMessage: "__EdgePackagingJobStatusMessage__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelArtifact: "__ModelArtifact__",
+  ModelSignature: "__ModelSignature__",
+  PresetDeploymentOutput: {
+    Type: "__Type__",
+    Artifact: "__Artifact__",
+    Status: "__Status__",
+    StatusMessage: "__StatusMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

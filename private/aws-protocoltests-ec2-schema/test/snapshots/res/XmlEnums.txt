@@ -1,0 +1,111 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<XmlEnumsOutput xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<XmlEnumsOutput xmlns="https://placeholder.amazonaws.com">
+    <fooEnum1>
+        __fooEnum1__
+    </fooEnum1>
+    <fooEnum2>
+        __fooEnum2__
+    </fooEnum2>
+    <fooEnum3>
+        __fooEnum3__
+    </fooEnum3>
+    <fooEnumList>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+    </fooEnumList>
+    <fooEnumSet>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+    </fooEnumSet>
+    <fooEnumMap>
+        <entry>
+            <key>
+                key1
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
+        <entry>
+            <key>
+                key2
+            </key>
+            <value>
+                __value__
+            </value>
+        </entry>
+    </fooEnumMap>
+</XmlEnumsOutput>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  fooEnum1: "__fooEnum1__",
+  fooEnum2: "__fooEnum2__",
+  fooEnum3: "__fooEnum3__",
+  fooEnumList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  fooEnumSet: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  fooEnumMap: {
+    key1: "__value__",
+    key2: "__value__"
+  }
+}
+

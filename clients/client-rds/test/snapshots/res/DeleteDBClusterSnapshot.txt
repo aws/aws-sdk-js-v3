@@ -1,0 +1,165 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBClusterSnapshotResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBClusterSnapshotResult xmlns="https://placeholder.amazonaws.com">
+    <DBClusterSnapshot>
+        <AvailabilityZones>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+        </AvailabilityZones>
+        <DBClusterSnapshotIdentifier>
+            __DBClusterSnapshotIdentifier__
+        </DBClusterSnapshotIdentifier>
+        <DBClusterIdentifier>
+            __DBClusterIdentifier__
+        </DBClusterIdentifier>
+        <SnapshotCreateTime>
+            2000-01-01T04:59:59.999Z
+        </SnapshotCreateTime>
+        <Engine>
+            __Engine__
+        </Engine>
+        <EngineMode>
+            __EngineMode__
+        </EngineMode>
+        <AllocatedStorage>
+            0
+        </AllocatedStorage>
+        <Status>
+            __Status__
+        </Status>
+        <Port>
+            0
+        </Port>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <ClusterCreateTime>
+            2000-01-01T04:59:59.999Z
+        </ClusterCreateTime>
+        <MasterUsername>
+            __MasterUsername__
+        </MasterUsername>
+        <EngineVersion>
+            __EngineVersion__
+        </EngineVersion>
+        <LicenseModel>
+            __LicenseModel__
+        </LicenseModel>
+        <SnapshotType>
+            __SnapshotType__
+        </SnapshotType>
+        <PercentProgress>
+            0
+        </PercentProgress>
+        <StorageEncrypted>
+            false
+        </StorageEncrypted>
+        <StorageEncryptionType>
+            __StorageEncryptionType__
+        </StorageEncryptionType>
+        <BackupRetentionPeriod>
+            0
+        </BackupRetentionPeriod>
+        <PreferredBackupWindow>
+            __PreferredBackupWindow__
+        </PreferredBackupWindow>
+        <KmsKeyId>
+            __KmsKeyId__
+        </KmsKeyId>
+        <DBClusterSnapshotArn>
+            __DBClusterSnapshotArn__
+        </DBClusterSnapshotArn>
+        <SourceDBClusterSnapshotArn>
+            __SourceDBClusterSnapshotArn__
+        </SourceDBClusterSnapshotArn>
+        <IAMDatabaseAuthenticationEnabled>
+            false
+        </IAMDatabaseAuthenticationEnabled>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+        <StorageType>
+            __StorageType__
+        </StorageType>
+        <StorageThroughput>
+            0
+        </StorageThroughput>
+        <DbClusterResourceId>
+            __DbClusterResourceId__
+        </DbClusterResourceId>
+        <DBSystemId>
+            __DBSystemId__
+        </DBSystemId>
+    </DBClusterSnapshot>
+</DeleteDBClusterSnapshotResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

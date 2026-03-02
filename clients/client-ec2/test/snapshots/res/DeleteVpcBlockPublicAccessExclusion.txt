@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteVpcBlockPublicAccessExclusionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteVpcBlockPublicAccessExclusionResult xmlns="https://placeholder.amazonaws.com">
+    <vpcBlockPublicAccessExclusion>
+        <exclusionId>
+            __ExclusionId__
+        </exclusionId>
+        <internetGatewayExclusionMode>
+            __InternetGatewayExclusionMode__
+        </internetGatewayExclusionMode>
+        <resourceArn>
+            __ResourceArn__
+        </resourceArn>
+        <state>
+            __State__
+        </state>
+        <reason>
+            __Reason__
+        </reason>
+        <creationTimestamp>
+            2000-01-01T04:59:59.999Z
+        </creationTimestamp>
+        <lastUpdateTimestamp>
+            2000-01-01T04:59:59.999Z
+        </lastUpdateTimestamp>
+        <deletionTimestamp>
+            2000-01-01T04:59:59.999Z
+        </deletionTimestamp>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </vpcBlockPublicAccessExclusion>
+</DeleteVpcBlockPublicAccessExclusionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcBlockPublicAccessExclusion: {
+    ExclusionId: "__ExclusionId__",
+    InternetGatewayExclusionMode: "__InternetGatewayExclusionMode__",
+    ResourceArn: "__ResourceArn__",
+    State: "__State__",
+    Reason: "__Reason__",
+    CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastUpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    DeletionTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

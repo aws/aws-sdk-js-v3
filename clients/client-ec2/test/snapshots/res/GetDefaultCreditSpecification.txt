@@ -1,0 +1,57 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetDefaultCreditSpecificationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetDefaultCreditSpecificationResult xmlns="https://placeholder.amazonaws.com">
+    <instanceFamilyCreditSpecification>
+        <instanceFamily>
+            __InstanceFamily__
+        </instanceFamily>
+        <cpuCredits>
+            __CpuCredits__
+        </cpuCredits>
+    </instanceFamilyCreditSpecification>
+</GetDefaultCreditSpecificationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceFamilyCreditSpecification: {
+    InstanceFamily: "__InstanceFamily__",
+    CpuCredits: "__CpuCredits__"
+  }
+}
+

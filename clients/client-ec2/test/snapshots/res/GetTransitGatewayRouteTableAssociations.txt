@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayRouteTableAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayRouteTableAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <associations>
+        <item>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <state>
+                __State__
+            </state>
+        </item>
+    </associations>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetTransitGatewayRouteTableAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Associations: [
+    {
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      State: "__State__"
+    },
+    {
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      State: "__State__"
+    },
+    {
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      State: "__State__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

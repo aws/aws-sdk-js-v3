@@ -1,0 +1,569 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReservedInstancesModificationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReservedInstancesModificationsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <reservedInstancesModificationsSet>
+        <item>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <effectiveDate>
+                2000-01-01T04:59:59.999Z
+            </effectiveDate>
+            <modificationResultSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+            </modificationResultSet>
+            <reservedInstancesSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+            </reservedInstancesSet>
+            <reservedInstancesModificationId>
+                __ReservedInstancesModificationId__
+            </reservedInstancesModificationId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <updateDate>
+                2000-01-01T04:59:59.999Z
+            </updateDate>
+        </item>
+        <item>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <effectiveDate>
+                2000-01-01T04:59:59.999Z
+            </effectiveDate>
+            <modificationResultSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+            </modificationResultSet>
+            <reservedInstancesSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+            </reservedInstancesSet>
+            <reservedInstancesModificationId>
+                __ReservedInstancesModificationId__
+            </reservedInstancesModificationId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <updateDate>
+                2000-01-01T04:59:59.999Z
+            </updateDate>
+        </item>
+        <item>
+            <clientToken>
+                __ClientToken__
+            </clientToken>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <effectiveDate>
+                2000-01-01T04:59:59.999Z
+            </effectiveDate>
+            <modificationResultSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                    <targetConfiguration>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <instanceCount>
+                            0
+                        </instanceCount>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                        <platform>
+                            __Platform__
+                        </platform>
+                        <scope>
+                            __Scope__
+                        </scope>
+                        <availabilityZoneId>
+                            __AvailabilityZoneId__
+                        </availabilityZoneId>
+                    </targetConfiguration>
+                </item>
+            </modificationResultSet>
+            <reservedInstancesSet>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+                <item>
+                    <reservedInstancesId>
+                        __ReservedInstancesId__
+                    </reservedInstancesId>
+                </item>
+            </reservedInstancesSet>
+            <reservedInstancesModificationId>
+                __ReservedInstancesModificationId__
+            </reservedInstancesModificationId>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <updateDate>
+                2000-01-01T04:59:59.999Z
+            </updateDate>
+        </item>
+    </reservedInstancesModificationsSet>
+</DescribeReservedInstancesModificationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  ReservedInstancesModifications: [
+    {
+      ClientToken: "__ClientToken__",
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EffectiveDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModificationResults: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        }
+      ],
+      ReservedInstancesIds: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        }
+      ],
+      ReservedInstancesModificationId: "__ReservedInstancesModificationId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      UpdateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ClientToken: "__ClientToken__",
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EffectiveDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModificationResults: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        }
+      ],
+      ReservedInstancesIds: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        }
+      ],
+      ReservedInstancesModificationId: "__ReservedInstancesModificationId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      UpdateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ClientToken: "__ClientToken__",
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EffectiveDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModificationResults: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__",
+          TargetConfiguration: {
+            AvailabilityZone: "__AvailabilityZone__",
+            InstanceCount: (number) 0,
+            InstanceType: "__InstanceType__",
+            Platform: "__Platform__",
+            Scope: "__Scope__",
+            AvailabilityZoneId: "__AvailabilityZoneId__"
+          }
+        }
+      ],
+      ReservedInstancesIds: [
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        },
+        {
+          ReservedInstancesId: "__ReservedInstancesId__"
+        }
+      ],
+      ReservedInstancesModificationId: "__ReservedInstancesModificationId__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      UpdateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ]
+}
+

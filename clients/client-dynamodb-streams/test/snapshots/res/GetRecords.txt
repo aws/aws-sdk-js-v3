@@ -1,0 +1,429 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Records": [
+    {
+      "eventID": "__eventID__",
+      "eventName": "__eventName__",
+      "eventVersion": "__eventVersion__",
+      "eventSource": "__eventSource__",
+      "awsRegion": "__awsRegion__",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 946702799.999,
+        "Keys": {
+          "key1": {
+            "L": [
+              {
+                "S": "__S__"
+              },
+              {
+                "N": "__N__"
+              },
+              {
+                "B": "AQAAAQ=="
+              }
+            ]
+          },
+          "key2": {
+            "BOOL": false
+          }
+        },
+        "NewImage": {
+          "key1": {
+            "M": {
+              "key1": {
+                "B": "AQAAAQ=="
+              },
+              "key2": {
+                "NS": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            }
+          },
+          "key2": {
+            "NULL": false
+          }
+        },
+        "OldImage": {
+          "key1": {
+            "BS": [
+              "AQAAAQ==",
+              "AQAAAQ==",
+              "AQAAAQ=="
+            ]
+          },
+          "key2": {
+            "L": [
+              {
+                "S": "__S__"
+              },
+              {
+                "N": "__N__"
+              },
+              {
+                "B": "AQAAAQ=="
+              }
+            ]
+          }
+        },
+        "SequenceNumber": "__SequenceNumber__",
+        "SizeBytes": 0,
+        "StreamViewType": "__StreamViewType__"
+      },
+      "userIdentity": {
+        "PrincipalId": "__PrincipalId__",
+        "Type": "__Type__"
+      }
+    },
+    {
+      "eventID": "__eventID__",
+      "eventName": "__eventName__",
+      "eventVersion": "__eventVersion__",
+      "eventSource": "__eventSource__",
+      "awsRegion": "__awsRegion__",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 946702799.999,
+        "Keys": {
+          "key1": {
+            "NULL": false
+          },
+          "key2": {
+            "S": "__S__"
+          }
+        },
+        "NewImage": {
+          "key1": {
+            "L": [
+              {
+                "S": "__S__"
+              },
+              {
+                "N": "__N__"
+              },
+              {
+                "B": "AQAAAQ=="
+              }
+            ]
+          },
+          "key2": {
+            "BOOL": false
+          }
+        },
+        "OldImage": {
+          "key1": {
+            "M": {
+              "key1": {
+                "B": "AQAAAQ=="
+              },
+              "key2": {
+                "NS": [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            }
+          },
+          "key2": {
+            "NULL": false
+          }
+        },
+        "SequenceNumber": "__SequenceNumber__",
+        "SizeBytes": 0,
+        "StreamViewType": "__StreamViewType__"
+      },
+      "userIdentity": {
+        "PrincipalId": "__PrincipalId__",
+        "Type": "__Type__"
+      }
+    },
+    {
+      "eventID": "__eventID__",
+      "eventName": "__eventName__",
+      "eventVersion": "__eventVersion__",
+      "eventSource": "__eventSource__",
+      "awsRegion": "__awsRegion__",
+      "dynamodb": {
+        "ApproximateCreationDateTime": 946702799.999,
+        "Keys": {
+          "key1": {
+            "BOOL": false
+          },
+          "key2": {
+            "N": "__N__"
+          }
+        },
+        "NewImage": {
+          "key1": {
+            "NULL": false
+          },
+          "key2": {
+            "S": "__S__"
+          }
+        },
+        "OldImage": {
+          "key1": {
+            "L": [
+              {
+                "S": "__S__"
+              },
+              {
+                "N": "__N__"
+              },
+              {
+                "B": "AQAAAQ=="
+              }
+            ]
+          },
+          "key2": {
+            "BOOL": false
+          }
+        },
+        "SequenceNumber": "__SequenceNumber__",
+        "SizeBytes": 0,
+        "StreamViewType": "__StreamViewType__"
+      },
+      "userIdentity": {
+        "PrincipalId": "__PrincipalId__",
+        "Type": "__Type__"
+      }
+    }
+  ],
+  "NextShardIterator": "__NextShardIterator__"
+}
+
+
+--- [output object] ---
+{
+  Records: [
+    {
+      eventID: "__eventID__",
+      eventName: "__eventName__",
+      eventVersion: "__eventVersion__",
+      eventSource: "__eventSource__",
+      awsRegion: "__awsRegion__",
+      dynamodb: {
+        ApproximateCreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Keys: {
+          key1: {
+            L: [
+              {
+                S: "__S__"
+              },
+              {
+                N: "__N__"
+              },
+              {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              }
+            ]
+          },
+          key2: {
+            BOOL: (boolean) false
+          }
+        },
+        NewImage: {
+          key1: {
+            M: {
+              key1: {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              },
+              key2: {
+                NS: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            }
+          },
+          key2: {
+            NULL: (boolean) false
+          }
+        },
+        OldImage: {
+          key1: {
+            BS: [
+              (Uint8Array) bytes[1, 0, 0, 1],
+              (Uint8Array) bytes[1, 0, 0, 1],
+              (Uint8Array) bytes[1, 0, 0, 1]
+            ]
+          },
+          key2: {
+            L: [
+              {
+                S: "__S__"
+              },
+              {
+                N: "__N__"
+              },
+              {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              }
+            ]
+          }
+        },
+        SequenceNumber: "__SequenceNumber__",
+        SizeBytes: (number) 0,
+        StreamViewType: "__StreamViewType__"
+      },
+      userIdentity: {
+        PrincipalId: "__PrincipalId__",
+        Type: "__Type__"
+      }
+    },
+    {
+      eventID: "__eventID__",
+      eventName: "__eventName__",
+      eventVersion: "__eventVersion__",
+      eventSource: "__eventSource__",
+      awsRegion: "__awsRegion__",
+      dynamodb: {
+        ApproximateCreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Keys: {
+          key1: {
+            NULL: (boolean) false
+          },
+          key2: {
+            S: "__S__"
+          }
+        },
+        NewImage: {
+          key1: {
+            L: [
+              {
+                S: "__S__"
+              },
+              {
+                N: "__N__"
+              },
+              {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              }
+            ]
+          },
+          key2: {
+            BOOL: (boolean) false
+          }
+        },
+        OldImage: {
+          key1: {
+            M: {
+              key1: {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              },
+              key2: {
+                NS: [
+                  "__member__",
+                  "__member__",
+                  "__member__"
+                ]
+              }
+            }
+          },
+          key2: {
+            NULL: (boolean) false
+          }
+        },
+        SequenceNumber: "__SequenceNumber__",
+        SizeBytes: (number) 0,
+        StreamViewType: "__StreamViewType__"
+      },
+      userIdentity: {
+        PrincipalId: "__PrincipalId__",
+        Type: "__Type__"
+      }
+    },
+    {
+      eventID: "__eventID__",
+      eventName: "__eventName__",
+      eventVersion: "__eventVersion__",
+      eventSource: "__eventSource__",
+      awsRegion: "__awsRegion__",
+      dynamodb: {
+        ApproximateCreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        Keys: {
+          key1: {
+            BOOL: (boolean) false
+          },
+          key2: {
+            N: "__N__"
+          }
+        },
+        NewImage: {
+          key1: {
+            NULL: (boolean) false
+          },
+          key2: {
+            S: "__S__"
+          }
+        },
+        OldImage: {
+          key1: {
+            L: [
+              {
+                S: "__S__"
+              },
+              {
+                N: "__N__"
+              },
+              {
+                B: (Uint8Array) bytes[1, 0, 0, 1]
+              }
+            ]
+          },
+          key2: {
+            BOOL: (boolean) false
+          }
+        },
+        SequenceNumber: "__SequenceNumber__",
+        SizeBytes: (number) 0,
+        StreamViewType: "__StreamViewType__"
+      },
+      userIdentity: {
+        PrincipalId: "__PrincipalId__",
+        Type: "__Type__"
+      }
+    }
+  ],
+  NextShardIterator: "__NextShardIterator__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

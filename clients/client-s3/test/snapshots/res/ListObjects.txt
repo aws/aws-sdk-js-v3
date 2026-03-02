@@ -1,0 +1,377 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListBucketResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<ListBucketResult xmlns="https://placeholder.amazonaws.com">
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+    <Contents>
+        <Key>
+            __Key__
+        </Key>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            R
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            6
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            4
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            N
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            V
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            M
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            E
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+        <Size>
+            0
+        </Size>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <RestoreStatus>
+            <IsRestoreInProgress>
+                false
+            </IsRestoreInProgress>
+            <RestoreExpiryDate>
+                2000-01-01T04:59:59.999Z
+            </RestoreExpiryDate>
+        </RestoreStatus>
+    </Contents>
+    <Contents>
+        <Key>
+            __Key__
+        </Key>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            R
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            6
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            4
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            N
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            V
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            M
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            E
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+        <Size>
+            0
+        </Size>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <RestoreStatus>
+            <IsRestoreInProgress>
+                false
+            </IsRestoreInProgress>
+            <RestoreExpiryDate>
+                2000-01-01T04:59:59.999Z
+            </RestoreExpiryDate>
+        </RestoreStatus>
+    </Contents>
+    <Contents>
+        <Key>
+            __Key__
+        </Key>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            R
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            C
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            6
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            4
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            N
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            V
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            M
+        </ChecksumAlgorithm>
+        <ChecksumAlgorithm>
+            E
+        </ChecksumAlgorithm>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+        <Size>
+            0
+        </Size>
+        <StorageClass>
+            __StorageClass__
+        </StorageClass>
+        <Owner>
+            <DisplayName>
+                __DisplayName__
+            </DisplayName>
+            <ID>
+                __ID__
+            </ID>
+        </Owner>
+        <RestoreStatus>
+            <IsRestoreInProgress>
+                false
+            </IsRestoreInProgress>
+            <RestoreExpiryDate>
+                2000-01-01T04:59:59.999Z
+            </RestoreExpiryDate>
+        </RestoreStatus>
+    </Contents>
+    <Name>
+        __Name__
+    </Name>
+    <Prefix>
+        __Prefix__
+    </Prefix>
+    <Delimiter>
+        __Delimiter__
+    </Delimiter>
+    <MaxKeys>
+        0
+    </MaxKeys>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <CommonPrefixes>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+    </CommonPrefixes>
+    <EncodingType>
+        __EncodingType__
+    </EncodingType>
+</ListBucketResult>
+
+
+--- [output object] ---
+{
+  RequestCharged: "__RequestCharged__",
+  IsTruncated: (boolean) false,
+  Marker: "__Marker__",
+  NextMarker: "__NextMarker__",
+  Contents: [
+    {
+      Key: "__Key__",
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ChecksumAlgorithm: [
+        "C",
+        "R",
+        "C",
+        "6",
+        "4",
+        "N",
+        "V",
+        "M",
+        "E"
+      ],
+      ChecksumType: "__ChecksumType__",
+      Size: (number) 0,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      RestoreStatus: {
+        IsRestoreInProgress: (boolean) false,
+        RestoreExpiryDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      Key: "__Key__",
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ChecksumAlgorithm: [
+        "C",
+        "R",
+        "C",
+        "6",
+        "4",
+        "N",
+        "V",
+        "M",
+        "E"
+      ],
+      ChecksumType: "__ChecksumType__",
+      Size: (number) 0,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      RestoreStatus: {
+        IsRestoreInProgress: (boolean) false,
+        RestoreExpiryDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      Key: "__Key__",
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      ChecksumAlgorithm: [
+        "C",
+        "R",
+        "C",
+        "6",
+        "4",
+        "N",
+        "V",
+        "M",
+        "E"
+      ],
+      ChecksumType: "__ChecksumType__",
+      Size: (number) 0,
+      StorageClass: "__StorageClass__",
+      Owner: {
+        DisplayName: "__DisplayName__",
+        ID: "__ID__"
+      },
+      RestoreStatus: {
+        IsRestoreInProgress: (boolean) false,
+        RestoreExpiryDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    }
+  ],
+  Name: "__Name__",
+  Prefix: "__Prefix__",
+  Delimiter: "__Delimiter__",
+  MaxKeys: (number) 0,
+  CommonPrefixes: [
+    {
+      Prefix: "__Prefix__"
+    },
+    {
+      Prefix: "__Prefix__"
+    },
+    {
+      Prefix: "__Prefix__"
+    }
+  ],
+  EncodingType: "__EncodingType__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

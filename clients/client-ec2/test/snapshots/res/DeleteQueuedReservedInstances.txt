@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteQueuedReservedInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteQueuedReservedInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <successfulQueuedPurchaseDeletionSet>
+        <item>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+        <item>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+        <item>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+    </successfulQueuedPurchaseDeletionSet>
+    <failedQueuedPurchaseDeletionSet>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <reservedInstancesId>
+                __ReservedInstancesId__
+            </reservedInstancesId>
+        </item>
+    </failedQueuedPurchaseDeletionSet>
+</DeleteQueuedReservedInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SuccessfulQueuedPurchaseDeletions: [
+    {
+      ReservedInstancesId: "__ReservedInstancesId__"
+    },
+    {
+      ReservedInstancesId: "__ReservedInstancesId__"
+    },
+    {
+      ReservedInstancesId: "__ReservedInstancesId__"
+    }
+  ],
+  FailedQueuedPurchaseDeletions: [
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ReservedInstancesId: "__ReservedInstancesId__"
+    },
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ReservedInstancesId: "__ReservedInstancesId__"
+    },
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ReservedInstancesId: "__ReservedInstancesId__"
+    }
+  ]
+}
+

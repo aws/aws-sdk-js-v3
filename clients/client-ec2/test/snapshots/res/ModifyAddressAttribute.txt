@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyAddressAttributeResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyAddressAttributeResult xmlns="https://placeholder.amazonaws.com">
+    <address>
+        <publicIp>
+            __PublicIp__
+        </publicIp>
+        <allocationId>
+            __AllocationId__
+        </allocationId>
+        <ptrRecord>
+            __PtrRecord__
+        </ptrRecord>
+        <ptrRecordUpdate>
+            <value>
+                __Value__
+            </value>
+            <status>
+                __Status__
+            </status>
+            <reason>
+                __Reason__
+            </reason>
+        </ptrRecordUpdate>
+    </address>
+</ModifyAddressAttributeResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Address: {
+    PublicIp: "__PublicIp__",
+    AllocationId: "__AllocationId__",
+    PtrRecord: "__PtrRecord__",
+    PtrRecordUpdate: {
+      Value: "__Value__",
+      Status: "__Status__",
+      Reason: "__Reason__"
+    }
+  }
+}
+

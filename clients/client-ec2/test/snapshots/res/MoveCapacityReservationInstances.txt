@@ -1,0 +1,761 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<MoveCapacityReservationInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<MoveCapacityReservationInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <sourceCapacityReservation>
+        <capacityReservationId>
+            __CapacityReservationId__
+        </capacityReservationId>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <capacityReservationArn>
+            __CapacityReservationArn__
+        </capacityReservationArn>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+        <instanceType>
+            __InstanceType__
+        </instanceType>
+        <instancePlatform>
+            __InstancePlatform__
+        </instancePlatform>
+        <availabilityZone>
+            __AvailabilityZone__
+        </availabilityZone>
+        <tenancy>
+            __Tenancy__
+        </tenancy>
+        <totalInstanceCount>
+            0
+        </totalInstanceCount>
+        <availableInstanceCount>
+            0
+        </availableInstanceCount>
+        <ebsOptimized>
+            false
+        </ebsOptimized>
+        <ephemeralStorage>
+            false
+        </ephemeralStorage>
+        <state>
+            __State__
+        </state>
+        <startDate>
+            2000-01-01T04:59:59.999Z
+        </startDate>
+        <endDate>
+            2000-01-01T04:59:59.999Z
+        </endDate>
+        <endDateType>
+            __EndDateType__
+        </endDateType>
+        <instanceMatchCriteria>
+            __InstanceMatchCriteria__
+        </instanceMatchCriteria>
+        <createDate>
+            2000-01-01T04:59:59.999Z
+        </createDate>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <outpostArn>
+            __OutpostArn__
+        </outpostArn>
+        <capacityReservationFleetId>
+            __CapacityReservationFleetId__
+        </capacityReservationFleetId>
+        <placementGroupArn>
+            __PlacementGroupArn__
+        </placementGroupArn>
+        <capacityAllocationSet>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+        </capacityAllocationSet>
+        <reservationType>
+            __ReservationType__
+        </reservationType>
+        <unusedReservationBillingOwnerId>
+            __UnusedReservationBillingOwnerId__
+        </unusedReservationBillingOwnerId>
+        <commitmentInfo>
+            <committedInstanceCount>
+                0
+            </committedInstanceCount>
+            <commitmentEndDate>
+                2000-01-01T04:59:59.999Z
+            </commitmentEndDate>
+        </commitmentInfo>
+        <deliveryPreference>
+            __DeliveryPreference__
+        </deliveryPreference>
+        <capacityBlockId>
+            __CapacityBlockId__
+        </capacityBlockId>
+        <interruptible>
+            false
+        </interruptible>
+        <interruptibleCapacityAllocation>
+            <instanceCount>
+                0
+            </instanceCount>
+            <targetInstanceCount>
+                0
+            </targetInstanceCount>
+            <status>
+                __Status__
+            </status>
+            <interruptibleCapacityReservationId>
+                __InterruptibleCapacityReservationId__
+            </interruptibleCapacityReservationId>
+            <interruptionType>
+                __InterruptionType__
+            </interruptionType>
+        </interruptibleCapacityAllocation>
+        <interruptionInfo>
+            <sourceCapacityReservationId>
+                __SourceCapacityReservationId__
+            </sourceCapacityReservationId>
+            <interruptionType>
+                __InterruptionType__
+            </interruptionType>
+        </interruptionInfo>
+    </sourceCapacityReservation>
+    <destinationCapacityReservation>
+        <capacityReservationId>
+            __CapacityReservationId__
+        </capacityReservationId>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <capacityReservationArn>
+            __CapacityReservationArn__
+        </capacityReservationArn>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+        <instanceType>
+            __InstanceType__
+        </instanceType>
+        <instancePlatform>
+            __InstancePlatform__
+        </instancePlatform>
+        <availabilityZone>
+            __AvailabilityZone__
+        </availabilityZone>
+        <tenancy>
+            __Tenancy__
+        </tenancy>
+        <totalInstanceCount>
+            0
+        </totalInstanceCount>
+        <availableInstanceCount>
+            0
+        </availableInstanceCount>
+        <ebsOptimized>
+            false
+        </ebsOptimized>
+        <ephemeralStorage>
+            false
+        </ephemeralStorage>
+        <state>
+            __State__
+        </state>
+        <startDate>
+            2000-01-01T04:59:59.999Z
+        </startDate>
+        <endDate>
+            2000-01-01T04:59:59.999Z
+        </endDate>
+        <endDateType>
+            __EndDateType__
+        </endDateType>
+        <instanceMatchCriteria>
+            __InstanceMatchCriteria__
+        </instanceMatchCriteria>
+        <createDate>
+            2000-01-01T04:59:59.999Z
+        </createDate>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <outpostArn>
+            __OutpostArn__
+        </outpostArn>
+        <capacityReservationFleetId>
+            __CapacityReservationFleetId__
+        </capacityReservationFleetId>
+        <placementGroupArn>
+            __PlacementGroupArn__
+        </placementGroupArn>
+        <capacityAllocationSet>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+            <item>
+                <allocationType>
+                    __AllocationType__
+                </allocationType>
+                <count>
+                    0
+                </count>
+                <allocationMetadataList>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </allocationMetadataList>
+            </item>
+        </capacityAllocationSet>
+        <reservationType>
+            __ReservationType__
+        </reservationType>
+        <unusedReservationBillingOwnerId>
+            __UnusedReservationBillingOwnerId__
+        </unusedReservationBillingOwnerId>
+        <commitmentInfo>
+            <committedInstanceCount>
+                0
+            </committedInstanceCount>
+            <commitmentEndDate>
+                2000-01-01T04:59:59.999Z
+            </commitmentEndDate>
+        </commitmentInfo>
+        <deliveryPreference>
+            __DeliveryPreference__
+        </deliveryPreference>
+        <capacityBlockId>
+            __CapacityBlockId__
+        </capacityBlockId>
+        <interruptible>
+            false
+        </interruptible>
+        <interruptibleCapacityAllocation>
+            <instanceCount>
+                0
+            </instanceCount>
+            <targetInstanceCount>
+                0
+            </targetInstanceCount>
+            <status>
+                __Status__
+            </status>
+            <interruptibleCapacityReservationId>
+                __InterruptibleCapacityReservationId__
+            </interruptibleCapacityReservationId>
+            <interruptionType>
+                __InterruptionType__
+            </interruptionType>
+        </interruptibleCapacityAllocation>
+        <interruptionInfo>
+            <sourceCapacityReservationId>
+                __SourceCapacityReservationId__
+            </sourceCapacityReservationId>
+            <interruptionType>
+                __InterruptionType__
+            </interruptionType>
+        </interruptionInfo>
+    </destinationCapacityReservation>
+    <instanceCount>
+        0
+    </instanceCount>
+</MoveCapacityReservationInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SourceCapacityReservation: {
+    CapacityReservationId: "__CapacityReservationId__",
+    OwnerId: "__OwnerId__",
+    CapacityReservationArn: "__CapacityReservationArn__",
+    AvailabilityZoneId: "__AvailabilityZoneId__",
+    InstanceType: "__InstanceType__",
+    InstancePlatform: "__InstancePlatform__",
+    AvailabilityZone: "__AvailabilityZone__",
+    Tenancy: "__Tenancy__",
+    TotalInstanceCount: (number) 0,
+    AvailableInstanceCount: (number) 0,
+    EbsOptimized: (boolean) false,
+    EphemeralStorage: (boolean) false,
+    State: "__State__",
+    StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndDateType: "__EndDateType__",
+    InstanceMatchCriteria: "__InstanceMatchCriteria__",
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    OutpostArn: "__OutpostArn__",
+    CapacityReservationFleetId: "__CapacityReservationFleetId__",
+    PlacementGroupArn: "__PlacementGroupArn__",
+    CapacityAllocations: [
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    ],
+    ReservationType: "__ReservationType__",
+    UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
+    CommitmentInfo: {
+      CommittedInstanceCount: (number) 0,
+      CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    DeliveryPreference: "__DeliveryPreference__",
+    CapacityBlockId: "__CapacityBlockId__",
+    Interruptible: (boolean) false,
+    InterruptibleCapacityAllocation: {
+      InstanceCount: (number) 0,
+      TargetInstanceCount: (number) 0,
+      Status: "__Status__",
+      InterruptibleCapacityReservationId: "__InterruptibleCapacityReservationId__",
+      InterruptionType: "__InterruptionType__"
+    },
+    InterruptionInfo: {
+      SourceCapacityReservationId: "__SourceCapacityReservationId__",
+      InterruptionType: "__InterruptionType__"
+    }
+  },
+  DestinationCapacityReservation: {
+    CapacityReservationId: "__CapacityReservationId__",
+    OwnerId: "__OwnerId__",
+    CapacityReservationArn: "__CapacityReservationArn__",
+    AvailabilityZoneId: "__AvailabilityZoneId__",
+    InstanceType: "__InstanceType__",
+    InstancePlatform: "__InstancePlatform__",
+    AvailabilityZone: "__AvailabilityZone__",
+    Tenancy: "__Tenancy__",
+    TotalInstanceCount: (number) 0,
+    AvailableInstanceCount: (number) 0,
+    EbsOptimized: (boolean) false,
+    EphemeralStorage: (boolean) false,
+    State: "__State__",
+    StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndDateType: "__EndDateType__",
+    InstanceMatchCriteria: "__InstanceMatchCriteria__",
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    OutpostArn: "__OutpostArn__",
+    CapacityReservationFleetId: "__CapacityReservationFleetId__",
+    PlacementGroupArn: "__PlacementGroupArn__",
+    CapacityAllocations: [
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        AllocationType: "__AllocationType__",
+        Count: (number) 0,
+        AllocationMetadata: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    ],
+    ReservationType: "__ReservationType__",
+    UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
+    CommitmentInfo: {
+      CommittedInstanceCount: (number) 0,
+      CommitmentEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    DeliveryPreference: "__DeliveryPreference__",
+    CapacityBlockId: "__CapacityBlockId__",
+    Interruptible: (boolean) false,
+    InterruptibleCapacityAllocation: {
+      InstanceCount: (number) 0,
+      TargetInstanceCount: (number) 0,
+      Status: "__Status__",
+      InterruptibleCapacityReservationId: "__InterruptibleCapacityReservationId__",
+      InterruptionType: "__InterruptionType__"
+    },
+    InterruptionInfo: {
+      SourceCapacityReservationId: "__SourceCapacityReservationId__",
+      InterruptionType: "__InterruptionType__"
+    }
+  },
+  InstanceCount: (number) 0
+}
+

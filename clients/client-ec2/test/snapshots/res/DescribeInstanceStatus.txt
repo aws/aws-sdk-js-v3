@@ -1,0 +1,989 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceStatusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceStatusResult xmlns="https://placeholder.amazonaws.com">
+    <instanceStatusSet>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <eventsSet>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+            </eventsSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceState>
+                <code>
+                    0
+                </code>
+                <name>
+                    __Name__
+                </name>
+            </instanceState>
+            <instanceStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </instanceStatus>
+            <systemStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </systemStatus>
+            <attachedEbsStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </attachedEbsStatus>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <eventsSet>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+            </eventsSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceState>
+                <code>
+                    0
+                </code>
+                <name>
+                    __Name__
+                </name>
+            </instanceState>
+            <instanceStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </instanceStatus>
+            <systemStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </systemStatus>
+            <attachedEbsStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </attachedEbsStatus>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <eventsSet>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+                <item>
+                    <instanceEventId>
+                        __InstanceEventId__
+                    </instanceEventId>
+                    <code>
+                        __Code__
+                    </code>
+                    <description>
+                        __Description__
+                    </description>
+                    <notAfter>
+                        2000-01-01T04:59:59.999Z
+                    </notAfter>
+                    <notBefore>
+                        2000-01-01T04:59:59.999Z
+                    </notBefore>
+                    <notBeforeDeadline>
+                        2000-01-01T04:59:59.999Z
+                    </notBeforeDeadline>
+                </item>
+            </eventsSet>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <instanceState>
+                <code>
+                    0
+                </code>
+                <name>
+                    __Name__
+                </name>
+            </instanceState>
+            <instanceStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </instanceStatus>
+            <systemStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </systemStatus>
+            <attachedEbsStatus>
+                <details>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                    <item>
+                        <impairedSince>
+                            2000-01-01T04:59:59.999Z
+                        </impairedSince>
+                        <name>
+                            __Name__
+                        </name>
+                        <status>
+                            __Status__
+                        </status>
+                    </item>
+                </details>
+                <status>
+                    __Status__
+                </status>
+            </attachedEbsStatus>
+        </item>
+    </instanceStatusSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInstanceStatusResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceStatuses: [
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      Events: [
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      InstanceState: {
+        Code: (number) 0,
+        Name: "__Name__"
+      },
+      InstanceStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      SystemStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachedEbsStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      }
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      Events: [
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      InstanceState: {
+        Code: (number) 0,
+        Name: "__Name__"
+      },
+      InstanceStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      SystemStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachedEbsStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      }
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      Events: [
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          InstanceEventId: "__InstanceEventId__",
+          Code: "__Code__",
+          Description: "__Description__",
+          NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          NotBeforeDeadline: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      InstanceId: "__InstanceId__",
+      InstanceState: {
+        Code: (number) 0,
+        Name: "__Name__"
+      },
+      InstanceStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      SystemStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      },
+      AttachedEbsStatus: {
+        Details: [
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          },
+          {
+            ImpairedSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+            Name: "__Name__",
+            Status: "__Status__"
+          }
+        ],
+        Status: "__Status__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

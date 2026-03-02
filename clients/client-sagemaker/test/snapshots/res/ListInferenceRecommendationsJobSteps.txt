@@ -1,0 +1,381 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Steps": [
+    {
+      "StepType": "__StepType__",
+      "JobName": "__JobName__",
+      "Status": "__Status__",
+      "InferenceBenchmark": {
+        "ModelConfiguration": {
+          "InferenceSpecificationName": "__InferenceSpecificationName__",
+          "EnvironmentParameters": [
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            }
+          ],
+          "CompilationJobName": "__CompilationJobName__"
+        },
+        "Metrics": {
+          "CostPerHour": 0,
+          "CostPerInference": 0,
+          "MaxInvocations": 0,
+          "ModelLatency": 0,
+          "CpuUtilization": 0,
+          "MemoryUtilization": 0,
+          "ModelSetupTime": 0
+        },
+        "EndpointMetrics": {
+          "MaxInvocations": 0,
+          "ModelLatency": 0
+        },
+        "EndpointConfiguration": {
+          "EndpointName": "__EndpointName__",
+          "VariantName": "__VariantName__",
+          "InstanceType": "__InstanceType__",
+          "InitialInstanceCount": 0,
+          "ServerlessConfig": {
+            "MemorySizeInMB": 0,
+            "MaxConcurrency": 0,
+            "ProvisionedConcurrency": 0
+          }
+        },
+        "FailureReason": "__FailureReason__",
+        "InvocationEndTime": 946702799.999,
+        "InvocationStartTime": 946702799.999
+      }
+    },
+    {
+      "StepType": "__StepType__",
+      "JobName": "__JobName__",
+      "Status": "__Status__",
+      "InferenceBenchmark": {
+        "ModelConfiguration": {
+          "InferenceSpecificationName": "__InferenceSpecificationName__",
+          "EnvironmentParameters": [
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            }
+          ],
+          "CompilationJobName": "__CompilationJobName__"
+        },
+        "Metrics": {
+          "CostPerHour": 0,
+          "CostPerInference": 0,
+          "MaxInvocations": 0,
+          "ModelLatency": 0,
+          "CpuUtilization": 0,
+          "MemoryUtilization": 0,
+          "ModelSetupTime": 0
+        },
+        "EndpointMetrics": {
+          "MaxInvocations": 0,
+          "ModelLatency": 0
+        },
+        "EndpointConfiguration": {
+          "EndpointName": "__EndpointName__",
+          "VariantName": "__VariantName__",
+          "InstanceType": "__InstanceType__",
+          "InitialInstanceCount": 0,
+          "ServerlessConfig": {
+            "MemorySizeInMB": 0,
+            "MaxConcurrency": 0,
+            "ProvisionedConcurrency": 0
+          }
+        },
+        "FailureReason": "__FailureReason__",
+        "InvocationEndTime": 946702799.999,
+        "InvocationStartTime": 946702799.999
+      }
+    },
+    {
+      "StepType": "__StepType__",
+      "JobName": "__JobName__",
+      "Status": "__Status__",
+      "InferenceBenchmark": {
+        "ModelConfiguration": {
+          "InferenceSpecificationName": "__InferenceSpecificationName__",
+          "EnvironmentParameters": [
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            },
+            {
+              "Key": "__Key__",
+              "ValueType": "__ValueType__",
+              "Value": "__Value__"
+            }
+          ],
+          "CompilationJobName": "__CompilationJobName__"
+        },
+        "Metrics": {
+          "CostPerHour": 0,
+          "CostPerInference": 0,
+          "MaxInvocations": 0,
+          "ModelLatency": 0,
+          "CpuUtilization": 0,
+          "MemoryUtilization": 0,
+          "ModelSetupTime": 0
+        },
+        "EndpointMetrics": {
+          "MaxInvocations": 0,
+          "ModelLatency": 0
+        },
+        "EndpointConfiguration": {
+          "EndpointName": "__EndpointName__",
+          "VariantName": "__VariantName__",
+          "InstanceType": "__InstanceType__",
+          "InitialInstanceCount": 0,
+          "ServerlessConfig": {
+            "MemorySizeInMB": 0,
+            "MaxConcurrency": 0,
+            "ProvisionedConcurrency": 0
+          }
+        },
+        "FailureReason": "__FailureReason__",
+        "InvocationEndTime": 946702799.999,
+        "InvocationStartTime": 946702799.999
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  Steps: [
+    {
+      StepType: "__StepType__",
+      JobName: "__JobName__",
+      Status: "__Status__",
+      InferenceBenchmark: {
+        ModelConfiguration: {
+          InferenceSpecificationName: "__InferenceSpecificationName__",
+          EnvironmentParameters: [
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            }
+          ],
+          CompilationJobName: "__CompilationJobName__"
+        },
+        Metrics: {
+          CostPerHour: (number) 0,
+          CostPerInference: (number) 0,
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0,
+          CpuUtilization: (number) 0,
+          MemoryUtilization: (number) 0,
+          ModelSetupTime: (number) 0
+        },
+        EndpointMetrics: {
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0
+        },
+        EndpointConfiguration: {
+          EndpointName: "__EndpointName__",
+          VariantName: "__VariantName__",
+          InstanceType: "__InstanceType__",
+          InitialInstanceCount: (number) 0,
+          ServerlessConfig: {
+            MemorySizeInMB: (number) 0,
+            MaxConcurrency: (number) 0,
+            ProvisionedConcurrency: (number) 0
+          }
+        },
+        FailureReason: "__FailureReason__",
+        InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      StepType: "__StepType__",
+      JobName: "__JobName__",
+      Status: "__Status__",
+      InferenceBenchmark: {
+        ModelConfiguration: {
+          InferenceSpecificationName: "__InferenceSpecificationName__",
+          EnvironmentParameters: [
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            }
+          ],
+          CompilationJobName: "__CompilationJobName__"
+        },
+        Metrics: {
+          CostPerHour: (number) 0,
+          CostPerInference: (number) 0,
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0,
+          CpuUtilization: (number) 0,
+          MemoryUtilization: (number) 0,
+          ModelSetupTime: (number) 0
+        },
+        EndpointMetrics: {
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0
+        },
+        EndpointConfiguration: {
+          EndpointName: "__EndpointName__",
+          VariantName: "__VariantName__",
+          InstanceType: "__InstanceType__",
+          InitialInstanceCount: (number) 0,
+          ServerlessConfig: {
+            MemorySizeInMB: (number) 0,
+            MaxConcurrency: (number) 0,
+            ProvisionedConcurrency: (number) 0
+          }
+        },
+        FailureReason: "__FailureReason__",
+        InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    },
+    {
+      StepType: "__StepType__",
+      JobName: "__JobName__",
+      Status: "__Status__",
+      InferenceBenchmark: {
+        ModelConfiguration: {
+          InferenceSpecificationName: "__InferenceSpecificationName__",
+          EnvironmentParameters: [
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              ValueType: "__ValueType__",
+              Value: "__Value__"
+            }
+          ],
+          CompilationJobName: "__CompilationJobName__"
+        },
+        Metrics: {
+          CostPerHour: (number) 0,
+          CostPerInference: (number) 0,
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0,
+          CpuUtilization: (number) 0,
+          MemoryUtilization: (number) 0,
+          ModelSetupTime: (number) 0
+        },
+        EndpointMetrics: {
+          MaxInvocations: (number) 0,
+          ModelLatency: (number) 0
+        },
+        EndpointConfiguration: {
+          EndpointName: "__EndpointName__",
+          VariantName: "__VariantName__",
+          InstanceType: "__InstanceType__",
+          InitialInstanceCount: (number) 0,
+          ServerlessConfig: {
+            MemorySizeInMB: (number) 0,
+            MaxConcurrency: (number) 0,
+            ProvisionedConcurrency: (number) 0
+          }
+        },
+        FailureReason: "__FailureReason__",
+        InvocationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        InvocationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

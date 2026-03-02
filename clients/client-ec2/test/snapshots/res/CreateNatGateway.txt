@@ -1,0 +1,405 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNatGatewayResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNatGatewayResult xmlns="https://placeholder.amazonaws.com">
+    <clientToken>
+        __ClientToken__
+    </clientToken>
+    <natGateway>
+        <createTime>
+            2000-01-01T04:59:59.999Z
+        </createTime>
+        <deleteTime>
+            2000-01-01T04:59:59.999Z
+        </deleteTime>
+        <failureCode>
+            __FailureCode__
+        </failureCode>
+        <failureMessage>
+            __FailureMessage__
+        </failureMessage>
+        <natGatewayAddressSet>
+            <item>
+                <allocationId>
+                    __AllocationId__
+                </allocationId>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <privateIp>
+                    __PrivateIp__
+                </privateIp>
+                <publicIp>
+                    __PublicIp__
+                </publicIp>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <isPrimary>
+                    false
+                </isPrimary>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+                <status>
+                    __Status__
+                </status>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </item>
+            <item>
+                <allocationId>
+                    __AllocationId__
+                </allocationId>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <privateIp>
+                    __PrivateIp__
+                </privateIp>
+                <publicIp>
+                    __PublicIp__
+                </publicIp>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <isPrimary>
+                    false
+                </isPrimary>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+                <status>
+                    __Status__
+                </status>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </item>
+            <item>
+                <allocationId>
+                    __AllocationId__
+                </allocationId>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <privateIp>
+                    __PrivateIp__
+                </privateIp>
+                <publicIp>
+                    __PublicIp__
+                </publicIp>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <isPrimary>
+                    false
+                </isPrimary>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+                <status>
+                    __Status__
+                </status>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </item>
+        </natGatewayAddressSet>
+        <natGatewayId>
+            __NatGatewayId__
+        </natGatewayId>
+        <provisionedBandwidth>
+            <provisionTime>
+                2000-01-01T04:59:59.999Z
+            </provisionTime>
+            <provisioned>
+                __Provisioned__
+            </provisioned>
+            <requestTime>
+                2000-01-01T04:59:59.999Z
+            </requestTime>
+            <requested>
+                __Requested__
+            </requested>
+            <status>
+                __Status__
+            </status>
+        </provisionedBandwidth>
+        <state>
+            __State__
+        </state>
+        <subnetId>
+            __SubnetId__
+        </subnetId>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <connectivityType>
+            __ConnectivityType__
+        </connectivityType>
+        <availabilityMode>
+            __AvailabilityMode__
+        </availabilityMode>
+        <autoScalingIps>
+            __AutoScalingIps__
+        </autoScalingIps>
+        <autoProvisionZones>
+            __AutoProvisionZones__
+        </autoProvisionZones>
+        <attachedApplianceSet>
+            <item>
+                <type>
+                    __Type__
+                </type>
+                <applianceArn>
+                    __ApplianceArn__
+                </applianceArn>
+                <vpcEndpointId>
+                    __VpcEndpointId__
+                </vpcEndpointId>
+                <attachmentState>
+                    __AttachmentState__
+                </attachmentState>
+                <modificationState>
+                    __ModificationState__
+                </modificationState>
+                <failureCode>
+                    __FailureCode__
+                </failureCode>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+            </item>
+            <item>
+                <type>
+                    __Type__
+                </type>
+                <applianceArn>
+                    __ApplianceArn__
+                </applianceArn>
+                <vpcEndpointId>
+                    __VpcEndpointId__
+                </vpcEndpointId>
+                <attachmentState>
+                    __AttachmentState__
+                </attachmentState>
+                <modificationState>
+                    __ModificationState__
+                </modificationState>
+                <failureCode>
+                    __FailureCode__
+                </failureCode>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+            </item>
+            <item>
+                <type>
+                    __Type__
+                </type>
+                <applianceArn>
+                    __ApplianceArn__
+                </applianceArn>
+                <vpcEndpointId>
+                    __VpcEndpointId__
+                </vpcEndpointId>
+                <attachmentState>
+                    __AttachmentState__
+                </attachmentState>
+                <modificationState>
+                    __ModificationState__
+                </modificationState>
+                <failureCode>
+                    __FailureCode__
+                </failureCode>
+                <failureMessage>
+                    __FailureMessage__
+                </failureMessage>
+            </item>
+        </attachedApplianceSet>
+        <routeTableId>
+            __RouteTableId__
+        </routeTableId>
+    </natGateway>
+</CreateNatGatewayResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ClientToken: "__ClientToken__",
+  NatGateway: {
+    CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    DeleteTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FailureCode: "__FailureCode__",
+    FailureMessage: "__FailureMessage__",
+    NatGatewayAddresses: [
+      {
+        AllocationId: "__AllocationId__",
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        PrivateIp: "__PrivateIp__",
+        PublicIp: "__PublicIp__",
+        AssociationId: "__AssociationId__",
+        IsPrimary: (boolean) false,
+        FailureMessage: "__FailureMessage__",
+        Status: "__Status__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      },
+      {
+        AllocationId: "__AllocationId__",
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        PrivateIp: "__PrivateIp__",
+        PublicIp: "__PublicIp__",
+        AssociationId: "__AssociationId__",
+        IsPrimary: (boolean) false,
+        FailureMessage: "__FailureMessage__",
+        Status: "__Status__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      },
+      {
+        AllocationId: "__AllocationId__",
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        PrivateIp: "__PrivateIp__",
+        PublicIp: "__PublicIp__",
+        AssociationId: "__AssociationId__",
+        IsPrimary: (boolean) false,
+        FailureMessage: "__FailureMessage__",
+        Status: "__Status__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      }
+    ],
+    NatGatewayId: "__NatGatewayId__",
+    ProvisionedBandwidth: {
+      ProvisionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Provisioned: "__Provisioned__",
+      RequestTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Requested: "__Requested__",
+      Status: "__Status__"
+    },
+    State: "__State__",
+    SubnetId: "__SubnetId__",
+    VpcId: "__VpcId__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    ConnectivityType: "__ConnectivityType__",
+    AvailabilityMode: "__AvailabilityMode__",
+    AutoScalingIps: "__AutoScalingIps__",
+    AutoProvisionZones: "__AutoProvisionZones__",
+    AttachedAppliances: [
+      {
+        Type: "__Type__",
+        ApplianceArn: "__ApplianceArn__",
+        VpcEndpointId: "__VpcEndpointId__",
+        AttachmentState: "__AttachmentState__",
+        ModificationState: "__ModificationState__",
+        FailureCode: "__FailureCode__",
+        FailureMessage: "__FailureMessage__"
+      },
+      {
+        Type: "__Type__",
+        ApplianceArn: "__ApplianceArn__",
+        VpcEndpointId: "__VpcEndpointId__",
+        AttachmentState: "__AttachmentState__",
+        ModificationState: "__ModificationState__",
+        FailureCode: "__FailureCode__",
+        FailureMessage: "__FailureMessage__"
+      },
+      {
+        Type: "__Type__",
+        ApplianceArn: "__ApplianceArn__",
+        VpcEndpointId: "__VpcEndpointId__",
+        AttachmentState: "__AttachmentState__",
+        ModificationState: "__ModificationState__",
+        FailureCode: "__FailureCode__",
+        FailureMessage: "__FailureMessage__"
+      }
+    ],
+    RouteTableId: "__RouteTableId__"
+  }
+}
+

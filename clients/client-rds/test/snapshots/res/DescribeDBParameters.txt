@@ -1,0 +1,179 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DBParameterGroupDetails xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DBParameterGroupDetails xmlns="https://placeholder.amazonaws.com">
+    <Parameters>
+        <Parameter>
+            <ParameterName>
+                __ParameterName__
+            </ParameterName>
+            <ParameterValue>
+                __ParameterValue__
+            </ParameterValue>
+            <Description>
+                __Description__
+            </Description>
+            <Source>
+                __Source__
+            </Source>
+            <ApplyType>
+                __ApplyType__
+            </ApplyType>
+            <DataType>
+                __DataType__
+            </DataType>
+            <AllowedValues>
+                __AllowedValues__
+            </AllowedValues>
+            <IsModifiable>
+                false
+            </IsModifiable>
+            <MinimumEngineVersion>
+                __MinimumEngineVersion__
+            </MinimumEngineVersion>
+            <ApplyMethod>
+                __ApplyMethod__
+            </ApplyMethod>
+            <SupportedEngineModes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </SupportedEngineModes>
+        </Parameter>
+        <Parameter>
+            <ParameterName>
+                __ParameterName__
+            </ParameterName>
+            <ParameterValue>
+                __ParameterValue__
+            </ParameterValue>
+            <Description>
+                __Description__
+            </Description>
+            <Source>
+                __Source__
+            </Source>
+            <ApplyType>
+                __ApplyType__
+            </ApplyType>
+            <DataType>
+                __DataType__
+            </DataType>
+            <AllowedValues>
+                __AllowedValues__
+            </AllowedValues>
+            <IsModifiable>
+                false
+            </IsModifiable>
+            <MinimumEngineVersion>
+                __MinimumEngineVersion__
+            </MinimumEngineVersion>
+            <ApplyMethod>
+                __ApplyMethod__
+            </ApplyMethod>
+            <SupportedEngineModes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </SupportedEngineModes>
+        </Parameter>
+        <Parameter>
+            <ParameterName>
+                __ParameterName__
+            </ParameterName>
+            <ParameterValue>
+                __ParameterValue__
+            </ParameterValue>
+            <Description>
+                __Description__
+            </Description>
+            <Source>
+                __Source__
+            </Source>
+            <ApplyType>
+                __ApplyType__
+            </ApplyType>
+            <DataType>
+                __DataType__
+            </DataType>
+            <AllowedValues>
+                __AllowedValues__
+            </AllowedValues>
+            <IsModifiable>
+                false
+            </IsModifiable>
+            <MinimumEngineVersion>
+                __MinimumEngineVersion__
+            </MinimumEngineVersion>
+            <ApplyMethod>
+                __ApplyMethod__
+            </ApplyMethod>
+            <SupportedEngineModes>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </SupportedEngineModes>
+        </Parameter>
+    </Parameters>
+    <Marker>
+        __Marker__
+    </Marker>
+</DBParameterGroupDetails>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

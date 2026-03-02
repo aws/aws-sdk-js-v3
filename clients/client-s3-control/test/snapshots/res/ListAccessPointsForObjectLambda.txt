@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessPointsForObjectLambdaResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessPointsForObjectLambdaResult xmlns="https://placeholder.amazonaws.com">
+    <ObjectLambdaAccessPointList>
+        <ObjectLambdaAccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <ObjectLambdaAccessPointArn>
+                __ObjectLambdaAccessPointArn__
+            </ObjectLambdaAccessPointArn>
+            <Alias>
+                <Value>
+                    __Value__
+                </Value>
+                <Status>
+                    __Status__
+                </Status>
+            </Alias>
+        </ObjectLambdaAccessPoint>
+        <ObjectLambdaAccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <ObjectLambdaAccessPointArn>
+                __ObjectLambdaAccessPointArn__
+            </ObjectLambdaAccessPointArn>
+            <Alias>
+                <Value>
+                    __Value__
+                </Value>
+                <Status>
+                    __Status__
+                </Status>
+            </Alias>
+        </ObjectLambdaAccessPoint>
+        <ObjectLambdaAccessPoint>
+            <Name>
+                __Name__
+            </Name>
+            <ObjectLambdaAccessPointArn>
+                __ObjectLambdaAccessPointArn__
+            </ObjectLambdaAccessPointArn>
+            <Alias>
+                <Value>
+                    __Value__
+                </Value>
+                <Status>
+                    __Status__
+                </Status>
+            </Alias>
+        </ObjectLambdaAccessPoint>
+    </ObjectLambdaAccessPointList>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListAccessPointsForObjectLambdaResult>
+
+
+--- [output object] ---
+{
+  ObjectLambdaAccessPointList: [
+    {
+      Name: "__Name__",
+      ObjectLambdaAccessPointArn: "__ObjectLambdaAccessPointArn__",
+      Alias: {
+        Value: "__Value__",
+        Status: "__Status__"
+      }
+    },
+    {
+      Name: "__Name__",
+      ObjectLambdaAccessPointArn: "__ObjectLambdaAccessPointArn__",
+      Alias: {
+        Value: "__Value__",
+        Status: "__Status__"
+      }
+    },
+    {
+      Name: "__Name__",
+      ObjectLambdaAccessPointArn: "__ObjectLambdaAccessPointArn__",
+      Alias: {
+        Value: "__Value__",
+        Status: "__Status__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

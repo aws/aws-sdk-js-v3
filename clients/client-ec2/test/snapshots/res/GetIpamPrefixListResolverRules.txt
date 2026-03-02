@@ -1,0 +1,485 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPrefixListResolverRulesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPrefixListResolverRulesResult xmlns="https://placeholder.amazonaws.com">
+    <ruleSet>
+        <item>
+            <ruleType>
+                __RuleType__
+            </ruleType>
+            <staticCidr>
+                __StaticCidr__
+            </staticCidr>
+            <ipamScopeId>
+                __IpamScopeId__
+            </ipamScopeId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <conditionSet>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </conditionSet>
+        </item>
+        <item>
+            <ruleType>
+                __RuleType__
+            </ruleType>
+            <staticCidr>
+                __StaticCidr__
+            </staticCidr>
+            <ipamScopeId>
+                __IpamScopeId__
+            </ipamScopeId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <conditionSet>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </conditionSet>
+        </item>
+        <item>
+            <ruleType>
+                __RuleType__
+            </ruleType>
+            <staticCidr>
+                __StaticCidr__
+            </staticCidr>
+            <ipamScopeId>
+                __IpamScopeId__
+            </ipamScopeId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <conditionSet>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <operation>
+                        __Operation__
+                    </operation>
+                    <ipamPoolId>
+                        __IpamPoolId__
+                    </ipamPoolId>
+                    <resourceId>
+                        __ResourceId__
+                    </resourceId>
+                    <resourceOwner>
+                        __ResourceOwner__
+                    </resourceOwner>
+                    <resourceRegion>
+                        __ResourceRegion__
+                    </resourceRegion>
+                    <resourceTag>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </resourceTag>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </conditionSet>
+        </item>
+    </ruleSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamPrefixListResolverRulesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Rules: [
+    {
+      RuleType: "__RuleType__",
+      StaticCidr: "__StaticCidr__",
+      IpamScopeId: "__IpamScopeId__",
+      ResourceType: "__ResourceType__",
+      Conditions: [
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        }
+      ]
+    },
+    {
+      RuleType: "__RuleType__",
+      StaticCidr: "__StaticCidr__",
+      IpamScopeId: "__IpamScopeId__",
+      ResourceType: "__ResourceType__",
+      Conditions: [
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        }
+      ]
+    },
+    {
+      RuleType: "__RuleType__",
+      StaticCidr: "__StaticCidr__",
+      IpamScopeId: "__IpamScopeId__",
+      ResourceType: "__ResourceType__",
+      Conditions: [
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        },
+        {
+          Operation: "__Operation__",
+          IpamPoolId: "__IpamPoolId__",
+          ResourceId: "__ResourceId__",
+          ResourceOwner: "__ResourceOwner__",
+          ResourceRegion: "__ResourceRegion__",
+          ResourceTag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          Cidr: "__Cidr__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

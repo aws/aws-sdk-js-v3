@@ -1,0 +1,122 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "requiredString": "__requiredString__",
+  "requiredBoolean": false,
+  "requiredList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "requiredTimestamp": 946702799.999,
+  "requiredBlob": "AQAAAQ==",
+  "requiredByte": 0,
+  "requiredShort": 0,
+  "requiredInteger": 0,
+  "requiredLong": 0,
+  "requiredFloat": 0,
+  "requiredDouble": 0,
+  "requiredMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  requiredString: "__requiredString__",
+  requiredBoolean: (boolean) false,
+  requiredList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  requiredTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  requiredBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  requiredByte: (number) 0,
+  requiredShort: (number) 0,
+  requiredInteger: (number) 0,
+  requiredLong: (number) 0,
+  requiredFloat: (number) 0,
+  requiredDouble: (number) 0,
+  requiredMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "requiredString": "__requiredString__",
+  "requiredBoolean": false,
+  "requiredList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "requiredTimestamp": 946702799.999,
+  "requiredBlob": "AQAAAQ==",
+  "requiredByte": 0,
+  "requiredShort": 0,
+  "requiredInteger": 0,
+  "requiredLong": 0,
+  "requiredFloat": 0,
+  "requiredDouble": 0,
+  "requiredMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  requiredString: "__requiredString__",
+  requiredBoolean: (boolean) false,
+  requiredList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  requiredTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  requiredBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  requiredByte: (number) 0,
+  requiredShort: (number) 0,
+  requiredInteger: (number) 0,
+  requiredLong: (number) 0,
+  requiredFloat: (number) 0,
+  requiredDouble: (number) 0,
+  requiredMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

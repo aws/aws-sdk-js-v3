@@ -1,0 +1,189 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Name": "__Name__",
+  "Type": "__Type__",
+  "Status": "__Status__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "ExecutionRoleArn": "__ExecutionRoleArn__",
+  "KmsKeyId": "__KmsKeyId__",
+  "BaseUrl": "__BaseUrl__",
+  "MaintenanceConfig": {
+    "MaintenanceWindowStart": "__MaintenanceWindowStart__"
+  },
+  "Tier": "__Tier__",
+  "Version": "__Version__",
+  "ApplicationConfig": {
+    "AdminUsers": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Arguments": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "AssignedGroupPatterns": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "RoleGroupAssignments": [
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        "RoleName": "__RoleName__",
+        "GroupPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  },
+  "AuthType": "__AuthType__",
+  "EnableIamSessionBasedIdentity": false,
+  "Error": {
+    "Code": "__Code__",
+    "Reason": "__Reason__"
+  },
+  "EnableAutoMinorVersionUpgrade": false,
+  "CurrentVersionEolDate": 946702799.999,
+  "AvailableUpgrade": {
+    "Version": "__Version__",
+    "ReleaseNotes": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Name: "__Name__",
+  Type: "__Type__",
+  Status: "__Status__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ExecutionRoleArn: "__ExecutionRoleArn__",
+  KmsKeyId: "__KmsKeyId__",
+  BaseUrl: "__BaseUrl__",
+  MaintenanceConfig: {
+    MaintenanceWindowStart: "__MaintenanceWindowStart__"
+  },
+  Tier: "__Tier__",
+  Version: "__Version__",
+  ApplicationConfig: {
+    AdminUsers: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Arguments: {
+      key1: "__value__",
+      key2: "__value__"
+    },
+    AssignedGroupPatterns: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    RoleGroupAssignments: [
+      {
+        RoleName: "__RoleName__",
+        GroupPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        RoleName: "__RoleName__",
+        GroupPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      {
+        RoleName: "__RoleName__",
+        GroupPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    ]
+  },
+  AuthType: "__AuthType__",
+  EnableIamSessionBasedIdentity: (boolean) false,
+  Error: {
+    Code: "__Code__",
+    Reason: "__Reason__"
+  },
+  EnableAutoMinorVersionUpgrade: (boolean) false,
+  CurrentVersionEolDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AvailableUpgrade: {
+    Version: "__Version__",
+    ReleaseNotes: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

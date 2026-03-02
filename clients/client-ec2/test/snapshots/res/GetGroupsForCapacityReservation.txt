@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetGroupsForCapacityReservationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetGroupsForCapacityReservationResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <capacityReservationGroupSet>
+        <item>
+            <groupArn>
+                __GroupArn__
+            </groupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+        </item>
+        <item>
+            <groupArn>
+                __GroupArn__
+            </groupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+        </item>
+        <item>
+            <groupArn>
+                __GroupArn__
+            </groupArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+        </item>
+    </capacityReservationGroupSet>
+</GetGroupsForCapacityReservationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  CapacityReservationGroups: [
+    {
+      GroupArn: "__GroupArn__",
+      OwnerId: "__OwnerId__"
+    },
+    {
+      GroupArn: "__GroupArn__",
+      OwnerId: "__OwnerId__"
+    },
+    {
+      GroupArn: "__GroupArn__",
+      OwnerId: "__OwnerId__"
+    }
+  ]
+}
+

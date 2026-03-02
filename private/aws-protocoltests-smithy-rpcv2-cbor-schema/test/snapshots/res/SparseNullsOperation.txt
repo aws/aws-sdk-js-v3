@@ -1,0 +1,73 @@
+======================== minimal response ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{}
+
+[actual bytes]
+160
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "sparseStringList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "sparseStringMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+[actual bytes]
+162, 112, 115, 112, 97, 114, 115, 101, 83, 116, 114, 105, 110, 103, 76, 105, 115, 116, 131, 106, 95, 95, 109, 101,
+109, 98, 101, 114, 95, 95, 106, 95, 95, 109, 101, 109, 98, 101, 114, 95, 95, 106, 95, 95, 109, 101, 109, 98,
+101, 114, 95, 95, 111, 115, 112, 97, 114, 115, 101, 83, 116, 114, 105, 110, 103, 77, 97, 112, 162, 100, 107, 101,
+121, 49, 105, 95, 95, 118, 97, 108, 117, 101, 95, 95, 100, 107, 101, 121, 50, 105, 95, 95, 118, 97, 108, 117,
+101, 95, 95
+
+
+--- [output object] ---
+{
+  sparseStringList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  sparseStringMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,138 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetBucketMetadataConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <MetadataConfigurationResult>
+        <DestinationResult>
+            <TableBucketType>
+                __TableBucketType__
+            </TableBucketType>
+            <TableBucketArn>
+                __TableBucketArn__
+            </TableBucketArn>
+            <TableNamespace>
+                __TableNamespace__
+            </TableNamespace>
+        </DestinationResult>
+        <JournalTableConfigurationResult>
+            <TableStatus>
+                __TableStatus__
+            </TableStatus>
+            <TableName>
+                __TableName__
+            </TableName>
+            <RecordExpiration>
+                <Expiration>
+                    __Expiration__
+                </Expiration>
+                <Days>
+                    0
+                </Days>
+            </RecordExpiration>
+            <Error>
+                <ErrorCode>
+                    __ErrorCode__
+                </ErrorCode>
+                <ErrorMessage>
+                    __ErrorMessage__
+                </ErrorMessage>
+            </Error>
+            <TableArn>
+                __TableArn__
+            </TableArn>
+        </JournalTableConfigurationResult>
+        <InventoryTableConfigurationResult>
+            <ConfigurationState>
+                __ConfigurationState__
+            </ConfigurationState>
+            <TableStatus>
+                __TableStatus__
+            </TableStatus>
+            <Error>
+                <ErrorCode>
+                    __ErrorCode__
+                </ErrorCode>
+                <ErrorMessage>
+                    __ErrorMessage__
+                </ErrorMessage>
+            </Error>
+            <TableName>
+                __TableName__
+            </TableName>
+            <TableArn>
+                __TableArn__
+            </TableArn>
+        </InventoryTableConfigurationResult>
+    </MetadataConfigurationResult>
+</GetBucketMetadataConfigurationResult>
+
+
+--- [output object] ---
+{
+  GetBucketMetadataConfigurationResult: {
+    MetadataConfigurationResult: {
+      DestinationResult: {
+        TableBucketType: "__TableBucketType__",
+        TableBucketArn: "__TableBucketArn__",
+        TableNamespace: "__TableNamespace__"
+      },
+      JournalTableConfigurationResult: {
+        TableStatus: "__TableStatus__",
+        TableName: "__TableName__",
+        RecordExpiration: {
+          Expiration: "__Expiration__",
+          Days: (number) 0
+        },
+        Error: {
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        },
+        TableArn: "__TableArn__"
+      },
+      InventoryTableConfigurationResult: {
+        ConfigurationState: "__ConfigurationState__",
+        TableStatus: "__TableStatus__",
+        Error: {
+          ErrorCode: "__ErrorCode__",
+          ErrorMessage: "__ErrorMessage__"
+        },
+        TableName: "__TableName__",
+        TableArn: "__TableArn__"
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

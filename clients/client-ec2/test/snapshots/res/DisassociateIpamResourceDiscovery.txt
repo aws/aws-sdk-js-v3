@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateIpamResourceDiscoveryResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateIpamResourceDiscoveryResult xmlns="https://placeholder.amazonaws.com">
+    <ipamResourceDiscoveryAssociation>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamResourceDiscoveryAssociationId>
+            __IpamResourceDiscoveryAssociationId__
+        </ipamResourceDiscoveryAssociationId>
+        <ipamResourceDiscoveryAssociationArn>
+            __IpamResourceDiscoveryAssociationArn__
+        </ipamResourceDiscoveryAssociationArn>
+        <ipamResourceDiscoveryId>
+            __IpamResourceDiscoveryId__
+        </ipamResourceDiscoveryId>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+        <ipamArn>
+            __IpamArn__
+        </ipamArn>
+        <ipamRegion>
+            __IpamRegion__
+        </ipamRegion>
+        <isDefault>
+            false
+        </isDefault>
+        <resourceDiscoveryStatus>
+            __ResourceDiscoveryStatus__
+        </resourceDiscoveryStatus>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </ipamResourceDiscoveryAssociation>
+</DisassociateIpamResourceDiscoveryResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamResourceDiscoveryAssociation: {
+    OwnerId: "__OwnerId__",
+    IpamResourceDiscoveryAssociationId: "__IpamResourceDiscoveryAssociationId__",
+    IpamResourceDiscoveryAssociationArn: "__IpamResourceDiscoveryAssociationArn__",
+    IpamResourceDiscoveryId: "__IpamResourceDiscoveryId__",
+    IpamId: "__IpamId__",
+    IpamArn: "__IpamArn__",
+    IpamRegion: "__IpamRegion__",
+    IsDefault: (boolean) false,
+    ResourceDiscoveryStatus: "__ResourceDiscoveryStatus__",
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

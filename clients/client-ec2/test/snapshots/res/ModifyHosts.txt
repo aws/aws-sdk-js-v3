@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyHostsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyHostsResult xmlns="https://placeholder.amazonaws.com">
+    <successful>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+    </successful>
+    <unsuccessful>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+        </item>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+        </item>
+        <item>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+        </item>
+    </unsuccessful>
+</ModifyHostsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Successful: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  Unsuccessful: [
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ResourceId: "__ResourceId__"
+    },
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ResourceId: "__ResourceId__"
+    },
+    {
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ResourceId: "__ResourceId__"
+    }
+  ]
+}
+

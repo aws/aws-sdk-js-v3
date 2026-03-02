@@ -1,0 +1,117 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateLocalGatewayRouteTableVpcAssociationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateLocalGatewayRouteTableVpcAssociationResult xmlns="https://placeholder.amazonaws.com">
+    <localGatewayRouteTableVpcAssociation>
+        <localGatewayRouteTableVpcAssociationId>
+            __LocalGatewayRouteTableVpcAssociationId__
+        </localGatewayRouteTableVpcAssociationId>
+        <localGatewayRouteTableId>
+            __LocalGatewayRouteTableId__
+        </localGatewayRouteTableId>
+        <localGatewayRouteTableArn>
+            __LocalGatewayRouteTableArn__
+        </localGatewayRouteTableArn>
+        <localGatewayId>
+            __LocalGatewayId__
+        </localGatewayId>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </localGatewayRouteTableVpcAssociation>
+</CreateLocalGatewayRouteTableVpcAssociationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  LocalGatewayRouteTableVpcAssociation: {
+    LocalGatewayRouteTableVpcAssociationId: "__LocalGatewayRouteTableVpcAssociationId__",
+    LocalGatewayRouteTableId: "__LocalGatewayRouteTableId__",
+    LocalGatewayRouteTableArn: "__LocalGatewayRouteTableArn__",
+    LocalGatewayId: "__LocalGatewayId__",
+    VpcId: "__VpcId__",
+    OwnerId: "__OwnerId__",
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

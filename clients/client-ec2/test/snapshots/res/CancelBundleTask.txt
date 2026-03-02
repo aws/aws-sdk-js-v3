@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CancelBundleTaskResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CancelBundleTaskResult xmlns="https://placeholder.amazonaws.com">
+    <bundleInstanceTask>
+        <instanceId>
+            __InstanceId__
+        </instanceId>
+        <bundleId>
+            __BundleId__
+        </bundleId>
+        <state>
+            __State__
+        </state>
+        <startTime>
+            2000-01-01T04:59:59.999Z
+        </startTime>
+        <updateTime>
+            2000-01-01T04:59:59.999Z
+        </updateTime>
+        <storage>
+            <S3>
+                <AWSAccessKeyId>
+                    __AWSAccessKeyId__
+                </AWSAccessKeyId>
+                <bucket>
+                    __Bucket__
+                </bucket>
+                <prefix>
+                    __Prefix__
+                </prefix>
+                <uploadPolicy>
+                    AQAAAQ==
+                </uploadPolicy>
+                <uploadPolicySignature>
+                    __UploadPolicySignature__
+                </uploadPolicySignature>
+            </S3>
+        </storage>
+        <progress>
+            __Progress__
+        </progress>
+        <error>
+            <code>
+                __Code__
+            </code>
+            <message>
+                __Message__
+            </message>
+        </error>
+    </bundleInstanceTask>
+</CancelBundleTaskResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  BundleTask: {
+    InstanceId: "__InstanceId__",
+    BundleId: "__BundleId__",
+    State: "__State__",
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    UpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Storage: {
+      S3: {
+        AWSAccessKeyId: "__AWSAccessKeyId__",
+        Bucket: "__Bucket__",
+        Prefix: "__Prefix__",
+        UploadPolicy: (Uint8Array) bytes[1, 0, 0, 1],
+        UploadPolicySignature: "__UploadPolicySignature__"
+      }
+    },
+    Progress: "__Progress__",
+    BundleTaskError: {
+      Code: "__Code__",
+      Message: "__Message__"
+    }
+  }
+}
+

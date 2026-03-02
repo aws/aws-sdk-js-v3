@@ -1,0 +1,93 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteEventSubscriptionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteEventSubscriptionResult xmlns="https://placeholder.amazonaws.com">
+    <EventSubscription>
+        <CustomerAwsId>
+            __CustomerAwsId__
+        </CustomerAwsId>
+        <CustSubscriptionId>
+            __CustSubscriptionId__
+        </CustSubscriptionId>
+        <SnsTopicArn>
+            __SnsTopicArn__
+        </SnsTopicArn>
+        <Status>
+            __Status__
+        </Status>
+        <SubscriptionCreationTime>
+            __SubscriptionCreationTime__
+        </SubscriptionCreationTime>
+        <SourceType>
+            __SourceType__
+        </SourceType>
+        <SourceIdsList>
+            <SourceId>
+                __member__
+            </SourceId>
+            <SourceId>
+                __member__
+            </SourceId>
+            <SourceId>
+                __member__
+            </SourceId>
+        </SourceIdsList>
+        <EventCategoriesList>
+            <EventCategory>
+                __member__
+            </EventCategory>
+            <EventCategory>
+                __member__
+            </EventCategory>
+            <EventCategory>
+                __member__
+            </EventCategory>
+        </EventCategoriesList>
+        <Enabled>
+            false
+        </Enabled>
+        <EventSubscriptionArn>
+            __EventSubscriptionArn__
+        </EventSubscriptionArn>
+    </EventSubscription>
+</DeleteEventSubscriptionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

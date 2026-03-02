@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateInstanceExportTaskResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateInstanceExportTaskResult xmlns="https://placeholder.amazonaws.com">
+    <exportTask>
+        <description>
+            __Description__
+        </description>
+        <exportTaskId>
+            __ExportTaskId__
+        </exportTaskId>
+        <exportToS3>
+            <containerFormat>
+                __ContainerFormat__
+            </containerFormat>
+            <diskImageFormat>
+                __DiskImageFormat__
+            </diskImageFormat>
+            <s3Bucket>
+                __S3Bucket__
+            </s3Bucket>
+            <s3Key>
+                __S3Key__
+            </s3Key>
+        </exportToS3>
+        <instanceExport>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <targetEnvironment>
+                __TargetEnvironment__
+            </targetEnvironment>
+        </instanceExport>
+        <state>
+            __State__
+        </state>
+        <statusMessage>
+            __StatusMessage__
+        </statusMessage>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </exportTask>
+</CreateInstanceExportTaskResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ExportTask: {
+    Description: "__Description__",
+    ExportTaskId: "__ExportTaskId__",
+    ExportToS3Task: {
+      ContainerFormat: "__ContainerFormat__",
+      DiskImageFormat: "__DiskImageFormat__",
+      S3Bucket: "__S3Bucket__",
+      S3Key: "__S3Key__"
+    },
+    InstanceExportDetails: {
+      InstanceId: "__InstanceId__",
+      TargetEnvironment: "__TargetEnvironment__"
+    },
+    State: "__State__",
+    StatusMessage: "__StatusMessage__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

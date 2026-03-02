@@ -1,0 +1,401 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupRulesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupRulesResult xmlns="https://placeholder.amazonaws.com">
+    <securityGroupRuleSet>
+        <item>
+            <securityGroupRuleId>
+                __SecurityGroupRuleId__
+            </securityGroupRuleId>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+            <isEgress>
+                false
+            </isEgress>
+            <ipProtocol>
+                __IpProtocol__
+            </ipProtocol>
+            <fromPort>
+                0
+            </fromPort>
+            <toPort>
+                0
+            </toPort>
+            <cidrIpv4>
+                __CidrIpv4__
+            </cidrIpv4>
+            <cidrIpv6>
+                __CidrIpv6__
+            </cidrIpv6>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <referencedGroupInfo>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <peeringStatus>
+                    __PeeringStatus__
+                </peeringStatus>
+                <userId>
+                    __UserId__
+                </userId>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcPeeringConnectionId>
+                    __VpcPeeringConnectionId__
+                </vpcPeeringConnectionId>
+            </referencedGroupInfo>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupRuleArn>
+                __SecurityGroupRuleArn__
+            </securityGroupRuleArn>
+        </item>
+        <item>
+            <securityGroupRuleId>
+                __SecurityGroupRuleId__
+            </securityGroupRuleId>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+            <isEgress>
+                false
+            </isEgress>
+            <ipProtocol>
+                __IpProtocol__
+            </ipProtocol>
+            <fromPort>
+                0
+            </fromPort>
+            <toPort>
+                0
+            </toPort>
+            <cidrIpv4>
+                __CidrIpv4__
+            </cidrIpv4>
+            <cidrIpv6>
+                __CidrIpv6__
+            </cidrIpv6>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <referencedGroupInfo>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <peeringStatus>
+                    __PeeringStatus__
+                </peeringStatus>
+                <userId>
+                    __UserId__
+                </userId>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcPeeringConnectionId>
+                    __VpcPeeringConnectionId__
+                </vpcPeeringConnectionId>
+            </referencedGroupInfo>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupRuleArn>
+                __SecurityGroupRuleArn__
+            </securityGroupRuleArn>
+        </item>
+        <item>
+            <securityGroupRuleId>
+                __SecurityGroupRuleId__
+            </securityGroupRuleId>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+            <isEgress>
+                false
+            </isEgress>
+            <ipProtocol>
+                __IpProtocol__
+            </ipProtocol>
+            <fromPort>
+                0
+            </fromPort>
+            <toPort>
+                0
+            </toPort>
+            <cidrIpv4>
+                __CidrIpv4__
+            </cidrIpv4>
+            <cidrIpv6>
+                __CidrIpv6__
+            </cidrIpv6>
+            <prefixListId>
+                __PrefixListId__
+            </prefixListId>
+            <referencedGroupInfo>
+                <groupId>
+                    __GroupId__
+                </groupId>
+                <peeringStatus>
+                    __PeeringStatus__
+                </peeringStatus>
+                <userId>
+                    __UserId__
+                </userId>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcPeeringConnectionId>
+                    __VpcPeeringConnectionId__
+                </vpcPeeringConnectionId>
+            </referencedGroupInfo>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupRuleArn>
+                __SecurityGroupRuleArn__
+            </securityGroupRuleArn>
+        </item>
+    </securityGroupRuleSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeSecurityGroupRulesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SecurityGroupRules: [
+    {
+      SecurityGroupRuleId: "__SecurityGroupRuleId__",
+      GroupId: "__GroupId__",
+      GroupOwnerId: "__GroupOwnerId__",
+      IsEgress: (boolean) false,
+      IpProtocol: "__IpProtocol__",
+      FromPort: (number) 0,
+      ToPort: (number) 0,
+      CidrIpv4: "__CidrIpv4__",
+      CidrIpv6: "__CidrIpv6__",
+      PrefixListId: "__PrefixListId__",
+      ReferencedGroupInfo: {
+        GroupId: "__GroupId__",
+        PeeringStatus: "__PeeringStatus__",
+        UserId: "__UserId__",
+        VpcId: "__VpcId__",
+        VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      },
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupRuleArn: "__SecurityGroupRuleArn__"
+    },
+    {
+      SecurityGroupRuleId: "__SecurityGroupRuleId__",
+      GroupId: "__GroupId__",
+      GroupOwnerId: "__GroupOwnerId__",
+      IsEgress: (boolean) false,
+      IpProtocol: "__IpProtocol__",
+      FromPort: (number) 0,
+      ToPort: (number) 0,
+      CidrIpv4: "__CidrIpv4__",
+      CidrIpv6: "__CidrIpv6__",
+      PrefixListId: "__PrefixListId__",
+      ReferencedGroupInfo: {
+        GroupId: "__GroupId__",
+        PeeringStatus: "__PeeringStatus__",
+        UserId: "__UserId__",
+        VpcId: "__VpcId__",
+        VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      },
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupRuleArn: "__SecurityGroupRuleArn__"
+    },
+    {
+      SecurityGroupRuleId: "__SecurityGroupRuleId__",
+      GroupId: "__GroupId__",
+      GroupOwnerId: "__GroupOwnerId__",
+      IsEgress: (boolean) false,
+      IpProtocol: "__IpProtocol__",
+      FromPort: (number) 0,
+      ToPort: (number) 0,
+      CidrIpv4: "__CidrIpv4__",
+      CidrIpv6: "__CidrIpv6__",
+      PrefixListId: "__PrefixListId__",
+      ReferencedGroupInfo: {
+        GroupId: "__GroupId__",
+        PeeringStatus: "__PeeringStatus__",
+        UserId: "__UserId__",
+        VpcId: "__VpcId__",
+        VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+      },
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupRuleArn: "__SecurityGroupRuleArn__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

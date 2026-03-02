@@ -1,0 +1,69 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssociateTransitGatewayPolicyTableResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AssociateTransitGatewayPolicyTableResult xmlns="https://placeholder.amazonaws.com">
+    <association>
+        <transitGatewayPolicyTableId>
+            __TransitGatewayPolicyTableId__
+        </transitGatewayPolicyTableId>
+        <transitGatewayAttachmentId>
+            __TransitGatewayAttachmentId__
+        </transitGatewayAttachmentId>
+        <resourceId>
+            __ResourceId__
+        </resourceId>
+        <resourceType>
+            __ResourceType__
+        </resourceType>
+        <state>
+            __State__
+        </state>
+    </association>
+</AssociateTransitGatewayPolicyTableResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Association: {
+    TransitGatewayPolicyTableId: "__TransitGatewayPolicyTableId__",
+    TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+    ResourceId: "__ResourceId__",
+    ResourceType: "__ResourceType__",
+    State: "__State__"
+  }
+}
+

@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyTransitGatewayResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyTransitGatewayResult xmlns="https://placeholder.amazonaws.com">
+    <transitGateway>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <transitGatewayArn>
+            __TransitGatewayArn__
+        </transitGatewayArn>
+        <state>
+            __State__
+        </state>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <description>
+            __Description__
+        </description>
+        <creationTime>
+            2000-01-01T04:59:59.999Z
+        </creationTime>
+        <options>
+            <amazonSideAsn>
+                0
+            </amazonSideAsn>
+            <transitGatewayCidrBlocks>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </transitGatewayCidrBlocks>
+            <autoAcceptSharedAttachments>
+                __AutoAcceptSharedAttachments__
+            </autoAcceptSharedAttachments>
+            <defaultRouteTableAssociation>
+                __DefaultRouteTableAssociation__
+            </defaultRouteTableAssociation>
+            <associationDefaultRouteTableId>
+                __AssociationDefaultRouteTableId__
+            </associationDefaultRouteTableId>
+            <defaultRouteTablePropagation>
+                __DefaultRouteTablePropagation__
+            </defaultRouteTablePropagation>
+            <propagationDefaultRouteTableId>
+                __PropagationDefaultRouteTableId__
+            </propagationDefaultRouteTableId>
+            <vpnEcmpSupport>
+                __VpnEcmpSupport__
+            </vpnEcmpSupport>
+            <dnsSupport>
+                __DnsSupport__
+            </dnsSupport>
+            <securityGroupReferencingSupport>
+                __SecurityGroupReferencingSupport__
+            </securityGroupReferencingSupport>
+            <multicastSupport>
+                __MulticastSupport__
+            </multicastSupport>
+            <encryptionSupport>
+                <encryptionState>
+                    __EncryptionState__
+                </encryptionState>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </encryptionSupport>
+        </options>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </transitGateway>
+</ModifyTransitGatewayResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGateway: {
+    TransitGatewayId: "__TransitGatewayId__",
+    TransitGatewayArn: "__TransitGatewayArn__",
+    State: "__State__",
+    OwnerId: "__OwnerId__",
+    Description: "__Description__",
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Options: {
+      AmazonSideAsn: (number) 0,
+      TransitGatewayCidrBlocks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AutoAcceptSharedAttachments: "__AutoAcceptSharedAttachments__",
+      DefaultRouteTableAssociation: "__DefaultRouteTableAssociation__",
+      AssociationDefaultRouteTableId: "__AssociationDefaultRouteTableId__",
+      DefaultRouteTablePropagation: "__DefaultRouteTablePropagation__",
+      PropagationDefaultRouteTableId: "__PropagationDefaultRouteTableId__",
+      VpnEcmpSupport: "__VpnEcmpSupport__",
+      DnsSupport: "__DnsSupport__",
+      SecurityGroupReferencingSupport: "__SecurityGroupReferencingSupport__",
+      MulticastSupport: "__MulticastSupport__",
+      EncryptionSupport: {
+        EncryptionState: "__EncryptionState__",
+        StateMessage: "__StateMessage__"
+      }
+    },
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

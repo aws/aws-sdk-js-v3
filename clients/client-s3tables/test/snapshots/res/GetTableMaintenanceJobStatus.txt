@@ -1,0 +1,98 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "tableARN": "__tableARN__",
+  "status": {
+    "key1": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
+    },
+    "key2": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  tableARN: "__tableARN__",
+  status: {
+    key1: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    },
+    key2: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "tableARN": "__tableARN__",
+  "status": {
+    "key1": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
+    },
+    "key2": {
+      "status": "__status__",
+      "lastRunTimestamp": "2000-01-01T04:59:59.999Z",
+      "failureMessage": "__failureMessage__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  tableARN: "__tableARN__",
+  status: {
+    key1: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    },
+    key2: {
+      status: "__status__",
+      lastRunTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      failureMessage: "__failureMessage__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

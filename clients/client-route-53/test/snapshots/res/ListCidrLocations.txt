@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListCidrLocationsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListCidrLocationsResponse xmlns="https://placeholder.amazonaws.com">
+    <NextToken>
+        __NextToken__
+    </NextToken>
+    <CidrLocations>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+        </member>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+        </member>
+        <member>
+            <LocationName>
+                __LocationName__
+            </LocationName>
+        </member>
+    </CidrLocations>
+</ListCidrLocationsResponse>
+
+
+--- [output object] ---
+{
+  NextToken: "__NextToken__",
+  CidrLocations: [
+    {
+      LocationName: "__LocationName__"
+    },
+    {
+      LocationName: "__LocationName__"
+    },
+    {
+      LocationName: "__LocationName__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

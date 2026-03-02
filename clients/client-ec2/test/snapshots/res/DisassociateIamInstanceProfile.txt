@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateIamInstanceProfileResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateIamInstanceProfileResult xmlns="https://placeholder.amazonaws.com">
+    <iamInstanceProfileAssociation>
+        <associationId>
+            __AssociationId__
+        </associationId>
+        <instanceId>
+            __InstanceId__
+        </instanceId>
+        <iamInstanceProfile>
+            <arn>
+                __Arn__
+            </arn>
+            <id>
+                __Id__
+            </id>
+        </iamInstanceProfile>
+        <state>
+            __State__
+        </state>
+        <timestamp>
+            2000-01-01T04:59:59.999Z
+        </timestamp>
+    </iamInstanceProfileAssociation>
+</DisassociateIamInstanceProfileResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IamInstanceProfileAssociation: {
+    AssociationId: "__AssociationId__",
+    InstanceId: "__InstanceId__",
+    IamInstanceProfile: {
+      Arn: "__Arn__",
+      Id: "__Id__"
+    },
+    State: "__State__",
+    Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  }
+}
+

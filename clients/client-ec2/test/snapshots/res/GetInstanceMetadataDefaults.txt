@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetInstanceMetadataDefaultsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetInstanceMetadataDefaultsResult xmlns="https://placeholder.amazonaws.com">
+    <accountLevel>
+        <httpTokens>
+            __HttpTokens__
+        </httpTokens>
+        <httpPutResponseHopLimit>
+            0
+        </httpPutResponseHopLimit>
+        <httpEndpoint>
+            __HttpEndpoint__
+        </httpEndpoint>
+        <instanceMetadataTags>
+            __InstanceMetadataTags__
+        </instanceMetadataTags>
+        <managedBy>
+            __ManagedBy__
+        </managedBy>
+        <managedExceptionMessage>
+            __ManagedExceptionMessage__
+        </managedExceptionMessage>
+        <httpTokensEnforced>
+            __HttpTokensEnforced__
+        </httpTokensEnforced>
+    </accountLevel>
+</GetInstanceMetadataDefaultsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AccountLevel: {
+    HttpTokens: "__HttpTokens__",
+    HttpPutResponseHopLimit: (number) 0,
+    HttpEndpoint: "__HttpEndpoint__",
+    InstanceMetadataTags: "__InstanceMetadataTags__",
+    ManagedBy: "__ManagedBy__",
+    ManagedExceptionMessage: "__ManagedExceptionMessage__",
+    HttpTokensEnforced: "__HttpTokensEnforced__"
+  }
+}
+

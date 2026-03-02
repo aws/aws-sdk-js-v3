@@ -1,0 +1,262 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DeviceFleetArn": "__DeviceFleetArn__",
+  "DeviceFleetName": "__DeviceFleetName__",
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "KmsKeyId": "__KmsKeyId__",
+    "PresetDeploymentType": "__PresetDeploymentType__",
+    "PresetDeploymentConfig": "__PresetDeploymentConfig__"
+  },
+  "Description": "__Description__",
+  "ReportGenerated": 946702799.999,
+  "DeviceStats": {
+    "ConnectedDeviceCount": 0,
+    "RegisteredDeviceCount": 0
+  },
+  "AgentVersions": [
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    },
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    },
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    }
+  ],
+  "ModelStats": [
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    },
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    },
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  DeviceFleetArn: "__DeviceFleetArn__",
+  DeviceFleetName: "__DeviceFleetName__",
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    KmsKeyId: "__KmsKeyId__",
+    PresetDeploymentType: "__PresetDeploymentType__",
+    PresetDeploymentConfig: "__PresetDeploymentConfig__"
+  },
+  Description: "__Description__",
+  ReportGenerated: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  DeviceStats: {
+    ConnectedDeviceCount: (number) 0,
+    RegisteredDeviceCount: (number) 0
+  },
+  AgentVersions: [
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    },
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    },
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    }
+  ],
+  ModelStats: [
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    },
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    },
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DeviceFleetArn": "__DeviceFleetArn__",
+  "DeviceFleetName": "__DeviceFleetName__",
+  "OutputConfig": {
+    "S3OutputLocation": "__S3OutputLocation__",
+    "KmsKeyId": "__KmsKeyId__",
+    "PresetDeploymentType": "__PresetDeploymentType__",
+    "PresetDeploymentConfig": "__PresetDeploymentConfig__"
+  },
+  "Description": "__Description__",
+  "ReportGenerated": 946702799.999,
+  "DeviceStats": {
+    "ConnectedDeviceCount": 0,
+    "RegisteredDeviceCount": 0
+  },
+  "AgentVersions": [
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    },
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    },
+    {
+      "Version": "__Version__",
+      "AgentCount": 0
+    }
+  ],
+  "ModelStats": [
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    },
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    },
+    {
+      "ModelName": "__ModelName__",
+      "ModelVersion": "__ModelVersion__",
+      "OfflineDeviceCount": 0,
+      "ConnectedDeviceCount": 0,
+      "ActiveDeviceCount": 0,
+      "SamplingDeviceCount": 0
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  DeviceFleetArn: "__DeviceFleetArn__",
+  DeviceFleetName: "__DeviceFleetName__",
+  OutputConfig: {
+    S3OutputLocation: "__S3OutputLocation__",
+    KmsKeyId: "__KmsKeyId__",
+    PresetDeploymentType: "__PresetDeploymentType__",
+    PresetDeploymentConfig: "__PresetDeploymentConfig__"
+  },
+  Description: "__Description__",
+  ReportGenerated: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  DeviceStats: {
+    ConnectedDeviceCount: (number) 0,
+    RegisteredDeviceCount: (number) 0
+  },
+  AgentVersions: [
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    },
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    },
+    {
+      Version: "__Version__",
+      AgentCount: (number) 0
+    }
+  ],
+  ModelStats: [
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    },
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    },
+    {
+      ModelName: "__ModelName__",
+      ModelVersion: "__ModelVersion__",
+      OfflineDeviceCount: (number) 0,
+      ConnectedDeviceCount: (number) 0,
+      ActiveDeviceCount: (number) 0,
+      SamplingDeviceCount: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

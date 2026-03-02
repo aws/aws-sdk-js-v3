@@ -1,0 +1,864 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AutoMLJobName": "__AutoMLJobName__",
+  "AutoMLJobArn": "__AutoMLJobArn__",
+  "AutoMLJobInputDataConfig": [
+    {},
+    {},
+    {}
+  ],
+  "OutputDataConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "RoleArn": "__RoleArn__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "AutoMLJobStatus": "__AutoMLJobStatus__",
+  "AutoMLJobSecondaryStatus": "__AutoMLJobSecondaryStatus__",
+  "AutoMLJobObjective": {
+    "MetricName": "__MetricName__"
+  },
+  "AutoMLProblemTypeConfig": {},
+  "AutoMLProblemTypeConfigName": "__AutoMLProblemTypeConfigName__",
+  "EndTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "PartialFailureReasons": [
+    {},
+    {},
+    {}
+  ],
+  "BestCandidate": {
+    "CandidateName": "__CandidateName__",
+    "ObjectiveStatus": "__ObjectiveStatus__",
+    "CandidateSteps": [
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      },
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      },
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      }
+    ],
+    "CandidateStatus": "__CandidateStatus__",
+    "CreationTime": 946702799.999,
+    "LastModifiedTime": 946702799.999,
+    "FinalAutoMLJobObjectiveMetric": {
+      "MetricName": "__MetricName__",
+      "Value": 0,
+      "Type": "__Type__",
+      "StandardMetricName": "__StandardMetricName__"
+    },
+    "InferenceContainers": [
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    ],
+    "EndTime": 946702799.999,
+    "FailureReason": "__FailureReason__",
+    "CandidateProperties": {},
+    "InferenceContainerDefinitions": {
+      "key1": [
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      ],
+      "key2": [
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      ]
+    }
+  },
+  "AutoMLJobArtifacts": {},
+  "ResolvedAttributes": {},
+  "ModelDeployConfig": {},
+  "ModelDeployResult": {},
+  "DataSplitConfig": {},
+  "SecurityConfig": {},
+  "AutoMLComputeConfig": {}
+}
+
+
+--- [output object] ---
+{
+  AutoMLJobName: "__AutoMLJobName__",
+  AutoMLJobArn: "__AutoMLJobArn__",
+  AutoMLJobInputDataConfig: [
+    {},
+    {},
+    {}
+  ],
+  OutputDataConfig: {
+    S3OutputPath: "__S3OutputPath__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  RoleArn: "__RoleArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AutoMLJobStatus: "__AutoMLJobStatus__",
+  AutoMLJobSecondaryStatus: "__AutoMLJobSecondaryStatus__",
+  AutoMLJobObjective: {
+    MetricName: "__MetricName__"
+  },
+  AutoMLProblemTypeConfig: {},
+  AutoMLProblemTypeConfigName: "__AutoMLProblemTypeConfigName__",
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  PartialFailureReasons: [
+    {},
+    {},
+    {}
+  ],
+  BestCandidate: {
+    CandidateName: "__CandidateName__",
+    ObjectiveStatus: "__ObjectiveStatus__",
+    CandidateSteps: [
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      },
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      },
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      }
+    ],
+    CandidateStatus: "__CandidateStatus__",
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FinalAutoMLJobObjectiveMetric: {
+      MetricName: "__MetricName__",
+      Value: (number) 0,
+      Type: "__Type__",
+      StandardMetricName: "__StandardMetricName__"
+    },
+    InferenceContainers: [
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      }
+    ],
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FailureReason: "__FailureReason__",
+    CandidateProperties: {},
+    InferenceContainerDefinitions: {
+      key1: [
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        }
+      ],
+      key2: [
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        }
+      ]
+    }
+  },
+  AutoMLJobArtifacts: {},
+  ResolvedAttributes: {},
+  ModelDeployConfig: {},
+  ModelDeployResult: {},
+  DataSplitConfig: {},
+  SecurityConfig: {},
+  AutoMLComputeConfig: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AutoMLJobName": "__AutoMLJobName__",
+  "AutoMLJobArn": "__AutoMLJobArn__",
+  "AutoMLJobInputDataConfig": [
+    {
+      "ChannelType": "__ChannelType__",
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__"
+        }
+      }
+    },
+    {
+      "ChannelType": "__ChannelType__",
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__"
+        }
+      }
+    },
+    {
+      "ChannelType": "__ChannelType__",
+      "ContentType": "__ContentType__",
+      "CompressionType": "__CompressionType__",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "__S3DataType__",
+          "S3Uri": "__S3Uri__"
+        }
+      }
+    }
+  ],
+  "OutputDataConfig": {
+    "S3OutputPath": "__S3OutputPath__",
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "RoleArn": "__RoleArn__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "AutoMLJobStatus": "__AutoMLJobStatus__",
+  "AutoMLJobSecondaryStatus": "__AutoMLJobSecondaryStatus__",
+  "AutoMLJobObjective": {
+    "MetricName": "__MetricName__"
+  },
+  "AutoMLProblemTypeConfig": {
+    "ImageClassificationJobConfig": {
+      "CompletionCriteria": {
+        "MaxCandidates": 0,
+        "MaxRuntimePerTrainingJobInSeconds": 0,
+        "MaxAutoMLJobRuntimeInSeconds": 0
+      }
+    }
+  },
+  "AutoMLProblemTypeConfigName": "__AutoMLProblemTypeConfigName__",
+  "EndTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "PartialFailureReasons": [
+    {
+      "PartialFailureMessage": "__PartialFailureMessage__"
+    },
+    {
+      "PartialFailureMessage": "__PartialFailureMessage__"
+    },
+    {
+      "PartialFailureMessage": "__PartialFailureMessage__"
+    }
+  ],
+  "BestCandidate": {
+    "CandidateName": "__CandidateName__",
+    "ObjectiveStatus": "__ObjectiveStatus__",
+    "CandidateSteps": [
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      },
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      },
+      {
+        "CandidateStepType": "__CandidateStepType__",
+        "CandidateStepArn": "__CandidateStepArn__",
+        "CandidateStepName": "__CandidateStepName__"
+      }
+    ],
+    "CandidateStatus": "__CandidateStatus__",
+    "CreationTime": 946702799.999,
+    "LastModifiedTime": 946702799.999,
+    "FinalAutoMLJobObjectiveMetric": {
+      "MetricName": "__MetricName__",
+      "Value": 0,
+      "Type": "__Type__",
+      "StandardMetricName": "__StandardMetricName__"
+    },
+    "InferenceContainers": [
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "Image": "__Image__",
+        "ModelDataUrl": "__ModelDataUrl__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    ],
+    "EndTime": 946702799.999,
+    "FailureReason": "__FailureReason__",
+    "CandidateProperties": {
+      "CandidateArtifactLocations": {
+        "Explainability": "__Explainability__",
+        "ModelInsights": "__ModelInsights__",
+        "BacktestResults": "__BacktestResults__"
+      },
+      "CandidateMetrics": [
+        {
+          "MetricName": "__MetricName__",
+          "StandardMetricName": "__StandardMetricName__",
+          "Value": 0,
+          "Set": "__Set__"
+        },
+        {
+          "MetricName": "__MetricName__",
+          "StandardMetricName": "__StandardMetricName__",
+          "Value": 0,
+          "Set": "__Set__"
+        },
+        {
+          "MetricName": "__MetricName__",
+          "StandardMetricName": "__StandardMetricName__",
+          "Value": 0,
+          "Set": "__Set__"
+        }
+      ]
+    },
+    "InferenceContainerDefinitions": {
+      "key1": [
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      ],
+      "key2": [
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        {
+          "Image": "__Image__",
+          "ModelDataUrl": "__ModelDataUrl__",
+          "Environment": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        }
+      ]
+    }
+  },
+  "AutoMLJobArtifacts": {
+    "CandidateDefinitionNotebookLocation": "__CandidateDefinitionNotebookLocation__",
+    "DataExplorationNotebookLocation": "__DataExplorationNotebookLocation__"
+  },
+  "ResolvedAttributes": {
+    "AutoMLJobObjective": {
+      "MetricName": "__MetricName__"
+    },
+    "CompletionCriteria": {
+      "MaxCandidates": 0,
+      "MaxRuntimePerTrainingJobInSeconds": 0,
+      "MaxAutoMLJobRuntimeInSeconds": 0
+    },
+    "AutoMLProblemTypeResolvedAttributes": {
+      "TextGenerationResolvedAttributes": {
+        "BaseModelName": "__BaseModelName__"
+      }
+    }
+  },
+  "ModelDeployConfig": {
+    "AutoGenerateEndpointName": false,
+    "EndpointName": "__EndpointName__"
+  },
+  "ModelDeployResult": {
+    "EndpointName": "__EndpointName__"
+  },
+  "DataSplitConfig": {
+    "ValidationFraction": 0
+  },
+  "SecurityConfig": {
+    "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+    "EnableInterContainerTrafficEncryption": false,
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "AutoMLComputeConfig": {
+    "EmrServerlessComputeConfig": {
+      "ExecutionRoleARN": "__ExecutionRoleARN__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  AutoMLJobName: "__AutoMLJobName__",
+  AutoMLJobArn: "__AutoMLJobArn__",
+  AutoMLJobInputDataConfig: [
+    {
+      ChannelType: "__ChannelType__",
+      ContentType: "__ContentType__",
+      CompressionType: "__CompressionType__",
+      DataSource: {
+        S3DataSource: {
+          S3DataType: "__S3DataType__",
+          S3Uri: "__S3Uri__"
+        }
+      }
+    },
+    {
+      ChannelType: "__ChannelType__",
+      ContentType: "__ContentType__",
+      CompressionType: "__CompressionType__",
+      DataSource: {
+        S3DataSource: {
+          S3DataType: "__S3DataType__",
+          S3Uri: "__S3Uri__"
+        }
+      }
+    },
+    {
+      ChannelType: "__ChannelType__",
+      ContentType: "__ContentType__",
+      CompressionType: "__CompressionType__",
+      DataSource: {
+        S3DataSource: {
+          S3DataType: "__S3DataType__",
+          S3Uri: "__S3Uri__"
+        }
+      }
+    }
+  ],
+  OutputDataConfig: {
+    S3OutputPath: "__S3OutputPath__",
+    KmsKeyId: "__KmsKeyId__"
+  },
+  RoleArn: "__RoleArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AutoMLJobStatus: "__AutoMLJobStatus__",
+  AutoMLJobSecondaryStatus: "__AutoMLJobSecondaryStatus__",
+  AutoMLJobObjective: {
+    MetricName: "__MetricName__"
+  },
+  AutoMLProblemTypeConfig: {
+    ImageClassificationJobConfig: {
+      CompletionCriteria: {
+        MaxCandidates: (number) 0,
+        MaxRuntimePerTrainingJobInSeconds: (number) 0,
+        MaxAutoMLJobRuntimeInSeconds: (number) 0
+      }
+    }
+  },
+  AutoMLProblemTypeConfigName: "__AutoMLProblemTypeConfigName__",
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  PartialFailureReasons: [
+    {
+      PartialFailureMessage: "__PartialFailureMessage__"
+    },
+    {
+      PartialFailureMessage: "__PartialFailureMessage__"
+    },
+    {
+      PartialFailureMessage: "__PartialFailureMessage__"
+    }
+  ],
+  BestCandidate: {
+    CandidateName: "__CandidateName__",
+    ObjectiveStatus: "__ObjectiveStatus__",
+    CandidateSteps: [
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      },
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      },
+      {
+        CandidateStepType: "__CandidateStepType__",
+        CandidateStepArn: "__CandidateStepArn__",
+        CandidateStepName: "__CandidateStepName__"
+      }
+    ],
+    CandidateStatus: "__CandidateStatus__",
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FinalAutoMLJobObjectiveMetric: {
+      MetricName: "__MetricName__",
+      Value: (number) 0,
+      Type: "__Type__",
+      StandardMetricName: "__StandardMetricName__"
+    },
+    InferenceContainers: [
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        Image: "__Image__",
+        ModelDataUrl: "__ModelDataUrl__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      }
+    ],
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    FailureReason: "__FailureReason__",
+    CandidateProperties: {
+      CandidateArtifactLocations: {
+        Explainability: "__Explainability__",
+        ModelInsights: "__ModelInsights__",
+        BacktestResults: "__BacktestResults__"
+      },
+      CandidateMetrics: [
+        {
+          MetricName: "__MetricName__",
+          StandardMetricName: "__StandardMetricName__",
+          Value: (number) 0,
+          Set: "__Set__"
+        },
+        {
+          MetricName: "__MetricName__",
+          StandardMetricName: "__StandardMetricName__",
+          Value: (number) 0,
+          Set: "__Set__"
+        },
+        {
+          MetricName: "__MetricName__",
+          StandardMetricName: "__StandardMetricName__",
+          Value: (number) 0,
+          Set: "__Set__"
+        }
+      ]
+    },
+    InferenceContainerDefinitions: {
+      key1: [
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        }
+      ],
+      key2: [
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        {
+          Image: "__Image__",
+          ModelDataUrl: "__ModelDataUrl__",
+          Environment: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        }
+      ]
+    }
+  },
+  AutoMLJobArtifacts: {
+    CandidateDefinitionNotebookLocation: "__CandidateDefinitionNotebookLocation__",
+    DataExplorationNotebookLocation: "__DataExplorationNotebookLocation__"
+  },
+  ResolvedAttributes: {
+    AutoMLJobObjective: {
+      MetricName: "__MetricName__"
+    },
+    CompletionCriteria: {
+      MaxCandidates: (number) 0,
+      MaxRuntimePerTrainingJobInSeconds: (number) 0,
+      MaxAutoMLJobRuntimeInSeconds: (number) 0
+    },
+    AutoMLProblemTypeResolvedAttributes: {
+      TextGenerationResolvedAttributes: {
+        BaseModelName: "__BaseModelName__"
+      }
+    }
+  },
+  ModelDeployConfig: {
+    AutoGenerateEndpointName: (boolean) false,
+    EndpointName: "__EndpointName__"
+  },
+  ModelDeployResult: {
+    EndpointName: "__EndpointName__"
+  },
+  DataSplitConfig: {
+    ValidationFraction: (number) 0
+  },
+  SecurityConfig: {
+    VolumeKmsKeyId: "__VolumeKmsKeyId__",
+    EnableInterContainerTrafficEncryption: (boolean) false,
+    VpcConfig: {
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  AutoMLComputeConfig: {
+    EmrServerlessComputeConfig: {
+      ExecutionRoleARN: "__ExecutionRoleARN__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

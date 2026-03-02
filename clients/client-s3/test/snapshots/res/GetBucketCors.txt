@@ -1,0 +1,251 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CORSConfiguration xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CORSConfiguration xmlns="https://placeholder.amazonaws.com">
+    <CORSRule>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <ID>
+            __ID__
+        </ID>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <MaxAgeSeconds>
+            0
+        </MaxAgeSeconds>
+    </CORSRule>
+    <CORSRule>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <ID>
+            __ID__
+        </ID>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <MaxAgeSeconds>
+            0
+        </MaxAgeSeconds>
+    </CORSRule>
+    <CORSRule>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedMethod>
+            __member__
+        </AllowedMethod>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <AllowedOrigin>
+            __member__
+        </AllowedOrigin>
+        <ID>
+            __ID__
+        </ID>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <AllowedHeader>
+            __member__
+        </AllowedHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <ExposeHeader>
+            __member__
+        </ExposeHeader>
+        <MaxAgeSeconds>
+            0
+        </MaxAgeSeconds>
+    </CORSRule>
+</CORSConfiguration>
+
+
+--- [output object] ---
+{
+  CORSRules: [
+    {
+      AllowedMethods: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AllowedOrigins: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ID: "__ID__",
+      AllowedHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ExposeHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MaxAgeSeconds: (number) 0
+    },
+    {
+      AllowedMethods: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AllowedOrigins: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ID: "__ID__",
+      AllowedHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ExposeHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MaxAgeSeconds: (number) 0
+    },
+    {
+      AllowedMethods: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AllowedOrigins: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ID: "__ID__",
+      AllowedHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ExposeHeaders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MaxAgeSeconds: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

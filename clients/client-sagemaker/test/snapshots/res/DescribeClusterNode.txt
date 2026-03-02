@@ -1,0 +1,266 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "NodeDetails": {}
+}
+
+
+--- [output object] ---
+{
+  NodeDetails: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "NodeDetails": {
+    "InstanceGroupName": "__InstanceGroupName__",
+    "InstanceId": "__InstanceId__",
+    "NodeLogicalId": "__NodeLogicalId__",
+    "InstanceStatus": {
+      "Status": "__Status__",
+      "Message": "__Message__"
+    },
+    "InstanceType": "__InstanceType__",
+    "LaunchTime": 946702799.999,
+    "LastSoftwareUpdateTime": 946702799.999,
+    "LifeCycleConfig": {
+      "SourceS3Uri": "__SourceS3Uri__",
+      "OnCreate": "__OnCreate__"
+    },
+    "OverrideVpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "ThreadsPerCore": 0,
+    "InstanceStorageConfigs": [
+      {
+        "EbsVolumeConfig": {
+          "VolumeSizeInGB": 0,
+          "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+          "RootVolume": false
+        }
+      },
+      {
+        "FsxLustreConfig": {
+          "DnsName": "__DnsName__",
+          "MountName": "__MountName__",
+          "MountPath": "__MountPath__"
+        }
+      },
+      {
+        "FsxOpenZfsConfig": {
+          "DnsName": "__DnsName__",
+          "MountPath": "__MountPath__"
+        }
+      }
+    ],
+    "PrivatePrimaryIp": "__PrivatePrimaryIp__",
+    "PrivatePrimaryIpv6": "__PrivatePrimaryIpv6__",
+    "PrivateDnsHostname": "__PrivateDnsHostname__",
+    "Placement": {
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__"
+    },
+    "CurrentImageId": "__CurrentImageId__",
+    "DesiredImageId": "__DesiredImageId__",
+    "UltraServerInfo": {
+      "Id": "__Id__",
+      "Type": "__Type__"
+    },
+    "KubernetesConfig": {
+      "CurrentLabels": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "DesiredLabels": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "CurrentTaints": [
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        },
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        },
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        }
+      ],
+      "DesiredTaints": [
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        },
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        },
+        {
+          "Key": "__Key__",
+          "Effect": "__Effect__",
+          "Value": "__Value__"
+        }
+      ]
+    },
+    "CapacityType": "__CapacityType__"
+  }
+}
+
+
+--- [output object] ---
+{
+  NodeDetails: {
+    InstanceGroupName: "__InstanceGroupName__",
+    InstanceId: "__InstanceId__",
+    NodeLogicalId: "__NodeLogicalId__",
+    InstanceStatus: {
+      Status: "__Status__",
+      Message: "__Message__"
+    },
+    InstanceType: "__InstanceType__",
+    LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LifeCycleConfig: {
+      SourceS3Uri: "__SourceS3Uri__",
+      OnCreate: "__OnCreate__"
+    },
+    OverrideVpcConfig: {
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    ThreadsPerCore: (number) 0,
+    InstanceStorageConfigs: [
+      {
+        EbsVolumeConfig: {
+          VolumeSizeInGB: (number) 0,
+          VolumeKmsKeyId: "__VolumeKmsKeyId__",
+          RootVolume: (boolean) false
+        }
+      },
+      {
+        FsxLustreConfig: {
+          DnsName: "__DnsName__",
+          MountName: "__MountName__",
+          MountPath: "__MountPath__"
+        }
+      },
+      {
+        FsxOpenZfsConfig: {
+          DnsName: "__DnsName__",
+          MountPath: "__MountPath__"
+        }
+      }
+    ],
+    PrivatePrimaryIp: "__PrivatePrimaryIp__",
+    PrivatePrimaryIpv6: "__PrivatePrimaryIpv6__",
+    PrivateDnsHostname: "__PrivateDnsHostname__",
+    Placement: {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__"
+    },
+    CurrentImageId: "__CurrentImageId__",
+    DesiredImageId: "__DesiredImageId__",
+    UltraServerInfo: {
+      Id: "__Id__",
+      Type: "__Type__"
+    },
+    KubernetesConfig: {
+      CurrentLabels: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      DesiredLabels: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      CurrentTaints: [
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        }
+      ],
+      DesiredTaints: [
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Effect: "__Effect__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    CapacityType: "__CapacityType__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

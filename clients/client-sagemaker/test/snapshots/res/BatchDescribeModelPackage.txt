@@ -1,0 +1,757 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelPackageSummaries": {
+    "key1": {
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "InferenceSpecification": {
+        "Containers": [
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          },
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          },
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          }
+        ],
+        "SupportedTransformInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedRealtimeInferenceInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedContentTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedResponseMIMETypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    },
+    "key2": {
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "InferenceSpecification": {
+        "Containers": [
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          },
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          },
+          {
+            "ContainerHostname": "__ContainerHostname__",
+            "Image": "__Image__",
+            "ImageDigest": "__ImageDigest__",
+            "ModelDataUrl": "__ModelDataUrl__",
+            "ModelDataSource": {
+              "S3DataSource": {
+                "S3Uri": "__S3Uri__",
+                "S3DataType": "__S3DataType__",
+                "CompressionType": "__CompressionType__",
+                "ModelAccessConfig": {
+                  "AcceptEula": false
+                },
+                "HubAccessConfig": {
+                  "HubContentArn": "__HubContentArn__"
+                },
+                "ManifestS3Uri": "__ManifestS3Uri__",
+                "ETag": "__ETag__",
+                "ManifestEtag": "__ManifestEtag__"
+              }
+            },
+            "ProductId": "__ProductId__",
+            "Environment": {
+              "key1": "__value__",
+              "key2": "__value__"
+            },
+            "ModelInput": {
+              "DataInputConfig": "__DataInputConfig__"
+            },
+            "Framework": "__Framework__",
+            "FrameworkVersion": "__FrameworkVersion__",
+            "NearestModelName": "__NearestModelName__",
+            "AdditionalS3DataSource": {
+              "S3DataType": "__S3DataType__",
+              "S3Uri": "__S3Uri__",
+              "CompressionType": "__CompressionType__",
+              "ETag": "__ETag__"
+            },
+            "ModelDataETag": "__ModelDataETag__",
+            "IsCheckpoint": false,
+            "BaseModel": {
+              "HubContentName": "__HubContentName__",
+              "HubContentVersion": "__HubContentVersion__",
+              "RecipeName": "__RecipeName__"
+            }
+          }
+        ],
+        "SupportedTransformInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedRealtimeInferenceInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedContentTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SupportedResponseMIMETypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    }
+  },
+  "BatchDescribeModelPackageErrorMap": {
+    "key1": {
+      "ErrorCode": "__ErrorCode__",
+      "ErrorResponse": "__ErrorResponse__"
+    },
+    "key2": {
+      "ErrorCode": "__ErrorCode__",
+      "ErrorResponse": "__ErrorResponse__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  ModelPackageSummaries: {
+    key1: {
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InferenceSpecification: {
+        Containers: [
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          },
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          },
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          }
+        ],
+        SupportedTransformInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedRealtimeInferenceInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedContentTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedResponseMIMETypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    },
+    key2: {
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InferenceSpecification: {
+        Containers: [
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          },
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          },
+          {
+            ContainerHostname: "__ContainerHostname__",
+            Image: "__Image__",
+            ImageDigest: "__ImageDigest__",
+            ModelDataUrl: "__ModelDataUrl__",
+            ModelDataSource: {
+              S3DataSource: {
+                S3Uri: "__S3Uri__",
+                S3DataType: "__S3DataType__",
+                CompressionType: "__CompressionType__",
+                ModelAccessConfig: {
+                  AcceptEula: (boolean) false
+                },
+                HubAccessConfig: {
+                  HubContentArn: "__HubContentArn__"
+                },
+                ManifestS3Uri: "__ManifestS3Uri__",
+                ETag: "__ETag__",
+                ManifestEtag: "__ManifestEtag__"
+              }
+            },
+            ProductId: "__ProductId__",
+            Environment: {
+              key1: "__value__",
+              key2: "__value__"
+            },
+            ModelInput: {
+              DataInputConfig: "__DataInputConfig__"
+            },
+            Framework: "__Framework__",
+            FrameworkVersion: "__FrameworkVersion__",
+            NearestModelName: "__NearestModelName__",
+            AdditionalS3DataSource: {
+              S3DataType: "__S3DataType__",
+              S3Uri: "__S3Uri__",
+              CompressionType: "__CompressionType__",
+              ETag: "__ETag__"
+            },
+            ModelDataETag: "__ModelDataETag__",
+            IsCheckpoint: (boolean) false,
+            BaseModel: {
+              HubContentName: "__HubContentName__",
+              HubContentVersion: "__HubContentVersion__",
+              RecipeName: "__RecipeName__"
+            }
+          }
+        ],
+        SupportedTransformInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedRealtimeInferenceInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedContentTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SupportedResponseMIMETypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    }
+  },
+  BatchDescribeModelPackageErrorMap: {
+    key1: {
+      ErrorCode: "__ErrorCode__",
+      ErrorResponse: "__ErrorResponse__"
+    },
+    key2: {
+      ErrorCode: "__ErrorCode__",
+      ErrorResponse: "__ErrorResponse__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

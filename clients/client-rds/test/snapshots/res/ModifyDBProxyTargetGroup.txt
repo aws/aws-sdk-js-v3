@@ -1,0 +1,93 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyDBProxyTargetGroupResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyDBProxyTargetGroupResponse xmlns="https://placeholder.amazonaws.com">
+    <DBProxyTargetGroup>
+        <DBProxyName>
+            __DBProxyName__
+        </DBProxyName>
+        <TargetGroupName>
+            __TargetGroupName__
+        </TargetGroupName>
+        <TargetGroupArn>
+            __TargetGroupArn__
+        </TargetGroupArn>
+        <IsDefault>
+            false
+        </IsDefault>
+        <Status>
+            __Status__
+        </Status>
+        <ConnectionPoolConfig>
+            <MaxConnectionsPercent>
+                0
+            </MaxConnectionsPercent>
+            <MaxIdleConnectionsPercent>
+                0
+            </MaxIdleConnectionsPercent>
+            <ConnectionBorrowTimeout>
+                0
+            </ConnectionBorrowTimeout>
+            <SessionPinningFilters>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+                <member>
+                    __member__
+                </member>
+            </SessionPinningFilters>
+            <InitQuery>
+                __InitQuery__
+            </InitQuery>
+        </ConnectionPoolConfig>
+        <CreatedDate>
+            2000-01-01T04:59:59.999Z
+        </CreatedDate>
+        <UpdatedDate>
+            2000-01-01T04:59:59.999Z
+        </UpdatedDate>
+    </DBProxyTargetGroup>
+</ModifyDBProxyTargetGroupResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

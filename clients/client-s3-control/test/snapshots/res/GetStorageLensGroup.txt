@@ -1,0 +1,354 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StorageLensGroup xmlns="https://placeholder.amazonaws.com">
+    <Name>
+        __Name__
+    </Name>
+    <Filter>
+        <MatchAnyPrefix>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+        </MatchAnyPrefix>
+        <MatchAnySuffix>
+            <Suffix>
+                __member__
+            </Suffix>
+            <Suffix>
+                __member__
+            </Suffix>
+            <Suffix>
+                __member__
+            </Suffix>
+        </MatchAnySuffix>
+        <MatchAnyTag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </MatchAnyTag>
+        <MatchObjectAge>
+            <DaysGreaterThan>
+                0
+            </DaysGreaterThan>
+            <DaysLessThan>
+                0
+            </DaysLessThan>
+        </MatchObjectAge>
+        <MatchObjectSize>
+            <BytesGreaterThan>
+                0
+            </BytesGreaterThan>
+            <BytesLessThan>
+                0
+            </BytesLessThan>
+        </MatchObjectSize>
+        <And>
+            <MatchAnyPrefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+            </MatchAnyPrefix>
+            <MatchAnySuffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+            </MatchAnySuffix>
+            <MatchAnyTag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </MatchAnyTag>
+            <MatchObjectAge>
+                <DaysGreaterThan>
+                    0
+                </DaysGreaterThan>
+                <DaysLessThan>
+                    0
+                </DaysLessThan>
+            </MatchObjectAge>
+            <MatchObjectSize>
+                <BytesGreaterThan>
+                    0
+                </BytesGreaterThan>
+                <BytesLessThan>
+                    0
+                </BytesLessThan>
+            </MatchObjectSize>
+        </And>
+        <Or>
+            <MatchAnyPrefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+                <Prefix>
+                    __member__
+                </Prefix>
+            </MatchAnyPrefix>
+            <MatchAnySuffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+                <Suffix>
+                    __member__
+                </Suffix>
+            </MatchAnySuffix>
+            <MatchAnyTag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </MatchAnyTag>
+            <MatchObjectAge>
+                <DaysGreaterThan>
+                    0
+                </DaysGreaterThan>
+                <DaysLessThan>
+                    0
+                </DaysLessThan>
+            </MatchObjectAge>
+            <MatchObjectSize>
+                <BytesGreaterThan>
+                    0
+                </BytesGreaterThan>
+                <BytesLessThan>
+                    0
+                </BytesLessThan>
+            </MatchObjectSize>
+        </Or>
+    </Filter>
+    <StorageLensGroupArn>
+        __StorageLensGroupArn__
+    </StorageLensGroupArn>
+</StorageLensGroup>
+
+
+--- [output object] ---
+{
+  StorageLensGroup: {
+    Name: "__Name__",
+    Filter: {
+      MatchAnyPrefix: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MatchAnySuffix: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MatchAnyTag: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      MatchObjectAge: {
+        DaysGreaterThan: (number) 0,
+        DaysLessThan: (number) 0
+      },
+      MatchObjectSize: {
+        BytesGreaterThan: (number) 0,
+        BytesLessThan: (number) 0
+      },
+      And: {
+        MatchAnyPrefix: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MatchAnySuffix: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MatchAnyTag: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ],
+        MatchObjectAge: {
+          DaysGreaterThan: (number) 0,
+          DaysLessThan: (number) 0
+        },
+        MatchObjectSize: {
+          BytesGreaterThan: (number) 0,
+          BytesLessThan: (number) 0
+        }
+      },
+      Or: {
+        MatchAnyPrefix: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MatchAnySuffix: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MatchAnyTag: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ],
+        MatchObjectAge: {
+          DaysGreaterThan: (number) 0,
+          DaysLessThan: (number) 0
+        },
+        MatchObjectSize: {
+          BytesGreaterThan: (number) 0,
+          BytesLessThan: (number) 0
+        }
+      }
+    },
+    StorageLensGroupArn: "__StorageLensGroupArn__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

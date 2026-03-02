@@ -1,0 +1,115 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Results": [
+    {
+      "TaskHandle": "__TaskHandle__",
+      "Status": "__Status__",
+      "SourceArn": "__SourceArn__",
+      "DestinationArn": "__DestinationArn__",
+      "MaxNumberOfMessagesPerSecond": 0,
+      "ApproximateNumberOfMessagesMoved": 0,
+      "ApproximateNumberOfMessagesToMove": 0,
+      "FailureReason": "__FailureReason__",
+      "StartedTimestamp": 0
+    },
+    {
+      "TaskHandle": "__TaskHandle__",
+      "Status": "__Status__",
+      "SourceArn": "__SourceArn__",
+      "DestinationArn": "__DestinationArn__",
+      "MaxNumberOfMessagesPerSecond": 0,
+      "ApproximateNumberOfMessagesMoved": 0,
+      "ApproximateNumberOfMessagesToMove": 0,
+      "FailureReason": "__FailureReason__",
+      "StartedTimestamp": 0
+    },
+    {
+      "TaskHandle": "__TaskHandle__",
+      "Status": "__Status__",
+      "SourceArn": "__SourceArn__",
+      "DestinationArn": "__DestinationArn__",
+      "MaxNumberOfMessagesPerSecond": 0,
+      "ApproximateNumberOfMessagesMoved": 0,
+      "ApproximateNumberOfMessagesToMove": 0,
+      "FailureReason": "__FailureReason__",
+      "StartedTimestamp": 0
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Results: [
+    {
+      TaskHandle: "__TaskHandle__",
+      Status: "__Status__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      MaxNumberOfMessagesPerSecond: (number) 0,
+      ApproximateNumberOfMessagesMoved: (number) 0,
+      ApproximateNumberOfMessagesToMove: (number) 0,
+      FailureReason: "__FailureReason__",
+      StartedTimestamp: (number) 0
+    },
+    {
+      TaskHandle: "__TaskHandle__",
+      Status: "__Status__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      MaxNumberOfMessagesPerSecond: (number) 0,
+      ApproximateNumberOfMessagesMoved: (number) 0,
+      ApproximateNumberOfMessagesToMove: (number) 0,
+      FailureReason: "__FailureReason__",
+      StartedTimestamp: (number) 0
+    },
+    {
+      TaskHandle: "__TaskHandle__",
+      Status: "__Status__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      MaxNumberOfMessagesPerSecond: (number) 0,
+      ApproximateNumberOfMessagesMoved: (number) 0,
+      ApproximateNumberOfMessagesToMove: (number) 0,
+      FailureReason: "__FailureReason__",
+      StartedTimestamp: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

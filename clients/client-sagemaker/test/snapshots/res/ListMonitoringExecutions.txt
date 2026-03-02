@@ -1,0 +1,202 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "MonitoringExecutionSummaries": [
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    },
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    },
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  MonitoringExecutionSummaries: [
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    },
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    },
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "MonitoringExecutionSummaries": [
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    },
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    },
+    {
+      "MonitoringScheduleName": "__MonitoringScheduleName__",
+      "ScheduledTime": 946702799.999,
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MonitoringExecutionStatus": "__MonitoringExecutionStatus__",
+      "ProcessingJobArn": "__ProcessingJobArn__",
+      "EndpointName": "__EndpointName__",
+      "FailureReason": "__FailureReason__",
+      "MonitoringJobDefinitionName": "__MonitoringJobDefinitionName__",
+      "MonitoringType": "__MonitoringType__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  MonitoringExecutionSummaries: [
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    },
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    },
+    {
+      MonitoringScheduleName: "__MonitoringScheduleName__",
+      ScheduledTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MonitoringExecutionStatus: "__MonitoringExecutionStatus__",
+      ProcessingJobArn: "__ProcessingJobArn__",
+      EndpointName: "__EndpointName__",
+      FailureReason: "__FailureReason__",
+      MonitoringJobDefinitionName: "__MonitoringJobDefinitionName__",
+      MonitoringType: "__MonitoringType__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

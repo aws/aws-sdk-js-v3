@@ -17,7 +17,7 @@ describe(AwsJson1_1Protocol, () => {
     output,
   };
 
-  it("is 1.0", async () => {
+  it("is 1.1", async () => {
     const protocol = new AwsJson1_1Protocol({
       defaultNamespace: "",
       serviceTarget: "JsonRpc11",

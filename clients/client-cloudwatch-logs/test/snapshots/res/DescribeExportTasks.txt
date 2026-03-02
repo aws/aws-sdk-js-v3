@@ -1,0 +1,153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "exportTasks": [
+    {
+      "taskId": "__taskId__",
+      "taskName": "__taskName__",
+      "logGroupName": "__logGroupName__",
+      "from": 0,
+      "to": 0,
+      "destination": "__destination__",
+      "destinationPrefix": "__destinationPrefix__",
+      "status": {
+        "code": "__code__",
+        "message": "__message__"
+      },
+      "executionInfo": {
+        "creationTime": 0,
+        "completionTime": 0
+      }
+    },
+    {
+      "taskId": "__taskId__",
+      "taskName": "__taskName__",
+      "logGroupName": "__logGroupName__",
+      "from": 0,
+      "to": 0,
+      "destination": "__destination__",
+      "destinationPrefix": "__destinationPrefix__",
+      "status": {
+        "code": "__code__",
+        "message": "__message__"
+      },
+      "executionInfo": {
+        "creationTime": 0,
+        "completionTime": 0
+      }
+    },
+    {
+      "taskId": "__taskId__",
+      "taskName": "__taskName__",
+      "logGroupName": "__logGroupName__",
+      "from": 0,
+      "to": 0,
+      "destination": "__destination__",
+      "destinationPrefix": "__destinationPrefix__",
+      "status": {
+        "code": "__code__",
+        "message": "__message__"
+      },
+      "executionInfo": {
+        "creationTime": 0,
+        "completionTime": 0
+      }
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  exportTasks: [
+    {
+      taskId: "__taskId__",
+      taskName: "__taskName__",
+      logGroupName: "__logGroupName__",
+      from: (number) 0,
+      to: (number) 0,
+      destination: "__destination__",
+      destinationPrefix: "__destinationPrefix__",
+      status: {
+        code: "__code__",
+        message: "__message__"
+      },
+      executionInfo: {
+        creationTime: (number) 0,
+        completionTime: (number) 0
+      }
+    },
+    {
+      taskId: "__taskId__",
+      taskName: "__taskName__",
+      logGroupName: "__logGroupName__",
+      from: (number) 0,
+      to: (number) 0,
+      destination: "__destination__",
+      destinationPrefix: "__destinationPrefix__",
+      status: {
+        code: "__code__",
+        message: "__message__"
+      },
+      executionInfo: {
+        creationTime: (number) 0,
+        completionTime: (number) 0
+      }
+    },
+    {
+      taskId: "__taskId__",
+      taskName: "__taskName__",
+      logGroupName: "__logGroupName__",
+      from: (number) 0,
+      to: (number) 0,
+      destination: "__destination__",
+      destinationPrefix: "__destinationPrefix__",
+      status: {
+        code: "__code__",
+        message: "__message__"
+      },
+      executionInfo: {
+        creationTime: (number) 0,
+        completionTime: (number) 0
+      }
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

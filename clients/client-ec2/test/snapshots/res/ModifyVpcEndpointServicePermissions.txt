@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEndpointServicePermissionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEndpointServicePermissionsResult xmlns="https://placeholder.amazonaws.com">
+    <addedPrincipalSet>
+        <item>
+            <principalType>
+                __PrincipalType__
+            </principalType>
+            <principal>
+                __Principal__
+            </principal>
+            <servicePermissionId>
+                __ServicePermissionId__
+            </servicePermissionId>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+        </item>
+        <item>
+            <principalType>
+                __PrincipalType__
+            </principalType>
+            <principal>
+                __Principal__
+            </principal>
+            <servicePermissionId>
+                __ServicePermissionId__
+            </servicePermissionId>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+        </item>
+        <item>
+            <principalType>
+                __PrincipalType__
+            </principalType>
+            <principal>
+                __Principal__
+            </principal>
+            <servicePermissionId>
+                __ServicePermissionId__
+            </servicePermissionId>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+        </item>
+    </addedPrincipalSet>
+    <return>
+        false
+    </return>
+</ModifyVpcEndpointServicePermissionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AddedPrincipals: [
+    {
+      PrincipalType: "__PrincipalType__",
+      Principal: "__Principal__",
+      ServicePermissionId: "__ServicePermissionId__",
+      ServiceId: "__ServiceId__"
+    },
+    {
+      PrincipalType: "__PrincipalType__",
+      Principal: "__Principal__",
+      ServicePermissionId: "__ServicePermissionId__",
+      ServiceId: "__ServiceId__"
+    },
+    {
+      PrincipalType: "__PrincipalType__",
+      Principal: "__Principal__",
+      ServicePermissionId: "__ServicePermissionId__",
+      ServiceId: "__ServiceId__"
+    }
+  ],
+  ReturnValue: (boolean) false
+}
+

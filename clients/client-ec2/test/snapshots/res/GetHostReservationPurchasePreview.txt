@@ -1,0 +1,205 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostReservationPurchasePreviewResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostReservationPurchasePreviewResult xmlns="https://placeholder.amazonaws.com">
+    <currencyCode>
+        __CurrencyCode__
+    </currencyCode>
+    <purchase>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <duration>
+                0
+            </duration>
+            <hostIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </hostIdSet>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <paymentOption>
+                __PaymentOption__
+            </paymentOption>
+            <upfrontPrice>
+                __UpfrontPrice__
+            </upfrontPrice>
+        </item>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <duration>
+                0
+            </duration>
+            <hostIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </hostIdSet>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <paymentOption>
+                __PaymentOption__
+            </paymentOption>
+            <upfrontPrice>
+                __UpfrontPrice__
+            </upfrontPrice>
+        </item>
+        <item>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <duration>
+                0
+            </duration>
+            <hostIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </hostIdSet>
+            <hostReservationId>
+                __HostReservationId__
+            </hostReservationId>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <paymentOption>
+                __PaymentOption__
+            </paymentOption>
+            <upfrontPrice>
+                __UpfrontPrice__
+            </upfrontPrice>
+        </item>
+    </purchase>
+    <totalHourlyPrice>
+        __TotalHourlyPrice__
+    </totalHourlyPrice>
+    <totalUpfrontPrice>
+        __TotalUpfrontPrice__
+    </totalUpfrontPrice>
+</GetHostReservationPurchasePreviewResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CurrencyCode: "__CurrencyCode__",
+  Purchase: [
+    {
+      CurrencyCode: "__CurrencyCode__",
+      Duration: (number) 0,
+      HostIdSet: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      HostReservationId: "__HostReservationId__",
+      HourlyPrice: "__HourlyPrice__",
+      InstanceFamily: "__InstanceFamily__",
+      PaymentOption: "__PaymentOption__",
+      UpfrontPrice: "__UpfrontPrice__"
+    },
+    {
+      CurrencyCode: "__CurrencyCode__",
+      Duration: (number) 0,
+      HostIdSet: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      HostReservationId: "__HostReservationId__",
+      HourlyPrice: "__HourlyPrice__",
+      InstanceFamily: "__InstanceFamily__",
+      PaymentOption: "__PaymentOption__",
+      UpfrontPrice: "__UpfrontPrice__"
+    },
+    {
+      CurrencyCode: "__CurrencyCode__",
+      Duration: (number) 0,
+      HostIdSet: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      HostReservationId: "__HostReservationId__",
+      HourlyPrice: "__HourlyPrice__",
+      InstanceFamily: "__InstanceFamily__",
+      PaymentOption: "__PaymentOption__",
+      UpfrontPrice: "__UpfrontPrice__"
+    }
+  ],
+  TotalHourlyPrice: "__TotalHourlyPrice__",
+  TotalUpfrontPrice: "__TotalUpfrontPrice__"
+}
+

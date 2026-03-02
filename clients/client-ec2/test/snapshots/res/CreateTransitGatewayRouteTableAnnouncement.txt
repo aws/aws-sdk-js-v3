@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayRouteTableAnnouncementResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayRouteTableAnnouncementResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayRouteTableAnnouncement>
+        <transitGatewayRouteTableAnnouncementId>
+            __TransitGatewayRouteTableAnnouncementId__
+        </transitGatewayRouteTableAnnouncementId>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <coreNetworkId>
+            __CoreNetworkId__
+        </coreNetworkId>
+        <peerTransitGatewayId>
+            __PeerTransitGatewayId__
+        </peerTransitGatewayId>
+        <peerCoreNetworkId>
+            __PeerCoreNetworkId__
+        </peerCoreNetworkId>
+        <peeringAttachmentId>
+            __PeeringAttachmentId__
+        </peeringAttachmentId>
+        <announcementDirection>
+            __AnnouncementDirection__
+        </announcementDirection>
+        <transitGatewayRouteTableId>
+            __TransitGatewayRouteTableId__
+        </transitGatewayRouteTableId>
+        <state>
+            __State__
+        </state>
+        <creationTime>
+            2000-01-01T04:59:59.999Z
+        </creationTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </transitGatewayRouteTableAnnouncement>
+</CreateTransitGatewayRouteTableAnnouncementResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGatewayRouteTableAnnouncement: {
+    TransitGatewayRouteTableAnnouncementId: "__TransitGatewayRouteTableAnnouncementId__",
+    TransitGatewayId: "__TransitGatewayId__",
+    CoreNetworkId: "__CoreNetworkId__",
+    PeerTransitGatewayId: "__PeerTransitGatewayId__",
+    PeerCoreNetworkId: "__PeerCoreNetworkId__",
+    PeeringAttachmentId: "__PeeringAttachmentId__",
+    AnnouncementDirection: "__AnnouncementDirection__",
+    TransitGatewayRouteTableId: "__TransitGatewayRouteTableId__",
+    State: "__State__",
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

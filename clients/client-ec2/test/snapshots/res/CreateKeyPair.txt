@@ -1,0 +1,101 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<KeyPair xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<KeyPair xmlns="https://placeholder.amazonaws.com">
+    <keyPairId>
+        __KeyPairId__
+    </keyPairId>
+    <tagSet>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+    </tagSet>
+    <keyName>
+        __KeyName__
+    </keyName>
+    <keyFingerprint>
+        __KeyFingerprint__
+    </keyFingerprint>
+    <keyMaterial>
+        __KeyMaterial__
+    </keyMaterial>
+</KeyPair>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  KeyPairId: "__KeyPairId__",
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  KeyName: "__KeyName__",
+  KeyFingerprint: "__KeyFingerprint__",
+  KeyMaterial: "__KeyMaterial__"
+}
+

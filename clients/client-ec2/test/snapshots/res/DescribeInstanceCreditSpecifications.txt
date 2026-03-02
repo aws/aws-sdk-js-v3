@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceCreditSpecificationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceCreditSpecificationsResult xmlns="https://placeholder.amazonaws.com">
+    <instanceCreditSpecificationSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <cpuCredits>
+                __CpuCredits__
+            </cpuCredits>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <cpuCredits>
+                __CpuCredits__
+            </cpuCredits>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <cpuCredits>
+                __CpuCredits__
+            </cpuCredits>
+        </item>
+    </instanceCreditSpecificationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInstanceCreditSpecificationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceCreditSpecifications: [
+    {
+      InstanceId: "__InstanceId__",
+      CpuCredits: "__CpuCredits__"
+    },
+    {
+      InstanceId: "__InstanceId__",
+      CpuCredits: "__CpuCredits__"
+    },
+    {
+      InstanceId: "__InstanceId__",
+      CpuCredits: "__CpuCredits__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

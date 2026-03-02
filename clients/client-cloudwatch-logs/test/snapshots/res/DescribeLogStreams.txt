@@ -1,0 +1,111 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "logStreams": [
+    {
+      "logStreamName": "__logStreamName__",
+      "creationTime": 0,
+      "firstEventTimestamp": 0,
+      "lastEventTimestamp": 0,
+      "lastIngestionTime": 0,
+      "uploadSequenceToken": "__uploadSequenceToken__",
+      "arn": "__arn__",
+      "storedBytes": 0
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "creationTime": 0,
+      "firstEventTimestamp": 0,
+      "lastEventTimestamp": 0,
+      "lastIngestionTime": 0,
+      "uploadSequenceToken": "__uploadSequenceToken__",
+      "arn": "__arn__",
+      "storedBytes": 0
+    },
+    {
+      "logStreamName": "__logStreamName__",
+      "creationTime": 0,
+      "firstEventTimestamp": 0,
+      "lastEventTimestamp": 0,
+      "lastIngestionTime": 0,
+      "uploadSequenceToken": "__uploadSequenceToken__",
+      "arn": "__arn__",
+      "storedBytes": 0
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  logStreams: [
+    {
+      logStreamName: "__logStreamName__",
+      creationTime: (number) 0,
+      firstEventTimestamp: (number) 0,
+      lastEventTimestamp: (number) 0,
+      lastIngestionTime: (number) 0,
+      uploadSequenceToken: "__uploadSequenceToken__",
+      arn: "__arn__",
+      storedBytes: (number) 0
+    },
+    {
+      logStreamName: "__logStreamName__",
+      creationTime: (number) 0,
+      firstEventTimestamp: (number) 0,
+      lastEventTimestamp: (number) 0,
+      lastIngestionTime: (number) 0,
+      uploadSequenceToken: "__uploadSequenceToken__",
+      arn: "__arn__",
+      storedBytes: (number) 0
+    },
+    {
+      logStreamName: "__logStreamName__",
+      creationTime: (number) 0,
+      firstEventTimestamp: (number) 0,
+      lastEventTimestamp: (number) 0,
+      lastIngestionTime: (number) 0,
+      uploadSequenceToken: "__uploadSequenceToken__",
+      arn: "__arn__",
+      storedBytes: (number) 0
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

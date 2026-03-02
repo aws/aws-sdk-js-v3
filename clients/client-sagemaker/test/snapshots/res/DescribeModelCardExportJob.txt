@@ -1,0 +1,102 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelCardExportJobName": "__ModelCardExportJobName__",
+  "ModelCardExportJobArn": "__ModelCardExportJobArn__",
+  "Status": "__Status__",
+  "ModelCardName": "__ModelCardName__",
+  "ModelCardVersion": 0,
+  "OutputConfig": {
+    "S3OutputPath": "__S3OutputPath__"
+  },
+  "CreatedAt": 946702799.999,
+  "LastModifiedAt": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "ExportArtifacts": {
+    "S3ExportArtifacts": "__S3ExportArtifacts__"
+  }
+}
+
+
+--- [output object] ---
+{
+  ModelCardExportJobName: "__ModelCardExportJobName__",
+  ModelCardExportJobArn: "__ModelCardExportJobArn__",
+  Status: "__Status__",
+  ModelCardName: "__ModelCardName__",
+  ModelCardVersion: (number) 0,
+  OutputConfig: {
+    S3OutputPath: "__S3OutputPath__"
+  },
+  CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  ExportArtifacts: {
+    S3ExportArtifacts: "__S3ExportArtifacts__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelCardExportJobName": "__ModelCardExportJobName__",
+  "ModelCardExportJobArn": "__ModelCardExportJobArn__",
+  "Status": "__Status__",
+  "ModelCardName": "__ModelCardName__",
+  "ModelCardVersion": 0,
+  "OutputConfig": {
+    "S3OutputPath": "__S3OutputPath__"
+  },
+  "CreatedAt": 946702799.999,
+  "LastModifiedAt": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "ExportArtifacts": {
+    "S3ExportArtifacts": "__S3ExportArtifacts__"
+  }
+}
+
+
+--- [output object] ---
+{
+  ModelCardExportJobName: "__ModelCardExportJobName__",
+  ModelCardExportJobArn: "__ModelCardExportJobArn__",
+  Status: "__Status__",
+  ModelCardName: "__ModelCardName__",
+  ModelCardVersion: (number) 0,
+  OutputConfig: {
+    S3OutputPath: "__S3OutputPath__"
+  },
+  CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  ExportArtifacts: {
+    S3ExportArtifacts: "__S3ExportArtifacts__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

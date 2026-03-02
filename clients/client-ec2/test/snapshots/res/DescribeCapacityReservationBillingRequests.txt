@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationBillingRequestsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityReservationBillingRequestsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <capacityReservationBillingRequestSet>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <requestedBy>
+                __RequestedBy__
+            </requestedBy>
+            <unusedReservationBillingOwnerId>
+                __UnusedReservationBillingOwnerId__
+            </unusedReservationBillingOwnerId>
+            <lastUpdateTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdateTime>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <capacityReservationInfo>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <tenancy>
+                    __Tenancy__
+                </tenancy>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </capacityReservationInfo>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <requestedBy>
+                __RequestedBy__
+            </requestedBy>
+            <unusedReservationBillingOwnerId>
+                __UnusedReservationBillingOwnerId__
+            </unusedReservationBillingOwnerId>
+            <lastUpdateTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdateTime>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <capacityReservationInfo>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <tenancy>
+                    __Tenancy__
+                </tenancy>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </capacityReservationInfo>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <requestedBy>
+                __RequestedBy__
+            </requestedBy>
+            <unusedReservationBillingOwnerId>
+                __UnusedReservationBillingOwnerId__
+            </unusedReservationBillingOwnerId>
+            <lastUpdateTime>
+                2000-01-01T04:59:59.999Z
+            </lastUpdateTime>
+            <status>
+                __Status__
+            </status>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <capacityReservationInfo>
+                <instanceType>
+                    __InstanceType__
+                </instanceType>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <tenancy>
+                    __Tenancy__
+                </tenancy>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+            </capacityReservationInfo>
+        </item>
+    </capacityReservationBillingRequestSet>
+</DescribeCapacityReservationBillingRequestsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  CapacityReservationBillingRequests: [
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      RequestedBy: "__RequestedBy__",
+      UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
+      LastUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      CapacityReservationInfo: {
+        InstanceType: "__InstanceType__",
+        AvailabilityZone: "__AvailabilityZone__",
+        Tenancy: "__Tenancy__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      }
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      RequestedBy: "__RequestedBy__",
+      UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
+      LastUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      CapacityReservationInfo: {
+        InstanceType: "__InstanceType__",
+        AvailabilityZone: "__AvailabilityZone__",
+        Tenancy: "__Tenancy__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      }
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      RequestedBy: "__RequestedBy__",
+      UnusedReservationBillingOwnerId: "__UnusedReservationBillingOwnerId__",
+      LastUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      CapacityReservationInfo: {
+        InstanceType: "__InstanceType__",
+        AvailabilityZone: "__AvailabilityZone__",
+        Tenancy: "__Tenancy__",
+        AvailabilityZoneId: "__AvailabilityZoneId__"
+      }
+    }
+  ]
+}
+
