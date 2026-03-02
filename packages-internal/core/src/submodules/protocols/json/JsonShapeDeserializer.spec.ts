@@ -27,7 +27,7 @@ describe(JsonShapeDeserializer.name, () => {
 
     const data = await deserializer.read(widget, json);
     expect(data).toEqual({
-      list: ["a", "b", "c"],
+      list: ["a", "b", null, "c"],
       sparseList: ["a", "b", null, "c"],
     });
   });
@@ -51,6 +51,7 @@ describe(JsonShapeDeserializer.name, () => {
       map: {
         a: "a",
         b: "b",
+        c: null,
       },
       sparseMap: {
         a: "a",
