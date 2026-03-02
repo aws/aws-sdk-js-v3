@@ -18,7 +18,9 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
     return ["md/tsc", tscVersion];
   }
 
-  for (const typescriptPackageJsonPath of getTypeScriptPackageJsonPaths(__dirname)) {
+  // typeof check is required as some ESM bundles throw ReferenceError error '__dirname is not defined'
+  const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
+  for (const typescriptPackageJsonPath of getTypeScriptPackageJsonPaths(dirname)) {
     try {
       const packageJson = await readFile(typescriptPackageJsonPath, "utf-8");
       const { version } = JSON.parse(packageJson);
