@@ -260,45 +260,47 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                               TInput extends object
                             > extends HttpAuthSchemeParametersProvider<TConfig, TContext, TParameters, TInput> {}""");
                     w.writeDocs("@internal");
-                    w.write("""
-                            const createEndpointRuleSetHttpAuthSchemeParametersProvider =
-                              <
-                                TConfig extends object,
-                                TContext extends HandlerExecutionContext,
-                                THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
-                                TEndpointParameters extends EndpointParameters,
-                                TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
-                                TInput extends object
-                              >(
-                                defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
-                                  TConfig,
-                                  TContext,
-                                  THttpAuthSchemeParameters,
-                                  TInput
-                                >
-                              ): EndpointRuleSetHttpAuthSchemeParametersProvider<
-                                TConfig,
-                                TContext,
-                                THttpAuthSchemeParameters & TEndpointParameters,
-                                TInput
-                              > =>
-                              async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
-                                if (!input) {
-                                  throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
-                                }
-                                const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
-                                const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
-                                  ?.getEndpointParameterInstructions;
-                                if (!instructionsFn) {
-                                  throw new Error(`getEndpointParameterInstructions() is not defined on '$${context.commandName!}'`);
-                                }
-                                const endpointParameters = await resolveParams(
-                                  input as Record<string, unknown>,
-                                  { getEndpointParameterInstructions: instructionsFn! },
-                                  config as Record<string, unknown>
-                                );
-                                return Object.assign(defaultParameters, endpointParameters) as TParameters;
-                              };""");
+                    w.write(
+                        """
+                        const createEndpointRuleSetHttpAuthSchemeParametersProvider =
+                          <
+                            TConfig extends object,
+                            TContext extends HandlerExecutionContext,
+                            THttpAuthSchemeParameters extends HttpAuthSchemeParameters,
+                            TEndpointParameters extends EndpointParameters,
+                            TParameters extends THttpAuthSchemeParameters & TEndpointParameters,
+                            TInput extends object
+                          >(
+                            defaultHttpAuthSchemeParametersProvider: HttpAuthSchemeParametersProvider<
+                              TConfig,
+                              TContext,
+                              THttpAuthSchemeParameters,
+                              TInput
+                            >
+                          ): EndpointRuleSetHttpAuthSchemeParametersProvider<
+                            TConfig,
+                            TContext,
+                            THttpAuthSchemeParameters & TEndpointParameters,
+                            TInput
+                          > =>
+                          async (config: TConfig, context: TContext, input: TInput): Promise<TParameters> => {
+                            if (!input) {
+                              throw new Error("Could not find `input` for `defaultEndpointRuleSetHttpAuthSchemeParametersProvider`");
+                            }
+                            const defaultParameters = await defaultHttpAuthSchemeParametersProvider(config, context, input);
+                            const instructionsFn = (getSmithyContext(context) as EndpointRuleSetSmithyContext)?.commandInstance?.constructor
+                              ?.getEndpointParameterInstructions;
+                            if (!instructionsFn) {
+                              throw new Error(`getEndpointParameterInstructions() is not defined on '$${context.commandName!}'`);
+                            }
+                            const endpointParameters = await resolveParams(
+                              input as Record<string, unknown>,
+                              { getEndpointParameterInstructions: instructionsFn! },
+                              config as Record<string, unknown>
+                            );
+                            return Object.assign(defaultParameters, endpointParameters) as TParameters;
+                          };"""
+                    );
                     w.writeDocs("@internal");
                     w.openBlock(
                         """

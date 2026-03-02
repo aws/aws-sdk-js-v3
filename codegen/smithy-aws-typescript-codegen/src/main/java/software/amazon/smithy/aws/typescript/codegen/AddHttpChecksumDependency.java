@@ -49,7 +49,7 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                     // This trait is handled by static codegen, so the
                     // schema does not need to generate the full set of data.
                     return """
-                        "-\"""";
+                           "-\"""";
                 }
                 throw new CodegenException("HttpChecksumTrait handler called with trait of incorrect type.");
             }

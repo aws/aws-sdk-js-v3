@@ -29,6 +29,7 @@ test-codegen:
 	yarn generate-clients -p
 	node ./scripts/restore-pkg-version.js ./tmp/pkg.json.bak ./private/aws-protocoltests-restjson-schema/package.json
 	cp ./tmp/changelog.bak ./private/aws-protocoltests-restjson-schema/CHANGELOG.md
+	git diff --exit-code ./
 
 # typecheck for test code.
 test-types:
@@ -56,8 +57,6 @@ test-integration: bundles
 	node ./scripts/validation/no-generic-byte-arrays.js
 	node ./scripts/compilation/Inliner.spec.js
 	yarn g:vitest run -c vitest.config.integ.mts
-	make test-codegen
-	git diff --exit-code ./private
 	make test-protocols
 	make test-types
 	make snapshot-compare

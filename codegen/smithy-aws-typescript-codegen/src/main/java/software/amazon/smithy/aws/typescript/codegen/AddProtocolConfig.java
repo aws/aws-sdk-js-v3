@@ -4,6 +4,8 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.schema.SchemaGenerator.SCHEMAS_FOLDER;
+
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
@@ -35,8 +37,6 @@ import software.amazon.smithy.typescript.codegen.schema.SchemaGenerationAllowlis
 import software.amazon.smithy.typescript.codegen.schema.SchemaTraitExtension;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
-
-import static software.amazon.smithy.typescript.codegen.schema.SchemaGenerator.SCHEMAS_FOLDER;
 
 /**
  * Adds a protocol implementation to the runtime config.
