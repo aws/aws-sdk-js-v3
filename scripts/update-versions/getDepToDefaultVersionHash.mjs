@@ -1,6 +1,6 @@
 // @ts-check
-import { readFileSync } from "fs";
-import { basename, join } from "path";
+import { readFileSync } from "node:fs";
+import { basename, join } from "node:path";
 
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 

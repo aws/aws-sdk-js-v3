@@ -53,7 +53,8 @@
     "test:unit": "make test-unit",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
     "update:versions:default": "node ./scripts/update-versions/default.mjs",
-    "update:versions:current": "node ./scripts/update-versions/current.mjs"
+    "update:versions:current": "node ./scripts/update-versions/current.mjs",
+    "update:versions:preview": "node ./scripts/update-versions/preview.mjs"
   },
   "repository": {
     "type": "git",
