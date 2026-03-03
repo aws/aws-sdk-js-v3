@@ -28,7 +28,7 @@
     "@aws-sdk/core": "workspace:^3.973.15",
     "@aws-sdk/types": "workspace:^3.973.4",
     "@aws-sdk/util-endpoints": "workspace:^3.996.3",
-    "@smithy/core": "^3.23.6",
+    "@smithy/core": "^3.23.7",
     "@smithy/protocol-http": "^5.3.10",
     "@smithy/types": "^4.13.0",
     "tslib": "^2.6.2"

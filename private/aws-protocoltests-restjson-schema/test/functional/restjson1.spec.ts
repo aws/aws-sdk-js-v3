@@ -5850,61 +5850,6 @@ it("RestJsonDeserializesDenseSetMap:Response", async () => {
 });
 
 /**
- * Clients SHOULD tolerate seeing a null value in a dense map, and they SHOULD
- * drop the null key-value pair.
- */
-it("RestJsonDeserializesDenseSetMapAndSkipsNull:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/json",
-      },
-      `{
-          "denseSetMap": {
-              "x": [],
-              "y": ["a", "b"],
-              "z": null
-          }
-      }`
-    ),
-  });
-
-  const params: any = {};
-  const command = new JsonMapsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r.$metadata.httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      denseSetMap: {
-        x: [
-        ],
-        y: [
-          "a",
-          "b",
-        ],
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(
-      r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-    ).toBeDefined();
-    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-  });
-});
-
-/**
  * Tests how normal timestamps are serialized
  */
 it("RestJsonJsonTimestamps:Request", async () => {

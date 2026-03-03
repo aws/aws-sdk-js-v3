@@ -1728,56 +1728,6 @@ it("RpcV2CborDeserializesDenseSetMap:Response", async () => {
 });
 
 /**
- * Clients SHOULD tolerate seeing a null value in a dense map, and they SHOULD
- * drop the null key-value pair.
- */
-it.skip("RpcV2CborDeserializesDenseSetMapAndSkipsNull:Response", async () => {
-  const client = new RpcV2ProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "smithy-protocol": "rpc-v2-cbor",
-        "content-type": "application/cbor",
-      },
-      `oWtkZW5zZVNldE1hcKNheIBheYJhYWFiYXr2`
-    ),
-  });
-
-  const params: any = {};
-  const command = new RpcV2CborDenseMapsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r.$metadata.httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      denseSetMap: {
-        x: [
-        ],
-        y: [
-          "a",
-          "b",
-        ],
-      },
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(
-      r[param],
-      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
-    ).toBeDefined();
-    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
-  });
-});
-
-/**
  * Serializes RpcV2 Cbor lists
  */
 it("RpcV2CborLists:Request", async () => {

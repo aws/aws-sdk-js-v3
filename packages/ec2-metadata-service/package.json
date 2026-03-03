@@ -26,10 +26,10 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/node-config-provider": "^4.3.10",
-    "@smithy/node-http-handler": "^4.4.12",
+    "@smithy/node-http-handler": "^4.4.13",
     "@smithy/protocol-http": "^5.3.10",
     "@smithy/types": "^4.13.0",
-    "@smithy/util-stream": "^4.5.15",
+    "@smithy/util-stream": "^4.5.16",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
