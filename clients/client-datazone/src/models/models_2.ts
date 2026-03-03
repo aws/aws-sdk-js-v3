@@ -4,6 +4,8 @@ import {
   ConnectionType,
   EnvironmentStatus,
   FilterStatus,
+  FormTypeStatus,
+  GraphEntityType,
   GroupProfileStatus,
   InventorySearchScope,
   ProjectStatus,
@@ -22,6 +24,7 @@ import {
 import {
   type AccountSource,
   type ActionParameters,
+  type AdditionalAttributes,
   type AwsLocation,
   type ConnectionPropertiesOutput,
   type ConnectionPropertiesPatch,
@@ -30,15 +33,20 @@ import {
   type EnvironmentDeploymentDetails,
   type FailureCause,
   type GrantedEntity,
+  type Model,
   type ProvisioningProperties,
   type UserProfileDetails,
   AggregationListItem,
+  AggregationOutput,
+  AssetListingItem,
+  AssetTypeItem,
   ColumnFilterConfiguration,
   ConfigurableEnvironmentAction,
   CustomParameter,
   EnvironmentConfiguration,
   EnvironmentConfigurationUserParameter,
   EnvironmentParameter,
+  FormEntryOutput,
   FormOutput,
   PhysicalEndpoint,
   ProjectDeletionError,
@@ -51,7 +59,296 @@ import {
   SubscribedPrincipal,
   SubscriptionTargetForm,
 } from "./models_0";
-import { type SearchSort, Filter, SearchInItem, SearchTypesResultItem } from "./models_1";
+import { type SearchSort, DataProductListingItem, Filter, Import, RelationPattern, SearchInItem } from "./models_1";
+
+/**
+ * <p>The details of the results of the <code>SearchListings</code> action.</p>
+ * @public
+ */
+export type SearchResultItem =
+  | SearchResultItem.AssetListingMember
+  | SearchResultItem.DataProductListingMember
+  | SearchResultItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SearchResultItem {
+  /**
+   * <p>The asset listing included in the results of the <code>SearchListings</code> action.</p>
+   * @public
+   */
+  export interface AssetListingMember {
+    assetListing: AssetListingItem;
+    dataProductListing?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The data product listing.</p>
+   * @public
+   */
+  export interface DataProductListingMember {
+    assetListing?: never;
+    dataProductListing: DataProductListingItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    assetListing?: never;
+    dataProductListing?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    assetListing: (value: AssetListingItem) => T;
+    dataProductListing: (value: DataProductListingItem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface SearchListingsOutput {
+  /**
+   * <p>The results of the <code>SearchListings</code> action.</p>
+   * @public
+   */
+  items?: SearchResultItem[] | undefined;
+
+  /**
+   * <p>When the number of results is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of results, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>SearchListings</code> to list the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Total number of search results.</p>
+   * @public
+   */
+  totalMatchCount?: number | undefined;
+
+  /**
+   * <p>Contains computed counts grouped by field values based on the requested aggregation attributes for the matching listings.</p>
+   * @public
+   */
+  aggregates?: AggregationOutput[] | undefined;
+}
+
+/**
+ * <p>The details of the metadata form type.</p>
+ * @public
+ */
+export interface FormTypeData {
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the form type exists.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The name of the form type.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The revision of the form type.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The model of the form type.</p>
+   * @public
+   */
+  model?: Model | undefined;
+
+  /**
+   * <p>The status of the form type.</p>
+   * @public
+   */
+  status?: FormTypeStatus | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the form type.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon DataZone domain in which the form type was originally created.</p>
+   * @public
+   */
+  originDomainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the project in which the form type was originally created.</p>
+   * @public
+   */
+  originProjectId?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the metadata form type was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The Amazon DataZone user who created teh metadata form type.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The description of the metadata form type.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The imports specified in the form type.</p>
+   * @public
+   */
+  imports?: Import[] | undefined;
+}
+
+/**
+ * <p>The details of a data lineage node type.</p>
+ * @public
+ */
+export interface LineageNodeTypeItem {
+  /**
+   * <p>The ID of the domain where the data lineage node type lives.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The name of the data lineage node type.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the data lineage node type.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data lineage node type was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The user who created the data lineage node type.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the data lineage node type was updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The user who updated the data lineage node type.</p>
+   * @public
+   */
+  updatedBy?: string | undefined;
+
+  /**
+   * <p>The revision of the data lineage node type.</p>
+   * @public
+   */
+  revision: string | undefined;
+
+  /**
+   * <p>The forms output of the data lineage node type.</p>
+   * @public
+   */
+  formsOutput: Record<string, FormEntryOutput> | undefined;
+}
+
+/**
+ * <p>The details of the results of the <code>SearchTypes</code> action.</p>
+ * @public
+ */
+export type SearchTypesResultItem =
+  | SearchTypesResultItem.AssetTypeItemMember
+  | SearchTypesResultItem.FormTypeItemMember
+  | SearchTypesResultItem.LineageNodeTypeItemMember
+  | SearchTypesResultItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SearchTypesResultItem {
+  /**
+   * <p>The asset type included in the results of the <code>SearchTypes</code> action.</p>
+   * @public
+   */
+  export interface AssetTypeItemMember {
+    assetTypeItem: AssetTypeItem;
+    formTypeItem?: never;
+    lineageNodeTypeItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The form type included in the results of the <code>SearchTypes</code> action.</p>
+   * @public
+   */
+  export interface FormTypeItemMember {
+    assetTypeItem?: never;
+    formTypeItem: FormTypeData;
+    lineageNodeTypeItem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of a data lineage node type.</p>
+   * @public
+   */
+  export interface LineageNodeTypeItemMember {
+    assetTypeItem?: never;
+    formTypeItem?: never;
+    lineageNodeTypeItem: LineageNodeTypeItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    assetTypeItem?: never;
+    formTypeItem?: never;
+    lineageNodeTypeItem?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    assetTypeItem: (value: AssetTypeItem) => T;
+    formTypeItem: (value: FormTypeData) => T;
+    lineageNodeTypeItem: (value: LineageNodeTypeItem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * @public
@@ -1911,6 +2208,30 @@ export namespace RowFilter {
 }
 
 /**
+ * <p>The pattern describing the entities to be matched during the graph query.</p>
+ * @public
+ */
+export interface EntityPattern {
+  /**
+   * <p>The type of entity to be matched during the graph query.</p>
+   * @public
+   */
+  entityType: GraphEntityType | undefined;
+
+  /**
+   * <p>The identifier of the root entity to start traversal from during the graph query.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>A search filter clause in Amazon DataZone.</p>
+   * @public
+   */
+  filters?: FilterClause | undefined;
+}
+
+/**
  * <p>The row filter configuration details.</p>
  * @public
  */
@@ -2160,6 +2481,59 @@ export namespace AssetFilterConfiguration {
   export interface Visitor<T> {
     columnConfiguration: (value: ColumnFilterConfiguration) => T;
     rowConfiguration: (value: RowFilterConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A clause to match a query pattern</p>
+ * @public
+ */
+export type MatchClause =
+  | MatchClause.EntityPatternMember
+  | MatchClause.RelationPatternMember
+  | MatchClause.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MatchClause {
+  /**
+   * <p>The pattern describing the query's relational traversal.</p>
+   * @public
+   */
+  export interface RelationPatternMember {
+    relationPattern: RelationPattern;
+    entityPattern?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The pattern describing the entities for the query to traverse.</p>
+   * @public
+   */
+  export interface EntityPatternMember {
+    relationPattern?: never;
+    entityPattern: EntityPattern;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    relationPattern?: never;
+    entityPattern?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    relationPattern: (value: RelationPattern) => T;
+    entityPattern: (value: EntityPattern) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2457,4 +2831,39 @@ export interface UpdateAssetFilterOutput {
    * @public
    */
   effectiveRowFilter?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface QueryGraphInput {
+  /**
+   * <p>The identifier of the Amazon DataZone domain.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>List of query match clauses.</p>
+   * @public
+   */
+  match: MatchClause[] | undefined;
+
+  /**
+   * <p>The maximum number of entities to return in a single call to <code>QueryGraph</code>. When the number of entities to be listed is greater than the value of <code>MaxResults</code>, the response contains a <code>NextToken</code> value that you can use in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>When the number of entities is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of entities, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>QueryGraph</code> to list the next set of entities.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Additional details on the queried entity that can be requested in the response.</p>
+   * @public
+   */
+  additionalAttributes?: AdditionalAttributes | undefined;
 }

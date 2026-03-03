@@ -1220,6 +1220,18 @@ export interface AddEntityOwnerInput {
 export interface AddEntityOwnerOutput {}
 
 /**
+ * <p>Additional details on the queried entity that can be requested in the response.</p>
+ * @public
+ */
+export interface AdditionalAttributes {
+  /**
+   * <p>Names of forms on the query entity that can be requested in the response.</p>
+   * @public
+   */
+  formNames?: string[] | undefined;
+}
+
+/**
  * <p>The details of the policy grant.</p>
  * @public
  */
@@ -11635,107 +11647,6 @@ export interface CreateSubscriptionTargetInput {
    * @public
    */
   clientToken?: string | undefined;
-
-  /**
-   * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>
-   * @public
-   */
-  subscriptionGrantCreationMode?: SubscriptionGrantCreationMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSubscriptionTargetOutput {
-  /**
-   * <p>The ID of the subscription target.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The authorised principals of the subscription target.</p>
-   * @public
-   */
-  authorizedPrincipals: string[] | undefined;
-
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the subscription target was created.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>???</p>
-   * @public
-   */
-  projectId: string | undefined;
-
-  /**
-   * <p>The ID of the environment in which the subscription target was created.</p>
-   * @public
-   */
-  environmentId: string | undefined;
-
-  /**
-   * <p>The name of the subscription target.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The type of the subscription target.</p>
-   * @public
-   */
-  type: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who created the subscription target.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The Amazon DataZone user who updated the subscription target.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription target was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the subscription target was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The manage access role with which the subscription target was created.</p>
-   * @public
-   */
-  manageAccessRole?: string | undefined;
-
-  /**
-   * <p>The asset types that can be included in the subscription target.</p>
-   * @public
-   */
-  applicableAssetTypes: string[] | undefined;
-
-  /**
-   * <p>The configuration of the subscription target.</p>
-   * @public
-   */
-  subscriptionTargetConfig: SubscriptionTargetForm[] | undefined;
-
-  /**
-   * <p>The provider of the subscription target.</p>
-   * @public
-   */
-  provider: string | undefined;
 
   /**
    * <p> Determines the subscription grant creation mode for this target, defining if grants are auto-created upon subscription approval or managed manually. </p>

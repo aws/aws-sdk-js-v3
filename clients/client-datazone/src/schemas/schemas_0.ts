@@ -1,8 +1,9 @@
 const _A = "Attributes";
-const _AA = "AwsAccount";
+const _AA = "AdditionalAttributes";
 const _AAN = "AwsAccountName";
 const _AAS = "AcceptedAssetScope";
 const _AASc = "AcceptedAssetScopes";
+const _AAw = "AwsAccount";
 const _AC = "AcceptChoice";
 const _ACI = "AuthenticationConfigurationInput";
 const _ACLP = "AwsConsoleLinkParameters";
@@ -352,11 +353,12 @@ const _EFR = "EnvironmentFailureReasons";
 const _EFRL = "EnvironmentFailureReasonsList";
 const _EN = "EnvironmentName";
 const _EO = "EntityOwners";
-const _EP = "EnvironmentParameter";
+const _EP = "EntityPattern";
 const _EPL = "EnvironmentParametersList";
 const _EPN = "EnvironmentProfileName";
 const _EPS = "EnvironmentProfileSummary";
 const _EPSn = "EnvironmentProfileSummaries";
+const _EPn = "EnvironmentParameter";
 const _ERA = "EnvironmentResolvedAccount";
 const _ES = "EnvironmentSummary";
 const _ESn = "EnvironmentSummaries";
@@ -609,7 +611,8 @@ const _LMGR = "ListMetadataGenerationRuns";
 const _LMGRI = "ListMetadataGenerationRunsInput";
 const _LMGRO = "ListMetadataGenerationRunsOutput";
 const _LN = "LastName";
-const _LNI = "ListNotificationsInput";
+const _LNI = "LineageNodeItem";
+const _LNIi = "ListNotificationsInput";
 const _LNO = "ListNotificationsOutput";
 const _LNR = "LineageNodeReference";
 const _LNRL = "LineageNodeReferenceList";
@@ -662,6 +665,8 @@ const _LTSDP = "ListTimeSeriesDataPoints";
 const _LTSDPI = "ListTimeSeriesDataPointsInput";
 const _LTSDPO = "ListTimeSeriesDataPointsOutput";
 const _M = "Message";
+const _MC = "MatchClauses";
+const _MCa = "MatchClause";
 const _MD = "MemberDetails";
 const _MEC = "ManagedEndpointCredentials";
 const _MF = "MetadataForms";
@@ -743,6 +748,9 @@ const _PTSDP = "PostTimeSeriesDataPoints";
 const _PTSDPI = "PostTimeSeriesDataPointsInput";
 const _PTSDPO = "PostTimeSeriesDataPointsOutput";
 const _Pe = "Permissions";
+const _QG = "QueryGraph";
+const _QGI = "QueryGraphInput";
+const _QGO = "QueryGraphOutput";
 const _R = "Resource";
 const _RC = "RecommendationConfiguration";
 const _RCC = "RedshiftCredentialConfiguration";
@@ -760,13 +768,15 @@ const _RFCe = "RelationalFilterConfigurations";
 const _RFCo = "RowFilterConfiguration";
 const _RFE = "RowFilterExpression";
 const _RFL = "RowFilterList";
+const _RI = "ResultItem";
+const _RIL = "ResultItemList";
 const _RL = "ResourceList";
 const _RLSCI = "RedshiftLineageSyncConfigurationInput";
 const _RLSCO = "RedshiftLineageSyncConfigurationOutput";
 const _RMFL = "RequiredMetadataFormList";
 const _RN = "RuleName";
 const _RNFE = "ResourceNotFoundException";
-const _RP = "RejectPredictions";
+const _RP = "RelationPattern";
 const _RPG = "RemovePolicyGrant";
 const _RPGI = "RemovePolicyGrantInput";
 const _RPGO = "RemovePolicyGrantOutput";
@@ -776,6 +786,7 @@ const _RPM = "RegionalParameterMap";
 const _RPO = "RedshiftPropertiesOutput";
 const _RPOe = "RejectPredictionsOutput";
 const _RPP = "RedshiftPropertiesPatch";
+const _RPe = "RejectPredictions";
 const _RR = "RequestReason";
 const _RRCI = "RedshiftRunConfigurationInput";
 const _RRCO = "RedshiftRunConfigurationOutput";
@@ -1102,6 +1113,7 @@ const _dER = "domainExecutionRole";
 const _dI = "domainIdentifier";
 const _dIe = "deploymentId";
 const _dIo = "domainId";
+const _dLNI = "downstreamLineageNodeIds";
 const _dM = "deploymentMode";
 const _dN = "downstreamNodes";
 const _dNa = "databaseName";
@@ -1162,6 +1174,7 @@ const _eO = "endOffset";
 const _eP = "environmentParameters";
 const _ePI = "environmentProfileIdentifier";
 const _ePIn = "environmentProfileId";
+const _ePn = "entityPattern";
 const _eR = "entityRevision";
 const _eRA = "environmentRoleArn";
 const _eRAn = "environmentResolvedAccount";
@@ -1195,8 +1208,9 @@ const _fC = "failureCause";
 const _fE = "filterExpressions";
 const _fI = "filterIds";
 const _fIo = "formsInput";
-const _fN = "formName";
+const _fN = "formNames";
 const _fNi = "firstName";
+const _fNo = "formName";
 const _fO = "formsOutput";
 const _fR = "failureReasons";
 const _fRCA = "firstRevisionCreatedAt";
@@ -1301,6 +1315,7 @@ const _lI = "listingId";
 const _lJI = "lineageJobId";
 const _lN = "lastName";
 const _lNTI = "lineageNodeTypeItem";
+const _lNi = "lineageNode";
 const _lR = "listingRevision";
 const _lRA = "lastRunAt";
 const _lRAC = "lastRunAssetCount";
@@ -1337,9 +1352,11 @@ const _mFED = "metadataFormEnforcementDetail";
 const _mFS = "metadataFormsSummary";
 const _mO = "matchOffsets";
 const _mP = "mlflowProperties";
+const _mPL = "maxPathLength";
 const _mR = "matchRationale";
 const _mRa = "maxResults";
 const _ma = "managed";
+const _mat = "match";
 const _me = "member";
 const _mem = "members";
 const _mes = "messages";
@@ -1432,6 +1449,7 @@ const _rC = "rejectChoices";
 const _rCC = "redshiftCredentialConfiguration";
 const _rCS = "redshiftClusterSource";
 const _rCo = "rowConfiguration";
+const _rD = "relationDirection";
 const _rDUI = "rootDomainUnitId";
 const _rF = "rowFilter";
 const _rFC = "relationalFilterConfigurations";
@@ -1447,6 +1465,7 @@ const _rP = "retainPermissions";
 const _rPORF = "retainPermissionsOnRevokeFailure";
 const _rPe = "regionalParameters";
 const _rPed = "redshiftProperties";
+const _rPel = "relationPattern";
 const _rPes = "resolvedParameters";
 const _rR = "requestReason";
 const _rRC = "redshiftRunConfiguration";
@@ -1460,6 +1479,7 @@ const _rSe = "redshiftStorage";
 const _rT = "resourceTags";
 const _rTD = "redshiftTempDir";
 const _rTe = "refreshToken";
+const _rTel = "relationType";
 const _rTu = "ruleType";
 const _rU = "redirectUri";
 const _re = "recommendation";
@@ -1581,6 +1601,7 @@ const _uAs = "userAssignment";
 const _uB = "updatedBy";
 const _uI = "userIdentifier";
 const _uIs = "userId";
+const _uLNI = "upstreamLineageNodeIds";
 const _uMCACI = "userManagedClientApplicationClientId";
 const _uMCACS = "userManagedClientApplicationClientSecret";
 const _uN = "userName";
@@ -1785,6 +1806,11 @@ export var AddEntityOwnerOutput$: StaticStructureSchema = [3, n0, _AEOO,
   0,
   [],
   []
+];
+export var AdditionalAttributes$: StaticStructureSchema = [3, n0, _AA,
+  0,
+  [_fN],
+  [64 | 0]
 ];
 export var AddPolicyGrantInput$: StaticStructureSchema = [3, n0, _APGI,
   0,
@@ -2688,8 +2714,8 @@ export var DeleteSubscriptionTargetInput$: StaticStructureSchema = [3, n0, _DSTI
 ];
 export var DeleteTimeSeriesDataPointsInput$: StaticStructureSchema = [3, n0, _DTSDPI,
   0,
-  [_dI, _eI, _eT, _fN, _cT],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fN }], [0, { [_hQ]: _cT, [_iTd]: 1 }]], 4
+  [_dI, _eI, _eT, _fNo, _cT],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fNo }], [0, { [_hQ]: _cT, [_iTd]: 1 }]], 4
 ];
 export var DeleteTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _DTSDPO,
   0,
@@ -2771,6 +2797,11 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
   [_kKA, _sAs],
   [0, 0]
 ];
+export var EntityPattern$: StaticStructureSchema = [3, n0, _EP,
+  0,
+  [_eT, _i, _fi],
+  [0, 0, () => FilterClause$], 2
+];
 export var EnvironmentActionSummary$: StaticStructureSchema = [3, n0, _EAS,
   0,
   [_dIo, _eInvi, _id, _n, _par, _de],
@@ -2816,7 +2847,7 @@ export var EnvironmentError$: StaticStructureSchema = [3, n0, _EE,
   [_m, _cod],
   [0, 0], 1
 ];
-export var EnvironmentParameter$: StaticStructureSchema = [3, n0, _EP,
+export var EnvironmentParameter$: StaticStructureSchema = [3, n0, _EPn,
   0,
   [_n, _v],
   [0, 0]
@@ -2868,12 +2899,12 @@ export var FormEntryOutput$: StaticStructureSchema = [3, n0, _FEO,
 ];
 export var FormInput$: StaticStructureSchema = [3, n0, _FI,
   8,
-  [_fN, _tI, _tR, _cont],
+  [_fNo, _tI, _tR, _cont],
   [0, 0, 0, 0], 1
 ];
 export var FormOutput$: StaticStructureSchema = [3, n0, _FO,
   0,
-  [_fN, _tNy, _tR, _cont],
+  [_fNo, _tNy, _tR, _cont],
   [0, [() => FormTypeName, 0], 0, 0], 1
 ];
 export var FormTypeData$: StaticStructureSchema = [3, n0, _FTD,
@@ -3223,12 +3254,12 @@ export var GetSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _GSTO,
 ];
 export var GetTimeSeriesDataPointInput$: StaticStructureSchema = [3, n0, _GTSDPI,
   0,
-  [_dI, _eI, _eT, _i, _fN],
-  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fN }]], 5
+  [_dI, _eI, _eT, _i, _fNo],
+  [[0, 1], [0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fNo }]], 5
 ];
 export var GetTimeSeriesDataPointOutput$: StaticStructureSchema = [3, n0, _GTSDPO,
   0,
-  [_dIo, _eIn, _eT, _fN, _fo],
+  [_dIo, _eIn, _eT, _fNo, _fo],
   [0, 0, 0, 0, () => TimeSeriesDataPointFormOutput$]
 ];
 export var GetUserProfileInput$: StaticStructureSchema = [3, n0, _GUPI,
@@ -3425,6 +3456,11 @@ export var LineageInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
   [_eIv, _eSve, _eM],
   [0, 0, 0]
+];
+export var LineageNodeItem$: StaticStructureSchema = [3, n0, _LNI,
+  0,
+  [_dIo, _id, _tNy, _n, _de, _cA, _cB, _uA, _uB, _tR, _sIo, _eTve, _fO, _uLNI, _dLNI],
+  [0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0, 4, [() => FormOutputList, 0], 64 | 0, 64 | 0], 3
 ];
 export var LineageNodeReference$: StaticStructureSchema = [3, n0, _LNR,
   0,
@@ -3686,7 +3722,7 @@ export var ListMetadataGenerationRunsOutput$: StaticStructureSchema = [3, n0, _L
   [_it, _nT],
   [() => MetadataGenerationRuns, 0]
 ];
-export var ListNotificationsInput$: StaticStructureSchema = [3, n0, _LNI,
+export var ListNotificationsInput$: StaticStructureSchema = [3, n0, _LNIi,
   0,
   [_dI, _ty, _aTf, _bT, _su, _tSa, _mRa, _nT],
   [[0, 1], [0, { [_hQ]: _ty }], [4, { [_hQ]: _aTf }], [4, { [_hQ]: _bT }], [64 | 0, { [_hQ]: _su }], [0, { [_hQ]: _tSa }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
@@ -3798,8 +3834,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListTimeSeriesDataPointsInput$: StaticStructureSchema = [3, n0, _LTSDPI,
   0,
-  [_dI, _eI, _eT, _fN, _sAt, _eAn, _nT, _mRa],
-  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fN }], [4, { [_hQ]: _sAt }], [4, { [_hQ]: _eAn }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 4
+  [_dI, _eI, _eT, _fNo, _sAt, _eAn, _nT, _mRa],
+  [[0, 1], [0, 1], [0, 1], [0, { [_hQ]: _fNo }], [4, { [_hQ]: _sAt }], [4, { [_hQ]: _eAn }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 4
 ];
 export var ListTimeSeriesDataPointsOutput$: StaticStructureSchema = [3, n0, _LTSDPO,
   0,
@@ -3828,7 +3864,7 @@ export var MetadataFormReference$: StaticStructureSchema = [3, n0, _MFR,
 ];
 export var MetadataFormSummary$: StaticStructureSchema = [3, n0, _MFS,
   0,
-  [_tNy, _tR, _fN],
+  [_tNy, _tR, _fNo],
   [[() => FormTypeName, 0], 0, 0], 2
 ];
 export var MetadataGenerationRunItem$: StaticStructureSchema = [3, n0, _MGRI,
@@ -4026,6 +4062,16 @@ export var PutEnvironmentBlueprintConfigurationOutput$: StaticStructureSchema = 
   [_dIo, _eBIn, _pRA, _eRPB, _mARA, _eRn, _rPe, _cA, _uA, _pCro],
   [0, 0, 0, 0, 0, 64 | 0, [2, n0, _RPM, 0, 0, 128 | 0], 5, 5, () => ProvisioningConfigurationList], 2
 ];
+export var QueryGraphInput$: StaticStructureSchema = [3, n0, _QGI,
+  0,
+  [_dI, _mat, _mRa, _nT, _aA],
+  [[0, 1], () => MatchClauses, [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }], () => AdditionalAttributes$], 2
+];
+export var QueryGraphOutput$: StaticStructureSchema = [3, n0, _QGO,
+  0,
+  [_it, _nT],
+  [[() => ResultItemList, 0], 0]
+];
 export var RecommendationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_eBNG],
@@ -4120,6 +4166,11 @@ export var RelationalFilterConfiguration$: StaticStructureSchema = [3, n0, _RFC,
   0,
   [_dNa, _sN, _fE],
   [0, 0, () => FilterExpressions], 1
+];
+export var RelationPattern$: StaticStructureSchema = [3, n0, _RP,
+  0,
+  [_rTel, _rD, _mPL],
+  [0, 0, 1], 2
 ];
 export var RemoveEntityOwnerInput$: StaticStructureSchema = [3, n0, _REOI,
   0,
@@ -4423,7 +4474,7 @@ export var SubscriptionSummary$: StaticStructureSchema = [3, n0, _SSu,
 ];
 export var SubscriptionTargetForm$: StaticStructureSchema = [3, n0, _STF,
   0,
-  [_fN, _cont],
+  [_fNo, _cont],
   [0, 0], 2
 ];
 export var SubscriptionTargetSummary$: StaticStructureSchema = [3, n0, _STS,
@@ -4453,17 +4504,17 @@ export var TextMatchItem$: StaticStructureSchema = [3, n0, _TMI,
 ];
 export var TimeSeriesDataPointFormInput$: StaticStructureSchema = [3, n0, _TSDPFI,
   0,
-  [_fN, _tI, _ti, _tR, _cont],
+  [_fNo, _tI, _ti, _tR, _cont],
   [0, 0, 4, 0, 0], 3
 ];
 export var TimeSeriesDataPointFormOutput$: StaticStructureSchema = [3, n0, _TSDPFO,
   0,
-  [_fN, _tI, _ti, _tR, _cont, _id],
+  [_fNo, _tI, _ti, _tR, _cont, _id],
   [0, 0, 4, 0, 0, 0], 3
 ];
 export var TimeSeriesDataPointSummaryFormOutput$: StaticStructureSchema = [3, n0, _TSDPSFO,
   0,
-  [_fN, _tI, _ti, _tR, _cS, _id],
+  [_fNo, _tI, _ti, _tR, _cS, _id],
   [0, 0, 4, 0, 0, 0], 3
 ];
 export var Topic$: StaticStructureSchema = [3, n0, _To,
@@ -4897,6 +4948,7 @@ var FormInputList: StaticListSchema = [1, n0, _FIL,
   8, [() => FormInput$,
     0]
 ];
+var FormNameList = 64 | 0;
 var FormOutputList: StaticListSchema = [1, n0, _FOL,
   0, [() => FormOutput$,
     0]
@@ -4920,6 +4972,7 @@ var JobRunSummaries: StaticListSchema = [1, n0, _JRSo,
 var LineageEventSummaries: StaticListSchema = [1, n0, _LESi,
   0, () => LineageEventSummary$
 ];
+var LineageNodeIds = 64 | 0;
 var LineageNodeReferenceList: StaticListSchema = [1, n0, _LNRL,
   0, () => LineageNodeReference$
 ];
@@ -4936,6 +4989,9 @@ var ListingSummaries: StaticListSchema = [1, n0, _LSi,
 var ListingSummaryItems: StaticListSchema = [1, n0, _LSIis,
   0, [() => ListingSummaryItem$,
     0]
+];
+var MatchClauses: StaticListSchema = [1, n0, _MC,
+  0, () => MatchClause$
 ];
 var MatchCriteria = 64 | 0;
 var MatchOffsets: StaticListSchema = [1, n0, _MOa,
@@ -5012,6 +5068,10 @@ var ResourceList: StaticListSchema = [1, n0, _RL,
 ];
 var ResourceTags: StaticListSchema = [1, n0, _RTe,
   0, () => ResourceTag$
+];
+var ResultItemList: StaticListSchema = [1, n0, _RIL,
+  0, [() => ResultItem$,
+    0]
 ];
 var RowFilterList: StaticListSchema = [1, n0, _RFL,
   0, () => RowFilter$
@@ -5142,7 +5202,7 @@ export var AssetFilterConfiguration$: StaticUnionSchema = [4, n0, _AFC,
   [_cCo, _rCo],
   [() => ColumnFilterConfiguration$, () => RowFilterConfiguration$]
 ];
-export var AwsAccount$: StaticUnionSchema = [4, n0, _AA,
+export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
   0,
   [_aAI, _aAIP],
   [0, 0]
@@ -5216,6 +5276,11 @@ export var ListingItem$: StaticUnionSchema = [4, n0, _LIi,
   0,
   [_aLss, _dPL],
   [[() => AssetListing$, 0], [() => DataProductListing$, 0]]
+];
+export var MatchClause$: StaticUnionSchema = [4, n0, _MCa,
+  0,
+  [_rPel, _ePn],
+  [() => RelationPattern$, () => EntityPattern$]
 ];
 export var MatchRationaleItem$: StaticUnionSchema = [4, n0, _MRI,
   0,
@@ -5296,6 +5361,11 @@ export var Region$: StaticUnionSchema = [4, n0, _Re,
   0,
   [_rN, _rNP],
   [0, 0]
+];
+export var ResultItem$: StaticUnionSchema = [4, n0, _RI,
+  0,
+  [_lNi],
+  [[() => LineageNodeItem$, 0]]
 ];
 export var RowFilter$: StaticUnionSchema = [4, n0, _RF,
   0,
@@ -5782,7 +5852,10 @@ export var PutDataExportConfiguration$: StaticOperationSchema = [9, n0, _PDEC,
 export var PutEnvironmentBlueprintConfiguration$: StaticOperationSchema = [9, n0, _PEBC,
   { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/environment-blueprint-configurations/{environmentBlueprintIdentifier}", 200] }, () => PutEnvironmentBlueprintConfigurationInput$, () => PutEnvironmentBlueprintConfigurationOutput$
 ];
-export var RejectPredictions$: StaticOperationSchema = [9, n0, _RP,
+export var QueryGraph$: StaticOperationSchema = [9, n0, _QG,
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/graph/query", 200] }, () => QueryGraphInput$, () => QueryGraphOutput$
+];
+export var RejectPredictions$: StaticOperationSchema = [9, n0, _RPe,
   { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/assets/{identifier}/reject-predictions", 200] }, () => RejectPredictionsInput$, () => RejectPredictionsOutput$
 ];
 export var RejectSubscriptionRequest$: StaticOperationSchema = [9, n0, _RSR,

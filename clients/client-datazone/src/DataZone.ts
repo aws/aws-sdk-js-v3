@@ -642,6 +642,7 @@ import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/PutEnvironmentBlueprintConfigurationCommand";
+import { QueryGraphCommand, QueryGraphCommandInput, QueryGraphCommandOutput } from "./commands/QueryGraphCommand";
 import {
   RejectPredictionsCommand,
   RejectPredictionsCommandInput,
@@ -836,6 +837,7 @@ import { paginateListSubscriptionRequests } from "./pagination/ListSubscriptionR
 import { paginateListSubscriptions } from "./pagination/ListSubscriptionsPaginator";
 import { paginateListSubscriptionTargets } from "./pagination/ListSubscriptionTargetsPaginator";
 import { paginateListTimeSeriesDataPoints } from "./pagination/ListTimeSeriesDataPointsPaginator";
+import { paginateQueryGraph } from "./pagination/QueryGraphPaginator";
 import { paginateSearchGroupProfiles } from "./pagination/SearchGroupProfilesPaginator";
 import { paginateSearchListings } from "./pagination/SearchListingsPaginator";
 import { paginateSearch } from "./pagination/SearchPaginator";
@@ -983,6 +985,7 @@ const commands = {
   PostTimeSeriesDataPointsCommand,
   PutDataExportConfigurationCommand,
   PutEnvironmentBlueprintConfigurationCommand,
+  QueryGraphCommand,
   RejectPredictionsCommand,
   RejectSubscriptionRequestCommand,
   RemoveEntityOwnerCommand,
@@ -1052,6 +1055,7 @@ const paginators = {
   paginateListSubscriptions,
   paginateListSubscriptionTargets,
   paginateListTimeSeriesDataPoints,
+  paginateQueryGraph,
   paginateSearch,
   paginateSearchGroupProfiles,
   paginateSearchListings,
@@ -3442,6 +3446,23 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link QueryGraphCommand}
+   */
+  queryGraph(
+    args: QueryGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<QueryGraphCommandOutput>;
+  queryGraph(
+    args: QueryGraphCommandInput,
+    cb: (err: any, data?: QueryGraphCommandOutput) => void
+  ): void;
+  queryGraph(
+    args: QueryGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: QueryGraphCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RejectPredictionsCommand}
    */
   rejectPredictions(
@@ -4387,6 +4408,17 @@ export interface DataZone {
     args: ListTimeSeriesDataPointsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTimeSeriesDataPointsCommandOutput>;
+
+  /**
+   * @see {@link QueryGraphCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link QueryGraphCommandOutput}.
+   */
+  paginateQueryGraph(
+    args: QueryGraphCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<QueryGraphCommandOutput>;
 
   /**
    * @see {@link SearchCommand}

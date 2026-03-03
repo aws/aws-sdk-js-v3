@@ -139,6 +139,7 @@ export * from "./PostLineageEventCommand";
 export * from "./PostTimeSeriesDataPointsCommand";
 export * from "./PutDataExportConfigurationCommand";
 export * from "./PutEnvironmentBlueprintConfigurationCommand";
+export * from "./QueryGraphCommand";
 export * from "./RejectPredictionsCommand";
 export * from "./RejectSubscriptionRequestCommand";
 export * from "./RemoveEntityOwnerCommand";

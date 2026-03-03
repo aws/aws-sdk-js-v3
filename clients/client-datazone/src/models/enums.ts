@@ -1342,6 +1342,60 @@ export type MetadataGenerationTargetType =
  * @public
  * @enum
  */
+export const GraphEntityType = {
+  LINEAGE_NODE: "LINEAGE_NODE",
+} as const;
+/**
+ * @public
+ */
+export type GraphEntityType = (typeof GraphEntityType)[keyof typeof GraphEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterOperator = {
+  EQ: "EQ",
+  GE: "GE",
+  GT: "GT",
+  LE: "LE",
+  LT: "LT",
+  TEXT_SEARCH: "TEXT_SEARCH",
+} as const;
+/**
+ * @public
+ */
+export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
+export const RelationDirection = {
+  IN: "IN",
+  OUT: "OUT",
+} as const;
+/**
+ * @public
+ */
+export type RelationDirection = (typeof RelationDirection)[keyof typeof RelationDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const RelationType = {
+  LINEAGE: "LINEAGE",
+} as const;
+/**
+ * @public
+ */
+export type RelationType = (typeof RelationType)[keyof typeof RelationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RejectRuleBehavior = {
   ALL: "ALL",
   NONE: "NONE",
@@ -1365,23 +1419,6 @@ export const SearchOutputAdditionalAttribute = {
  */
 export type SearchOutputAdditionalAttribute =
   (typeof SearchOutputAdditionalAttribute)[keyof typeof SearchOutputAdditionalAttribute];
-
-/**
- * @public
- * @enum
- */
-export const FilterOperator = {
-  EQ: "EQ",
-  GE: "GE",
-  GT: "GT",
-  LE: "LE",
-  LT: "LT",
-  TEXT_SEARCH: "TEXT_SEARCH",
-} as const;
-/**
- * @public
- */
-export type FilterOperator = (typeof FilterOperator)[keyof typeof FilterOperator];
 
 /**
  * @public

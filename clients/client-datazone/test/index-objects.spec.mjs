@@ -21,6 +21,7 @@ import {
   AddEntityOwnerCommand,
   AddEntityOwnerInput$,
   AddEntityOwnerOutput$,
+  AdditionalAttributes$,
   AddPolicyGrant$,
   AddPolicyGrantCommand,
   AddPolicyGrantInput$,
@@ -386,6 +387,7 @@ import {
   EdgeDirection,
   EnableSetting,
   EncryptionConfiguration$,
+  EntityPattern$,
   EntityType,
   EnvironmentActionSummary$,
   EnvironmentBlueprintConfigurationItem$,
@@ -583,6 +585,7 @@ import {
   GovernedEntityType,
   GrantedEntity$,
   GrantedEntityInput$,
+  GraphEntityType,
   GreaterThanExpression$,
   GreaterThanOrEqualToExpression$,
   GroupDetails$,
@@ -618,6 +621,7 @@ import {
   LineageEventSummary$,
   LineageImportStatus,
   LineageInfo$,
+  LineageNodeItem$,
   LineageNodeReference$,
   LineageNodeSummary$,
   LineageNodeTypeItem$,
@@ -764,6 +768,7 @@ import {
   ListTimeSeriesDataPointsOutput$,
   ManagedEndpointCredentials$,
   ManagedPolicyType,
+  MatchClause$,
   MatchOffset$,
   MatchRationaleItem$,
   Member$,
@@ -836,6 +841,7 @@ import {
   paginateListSubscriptions,
   paginateListSubscriptionTargets,
   paginateListTimeSeriesDataPoints,
+  paginateQueryGraph,
   paginateSearch,
   paginateSearchGroupProfiles,
   paginateSearchListings,
@@ -876,6 +882,10 @@ import {
   PutEnvironmentBlueprintConfigurationCommand,
   PutEnvironmentBlueprintConfigurationInput$,
   PutEnvironmentBlueprintConfigurationOutput$,
+  QueryGraph$,
+  QueryGraphCommand,
+  QueryGraphInput$,
+  QueryGraphOutput$,
   RecommendationConfiguration$,
   RedshiftClusterStorage$,
   RedshiftCredentialConfiguration$,
@@ -904,6 +914,9 @@ import {
   RejectSubscriptionRequestInput$,
   RejectSubscriptionRequestOutput$,
   RelationalFilterConfiguration$,
+  RelationDirection,
+  RelationPattern$,
+  RelationType,
   RemoveEntityOwner$,
   RemoveEntityOwnerCommand,
   RemoveEntityOwnerInput$,
@@ -919,6 +932,7 @@ import {
   ResourceTag$,
   ResourceTagParameter$,
   ResourceTagSource,
+  ResultItem$,
   RevokeSubscription$,
   RevokeSubscriptionCommand,
   RevokeSubscriptionInput$,
@@ -1433,6 +1447,8 @@ assert(typeof PutDataExportConfigurationCommand === "function");
 assert(typeof PutDataExportConfiguration$ === "object");
 assert(typeof PutEnvironmentBlueprintConfigurationCommand === "function");
 assert(typeof PutEnvironmentBlueprintConfiguration$ === "object");
+assert(typeof QueryGraphCommand === "function");
+assert(typeof QueryGraph$ === "object");
 assert(typeof RejectPredictionsCommand === "function");
 assert(typeof RejectPredictions$ === "object");
 assert(typeof RejectSubscriptionRequestCommand === "function");
@@ -1517,6 +1533,7 @@ assert(typeof AccountSource$ === "object");
 assert(typeof ActionParameters$ === "object");
 assert(typeof AddEntityOwnerInput$ === "object");
 assert(typeof AddEntityOwnerOutput$ === "object");
+assert(typeof AdditionalAttributes$ === "object");
 assert(typeof AddPolicyGrantInput$ === "object");
 assert(typeof AddPolicyGrantOutput$ === "object");
 assert(typeof AddToProjectMemberPoolPolicyGrantDetail$ === "object");
@@ -1723,6 +1740,7 @@ assert(typeof DomainUnitSummary$ === "object");
 assert(typeof DomainUnitTarget$ === "object");
 assert(typeof DomainUnitUserProperties$ === "object");
 assert(typeof EncryptionConfiguration$ === "object");
+assert(typeof EntityPattern$ === "object");
 assert(typeof EnvironmentActionSummary$ === "object");
 assert(typeof EnvironmentBlueprintConfigurationItem$ === "object");
 assert(typeof EnvironmentBlueprintSummary$ === "object");
@@ -1860,6 +1878,7 @@ assert(typeof LessThanOrEqualToExpression$ === "object");
 assert(typeof LikeExpression$ === "object");
 assert(typeof LineageEventSummary$ === "object");
 assert(typeof LineageInfo$ === "object");
+assert(typeof LineageNodeItem$ === "object");
 assert(typeof LineageNodeReference$ === "object");
 assert(typeof LineageNodeSummary$ === "object");
 assert(typeof LineageNodeTypeItem$ === "object");
@@ -1938,6 +1957,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ListTimeSeriesDataPointsInput$ === "object");
 assert(typeof ListTimeSeriesDataPointsOutput$ === "object");
 assert(typeof ManagedEndpointCredentials$ === "object");
+assert(typeof MatchClause$ === "object");
 assert(typeof MatchOffset$ === "object");
 assert(typeof MatchRationaleItem$ === "object");
 assert(typeof Member$ === "object");
@@ -1993,6 +2013,8 @@ assert(typeof PutDataExportConfigurationInput$ === "object");
 assert(typeof PutDataExportConfigurationOutput$ === "object");
 assert(typeof PutEnvironmentBlueprintConfigurationInput$ === "object");
 assert(typeof PutEnvironmentBlueprintConfigurationOutput$ === "object");
+assert(typeof QueryGraphInput$ === "object");
+assert(typeof QueryGraphOutput$ === "object");
 assert(typeof RecommendationConfiguration$ === "object");
 assert(typeof RedshiftClusterStorage$ === "object");
 assert(typeof RedshiftCredentialConfiguration$ === "object");
@@ -2016,6 +2038,7 @@ assert(typeof RejectRule$ === "object");
 assert(typeof RejectSubscriptionRequestInput$ === "object");
 assert(typeof RejectSubscriptionRequestOutput$ === "object");
 assert(typeof RelationalFilterConfiguration$ === "object");
+assert(typeof RelationPattern$ === "object");
 assert(typeof RemoveEntityOwnerInput$ === "object");
 assert(typeof RemoveEntityOwnerOutput$ === "object");
 assert(typeof RemovePolicyGrantInput$ === "object");
@@ -2023,6 +2046,7 @@ assert(typeof RemovePolicyGrantOutput$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceTag$ === "object");
 assert(typeof ResourceTagParameter$ === "object");
+assert(typeof ResultItem$ === "object");
 assert(typeof RevokeSubscriptionInput$ === "object");
 assert(typeof RevokeSubscriptionOutput$ === "object");
 assert(typeof RowFilter$ === "object");
@@ -2192,6 +2216,7 @@ assert(typeof GlossaryUsageRestriction === "object");
 assert(typeof GlueConnectionType === "object");
 assert(typeof GovernanceType === "object");
 assert(typeof GovernedEntityType === "object");
+assert(typeof GraphEntityType === "object");
 assert(typeof GroupProfileStatus === "object");
 assert(typeof GroupSearchType === "object");
 assert(typeof HyperPodOrchestrator === "object");
@@ -2216,6 +2241,8 @@ assert(typeof ProjectDesignation === "object");
 assert(typeof ProjectStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof RejectRuleBehavior === "object");
+assert(typeof RelationDirection === "object");
+assert(typeof RelationType === "object");
 assert(typeof ResolutionStrategy === "object");
 assert(typeof ResourceTagSource === "object");
 assert(typeof RuleAction === "object");
@@ -2298,6 +2325,7 @@ assert(typeof paginateListSubscriptionRequests === "function");
 assert(typeof paginateListSubscriptionTargets === "function");
 assert(typeof paginateListSubscriptions === "function");
 assert(typeof paginateListTimeSeriesDataPoints === "function");
+assert(typeof paginateQueryGraph === "function");
 assert(typeof paginateSearch === "function");
 assert(typeof paginateSearchGroupProfiles === "function");
 assert(typeof paginateSearchListings === "function");

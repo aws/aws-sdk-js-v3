@@ -389,6 +389,7 @@ import {
   PutEnvironmentBlueprintConfigurationCommandInput,
   PutEnvironmentBlueprintConfigurationCommandOutput,
 } from "./commands/PutEnvironmentBlueprintConfigurationCommand";
+import { QueryGraphCommandInput, QueryGraphCommandOutput } from "./commands/QueryGraphCommand";
 import { RejectPredictionsCommandInput, RejectPredictionsCommandOutput } from "./commands/RejectPredictionsCommand";
 import {
   RejectSubscriptionRequestCommandInput,
@@ -612,6 +613,7 @@ export type ServiceInputTypes =
   | PostTimeSeriesDataPointsCommandInput
   | PutDataExportConfigurationCommandInput
   | PutEnvironmentBlueprintConfigurationCommandInput
+  | QueryGraphCommandInput
   | RejectPredictionsCommandInput
   | RejectSubscriptionRequestCommandInput
   | RemoveEntityOwnerCommandInput
@@ -792,6 +794,7 @@ export type ServiceOutputTypes =
   | PostTimeSeriesDataPointsCommandOutput
   | PutDataExportConfigurationCommandOutput
   | PutEnvironmentBlueprintConfigurationCommandOutput
+  | QueryGraphCommandOutput
   | RejectPredictionsCommandOutput
   | RejectSubscriptionRequestCommandOutput
   | RemoveEntityOwnerCommandOutput
