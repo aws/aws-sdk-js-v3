@@ -31,7 +31,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "workspace:3.1001.0",
+    "@aws-sdk/client-cognito-identity": "workspace:^3.1001.0",
     "@aws-sdk/core": "workspace:^3.973.16",
     "@aws-sdk/credential-provider-cognito-identity": "workspace:^3.972.7",
     "@aws-sdk/credential-provider-env": "workspace:^3.972.14",

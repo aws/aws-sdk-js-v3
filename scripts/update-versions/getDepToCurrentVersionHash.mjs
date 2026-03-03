@@ -9,10 +9,7 @@ export const getDepToCurrentVersionHash = () =>
     const packageJsonPath = join(workspacePath, "package.json");
     const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
-    let targetVersion = packageJson.version;
-    if (packageJsonPath.includes("packages-internal")) {
-      targetVersion = "^" + targetVersion;
-    }
+    let targetVersion = "^" + packageJson.version;
 
     acc[`@aws-sdk/${basename(workspacePath)}`] = targetVersion;
     return acc;
