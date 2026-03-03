@@ -407,6 +407,12 @@ export const ProductionVariantInstanceType = {
   ML_G6_4XLARGE: "ml.g6.4xlarge",
   ML_G6_8XLARGE: "ml.g6.8xlarge",
   ML_G6_XLARGE: "ml.g6.xlarge",
+  ML_G7E_12XLARGE: "ml.g7e.12xlarge",
+  ML_G7E_24XLARGE: "ml.g7e.24xlarge",
+  ML_G7E_2XLARGE: "ml.g7e.2xlarge",
+  ML_G7E_48XLARGE: "ml.g7e.48xlarge",
+  ML_G7E_4XLARGE: "ml.g7e.4xlarge",
+  ML_G7E_8XLARGE: "ml.g7e.8xlarge",
   ML_INF1_24XLARGE: "ml.inf1.24xlarge",
   ML_INF1_2XLARGE: "ml.inf1.2xlarge",
   ML_INF1_6XLARGE: "ml.inf1.6xlarge",
@@ -488,6 +494,7 @@ export const ProductionVariantInstanceType = {
   ML_P5_4XLARGE: "ml.p5.4xlarge",
   ML_P6E_GB200_36XLARGE: "ml.p6e-gb200.36xlarge",
   ML_P6_B200_48XLARGE: "ml.p6-b200.48xlarge",
+  ML_P6_B300_48XLARGE: "ml.p6-b300.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_24XLARGE: "ml.r5d.24xlarge",
   ML_R5D_2XLARGE: "ml.r5d.2xlarge",
@@ -3146,6 +3153,7 @@ export type ProductionVariantAcceleratorType =
  * @enum
  */
 export const ProductionVariantInferenceAmiVersion = {
+  AL2023_GPU_4_1: "al2023-ami-sagemaker-inference-gpu-4-1",
   AL2_GPU_2: "al2-ami-sagemaker-inference-gpu-2",
   AL2_GPU_2_1: "al2-ami-sagemaker-inference-gpu-2-1",
   AL2_GPU_3_1: "al2-ami-sagemaker-inference-gpu-3-1",
