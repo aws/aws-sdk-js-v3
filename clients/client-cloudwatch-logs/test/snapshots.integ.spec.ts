@@ -161,6 +161,8 @@ import {
   ListTagsLogGroupCommand,
   PutAccountPolicy$,
   PutAccountPolicyCommand,
+  PutBearerTokenAuthentication$,
+  PutBearerTokenAuthenticationCommand,
   PutDataProtectionPolicy$,
   PutDataProtectionPolicyCommand,
   PutDeliveryDestination$,
@@ -226,21 +228,20 @@ const Client = CloudWatchLogsClient;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "CloudWatchLogsClient" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("CloudWatchLogsClient" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [AssociateKmsKey$, AssociateKmsKeyCommand],
         [AssociateSourceToS3TableIntegration$, AssociateSourceToS3TableIntegrationCommand],
         [CancelExportTask$, CancelExportTaskCommand],
@@ -319,6 +320,7 @@ describe(
         [ListTagsForResource$, ListTagsForResourceCommand],
         [ListTagsLogGroup$, ListTagsLogGroupCommand],
         [PutAccountPolicy$, PutAccountPolicyCommand],
+        [PutBearerTokenAuthentication$, PutBearerTokenAuthenticationCommand],
         [PutDataProtectionPolicy$, PutDataProtectionPolicyCommand],
         [PutDeliveryDestination$, PutDeliveryDestinationCommand],
         [PutDeliveryDestinationPolicy$, PutDeliveryDestinationPolicyCommand],
@@ -349,9 +351,8 @@ describe(
         [UpdateLogAnomalyDetector$, UpdateLogAnomalyDetectorCommand],
         [UpdateScheduledQuery$, UpdateScheduledQueryCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);

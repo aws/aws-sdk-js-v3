@@ -64,9 +64,10 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  *             </li>
  *          </ul>
  *          <note>
- *             <p>The <code>StartLiveTail</code> API routes requests to
- *             <code>streaming-logs.<i>Region</i>.amazonaws.com</code> using SDK host
- *         prefix injection. VPC endpoint support is not available for this API.</p>
+ *             <p>The <code>StartLiveTail</code> API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to
+ *             <code>streaming-logs.<i>Region</i>.amazonaws.com</code>, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to
+ *             <code>stream-logs.<i>Region</i>.amazonaws.com</code>, which supports VPC endpoints. To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating a VPC endpoint for CloudWatch Logs
+ *         </a>.</p>
  *          </note>
  *          <important>
  *             <p>You can end a session before it times out by closing the session stream or by closing

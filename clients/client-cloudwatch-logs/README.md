@@ -781,6 +781,13 @@ PutAccountPolicy
 </details>
 <details>
 <summary>
+PutBearerTokenAuthentication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutBearerTokenAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutBearerTokenAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutBearerTokenAuthenticationCommandOutput/)
+</details>
+<details>
+<summary>
 PutDataProtectionPolicy
 </summary>
 

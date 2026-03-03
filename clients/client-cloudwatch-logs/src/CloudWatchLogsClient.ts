@@ -268,6 +268,10 @@ import {
 import { ListTagsLogGroupCommandInput, ListTagsLogGroupCommandOutput } from "./commands/ListTagsLogGroupCommand";
 import { PutAccountPolicyCommandInput, PutAccountPolicyCommandOutput } from "./commands/PutAccountPolicyCommand";
 import {
+  PutBearerTokenAuthenticationCommandInput,
+  PutBearerTokenAuthenticationCommandOutput,
+} from "./commands/PutBearerTokenAuthenticationCommand";
+import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
@@ -416,6 +420,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
+  | PutBearerTokenAuthenticationCommandInput
   | PutDataProtectionPolicyCommandInput
   | PutDeliveryDestinationCommandInput
   | PutDeliveryDestinationPolicyCommandInput
@@ -528,6 +533,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
+  | PutBearerTokenAuthenticationCommandOutput
   | PutDataProtectionPolicyCommandOutput
   | PutDeliveryDestinationCommandOutput
   | PutDeliveryDestinationPolicyCommandOutput

@@ -395,7 +395,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *          <p>When a policy disables EMF metric creation for a log group, log events in the EMF format
  *       are still ingested, but no CloudWatch Metrics are created from them.</p>
  *          <important>
- *             <p>Creating a policy disables metrics for AWS features that use EMF to create metrics, such
+ *             <p>Creating a policy disables metrics for Amazon Web Services features that use EMF to create metrics, such
  *         as CloudWatch Container Insights and CloudWatch Application Signals. To prevent turning off
  *         those features by accident, we recommend that you exclude the underlying log-groups through
  *         a selection-criteria such as <code>LogGroupNamePrefix NOT IN ["/aws/containerinsights",

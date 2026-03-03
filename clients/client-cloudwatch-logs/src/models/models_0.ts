@@ -3016,6 +3016,13 @@ export interface LogGroup {
    * @public
    */
   deletionProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether bearer token authentication is enabled for this log group. When enabled,
+   *       bearer token authentication is allowed on operations until it is explicitly disabled.</p>
+   * @public
+   */
+  bearerTokenAuthenticationEnabled?: boolean | undefined;
 }
 
 /**
@@ -5495,7 +5502,7 @@ export interface GetTransformerRequest {
 /**
  * <p>This processor uses pattern matching to parse and structure unstructured data. This
  *       processor can also extract fields from log messages.</p>
- *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-Grok">grok</a> in the <i>CloudWatch Logs User Guide</i>.</p>
+ *          <p>For more information about this processor including examples, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Configurable.html#CloudWatch-Logs-Transformation-Grok">grok</a> in the <i>CloudWatch Logs User Guide</i>.</p>
  * @public
  */
 export interface Grok {
@@ -5508,7 +5515,7 @@ export interface Grok {
 
   /**
    * <p>The grok pattern to match against the log event. For a list of supported grok patterns,
-   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#Grok-Patterns">Supported grok patterns</a>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Configurable.html#CloudWatch-Logs-Transformation-Grok">Supported grok patterns</a>.</p>
    * @public
    */
   match: string | undefined;
@@ -7229,6 +7236,30 @@ export interface PutAccountPolicyResponse {
    * @public
    */
   accountPolicy?: AccountPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutBearerTokenAuthenticationRequest {
+  /**
+   * <p>The name or ARN of the log group.</p>
+   *          <p>Type: String</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 512.</p>
+   *          <p>Pattern: <code>[\.\-_/#A-Za-z0-9]+</code>
+   *          </p>
+   *          <p>Required: Yes</p>
+   * @public
+   */
+  logGroupIdentifier: string | undefined;
+
+  /**
+   * <p>Whether to enable bearer token authentication.</p>
+   *          <p>Type: Boolean</p>
+   *          <p>Required: Yes</p>
+   * @public
+   */
+  bearerTokenAuthenticationEnabled: boolean | undefined;
 }
 
 /**

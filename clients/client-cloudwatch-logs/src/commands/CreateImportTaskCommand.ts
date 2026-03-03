@@ -58,10 +58,10 @@ export interface CreateImportTaskCommandOutput extends CreateImportTaskResponse,
  *                      <p>logs:PutResourcePolicy</p>
  *                   </li>
  *                   <li>
- *                      <p>(If source has an associated AWS KMS Key) kms:Decrypt</p>
+ *                      <p>(If source has an associated Amazon Web Services KMS Key) kms:Decrypt</p>
  *                   </li>
  *                   <li>
- *                      <p>(If source has an associated AWS KMS Key) kms:GenerateDataKey</p>
+ *                      <p>(If source has an associated Amazon Web Services KMS Key) kms:GenerateDataKey</p>
  *                   </li>
  *                </ul>
  *                <p>Example IAM policy for provided import role:</p>

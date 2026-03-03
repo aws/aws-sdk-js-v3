@@ -439,6 +439,9 @@ import {
   PutAccountPolicyCommand,
   PutAccountPolicyRequest$,
   PutAccountPolicyResponse$,
+  PutBearerTokenAuthentication$,
+  PutBearerTokenAuthenticationCommand,
+  PutBearerTokenAuthenticationRequest$,
   PutDataProtectionPolicy$,
   PutDataProtectionPolicyCommand,
   PutDataProtectionPolicyRequest$,
@@ -769,6 +772,8 @@ assert(typeof ListTagsLogGroupCommand === "function");
 assert(typeof ListTagsLogGroup$ === "object");
 assert(typeof PutAccountPolicyCommand === "function");
 assert(typeof PutAccountPolicy$ === "object");
+assert(typeof PutBearerTokenAuthenticationCommand === "function");
+assert(typeof PutBearerTokenAuthentication$ === "object");
 assert(typeof PutDataProtectionPolicyCommand === "function");
 assert(typeof PutDataProtectionPolicy$ === "object");
 assert(typeof PutDeliveryDestinationCommand === "function");
@@ -1044,6 +1049,7 @@ assert(typeof Policy$ === "object");
 assert(typeof Processor$ === "object");
 assert(typeof PutAccountPolicyRequest$ === "object");
 assert(typeof PutAccountPolicyResponse$ === "object");
+assert(typeof PutBearerTokenAuthenticationRequest$ === "object");
 assert(typeof PutDataProtectionPolicyRequest$ === "object");
 assert(typeof PutDataProtectionPolicyResponse$ === "object");
 assert(typeof PutDeliveryDestinationPolicyRequest$ === "object");

@@ -328,6 +328,8 @@ const _P = "Policy";
 const _PAP = "PutAccountPolicy";
 const _PAPR = "PutAccountPolicyRequest";
 const _PAPRu = "PutAccountPolicyResponse";
+const _PBTA = "PutBearerTokenAuthentication";
+const _PBTAR = "PutBearerTokenAuthenticationRequest";
 const _PC = "ParseCloudfront";
 const _PD = "PutDestination";
 const _PDD = "PutDeliveryDestination";
@@ -504,6 +506,7 @@ const _bI = "batchId";
 const _bIS = "batchImportStatus";
 const _bIy = "bytesImported";
 const _bS = "bytesScanned";
+const _bTAE = "bearerTokenAuthenticationEnabled";
 const _c = "client";
 const _cA = "collectionArn";
 const _cE = "collectionEndpoint";
@@ -1936,8 +1939,8 @@ export var LogFieldType$: StaticStructureSchema = [3, n0, _LFT,
 ];
 export var LogGroup$: StaticStructureSchema = [3, n0, _LG,
   0,
-  [_lGN, _cT, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE],
-  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2]
+  [_lGN, _cT, _rID, _mFC, _ar, _sB, _kKI, _dPS, _iPn, _lGCo, _lGA, _dPE, _bTAE],
+  [0, 1, 1, 1, 0, 1, 0, 0, 64 | 0, 0, 0, 2, 2]
 ];
 export var LogGroupField$: StaticStructureSchema = [3, n0, _LGF,
   0,
@@ -2108,6 +2111,11 @@ export var PutAccountPolicyResponse$: StaticStructureSchema = [3, n0, _PAPRu,
   0,
   [_aPcc],
   [() => AccountPolicy$]
+];
+export var PutBearerTokenAuthenticationRequest$: StaticStructureSchema = [3, n0, _PBTAR,
+  0,
+  [_lGIo, _bTAE],
+  [0, 2], 2
 ];
 export var PutDataProtectionPolicyRequest$: StaticStructureSchema = [3, n0, _PDPPR,
   0,
@@ -2939,6 +2947,9 @@ export var ListTagsLogGroup$: StaticOperationSchema = [9, n0, _LTLG,
 ];
 export var PutAccountPolicy$: StaticOperationSchema = [9, n0, _PAP,
   0, () => PutAccountPolicyRequest$, () => PutAccountPolicyResponse$
+];
+export var PutBearerTokenAuthentication$: StaticOperationSchema = [9, n0, _PBTA,
+  0, () => PutBearerTokenAuthenticationRequest$, () => __Unit
 ];
 export var PutDataProtectionPolicy$: StaticOperationSchema = [9, n0, _PDPP,
   0, () => PutDataProtectionPolicyRequest$, () => PutDataProtectionPolicyResponse$

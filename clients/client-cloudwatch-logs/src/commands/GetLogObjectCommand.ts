@@ -42,6 +42,12 @@ export interface GetLogObjectCommandOutput extends GetLogObjectResponse, __Metad
  *       original JSON structure where the large field was located. For example, this could be
  *         <code>@ptr.$['input']['message']</code>, <code>@ptr.$['AAA']['BBB']['CCC']['DDD']</code>,
  *         <code>@ptr.$['AAA']</code>, or any other path matching your log structure.</p>
+ *          <note>
+ *             <p>The <code>GetLogObject</code> API routes requests using SDK host prefix injection. SDK versions released before April 1, 2026 route to
+ *             <code>streaming-logs.<i>Region</i>.amazonaws.com</code>, which does not support VPC endpoints. SDK versions released on or after April 1, 2026 route to
+ *             <code>stream-logs.<i>Region</i>.amazonaws.com</code>, which supports VPC endpoints. To set up a VPC endpoint for this API, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs">Creating a VPC endpoint for CloudWatch Logs
+ *         </a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

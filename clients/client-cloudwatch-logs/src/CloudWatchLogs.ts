@@ -390,6 +390,11 @@ import {
   PutAccountPolicyCommandOutput,
 } from "./commands/PutAccountPolicyCommand";
 import {
+  PutBearerTokenAuthenticationCommand,
+  PutBearerTokenAuthenticationCommandInput,
+  PutBearerTokenAuthenticationCommandOutput,
+} from "./commands/PutBearerTokenAuthenticationCommand";
+import {
   PutDataProtectionPolicyCommand,
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
@@ -616,6 +621,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListTagsLogGroupCommand,
   PutAccountPolicyCommand,
+  PutBearerTokenAuthenticationCommand,
   PutDataProtectionPolicyCommand,
   PutDeliveryDestinationCommand,
   PutDeliveryDestinationPolicyCommand,
@@ -2014,6 +2020,23 @@ export interface CloudWatchLogs {
     args: PutAccountPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutBearerTokenAuthenticationCommand}
+   */
+  putBearerTokenAuthentication(
+    args: PutBearerTokenAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBearerTokenAuthenticationCommandOutput>;
+  putBearerTokenAuthentication(
+    args: PutBearerTokenAuthenticationCommandInput,
+    cb: (err: any, data?: PutBearerTokenAuthenticationCommandOutput) => void
+  ): void;
+  putBearerTokenAuthentication(
+    args: PutBearerTokenAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBearerTokenAuthenticationCommandOutput) => void
   ): void;
 
   /**

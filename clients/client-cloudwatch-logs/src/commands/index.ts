@@ -77,6 +77,7 @@ export * from "./ListSourcesForS3TableIntegrationCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTagsLogGroupCommand";
 export * from "./PutAccountPolicyCommand";
+export * from "./PutBearerTokenAuthenticationCommand";
 export * from "./PutDataProtectionPolicyCommand";
 export * from "./PutDeliveryDestinationCommand";
 export * from "./PutDeliveryDestinationPolicyCommand";
