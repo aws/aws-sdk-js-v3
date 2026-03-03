@@ -43,10 +43,16 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * const input = { // UpdatePolicyRequest
  *   policyEngineId: "STRING_VALUE", // required
  *   policyId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   description: { // UpdatedDescription
+ *     optionalValue: "STRING_VALUE",
+ *   },
  *   definition: { // PolicyDefinition Union: only one key present
  *     cedar: { // CedarPolicy
  *       statement: "STRING_VALUE", // required
+ *     },
+ *     policyGeneration: { // PolicyGenerationDetails
+ *       policyGenerationId: "STRING_VALUE", // required
+ *       policyGenerationAssetId: "STRING_VALUE", // required
  *     },
  *   },
  *   validationMode: "FAIL_ON_ANY_FINDINGS" || "IGNORE_ALL_FINDINGS",
@@ -60,6 +66,10 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
+ * //     },
+ * //     policyGeneration: { // PolicyGenerationDetails
+ * //       policyGenerationId: "STRING_VALUE", // required
+ * //       policyGenerationAssetId: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   description: "STRING_VALUE",

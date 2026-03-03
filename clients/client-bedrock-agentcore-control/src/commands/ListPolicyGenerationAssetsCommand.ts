@@ -56,6 +56,10 @@ export interface ListPolicyGenerationAssetsCommandOutput extends ListPolicyGener
  * //         cedar: { // CedarPolicy
  * //           statement: "STRING_VALUE", // required
  * //         },
+ * //         policyGeneration: { // PolicyGenerationDetails
+ * //           policyGenerationId: "STRING_VALUE", // required
+ * //           policyGenerationAssetId: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       rawTextFragment: "STRING_VALUE", // required
  * //       findings: [ // Findings // required

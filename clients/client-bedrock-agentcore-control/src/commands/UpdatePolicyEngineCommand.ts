@@ -42,7 +42,9 @@ export interface UpdatePolicyEngineCommandOutput extends UpdatePolicyEngineRespo
  * const client = new BedrockAgentCoreControlClient(config);
  * const input = { // UpdatePolicyEngineRequest
  *   policyEngineId: "STRING_VALUE", // required
- *   description: "STRING_VALUE",
+ *   description: { // UpdatedDescription
+ *     optionalValue: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdatePolicyEngineCommand(input);
  * const response = await client.send(command);
@@ -57,6 +59,7 @@ export interface UpdatePolicyEngineCommandOutput extends UpdatePolicyEngineRespo
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   encryptionKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

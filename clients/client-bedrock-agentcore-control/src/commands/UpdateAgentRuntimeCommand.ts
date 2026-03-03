@@ -54,7 +54,7 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *           versionId: "STRING_VALUE",
  *         },
  *       },
- *       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13", // required
+ *       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13" || "PYTHON_3_14", // required
  *       entryPoint: [ // EntryPoints // required
  *         "STRING_VALUE",
  *       ],
@@ -113,6 +113,9 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *   lifecycleConfiguration: { // LifecycleConfiguration
  *     idleRuntimeSessionTimeout: Number("int"),
  *     maxLifetime: Number("int"),
+ *   },
+ *   metadataConfiguration: { // RuntimeMetadataConfiguration
+ *     requireMMDSV2: true || false, // required
  *   },
  *   environmentVariables: { // EnvironmentVariablesMap
  *     "<keys>": "STRING_VALUE",

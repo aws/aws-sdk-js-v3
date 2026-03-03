@@ -54,6 +54,10 @@ export interface DeletePolicyCommandOutput extends DeletePolicyResponse, __Metad
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
  * //     },
+ * //     policyGeneration: { // PolicyGenerationDetails
+ * //       policyGenerationId: "STRING_VALUE", // required
+ * //       policyGenerationAssetId: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required

@@ -59,6 +59,7 @@ export interface ListPolicyEnginesCommandOutput extends ListPolicyEnginesRespons
  * //       statusReasons: [ // PolicyStatusReasons // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       encryptionKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

@@ -463,6 +463,7 @@ import {
   PolicyEngineStatus,
   PolicyGeneration$,
   PolicyGenerationAsset$,
+  PolicyGenerationDetails$,
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
@@ -483,6 +484,7 @@ import {
   ResourceType,
   RestApiMethod,
   Rule$,
+  RuntimeMetadataConfiguration$,
   S3Configuration$,
   S3Location$,
   SalesforceOauth2ProviderConfigInput$,
@@ -562,6 +564,7 @@ import {
   UpdateApiKeyCredentialProviderCommand,
   UpdateApiKeyCredentialProviderRequest$,
   UpdateApiKeyCredentialProviderResponse$,
+  UpdatedDescription$,
   UpdateEvaluator$,
   UpdateEvaluatorCommand,
   UpdateEvaluatorRequest$,
@@ -1062,6 +1065,7 @@ assert(typeof PolicyDefinition$ === "object");
 assert(typeof PolicyEngine$ === "object");
 assert(typeof PolicyGeneration$ === "object");
 assert(typeof PolicyGenerationAsset$ === "object");
+assert(typeof PolicyGenerationDetails$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
@@ -1071,6 +1075,7 @@ assert(typeof ReflectionConfiguration$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof Rule$ === "object");
+assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigInput$ === "object");
@@ -1120,6 +1125,7 @@ assert(typeof UpdateAgentRuntimeRequest$ === "object");
 assert(typeof UpdateAgentRuntimeResponse$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderRequest$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderResponse$ === "object");
+assert(typeof UpdatedDescription$ === "object");
 assert(typeof UpdateEvaluatorRequest$ === "object");
 assert(typeof UpdateEvaluatorResponse$ === "object");
 assert(typeof UpdateGatewayRequest$ === "object");

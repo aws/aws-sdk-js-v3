@@ -46,6 +46,10 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *     cedar: { // CedarPolicy
  *       statement: "STRING_VALUE", // required
  *     },
+ *     policyGeneration: { // PolicyGenerationDetails
+ *       policyGenerationId: "STRING_VALUE", // required
+ *       policyGenerationAssetId: "STRING_VALUE", // required
+ *     },
  *   },
  *   description: "STRING_VALUE",
  *   validationMode: "FAIL_ON_ANY_FINDINGS" || "IGNORE_ALL_FINDINGS",
@@ -61,6 +65,10 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  * //   definition: { // PolicyDefinition Union: only one key present
  * //     cedar: { // CedarPolicy
  * //       statement: "STRING_VALUE", // required
+ * //     },
+ * //     policyGeneration: { // PolicyGenerationDetails
+ * //       policyGenerationId: "STRING_VALUE", // required
+ * //       policyGenerationAssetId: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   description: "STRING_VALUE",

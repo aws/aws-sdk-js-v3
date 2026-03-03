@@ -374,6 +374,7 @@ const _PEo = "PolicyEngines";
 const _PG = "PolicyGeneration";
 const _PGA = "PolicyGenerationAsset";
 const _PGAo = "PolicyGenerationAssets";
+const _PGD = "PolicyGenerationDetails";
 const _PGo = "PolicyGenerations";
 const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
@@ -385,6 +386,7 @@ const _RC = "RecordingConfig";
 const _RCe = "ReflectionConfiguration";
 const _RHC = "RequestHeaderConfiguration";
 const _RLEE = "ResourceLimitExceededException";
+const _RMC = "RuntimeMetadataConfiguration";
 const _RNFE = "ResourceNotFoundException";
 const _RS = "RatingScale";
 const _Re = "Resource";
@@ -453,6 +455,7 @@ const _UARER = "UpdateAgentRuntimeEndpointRequest";
 const _UARERp = "UpdateAgentRuntimeEndpointResponse";
 const _UARR = "UpdateAgentRuntimeRequest";
 const _UARRp = "UpdateAgentRuntimeResponse";
+const _UD = "UpdatedDescription";
 const _UE = "UnauthorizedException";
 const _UER = "UpdateEvaluatorRequest";
 const _UERp = "UpdateEvaluatorResponse";
@@ -707,6 +710,7 @@ const _oECN = "onlineEvaluationConfigName";
 const _oPCI = "oauth2ProviderConfigInput";
 const _oPCO = "oauth2ProviderConfigOutput";
 const _oS = "outputSchema";
+const _oV = "optionalValue";
 const _p = "path";
 const _pA = "profileArn";
 const _pAo = "policyArn";
@@ -722,6 +726,7 @@ const _pGA = "policyGenerationArn";
 const _pGAI = "policyGenerationAssetId";
 const _pGAo = "policyGenerationAssets";
 const _pGI = "policyGenerationId";
+const _pGo = "policyGeneration";
 const _pI = "profileId";
 const _pIo = "policyId";
 const _pRH = "passRequestHeaders";
@@ -739,6 +744,7 @@ const _rC = "reflectionConfiguration";
 const _rE = "runtimeEndpoints";
 const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
+const _rMMDSV = "requireMMDSV2";
 const _rS = "ratingScale";
 const _rT = "responseTypes";
 const _rTF = "rawTextFragment";
@@ -1208,13 +1214,13 @@ export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
-  [_n, _d, _cTl],
-  [0, [() => Description, 0], [0, 4]], 1
+  [_n, _d, _cTl, _eKA, _t],
+  [0, [() => Description, 0], [0, 4], 0, 128 | 0], 1
 ];
 export var CreatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _CPERr,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
+  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
 ];
 export var CreatePolicyRequest$: StaticStructureSchema = [3, n0, _CPR,
   0,
@@ -1398,8 +1404,8 @@ export var DeletePolicyEngineRequest$: StaticStructureSchema = [3, n0, _DPER,
 ];
 export var DeletePolicyEngineResponse$: StaticStructureSchema = [3, n0, _DPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
+  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
 ];
 export var DeletePolicyRequest$: StaticStructureSchema = [3, n0, _DPR,
   0,
@@ -1538,8 +1544,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC],
-  [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$], 10
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aC, _rHC, _mC],
+  [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$], 10
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -1648,8 +1654,8 @@ export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
 ];
 export var GetPolicyEngineResponse$: StaticStructureSchema = [3, n0, _GPERe,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
+  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
 ];
 export var GetPolicyGenerationRequest$: StaticStructureSchema = [3, n0, _GPGR,
   0,
@@ -2093,8 +2099,8 @@ export var Policy$: StaticStructureSchema = [3, n0, _Po,
 ];
 export var PolicyEngine$: StaticStructureSchema = [3, n0, _PE,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
+  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
 ];
 export var PolicyGeneration$: StaticStructureSchema = [3, n0, _PG,
   0,
@@ -2105,6 +2111,11 @@ export var PolicyGenerationAsset$: StaticStructureSchema = [3, n0, _PGA,
   0,
   [_pGAI, _rTF, _f, _de],
   [0, 0, () => Findings, () => PolicyDefinition$], 3
+];
+export var PolicyGenerationDetails$: StaticStructureSchema = [3, n0, _PGD,
+  0,
+  [_pGI, _pGAI],
+  [0, 0], 2
 ];
 export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -2130,6 +2141,11 @@ export var Rule$: StaticStructureSchema = [3, n0, _R,
   0,
   [_sC, _fi, _sCe],
   [() => SamplingConfig$, () => FilterList, () => SessionConfig$], 1
+];
+export var RuntimeMetadataConfiguration$: StaticStructureSchema = [3, n0, _RMC,
+  0,
+  [_rMMDSV],
+  [2], 1
 ];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
   0,
@@ -2338,8 +2354,8 @@ export var UpdateAgentRuntimeEndpointResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _UARR,
   0,
-  [_aRI, _aRAg, _rA, _nC, _d, _aC, _rHC, _pC, _lC, _eV, _cTl],
-  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, [() => EnvironmentVariablesMap, 0], [0, 4]], 4
+  [_aRI, _aRAg, _rA, _nC, _d, _aC, _rHC, _pC, _lC, _mC, _eV, _cTl],
+  [[0, 1], () => AgentRuntimeArtifact$, 0, () => NetworkConfiguration$, [() => Description, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => ProtocolConfiguration$, () => LifecycleConfiguration$, () => RuntimeMetadataConfiguration$, [() => EnvironmentVariablesMap, 0], [0, 4]], 4
 ];
 export var UpdateAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _UARRp,
   0,
@@ -2355,6 +2371,11 @@ export var UpdateApiKeyCredentialProviderResponse$: StaticStructureSchema = [3, 
   0,
   [_aKSA, _n, _cPA, _cT, _lUT],
   [() => Secret$, 0, 0, 4, 4], 5
+];
+export var UpdatedDescription$: StaticStructureSchema = [3, n0, _UD,
+  0,
+  [_oV],
+  [[() => Description, 0]]
 ];
 export var UpdateEvaluatorRequest$: StaticStructureSchema = [3, n0, _UER,
   0,
@@ -2419,17 +2440,17 @@ export var UpdateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
 export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
   0,
   [_pEI, _d],
-  [[0, 1], [() => Description, 0]], 1
+  [[0, 1], [() => UpdatedDescription$, 0]], 1
 ];
 export var UpdatePolicyEngineResponse$: StaticStructureSchema = [3, n0, _UPERp,
   0,
-  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d],
-  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0]], 7
+  [_pEI, _n, _cA, _uA, _pEA, _st, _sR, _d, _eKA],
+  [0, 0, 5, 5, 0, 0, 64 | 0, [() => Description, 0], 0], 7
 ];
 export var UpdatePolicyRequest$: StaticStructureSchema = [3, n0, _UPR,
   0,
-  [_pEI, _pIo, _de, _d, _vM],
-  [[0, 1], [0, 1], () => PolicyDefinition$, [() => Description, 0], 0], 3
+  [_pEI, _pIo, _d, _de, _vM],
+  [[0, 1], [0, 1], [() => UpdatedDescription$, 0], () => PolicyDefinition$, 0], 2
 ];
 export var UpdatePolicyResponse$: StaticStructureSchema = [3, n0, _UPRp,
   0,
@@ -2817,8 +2838,8 @@ export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [4, n0, _OPCO,
 ];
 export var PolicyDefinition$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_ce],
-  [() => CedarPolicy$]
+  [_ce, _pGo],
+  [() => CedarPolicy$, () => PolicyGenerationDetails$]
 ];
 export var RatingScale$: StaticUnionSchema = [4, n0, _RS,
   0,
@@ -3110,10 +3131,10 @@ export var UpdateOnlineEvaluationConfig$: StaticOperationSchema = [9, n0, _UOEC,
   { [_h]: ["PUT", "/online-evaluation-configs/{onlineEvaluationConfigId}", 202] }, () => UpdateOnlineEvaluationConfigRequest$, () => UpdateOnlineEvaluationConfigResponse$
 ];
 export var UpdatePolicy$: StaticOperationSchema = [9, n0, _UP,
-  { [_h]: ["PUT", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => UpdatePolicyRequest$, () => UpdatePolicyResponse$
+  { [_h]: ["PATCH", "/policy-engines/{policyEngineId}/policies/{policyId}", 202] }, () => UpdatePolicyRequest$, () => UpdatePolicyResponse$
 ];
 export var UpdatePolicyEngine$: StaticOperationSchema = [9, n0, _UPE,
-  { [_h]: ["PUT", "/policy-engines/{policyEngineId}", 202] }, () => UpdatePolicyEngineRequest$, () => UpdatePolicyEngineResponse$
+  { [_h]: ["PATCH", "/policy-engines/{policyEngineId}", 202] }, () => UpdatePolicyEngineRequest$, () => UpdatePolicyEngineResponse$
 ];
 export var UpdateWorkloadIdentity$: StaticOperationSchema = [9, n0, _UWI,
   { [_h]: ["POST", "/identities/UpdateWorkloadIdentity", 200] }, () => UpdateWorkloadIdentityRequest$, () => UpdateWorkloadIdentityResponse$

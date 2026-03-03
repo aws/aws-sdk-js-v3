@@ -54,7 +54,7 @@ export const waitForPolicyEngineActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 2, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -66,7 +66,7 @@ export const waitUntilPolicyEngineActive = async (
   params: WaiterConfiguration<BedrockAgentCoreControlClient>,
   input: GetPolicyEngineCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 2, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 5, maxDelay: 120 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

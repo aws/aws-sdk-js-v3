@@ -87,7 +87,7 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //           versionId: "STRING_VALUE",
  * //         },
  * //       },
- * //       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13", // required
+ * //       runtime: "PYTHON_3_10" || "PYTHON_3_11" || "PYTHON_3_12" || "PYTHON_3_13" || "PYTHON_3_14", // required
  * //       entryPoint: [ // EntryPoints // required
  * //         "STRING_VALUE",
  * //       ],
@@ -132,6 +132,9 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //     requestHeaderAllowlist: [ // RequestHeaderAllowlist
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   metadataConfiguration: { // RuntimeMetadataConfiguration
+ * //     requireMMDSV2: true || false, // required
  * //   },
  * // };
  *

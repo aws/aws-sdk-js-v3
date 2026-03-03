@@ -1082,6 +1082,18 @@ export interface GetAgentRuntimeRequest {
 }
 
 /**
+ * <p>Configuration for microVM metadata service settings.</p>
+ * @public
+ */
+export interface RuntimeMetadataConfiguration {
+  /**
+   * <p>Enables MMDSv2 (microVM Metadata Service Version 2) requirement for the agent runtime. When set to <code>true</code>, the runtime microVM will only accept MMDSv2 requests.</p>
+   * @public
+   */
+  requireMMDSV2: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface GetAgentRuntimeResponse {
@@ -1192,6 +1204,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   requestHeaderConfiguration?: RequestHeaderConfiguration | undefined;
+
+  /**
+   * <p>Configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.</p>
+   * @public
+   */
+  metadataConfiguration?: RuntimeMetadataConfiguration | undefined;
 }
 
 /**
@@ -1373,6 +1391,12 @@ export interface UpdateAgentRuntimeRequest {
    * @public
    */
   lifecycleConfiguration?: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>The updated configuration for microVM Metadata Service (MMDS) settings for the AgentCore Runtime.</p>
+   * @public
+   */
+  metadataConfiguration?: RuntimeMetadataConfiguration | undefined;
 
   /**
    * <p>Updated environment variables to set in the AgentCore Runtime environment.</p>
@@ -8732,6 +8756,18 @@ export interface CreatePolicyEngineRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to assign to an AgentCore Policy. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -8785,6 +8821,12 @@ export interface CreatePolicyEngineResponse {
    * @public
    */
   statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -8849,6 +8891,12 @@ export interface DeletePolicyEngineResponse {
    * @public
    */
   statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -8913,6 +8961,12 @@ export interface GetPolicyEngineResponse {
    * @public
    */
   statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -8984,6 +9038,12 @@ export interface PolicyEngine {
    * @public
    */
   statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -9004,6 +9064,18 @@ export interface ListPolicyEnginesResponse {
 }
 
 /**
+ * <p>Respresents an optional value that can be provided to update the human-readable description of the resource. If the field is omitted from the request, it will leave the current decription value unchanged.</p>
+ * @public
+ */
+export interface UpdatedDescription {
+  /**
+   * <p>Represents an optional value that is used to update the human-readable description of the resource. If set to null, it will clear the current description of the resource.</p>
+   * @public
+   */
+  optionalValue?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdatePolicyEngineRequest {
@@ -9017,7 +9089,7 @@ export interface UpdatePolicyEngineRequest {
    * <p>The new description for the policy engine.</p>
    * @public
    */
-  description?: string | undefined;
+  description?: UpdatedDescription | undefined;
 }
 
 /**
@@ -9071,6 +9143,12 @@ export interface UpdatePolicyEngineResponse {
    * @public
    */
   statusReasons: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -9236,11 +9314,30 @@ export interface CedarPolicy {
 }
 
 /**
+ * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * @public
+ */
+export interface PolicyGenerationDetails {
+  /**
+   * <p>The unique identifier for this policy generation request.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for this generated policy asset within the policy generation request.</p>
+   * @public
+   */
+  policyGenerationAssetId: string | undefined;
+}
+
+/**
  * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
  * @public
  */
 export type PolicyDefinition =
   | PolicyDefinition.CedarMember
+  | PolicyDefinition.PolicyGenerationMember
   | PolicyDefinition.$UnknownMember;
 
 /**
@@ -9253,6 +9350,17 @@ export namespace PolicyDefinition {
    */
   export interface CedarMember {
     cedar: CedarPolicy;
+    policyGeneration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+   * @public
+   */
+  export interface PolicyGenerationMember {
+    cedar?: never;
+    policyGeneration: PolicyGenerationDetails;
     $unknown?: never;
   }
 
@@ -9261,6 +9369,7 @@ export namespace PolicyDefinition {
    */
   export interface $UnknownMember {
     cedar?: never;
+    policyGeneration?: never;
     $unknown: [string, any];
   }
 
@@ -9270,6 +9379,7 @@ export namespace PolicyDefinition {
    */
   export interface Visitor<T> {
     cedar: (value: CedarPolicy) => T;
+    policyGeneration: (value: PolicyGenerationDetails) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9334,112 +9444,6 @@ export interface ListPolicyGenerationAssetsResponse {
 
   /**
    * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> calls to retrieve additional assets. This token is only present when there are more generated policy assets available beyond the current response.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationsRequest {
-  /**
-   * <p>A pagination token for retrieving additional policy generations when results are paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy generations to return in a single response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policy generations to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Cedar policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
- * @public
- */
-export interface PolicyGeneration {
-  /**
-   * <p>The identifier of the policy engine associated with this generation request.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier for this policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for this policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of this policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with this policy generation.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of this policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-
-  /**
-   * <p>Findings and insights from this policy generation process.</p>
-   * @public
-   */
-  findings?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationsResponse {
-  /**
-   * <p>An array of policy generation objects that match the specified criteria.</p>
-   * @public
-   */
-  policyGenerations: PolicyGeneration[] | undefined;
-
-  /**
-   * <p>A pagination token for retrieving additional policy generations if more results are available.</p>
    * @public
    */
   nextToken?: string | undefined;

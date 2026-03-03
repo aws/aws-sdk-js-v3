@@ -44,6 +44,10 @@ export interface CreatePolicyEngineCommandOutput extends CreatePolicyEngineRespo
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   encryptionKeyArn: "STRING_VALUE",
+ *   tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreatePolicyEngineCommand(input);
  * const response = await client.send(command);
@@ -58,6 +62,7 @@ export interface CreatePolicyEngineCommandOutput extends CreatePolicyEngineRespo
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   encryptionKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

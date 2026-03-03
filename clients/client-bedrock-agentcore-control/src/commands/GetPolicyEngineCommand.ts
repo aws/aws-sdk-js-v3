@@ -56,6 +56,7 @@ export interface GetPolicyEngineCommandOutput extends GetPolicyEngineResponse, _
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   encryptionKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

@@ -5,12 +5,119 @@ import {
   type MetadataConfiguration,
   type PolicyDefinition,
   type Resource,
+  type UpdatedDescription,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
   CredentialProviderConfiguration,
   McpServerTargetConfiguration,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListPolicyGenerationsRequest {
+  /**
+   * <p>A pagination token for retrieving additional policy generations when results are paginated.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of policy generations to return in a single response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the policy engine whose policy generations to retrieve.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
+ * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Cedar policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
+ * @public
+ */
+export interface PolicyGeneration {
+  /**
+   * <p>The identifier of the policy engine associated with this generation request.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The unique identifier for this policy generation request.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The customer-assigned name for this policy generation request.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of this policy generation request.</p>
+   * @public
+   */
+  policyGenerationArn: string | undefined;
+
+  /**
+   * <p>The resource information associated with this policy generation.</p>
+   * @public
+   */
+  resource: Resource | undefined;
+
+  /**
+   * <p>The timestamp when this policy generation request was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when this policy generation was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of this policy generation request.</p>
+   * @public
+   */
+  status: PolicyGenerationStatus | undefined;
+
+  /**
+   * <p>Additional information about the generation status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+
+  /**
+   * <p>Findings and insights from this policy generation process.</p>
+   * @public
+   */
+  findings?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyGenerationsResponse {
+  /**
+   * <p>An array of policy generation objects that match the specified criteria.</p>
+   * @public
+   */
+  policyGenerations: PolicyGeneration[] | undefined;
+
+  /**
+   * <p>A pagination token for retrieving additional policy generations if more results are available.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * <p>Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.</p>
@@ -553,13 +660,13 @@ export interface UpdatePolicyRequest {
    * <p>The new human-readable description for the policy. This optional field allows updating the policy's documentation while keeping the same policy logic.</p>
    * @public
    */
-  description?: string | undefined;
+  description?: UpdatedDescription | undefined;
 
   /**
    * <p>The new Cedar policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.</p>
    * @public
    */
-  definition: PolicyDefinition | undefined;
+  definition?: PolicyDefinition | undefined;
 
   /**
    * <p>The validation mode for the policy update. Determines how Cedar analyzer validation results are handled during policy updates. FAIL_ON_ANY_FINDINGS runs the Cedar analyzer and fails the update if validation issues are detected, ensuring the policy conforms to the Cedar schema and tool context. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows updates despite validation warnings. Use FAIL_ON_ANY_FINDINGS to ensure policy correctness during updates, especially when modifying policy logic or conditions.</p>

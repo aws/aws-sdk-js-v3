@@ -56,6 +56,7 @@ export interface DeletePolicyEngineCommandOutput extends DeletePolicyEngineRespo
  * //   statusReasons: [ // PolicyStatusReasons // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   encryptionKeyArn: "STRING_VALUE",
  * // };
  *
  * ```
