@@ -84,6 +84,11 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
 
         const sourceKey = listValue.getMergedTraits().xmlName ?? "member";
         const source = flat ? value : (value[0] ?? value)[sourceKey];
+
+        if (source == null) {
+          return buffer;
+        }
+
         const sourceArray = Array.isArray(source) ? source : [source];
 
         for (const v of sourceArray) {

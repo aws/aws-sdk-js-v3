@@ -89,6 +89,31 @@ describe(XmlShapeDeserializer.name, () => {
     });
   });
 
+  it("deserializes empty XML lists correctly", async () => {
+    const emptyListSchema = [
+      3,
+      "",
+      "Widget",
+      0,
+      ["stringList", "stringSet"],
+      [
+        [() => [1, "", "StringList", {}, 0], {}],
+        [() => [1, "", "StringList", {}, 0], {}],
+      ],
+    ];
+
+    const xml = `<Widget xmlns="namespace">
+  <stringList/>
+  <stringSet></stringSet>
+</Widget>`;
+
+    const result = await deserializer.read(emptyListSchema, xml);
+    expect(result).toEqual({
+      stringList: [],
+      stringSet: [],
+    });
+  });
+
   it("deserializes unknown union members", async () => {
     const xml = `<UnionStruct xmlns="namespace"><union><UK>UV</UK></union></UnionStruct>`;
     {
