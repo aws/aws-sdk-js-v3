@@ -1,21 +1,29 @@
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
+import { getNodeModulesParentDirs } from "./getNodeModulesParentDirs";
+import { getSanitizedDevTypeScriptVersion } from "./getSanitizedDevTypeScriptVersion";
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
-import { getTypeScriptPackageJsonPaths } from "./getTypeScriptPackageJsonPaths";
 
 vi.mock("node:fs/promises");
+vi.mock("./getNodeModulesParentDirs");
+vi.mock("./getSanitizedDevTypeScriptVersion");
 vi.mock("./getSanitizedTypeScriptVersion");
-vi.mock("./getTypeScriptPackageJsonPaths");
 
 describe("getTypeScriptUserAgentPair", () => {
   const mockTscVersion = "5.9.3+build123";
   const mockSanitizedVersion = "5.9.3";
-  const mockPackageJsonPath1 = "/mock/cwd/node_modules/typescript/package.json";
-  const mockPackageJsonPath2 = "/mock/dirname/node_modules/typescript/package.json";
+  const mockParentDir1 = "/mock/cwd";
+  const mockParentDir2 = "/mock/dirname";
+  const mockTsPackageJson1 = join(mockParentDir1, "node_modules", "typescript", "package.json");
+  const mockTsPackageJson2 = join(mockParentDir2, "node_modules", "typescript", "package.json");
+  const mockAppPackageJson1 = join(mockParentDir1, "package.json");
+  const mockAppPackageJson2 = join(mockParentDir2, "package.json");
 
   beforeEach(() => {
-    vi.mocked(getTypeScriptPackageJsonPaths).mockReturnValue([mockPackageJsonPath1, mockPackageJsonPath2]);
+    vi.mocked(getNodeModulesParentDirs).mockReturnValue([mockParentDir1, mockParentDir2]);
+    vi.mocked(getSanitizedDevTypeScriptVersion).mockReturnValue(mockSanitizedVersion);
     vi.mocked(getSanitizedTypeScriptVersion).mockReturnValue(mockSanitizedVersion);
   });
 
@@ -31,7 +39,7 @@ describe("getTypeScriptUserAgentPair", () => {
 
     afterEach(() => {
       expect(readFile).toHaveBeenCalledTimes(1);
-      expect(readFile).toHaveBeenCalledWith(mockPackageJsonPath1, "utf-8");
+      expect(readFile).toHaveBeenCalledWith(mockTsPackageJson1, "utf-8");
     });
 
     it("returns version from first path", async () => {
@@ -46,7 +54,7 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when first path fails but second succeeds", () => {
+  describe("when first ts path fails but second succeeds", () => {
     beforeEach(() => {
       vi.mocked(readFile)
         .mockRejectedValueOnce(new Error("File not found"))
@@ -55,8 +63,8 @@ describe("getTypeScriptUserAgentPair", () => {
 
     afterEach(() => {
       expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockPackageJsonPath1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockPackageJsonPath2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
     });
 
     it("returns version from second path", async () => {
@@ -71,7 +79,7 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when getSanitizedTypeScriptVersion returns undefined for first path", () => {
+  describe("when getSanitizedTypeScriptVersion returns undefined for first ts path", () => {
     beforeEach(() => {
       vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
       vi.mocked(getSanitizedTypeScriptVersion).mockReturnValueOnce(undefined).mockReturnValueOnce(mockSanitizedVersion);
@@ -79,8 +87,8 @@ describe("getTypeScriptUserAgentPair", () => {
 
     afterEach(() => {
       expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockPackageJsonPath1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockPackageJsonPath2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
     });
 
     it("continues to next path and returns version", async () => {
@@ -95,15 +103,68 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
+  describe("when ts paths fail but app package.json has devDependencies.typescript", () => {
+    beforeEach(() => {
+      vi.mocked(readFile)
+        .mockRejectedValueOnce(new Error("File not found"))
+        .mockRejectedValueOnce(new Error("File not found"))
+        .mockResolvedValueOnce(JSON.stringify({ devDependencies: { typescript: mockTscVersion } }));
+    });
+
+    afterEach(() => {
+      expect(readFile).toHaveBeenCalledTimes(3);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockAppPackageJson1, "utf-8");
+    });
+
+    it("returns version with dev_ prefix", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+  });
+
+  describe("when ts paths fail but app package.json has dependencies.typescript", () => {
+    beforeEach(() => {
+      vi.mocked(readFile)
+        .mockRejectedValueOnce(new Error("File not found"))
+        .mockRejectedValueOnce(new Error("File not found"))
+        .mockResolvedValueOnce(JSON.stringify({ dependencies: { typescript: mockTscVersion } }));
+    });
+
+    afterEach(() => {
+      expect(readFile).toHaveBeenCalledTimes(3);
+    });
+
+    it("returns version with dev_ prefix", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+  });
+
   describe("when all paths fail", () => {
     beforeEach(() => {
       vi.mocked(readFile).mockRejectedValue(new Error("File not found"));
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockPackageJsonPath1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockPackageJsonPath2, "utf-8");
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockAppPackageJson2, "utf-8");
     });
 
     it("returns undefined", async () => {
@@ -118,15 +179,13 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when typescript/package.json is not a valid JSON", () => {
+  describe("when any package.json is not a valid JSON", () => {
     beforeEach(() => {
       vi.mocked(readFile).mockResolvedValue("Not a JSON");
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockPackageJsonPath1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockPackageJsonPath2, "utf-8");
+      expect(readFile).toHaveBeenCalledTimes(4);
     });
 
     it("returns undefined when all paths have invalid JSON", async () => {
