@@ -1,11 +1,15 @@
 import type { UserAgentPair } from "@smithy/types";
 import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
+import { getNodeModulesParentDirs } from "./getNodeModulesParentDirs";
+import { getSanitizedDevTypeScriptVersion } from "./getSanitizedDevTypeScriptVersion";
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
-import { getTypeScriptPackageJsonPaths } from "./getTypeScriptPackageJsonPaths";
 
 let tscVersion: string | null | undefined;
+
+const TS_PACKAGE_JSON = join("node_modules", "typescript", "package.json");
 
 /**
  * Returns the tyescript name and version as a user agent pair, if present.
@@ -32,15 +36,38 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
 
   // typeof check is required as some ESM bundles throw ReferenceError error '__dirname is not defined'
   const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
-  for (const typescriptPackageJsonPath of getTypeScriptPackageJsonPaths(dirname)) {
+  const nodeModulesParentDirs = getNodeModulesParentDirs(dirname);
+
+  // We attempt to read typescript version from node_modules/typescript/package.json
+  for (const nodeModulesParentDir of nodeModulesParentDirs) {
     try {
-      const packageJson = await readFile(typescriptPackageJsonPath, "utf-8");
+      const tsPackageJsonPath = join(nodeModulesParentDir, TS_PACKAGE_JSON);
+      const packageJson = await readFile(tsPackageJsonPath, "utf-8");
       const { version } = JSON.parse(packageJson);
       const sanitizedVersion = getSanitizedTypeScriptVersion(version);
       if (typeof sanitizedVersion !== "string") {
         continue;
       }
       tscVersion = sanitizedVersion;
+      return ["md/tsc", tscVersion];
+    } catch {
+      // Ignore error in case of failure in file read or JSON parsing.
+    }
+  }
+
+  // If we reach here, typescript/package.json is not available in node_modules.
+  // We attempt to read typescript version from application package.json
+  for (const nodeModulesParentDir of nodeModulesParentDirs) {
+    try {
+      const appPackageJsonPath = join(nodeModulesParentDir, "package.json");
+      const packageJson = await readFile(appPackageJsonPath, "utf-8");
+      const { dependencies, devDependencies } = JSON.parse(packageJson);
+      const version = devDependencies?.typescript ?? dependencies?.typescript;
+      const sanitizedVersion = getSanitizedDevTypeScriptVersion(version);
+      if (typeof sanitizedVersion !== "string") {
+        continue;
+      }
+      tscVersion = `dev_${sanitizedVersion}`;
       return ["md/tsc", tscVersion];
     } catch {
       // Ignore error in case of failure in file read or JSON parsing.
