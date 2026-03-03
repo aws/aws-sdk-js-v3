@@ -19,6 +19,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.17 (2026-03-03)
+### Chores
+* **codegen:** upgrade smithy 1.68.0 ([#7806](https://github.com/aws/aws-sdk-js-v3/issues/7806)) ([ab9e775](https://github.com/aws/aws-sdk-js-v3/commit/ab9e775920c7900a2759c22385091aa88eb6ee15))
+
+
+
 # 3.972.16 (2026-02-25)
 ### Chores
 * **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))

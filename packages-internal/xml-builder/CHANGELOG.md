@@ -11,6 +11,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.9 (2026-02-28)
+### Chores
+* **deps:** bump fast-xml-parser from 5.3.6 to 5.4.1 ([#7796](https://github.com/aws/aws-sdk-js-v3/issues/7796)) ([c0dac29](https://github.com/aws/aws-sdk-js-v3/commit/c0dac298b8b015abd3523c045f239a39dae90a3e))
+
+
+
 # 3.972.8 (2026-02-25)
 ### Chores
 * **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))

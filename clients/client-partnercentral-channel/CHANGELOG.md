@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
+
+
+### Features
+
+* **client-partnercentral-channel:** Adds the Resold Unified Operations support plan and removes the Resold Business support plan in the CreateRelationship and UpdateRelationship APIs ([d87cfc9](https://github.com/aws/aws-sdk-js-v3/commit/d87cfc94d92d08069ef0b40ae0ea7cbf0f688a48))
+
+
+
+
+
 # [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-channel

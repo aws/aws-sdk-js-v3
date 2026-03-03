@@ -30,7 +30,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/token-providers": "workspace:3.1000.0",
+    "@aws-sdk/token-providers": "workspace:3.1001.0",
     "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/property-provider": "^4.2.10",
     "@smithy/protocol-http": "^5.3.10",

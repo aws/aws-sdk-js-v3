@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
+
+
+### Features
+
+* **client-cloudwatch-logs:** CloudWatch Logs updates- Added support for the PutBearerTokenAuthentication API to enable or disable bearer token authentication on a log group. For more information, see CloudWatch Logs API documentation. ([4efe87a](https://github.com/aws/aws-sdk-js-v3/commit/4efe87a38339cc60616d4edc1cb0b4b8bf82cc4e))
+
+
+
+
+
 # [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
+
+
+### Bug Fixes
+
+* **util-user-agent-node:** validate typescript version for semver and strip metadata ([#7799](https://github.com/aws/aws-sdk-js-v3/issues/7799)) ([f5a49a1](https://github.com/aws/aws-sdk-js-v3/commit/f5a49a13f914fe7fb72c17bcd086f87da4335040))
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Support for AgentCore Policy GA ([b71557c](https://github.com/aws/aws-sdk-js-v3/commit/b71557c88842cd365b34327b7e147df3ce51b717))
+* **client-cloudwatch-logs:** CloudWatch Logs updates- Added support for the PutBearerTokenAuthentication API to enable or disable bearer token authentication on a log group. For more information, see CloudWatch Logs API documentation. ([4efe87a](https://github.com/aws/aws-sdk-js-v3/commit/4efe87a38339cc60616d4edc1cb0b4b8bf82cc4e))
+* **client-datazone:** Adding QueryGraph operation to DataZone SDK ([5aaa630](https://github.com/aws/aws-sdk-js-v3/commit/5aaa63006c0fbe1e9f3818cfe3cfeac0f297b19f))
+* **client-partnercentral-channel:** Adds the Resold Unified Operations support plan and removes the Resold Business support plan in the CreateRelationship and UpdateRelationship APIs ([d87cfc9](https://github.com/aws/aws-sdk-js-v3/commit/d87cfc94d92d08069ef0b40ae0ea7cbf0f688a48))
+* **client-sagemaker:** This release adds b300 and g7e instance types for SageMaker inference endpoints. ([823258f](https://github.com/aws/aws-sdk-js-v3/commit/823258f2e036ca7b892887be3414d7e9bbbcd673))
+* **clients:** update client endpoints as of 2026-03-03 ([f063511](https://github.com/aws/aws-sdk-js-v3/commit/f0635119a01f3bf7ead12a29de45a8a40db24943))
+
+
+
+
+
 # [3.1000.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.999.0...v3.1000.0) (2026-02-27)
 
 

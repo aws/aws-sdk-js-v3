@@ -5,6 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.993.3 (2026-03-03)
+### Chores
+* **codegen:** upgrade smithy 1.68.0 ([#7806](https://github.com/aws/aws-sdk-js-v3/issues/7806)) ([ab9e775](https://github.com/aws/aws-sdk-js-v3/commit/ab9e775920c7900a2759c22385091aa88eb6ee15))
+
+
+
 # 3.993.2 (2026-02-24)
 ### Chores
 * **codegen:** sync for checksum algorithm extensions ([#7781](https://github.com/aws/aws-sdk-js-v3/issues/7781)) ([ae4f994](https://github.com/aws/aws-sdk-js-v3/commit/ae4f994f679b8814d2ce6ba121fd1ffa38df9a99))
