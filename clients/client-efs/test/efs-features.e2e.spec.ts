@@ -5,7 +5,7 @@ describe(EFS.name, () => {
   let client: EFS;
 
   beforeAll(async () => {
-    client = new EFS({ region: "us-west-2" });
+    client = new EFS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing file systems", () => {

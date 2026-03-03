@@ -5,7 +5,7 @@ describe(GameLift.name, () => {
   let client: GameLift;
 
   beforeAll(async () => {
-    client = new GameLift({ region: "us-west-2" });
+    client = new GameLift({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

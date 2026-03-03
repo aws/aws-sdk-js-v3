@@ -5,7 +5,7 @@ describe(IoT.name, () => {
   let client: IoT;
 
   beforeAll(async () => {
-    client = new IoT({ region: "us-west-2" });
+    client = new IoT({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

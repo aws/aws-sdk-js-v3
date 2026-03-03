@@ -5,7 +5,7 @@ describe(CodeDeploy.name, () => {
   let client: CodeDeploy;
 
   beforeAll(async () => {
-    client = new CodeDeploy({ region: "us-west-2" });
+    client = new CodeDeploy({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing Applications", () => {

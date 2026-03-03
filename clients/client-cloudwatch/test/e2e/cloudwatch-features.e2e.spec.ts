@@ -5,7 +5,7 @@ describe(CloudWatch.name, () => {
   let client: CloudWatch;
 
   beforeAll(async () => {
-    client = new CloudWatch({ region: "us-west-2" });
+    client = new CloudWatch({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Alarms", () => {

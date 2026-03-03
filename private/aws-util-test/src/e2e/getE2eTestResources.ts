@@ -1,7 +1,7 @@
-import { STS } from "@aws-sdk/client-sts";
-import { paginateListMultiRegionAccessPoints, S3Control } from "@aws-sdk/client-s3-control";
 import { CognitoIdentity, paginateListIdentityPools } from "@aws-sdk/client-cognito-identity";
 import { paginateListBuckets, S3 } from "@aws-sdk/client-s3";
+import { paginateListMultiRegionAccessPoints, S3Control } from "@aws-sdk/client-s3-control";
+import { STS } from "@aws-sdk/client-sts";
 
 const region = "us-west-2";
 
@@ -12,8 +12,8 @@ const cognito = new CognitoIdentity({
   region,
 });
 
-let identityPoolId: string = "";
-let bucketName: string = "";
+let identityPoolId = "";
+let bucketName = "";
 let mrapAlias = "";
 
 /**

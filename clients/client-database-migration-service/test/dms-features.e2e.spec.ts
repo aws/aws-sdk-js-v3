@@ -5,7 +5,7 @@ describe(DatabaseMigrationService.name, () => {
   let client: DatabaseMigrationService;
 
   beforeAll(async () => {
-    client = new DatabaseMigrationService({ region: "us-west-2" });
+    client = new DatabaseMigrationService({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

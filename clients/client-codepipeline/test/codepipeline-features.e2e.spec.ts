@@ -5,7 +5,7 @@ describe(CodePipeline.name, () => {
   let client: CodePipeline;
 
   beforeAll(async () => {
-    client = new CodePipeline({ region: "us-west-2" });
+    client = new CodePipeline({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing Pipelines", () => {

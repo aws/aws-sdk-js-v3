@@ -5,7 +5,7 @@ describe(WAF.name, () => {
   let client: WAF;
 
   beforeAll(async () => {
-    client = new WAF({ region: "us-west-2" });
+    client = new WAF({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

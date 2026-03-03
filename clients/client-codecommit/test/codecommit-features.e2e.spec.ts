@@ -5,7 +5,7 @@ describe(CodeCommit.name, () => {
   let client: CodeCommit;
 
   beforeAll(async () => {
-    client = new CodeCommit({ region: "us-west-2" });
+    client = new CodeCommit({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("List repositories", () => {

@@ -5,7 +5,7 @@ describe(WorkSpaces.name, () => {
   let client: WorkSpaces;
 
   beforeAll(async () => {
-    client = new WorkSpaces({ region: "us-west-2" });
+    client = new WorkSpaces({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Describing workspaces", () => {

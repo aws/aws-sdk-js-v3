@@ -6,7 +6,7 @@ describe(Route53Domains.name, () => {
 
   beforeAll(async () => {
     // Requests for domain registration only available in us-east-1
-    client = new Route53Domains({ region: "us-east-1" });
+    client = new Route53Domains({ region: "us-east-1", credentials: aws?.testCredentials });
   });
 
   describe("Feature", () => {

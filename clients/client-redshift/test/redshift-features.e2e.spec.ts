@@ -5,7 +5,7 @@ describe(Redshift.name, () => {
   let client: Redshift;
 
   beforeAll(async () => {
-    client = new Redshift({ region: "us-west-2" });
+    client = new Redshift({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Describe cluster parameter groups", () => {

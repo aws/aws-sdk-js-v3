@@ -5,7 +5,7 @@ describe(SageMaker.name, () => {
   let client: SageMaker;
 
   beforeAll(async () => {
-    client = new SageMaker({ region: "us-west-2" });
+    client = new SageMaker({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("List Endpoints", () => {

@@ -5,7 +5,7 @@ describe(Lambda.name, () => {
   let client: Lambda;
 
   beforeAll(async () => {
-    client = new Lambda({ region: "us-west-2" });
+    client = new Lambda({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing functions", () => {

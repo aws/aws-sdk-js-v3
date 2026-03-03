@@ -5,7 +5,7 @@ describe(DirectConnect.name, () => {
   let client: DirectConnect;
 
   beforeAll(async () => {
-    client = new DirectConnect({ region: "us-west-2" });
+    client = new DirectConnect({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("describe connections", () => {

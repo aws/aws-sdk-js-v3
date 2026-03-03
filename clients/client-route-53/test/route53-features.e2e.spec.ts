@@ -5,7 +5,7 @@ describe(Route53.name, () => {
   let client: Route53;
 
   beforeAll(async () => {
-    client = new Route53({ region: "us-west-2" });
+    client = new Route53({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

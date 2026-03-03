@@ -5,7 +5,7 @@ describe(SWF.name, () => {
   let client: SWF;
 
   beforeAll(async () => {
-    client = new SWF({ region: "us-west-2" });
+    client = new SWF({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing domains", () => {

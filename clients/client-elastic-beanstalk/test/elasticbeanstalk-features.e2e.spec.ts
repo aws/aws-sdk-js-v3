@@ -6,7 +6,7 @@ describe(ElasticBeanstalk.name, () => {
   let applicationName: string;
 
   beforeAll(async () => {
-    client = new ElasticBeanstalk({ region: "us-west-2" });
+    client = new ElasticBeanstalk({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Creating applications and application versions", () => {

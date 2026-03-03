@@ -5,7 +5,7 @@ describe(CloudFormation.name, () => {
   let client: CloudFormation;
 
   beforeAll(async () => {
-    client = new CloudFormation({ region: "us-west-2" });
+    client = new CloudFormation({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Describing stacks", () => {

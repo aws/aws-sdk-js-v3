@@ -5,7 +5,7 @@ describe(APIGateway.name, () => {
   let client: APIGateway;
 
   beforeAll(async () => {
-    client = new APIGateway({ region: "us-west-2" });
+    client = new APIGateway({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

@@ -5,7 +5,7 @@ describe(Kinesis.name, () => {
   let client: Kinesis;
 
   beforeAll(async () => {
-    client = new Kinesis({ region: "us-west-2" });
+    client = new Kinesis({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Error handling", () => {

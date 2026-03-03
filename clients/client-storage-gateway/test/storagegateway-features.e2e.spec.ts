@@ -5,7 +5,7 @@ describe(StorageGateway.name, () => {
   let client: StorageGateway;
 
   beforeAll(async () => {
-    client = new StorageGateway({ region: "us-west-2" });
+    client = new StorageGateway({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing Gateways", () => {

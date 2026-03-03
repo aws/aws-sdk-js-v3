@@ -5,7 +5,7 @@ describe(ACM.name, () => {
   let client: ACM;
 
   beforeAll(async () => {
-    client = new ACM({ region: "us-west-2" });
+    client = new ACM({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request to ACM service", () => {

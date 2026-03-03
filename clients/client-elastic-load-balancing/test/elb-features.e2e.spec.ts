@@ -5,7 +5,7 @@ describe(ElasticLoadBalancing.name, () => {
   let client: ElasticLoadBalancing;
 
   beforeAll(async () => {
-    client = new ElasticLoadBalancing({ region: "us-west-2" });
+    client = new ElasticLoadBalancing({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

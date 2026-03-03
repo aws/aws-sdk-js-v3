@@ -5,7 +5,7 @@ describe(KMS.name, () => {
   let client: KMS;
 
   beforeAll(async () => {
-    client = new KMS({ region: "us-west-2" });
+    client = new KMS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("List keys", () => {

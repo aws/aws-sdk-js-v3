@@ -34,7 +34,7 @@ describe("SQS Queues", () => {
   const createdQueues: string[] = [];
 
   beforeAll(async () => {
-    client = new SQS({ region: "us-west-2" });
+    client = new SQS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   afterAll(async () => {
@@ -79,4 +79,4 @@ describe("SQS Queues", () => {
       }
     });
   });
-});
+}, 60_000);
