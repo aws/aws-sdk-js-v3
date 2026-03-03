@@ -93,22 +93,16 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (Array.isArray(value) && ns.isListSchema()) {
         const listMember = ns.getValueSchema();
         const out = [] as any[];
-        const sparse = !!ns.getMergedTraits().sparse;
         for (const item of value) {
-          if (sparse || item != null) {
-            out.push(this._read(listMember, item));
-          }
+          out.push(this._read(listMember, item));
         }
         return out;
       }
       if (ns.isMapSchema()) {
         const mapMember = ns.getValueSchema();
         const out = {} as any;
-        const sparse = !!ns.getMergedTraits().sparse;
         for (const [_k, _v] of Object.entries(value)) {
-          if (sparse || _v != null) {
-            out[_k] = this._read(mapMember, _v);
-          }
+          out[_k] = this._read(mapMember, _v);
         }
         return out;
       }

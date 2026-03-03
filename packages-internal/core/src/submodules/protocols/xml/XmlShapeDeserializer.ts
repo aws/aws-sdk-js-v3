@@ -76,7 +76,6 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
     }
 
     if (typeof value === "object") {
-      const sparse = !!traits.sparse;
       const flat = !!traits.xmlFlattened;
 
       if (ns.isListSchema()) {
@@ -85,12 +84,15 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
 
         const sourceKey = listValue.getMergedTraits().xmlName ?? "member";
         const source = flat ? value : (value[0] ?? value)[sourceKey];
+
+        if (source == null) {
+          return buffer;
+        }
+
         const sourceArray = Array.isArray(source) ? source : [source];
 
         for (const v of sourceArray) {
-          if (v != null || sparse) {
-            buffer.push(this.readSchema(listValue, v));
-          }
+          buffer.push(this.readSchema(listValue, v));
         }
         return buffer;
       }
@@ -110,9 +112,7 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
         for (const entry of entries) {
           const key = entry[keyProperty];
           const value = entry[valueProperty];
-          if (value != null || sparse) {
-            buffer[key] = this.readSchema(memberNs, value);
-          }
+          buffer[key] = this.readSchema(memberNs, value);
         }
         return buffer;
       }
