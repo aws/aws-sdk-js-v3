@@ -56,7 +56,6 @@ const _PMAS = "ProgramManagementAccountSummary";
 const _PMASr = "ProgramManagementAccountSummaries";
 const _PMATF = "ProgramManagementAccountTypeFilters";
 const _PMATS = "ProgramManagementAccountTypeSort";
-const _RB = "ResoldBusiness";
 const _RCH = "RejectChannelHandshake";
 const _RCHD = "RejectChannelHandshakeDetail";
 const _RCHR = "RejectChannelHandshakeRequest";
@@ -70,6 +69,7 @@ const _RSPP = "RevokeServicePeriodPayload";
 const _RSPTF = "RevokeServicePeriodTypeFilters";
 const _RSPTS = "RevokeServicePeriodTypeSort";
 const _RSe = "RelationshipSummaries";
+const _RUO = "ResoldUnifiedOperations";
 const _SP = "SupportPlan";
 const _SQEE = "ServiceQuotaExceededException";
 const _SSPHD = "StartServicePeriodHandshakeDetail";
@@ -154,7 +154,6 @@ const _r = "reason";
 const _rA = "resourceArn";
 const _rAI = "receiverAccountId";
 const _rAM = "resaleAccountModel";
-const _rB = "resoldBusiness";
 const _rD = "relationshipDetail";
 const _rE = "resoldEnterprise";
 const _rI = "resourceId";
@@ -164,6 +163,7 @@ const _rSPP = "revokeServicePeriodPayload";
 const _rSPTF = "revokeServicePeriodTypeFilters";
 const _rSPTS = "revokeServicePeriodTypeSort";
 const _rT = "resourceType";
+const _rUO = "resoldUnifiedOperations";
 const _re = "revision";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.partnercentralchannel";
 const _sAI = "senderAccountId";
@@ -477,12 +477,12 @@ export var RelationshipSummary$: StaticStructureSchema = [3, n0, _RS,
   [_a, _i, _re, _ca, _aT, _pMAIro, _aAI, _dN, _sec, _cA, _uA, _sD],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 5]
 ];
-export var ResoldBusiness$: StaticStructureSchema = [3, n0, _RB,
-  0,
-  [_co],
-  [0], 1
-];
 export var ResoldEnterprise$: StaticStructureSchema = [3, n0, _RE,
+  0,
+  [_co, _tL, _cAI],
+  [0, 0, 0], 2
+];
+export var ResoldUnifiedOperations$: StaticStructureSchema = [3, n0, _RUO,
   0,
   [_co, _tL, _cAI],
   [0, 0, 0], 2
@@ -635,8 +635,8 @@ export var ListChannelHandshakesTypeSort$: StaticUnionSchema = [4, n0, _LCHTS,
 ];
 export var SupportPlan$: StaticUnionSchema = [4, n0, _SP,
   0,
-  [_rB, _rE, _pLS],
-  [() => ResoldBusiness$, () => ResoldEnterprise$, () => PartnerLedSupport$]
+  [_rE, _pLS, _rUO],
+  [() => ResoldEnterprise$, () => PartnerLedSupport$, () => ResoldUnifiedOperations$]
 ];
 export var AcceptChannelHandshake$: StaticOperationSchema = [9, n0, _ACH,
   { [_h]: ["POST", "/AcceptChannelHandshake", 200] }, () => AcceptChannelHandshakeRequest$, () => AcceptChannelHandshakeResponse$

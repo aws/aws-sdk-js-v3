@@ -95,8 +95,8 @@ import {
   RelationshipDetail$,
   RelationshipSummary$,
   ResaleAccountModel,
-  ResoldBusiness$,
   ResoldEnterprise$,
+  ResoldUnifiedOperations$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RevokeServicePeriodHandshakeDetail$,
@@ -227,8 +227,8 @@ assert(typeof RejectChannelHandshakeRequest$ === "object");
 assert(typeof RejectChannelHandshakeResponse$ === "object");
 assert(typeof RelationshipDetail$ === "object");
 assert(typeof RelationshipSummary$ === "object");
-assert(typeof ResoldBusiness$ === "object");
 assert(typeof ResoldEnterprise$ === "object");
+assert(typeof ResoldUnifiedOperations$ === "object");
 assert(typeof RevokeServicePeriodHandshakeDetail$ === "object");
 assert(typeof RevokeServicePeriodPayload$ === "object");
 assert(typeof RevokeServicePeriodTypeFilters$ === "object");

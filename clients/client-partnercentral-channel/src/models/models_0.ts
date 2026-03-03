@@ -1030,18 +1030,6 @@ export interface PartnerLedSupport {
 }
 
 /**
- * <p>Configuration for resold business support plans.</p>
- * @public
- */
-export interface ResoldBusiness {
-  /**
-   * <p>The coverage level for resold business support.</p>
-   * @public
-   */
-  coverage: Coverage | undefined;
-}
-
-/**
  * <p>Configuration for resold enterprise support plans.</p>
  * @public
  */
@@ -1066,13 +1054,37 @@ export interface ResoldEnterprise {
 }
 
 /**
+ * <p>Configuration for resold unified operations support plans.</p>
+ * @public
+ */
+export interface ResoldUnifiedOperations {
+  /**
+   * <p>The coverage level for resold unified operations support.</p>
+   * @public
+   */
+  coverage: Coverage | undefined;
+
+  /**
+   * <p>The location of the Technical Account Manager (TAM).</p>
+   * @public
+   */
+  tamLocation: string | undefined;
+
+  /**
+   * <p>The AWS account ID to charge for the support plan.</p>
+   * @public
+   */
+  chargeAccountId?: string | undefined;
+}
+
+/**
  * <p>Configuration for different types of support plans.</p>
  * @public
  */
 export type SupportPlan =
   | SupportPlan.PartnerLedSupportMember
-  | SupportPlan.ResoldBusinessMember
   | SupportPlan.ResoldEnterpriseMember
+  | SupportPlan.ResoldUnifiedOperationsMember
   | SupportPlan.$UnknownMember;
 
 /**
@@ -1080,24 +1092,13 @@ export type SupportPlan =
  */
 export namespace SupportPlan {
   /**
-   * <p>Configuration for resold business support plans.</p>
-   * @public
-   */
-  export interface ResoldBusinessMember {
-    resoldBusiness: ResoldBusiness;
-    resoldEnterprise?: never;
-    partnerLedSupport?: never;
-    $unknown?: never;
-  }
-
-  /**
    * <p>Configuration for resold enterprise support plans.</p>
    * @public
    */
   export interface ResoldEnterpriseMember {
-    resoldBusiness?: never;
     resoldEnterprise: ResoldEnterprise;
     partnerLedSupport?: never;
+    resoldUnifiedOperations?: never;
     $unknown?: never;
   }
 
@@ -1106,9 +1107,20 @@ export namespace SupportPlan {
    * @public
    */
   export interface PartnerLedSupportMember {
-    resoldBusiness?: never;
     resoldEnterprise?: never;
     partnerLedSupport: PartnerLedSupport;
+    resoldUnifiedOperations?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for resold unified operations support plans.</p>
+   * @public
+   */
+  export interface ResoldUnifiedOperationsMember {
+    resoldEnterprise?: never;
+    partnerLedSupport?: never;
+    resoldUnifiedOperations: ResoldUnifiedOperations;
     $unknown?: never;
   }
 
@@ -1116,9 +1128,9 @@ export namespace SupportPlan {
    * @public
    */
   export interface $UnknownMember {
-    resoldBusiness?: never;
     resoldEnterprise?: never;
     partnerLedSupport?: never;
+    resoldUnifiedOperations?: never;
     $unknown: [string, any];
   }
 
@@ -1127,9 +1139,9 @@ export namespace SupportPlan {
    *
    */
   export interface Visitor<T> {
-    resoldBusiness: (value: ResoldBusiness) => T;
     resoldEnterprise: (value: ResoldEnterprise) => T;
     partnerLedSupport: (value: PartnerLedSupport) => T;
+    resoldUnifiedOperations: (value: ResoldUnifiedOperations) => T;
     _: (name: string, value: any) => T;
   }
 }

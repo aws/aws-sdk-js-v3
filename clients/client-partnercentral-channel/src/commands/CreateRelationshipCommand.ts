@@ -56,9 +56,6 @@ export interface CreateRelationshipCommandOutput extends CreateRelationshipRespo
  *     },
  *   ],
  *   requestedSupportPlan: { // SupportPlan Union: only one key present
- *     resoldBusiness: { // ResoldBusiness
- *       coverage: "ENTIRE_ORGANIZATION" || "MANAGEMENT_ACCOUNT_ONLY", // required
- *     },
  *     resoldEnterprise: { // ResoldEnterprise
  *       coverage: "ENTIRE_ORGANIZATION" || "MANAGEMENT_ACCOUNT_ONLY", // required
  *       tamLocation: "STRING_VALUE", // required
@@ -68,6 +65,11 @@ export interface CreateRelationshipCommandOutput extends CreateRelationshipRespo
  *       coverage: "ENTIRE_ORGANIZATION" || "MANAGEMENT_ACCOUNT_ONLY", // required
  *       provider: "DISTRIBUTOR" || "DISTRIBUTION_SELLER",
  *       tamLocation: "STRING_VALUE", // required
+ *     },
+ *     resoldUnifiedOperations: { // ResoldUnifiedOperations
+ *       coverage: "ENTIRE_ORGANIZATION" || "MANAGEMENT_ACCOUNT_ONLY", // required
+ *       tamLocation: "STRING_VALUE", // required
+ *       chargeAccountId: "STRING_VALUE",
  *     },
  *   },
  * };
