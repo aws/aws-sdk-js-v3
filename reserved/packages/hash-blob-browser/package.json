@@ -37,7 +37,7 @@
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"
   },
   "typesVersions": {
-    "<4.0": {
+    "<4.5": {
       "dist-types/*": [
         "dist-types/ts3.4/*"
       ]

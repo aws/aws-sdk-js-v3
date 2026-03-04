@@ -41,7 +41,7 @@
     "typescript": "~5.8.3"
   },
   "typesVersions": {
-    "<4.0": {
+    "<4.5": {
       "dist-types/*": [
         "dist-types/ts3.4/*"
       ]

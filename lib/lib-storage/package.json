@@ -53,7 +53,7 @@
     "web-streams-polyfill": "3.2.1"
   },
   "typesVersions": {
-    "<4.0": {
+    "<4.5": {
       "dist-types/*": [
         "dist-types/ts3.4/*"
       ]
