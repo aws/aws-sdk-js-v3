@@ -38,6 +38,9 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  *          <p> Setting the <code>InfoType</code> to <code>bundle</code> compresses the application
  *       server log files for every Amazon EC2 instance into a <code>.zip</code> file. Legacy and .NET
  *       containers do not support bundle logs. </p>
+ *          <p> Setting the <code>InfoType</code> to <code>analyze</code> collects recent events,
+ *       instance health, and logs from your environment and sends them to Amazon Bedrock in your
+ *       account to generate diagnostic insights and recommended next steps. </p>
  *          <p> Use <a>RetrieveEnvironmentInfo</a> to obtain the set of logs. </p>
  *          <p>Related Topics</p>
  *          <ul>
@@ -58,7 +61,7 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * const input = { // RequestEnvironmentInfoMessage
  *   EnvironmentId: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
- *   InfoType: "tail" || "bundle", // required
+ *   InfoType: "tail" || "bundle" || "analyze", // required
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
  * const response = await client.send(command);

@@ -52,14 +52,14 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  * const input = { // RetrieveEnvironmentInfoMessage
  *   EnvironmentId: "STRING_VALUE",
  *   EnvironmentName: "STRING_VALUE",
- *   InfoType: "tail" || "bundle", // required
+ *   InfoType: "tail" || "bundle" || "analyze", // required
  * };
  * const command = new RetrieveEnvironmentInfoCommand(input);
  * const response = await client.send(command);
  * // { // RetrieveEnvironmentInfoResultMessage
  * //   EnvironmentInfo: [ // EnvironmentInfoDescriptionList
  * //     { // EnvironmentInfoDescription
- * //       InfoType: "tail" || "bundle",
+ * //       InfoType: "tail" || "bundle" || "analyze",
  * //       Ec2InstanceId: "STRING_VALUE",
  * //       SampleTimestamp: new Date("TIMESTAMP"),
  * //       Message: "STRING_VALUE",

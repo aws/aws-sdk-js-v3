@@ -278,6 +278,7 @@ export type InstancesHealthAttribute = (typeof InstancesHealthAttribute)[keyof t
  * @enum
  */
 export const EnvironmentInfoType = {
+  analyze: "analyze",
   bundle: "bundle",
   tail: "tail",
 } as const;
