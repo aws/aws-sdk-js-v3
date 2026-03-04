@@ -31,9 +31,9 @@ export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
 export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
+ * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

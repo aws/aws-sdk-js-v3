@@ -27,7 +27,7 @@ export interface CreateUserCommandInput extends CreateUserRequest {}
 export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new user in FinSpace.</p>
+ * <p>Creates a new user in FinSpace.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

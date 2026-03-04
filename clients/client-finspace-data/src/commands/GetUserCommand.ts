@@ -27,7 +27,7 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves details for a specific user.</p>
+ * <p>Retrieves details for a specific user.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

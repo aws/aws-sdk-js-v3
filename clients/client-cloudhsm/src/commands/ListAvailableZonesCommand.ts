@@ -37,7 +37,7 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *          <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>
+ *          <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

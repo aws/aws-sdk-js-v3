@@ -31,9 +31,9 @@ export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstan
 export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a system instance from its target (Cloud or Greengrass).</p>
+ * <p>Removes a system instance from its target (Cloud or Greengrass).</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

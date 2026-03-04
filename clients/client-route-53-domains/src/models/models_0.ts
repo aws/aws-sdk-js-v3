@@ -3240,9 +3240,9 @@ export interface UpdateDomainNameserversRequest {
   DomainName: string | undefined;
 
   /**
-   * <p>The authorization key for .fi domains</p>
+   * <p>The authorization key for .fi domains</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   FIAuthKey?: string | undefined;

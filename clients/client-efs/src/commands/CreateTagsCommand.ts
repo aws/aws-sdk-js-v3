@@ -36,7 +36,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *       overwrites its value with the value provided in the request. If you add the <code>Name</code>
  *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
  *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
- *       action.</p>
+ *       action.</p>.
  *
  * @deprecated Use TagResource.
  * @example

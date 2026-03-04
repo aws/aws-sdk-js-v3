@@ -37,7 +37,7 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *          <p>Retrieves information about an HSM client.</p>
+ *          <p>Retrieves information about an HSM client.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

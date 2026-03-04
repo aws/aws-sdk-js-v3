@@ -1047,7 +1047,7 @@ export interface CreateChannelRequest {
   /**
    * Deprecated field that's only usable by whitelisted customers.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Reserved?: string | undefined;
@@ -9147,7 +9147,7 @@ export interface UpdateInputSecurityGroupRequest {
   /**
    * A collection of key-value pairs.
    *
-   * @deprecated This API is deprecated. You must use UpdateTagsForResource instead.
+   * @deprecated (since 2024-11-20) This API is deprecated. You must use UpdateTagsForResource instead.
    * @public
    */
   Tags?: Record<string, string> | undefined;

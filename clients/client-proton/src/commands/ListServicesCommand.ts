@@ -27,9 +27,9 @@ export interface ListServicesCommandInput extends ListServicesInput {}
 export interface ListServicesCommandOutput extends ListServicesOutput, __MetadataBearer {}
 
 /**
- * <p>List services with summaries of detail data.</p>
+ * <p>List services with summaries of detail data.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

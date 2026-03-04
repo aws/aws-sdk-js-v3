@@ -177,7 +177,7 @@ export interface ResourceShareInvitation {
   status?: ResourceShareInvitationStatus | undefined;
 
   /**
-   * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>
+   * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>.
    *
    * @deprecated This member has been deprecated. Use ListPendingInvitationResources.
    * @public

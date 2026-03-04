@@ -484,9 +484,9 @@ export interface QualificationRequirement {
    *             allowed to preview the HIT's question data, but will not be allowed
    *             to accept and complete the HIT. The default is false. This should not
    *             be used in combination with the <code>ActionsGuarded</code> field.
-   *         </p>
+   *         </p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   RequiredToPreview?: boolean | undefined;

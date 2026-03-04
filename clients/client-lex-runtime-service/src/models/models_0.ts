@@ -723,7 +723,7 @@ export interface PostContentResponse {
    *       the messages. For more information about the structure of the JSON string
    *       returned, see <a>msg-prompts-formats</a>.</p>
    *          <p>If the Lambda function returns a message, Amazon Lex passes it to the client
-   *       in its response.</p>
+   *       in its response.</p>.
    *
    * @deprecated The message field is deprecated, use the encodedMessage field instead. The message field is available only in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR and it-IT locales.
    * @public
@@ -860,7 +860,7 @@ export interface PostContentResponse {
    *       field contains the text extracted from the audio stream. This is the text
    *       that is actually processed to recognize intents and slot values. You can
    *       use this information to determine if Amazon Lex is correctly processing the
-   *       audio that you send.</p>
+   *       audio that you send.</p>.
    *
    * @deprecated The inputTranscript field is deprecated, use the encodedInputTranscript field instead. The inputTranscript field is available only in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR and it-IT locales.
    * @public
@@ -1555,7 +1555,7 @@ export interface PutSessionResponse {
    *          <p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
    *       es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
    *         <code>message</code> field is null. You should use the
-   *         <code>encodedMessage</code> field instead.</p>
+   *         <code>encodedMessage</code> field instead.</p>.
    *
    * @deprecated The message field is deprecated, use the encodedMessage field instead. The message field is available only in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR and it-IT locales.
    * @public

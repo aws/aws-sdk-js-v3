@@ -37,7 +37,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *          <p>Returns a list of all tags for the specified AWS CloudHSM resource.</p>
+ *          <p>Returns a list of all tags for the specified AWS CloudHSM resource.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

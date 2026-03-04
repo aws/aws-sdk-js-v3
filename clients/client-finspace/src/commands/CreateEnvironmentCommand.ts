@@ -27,7 +27,7 @@ export interface CreateEnvironmentCommandInput extends CreateEnvironmentRequest 
 export interface CreateEnvironmentCommandOutput extends CreateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Create a new FinSpace environment.</p>
+ * <p>Create a new FinSpace environment.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

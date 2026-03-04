@@ -2555,7 +2555,7 @@ export interface AwsSecurityFinding {
   VerificationState?: VerificationState | undefined;
 
   /**
-   * <p>The workflow state of a finding. </p>
+   * <p>The workflow state of a finding. </p>.
    *
    * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
@@ -2772,7 +2772,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * <p>The native severity as defined by the security findings provider's solution that
-   *          generated the finding.</p>
+   *          generated the finding.</p>.
    *
    * @deprecated This filter is deprecated. Instead, use FindingProviderSeverityOriginal.
    * @public
@@ -2780,7 +2780,7 @@ export interface AwsSecurityFindingFilters {
   SeverityProduct?: NumberFilter[] | undefined;
 
   /**
-   * <p>The normalized severity of a finding.</p>
+   * <p>The normalized severity of a finding.</p>.
    *
    * @deprecated This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel.
    * @public
@@ -3126,7 +3126,7 @@ export interface AwsSecurityFindingFilters {
   ResourceAwsS3BucketOwnerName?: StringFilter[] | undefined;
 
   /**
-   * <p>The user associated with the IAM access key related to a finding.</p>
+   * <p>The user associated with the IAM access key related to a finding.</p>.
    *
    * @deprecated This filter is deprecated. Instead, use ResourceAwsIamAccessKeyPrincipalName.
    * @public
@@ -3322,7 +3322,7 @@ export interface AwsSecurityFindingFilters {
   NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
-   * <p>A keyword for a finding.</p>
+   * <p>A keyword for a finding.</p>.
    *
    * @deprecated The Keyword property is deprecated.
    * @public
@@ -8954,7 +8954,7 @@ export interface Member {
 
   /**
    * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>
+   *          <p>The Amazon Web Services account ID of the Security Hub CSPM administrator account associated with this member account.</p>.
    *
    * @deprecated This field is deprecated, use AdministratorId instead.
    * @public

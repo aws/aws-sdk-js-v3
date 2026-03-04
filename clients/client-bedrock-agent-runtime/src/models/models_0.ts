@@ -7891,9 +7891,9 @@ export interface RetrieveAndGenerateResponse {
  */
 export interface CitationEvent {
   /**
-   * <p>The citation.</p>
+   * <p>The citation.</p>.
    *
-   * @deprecated Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
+   * @deprecated (since 2024-12-17) Citation is deprecated. Please use GeneratedResponsePart and RetrievedReferences for citation event.
    * @public
    */
   citation?: Citation | undefined;

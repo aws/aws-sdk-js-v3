@@ -2157,9 +2157,9 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>. </p>
-   *          </note>
+   *          </note>.
    *
-   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet LoginPath
+   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet LoginPath.
    * @public
    */
   LoginPath?: string | undefined;
@@ -2167,9 +2167,9 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>
+   *          </note>.
    *
-   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PayloadType
+   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PayloadType.
    * @public
    */
   PayloadType?: PayloadType | undefined;
@@ -2177,9 +2177,9 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>
+   *          </note>.
    *
-   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection UsernameField
+   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection UsernameField.
    * @public
    */
   UsernameField?: UsernameField | undefined;
@@ -2187,9 +2187,9 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>
+   *          </note>.
    *
-   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PasswordField
+   * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PasswordField.
    * @public
    */
   PasswordField?: PasswordField | undefined;

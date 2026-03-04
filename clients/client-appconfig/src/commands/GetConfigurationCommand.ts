@@ -49,7 +49,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
  *                </li>
  *             </ul>
- *          </important>
+ *          </important>.
  *
  * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  * @example

@@ -35,9 +35,9 @@ export interface DeleteEnvironmentAccountConnectionCommandOutput extends DeleteE
  *       environment infrastructure resources until a new environment account connection is accepted for the environment account and associated environment. You're
  *       responsible for cleaning up provisioned resources that remain without an environment connection.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>
+ *         connections</a> in the <i>Proton User guide</i>.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

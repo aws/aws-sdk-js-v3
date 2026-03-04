@@ -29,9 +29,9 @@ export interface CreateServiceTemplateVersionCommandOutput extends CreateService
 /**
  * <p>Create a new major or minor version of a service template. A major version of a service
  *       template is a version that <i>isn't</i> backward compatible. A minor version of
- *       a service template is a version that's backward compatible within its major version.</p>
+ *       a service template is a version that's backward compatible within its major version.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

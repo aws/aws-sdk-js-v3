@@ -753,9 +753,9 @@ export interface DeleteDataSourceInput {
   identifier: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the request.</p>.
    *
-   * @deprecated This field is no longer required for idempotency.
+   * @deprecated (since 2024-12-02) This field is no longer required for idempotency.
    * @public
    */
   clientToken?: string | undefined;
@@ -2378,9 +2378,9 @@ export interface DeleteSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>
+   * <p>The identifier of the subsctiption whose subscription grant is to be deleted.</p>.
    *
-   * @deprecated Multiple subscriptions can exist for a single grant
+   * @deprecated Multiple subscriptions can exist for a single grant.
    * @public
    */
   subscriptionId?: string | undefined;
@@ -5249,9 +5249,9 @@ export interface GetSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The identifier of the subscription.</p>
+   * <p>The identifier of the subscription.</p>.
    *
-   * @deprecated Multiple subscriptions can exist for a single grant
+   * @deprecated Multiple subscriptions can exist for a single grant.
    * @public
    */
   subscriptionId?: string | undefined;
@@ -8498,9 +8498,9 @@ export interface ListSubscriptionGrantsInput {
   owningGroupId?: string | undefined;
 
   /**
-   * <p>Specifies the way of sorting the results of this action.</p>
+   * <p>Specifies the way of sorting the results of this action.</p>.
    *
-   * @deprecated Results are always sorted by updatedAt
+   * @deprecated (since Jan 31 2026) Results are always sorted by updatedAt.
    * @public
    */
   sortBy?: SortKey | undefined;
@@ -8596,9 +8596,9 @@ export interface SubscriptionGrantSummary {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The ID of the subscription.</p>
+   * <p>The ID of the subscription.</p>.
    *
-   * @deprecated Multiple subscriptions can exist for a single grant
+   * @deprecated Multiple subscriptions can exist for a single grant.
    * @public
    */
   subscriptionId?: string | undefined;
@@ -8674,9 +8674,9 @@ export interface ListSubscriptionRequestsInput {
   owningGroupId?: string | undefined;
 
   /**
-   * <p>Specifies the way to sort the results of this action.</p>
+   * <p>Specifies the way to sort the results of this action.</p>.
    *
-   * @deprecated Results are always sorted by updatedAt
+   * @deprecated (since Jan 31 2026) Results are always sorted by updatedAt.
    * @public
    */
   sortBy?: SortKey | undefined;
@@ -8890,9 +8890,9 @@ export interface ListSubscriptionsInput {
   approverProjectId?: string | undefined;
 
   /**
-   * <p>Specifies the way in which the results of this action are to be sorted.</p>
+   * <p>Specifies the way in which the results of this action are to be sorted.</p>.
    *
-   * @deprecated Results are always sorted by updatedAt
+   * @deprecated (since Jan 31 2026) Results are always sorted by updatedAt.
    * @public
    */
   sortBy?: SortKey | undefined;
@@ -9357,9 +9357,9 @@ export interface GetMetadataGenerationRunOutput {
   status?: MetadataGenerationRunStatus | undefined;
 
   /**
-   * <p>The type of metadata generation run.</p>
+   * <p>The type of metadata generation run.</p>.
    *
-   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
@@ -9466,9 +9466,9 @@ export interface MetadataGenerationRunItem {
   status?: MetadataGenerationRunStatus | undefined;
 
   /**
-   * <p>The type of the metadata generation run.</p>
+   * <p>The type of the metadata generation run.</p>.
    *
-   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
@@ -9526,9 +9526,9 @@ export interface StartMetadataGenerationRunInput {
   domainIdentifier: string | undefined;
 
   /**
-   * <p>The type of the metadata generation run.</p>
+   * <p>The type of the metadata generation run.</p>.
    *
-   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
    * @public
    */
   type?: MetadataGenerationRunType | undefined;
@@ -9581,9 +9581,9 @@ export interface StartMetadataGenerationRunOutput {
   status?: MetadataGenerationRunStatus | undefined;
 
   /**
-   * <p>The type of the metadata generation run.</p>
+   * <p>The type of the metadata generation run.</p>.
    *
-   * @deprecated This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types
+   * @deprecated (since 2025-11-21) This field is going to be deprecated, please use the 'types' field to provide the MetadataGenerationRun types.
    * @public
    */
   type?: MetadataGenerationRunType | undefined;

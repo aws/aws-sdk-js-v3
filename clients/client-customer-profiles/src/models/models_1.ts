@@ -679,9 +679,9 @@ export interface UpdateProfileRequest {
   AccountNumber?: string | undefined;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>
+   * <p>The type of profile used to describe the customer.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   PartyType?: PartyType | undefined;
@@ -717,9 +717,9 @@ export interface UpdateProfileRequest {
   BirthDate?: string | undefined;
 
   /**
-   * <p>The gender with which the customer identifies. </p>
+   * <p>The gender with which the customer identifies. </p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Gender?: Gender | undefined;

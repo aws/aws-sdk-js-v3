@@ -3712,6 +3712,7 @@ export interface ReplicationConfiguration {
 }
 
 /**
+ * @deprecated WARNING: RetryDataReplication is deprecated.
  * @public
  */
 export interface RetryDataReplicationRequest {

@@ -29,9 +29,9 @@ export interface GetEnvironmentAccountConnectionCommandOutput extends GetEnviron
 /**
  * <p>In an environment account, get the detailed data for an environment account connection.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>
+ *         connections</a> in the <i>Proton User guide</i>.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

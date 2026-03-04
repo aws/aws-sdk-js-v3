@@ -34,9 +34,9 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  *         (ABAC).</p>
  *             <p>For more information about ABAC, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-tags">ABAC</a> in the <i>Proton User
  *           Guide</i>.</p>
- *          </note>
+ *          </note>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

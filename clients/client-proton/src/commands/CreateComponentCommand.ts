@@ -30,9 +30,9 @@ export interface CreateComponentCommandOutput extends CreateComponentOutput, __M
  * <p>Create an Proton component. A component is an infrastructure extension for a service instance.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
- *   <i>Proton User Guide</i>.</p>
+ *   <i>Proton User Guide</i>.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

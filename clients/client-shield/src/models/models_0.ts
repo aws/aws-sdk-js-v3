@@ -759,11 +759,13 @@ export interface DeleteProtectionGroupRequest {
 export interface DeleteProtectionGroupResponse {}
 
 /**
+ * @deprecated deprecated.
  * @public
  */
 export interface DeleteSubscriptionRequest {}
 
 /**
+ * @deprecated deprecated.
  * @public
  */
 export interface DeleteSubscriptionResponse {}

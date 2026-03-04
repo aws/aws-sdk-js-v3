@@ -27,7 +27,7 @@ export interface UpdatePermissionGroupCommandInput extends UpdatePermissionGroup
 export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
+ * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

@@ -42,7 +42,7 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  *          <p>This operation supports pagination with the use of the <code>NextToken</code> member.
  *       If more results are available, the <code>NextToken</code> member of the response contains a
  *       token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of
- *       items.</p>
+ *       items.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

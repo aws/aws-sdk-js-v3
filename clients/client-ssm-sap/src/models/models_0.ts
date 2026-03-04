@@ -421,7 +421,7 @@ export interface Component {
   Databases?: string[] | undefined;
 
   /**
-   * <p>The hosts of the component.</p>
+   * <p>The hosts of the component.</p>.
    *
    * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public
@@ -429,7 +429,7 @@ export interface Component {
   Hosts?: Host[] | undefined;
 
   /**
-   * <p>The primary host of the component.</p>
+   * <p>The primary host of the component.</p>.
    *
    * @deprecated This shape is no longer used. Please use AssociatedHost.
    * @public

@@ -36,7 +36,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *       response of one <code>DescribeTags</code> call and the order of tags returned across the
  *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
  *          <p> This operation requires permissions for the
- *         <code>elasticfilesystem:DescribeTags</code> action. </p>
+ *         <code>elasticfilesystem:DescribeTags</code> action. </p>.
  *
  * @deprecated Use ListTagsForResource.
  * @example

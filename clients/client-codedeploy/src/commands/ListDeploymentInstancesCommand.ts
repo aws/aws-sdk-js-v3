@@ -33,7 +33,7 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  *                 exception if it is used with a compute platform other than EC2/On-premises or
  *                     Lambda. </p>
  *          </note>
- *          <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
+ *          <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>.
  *
  * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  * @example

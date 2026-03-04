@@ -447,7 +447,7 @@ export class DeploymentIdRequiredException extends __BaseException {
 }
 
 /**
- * <p>The instance ID was not specified.</p>
+ * <p>The instance ID was not specified.</p>.
  *
  * @deprecated This exception is deprecated, use DeploymentTargetIdRequiredException instead.
  * @public
@@ -592,7 +592,7 @@ export class DeploymentTargetListSizeExceededException extends __BaseException {
 }
 
 /**
- * <p>The specified instance does not exist in the deployment group.</p>
+ * <p>The specified instance does not exist in the deployment group.</p>.
  *
  * @deprecated This exception is deprecated, use DeploymentTargetDoesNotExistException instead.
  * @public

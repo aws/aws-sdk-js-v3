@@ -363,9 +363,9 @@ export class QueueNameExists extends __BaseException {
 }
 
 /**
- * <p>The specified receipt handle isn't valid for the current version.</p>
+ * <p>The specified receipt handle isn't valid for the current version.</p>.
  *
- * @deprecated exception has been included in ReceiptHandleIsInvalid
+ * @deprecated exception has been included in ReceiptHandleIsInvalid.
  * @public
  */
 export class InvalidIdFormat extends __BaseException {

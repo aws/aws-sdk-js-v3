@@ -1538,7 +1538,7 @@ export interface CreateManagedEndpointRequest {
 
   /**
    * <p>The certificate ARN provided by users for the managed endpoint. This field is under
-   *          deprecation and will be removed in future releases.</p>
+   *          deprecation and will be removed in future releases.</p>.
    *
    * @deprecated Customer provided certificate-arn is deprecated and would be removed in future.
    * @public
@@ -1619,7 +1619,7 @@ export interface Endpoint {
 
   /**
    * <p>The certificate ARN of the endpoint. This field is under deprecation and will be removed
-   *          in future.</p>
+   *          in future.</p>.
    *
    * @deprecated Customer provided certificate-arn is deprecated and would be removed in future.
    * @public

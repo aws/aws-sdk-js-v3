@@ -27,7 +27,7 @@ export interface EnableUserCommandInput extends EnableUserRequest {}
 export interface EnableUserCommandOutput extends EnableUserResponse, __MetadataBearer {}
 
 /**
- * <p> Allows the specified user to access the FinSpace web application and API.</p>
+ * <p> Allows the specified user to access the FinSpace web application and API.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

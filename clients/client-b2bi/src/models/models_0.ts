@@ -2460,7 +2460,7 @@ export interface CreateTransformerRequest {
   tags?: Tag[] | undefined;
 
   /**
-   * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2468,7 +2468,7 @@ export interface CreateTransformerRequest {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2476,7 +2476,7 @@ export interface CreateTransformerRequest {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2484,7 +2484,7 @@ export interface CreateTransformerRequest {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2551,7 +2551,7 @@ export interface CreateTransformerResponse {
   createdAt: Date | undefined;
 
   /**
-   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2559,7 +2559,7 @@ export interface CreateTransformerResponse {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2567,7 +2567,7 @@ export interface CreateTransformerResponse {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2575,7 +2575,7 @@ export interface CreateTransformerResponse {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2670,7 +2670,7 @@ export interface GetTransformerResponse {
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2678,7 +2678,7 @@ export interface GetTransformerResponse {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2686,7 +2686,7 @@ export interface GetTransformerResponse {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2694,7 +2694,7 @@ export interface GetTransformerResponse {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2779,7 +2779,7 @@ export interface TransformerSummary {
   modifiedAt?: Date | undefined;
 
   /**
-   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2787,7 +2787,7 @@ export interface TransformerSummary {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2795,7 +2795,7 @@ export interface TransformerSummary {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2803,7 +2803,7 @@ export interface TransformerSummary {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2875,7 +2875,7 @@ export interface UpdateTransformerRequest {
   status?: TransformerStatus | undefined;
 
   /**
-   * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Specifies that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2883,7 +2883,7 @@ export interface UpdateTransformerRequest {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>
+   * <p>Specifies the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p> <note> <p>This parameter is available for backwards compatibility. Use the <a href="https://docs.aws.amazon.com/b2bi/latest/APIReference/API_Mapping.html">Mapping</a> data type instead.</p> </note>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2891,7 +2891,7 @@ export interface UpdateTransformerRequest {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2899,7 +2899,7 @@ export interface UpdateTransformerRequest {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Specifies a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2972,7 +2972,7 @@ export interface UpdateTransformerResponse {
   modifiedAt: Date | undefined;
 
   /**
-   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>
+   * <p>Returns that the currently supported file formats for EDI transformations are <code>JSON</code> and <code>XML</code>.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2980,7 +2980,7 @@ export interface UpdateTransformerResponse {
   fileFormat?: FileFormat | undefined;
 
   /**
-   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>
+   * <p>Returns the mapping template for the transformer. This template is used to map the parsed EDI file using JSONata or XSLT.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2988,7 +2988,7 @@ export interface UpdateTransformerResponse {
   mappingTemplate?: string | undefined;
 
   /**
-   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>
+   * <p>Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public
@@ -2996,7 +2996,7 @@ export interface UpdateTransformerResponse {
   ediType?: EdiType | undefined;
 
   /**
-   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>
+   * <p>Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.</p>.
    *
    * @deprecated This is a legacy trait. Please use input-conversion or output-conversion.
    * @public

@@ -7988,9 +7988,9 @@ export interface TableOptimizerRun {
 
   /**
    * <p>A <code>RunMetrics</code> object containing metrics for the optimizer run.</p>
-   *          <p>This member is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>
+   *          <p>This member is deprecated. See the individual metric members for compaction, retention, and orphan file deletion.</p>.
    *
-   * @deprecated Metrics has been replaced by optimizer type specific metrics such as IcebergCompactionMetrics
+   * @deprecated Metrics has been replaced by optimizer type specific metrics such as IcebergCompactionMetrics.
    * @public
    */
   metrics?: RunMetrics | undefined;
@@ -8567,7 +8567,7 @@ export interface JobRun {
    *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-   *         pricing page</a>.</p>
+   *         pricing page</a>.</p>.
    *
    * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public

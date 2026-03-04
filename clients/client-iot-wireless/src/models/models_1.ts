@@ -730,6 +730,7 @@ export interface UpdatePartnerAccountRequest {
 export interface UpdatePartnerAccountResponse {}
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface UpdatePositionRequest {
@@ -753,6 +754,7 @@ export interface UpdatePositionRequest {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface UpdatePositionResponse {}

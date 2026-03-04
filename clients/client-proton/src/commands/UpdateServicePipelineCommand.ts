@@ -67,9 +67,9 @@ export interface UpdateServicePipelineCommandOutput extends UpdateServicePipelin
  *             specify a different major version that's higher than the major version in use and a
  *             minor version.</p>
  *             </dd>
- *          </dl>
+ *          </dl>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

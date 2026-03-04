@@ -27,7 +27,7 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentRequest {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the FinSpace environment object.</p>
+ * <p>Returns the FinSpace environment object.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

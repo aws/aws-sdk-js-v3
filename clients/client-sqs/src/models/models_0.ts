@@ -1266,9 +1266,9 @@ export interface ReceiveMessageRequest {
    *                   <code>SequenceNumber</code> – Returns the value provided by
    *                     Amazon SQS.</p>
    *             </li>
-   *          </ul>
+   *          </ul>.
    *
-   * @deprecated AttributeNames has been replaced by MessageSystemAttributeNames
+   * @deprecated AttributeNames has been replaced by MessageSystemAttributeNames.
    * @public
    */
   AttributeNames?: QueueAttributeName[] | undefined;

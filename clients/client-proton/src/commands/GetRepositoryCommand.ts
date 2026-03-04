@@ -27,9 +27,9 @@ export interface GetRepositoryCommandInput extends GetRepositoryInput {}
 export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for a linked repository.</p>
+ * <p>Get detail data for a linked repository.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

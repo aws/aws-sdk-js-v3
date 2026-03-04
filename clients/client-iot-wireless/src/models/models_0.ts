@@ -4306,6 +4306,7 @@ export interface GetPartnerAccountResponse {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface GetPositionRequest {
@@ -4323,6 +4324,7 @@ export interface GetPositionRequest {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface GetPositionResponse {
@@ -4367,6 +4369,7 @@ export interface GetPositionResponse {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface GetPositionConfigurationRequest {
@@ -4426,6 +4429,7 @@ export interface PositionSolverDetails {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface GetPositionConfigurationResponse {
@@ -6136,6 +6140,7 @@ export interface ListPartnerAccountsResponse {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface ListPositionConfigurationsRequest {
@@ -6192,6 +6197,7 @@ export interface PositionConfigurationItem {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface ListPositionConfigurationsResponse {
@@ -6873,6 +6879,7 @@ export interface PositionSolverConfigurations {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface PutPositionConfigurationRequest {
@@ -6905,6 +6912,7 @@ export interface PutPositionConfigurationRequest {
 }
 
 /**
+ * @deprecated This operation is no longer supported.
  * @public
  */
 export interface PutPositionConfigurationResponse {}

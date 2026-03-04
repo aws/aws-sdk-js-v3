@@ -34,7 +34,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *          <p>This operation is only used by member accounts that are not added through
  *          Organizations.</p>
  *          <p>When the member account accepts the invitation, permission is granted to the administrator
- *          account to view findings generated in the member account.</p>
+ *          account to view findings generated in the member account.</p>.
  *
  * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  * @example

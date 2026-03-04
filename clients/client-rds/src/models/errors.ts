@@ -1444,9 +1444,9 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
+ * .
  *
- *
- * @deprecated Please avoid using this fault
+ * @deprecated Please avoid using this fault.
  * @public
  */
 export class BackupPolicyNotFoundFault extends __BaseException {

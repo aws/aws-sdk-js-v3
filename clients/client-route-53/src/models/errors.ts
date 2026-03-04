@@ -1125,9 +1125,9 @@ export class CidrCollectionInUseException extends __BaseException {
 }
 
 /**
- * <p>This error code is not in use.</p>
+ * <p>This error code is not in use.</p>.
  *
- * @deprecated deprecated
+ * @deprecated deprecated.
  * @public
  */
 export class HealthCheckInUse extends __BaseException {

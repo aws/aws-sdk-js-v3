@@ -27,7 +27,7 @@ export interface ListPermissionGroupsCommandInput extends ListPermissionGroupsRe
 export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available permission groups in FinSpace.</p>
+ * <p>Lists all available permission groups in FinSpace.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

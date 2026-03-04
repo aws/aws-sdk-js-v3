@@ -668,9 +668,9 @@ export interface CreateDataSetRequest {
 
   /**
    * <p>Configures the combination and transformation of the data from the physical
-   * 			tables. This parameter is used with the legacy data preparation experience.</p>
+   * 			tables. This parameter is used with the legacy data preparation experience.</p>.
    *
-   * @deprecated Only used in the legacy data preparation experience.
+   * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public
    */
   LogicalTableMap?: Record<string, LogicalTable> | undefined;
@@ -702,9 +702,9 @@ export interface CreateDataSetRequest {
 
   /**
    * <p>The row-level security configuration for the data that you want to create. This parameter is
-   * 			used with the legacy data preparation experience.</p>
+   * 			used with the legacy data preparation experience.</p>.
    *
-   * @deprecated Only used in the legacy data preparation experience.
+   * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public
    */
   RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
@@ -712,9 +712,9 @@ export interface CreateDataSetRequest {
   /**
    * <p>The configuration of tags on a dataset to set row-level security. Row-level security
    * 			tags are currently supported for anonymous embedding only. This parameter is
-   * 			used with the legacy data preparation experience.</p>
+   * 			used with the legacy data preparation experience.</p>.
    *
-   * @deprecated Only used in the legacy data preparation experience.
+   * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public
    */
   RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;

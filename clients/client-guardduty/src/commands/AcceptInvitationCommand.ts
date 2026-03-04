@@ -27,9 +27,9 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
+ * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>.
  *
- * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
+ * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -37,7 +37,7 @@ export interface DescribeHapgCommandOutput extends DescribeHapgResponse, __Metad
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *          <p>Retrieves information about a high-availability partition group.</p>
+ *          <p>Retrieves information about a high-availability partition group.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

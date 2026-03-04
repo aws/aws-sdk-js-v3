@@ -37,7 +37,7 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  *       <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS CloudHSM User Guide</a>,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
- *          <p>Deletes a high-availability partition group.</p>
+ *          <p>Deletes a high-availability partition group.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

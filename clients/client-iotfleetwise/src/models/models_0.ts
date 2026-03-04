@@ -88,9 +88,9 @@ export interface Actuator {
   max?: number | undefined;
 
   /**
-   * <p>A specified value for the actuator.</p>
+   * <p>A specified value for the actuator.</p>.
    *
-   * @deprecated assignedValue is no longer in use
+   * @deprecated assignedValue is no longer in use.
    * @public
    */
   assignedValue?: string | undefined;
@@ -208,9 +208,9 @@ export interface Attribute {
   max?: number | undefined;
 
   /**
-   * <p>A specified value for the attribute.</p>
+   * <p>A specified value for the attribute.</p>.
    *
-   * @deprecated assignedValue is no longer in use
+   * @deprecated assignedValue is no longer in use.
    * @public
    */
   assignedValue?: string | undefined;
@@ -1340,9 +1340,9 @@ export interface CreateCampaignRequest {
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
    *          <p>Default: <code>0</code>
-   *          </p>
+   *          </p>.
    *
-   * @deprecated priority is no longer used or needed as input
+   * @deprecated priority is no longer used or needed as input.
    * @public
    */
   priority?: number | undefined;
@@ -4765,7 +4765,7 @@ export interface TimestreamResources {
 export interface RegisterAccountRequest {
   /**
    * <p>The registered Amazon Timestream resources that Amazon Web Services IoT FleetWise edge agent software can transfer
-   *             your vehicle data to.</p>
+   *             your vehicle data to.</p>.
    *
    * @deprecated Amazon Timestream metadata is now passed in the CreateCampaign API.
    * @public
@@ -4773,9 +4773,9 @@ export interface RegisterAccountRequest {
   timestreamResources?: TimestreamResources | undefined;
 
   /**
-   * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>
+   * <p>The IAM resource that allows Amazon Web Services IoT FleetWise to send data to Amazon Timestream.</p>.
    *
-   * @deprecated iamResources is no longer used or needed as input
+   * @deprecated iamResources is no longer used or needed as input.
    * @public
    */
   iamResources?: IamResources | undefined;

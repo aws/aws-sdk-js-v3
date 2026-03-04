@@ -500,7 +500,7 @@ export interface SingleMetricAnomalyDetector {
  */
 export interface AnomalyDetector {
   /**
-   * <p>The namespace of the metric associated with the anomaly detection model.</p>
+   * <p>The namespace of the metric associated with the anomaly detection model.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.Namespace property.
    * @public
@@ -508,7 +508,7 @@ export interface AnomalyDetector {
   Namespace?: string | undefined;
 
   /**
-   * <p>The name of the metric associated with the anomaly detection model.</p>
+   * <p>The name of the metric associated with the anomaly detection model.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.MetricName property.
    * @public
@@ -516,7 +516,7 @@ export interface AnomalyDetector {
   MetricName?: string | undefined;
 
   /**
-   * <p>The metric dimensions associated with the anomaly detection model.</p>
+   * <p>The metric dimensions associated with the anomaly detection model.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.Dimensions property.
    * @public
@@ -524,7 +524,7 @@ export interface AnomalyDetector {
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * <p>The statistic associated with the anomaly detection model.</p>
+   * <p>The statistic associated with the anomaly detection model.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.Stat property.
    * @public
@@ -882,7 +882,7 @@ export interface DeleteAlarmsInput {
  */
 export interface DeleteAnomalyDetectorInput {
   /**
-   * <p>The namespace associated with the anomaly detection model to delete.</p>
+   * <p>The namespace associated with the anomaly detection model to delete.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -890,7 +890,7 @@ export interface DeleteAnomalyDetectorInput {
   Namespace?: string | undefined;
 
   /**
-   * <p>The metric name associated with the anomaly detection model to delete.</p>
+   * <p>The metric name associated with the anomaly detection model to delete.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -898,7 +898,7 @@ export interface DeleteAnomalyDetectorInput {
   MetricName?: string | undefined;
 
   /**
-   * <p>The metric dimensions associated with the anomaly detection model to delete.</p>
+   * <p>The metric dimensions associated with the anomaly detection model to delete.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -906,7 +906,7 @@ export interface DeleteAnomalyDetectorInput {
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * <p>The statistic associated with the anomaly detection model to delete.</p>
+   * <p>The statistic associated with the anomaly detection model to delete.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -3594,7 +3594,7 @@ export interface PutAlarmMuteRuleInput {
  */
 export interface PutAnomalyDetectorInput {
   /**
-   * <p>The namespace of the metric to create the anomaly detection model for.</p>
+   * <p>The namespace of the metric to create the anomaly detection model for.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -3602,7 +3602,7 @@ export interface PutAnomalyDetectorInput {
   Namespace?: string | undefined;
 
   /**
-   * <p>The name of the metric to create the anomaly detection model for.</p>
+   * <p>The name of the metric to create the anomaly detection model for.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -3610,7 +3610,7 @@ export interface PutAnomalyDetectorInput {
   MetricName?: string | undefined;
 
   /**
-   * <p>The metric dimensions to create the anomaly detection model for.</p>
+   * <p>The metric dimensions to create the anomaly detection model for.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public
@@ -3618,7 +3618,7 @@ export interface PutAnomalyDetectorInput {
   Dimensions?: Dimension[] | undefined;
 
   /**
-   * <p>The statistic to use for the metric and the anomaly detection model.</p>
+   * <p>The statistic to use for the metric and the anomaly detection model.</p>.
    *
    * @deprecated Use SingleMetricAnomalyDetector.
    * @public

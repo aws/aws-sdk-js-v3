@@ -32,9 +32,9 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
 
 /**
  * <p>Creates a system. The system is validated against the entities in the
- *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
+ *          latest version of the user's namespace unless another namespace version is specified in the request.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
