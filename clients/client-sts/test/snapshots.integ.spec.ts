@@ -34,21 +34,20 @@ const Client = STSClient;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "STSClient" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("STSClient" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [AssumeRole$, AssumeRoleCommand],
         [AssumeRoleWithSAML$, AssumeRoleWithSAMLCommand],
         [AssumeRoleWithWebIdentity$, AssumeRoleWithWebIdentityCommand],
@@ -61,9 +60,8 @@ describe(
         [GetSessionToken$, GetSessionTokenCommand],
         [GetWebIdentityToken$, GetWebIdentityTokenCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);

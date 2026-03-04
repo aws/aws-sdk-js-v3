@@ -226,21 +226,20 @@ const Client = S3Client;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "S3Client" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("S3Client" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [AbortMultipartUpload$, AbortMultipartUploadCommand],
         [CompleteMultipartUpload$, CompleteMultipartUploadCommand],
         [CopyObject$, CopyObjectCommand],
@@ -349,9 +348,8 @@ describe(
         [UploadPartCopy$, UploadPartCopyCommand],
         [WriteGetObjectResponse$, WriteGetObjectResponseCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);

@@ -5,6 +5,9 @@ CHANGELOG.md
 **/*/report.md
 clients/**/src
 clients/**/README.md
+clients/**/test/index-objects.spec.mjs
+clients/**/test/index-types.ts
+clients/**/test/snapshots.integ.spec.ts
 private/**
 !private/aws-client-api-test/src/**/*
 packages/nested-clients/src/submodules/*/endpoint/ruleset.ts

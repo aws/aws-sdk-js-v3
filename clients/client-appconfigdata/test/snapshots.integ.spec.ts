@@ -16,27 +16,25 @@ const Client = AppConfigDataClient;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "AppConfigDataClient" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("AppConfigDataClient" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [GetLatestConfiguration$, GetLatestConfigurationCommand],
         [StartConfigurationSession$, StartConfigurationSessionCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);
