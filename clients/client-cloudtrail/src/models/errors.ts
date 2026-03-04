@@ -1514,9 +1514,9 @@ export class InvalidSnsTopicNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is no longer in use.</p>
+ * <p>This exception is no longer in use.</p>.
  *
- * @deprecated deprecated
+ * @deprecated deprecated.
  * @public
  */
 export class KmsKeyDisabledException extends __BaseException {

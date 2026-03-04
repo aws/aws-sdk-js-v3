@@ -28,9 +28,9 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
 
 /**
  * <p>List service instances with summary data. This action lists service instances of all
- *       services in the Amazon Web Services account.</p>
+ *       services in the Amazon Web Services account.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

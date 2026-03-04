@@ -35,9 +35,9 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
  *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use
  *           <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a> instead.</p>
  *          </important>
- *          <p>Lists the tags for the specified log group.</p>
+ *          <p>Lists the tags for the specified log group.</p>.
  *
- * @deprecated Please use the generic tagging API ListTagsForResource
+ * @deprecated Please use the generic tagging API ListTagsForResource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

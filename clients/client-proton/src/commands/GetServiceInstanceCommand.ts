@@ -28,9 +28,9 @@ export interface GetServiceInstanceCommandOutput extends GetServiceInstanceOutpu
 
 /**
  * <p>Get detailed data for a service instance. A service instance is an instantiation of
- *       service template and it runs in a specific environment.</p>
+ *       service template and it runs in a specific environment.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2043,9 +2043,9 @@ export interface Budget {
    *             <li>
    *                <p>Amazon OpenSearch Service</p>
    *             </li>
-   *          </ul>
+   *          </ul>.
    *
-   * @deprecated CostFilters lack support for newer dimensions and filtering options. Please consider using the new 'FilterExpression' field.
+   * @deprecated (since 2025-04-18) CostFilters lack support for newer dimensions and filtering options. Please consider using the new 'FilterExpression' field.
    * @public
    */
   CostFilters?: Record<string, string[]> | undefined;
@@ -2055,9 +2055,9 @@ export interface Budget {
    *          <p>
    *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
    * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
-   * 			budgets do not have <code>CostTypes</code>.</p>
+   * 			budgets do not have <code>CostTypes</code>.</p>.
    *
-   * @deprecated CostTypes lack support for newer record type dimensions and filtering options. Please consider using the new 'Metrics' field.
+   * @deprecated (since 2025-04-18) CostTypes lack support for newer record type dimensions and filtering options. Please consider using the new 'Metrics' field.
    * @public
    */
   CostTypes?: CostTypes | undefined;

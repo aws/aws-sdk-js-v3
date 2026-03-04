@@ -27,7 +27,7 @@ export interface GetDatasetCommandInput extends GetDatasetRequest {}
 export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a Dataset.</p>
+ * <p>Returns information about a Dataset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

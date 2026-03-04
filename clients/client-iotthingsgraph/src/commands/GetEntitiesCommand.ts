@@ -62,9 +62,9 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *                <p>Services</p>
  *             </li>
  *          </ul>
- *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
+ *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

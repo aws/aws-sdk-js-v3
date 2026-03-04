@@ -1584,17 +1584,17 @@ export interface CreateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>This parameter is no longer used.</p>
+   * <p>This parameter is no longer used.</p>.
    *
-   * @deprecated Deprecated. No longer allowed.
+   * @deprecated (since 2022-02-01) Deprecated. No longer allowed.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -1682,9 +1682,9 @@ export interface CreateMapRequest {
   Configuration: MapConfiguration | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -1754,9 +1754,9 @@ export interface CreatePlaceIndexRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -1820,9 +1820,9 @@ export interface CreateRouteCalculatorRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -1874,9 +1874,9 @@ export interface CreateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -1888,9 +1888,9 @@ export interface CreateTrackerRequest {
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>This parameter is no longer used.</p>
+   * <p>This parameter is no longer used.</p>.
    *
-   * @deprecated Deprecated. No longer allowed.
+   * @deprecated (since 2022-02-01) Deprecated. No longer allowed.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -2063,17 +2063,17 @@ export interface DescribeGeofenceCollectionResponse {
   Description: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>No longer used. Always returns an empty string.</p>
+   * <p>No longer used. Always returns an empty string.</p>.
    *
-   * @deprecated Deprecated. Unused.
+   * @deprecated (since 2022-02-01) Deprecated. Unused.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -2137,9 +2137,9 @@ export interface DescribeMapResponse {
   MapArn: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -2209,9 +2209,9 @@ export interface DescribePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -2281,9 +2281,9 @@ export interface DescribeRouteCalculatorResponse {
   CalculatorArn: string | undefined;
 
   /**
-   * <p>Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -2353,17 +2353,17 @@ export interface DescribeTrackerResponse {
   Description: string | undefined;
 
   /**
-   * <p>Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>No longer used. Always returns an empty string.</p>
+   * <p>No longer used. Always returns an empty string.</p>.
    *
-   * @deprecated Deprecated. Unused.
+   * @deprecated (since 2022-02-01) Deprecated. Unused.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -2800,17 +2800,17 @@ export interface ListGeofenceCollectionsResponseEntry {
   Description: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>No longer used. Always returns an empty string.</p>
+   * <p>No longer used. Always returns an empty string.</p>.
    *
-   * @deprecated Deprecated. Unused.
+   * @deprecated (since 2022-02-01) Deprecated. Unused.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -2990,17 +2990,17 @@ export interface UpdateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>This parameter is no longer used.</p>
+   * <p>This parameter is no longer used.</p>.
    *
-   * @deprecated Deprecated. No longer allowed.
+   * @deprecated (since 2022-02-01) Deprecated. No longer allowed.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -3690,9 +3690,9 @@ export interface ListMapsResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -3768,9 +3768,9 @@ export interface ListPlaceIndexesResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -3846,9 +3846,9 @@ export interface ListRouteCalculatorsResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -3958,17 +3958,17 @@ export interface ListTrackersResponseEntry {
   Description: string | undefined;
 
   /**
-   * <p>Always returns <code>RequestBasedUsage</code>.</p>
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. Always returns RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. Always returns RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>No longer used. Always returns an empty string.</p>
+   * <p>No longer used. Always returns an empty string.</p>.
    *
-   * @deprecated Deprecated. Unused.
+   * @deprecated (since 2022-02-01) Deprecated. Unused.
    * @public
    */
   PricingPlanDataSource?: string | undefined;
@@ -4032,9 +4032,9 @@ export interface UpdateMapRequest {
   MapName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -4518,9 +4518,9 @@ export interface UpdatePlaceIndexRequest {
   IndexName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -4572,9 +4572,9 @@ export interface UpdateRouteCalculatorRequest {
   CalculatorName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
@@ -4620,17 +4620,17 @@ export interface UpdateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>
+   * <p>No longer used. If included, the only allowed value is <code>RequestBasedUsage</code>.</p>.
    *
-   * @deprecated Deprecated. If included, the only allowed value is RequestBasedUsage.
+   * @deprecated (since 2022-02-01) Deprecated. If included, the only allowed value is RequestBasedUsage.
    * @public
    */
   PricingPlan?: PricingPlan | undefined;
 
   /**
-   * <p>This parameter is no longer used.</p>
+   * <p>This parameter is no longer used.</p>.
    *
-   * @deprecated Deprecated. No longer allowed.
+   * @deprecated (since 2022-02-01) Deprecated. No longer allowed.
    * @public
    */
   PricingPlanDataSource?: string | undefined;

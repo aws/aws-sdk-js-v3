@@ -93,6 +93,7 @@ export interface AcceptAdministratorInvitationRequest {
 export interface AcceptAdministratorInvitationResponse {}
 
 /**
+ * @deprecated This input is deprecated, use AcceptAdministratorInvitationRequest instead.
  * @public
  */
 export interface AcceptInvitationRequest {
@@ -120,6 +121,7 @@ export interface AcceptInvitationRequest {
 }
 
 /**
+ * @deprecated This output is deprecated, use AcceptAdministratorInvitationResponse instead.
  * @public
  */
 export interface AcceptInvitationResponse {}
@@ -374,9 +376,9 @@ export interface AccountFreeTrialInfo {
   AccountId?: string | undefined;
 
   /**
-   * <p>Describes the data source enabled for the GuardDuty member account.</p>
+   * <p>Describes the data source enabled for the GuardDuty member account.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourcesFreeTrial | undefined;
@@ -1573,54 +1575,54 @@ export interface CloudTrailConfigurationResult {
 export interface Condition {
   /**
    * <p>Represents the <i>equal</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   *       querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Eq?: string[] | undefined;
 
   /**
    * <p>Represents the <i>not equal</i> condition to be applied to a single field
-   *       when querying for findings.</p>
+   *       when querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Neq?: string[] | undefined;
 
   /**
    * <p>Represents a <i>greater than</i> condition to be applied to a single field
-   *       when querying for findings.</p>
+   *       when querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Gt?: number | undefined;
 
   /**
    * <p>Represents a <i>greater than or equal</i> condition to be applied to a
-   *       single field when querying for findings.</p>
+   *       single field when querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Gte?: number | undefined;
 
   /**
    * <p>Represents a <i>less than</i> condition to be applied to a single field when
-   *       querying for findings.</p>
+   *       querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Lt?: number | undefined;
 
   /**
    * <p>Represents a <i>less than or equal</i> condition to be applied to a single
-   *       field when querying for findings.</p>
+   *       field when querying for findings.</p>.
    *
-   * @deprecated deprecated
+   * @deprecated deprecated.
    * @public
    */
   Lte?: number | undefined;
@@ -2311,9 +2313,9 @@ export interface CreateDetectorRequest {
    * <p>Describes which data sources will be enabled for the detector.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
-   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -4341,9 +4343,9 @@ export interface DescribeOrganizationConfigurationResponse {
    * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
    *       organization.</p>
    *          <p>Even though this is still supported, we recommend using
-   *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
+   *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>.
    *
-   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead
+   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead.
    * @public
    */
   AutoEnable?: boolean | undefined;
@@ -4356,9 +4358,9 @@ export interface DescribeOrganizationConfigurationResponse {
   MemberAccountLimitReached: boolean | undefined;
 
   /**
-   * <p>Describes which data sources are enabled automatically for member accounts.</p>
+   * <p>Describes which data sources are enabled automatically for member accounts.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: OrganizationDataSourceConfigurationsResult | undefined;
@@ -5574,6 +5576,7 @@ export interface DisassociateFromAdministratorAccountRequest {
 export interface DisassociateFromAdministratorAccountResponse {}
 
 /**
+ * @deprecated This input is deprecated, use DisassociateFromAdministratorAccountRequest instead.
  * @public
  */
 export interface DisassociateFromMasterAccountRequest {
@@ -5585,6 +5588,7 @@ export interface DisassociateFromMasterAccountRequest {
 }
 
 /**
+ * @deprecated This output is deprecated, use DisassociateFromAdministratorAccountResponse instead.
  * @public
  */
 export interface DisassociateFromMasterAccountResponse {}
@@ -7815,7 +7819,7 @@ export interface SeverityStatistics {
  */
 export interface FindingStatistics {
   /**
-   * <p>Represents a list of map of severity to count statistics for a set of findings.</p>
+   * <p>Represents a list of map of severity to count statistics for a set of findings.</p>.
    *
    * @deprecated This parameter is deprecated. Please set GroupBy to 'SEVERITY' to return GroupedBySeverity instead.
    * @public
@@ -7965,9 +7969,9 @@ export interface GetDetectorResponse {
   UpdatedAt?: string | undefined;
 
   /**
-   * <p>Describes which data sources are enabled for the detector.</p>
+   * <p>Describes which data sources are enabled for the detector.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourceConfigurationsResult | undefined;
@@ -8097,9 +8101,9 @@ export interface GetFindingsStatisticsRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The types of finding statistics to retrieve.</p>
+   * <p>The types of finding statistics to retrieve.</p>.
    *
-   * @deprecated This parameter is deprecated, please use GroupBy instead
+   * @deprecated This parameter is deprecated, please use GroupBy instead.
    * @public
    */
   FindingStatisticTypes?: FindingStatisticType[] | undefined;
@@ -8715,6 +8719,7 @@ export interface GetMalwareScanSettingsResponse {
 }
 
 /**
+ * @deprecated This input is deprecated, use GetAdministratorAccountRequest instead.
  * @public
  */
 export interface GetMasterAccountRequest {
@@ -8758,6 +8763,7 @@ export interface Master {
 }
 
 /**
+ * @deprecated This output is deprecated, use GetAdministratorAccountResponse instead.
  * @public
  */
 export interface GetMasterAccountResponse {

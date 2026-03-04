@@ -27,7 +27,7 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new FinSpace Dataset.</p>
+ * <p>Creates a new FinSpace Dataset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

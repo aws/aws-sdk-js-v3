@@ -31,9 +31,9 @@ export interface CreateTemplateSyncConfigCommandOutput extends CreateTemplateSyn
  *    been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
  *          <p>When a commit is pushed to your linked repository, Proton checks for changes to your repository template bundles. If it detects a template
  *    bundle change, a new major or minor version of its template is created, if the version doesn’t already exist. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-template-sync-configs.html">Template sync configurations</a> in the <i>Proton
- *     User Guide</i>.</p>
+ *     User Guide</i>.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

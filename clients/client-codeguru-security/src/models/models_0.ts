@@ -288,7 +288,7 @@ export interface Vulnerability {
   filePath?: FilePath | undefined;
 
   /**
-   * <p>The number of times the vulnerability appears in your code.</p>
+   * <p>The number of times the vulnerability appears in your code.</p>.
    *
    * @deprecated This shape is not used.
    * @public

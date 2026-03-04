@@ -27,9 +27,9 @@ export interface UpdateServiceTemplateCommandInput extends UpdateServiceTemplate
 export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Update a service template.</p>
+ * <p>Update a service template.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

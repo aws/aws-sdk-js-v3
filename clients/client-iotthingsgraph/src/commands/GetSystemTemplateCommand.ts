@@ -31,9 +31,9 @@ export interface GetSystemTemplateCommandInput extends GetSystemTemplateRequest 
 export interface GetSystemTemplateCommandOutput extends GetSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a system.</p>
+ * <p>Gets a system.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

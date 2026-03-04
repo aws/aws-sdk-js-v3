@@ -34,9 +34,9 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ *          </note>.
  *
- * @deprecated deprecated
+ * @deprecated deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

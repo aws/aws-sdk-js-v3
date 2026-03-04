@@ -33,9 +33,9 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>
+ *          </note>.
  *
- * @deprecated deprecated
+ * @deprecated deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

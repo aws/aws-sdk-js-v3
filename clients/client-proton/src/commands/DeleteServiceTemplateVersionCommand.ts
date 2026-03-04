@@ -35,9 +35,9 @@ export interface DeleteServiceTemplateVersionCommandOutput extends DeleteService
  *          <p>Delete a minor version of a service template if it's not the <code>Recommended</code>
  *       version. Delete a <code>Recommended</code> minor version of the service template if no other
  *       minor versions of the service template exist. A minor version of a service template is a
- *       version that's backwards compatible.</p>
+ *       version that's backwards compatible.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

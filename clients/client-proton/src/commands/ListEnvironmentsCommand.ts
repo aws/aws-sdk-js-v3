@@ -27,9 +27,9 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * <p>List environments with detail data summaries.</p>
+ * <p>List environments with detail data summaries.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

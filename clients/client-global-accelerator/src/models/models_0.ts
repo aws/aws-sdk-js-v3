@@ -41,9 +41,9 @@ export interface AcceleratorEvent {
  */
 export interface IpSet {
   /**
-   * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>
+   * <p>IpFamily is deprecated and has been replaced by IpAddressFamily.</p>.
    *
-   * @deprecated IpFamily has been replaced by IpAddressFamily
+   * @deprecated IpFamily has been replaced by IpAddressFamily.
    * @public
    */
   IpFamily?: string | undefined;

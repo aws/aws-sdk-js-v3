@@ -75,9 +75,9 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *                <p>In this mode, the environment is deployed and updated with the published, recommended (latest) major and minor version of the current template,
  *             by default. You can also specify a different major version that's higher than the major version in use and a minor version.</p>
  *             </dd>
- *          </dl>
+ *          </dl>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

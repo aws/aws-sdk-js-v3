@@ -27,7 +27,7 @@ export interface ListChangesetsCommandInput extends ListChangesetsRequest {}
 export interface ListChangesetsCommandOutput extends ListChangesetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the FinSpace Changesets for a Dataset.</p>
+ * <p>Lists the FinSpace Changesets for a Dataset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

@@ -1945,6 +1945,7 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * @deprecated deprecated.
  * @public
  */
 export interface RotateChannelCredentialsRequest {
@@ -1956,6 +1957,7 @@ export interface RotateChannelCredentialsRequest {
 }
 
 /**
+ * @deprecated deprecated.
  * @public
  */
 export interface RotateChannelCredentialsResponse {

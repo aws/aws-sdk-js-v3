@@ -133,9 +133,9 @@ export interface AccountDetails {
   ContactLanguage?: ContactLanguage | undefined;
 
   /**
-   * <p>A description of the types of email that you plan to send.</p>
+   * <p>A description of the types of email that you plan to send.</p>.
    *
-   * @deprecated Use case description is optional and deprecated
+   * @deprecated Use case description is optional and deprecated.
    * @public
    */
   UseCaseDescription?: string | undefined;
@@ -7734,9 +7734,9 @@ export interface PutAccountDetailsRequest {
   ContactLanguage?: ContactLanguage | undefined;
 
   /**
-   * <p>A description of the types of email that you plan to send.</p>
+   * <p>A description of the types of email that you plan to send.</p>.
    *
-   * @deprecated Use case description is optional and deprecated
+   * @deprecated Use case description is optional and deprecated.
    * @public
    */
   UseCaseDescription?: string | undefined;

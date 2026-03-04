@@ -32,9 +32,9 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
 
 /**
  * <p>Associates a device with a concrete thing that is in the user's registry.</p>
- *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>
+ *          <p>A thing can be associated with only one device at a time. If you associate a thing with a new device id, its previous association will be removed.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

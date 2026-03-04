@@ -27,7 +27,7 @@ export interface GetChangesetCommandInput extends GetChangesetRequest {}
 export interface GetChangesetCommandOutput extends GetChangesetResponse, __MetadataBearer {}
 
 /**
- * <p>Get information about a Changeset.</p>
+ * <p>Get information about a Changeset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

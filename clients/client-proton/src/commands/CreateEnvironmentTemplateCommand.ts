@@ -41,9 +41,9 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  *             <code>CUSTOMER_MANAGED</code>. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/template-create.html">Register
  *             and publish an environment template</a> in the <i>Proton User Guide</i>.</p>
  *             </li>
- *          </ul>
+ *          </ul>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

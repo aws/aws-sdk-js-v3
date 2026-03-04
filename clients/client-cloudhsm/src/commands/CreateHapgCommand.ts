@@ -38,7 +38,7 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Creates a high-availability partition group. A high-availability partition group is a
- *       group of partitions that spans multiple physical HSMs.</p>
+ *       group of partitions that spans multiple physical HSMs.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

@@ -27,7 +27,7 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available users in FinSpace.</p>
+ * <p>Lists all available users in FinSpace.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

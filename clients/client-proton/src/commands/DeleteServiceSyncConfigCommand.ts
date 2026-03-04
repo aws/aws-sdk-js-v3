@@ -27,9 +27,9 @@ export interface DeleteServiceSyncConfigCommandInput extends DeleteServiceSyncCo
 export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Delete the Proton Ops file.</p>
+ * <p>Delete the Proton Ops file.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

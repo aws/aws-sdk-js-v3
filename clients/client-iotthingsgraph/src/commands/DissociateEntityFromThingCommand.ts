@@ -32,9 +32,9 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
 
 /**
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
- *          one entity of a particular type can be associated with a thing.</p>
+ *          one entity of a particular type can be associated with a thing.</p>.
  *
- * @deprecated since: 2022-08-30
+ * @deprecated since: 2022-08-30.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

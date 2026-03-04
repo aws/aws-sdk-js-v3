@@ -468,7 +468,7 @@ export interface CreateGroupOutput {
  */
 export interface DeleteGroupInput {
   /**
-   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public
@@ -509,7 +509,7 @@ export interface GetAccountSettingsOutput {
  */
 export interface GetGroupInput {
   /**
-   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public
@@ -566,7 +566,7 @@ export interface GetGroupConfigurationOutput {
  */
 export interface GetGroupQueryInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public
@@ -1005,7 +1005,7 @@ export interface ListGroupResourcesInput {
    *                             <code>Group</code> request field instead.</b>
    *                </i>
    *             </p>
-   *          </important>
+   *          </important>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public
@@ -1172,7 +1172,7 @@ export interface ListGroupResourcesOutput {
    *                 instead.</i>
    *                </b>
    *             </p>
-   *          </important>
+   *          </important>.
    *
    * @deprecated This field is deprecated, use Resources instead.
    * @public
@@ -1368,7 +1368,7 @@ export interface ListGroupsOutput {
    *                     instead.</b>
    *                </i>
    *             </p>
-   *          </important>
+   *          </important>.
    *
    * @deprecated This field is deprecated, use GroupIdentifiers instead.
    * @public
@@ -1959,7 +1959,7 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface UpdateGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public
@@ -2016,7 +2016,7 @@ export interface UpdateGroupOutput {
  */
 export interface UpdateGroupQueryInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>.
    *
    * @deprecated This field is deprecated, use Group instead.
    * @public

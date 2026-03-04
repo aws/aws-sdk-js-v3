@@ -39,7 +39,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *       Reference</a>.</p>
  *          <p>Adds or overwrites one or more tags for the specified AWS CloudHSM resource.</p>
  *          <p>Each tag consists of a key and a value. Tag keys must be unique to each
- *       resource.</p>
+ *       resource.</p>.
  *
  * @deprecated This API is deprecated.
  * @example

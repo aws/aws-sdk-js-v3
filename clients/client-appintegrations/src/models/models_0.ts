@@ -144,17 +144,17 @@ export interface CreateApplicationRequest {
   ApplicationSourceConfig: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * <p>The events that the application subscribes.</p>.
    *
-   * @deprecated Subscriptions has been replaced with Permissions
+   * @deprecated Subscriptions has been replaced with Permissions.
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * <p>The events that the application publishes.</p>.
    *
-   * @deprecated Publications has been replaced with Permissions
+   * @deprecated Publications has been replaced with Permissions.
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -181,9 +181,9 @@ export interface CreateApplicationRequest {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * <p>Indicates whether the application is a service.</p>.
    *
-   * @deprecated IsService has been deprecated in favor of ApplicationType
+   * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
    */
   IsService?: boolean | undefined;
@@ -688,17 +688,17 @@ export interface GetApplicationResponse {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * <p>The events that the application subscribes.</p>.
    *
-   * @deprecated Subscriptions has been replaced with Permissions
+   * @deprecated Subscriptions has been replaced with Permissions.
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * <p>The events that the application publishes.</p>.
    *
-   * @deprecated Publications has been replaced with Permissions
+   * @deprecated Publications has been replaced with Permissions.
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -728,9 +728,9 @@ export interface GetApplicationResponse {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * <p>Indicates whether the application is a service.</p>.
    *
-   * @deprecated IsService has been deprecated in favor of ApplicationType
+   * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
    */
   IsService?: boolean | undefined;
@@ -1019,9 +1019,9 @@ export interface ApplicationSummary {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * <p>Indicates whether the application is a service.</p>.
    *
-   * @deprecated IsService has been deprecated in favor of ApplicationType
+   * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
    */
   IsService?: boolean | undefined;
@@ -1466,17 +1466,17 @@ export interface UpdateApplicationRequest {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>
+   * <p>The events that the application subscribes.</p>.
    *
-   * @deprecated Subscriptions has been replaced with Permissions
+   * @deprecated Subscriptions has been replaced with Permissions.
    * @public
    */
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>
+   * <p>The events that the application publishes.</p>.
    *
-   * @deprecated Publications has been replaced with Permissions
+   * @deprecated Publications has been replaced with Permissions.
    * @public
    */
   Publications?: Publication[] | undefined;
@@ -1488,9 +1488,9 @@ export interface UpdateApplicationRequest {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>
+   * <p>Indicates whether the application is a service.</p>.
    *
-   * @deprecated IsService has been deprecated in favor of ApplicationType
+   * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
    */
   IsService?: boolean | undefined;

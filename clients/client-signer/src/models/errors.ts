@@ -205,7 +205,7 @@ export class NotFoundException extends __BaseException {
 
 /**
  * <p>The request was denied due to request throttling.</p>
- *          <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>
+ *          <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>.
  *
  * @deprecated Instead of this error, TooManyRequestsException should be used.
  * @public

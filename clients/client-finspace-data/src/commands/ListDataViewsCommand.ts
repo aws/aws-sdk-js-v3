@@ -27,7 +27,7 @@ export interface ListDataViewsCommandInput extends ListDataViewsRequest {}
 export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all available Dataviews for a Dataset.</p>
+ * <p>Lists all available Dataviews for a Dataset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

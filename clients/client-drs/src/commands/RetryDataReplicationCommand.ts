@@ -29,9 +29,9 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
 /**
  * <p>WARNING: RetryDataReplication is deprecated.
  *               Causes the data replication initiation sequence to begin immediately upon next Handshake for the specified Source Server ID, regardless of when the previous initiation started. This command will work only if the Source Server is stalled or is in a DISCONNECTED or STOPPED state.
- *         </p>
+ *         </p>.
  *
- * @deprecated WARNING: RetryDataReplication is deprecated
+ * @deprecated WARNING: RetryDataReplication is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

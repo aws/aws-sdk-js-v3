@@ -27,7 +27,7 @@ export interface GetPermissionGroupCommandInput extends GetPermissionGroupReques
 export interface GetPermissionGroupCommandOutput extends GetPermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of a specific permission group.</p>
+ * <p>Retrieves the details of a specific permission group.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

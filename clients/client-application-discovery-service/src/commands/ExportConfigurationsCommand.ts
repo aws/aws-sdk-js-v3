@@ -36,9 +36,9 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *       enables you to view and evaluate the data. Data includes tags and tag associations, processes,
  *       connections, servers, and system performance. This API returns an export ID that you can query
  *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
- *       two configuration exports in six hours.</p>
+ *       two configuration exports in six hours.</p>.
  *
- * @deprecated deprecated
+ * @deprecated deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

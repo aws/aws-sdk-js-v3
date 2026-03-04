@@ -27,7 +27,7 @@ export interface CreatePermissionGroupCommandInput extends CreatePermissionGroup
 export interface CreatePermissionGroupCommandOutput extends CreatePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
+ * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

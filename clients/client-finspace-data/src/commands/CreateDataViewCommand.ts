@@ -27,7 +27,7 @@ export interface CreateDataViewCommandInput extends CreateDataViewRequest {}
 export interface CreateDataViewCommandOutput extends CreateDataViewResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Dataview for a Dataset.</p>
+ * <p>Creates a Dataview for a Dataset.</p>.
  *
  * @deprecated This method will be discontinued.
  * @example

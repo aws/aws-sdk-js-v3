@@ -114,9 +114,9 @@ export interface MemberDataSourceConfiguration {
   AccountId: string | undefined;
 
   /**
-   * <p>Contains information on the status of data sources for the account.</p>
+   * <p>Contains information on the status of data sources for the account.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourceConfigurationsResult | undefined;
@@ -630,9 +630,9 @@ export interface UsageCriteria {
   AccountIds?: string[] | undefined;
 
   /**
-   * <p>The data sources to aggregate usage statistics from.</p>
+   * <p>The data sources to aggregate usage statistics from.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSource[] | undefined;
@@ -2190,9 +2190,9 @@ export interface UpdateDetectorRequest {
    * <p>Describes which data sources will be updated.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
-   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -2504,9 +2504,9 @@ export interface UpdateMemberDetectorsRequest {
   AccountIds: string[] | undefined;
 
   /**
-   * <p>Describes which data sources will be updated.</p>
+   * <p>Describes which data sources will be updated.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: DataSourceConfigurations | undefined;
@@ -2748,17 +2748,17 @@ export interface UpdateOrganizationConfigurationRequest {
    *     the chosen features will be enabled for them by default.</p>
    *          <p>Even though this is still supported, we recommend using
    *    <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide a
-   *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
+   *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>.
    *
-   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead
+   * @deprecated This field is deprecated, use AutoEnableOrganizationMembers instead.
    * @public
    */
   AutoEnable?: boolean | undefined;
 
   /**
-   * <p>Describes which data sources will be updated.</p>
+   * <p>Describes which data sources will be updated.</p>.
    *
-   * @deprecated This parameter is deprecated, use Features instead
+   * @deprecated This parameter is deprecated, use Features instead.
    * @public
    */
   DataSources?: OrganizationDataSourceConfigurations | undefined;

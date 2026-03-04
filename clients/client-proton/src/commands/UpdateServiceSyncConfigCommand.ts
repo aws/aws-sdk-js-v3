@@ -27,9 +27,9 @@ export interface UpdateServiceSyncConfigCommandInput extends UpdateServiceSyncCo
 export interface UpdateServiceSyncConfigCommandOutput extends UpdateServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Update the Proton Ops config file.</p>
+ * <p>Update the Proton Ops config file.</p>.
  *
- * @deprecated AWS Proton is not accepting new customers.
+ * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

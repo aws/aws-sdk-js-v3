@@ -2897,9 +2897,9 @@ export interface UpdateAuthenticationProfileRequest {
    * <p>The short lived session duration configuration for users logged in to Amazon Connect, in minutes. This value
    *    determines the maximum possible time before an agent is authenticated. For more information, For more information on
    *    how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure session
-   *     timeouts</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *     timeouts</a> in the <i>Amazon Connect Administrator Guide</i>. </p>.
    *
-   * @deprecated PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
+   * @deprecated (since 10/31/2025) PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
    * @public
    */
   PeriodicSessionDuration?: number | undefined;

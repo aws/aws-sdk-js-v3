@@ -1335,7 +1335,7 @@ export interface CreateNFSFileShareInput {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
@@ -1619,7 +1619,7 @@ export interface CreateSMBFileShareInput {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
@@ -3600,7 +3600,7 @@ export interface NFSFileShareInfo {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
@@ -3911,7 +3911,7 @@ export interface SMBFileShareInfo {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
@@ -7430,7 +7430,7 @@ export interface UpdateNFSFileShareInput {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public
@@ -7644,7 +7644,7 @@ export interface UpdateSMBFileShareInput {
    *                <code>KMSEncrypted</code> must be <code>true</code>.</p>
    *          </note>
    *          <p>Valid Values: <code>true</code> | <code>false</code>
-   *          </p>
+   *          </p>.
    *
    * @deprecated KMSEncrypted is deprecated, use EncryptionType instead.
    * @public

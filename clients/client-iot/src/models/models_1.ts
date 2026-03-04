@@ -2768,7 +2768,7 @@ export interface DescribeSecurityProfileResponse {
    *       whose data is retained (stored). By default, data is retained for any metric
    *       used in the profile's <code>behaviors</code>, but
    *       it is
-   *       also retained for any metric specified here.</p>
+   *       also retained for any metric specified here.</p>.
    *
    * @deprecated Use additionalMetricsToRetainV2.
    * @public
