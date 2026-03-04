@@ -132,7 +132,7 @@ export interface AccountCustomization {
 export interface AccountInfo {
   /**
    * <p>The account name that you provided for the Amazon Quick Sight subscription in your
-   *                 Amazon Web Services account. You create this name when you sign up for Quick Suite. It's unique over all of Amazon Web Services, and it appears only when
+   *                 Amazon Web Services account. You create this name when you sign up for Quick. It's unique over all of Amazon Web Services, and it appears only when
    *             users sign in.</p>
    * @public
    */
@@ -202,7 +202,7 @@ export interface AccountSettings {
   NotificationEmail?: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick Suite account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;

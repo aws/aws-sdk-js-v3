@@ -30,7 +30,7 @@ export interface DescribeSelfUpgradeConfigurationCommandInput extends DescribeSe
 export interface DescribeSelfUpgradeConfigurationCommandOutput extends DescribeSelfUpgradeConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the self-upgrade configuration for a Quick Suite account.</p>
+ * <p>Describes the self-upgrade configuration for a Quick account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

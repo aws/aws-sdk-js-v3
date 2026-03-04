@@ -44,7 +44,7 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *                <p>They are valid for 5 minutes after you run this command.</p>
  *             </li>
  *             <li>
- *                <p>You are charged only when the URL is used or there is interaction with Quick Suite.</p>
+ *                <p>You are charged only when the URL is used or there is interaction with Quick.</p>
  *             </li>
  *             <li>
  *                <p>The resulting user session is valid for 15 minutes (default) up to 10 hours
@@ -53,10 +53,10 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html">Embedding Analytics
- *                 Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick Suite User
+ *                 Using GetDashboardEmbedUrl</a> in the <i>Amazon Quick User
  *                 Guide</i>.</p>
  *          <p>For more information about the high-level steps for embedding and for an interactive
- *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick Suite
+ *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
  *                 Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

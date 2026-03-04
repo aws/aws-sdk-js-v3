@@ -5083,7 +5083,7 @@ export interface DeleteBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -6456,7 +6456,7 @@ export interface DescribeAccountSettingsResponse {
    *          <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to
    *             as a Quick Sight "account" even though it's technically not an account by
    *             itself. Instead, it's a subscription to the Amazon Quick Sight service for your
-   *                 Amazon Web Services account. The edition that you subscribe to applies to Quick Suite in every Amazon Web Services Region where you use it.</p>
+   *                 Amazon Web Services account. The edition that you subscribe to applies to Quick in every Amazon Web Services Region where you use it.</p>
    * @public
    */
   AccountSettings?: AccountSettings | undefined;
@@ -7150,7 +7150,7 @@ export interface DescribeBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -7224,7 +7224,7 @@ export interface DescribeBrandPublishedVersionRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -9266,25 +9266,25 @@ export interface DescribeRoleCustomPermissionResponse {
  */
 export interface DescribeSelfUpgradeConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the Quick Suite self-upgrade configuration.</p>
+   * <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Quick Suite namespace that you want to describe the Quick Suite self-upgrade configuration for.</p>
+   * <p>The Quick namespace that you want to describe the Quick self-upgrade configuration for.</p>
    * @public
    */
   Namespace: string | undefined;
 }
 
 /**
- * <p>The self-upgrade configuration for the Quick Suite account.</p>
+ * <p>The self-upgrade configuration for the Quick account.</p>
  * @public
  */
 export interface SelfUpgradeConfiguration {
   /**
-   * <p>Status set for the self-upgrade configuration for the Quick Suite account. It can contain the following values:</p>
+   * <p>Status set for the self-upgrade configuration for the Quick account. It can contain the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -9305,7 +9305,7 @@ export interface SelfUpgradeConfiguration {
  */
 export interface DescribeSelfUpgradeConfigurationResponse {
   /**
-   * <p>The self-upgrade configuration for the Quick Suite account.</p>
+   * <p>The self-upgrade configuration for the Quick account.</p>
    * @public
    */
   SelfUpgradeConfiguration?: SelfUpgradeConfiguration | undefined;

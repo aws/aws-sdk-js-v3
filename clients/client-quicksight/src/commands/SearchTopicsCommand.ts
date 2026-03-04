@@ -27,7 +27,7 @@ export interface SearchTopicsCommandInput extends SearchTopicsRequest {}
 export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for any Q topic that exists in an Quick Suite account.</p>
+ * <p>Searches for any Q topic that exists in an Quick account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

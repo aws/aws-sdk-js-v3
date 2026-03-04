@@ -1517,7 +1517,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
 
   /**
    * <p>The Amazon Quick Sight namespace that the anonymous user virtually belongs to. If you
-   *             are not using an Amazon Quick Suite custom namespace, set this to
+   *             are not using an Amazon Quick custom namespace, set this to
    *                 <code>default</code>.</p>
    * @public
    */
@@ -1544,7 +1544,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    *             </li>
    *          </ul>
    *          <p>Besides, these are not the tags used for the Amazon Web Services resource tagging feature.
-   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a> in the <i>Amazon Quick User Guide</i>.</p>
    * @public
    */
   SessionTags?: SessionTag[] | undefined;
@@ -1604,7 +1604,7 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
   RequestId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon Quick Suite
+   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon Quick
    *             user.</p>
    * @public
    */
@@ -1755,7 +1755,7 @@ export interface RegisteredUserDashboardVisualEmbeddingConfiguration {
 export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
   /**
    * <p>The ID of the new Q reader experience topic that you want to make the starting topic
-   *             in the Generative Q&A experience. You can find a topic ID by navigating to the Topics pane in the Quick Suite application and opening a topic. The ID is in the URL for the topic that
+   *             in the Generative Q&A experience. You can find a topic ID by navigating to the Topics pane in the Quick application and opening a topic. The ID is in the URL for the topic that
    *             you open.</p>
    *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all
    *             shared new reader experience topics is shown in the Generative Q&A experience for
@@ -1888,7 +1888,7 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For registered users, you can embed Quick Suite dashboards or the Amazon Quick Sight console.</p>
+ * <p>The type of experience you want to embed. For registered users, you can embed Quick dashboards or the Amazon Quick Sight console.</p>
  *          <note>
  *             <p>Exactly one of the experience configurations is required. You can choose
  *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
@@ -1907,7 +1907,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    * <p>The configuration details for providing each Amazon Quick Sight console embedding
    *             experience. This can be used along with custom permissions to restrict access to certain
    *             features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Sight Console</a> in the
-   *                     <i>Amazon Quick Suite User Guide</i>.</p>
+   *                     <i>Amazon Quick User Guide</i>.</p>
    *          <p>Use <code>
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.html">GenerateEmbedUrlForRegisteredUser</a>
    *             </code> where you want to provide an
@@ -1920,7 +1920,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RegisterUser.html">RegisterUser</a>
    *             </code> API operation to add a new user with a custom
    *             permission profile attached. For more information, see the following sections in the
-   *                     <i>Amazon Quick Suite User Guide</i>:</p>
+   *                     <i>Amazon Quick User Guide</i>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1930,12 +1930,12 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Suite Console</a>
+   *                   <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon Quick Console</a>
    *                </p>
    *             </li>
    *          </ul>
    *          <p>For more information about the high-level steps for embedding and for an interactive
-   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick Suite
+   *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
    *                 Developer Portal</a>.</p>
    * @public
    */
@@ -1995,7 +1995,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience that you want to embed. For registered users, you can embed Quick Suite dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar,
+   * <p>The experience that you want to embed. For registered users, you can embed Quick dashboards, Amazon Quick Sight visuals, the Amazon Quick Sight Q search bar,
    *             the Amazon Quick Sight Generative Q&A experience, or the entire Amazon Quick Sight console.</p>
    * @public
    */
@@ -2056,7 +2056,7 @@ export interface GenerateEmbedUrlForRegisteredUserWithIdentityRequest {
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The type of experience you want to embed. For registered users, you can embed Quick Suite dashboards or the Amazon Quick Sight console.</p>
+   * <p>The type of experience you want to embed. For registered users, you can embed Quick dashboards or the Amazon Quick Sight console.</p>
    *          <note>
    *             <p>Exactly one of the experience configurations is required. You can choose
    *                     <code>Dashboard</code> or <code>QuickSightConsole</code>. You cannot choose more
@@ -2153,8 +2153,8 @@ export interface GetDashboardEmbedUrlRequest {
   StatePersistenceEnabled?: boolean | undefined;
 
   /**
-   * <p>The Amazon Quick Suite user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Amazon Quick Suite users in your account (readers, authors, or admins) authenticated as one of the
+   * <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any Amazon Quick users in your account (readers, authors, or admins) authenticated as one of the
    *             following:</p>
    *          <ul>
    *             <li>
@@ -2185,7 +2185,7 @@ export interface GetDashboardEmbedUrlRequest {
   /**
    * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary
    *             access to. Currently, the <code>IdentityType</code> parameter must be set to
-   *                 <code>ANONYMOUS</code> because other identity types authenticate as Quick Suite or IAM users. For example, if you set "<code>--dashboard-id
+   *                 <code>ANONYMOUS</code> because other identity types authenticate as Quick or IAM users. For example, if you set "<code>--dashboard-id
    *                 dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the
    *             session can access all three dashboards.</p>
    * @public
@@ -2405,7 +2405,7 @@ export interface Permission {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.
-   *             This can be an Amazon Quick Suite user, group or namespace associated with the flow.
+   *             This can be an Amazon Quick user, group or namespace associated with the flow.
    *             Namespace principal can only be set as a viewer and will grant everyone in the same namespace viewer permissions.</p>
    * @public
    */
@@ -2632,8 +2632,8 @@ export interface GetSessionEmbedUrlRequest {
   SessionLifetimeInMinutes?: number | undefined;
 
   /**
-   * <p>The Amazon Quick Suite user's Amazon Resource Name (ARN), for use with
-   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon Quick Suite users in your account (readers, authors, or admins). They need to be
+   * <p>The Amazon Quick user's Amazon Resource Name (ARN), for use with
+   *                 <code>QUICKSIGHT</code> identity type. You can use this for any type of Amazon Quick users in your account (readers, authors, or admins). They need to be
    *             authenticated as one of the following:</p>
    *          <ol>
    *             <li>
@@ -2659,7 +2659,7 @@ export interface GetSessionEmbedUrlRequest {
  */
 export interface GetSessionEmbedUrlResponse {
   /**
-   * <p>A single-use URL that you can put into your server-side web page to embed your Quick Suite session. This URL is valid for 5 minutes. The API operation provides the
+   * <p>A single-use URL that you can put into your server-side web page to embed your Quick session. This URL is valid for 5 minutes. The API operation provides the
    *             URL with an <code>auth_code</code> value that enables one (and only one) sign-on to a
    *             user session that is valid for 10 hours. </p>
    * @public
@@ -3996,7 +3996,7 @@ export interface ListSelfUpgradesRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Quick Suite namespace for the self-upgrade requests.</p>
+   * <p>The Quick namespace for the self-upgrade requests.</p>
    * @public
    */
   Namespace: string | undefined;
@@ -6354,7 +6354,7 @@ export interface StartAssetBundleImportJobResponse {
 export interface SnapshotAnonymousUser {
   /**
    * <p>The tags to be used for row-level security (RLS). Make sure that the relevant datasets have RLS tags configured before you start a snapshot export job. You can configure the RLS tags of a dataset with a <code>DataSet$RowLevelPermissionTagConfiguration</code> API call.</p>
-   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon Quick Suite User Guide</i>.</p>
+   *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon Quick Sight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon Quick User Guide</i>.</p>
    * @public
    */
   RowLevelPermissionTags?: SessionTag[] | undefined;
@@ -7025,7 +7025,7 @@ export interface UpdateApplicationWithTokenExchangeGrantRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The namespace of the Quick Suite application.</p>
+   * <p>The namespace of the Quick application.</p>
    * @public
    */
   Namespace: string | undefined;
@@ -7059,7 +7059,7 @@ export interface UpdateBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -7139,7 +7139,7 @@ export interface UpdateBrandPublishedVersionRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -8558,7 +8558,7 @@ export interface UpdatePublicSharingSettingsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick Suite account.</p>
+   * <p>A Boolean value that indicates whether public sharing is turned on for an Quick account.</p>
    * @public
    */
   PublicSharingEnabled?: boolean | undefined;
@@ -8770,7 +8770,7 @@ export interface UpdateSelfUpgradeRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Quick Suite namespace for the self-upgrade request.</p>
+   * <p>The Quick namespace for the self-upgrade request.</p>
    * @public
    */
   Namespace: string | undefined;
@@ -8816,19 +8816,19 @@ export interface UpdateSelfUpgradeResponse {
  */
 export interface UpdateSelfUpgradeConfigurationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that contains the Quick Suite self-upgrade configuration that you want to update.</p>
+   * <p>The ID of the Amazon Web Services account that contains the Quick self-upgrade configuration that you want to update.</p>
    * @public
    */
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The Quick Suite namespace that you want to update the Quick Suite self-upgrade configuration for.</p>
+   * <p>The Quick namespace that you want to update the Quick self-upgrade configuration for.</p>
    * @public
    */
   Namespace: string | undefined;
 
   /**
-   * <p>The self-upgrade status that you want to set for the Quick Suite account.</p>
+   * <p>The self-upgrade status that you want to set for the Quick account.</p>
    * @public
    */
   SelfUpgradeStatus: SelfUpgradeStatus | undefined;

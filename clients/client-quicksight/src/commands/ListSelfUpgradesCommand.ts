@@ -27,7 +27,7 @@ export interface ListSelfUpgradesCommandInput extends ListSelfUpgradesRequest {}
 export interface ListSelfUpgradesCommandOutput extends ListSelfUpgradesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all self-upgrade requests for a Quick Suite account.</p>
+ * <p>Lists all self-upgrade requests for a Quick account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

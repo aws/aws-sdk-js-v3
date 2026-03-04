@@ -6,7 +6,7 @@
 
 AWS SDK for JavaScript QuickSight Client for Node.js, Browser and React Native.
 
-<fullname>Amazon Quick Suite API Reference</fullname>
+<fullname>Amazon Quick API Reference</fullname>
 <p>Amazon Quick Sight is a fully managed, serverless business intelligence service for the
 Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
 organization. This API reference contains documentation for a programming interface that

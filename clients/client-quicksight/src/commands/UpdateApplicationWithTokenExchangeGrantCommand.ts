@@ -30,7 +30,7 @@ export interface UpdateApplicationWithTokenExchangeGrantCommandInput extends Upd
 export interface UpdateApplicationWithTokenExchangeGrantCommandOutput extends UpdateApplicationWithTokenExchangeGrantResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an Quick Suite application with a token exchange grant. This operation only supports Quick Suite applications that are registered with IAM Identity Center.</p>
+ * <p>Updates an Quick application with a token exchange grant. This operation only supports Quick applications that are registered with IAM Identity Center.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

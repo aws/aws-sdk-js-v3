@@ -27,7 +27,7 @@ export interface UpdateSelfUpgradeConfigurationCommandInput extends UpdateSelfUp
 export interface UpdateSelfUpgradeConfigurationCommandOutput extends UpdateSelfUpgradeConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the self-upgrade configuration for a Quick Suite account.</p>
+ * <p>Updates the self-upgrade configuration for a Quick account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

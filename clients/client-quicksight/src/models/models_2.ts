@@ -489,7 +489,7 @@ export interface SheetDefinition {
   Description?: string | undefined;
 
   /**
-   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Quick Suite
+   * <p>The name of the sheet. This name is displayed on the sheet's tab in the Quick
    *             console.</p>
    * @public
    */
@@ -1000,7 +1000,7 @@ export interface DashboardVisualId {
   /**
    * <p>The ID of the dashboard that has the visual that you want to embed. The
    *                 <code>DashboardId</code> can be found in the <code>IDs for developers</code> section
-   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console. You can also get the <code>DashboardId</code> with a
+   *             of the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick console. You can also get the <code>DashboardId</code> with a
    *                 <code>ListDashboards</code> API operation.</p>
    * @public
    */
@@ -1009,7 +1009,7 @@ export interface DashboardVisualId {
   /**
    * <p>The ID of the sheet that the has visual that you want to embed. The
    *                 <code>SheetId</code> can be found in the <code>IDs for developers</code> section of
-   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick Suite console.</p>
+   *             the <code>Embed visual</code> pane of the visual's on-visual menu of the Quick console.</p>
    * @public
    */
   SheetId: string | undefined;
@@ -1068,7 +1068,7 @@ export interface AnonymousUserQSearchBarEmbeddingConfiguration {
 }
 
 /**
- * <p>The type of experience you want to embed. For anonymous users, you can embed Quick Suite dashboards.</p>
+ * <p>The type of experience you want to embed. For anonymous users, you can embed Quick dashboards.</p>
  * @public
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -6530,7 +6530,7 @@ export interface Logo {
  */
 export interface BrandDetail {
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;
@@ -6596,7 +6596,7 @@ export interface BrandSummary {
   Arn?: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId?: string | undefined;
@@ -6894,6 +6894,12 @@ export interface Capabilities {
    * @public
    */
   PerformFlowUiTask?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to review and approve sharing requests of Flows.</p>
+   * @public
+   */
+  ApproveFlowShareRequests?: CapabilityState | undefined;
 
   /**
    * <p>The ability to use internet to enhance results in Chat Agents, Flows, and Quick Research.
@@ -7947,6 +7953,30 @@ export interface Capabilities {
   UseNewRelicAction?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to perform Topic-related actions.</p>
+   * @public
+   */
+  Topic?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to Edit Visual with AI</p>
+   * @public
+   */
+  EditVisualWithQ?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to Build Calculation with AI</p>
+   * @public
+   */
+  BuildCalculatedFieldWithQ?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to Create Executive Summary</p>
+   * @public
+   */
+  CreateDashboardExecutiveSummaryWithQ?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform space-related actions.</p>
    * @public
    */
@@ -7975,6 +8005,12 @@ export interface Capabilities {
    * @public
    */
   SelfUpgradeUserRole?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to perform Extension-related actions.</p>
+   * @public
+   */
+  Extension?: CapabilityState | undefined;
 }
 
 /**
@@ -8926,7 +8962,7 @@ export interface CreateBrandRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the Quick Suite brand.</p>
+   * <p>The ID of the Quick brand.</p>
    * @public
    */
   BrandId: string | undefined;

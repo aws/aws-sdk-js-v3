@@ -27,7 +27,7 @@ export interface UpdateSelfUpgradeCommandInput extends UpdateSelfUpgradeRequest 
 export interface UpdateSelfUpgradeCommandOutput extends UpdateSelfUpgradeResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a self-upgrade request for a Quick Suite user by approving, denying, or verifying the request.</p>
+ * <p>Updates a self-upgrade request for a Quick user by approving, denying, or verifying the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,9 +30,9 @@ export interface GenerateEmbedUrlForRegisteredUserCommandInput extends GenerateE
 export interface GenerateEmbedUrlForRegisteredUserCommandOutput extends GenerateEmbedUrlForRegisteredUserResponse, __MetadataBearer {}
 
 /**
- * <p>Generates an embed URL that you can use to embed an Amazon Quick Suite experience
- *             in your website. This action can be used for any type of user registered in an Amazon Quick Suite account. Before you use this action, make sure that you have
- *             configured the relevant Amazon Quick Suite resource and permissions.</p>
+ * <p>Generates an embed URL that you can use to embed an Amazon Quick experience
+ *             in your website. This action can be used for any type of user registered in an Amazon Quick account. Before you use this action, make sure that you have
+ *             configured the relevant Amazon Quick resource and permissions.</p>
  *          <p>The following rules apply to the generated URL:</p>
  *          <ul>
  *             <li>
@@ -48,13 +48,13 @@ export interface GenerateEmbedUrlForRegisteredUserCommandOutput extends Generate
  *                     (maximum). The default session duration is 10 hours.</p>
  *             </li>
  *             <li>
- *                <p>You are charged only when the URL is used or there is interaction with Amazon Quick Suite.</p>
+ *                <p>You are charged only when the URL is used or there is interaction with Amazon Quick.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html">Embedded Analytics</a> in
- *             the <i>Amazon Quick Suite User Guide</i>.</p>
+ *             the <i>Amazon Quick User Guide</i>.</p>
  *          <p>For more information about the high-level steps for embedding and for an interactive
- *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick Suite
+ *             demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon Quick
  *                 Developer Portal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
