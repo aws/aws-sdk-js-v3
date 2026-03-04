@@ -1514,7 +1514,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
 }
 
 /**
- * <p>This exception is no longer in use.</p>.
+ * <p>This exception is no longer in use.</p>
  *
  * @deprecated deprecated.
  * @public

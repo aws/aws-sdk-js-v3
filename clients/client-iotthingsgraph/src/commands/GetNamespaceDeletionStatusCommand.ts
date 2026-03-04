@@ -31,7 +31,7 @@ export interface GetNamespaceDeletionStatusCommandInput extends GetNamespaceDele
 export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDeletionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the status of a namespace deletion task.</p>.
+ * <p>Gets the status of a namespace deletion task.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

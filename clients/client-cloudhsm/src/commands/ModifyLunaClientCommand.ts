@@ -39,7 +39,7 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  *       Reference</a>.</p>
  *          <p>Modifies the certificate used by the client.</p>
  *          <p>This action can potentially start a workflow to install the new certificate on the
- *       client's HSMs.</p>.
+ *       client's HSMs.</p>
  *
  * @deprecated This API is deprecated.
  * @example

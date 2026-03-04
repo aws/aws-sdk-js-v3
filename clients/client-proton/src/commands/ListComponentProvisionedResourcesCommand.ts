@@ -33,7 +33,7 @@ export interface ListComponentProvisionedResourcesCommandOutput extends ListComp
  * <p>List provisioned resources for a component with details.</p>
  *          <p>For more information about components, see
  *   <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-components.html">Proton components</a> in the
- *   <i>Proton User Guide</i>.</p>.
+ *   <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

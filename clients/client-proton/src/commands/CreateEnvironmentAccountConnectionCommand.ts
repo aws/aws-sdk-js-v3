@@ -34,7 +34,7 @@ export interface CreateEnvironmentAccountConnectionCommandOutput extends CreateE
  *       account from a management account.</p>
  *          <p>An environment account connection is a secure bi-directional connection between a <i>management account</i> and an <i>environment
  *         account</i> that maintains authorization and permissions. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
- *         guide</i>.</p>.
+ *         guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

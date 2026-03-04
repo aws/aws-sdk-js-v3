@@ -39,7 +39,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *       Reference</a>.</p>
  *          <p>Removes one or more tags from the specified AWS CloudHSM resource.</p>
  *          <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the
- *       value for an existing tag, use <a>AddTagsToResource</a>.</p>.
+ *       value for an existing tag, use <a>AddTagsToResource</a>.</p>
  *
  * @deprecated This API is deprecated.
  * @example

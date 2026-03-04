@@ -6455,7 +6455,7 @@ export interface CreateOntapVolumeConfiguration {
   SecurityStyle?: SecurityStyle | undefined;
 
   /**
-   * <p>Use <code>SizeInBytes</code> instead. Specifies the size of the volume, in megabytes (MB), that you are creating.</p>.
+   * <p>Use <code>SizeInBytes</code> instead. Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
    *
    * @deprecated This property is deprecated, use SizeInBytes instead.
    * @public

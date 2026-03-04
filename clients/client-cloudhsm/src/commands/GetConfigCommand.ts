@@ -38,7 +38,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Gets the configuration files necessary to connect to all high availability partition
- *       groups the client is associated with.</p>.
+ *       groups the client is associated with.</p>
  *
  * @deprecated This API is deprecated.
  * @example

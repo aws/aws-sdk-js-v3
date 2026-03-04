@@ -27,7 +27,7 @@ export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentRequest 
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Update your FinSpace environment.</p>.
+ * <p>Update your FinSpace environment.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

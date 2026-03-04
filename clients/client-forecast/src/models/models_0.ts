@@ -5432,7 +5432,7 @@ export interface WeightedQuantileLoss {
  */
 export interface Metrics {
   /**
-   * <p>The root-mean-square error (RMSE).</p>.
+   * <p>The root-mean-square error (RMSE).</p>
    *
    * @deprecated This property is deprecated, please refer to ErrorMetrics for both RMSE and WAPE.
    * @public

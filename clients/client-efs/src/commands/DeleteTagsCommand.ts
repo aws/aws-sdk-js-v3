@@ -36,7 +36,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *       error. For more information about tags and related restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Tag restrictions</a> in the
  *         <i>Billing and Cost Management User Guide</i>.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteTags</code>
- *       action.</p>.
+ *       action.</p>
  *
  * @deprecated Use UntagResource.
  * @example

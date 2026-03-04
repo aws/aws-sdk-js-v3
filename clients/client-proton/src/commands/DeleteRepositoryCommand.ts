@@ -27,7 +27,7 @@ export interface DeleteRepositoryCommandInput extends DeleteRepositoryInput {}
 export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, __MetadataBearer {}
 
 /**
- * <p>De-register and unlink your repository.</p>.
+ * <p>De-register and unlink your repository.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

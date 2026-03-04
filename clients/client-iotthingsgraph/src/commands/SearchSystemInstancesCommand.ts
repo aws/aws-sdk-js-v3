@@ -31,7 +31,7 @@ export interface SearchSystemInstancesCommandInput extends SearchSystemInstances
 export interface SearchSystemInstancesCommandOutput extends SearchSystemInstancesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for system instances in the user's account.</p>.
+ * <p>Searches for system instances in the user's account.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

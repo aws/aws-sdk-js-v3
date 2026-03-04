@@ -32,7 +32,7 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Note:</b> This action is deprecated and works as
  *          expected for backward compatibility, but we won't add enhancements. Use <a>AttachPolicy</a> instead.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>.
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AttachPrincipalPolicy</a> action.</p>
  *
  * @deprecated deprecated.
  * @example

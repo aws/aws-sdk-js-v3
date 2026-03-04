@@ -32,7 +32,7 @@ export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRe
 
 /**
  * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,
- *       this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>.
+ *       this action will return revisions that occurred before the deprecation. This action won't work for workflows that have been deleted.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

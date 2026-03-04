@@ -38,7 +38,7 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
- *       number.</p>.
+ *       number.</p>
  *
  * @deprecated This API is deprecated.
  * @example

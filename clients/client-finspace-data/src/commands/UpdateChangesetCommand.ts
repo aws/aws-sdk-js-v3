@@ -27,7 +27,7 @@ export interface UpdateChangesetCommandInput extends UpdateChangesetRequest {}
 export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a FinSpace Changeset.</p>.
+ * <p>Updates a FinSpace Changeset.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

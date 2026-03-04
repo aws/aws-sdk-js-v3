@@ -46,7 +46,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *             <p>It can take up to 20 minutes to create and provision an HSM. You can monitor the
  *         status of the HSM with the <a>DescribeHsm</a> operation. The HSM is ready to be
  *         initialized when the status changes to <code>RUNNING</code>.</p>
- *          </important>.
+ *          </important>
  *
  * @deprecated This API is deprecated.
  * @example

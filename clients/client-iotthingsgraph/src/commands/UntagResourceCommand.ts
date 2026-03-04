@@ -31,7 +31,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a tag from the specified resource.</p>.
+ * <p>Removes a tag from the specified resource.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

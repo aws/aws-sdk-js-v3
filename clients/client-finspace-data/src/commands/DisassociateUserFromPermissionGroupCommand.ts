@@ -30,7 +30,7 @@ export interface DisassociateUserFromPermissionGroupCommandInput extends Disasso
 export interface DisassociateUserFromPermissionGroupCommandOutput extends DisassociateUserFromPermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a user from a permission group.</p>.
+ * <p>Removes a user from a permission group.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

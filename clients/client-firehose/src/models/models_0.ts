@@ -3248,7 +3248,7 @@ export interface CreateDeliveryStreamInput {
 
   /**
    * <p>[Deprecated]
-   *          The destination in Amazon S3. You can specify only one destination.</p>.
+   *          The destination in Amazon S3. You can specify only one destination.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -5703,7 +5703,7 @@ export interface UpdateDestinationInput {
   DestinationId: string | undefined;
 
   /**
-   * <p>[Deprecated] Describes an update for a destination in Amazon S3.</p>.
+   * <p>[Deprecated] Describes an update for a destination in Amazon S3.</p>
    *
    * @deprecated deprecated.
    * @public

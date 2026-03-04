@@ -31,7 +31,7 @@ export interface SearchFlowExecutionsCommandInput extends SearchFlowExecutionsRe
 export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>.
+ * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

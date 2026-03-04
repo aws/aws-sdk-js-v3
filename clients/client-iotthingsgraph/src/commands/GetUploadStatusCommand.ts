@@ -31,7 +31,7 @@ export interface GetUploadStatusCommandInput extends GetUploadStatusRequest {}
 export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the status of the specified upload.</p>.
+ * <p>Gets the status of the specified upload.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

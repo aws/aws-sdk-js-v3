@@ -32,7 +32,7 @@ export interface ListEnvironmentAccountConnectionsCommandOutput extends ListEnvi
 /**
  * <p>View a list of environment account connections.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>.
+ *         connections</a> in the <i>Proton User guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

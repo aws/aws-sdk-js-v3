@@ -30,7 +30,7 @@ export interface ListEnvironmentProvisionedResourcesCommandInput extends ListEnv
 export interface ListEnvironmentProvisionedResourcesCommandOutput extends ListEnvironmentProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>List the provisioned resources for your environment.</p>.
+ * <p>List the provisioned resources for your environment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

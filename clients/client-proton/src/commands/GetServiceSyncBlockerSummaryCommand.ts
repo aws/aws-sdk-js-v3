@@ -27,7 +27,7 @@ export interface GetServiceSyncBlockerSummaryCommandInput extends GetServiceSync
 export interface GetServiceSyncBlockerSummaryCommandOutput extends GetServiceSyncBlockerSummaryOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for the service sync blocker summary.</p>.
+ * <p>Get detailed data for the service sync blocker summary.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

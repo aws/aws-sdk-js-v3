@@ -31,7 +31,7 @@ export interface DeprecateSystemTemplateCommandInput extends DeprecateSystemTemp
 export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecates the specified system.</p>.
+ * <p>Deprecates the specified system.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

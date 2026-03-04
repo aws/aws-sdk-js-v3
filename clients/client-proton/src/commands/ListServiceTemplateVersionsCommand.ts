@@ -27,7 +27,7 @@ export interface ListServiceTemplateVersionsCommandInput extends ListServiceTemp
 export interface ListServiceTemplateVersionsCommandOutput extends ListServiceTemplateVersionsOutput, __MetadataBearer {}
 
 /**
- * <p>List major or minor versions of a service template with detail data.</p>.
+ * <p>List major or minor versions of a service template with detail data.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

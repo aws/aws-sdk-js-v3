@@ -32,7 +32,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *             <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters.
  *             For Aurora Serverless v1 DB clusters, the operation is deprecated.
  *             Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
- *          </note>.
+ *          </note>
  *
  * @deprecated (since 2019-03-21) The ExecuteSql API is deprecated, please use the ExecuteStatement API.
  * @example

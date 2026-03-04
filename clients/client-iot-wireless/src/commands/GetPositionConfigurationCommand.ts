@@ -31,7 +31,7 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
  *          <important>
  *             <p>This action is no longer supported. Calls to retrieve the position configuration
  *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/latest/apireference/API_GetResourcePosition.html">GetResourcePosition</a> API operation instead.</p>
- *          </important>.
+ *          </important>
  *
  * @deprecated This operation is no longer supported.
  * @example

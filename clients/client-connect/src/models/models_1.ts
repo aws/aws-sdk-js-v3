@@ -1415,7 +1415,7 @@ export interface AuthenticationProfile {
 
   /**
    * <p>The short lived session duration configuration for users logged in to Amazon Connect, in minutes. This value
-   *    determines the maximum possible time before an agent is authenticated. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>.
+   *    determines the maximum possible time before an agent is authenticated. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    *
    * @deprecated (since 10/31/2025) PeriodicSessionDuration is deprecated. Use SessionInactivityDuration instead.
    * @public
@@ -2583,7 +2583,7 @@ export interface EvaluationReviewMetadata {
   RequestedBy?: string | undefined;
 
   /**
-   * <p>The timestamp when the evaluation review was created.</p>.
+   * <p>The timestamp when the evaluation review was created.</p>
    *
    * @deprecated (since 02/17/2026) CreatedTime is deprecated.
    * @public
@@ -2591,7 +2591,7 @@ export interface EvaluationReviewMetadata {
   CreatedTime?: Date | undefined;
 
   /**
-   * <p>The user who created the evaluation review.</p>.
+   * <p>The user who created the evaluation review.</p>
    *
    * @deprecated (since 02/17/2026) CreatedBy is deprecated.
    * @public

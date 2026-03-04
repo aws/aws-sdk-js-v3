@@ -27,7 +27,7 @@ export interface ListEnvironmentTemplatesCommandInput extends ListEnvironmentTem
 export interface ListEnvironmentTemplatesCommandOutput extends ListEnvironmentTemplatesOutput, __MetadataBearer {}
 
 /**
- * <p>List environment templates.</p>.
+ * <p>List environment templates.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

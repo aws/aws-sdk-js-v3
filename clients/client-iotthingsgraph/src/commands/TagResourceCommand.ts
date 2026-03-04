@@ -31,7 +31,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a tag for the specified resource.</p>.
+ * <p>Creates a tag for the specified resource.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

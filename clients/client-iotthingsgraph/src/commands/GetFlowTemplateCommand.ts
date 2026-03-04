@@ -31,7 +31,7 @@ export interface GetFlowTemplateCommandInput extends GetFlowTemplateRequest {}
 export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>.
+ * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

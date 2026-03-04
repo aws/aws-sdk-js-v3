@@ -27,7 +27,7 @@ export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a FinSpace Dataset.</p>.
+ * <p>Updates a FinSpace Dataset.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

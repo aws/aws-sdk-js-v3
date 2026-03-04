@@ -32,7 +32,7 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput extends UpdateE
 /**
  * <p>In an environment account, update an environment account connection to use a new IAM role.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>.
+ *         connections</a> in the <i>Proton User guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

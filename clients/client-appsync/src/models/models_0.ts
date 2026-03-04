@@ -1101,7 +1101,7 @@ export interface CreateApiCacheRequest {
 
   /**
    * <p>Transit encryption flag when connecting to cache. You cannot update this setting after
-   *          creation.</p>.
+   *          creation.</p>
    *
    * @deprecated (since 5/15/2025) transitEncryptionEnabled attribute is deprecated. Encryption in transit is always enabled.
    * @public
@@ -1109,7 +1109,7 @@ export interface CreateApiCacheRequest {
   transitEncryptionEnabled?: boolean | undefined;
 
   /**
-   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>.
+   * <p>At-rest encryption flag for cache. You cannot update this setting after creation.</p>
    *
    * @deprecated (since 5/15/2025) atRestEncryptionEnabled attribute is deprecated. Encryption at rest is always enabled.
    * @public

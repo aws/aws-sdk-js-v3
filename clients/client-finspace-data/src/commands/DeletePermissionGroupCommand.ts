@@ -27,7 +27,7 @@ export interface DeletePermissionGroupCommandInput extends DeletePermissionGroup
 export interface DeletePermissionGroupCommandOutput extends DeletePermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a permission group. This action is irreversible.</p>.
+ * <p>Deletes a permission group. This action is irreversible.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

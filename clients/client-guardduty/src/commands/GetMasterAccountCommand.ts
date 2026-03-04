@@ -28,7 +28,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
 
 /**
  * <p>Provides the details for the GuardDuty administrator account associated with the current
- *       GuardDuty member account.</p>.
+ *       GuardDuty member account.</p>
  *
  * @deprecated This operation is deprecated, use GetAdministratorAccount instead.
  * @example

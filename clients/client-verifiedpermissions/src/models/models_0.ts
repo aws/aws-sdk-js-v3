@@ -1685,14 +1685,14 @@ export interface GetIdentitySourceInput {
 }
 
 /**
- * <p>A structure that contains configuration of the identity source.</p> <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a> operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>.
+ * <p>A structure that contains configuration of the identity source.</p> <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a> operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
  *
  * @deprecated This shape has been replaced by ConfigurationDetail.
  * @public
  */
 export interface IdentitySourceDetails {
   /**
-   * <p>The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.</p>.
+   * <p>The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.clientIds.
    * @public
@@ -1700,7 +1700,7 @@ export interface IdentitySourceDetails {
   clientIds?: string[] | undefined;
 
   /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>.
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.userPoolArn.
    * @public
@@ -1708,7 +1708,7 @@ export interface IdentitySourceDetails {
   userPoolArn?: string | undefined;
 
   /**
-   * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a URL string in the following format. This URL replaces the placeholders for both the Amazon Web Services Region and the user pool identifier with those appropriate for this user pool.</p> <p> <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code> </p>.
+   * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a URL string in the following format. This URL replaces the placeholders for both the Amazon Web Services Region and the user pool identifier with those appropriate for this user pool.</p> <p> <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code> </p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.issuer.
    * @public
@@ -1716,7 +1716,7 @@ export interface IdentitySourceDetails {
   discoveryUrl?: string | undefined;
 
   /**
-   * <p>A string that identifies the type of OIDC service represented by this identity source. </p> <p>At this time, the only valid value is <code>cognito</code>.</p>.
+   * <p>A string that identifies the type of OIDC service represented by this identity source. </p> <p>At this time, the only valid value is <code>cognito</code>.</p>
    *
    * @deprecated This attribute has been replaced by configuration.
    * @public
@@ -1735,7 +1735,7 @@ export interface GetIdentitySourceOutput {
   createdDate: Date | undefined;
 
   /**
-   * <p>A structure that describes the configuration of the identity source.</p>.
+   * <p>A structure that describes the configuration of the identity source.</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.
    * @public
@@ -2083,14 +2083,14 @@ export interface ListIdentitySourcesInput {
 }
 
 /**
- * <p>A structure that contains configuration of the identity source.</p> <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a> operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a>.</p>.
+ * <p>A structure that contains configuration of the identity source.</p> <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a> operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a>.</p>
  *
  * @deprecated This shape has been replaced by ConfigurationItem.
  * @public
  */
 export interface IdentitySourceItemDetails {
   /**
-   * <p>The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.</p>.
+   * <p>The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.clientIds.
    * @public
@@ -2098,7 +2098,7 @@ export interface IdentitySourceItemDetails {
   clientIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>.
+   * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.userPoolArn.
    * @public
@@ -2106,7 +2106,7 @@ export interface IdentitySourceItemDetails {
   userPoolArn?: string | undefined;
 
   /**
-   * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a URL string in the following format. This URL replaces the placeholders for both the Amazon Web Services Region and the user pool identifier with those appropriate for this user pool.</p> <p> <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code> </p>.
+   * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a URL string in the following format. This URL replaces the placeholders for both the Amazon Web Services Region and the user pool identifier with those appropriate for this user pool.</p> <p> <code>https://cognito-idp.<i>&lt;region&gt;</i>.amazonaws.com/<i>&lt;user-pool-id&gt;</i>/.well-known/openid-configuration</code> </p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.issuer.
    * @public
@@ -2114,7 +2114,7 @@ export interface IdentitySourceItemDetails {
   discoveryUrl?: string | undefined;
 
   /**
-   * <p>A string that identifies the type of OIDC service represented by this identity source. </p> <p>At this time, the only valid value is <code>cognito</code>.</p>.
+   * <p>A string that identifies the type of OIDC service represented by this identity source. </p> <p>At this time, the only valid value is <code>cognito</code>.</p>
    *
    * @deprecated This attribute has been replaced by configuration.
    * @public
@@ -2134,7 +2134,7 @@ export interface IdentitySourceItem {
   createdDate: Date | undefined;
 
   /**
-   * <p>A structure that contains the details of the associated identity provider (IdP).</p>.
+   * <p>A structure that contains the details of the associated identity provider (IdP).</p>
    *
    * @deprecated This attribute has been replaced by configuration.cognitoUserPoolConfiguration.
    * @public

@@ -31,7 +31,7 @@ export interface GetSystemTemplateCommandInput extends GetSystemTemplateRequest 
 export interface GetSystemTemplateCommandOutput extends GetSystemTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a system.</p>.
+ * <p>Gets a system.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

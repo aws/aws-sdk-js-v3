@@ -33,7 +33,7 @@ export interface DisassociateFromMasterAccountCommandOutput extends Disassociate
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
  *          organization accounts, only the administrator account can
- *          disassociate a member account.</p>.
+ *          disassociate a member account.</p>
  *
  * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
  * @example

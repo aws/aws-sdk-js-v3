@@ -27,7 +27,7 @@ export interface GetServiceCommandInput extends GetServiceInput {}
 export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a service.</p>.
+ * <p>Get detailed data for a service.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

@@ -1047,7 +1047,7 @@ export interface CreateRemoteAccessSessionRequest {
   configuration?: CreateRemoteAccessSessionConfiguration | undefined;
 
   /**
-   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>.
+   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>
    *
    * @deprecated (since 2019-09-09) Changing the interactive mode of Remote Access sessions is no longer available.
    * @public
@@ -1249,7 +1249,7 @@ export interface Device {
    * <p>This flag is set to <code>true</code> if remote debugging is enabled for the
    *             device.</p>
    *          <p>Remote debugging is <a href="https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html">no
-   *             longer supported</a>.</p>.
+   *             longer supported</a>.</p>
    *
    * @deprecated (since 2019-09-09) Direct Device Access is no longer available.
    * @public
@@ -1460,7 +1460,7 @@ export interface RemoteAccessSession {
   deviceMinutes?: DeviceMinutes | undefined;
 
   /**
-   * <p>The endpoint for the remote access session. This field is deprecated, and is replaced by the new <code>endpoints.interactiveEndpoint</code> field.</p>.
+   * <p>The endpoint for the remote access session. This field is deprecated, and is replaced by the new <code>endpoints.interactiveEndpoint</code> field.</p>
    *
    * @deprecated (since 2025-11-17) This field is deprecated, and is replaced by the new endpoints.interactiveEndpoint field.
    * @public
@@ -1477,7 +1477,7 @@ export interface RemoteAccessSession {
   deviceUdid?: string | undefined;
 
   /**
-   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>.
+   * <p>The interaction mode of the remote access session. Changing the interactive mode of remote access sessions is no longer available.</p>
    *
    * @deprecated (since 2019-09-09) Changing the interactive mode of Remote Access sessions is no longer available.
    * @public

@@ -38,7 +38,7 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Deletes an HSM. After completion, this operation cannot be undone and your key material
- *       cannot be recovered.</p>.
+ *       cannot be recovered.</p>
  *
  * @deprecated This API is deprecated.
  * @example

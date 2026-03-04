@@ -3856,7 +3856,7 @@ export interface GetWebExperienceResponse {
   identityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
-   * <p>The authentication configuration information for your Amazon Q Business web experience.</p>.
+   * <p>The authentication configuration information for your Amazon Q Business web experience.</p>
    *
    * @deprecated Property associated with legacy SAML IdP flow. Deprecated in favor of using AWS IAM Identity Center for user management.
    * @public
@@ -3981,7 +3981,7 @@ export interface UpdateWebExperienceRequest {
   roleArn?: string | undefined;
 
   /**
-   * <p>The authentication configuration of the Amazon Q Business web experience.</p>.
+   * <p>The authentication configuration of the Amazon Q Business web experience.</p>
    *
    * @deprecated Property associated with legacy SAML IdP flow. Deprecated in favor of using AWS IAM Identity Center for user management.
    * @public
@@ -5032,7 +5032,7 @@ export interface TextSegment {
   snippetExcerpt?: SnippetExcerpt | undefined;
 
   /**
-   * <p>The identifier of the media object associated with the text segment in the source attribution.</p>.
+   * <p>The identifier of the media object associated with the text segment in the source attribution.</p>
    *
    * @deprecated (since 2025-02-28) Deprecated in favor of using mediaId within the respective sourceDetails field.
    * @public
@@ -5040,7 +5040,7 @@ export interface TextSegment {
   mediaId?: string | undefined;
 
   /**
-   * <p>The MIME type (image/png) of the media object associated with the text segment in the source attribution.</p>.
+   * <p>The MIME type (image/png) of the media object associated with the text segment in the source attribution.</p>
    *
    * @deprecated (since 2025-02-28) Deprecated in favor of using mediaMimeType within the respective sourceDetails field.
    * @public

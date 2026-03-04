@@ -1719,7 +1719,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The identifier of the subscription.</p>.
+   * <p>The identifier of the subscription.</p>
    *
    * @deprecated Multiple subscriptions can exist for a single grant.
    * @public

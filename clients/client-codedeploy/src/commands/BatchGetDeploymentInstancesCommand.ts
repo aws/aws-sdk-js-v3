@@ -34,7 +34,7 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *          <p> Returns an array of one or more instances associated with a deployment. This method
  *             works with EC2/On-premises and Lambda compute platforms. The newer
  *                 <code>BatchGetDeploymentTargets</code> works with all compute platforms. The maximum
- *             number of instances that can be returned is 25.</p>.
+ *             number of instances that can be returned is 25.</p>
  *
  * @deprecated This operation is deprecated, use BatchGetDeploymentTargets instead.
  * @example

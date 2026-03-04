@@ -27,7 +27,7 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the details of the specified user. You cannot update the <code>userId</code> for a user.</p>.
+ * <p>Modifies the details of the specified user. You cannot update the <code>userId</code> for a user.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

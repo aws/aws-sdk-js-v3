@@ -27,7 +27,7 @@ export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
 export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for an environment.</p>.
+ * <p>Get detailed data for an environment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

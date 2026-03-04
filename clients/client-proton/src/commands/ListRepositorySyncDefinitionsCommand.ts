@@ -27,7 +27,7 @@ export interface ListRepositorySyncDefinitionsCommandInput extends ListRepositor
 export interface ListRepositorySyncDefinitionsCommandOutput extends ListRepositorySyncDefinitionsOutput, __MetadataBearer {}
 
 /**
- * <p>List repository sync definitions with detail data.</p>.
+ * <p>List repository sync definitions with detail data.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

@@ -32,7 +32,7 @@ export interface LocationConfiguration {
   AlwaysOnCapacity?: number | undefined;
 
   /**
-   * <p>This field is deprecated. Use <code>MaximumCapacity</code> instead. This parameter cannot be used with <code>MaximumCapacity</code> or <code>TargetIdleCapacity</code> in the same location configuration.</p> <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.</p>.
+   * <p>This field is deprecated. Use <code>MaximumCapacity</code> instead. This parameter cannot be used with <code>MaximumCapacity</code> or <code>TargetIdleCapacity</code> in the same location configuration.</p> <p>The streaming capacity that Amazon GameLift Streams can allocate in response to stream requests, and then de-allocate when the session has terminated. This offers a cost control measure at the expense of a greater startup time (typically under 5 minutes). Default is 0 when creating a stream group or adding a location.</p>
    *
    * @deprecated (since 2025-12-17) This input field is deprecated in favor of explicit MaximumCapacity values.
    * @public

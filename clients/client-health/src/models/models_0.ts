@@ -370,7 +370,7 @@ export interface EventAccountFilter {
 export interface DescribeAffectedEntitiesForOrganizationRequest {
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code> and the
-   *             <code>eventArn</code>.</p>.
+   *             <code>eventArn</code>.</p>
    *
    * @deprecated This property is deprecated, use organizationEntityAccountFilters instead.
    * @public

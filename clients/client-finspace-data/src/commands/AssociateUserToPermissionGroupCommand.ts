@@ -27,7 +27,7 @@ export interface AssociateUserToPermissionGroupCommandInput extends AssociateUse
 export interface AssociateUserToPermissionGroupCommandOutput extends AssociateUserToPermissionGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a user to a permission group to grant permissions for actions a user can perform in FinSpace.</p>.
+ * <p>Adds a user to a permission group to grant permissions for actions a user can perform in FinSpace.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

@@ -7647,7 +7647,7 @@ export interface UpdateDataSetRequest {
 
   /**
    * <p>Configures the combination and transformation of the data from the physical
-   * 			tables. This parameter is used with the legacy data preparation experience.</p>.
+   * 			tables. This parameter is used with the legacy data preparation experience.</p>
    *
    * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public
@@ -7675,7 +7675,7 @@ export interface UpdateDataSetRequest {
 
   /**
    * <p>The row-level security configuration for the data you want to create. This parameter is used
-   * 			with the legacy data preparation experience.</p>.
+   * 			with the legacy data preparation experience.</p>
    *
    * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public
@@ -7685,7 +7685,7 @@ export interface UpdateDataSetRequest {
   /**
    * <p>The configuration of tags on a dataset to set row-level security. Row-level security
    * 			tags are currently supported for anonymous embedding only. This parameter is used with
-   * 		the legacy data preparation experience.</p>.
+   * 		the legacy data preparation experience.</p>
    *
    * @deprecated (since 2025-10-23) Only used in the legacy data preparation experience.
    * @public

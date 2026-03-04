@@ -30,7 +30,7 @@ export interface ListServiceInstanceProvisionedResourcesCommandInput extends Lis
 export interface ListServiceInstanceProvisionedResourcesCommandOutput extends ListServiceInstanceProvisionedResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>List provisioned resources for a service instance with details.</p>.
+ * <p>List provisioned resources for a service instance with details.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

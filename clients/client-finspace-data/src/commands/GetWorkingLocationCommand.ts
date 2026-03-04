@@ -28,7 +28,7 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
 
 /**
  * <p>A temporary Amazon S3 location, where you can copy your files from a source location to stage or use
- *       as a scratch space in FinSpace notebook.</p>.
+ *       as a scratch space in FinSpace notebook.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

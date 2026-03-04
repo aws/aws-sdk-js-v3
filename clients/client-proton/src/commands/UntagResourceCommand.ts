@@ -29,7 +29,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Remove a customer tag from a resource. A tag is a key-value pair of metadata associated with an Proton resource.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton resources and tagging</a> in
- *    the <i>Proton User Guide</i>.</p>.
+ *    the <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

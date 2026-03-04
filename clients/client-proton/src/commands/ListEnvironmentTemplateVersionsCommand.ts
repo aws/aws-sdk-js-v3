@@ -27,7 +27,7 @@ export interface ListEnvironmentTemplateVersionsCommandInput extends ListEnviron
 export interface ListEnvironmentTemplateVersionsCommandOutput extends ListEnvironmentTemplateVersionsOutput, __MetadataBearer {}
 
 /**
- * <p>List major or minor versions of an environment template with detail data.</p>.
+ * <p>List major or minor versions of an environment template with detail data.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

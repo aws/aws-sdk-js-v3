@@ -34,7 +34,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>.
+ *          </note>
  *
  * @deprecated deprecated.
  * @example

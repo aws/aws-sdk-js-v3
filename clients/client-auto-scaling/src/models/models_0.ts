@@ -6025,7 +6025,7 @@ export interface ScalingPolicy {
 
   /**
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
-   *             instead.</p>.
+   *             instead.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -6531,7 +6531,7 @@ export interface DescribeTrafficSourcesRequest {
  */
 export interface TrafficSourceState {
   /**
-   * <p>This is replaced by <code>Identifier</code>.</p>.
+   * <p>This is replaced by <code>Identifier</code>.</p>
    *
    * @deprecated TrafficSource has been replaced by Identifier.
    * @public
@@ -7652,7 +7652,7 @@ export interface PutScalingPolicyType {
 
   /**
    * <p>Available for backward compatibility. Use <code>MinAdjustmentMagnitude</code>
-   *             instead.</p>.
+   *             instead.</p>
    *
    * @deprecated deprecated.
    * @public

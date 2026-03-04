@@ -9272,7 +9272,7 @@ export interface DashboardPublishOptions {
   SheetControlsOption?: SheetControlsOption | undefined;
 
   /**
-   * <p>The visual publish options of a visual in a dashboard.</p>.
+   * <p>The visual publish options of a visual in a dashboard.</p>
    *
    * @deprecated VisualPublishOptions property will reach its end of standard support in a future release. To perform this action, use ExportWithHiddenFields.
    * @public

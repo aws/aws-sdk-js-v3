@@ -32,7 +32,7 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput extends DeleteEnv
  *       of the environment template exist. A major version of an environment template is a version that's not backward compatible.</p>
  *          <p>Delete a minor version of an environment template if it <i>isn't</i> the <code>Recommended</code> version. Delete a
  *         <code>Recommended</code> minor version of the environment template if no other minor versions of the environment template exist. A minor version of an
- *       environment template is a version that's backward compatible.</p>.
+ *       environment template is a version that's backward compatible.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

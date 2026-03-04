@@ -27,7 +27,7 @@ export interface ListServiceInstanceOutputsCommandInput extends ListServiceInsta
 export interface ListServiceInstanceOutputsCommandOutput extends ListServiceInstanceOutputsOutput, __MetadataBearer {}
 
 /**
- * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>.
+ * <p>Get a list service of instance Infrastructure as Code (IaC) outputs.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

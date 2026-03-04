@@ -28,7 +28,7 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
 
 /**
  * <p>If no other major or minor versions of the service template exist, delete the service
- *       template.</p>.
+ *       template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

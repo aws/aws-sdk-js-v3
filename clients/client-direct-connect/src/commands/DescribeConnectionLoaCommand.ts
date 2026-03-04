@@ -34,7 +34,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or
  *       service provider uses when establishing your cross connect to Amazon Web Services at the colocation facility. For more information,
  *       see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects
- *       at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.</p>.
+ *       at Direct Connect Locations</a> in the <i>Direct Connect User Guide</i>.</p>
  *
  * @deprecated deprecated.
  * @example

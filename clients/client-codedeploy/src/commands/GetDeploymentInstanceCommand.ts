@@ -27,7 +27,7 @@ export interface GetDeploymentInstanceCommandInput extends GetDeploymentInstance
 export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Gets information about an instance as part of a deployment.</p>.
+ * <p>Gets information about an instance as part of a deployment.</p>
  *
  * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  * @example

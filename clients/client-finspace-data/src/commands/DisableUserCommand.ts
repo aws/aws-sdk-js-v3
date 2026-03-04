@@ -27,7 +27,7 @@ export interface DisableUserCommandInput extends DisableUserRequest {}
 export interface DisableUserCommandOutput extends DisableUserResponse, __MetadataBearer {}
 
 /**
- * <p>Denies access to the FinSpace web application and API for the specified user.</p>.
+ * <p>Denies access to the FinSpace web application and API for the specified user.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

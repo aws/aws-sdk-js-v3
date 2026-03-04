@@ -33,7 +33,7 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptE
  * <p>In a management account, an environment account connection request is accepted. When the environment account connection request is accepted, Proton
  *       can use the associated IAM role to provision environment infrastructure resources in the associated environment account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>.
+ *         connections</a> in the <i>Proton User guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

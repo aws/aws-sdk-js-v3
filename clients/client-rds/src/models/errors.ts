@@ -1444,7 +1444,7 @@ export class AuthorizationNotFoundFault extends __BaseException {
 }
 
 /**
- * .
+ *
  *
  * @deprecated Please avoid using this fault.
  * @public

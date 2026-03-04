@@ -27,7 +27,7 @@ export interface ListPermissionGroupsByUserCommandInput extends ListPermissionGr
 export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionGroupsByUserResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the permission groups that are associated with a specific user.</p>.
+ * <p>Lists all the permission groups that are associated with a specific user.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

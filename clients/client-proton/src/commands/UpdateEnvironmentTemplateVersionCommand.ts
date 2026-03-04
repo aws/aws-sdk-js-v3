@@ -27,7 +27,7 @@ export interface UpdateEnvironmentTemplateVersionCommandInput extends UpdateEnvi
 export interface UpdateEnvironmentTemplateVersionCommandOutput extends UpdateEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Update a major or minor version of an environment template.</p>.
+ * <p>Update a major or minor version of an environment template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

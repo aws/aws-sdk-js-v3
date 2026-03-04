@@ -27,7 +27,7 @@ export interface UpdateServiceTemplateVersionCommandInput extends UpdateServiceT
 export interface UpdateServiceTemplateVersionCommandOutput extends UpdateServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Update a major or minor version of a service template.</p>.
+ * <p>Update a major or minor version of a service template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

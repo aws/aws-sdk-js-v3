@@ -27,7 +27,7 @@ export interface GetEnvironmentTemplateVersionCommandInput extends GetEnvironmen
 export interface GetEnvironmentTemplateVersionCommandOutput extends GetEnvironmentTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a major or minor version of an environment template.</p>.
+ * <p>Get detailed data for a major or minor version of an environment template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

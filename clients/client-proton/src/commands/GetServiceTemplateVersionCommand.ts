@@ -27,7 +27,7 @@ export interface GetServiceTemplateVersionCommandInput extends GetServiceTemplat
 export interface GetServiceTemplateVersionCommandOutput extends GetServiceTemplateVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a major or minor version of a service template.</p>.
+ * <p>Get detailed data for a major or minor version of a service template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

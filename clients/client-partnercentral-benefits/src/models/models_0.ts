@@ -170,7 +170,7 @@ export interface AssociatedResource {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>The unique identifier of the AWS resource within its service.</p>.
+   * <p>The unique identifier of the AWS resource within its service.</p>
    *
    * @deprecated (since Oct 08 2025) This field is no longer used.
    * @public
@@ -1231,7 +1231,7 @@ export interface GetBenefitApplicationOutput {
   StatusReason?: string | undefined;
 
   /**
-   * <p>A standardized code representing the reason for the current status.</p>.
+   * <p>A standardized code representing the reason for the current status.</p>
    *
    * @deprecated (since Nov 08 2025) This field is no longer used.
    * @public
@@ -1386,7 +1386,7 @@ export interface ListBenefitApplicationsInput {
   Stages?: string[] | undefined;
 
   /**
-   * <p>Filter benefit applications by associated AWS resources.</p>.
+   * <p>Filter benefit applications by associated AWS resources.</p>
    *
    * @deprecated (since Oct 08 2025) This field is no longer used.
    * @public

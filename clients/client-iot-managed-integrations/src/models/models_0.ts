@@ -1354,7 +1354,7 @@ export interface CreateDestinationRequest {
   Description?: string | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the destination.</p>.
+   * <p>A set of key/value pairs that are used to manage the destination.</p>
    *
    * @deprecated (since 06-25-2025) Tags have been deprecated from this api.
    * @public
@@ -1590,7 +1590,7 @@ export interface CreateNotificationConfigurationRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the notification configuration.</p>.
+   * <p>A set of key/value pairs that are used to manage the notification configuration.</p>
    *
    * @deprecated (since 06-25-2025) Tags has been deprecated from this api.
    * @public
@@ -2333,7 +2333,7 @@ export interface GetDestinationResponse {
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the customer-managed destination.</p>.
+   * <p>A set of key/value pairs that are used to manage the customer-managed destination.</p>
    *
    * @deprecated (since 06-25-2025) Tags has been deprecated from this api.
    * @public
@@ -2684,7 +2684,7 @@ export interface GetDeviceDiscoveryResponse {
   ControllerId?: string | undefined;
 
   /**
-   * <p>The ID tracking the current discovery process for one connector association.</p>.
+   * <p>The ID tracking the current discovery process for one connector association.</p>
    *
    * @deprecated (since 2025-06-25) ConnectorAssociationId has been deprecated.
    * @public
@@ -2704,7 +2704,7 @@ export interface GetDeviceDiscoveryResponse {
   FinishedAt?: Date | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the device discovery request.</p>.
+   * <p>A set of key/value pairs that are used to manage the device discovery request.</p>
    *
    * @deprecated (since 06-25-2025) Tags have been deprecated from this api.
    * @public
@@ -2881,7 +2881,7 @@ export interface StartDeviceDiscoveryRequest {
   ControllerIdentifier?: string | undefined;
 
   /**
-   * <p>The id of the connector association.</p>.
+   * <p>The id of the connector association.</p>
    *
    * @deprecated (since 06-25-2025) ConnectorAssociationIdentifier is deprecated.
    * @public
@@ -2913,7 +2913,7 @@ export interface StartDeviceDiscoveryRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the device discovery request.</p>.
+   * <p>A set of key/value pairs that are used to manage the device discovery request.</p>
    *
    * @deprecated (since 06-25-2025) Tags have been deprecated from this api.
    * @public
@@ -3237,7 +3237,7 @@ export interface GetManagedThingResponse {
   InternationalArticleNumber?: string | undefined;
 
   /**
-   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>.
+   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
    *
    * @deprecated (since 2025-06-25) ConnectorPolicyId is deprecated.
    * @public
@@ -3563,7 +3563,7 @@ export interface GetNotificationConfigurationResponse {
   UpdatedAt?: Date | undefined;
 
   /**
-   * <p>A set of key/value pairs that are used to manage the notification configuration.</p>.
+   * <p>A set of key/value pairs that are used to manage the notification configuration.</p>
    *
    * @deprecated (since 06-25-2025) Tags has been deprecated for this api.
    * @public
@@ -4216,7 +4216,7 @@ export interface SendManagedThingCommandRequest {
   Endpoints: CommandEndpoint[] | undefined;
 
   /**
-   * <p>The ID tracking the current discovery process for one connector association.</p>.
+   * <p>The ID tracking the current discovery process for one connector association.</p>
    *
    * @deprecated (since 06-25-2025) ConnectorAssociationId has been deprecated.
    * @public
@@ -4270,7 +4270,7 @@ export interface ListManagedThingsRequest {
   ParentControllerIdentifierFilter?: string | undefined;
 
   /**
-   * <p>Filter on a connector policy id for a managed thing.</p>.
+   * <p>Filter on a connector policy id for a managed thing.</p>
    *
    * @deprecated (since 06-25-2025) ConnectorPolicyIdFilter is deprecated.
    * @public
@@ -4356,7 +4356,7 @@ export interface ManagedThingSummary {
   ConnectorDeviceId?: string | undefined;
 
   /**
-   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>.
+   * <p>The id of the connector policy.</p> <note> <p>This parameter is used for cloud-to-cloud devices only.</p> </note>
    *
    * @deprecated (since 06-25-2025) ConnectorPolicyId has been deprecated.
    * @public

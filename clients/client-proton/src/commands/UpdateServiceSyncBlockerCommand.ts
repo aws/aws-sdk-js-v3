@@ -27,7 +27,7 @@ export interface UpdateServiceSyncBlockerCommandInput extends UpdateServiceSyncB
 export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSyncBlockerOutput, __MetadataBearer {}
 
 /**
- * <p>Update the service sync blocker by resolving it.</p>.
+ * <p>Update the service sync blocker by resolving it.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example
