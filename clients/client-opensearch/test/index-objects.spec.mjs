@@ -152,6 +152,9 @@ import {
   DependencyFailureException,
   DependencyFailureException$,
   DeploymentStatus,
+  DeploymentStrategy,
+  DeploymentStrategyOptions$,
+  DeploymentStrategyOptionsStatus$,
   DescribeDomain$,
   DescribeDomainAutoTunes$,
   DescribeDomainAutoTunesCommand,
@@ -820,6 +823,8 @@ assert(typeof DeletePackageRequest$ === "object");
 assert(typeof DeletePackageResponse$ === "object");
 assert(typeof DeleteVpcEndpointRequest$ === "object");
 assert(typeof DeleteVpcEndpointResponse$ === "object");
+assert(typeof DeploymentStrategyOptions$ === "object");
+assert(typeof DeploymentStrategyOptionsStatus$ === "object");
 assert(typeof DescribeDomainAutoTunesRequest$ === "object");
 assert(typeof DescribeDomainAutoTunesResponse$ === "object");
 assert(typeof DescribeDomainChangeProgressRequest$ === "object");
@@ -1045,6 +1050,7 @@ assert(typeof ConfigChangeStatus === "object");
 assert(typeof ConnectionMode === "object");
 assert(typeof DataSourceStatus === "object");
 assert(typeof DeploymentStatus === "object");
+assert(typeof DeploymentStrategy === "object");
 assert(typeof DescribePackagesFilterName === "object");
 assert(typeof DomainHealth === "object");
 assert(typeof DomainPackageStatus === "object");

@@ -15,6 +15,7 @@ import {
   ConnectionMode,
   DataSourceStatus,
   DeploymentStatus,
+  DeploymentStrategy,
   DescribePackagesFilterName,
   DomainHealth,
   DomainPackageStatus,
@@ -2055,6 +2056,18 @@ export interface CognitoOptions {
 }
 
 /**
+ * <p>Specifies the deployment strategy options for the domain.</p>
+ * @public
+ */
+export interface DeploymentStrategyOptions {
+  /**
+   * <p>Specifies the deployment strategy for the domain. Valid values are <code>Default</code> and <code>CapacityOptimized</code>.</p>
+   * @public
+   */
+  DeploymentStrategy: DeploymentStrategy | undefined;
+}
+
+/**
  * <p>Options to configure a custom endpoint for an OpenSearch Service domain.</p>
  * @public
  */
@@ -2539,6 +2552,12 @@ export interface CreateDomainRequest {
    * @public
    */
   AIMLOptions?: AIMLOptionsInput | undefined;
+
+  /**
+   * <p>Specifies the deployment strategy options for the domain.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**
@@ -2976,6 +2995,12 @@ export interface DomainStatus {
    * @public
    */
   AIMLOptions?: AIMLOptionsOutput | undefined;
+
+  /**
+   * <p>The current status of the domain's deployment strategy options.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**
@@ -4299,6 +4324,24 @@ export interface CognitoOptionsStatus {
 }
 
 /**
+ * <p>The status of deployment strategy options for the domain.</p>
+ * @public
+ */
+export interface DeploymentStrategyOptionsStatus {
+  /**
+   * <p>Deployment strategy options for the domain.</p>
+   * @public
+   */
+  Options: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>The current status of the deployment strategy options for the domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>The configured endpoint options for a domain and their current status.</p>
  * @public
  */
@@ -4658,6 +4701,12 @@ export interface DomainConfig {
    * @public
    */
   AIMLOptions?: AIMLOptionsStatus | undefined;
+
+  /**
+   * <p>Specifies <code>DeploymentStrategyOptions</code> for the domain.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptionsStatus | undefined;
 }
 
 /**
@@ -8025,6 +8074,12 @@ export interface UpdateDomainConfigRequest {
    * @public
    */
   AIMLOptions?: AIMLOptionsInput | undefined;
+
+  /**
+   * <p>Specifies the deployment strategy options for the domain.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**

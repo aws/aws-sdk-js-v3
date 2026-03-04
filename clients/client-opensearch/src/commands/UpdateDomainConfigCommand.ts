@@ -195,6 +195,9 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *       Enabled: true || false,
  *     },
  *   },
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ *   },
  * };
  * const command = new UpdateDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -465,6 +468,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         },
  * //       },
  * //       Status: "<OptionStatus>",
+ * //     },
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
+ * //       Options: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
  * //     },
  * //   },
  * //   DryRunResults: { // DryRunResults

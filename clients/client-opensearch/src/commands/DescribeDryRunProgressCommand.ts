@@ -244,6 +244,9 @@ export interface DescribeDryRunProgressCommandOutput extends DescribeDryRunProgr
  * //         Enabled: true || false,
  * //       },
  * //     },
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
  * //   },
  * //   DryRunResults: { // DryRunResults
  * //     DeploymentType: "STRING_VALUE",

@@ -309,6 +309,12 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
+ * //       Options: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //   },
  * // };
  *

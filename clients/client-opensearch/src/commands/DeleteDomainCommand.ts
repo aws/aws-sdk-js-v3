@@ -230,6 +230,9 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //         Enabled: true || false,
  * //       },
  * //     },
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
  * //   },
  * // };
  *

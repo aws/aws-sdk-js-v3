@@ -199,6 +199,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *       Enabled: true || false,
  *     },
  *   },
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ *   },
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
@@ -389,6 +392,9 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       ServerlessVectorAcceleration: { // ServerlessVectorAcceleration
  * //         Enabled: true || false,
  * //       },
+ * //     },
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
  * //     },
  * //   },
  * // };

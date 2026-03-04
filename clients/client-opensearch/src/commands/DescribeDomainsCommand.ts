@@ -233,6 +233,9 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //           Enabled: true || false,
  * //         },
  * //       },
+ * //       DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
  * //     },
  * //   ],
  * // };
