@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Features
+
+* **client-elasticsearch-service:** Adds support for DeploymentStrategyOptions. ([703a57c](https://github.com/aws/aws-sdk-js-v3/commit/703a57c5a1b582fb12712bf6620a56b358c8c1c7))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticsearch-service

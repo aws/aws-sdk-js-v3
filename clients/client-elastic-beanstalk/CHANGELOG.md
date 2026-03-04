@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Features
+
+* **client-elastic-beanstalk:** As part of this release, Beanstalk introduce a new info type - analyze for request environment info and retrieve environment info operations. When customers request an Al analysis, Elastic Beanstalk runs a script on an instance in their environment and returns an analysis of events, health and logs. ([44048ce](https://github.com/aws/aws-sdk-js-v3/commit/44048ced6ccd02b2c986b530aa6068c849d8e1e4))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-beanstalk

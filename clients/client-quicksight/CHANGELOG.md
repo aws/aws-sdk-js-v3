@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Features
+
+* **client-quicksight:** Added several new values for Capabilities, increased visual limit per sheet from previous limit to 75, renamed Quick Suite to Quick in several places. ([c94f306](https://github.com/aws/aws-sdk-js-v3/commit/c94f306e60e69fc8dac17dae20a5c9c3dc984b29))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Bug Fixes
+
+* **xhr-http-handler:** fix import delcaration of event emitter ([#7813](https://github.com/aws/aws-sdk-js-v3/issues/7813)) ([c5d6f26](https://github.com/aws/aws-sdk-js-v3/commit/c5d6f26a1cd65ef598a798c40217996a273a3a33))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 **Note:** Version bump only for package @aws-sdk/xhr-http-handler

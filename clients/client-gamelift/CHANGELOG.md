@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Features
+
+* **client-gamelift:** Amazon GameLift Servers now offers DDoS protection for Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay network provides traffic validation, per-player rate limiting, and game server IP address obfuscation all with negligible added latency and no additional cost. ([1fc4ece](https://github.com/aws/aws-sdk-js-v3/commit/1fc4ece8bfc7c7fa6fcde43ab1ad032a7e652375))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 **Note:** Version bump only for package @aws-sdk/client-gamelift

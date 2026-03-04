@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
+
+
+### Bug Fixes
+
+* **core/protocols:** preserve nulls in non-sparse collections ([#7800](https://github.com/aws/aws-sdk-js-v3/issues/7800)) ([bf3ffdf](https://github.com/aws/aws-sdk-js-v3/commit/bf3ffdf3a8b57737800abf9b3a1354b05583a6bc))
+* **xhr-http-handler:** fix import delcaration of event emitter ([#7813](https://github.com/aws/aws-sdk-js-v3/issues/7813)) ([c5d6f26](https://github.com/aws/aws-sdk-js-v3/commit/c5d6f26a1cd65ef598a798c40217996a273a3a33))
+
+
+### Features
+
+* **client-connect:** Added support for configuring additional email addresses on queues in Amazon Connect. Agents can now select an outbound email address and associate additional email addresses for replying to or initiating emails. ([b79a4db](https://github.com/aws/aws-sdk-js-v3/commit/b79a4dbd20bc5f3bcf1c3a72ec6b3d0e1e94e6e0))
+* **client-elastic-beanstalk:** As part of this release, Beanstalk introduce a new info type - analyze for request environment info and retrieve environment info operations. When customers request an Al analysis, Elastic Beanstalk runs a script on an instance in their environment and returns an analysis of events, health and logs. ([44048ce](https://github.com/aws/aws-sdk-js-v3/commit/44048ced6ccd02b2c986b530aa6068c849d8e1e4))
+* **client-elasticsearch-service:** Adds support for DeploymentStrategyOptions. ([703a57c](https://github.com/aws/aws-sdk-js-v3/commit/703a57c5a1b582fb12712bf6620a56b358c8c1c7))
+* **client-gamelift:** Amazon GameLift Servers now offers DDoS protection for Linux-based EC2 and Container Fleets on SDKv5. The player gateway proxy relay network provides traffic validation, per-player rate limiting, and game server IP address obfuscation all with negligible added latency and no additional cost. ([1fc4ece](https://github.com/aws/aws-sdk-js-v3/commit/1fc4ece8bfc7c7fa6fcde43ab1ad032a7e652375))
+* **client-opensearch:** Adding support for DeploymentStrategyOptions ([cf6a881](https://github.com/aws/aws-sdk-js-v3/commit/cf6a881010a9ebaf56ff5fbf3a0cfa85358faae0))
+* **client-quicksight:** Added several new values for Capabilities, increased visual limit per sheet from previous limit to 75, renamed Quick Suite to Quick in several places. ([c94f306](https://github.com/aws/aws-sdk-js-v3/commit/c94f306e60e69fc8dac17dae20a5c9c3dc984b29))
+
+
+
+
+
 # [3.1001.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1000.0...v3.1001.0) (2026-03-03)
 
 

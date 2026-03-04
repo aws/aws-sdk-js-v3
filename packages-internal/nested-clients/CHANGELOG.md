@@ -7,6 +7,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.5 (2026-03-04)
+### Chores
+* **nested-clients:** update dependencies.
+
+
+
 # 3.996.4 (2026-03-03)
 ### Chores
 * **codegen:** upgrade smithy 1.68.0 ([#7806](https://github.com/aws/aws-sdk-js-v3/issues/7806)) ([ab9e775](https://github.com/aws/aws-sdk-js-v3/commit/ab9e775920c7900a2759c22385091aa88eb6ee15))
