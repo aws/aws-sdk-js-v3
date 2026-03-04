@@ -1524,21 +1524,20 @@ const Client = EC2Client;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "EC2Client" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("EC2Client" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [AcceptAddressTransfer$, AcceptAddressTransferCommand],
         [AcceptCapacityReservationBillingOwnership$, AcceptCapacityReservationBillingOwnershipCommand],
         [AcceptReservedInstancesExchangeQuote$, AcceptReservedInstancesExchangeQuoteCommand],
@@ -1638,17 +1637,11 @@ describe(
         [CreateLaunchTemplateVersion$, CreateLaunchTemplateVersionCommand],
         [CreateLocalGatewayRoute$, CreateLocalGatewayRouteCommand],
         [CreateLocalGatewayRouteTable$, CreateLocalGatewayRouteTableCommand],
-        [
-          CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation$,
-          CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-        ],
+        [CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation$, CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand],
         [CreateLocalGatewayRouteTableVpcAssociation$, CreateLocalGatewayRouteTableVpcAssociationCommand],
         [CreateLocalGatewayVirtualInterface$, CreateLocalGatewayVirtualInterfaceCommand],
         [CreateLocalGatewayVirtualInterfaceGroup$, CreateLocalGatewayVirtualInterfaceGroupCommand],
-        [
-          CreateMacSystemIntegrityProtectionModificationTask$,
-          CreateMacSystemIntegrityProtectionModificationTaskCommand,
-        ],
+        [CreateMacSystemIntegrityProtectionModificationTask$, CreateMacSystemIntegrityProtectionModificationTaskCommand],
         [CreateManagedPrefixList$, CreateManagedPrefixListCommand],
         [CreateNatGateway$, CreateNatGatewayCommand],
         [CreateNetworkAcl$, CreateNetworkAclCommand],
@@ -1739,10 +1732,7 @@ describe(
         [DeleteLaunchTemplateVersions$, DeleteLaunchTemplateVersionsCommand],
         [DeleteLocalGatewayRoute$, DeleteLocalGatewayRouteCommand],
         [DeleteLocalGatewayRouteTable$, DeleteLocalGatewayRouteTableCommand],
-        [
-          DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation$,
-          DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand,
-        ],
+        [DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation$, DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand],
         [DeleteLocalGatewayRouteTableVpcAssociation$, DeleteLocalGatewayRouteTableVpcAssociationCommand],
         [DeleteLocalGatewayVirtualInterface$, DeleteLocalGatewayVirtualInterfaceCommand],
         [DeleteLocalGatewayVirtualInterfaceGroup$, DeleteLocalGatewayVirtualInterfaceGroupCommand],
@@ -1898,10 +1888,7 @@ describe(
         [DescribeLaunchTemplates$, DescribeLaunchTemplatesCommand],
         [DescribeLaunchTemplateVersions$, DescribeLaunchTemplateVersionsCommand],
         [DescribeLocalGatewayRouteTables$, DescribeLocalGatewayRouteTablesCommand],
-        [
-          DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations$,
-          DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand,
-        ],
+        [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations$, DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand],
         [DescribeLocalGatewayRouteTableVpcAssociations$, DescribeLocalGatewayRouteTableVpcAssociationsCommand],
         [DescribeLocalGateways$, DescribeLocalGatewaysCommand],
         [DescribeLocalGatewayVirtualInterfaceGroups$, DescribeLocalGatewayVirtualInterfaceGroupsCommand],
@@ -1976,10 +1963,7 @@ describe(
         [DescribeTrunkInterfaceAssociations$, DescribeTrunkInterfaceAssociationsCommand],
         [DescribeVerifiedAccessEndpoints$, DescribeVerifiedAccessEndpointsCommand],
         [DescribeVerifiedAccessGroups$, DescribeVerifiedAccessGroupsCommand],
-        [
-          DescribeVerifiedAccessInstanceLoggingConfigurations$,
-          DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
-        ],
+        [DescribeVerifiedAccessInstanceLoggingConfigurations$, DescribeVerifiedAccessInstanceLoggingConfigurationsCommand],
         [DescribeVerifiedAccessInstances$, DescribeVerifiedAccessInstancesCommand],
         [DescribeVerifiedAccessTrustProviders$, DescribeVerifiedAccessTrustProvidersCommand],
         [DescribeVolumeAttribute$, DescribeVolumeAttributeCommand],
@@ -2311,9 +2295,8 @@ describe(
         [UpdateSecurityGroupRuleDescriptionsIngress$, UpdateSecurityGroupRuleDescriptionsIngressCommand],
         [WithdrawByoipCidr$, WithdrawByoipCidrCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);

@@ -126,21 +126,20 @@ const Client = DynamoDBClient;
 
 const mode = (process.env.SNAPSHOT_MODE as "write" | "compare") ?? "write";
 
-describe(
-  "DynamoDBClient" + ` (${mode})`,
-  () => {
-    const runner = new SnapshotRunner({
-      snapshotDirPath: join(__dirname, "snapshots"),
-      Client,
-      mode,
-      testCase(caseName: string, run: () => Promise<void>) {
-        it(caseName, run);
-      },
-      assertions(caseName: string, expected: string, actual: string): Promise<void> {
-        expect(actual).toEqual(expected);
-        return Promise.resolve();
-      },
-      schemas: new Map<any, any>([
+describe("DynamoDBClient" + ` (${mode})`, () => {
+  const runner = new SnapshotRunner({
+    snapshotDirPath: join(__dirname, "snapshots"),
+    Client,
+    mode,
+    testCase(caseName: string, run: () => Promise<void>) {
+      it(caseName, run);
+    },
+    assertions(caseName: string, expected: string, actual: string): Promise<void> {
+      expect(actual).toEqual(expected);
+      return Promise.resolve();
+    },
+    schemas:
+      new Map<any, any>([
         [BatchExecuteStatement$, BatchExecuteStatementCommand],
         [BatchGetItem$, BatchGetItemCommand],
         [BatchWriteItem$, BatchWriteItemCommand],
@@ -199,9 +198,8 @@ describe(
         [UpdateTableReplicaAutoScaling$, UpdateTableReplicaAutoScalingCommand],
         [UpdateTimeToLive$, UpdateTimeToLiveCommand],
       ]),
-    });
 
-    runner.run();
-  },
-  30_000
-);
+  });
+
+  runner.run();
+}, 30_000);
