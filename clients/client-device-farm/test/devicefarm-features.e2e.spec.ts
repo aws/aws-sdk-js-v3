@@ -5,7 +5,7 @@ describe(DeviceFarm.name, () => {
   let client: DeviceFarm;
 
   beforeAll(async () => {
-    client = new DeviceFarm({ region: "us-west-2" });
+    client = new DeviceFarm({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing devices", () => {

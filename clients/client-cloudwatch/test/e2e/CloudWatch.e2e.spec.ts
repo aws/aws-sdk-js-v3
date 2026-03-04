@@ -10,6 +10,7 @@ describe(CloudWatch.name, () => {
         defaultNamespace: "com.amazonaws.cloudwatch",
         awsQueryCompatible: true,
       }),
+      credentials: aws?.testCredentials,
     }),
     query: new CloudWatch({
       region: "us-west-2",
@@ -23,6 +24,7 @@ describe(CloudWatch.name, () => {
         xmlNamespace: "http://monitoring.amazonaws.com/doc/2010-08-01/",
         version: "2010-08-01",
       }),
+      credentials: aws?.testCredentials,
     }),
     json: new CloudWatch({
       region: "us-west-2",
@@ -31,18 +33,22 @@ describe(CloudWatch.name, () => {
         serviceTarget: "GraniteServiceVersion20100801",
         awsQueryCompatible: true,
       }),
+      credentials: aws?.testCredentials,
     }),
     cborShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsSmithyRpcV2CborProtocol,
+      credentials: aws?.testCredentials,
     }),
     queryShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsQueryProtocol,
+      credentials: aws?.testCredentials,
     }),
     jsonShorthand: new CloudWatch({
       region: "us-west-2",
       protocol: AwsJson1_0Protocol,
+      credentials: aws?.testCredentials,
     }),
   };
 

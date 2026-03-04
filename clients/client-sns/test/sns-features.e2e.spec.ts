@@ -6,7 +6,7 @@ describe(SNS.name, () => {
   let topicArn: string;
 
   beforeAll(async () => {
-    client = new SNS({ region: "us-west-2" });
+    client = new SNS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Topics", () => {

@@ -5,7 +5,7 @@ describe(SSM.name, () => {
   let client: SSM;
 
   beforeAll(async () => {
-    client = new SSM({ region: "us-west-2" });
+    client = new SSM({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing Documents", () => {

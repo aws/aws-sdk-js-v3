@@ -6,7 +6,7 @@ describe(CloudWatchLogs.name, () => {
   const createdLogGroups: string[] = [];
 
   beforeAll(async () => {
-    client = new CloudWatchLogs({ region: "us-west-2" });
+    client = new CloudWatchLogs({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   const generateLogGroupName = (prefix: string) => {

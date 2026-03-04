@@ -27,7 +27,7 @@ describe("@aws-sdk/client-s3", () => {
 
     Key = ``;
 
-    client = new S3({ region });
+    client = new S3({ region, credentials: aws?.testCredentials });
   });
 
   describe("PutObject", () => {

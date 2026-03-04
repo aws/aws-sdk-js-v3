@@ -5,7 +5,7 @@ describe(ElasticsearchService.name, () => {
   let client: ElasticsearchService;
 
   beforeAll(async () => {
-    client = new ElasticsearchService({ region: "us-west-2" });
+    client = new ElasticsearchService({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

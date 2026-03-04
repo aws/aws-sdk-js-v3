@@ -1,5 +1,5 @@
 import { NumericValue } from "@smithy/core/serde";
-import type { TimestampDateTimeSchema } from "@smithy/types";
+import type { StaticStructureSchema, TimestampDateTimeSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
@@ -53,7 +53,7 @@ describe(XmlShapeDeserializer.name, () => {
         [() => [2, "", "StringMap", {}, 0, 0], {}],
         [() => [2, "", "StringMap", { sparse: 1 }, 0, 0], {}],
       ],
-    ];
+    ] satisfies StaticStructureSchema;
 
     const xml = `<Widget xmlns="namespace">
   <list>
@@ -100,7 +100,7 @@ describe(XmlShapeDeserializer.name, () => {
         [() => [1, "", "StringList", {}, 0], {}],
         [() => [1, "", "StringList", {}, 0], {}],
       ],
-    ];
+    ] satisfies StaticStructureSchema;
 
     const xml = `<Widget xmlns="namespace">
   <stringList/>

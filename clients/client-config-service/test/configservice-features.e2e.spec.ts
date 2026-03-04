@@ -5,7 +5,7 @@ describe(ConfigService.name, () => {
   let client: ConfigService;
 
   beforeAll(async () => {
-    client = new ConfigService({ region: "us-west-2" });
+    client = new ConfigService({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing delivery channels", () => {

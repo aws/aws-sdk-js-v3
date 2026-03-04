@@ -7,7 +7,7 @@ describe(IAM.name, () => {
   const createdRoles: string[] = [];
 
   beforeAll(async () => {
-    client = new IAM({ region: "us-west-2" });
+    client = new IAM({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   afterAll(async () => {

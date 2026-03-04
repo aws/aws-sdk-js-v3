@@ -6,6 +6,7 @@ import { describe, expect, test as it } from "vitest";
 describe(DynamoDB.name, () => {
   const ddb = new DynamoDB({
     region: "us-west-2",
+    credentials: aws?.testCredentials,
   });
 
   it("throws an error when table is not found", async () => {

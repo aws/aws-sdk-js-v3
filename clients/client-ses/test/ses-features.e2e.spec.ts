@@ -5,7 +5,7 @@ describe(SES.name, () => {
   let client: SES;
 
   beforeAll(async () => {
-    client = new SES({ region: "us-west-2" });
+    client = new SES({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Check quota", () => {

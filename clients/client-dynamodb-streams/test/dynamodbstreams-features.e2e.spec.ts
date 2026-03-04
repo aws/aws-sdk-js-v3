@@ -5,7 +5,7 @@ describe(DynamoDBStreams.name, () => {
   let client: DynamoDBStreams;
 
   beforeAll(async () => {
-    client = new DynamoDBStreams({ region: "us-west-2" });
+    client = new DynamoDBStreams({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing streams", () => {

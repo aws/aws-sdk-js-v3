@@ -5,7 +5,7 @@ describe(ECS.name, () => {
   let client: ECS;
 
   beforeAll(async () => {
-    client = new ECS({ region: "us-west-2" });
+    client = new ECS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing clusters", () => {

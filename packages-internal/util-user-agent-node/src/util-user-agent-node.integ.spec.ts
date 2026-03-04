@@ -4,7 +4,6 @@ import { version as sdkVersion } from "@aws-sdk/client-s3/package.json";
 import { platform, release } from "node:os";
 import { versions } from "node:process";
 import { describe, test as it } from "vitest";
-const { version: tscVersion } = await import("typescript");
 
 describe("util-user-agent-node", () => {
   it("populates user agent string", async () => {

@@ -5,7 +5,7 @@ describe(DirectoryService.name, () => {
   let client: DirectoryService;
 
   beforeAll(async () => {
-    client = new DirectoryService({ region: "us-west-2" });
+    client = new DirectoryService({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing directories", () => {

@@ -5,7 +5,7 @@ describe(EMR.name, () => {
   let client: EMR;
 
   beforeAll(async () => {
-    client = new EMR({ region: "us-west-2" });
+    client = new EMR({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

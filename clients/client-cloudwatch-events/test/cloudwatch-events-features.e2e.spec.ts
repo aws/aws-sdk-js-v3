@@ -5,7 +5,7 @@ describe(CloudWatchEvents.name, () => {
   let client: CloudWatchEvents;
 
   beforeAll(async () => {
-    client = new CloudWatchEvents({ region: "us-west-2" });
+    client = new CloudWatchEvents({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

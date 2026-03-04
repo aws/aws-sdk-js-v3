@@ -4,20 +4,10 @@ import { HttpRequest } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 describe("@aws-sdk/client-s3 - Working with Buckets", () => {
-  const s3 = new S3({
-    region: "us-west-2",
-  });
-  const s3East = new S3({
-    region: "us-east-1",
-    followRegionRedirects: true,
-  });
-  const s3PathStyle = new S3({
-    region: "us-west-2",
-    forcePathStyle: true,
-  });
-  const stsClient = new STS({
-    region: "us-west-2",
-  });
+  const s3 = new S3({ region: "us-west-2", credentials: aws?.testCredentials });
+  const s3East = new S3({ region: "us-east-1", followRegionRedirects: true, credentials: aws?.testCredentials });
+  const s3PathStyle = new S3({ region: "us-west-2", forcePathStyle: true, credentials: aws?.testCredentials });
+  const stsClient = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
 
   function getBucketName(id: string, region = "us-west-2") {
     const alphabet = "abcdefghijklmnopqrstuvwxyz0123456789";

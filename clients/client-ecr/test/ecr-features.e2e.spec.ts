@@ -5,7 +5,7 @@ describe(ECR.name, () => {
   let client: ECR;
 
   beforeAll(async () => {
-    client = new ECR({ region: "us-west-2" });
+    client = new ECR({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Making a request", () => {

@@ -7,7 +7,7 @@ describe(RDS.name, () => {
   const createdSecurityGroups: string[] = [];
 
   beforeAll(async () => {
-    client = new RDS({ region: "us-west-2" });
+    client = new RDS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   afterAll(async () => {

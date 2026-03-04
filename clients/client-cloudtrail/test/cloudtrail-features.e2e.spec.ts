@@ -5,7 +5,7 @@ describe(CloudTrail.name, () => {
   let client: CloudTrail;
 
   beforeAll(async () => {
-    client = new CloudTrail({ region: "us-west-2" });
+    client = new CloudTrail({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Describe trails", () => {

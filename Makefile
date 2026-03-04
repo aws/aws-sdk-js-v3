@@ -32,7 +32,7 @@ test-codegen:
 	git diff --exit-code ./
 
 # typecheck for test code.
-test-types:
+test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.json
 
 test-indices:
@@ -52,6 +52,7 @@ snapshot-write:
 test-schema: bundles
 	yarn g:vitest run -c vitest.config.protocols-schema.integ.mts
 
+# run public API tests (no network requests).
 test-integration: bundles
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
 	node ./scripts/validation/no-generic-byte-arrays.js
@@ -66,10 +67,24 @@ test-integration: bundles
 test-endpoints:
 	npx jest -c ./tests/endpoints-2.0/jest.config.js --bail --verbose false
 
+# run all e2e tests (real services).
 test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
-	yarn g:vitest run -c vitest.config.browser.e2e.mts --retry=4 --test-timeout=60000
+	make test-browser-cross-platform
 	make test-bundlers
+
+test-x: test-browser-cross-platform
+
+# e2e tests run in browser, but using tests that also run in Node.js
+test-browser-cross-platform:
+	node ./scripts/browser-testing/writeTestCredentials.mjs
+	yarn g:vitest run -c vitest.config.cross-platform.e2e.mts --retry=4 --test-timeout=60000; \
+		EXIT_CODE=$$?; \
+		make reset-test-credentials; \
+		exit $$EXIT_CODE;
+
+reset-test-credentials:
+	echo "export const testCredentials = {}" > ./scripts/browser-testing/aws.testCredentials.browser.ts
 
 test-bundlers:
 	(cd ./tests/bundlers && make build test)

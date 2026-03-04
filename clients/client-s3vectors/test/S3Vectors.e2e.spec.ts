@@ -5,12 +5,8 @@ import { beforeEach, describe, expect, test as it } from "vitest";
 describe(
   S3Vectors.name,
   () => {
-    const s3v = new S3Vectors({
-      region: "us-west-2",
-    });
-    const rock = new BedrockRuntime({
-      region: "us-west-2",
-    });
+    const s3v = new S3Vectors({ region: "us-west-2", credentials: aws?.testCredentials });
+    const rock = new BedrockRuntime({ region: "us-west-2", credentials: aws?.testCredentials });
 
     const VECTOR_BUCKET_NAME = "jsv3-e2e-vector";
 

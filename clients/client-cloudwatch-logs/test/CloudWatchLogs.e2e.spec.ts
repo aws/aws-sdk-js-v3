@@ -9,12 +9,10 @@ describe(
     retry: 4,
   },
   () => {
-    const cwlDefault = new CloudWatchLogs({
-      region: "us-west-2",
-    });
+    const cwlDefault = new CloudWatchLogs({ region: "us-west-2", credentials: aws?.testCredentials });
 
     it("should be able to use an event stream to tail logs", async () => {
-      const sts = new STS({ region: "us-west-2" });
+      const sts = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
       const id: GetCallerIdentityCommandOutput = await sts.getCallerIdentity();
       const accountId = id.Account;
 

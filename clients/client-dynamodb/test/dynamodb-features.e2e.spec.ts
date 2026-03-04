@@ -6,7 +6,7 @@ describe(DynamoDB.name, () => {
   let sharedTableName: string;
 
   beforeAll(async () => {
-    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10 });
+    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: aws?.testCredentials });
 
     // Create shared table for tests
     sharedTableName = `aws-sdk-js-integration-${Date.now()}`;

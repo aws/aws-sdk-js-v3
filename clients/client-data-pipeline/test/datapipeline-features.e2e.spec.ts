@@ -5,7 +5,7 @@ describe(DataPipeline.name, () => {
   let client: DataPipeline;
 
   beforeAll(async () => {
-    client = new DataPipeline({ region: "us-west-2" });
+    client = new DataPipeline({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Listing pipelines", () => {

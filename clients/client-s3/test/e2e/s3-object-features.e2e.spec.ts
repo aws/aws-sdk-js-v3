@@ -18,7 +18,7 @@ describe("@aws-sdk/client-s3", () => {
     region = process?.env?.AWS_SMOKE_TEST_REGION as string;
     Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
 
-    client = new S3({ region });
+    client = new S3({ region, credentials: aws?.testCredentials });
   });
 
   async function putObject(Body: string, Key: string) {

@@ -7,11 +7,11 @@ import {
   S3Client,
   waitUntilBucketExists,
 } from "@aws-sdk/client-s3";
+import type { Region as S3ControlRegion } from "@aws-sdk/client-s3-control";
 import {
   CreateMultiRegionAccessPointCommand,
   DescribeMultiRegionAccessPointOperationCommand,
   GetMultiRegionAccessPointCommand,
-  Region as S3ControlRegion,
   S3ControlClient,
 } from "@aws-sdk/client-s3-control";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
@@ -47,7 +47,7 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   };
 
   const ensureBucket = async (bucketName: string, region: string): Promise<void> => {
-    const s3 = new S3Client({ region });
+    const s3 = new S3Client({ region, credentials: aws?.testCredentials });
     try {
       await s3.send(new HeadBucketCommand({ Bucket: bucketName }));
     } catch (error: any) {
@@ -63,8 +63,8 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   };
 
   beforeAll(async () => {
-    const stsClient = new STSClient({ region: REGION_1 });
-    s3ControlClient = new S3ControlClient({ region: REGION_1 });
+    const stsClient = new STSClient({ region: REGION_1, credentials: aws?.testCredentials });
+    s3ControlClient = new S3ControlClient({ region: REGION_1, credentials: aws?.testCredentials });
     try {
       const { Account } = await stsClient.send(new GetCallerIdentityCommand({}));
       if (!Account) throw new Error("Could not determine AWS Account ID.");
@@ -117,7 +117,7 @@ describe("S3 MRAP SigV4a E2E Test", () => {
   it("should successfully ListObjectsV2 against MRAP using SigV4a", async () => {
     expect(mrapArn).toBeDefined();
 
-    const s3SigV4aClient = new S3Client({ region: REGION_1 });
+    const s3SigV4aClient = new S3Client({ region: REGION_1, credentials: aws?.testCredentials });
 
     try {
       const command = new ListObjectsV2Command({ Bucket: mrapArn! });

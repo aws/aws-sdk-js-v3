@@ -7,7 +7,7 @@ describe(
     let client: CloudFront;
 
     beforeAll(async () => {
-      client = new CloudFront({ region: "us-west-2" });
+      client = new CloudFront({ region: "us-west-2", credentials: aws?.testCredentials });
     });
 
     describe("List distributions", () => {

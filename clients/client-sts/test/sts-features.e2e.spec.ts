@@ -5,7 +5,7 @@ describe(STS.name, () => {
   let client: STS;
 
   beforeAll(async () => {
-    client = new STS({ region: "us-west-2" });
+    client = new STS({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Get caller identity", () => {

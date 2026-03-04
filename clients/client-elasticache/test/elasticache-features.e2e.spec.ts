@@ -6,7 +6,7 @@ describe(ElastiCache.name, () => {
   let cacheParameterGroupName: string;
 
   beforeAll(async () => {
-    client = new ElastiCache({ region: "us-west-2" });
+    client = new ElastiCache({ region: "us-west-2", credentials: aws?.testCredentials });
   });
 
   describe("Creating and deleting cache parameter groups", () => {
