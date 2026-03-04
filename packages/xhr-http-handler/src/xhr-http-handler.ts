@@ -2,7 +2,8 @@ import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
 import { HttpResponse } from "@smithy/protocol-http";
 import { buildQueryString } from "@smithy/querystring-builder";
 import type { HttpHandlerOptions, Provider } from "@smithy/types";
-import { EventEmitter } from "node:events";
+// eslint-disable-next-line n/prefer-node-protocol
+import { EventEmitter } from "events";
 
 import { requestTimeout as requestTimeoutFn } from "./request-timeout";
 
