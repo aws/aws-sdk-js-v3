@@ -1661,6 +1661,50 @@ export interface AssociatePhoneNumberContactFlowRequest {
 }
 
 /**
+ * <p>Configuration object that specifies an email address to be associated with a queue. This configuration contains the identifier of the email address that should be linked to the queue for routing email contacts.</p>
+ * @public
+ */
+export interface EmailAddressConfig {
+  /**
+   * <p>The identifier of the email address that should be associated with the queue. This email address must already exist in the Amazon Connect instance and will be used to route incoming email contacts to the specified queue.</p>
+   * @public
+   */
+  EmailAddressId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateQueueEmailAddressesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>Configuration list containing the email addresses to associate with the queue. Each configuration specifies an email address ID that should be linked to this queue for routing purposes.</p>
+   * @public
+   */
+  EmailAddressesConfig: EmailAddressConfig[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateQueueQuickConnectsRequest {
@@ -5842,6 +5886,12 @@ export interface CreateQueueRequest {
   QuickConnectIds?: string[] | undefined;
 
   /**
+   * <p>Configuration list containing the email addresses to associate with the queue during creation. Each configuration specifies an email address ID that agents can select when handling email contacts in this queue.</p>
+   * @public
+   */
+  EmailAddressesConfig?: EmailAddressConfig[] | undefined;
+
+  /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
@@ -7981,82 +8031,4 @@ export interface PaletteCanvas {
    * @public
    */
   ActiveBackground?: string | undefined;
-}
-
-/**
- * <p>Contains color configuration for header elements in a workspace theme.</p>
- * @public
- */
-export interface PaletteHeader {
-  /**
-   * <p>The background color of the header.</p>
-   * @public
-   */
-  Background?: string | undefined;
-
-  /**
-   * <p>The text color in the header.</p>
-   * @public
-   */
-  Text?: string | undefined;
-
-  /**
-   * <p>The text color when hovering over header elements.</p>
-   * @public
-   */
-  TextHover?: string | undefined;
-
-  /**
-   * <p>Whether to invert the colors of action buttons in the header.</p>
-   * @public
-   */
-  InvertActionsColors?: boolean | undefined;
-}
-
-/**
- * <p>Contains color configuration for navigation elements in a workspace theme.</p>
- * @public
- */
-export interface PaletteNavigation {
-  /**
-   * <p>The background color of the navigation area.</p>
-   * @public
-   */
-  Background?: string | undefined;
-
-  /**
-   * <p>The background color when hovering over navigation text.</p>
-   * @public
-   */
-  TextBackgroundHover?: string | undefined;
-
-  /**
-   * <p>The background color for active navigation items.</p>
-   * @public
-   */
-  TextBackgroundActive?: string | undefined;
-
-  /**
-   * <p>The text color in the navigation area.</p>
-   * @public
-   */
-  Text?: string | undefined;
-
-  /**
-   * <p>The text color when hovering over navigation items.</p>
-   * @public
-   */
-  TextHover?: string | undefined;
-
-  /**
-   * <p>The text color for active navigation items.</p>
-   * @public
-   */
-  TextActive?: string | undefined;
-
-  /**
-   * <p>Whether to invert the colors of action buttons in the navigation area.</p>
-   * @public
-   */
-  InvertActionsColors?: boolean | undefined;
 }

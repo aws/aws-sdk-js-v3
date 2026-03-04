@@ -93,6 +93,7 @@ import {
 import {
   type EvaluationContactParticipant,
   type EvaluationScore,
+  type ObservationSummary,
   Attribute,
   ContactFlow,
   ContactFlowModule,
@@ -108,9 +109,67 @@ import {
   Queue,
   QuickConnect,
   RoutingProfile,
-  SignInDistribution,
-  TestCase,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetTestCaseExecutionSummaryResponse {
+  /**
+   * <p>The timestamp when the test case execution started.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the test case execution ended.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the test case execution.</p>
+   * @public
+   */
+  Status?: TestCaseExecutionStatus | undefined;
+
+  /**
+   * <p>Summary statistics for the test case execution.</p>
+   * @public
+   */
+  ObservationSummary?: ObservationSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrafficDistributionRequest {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
+   * The ARN must be provided if the call is from the replicated Region.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * <p>The distribution of sign in traffic between the instance and its replica(s).</p>
+ * @public
+ */
+export interface SignInDistribution {
+  /**
+   * <p>The Amazon Web Services Region of the sign in distribution.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>Whether sign in distribution is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
 
 /**
  * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in agents in to both
@@ -3413,6 +3472,89 @@ export interface ListPromptsResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueEmailAddressesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Summary information about an email address associated with a queue. Contains the essential details needed to identify and manage the email address routing configuration.</p>
+ * @public
+ */
+export interface EmailAddressSummary {
+  /**
+   * <p>The unique identifier of the email address associated with the queue.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the email address associated with the queue.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Indicates whether this email address is configured as the default outbound email address for the queue. When set to true, this email address is used as the default sender for outbound email contacts from this queue.</p>
+   * @public
+   */
+  IsDefaultOutboundEmail?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQueueEmailAddressesResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>List of email address summary information for all email addresses associated with the queue. Each item contains the email address identifier, ARN, and configuration details.</p>
+   * @public
+   */
+  EmailAddressMetadataList?: EmailAddressSummary[] | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -8495,146 +8637,4 @@ export interface SearchRoutingProfilesResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface SecurityProfilesSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * <p>Information about the returned security profiles.</p>
- * @public
- */
-export interface SecurityProfileSearchSummary {
-  /**
-   * <p>The identifier of the security profile.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The organization resource identifier.</p>
-   * @public
-   */
-  OrganizationResourceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name of the security profile.</p>
-   * @public
-   */
-  SecurityProfileName?: string | undefined;
-
-  /**
-   * <p>The description of the security profile.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchSecurityProfilesResponse {
-  /**
-   * <p>Information about the security profiles.</p>
-   * @public
-   */
-  SecurityProfiles?: SecurityProfileSearchSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of security profiles which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface TestCaseSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the SearchFilter. This accepts an OR of AND (List of List) input where: Top level list specifies conditions that need to be applied with OR operator. Inner list specifies conditions that need to be applied with AND operator.</p>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTestCasesResponse {
-  /**
-   * <p>Information about the test cases.</p>
-   * @public
-   */
-  TestCases?: TestCase[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of test cases which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface UserHierarchyGroupSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the SearchFilter. This accepts an OR or AND (List of
-   *    List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
-   *             </li>
-   *             <li>
-   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
 }

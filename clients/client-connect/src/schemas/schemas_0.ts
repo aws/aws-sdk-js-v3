@@ -144,6 +144,8 @@ const _APNCFR = "AssociatePhoneNumberContactFlowRequest";
 const _APS = "AuthenticationProfileSummary";
 const _APSL = "AuthenticationProfileSummaryList";
 const _APu = "AuthenticationProfile";
+const _AQEA = "AssociateQueueEmailAddresses";
+const _AQEAR = "AssociateQueueEmailAddressesRequest";
 const _AQI = "AssociatedQueueIds";
 const _AQM = "AgentQualityMetrics";
 const _AQMI = "AudioQualityMetricsInfo";
@@ -725,6 +727,8 @@ const _DQCR = "DeleteQuickConnectRequest";
 const _DQCRe = "DescribeQuickConnectRequest";
 const _DQCRes = "DescribeQuickConnectResponse";
 const _DQCe = "DescribeQuickConnect";
+const _DQEA = "DisassociateQueueEmailAddresses";
+const _DQEAR = "DisassociateQueueEmailAddressesRequest";
 const _DQQC = "DisassociateQueueQuickConnects";
 const _DQQCR = "DisassociateQueueQuickConnectsRequest";
 const _DQR = "DeleteQueueRequest";
@@ -878,24 +882,30 @@ const _Dis = "Distribution";
 const _E = "Email";
 const _EA = "EmailAddress";
 const _EAA = "EmailAddressArn";
+const _EAC = "EmailAddressesConfig";
+const _EACL = "EmailAddressConfigList";
+const _EACm = "EmailAddressConfig";
 const _EAD = "EvaluationAnswerData";
 const _EADN = "EmailAddressDisplayName";
 const _EAI = "EmailAddressId";
 const _EAIM = "EvaluationAnswersInputMap";
-const _EAIm = "EmailAddressInfo";
+const _EAIm = "EmailAddressesId";
+const _EAIma = "EmailAddressInfo";
 const _EAIv = "EvaluationAnswerInput";
 const _EAL = "EmailAddressList";
 const _EAM = "EmailAddressMetadata";
 const _EAMD = "EnableAnswerMachineDetection";
+const _EAML = "EmailAddressMetadataList";
 const _EAO = "EvaluationAnswerOutput";
 const _EAOM = "EvaluationAnswersOutputMap";
 const _EARC = "EvaluationAutomationRuleCategory";
 const _EARCL = "EvaluationAutomationRuleCategoryList";
 const _EARL = "EmailAddressRecipientList";
-const _EAS = "EvaluationAcknowledgementSummary";
+const _EAS = "EmailAddressSummary";
 const _EASC = "EmailAddressSearchCriteria";
 const _EASCL = "EmailAddressSearchConditionList";
 const _EASF = "EmailAddressSearchFilter";
+const _EASv = "EvaluationAcknowledgementSummary";
 const _EATA = "EndAssociatedTasksAction";
 const _EATAD = "EndAssociatedTasksActionDefinition";
 const _EAm = "EmailAttachment";
@@ -1224,6 +1234,7 @@ const _ICFE = "InvalidContactFlowException";
 const _ICFME = "InvalidContactFlowModuleException";
 const _ICI = "InitialContactId";
 const _ID = "IsDefault";
+const _IDOE = "IsDefaultOutboundEmail";
 const _IDn = "InitializationData";
 const _IDnp = "InputData";
 const _IDnt = "IntervalDetails";
@@ -1430,6 +1441,9 @@ const _LQ = "ListQueues";
 const _LQC = "ListQuickConnects";
 const _LQCR = "ListQuickConnectsRequest";
 const _LQCRi = "ListQuickConnectsResponse";
+const _LQEA = "ListQueueEmailAddresses";
+const _LQEAR = "ListQueueEmailAddressesRequest";
+const _LQEARi = "ListQueueEmailAddressesResponse";
 const _LQQC = "ListQueueQuickConnects";
 const _LQQCR = "ListQueueQuickConnectsRequest";
 const _LQQCRi = "ListQueueQuickConnectsResponse";
@@ -3262,6 +3276,11 @@ export var AssociatePhoneNumberContactFlowRequest$: StaticStructureSchema = [3, 
   [_PNI, _II, _CFI],
   [[0, 1], 0, 0], 3
 ];
+export var AssociateQueueEmailAddressesRequest$: StaticStructureSchema = [3, n0, _AQEAR,
+  0,
+  [_II, _QI, _EAC, _CT],
+  [[0, 1], [0, 1], () => EmailAddressConfigList, [0, 4]], 3
+];
 export var AssociateQueueQuickConnectsRequest$: StaticStructureSchema = [3, n0, _AQQCR,
   0,
   [_II, _QI, _QCI],
@@ -3974,8 +3993,8 @@ export var CreatePushNotificationRegistrationResponse$: StaticStructureSchema = 
 ];
 export var CreateQueueRequest$: StaticStructureSchema = [3, n0, _CQR,
   0,
-  [_II, _N, _HOOI, _D, _OCC, _OEC, _MCa, _QCI, _Ta],
-  [[0, 1], 0, 0, 0, () => OutboundCallerConfig$, () => OutboundEmailConfig$, 1, 64 | 0, 128 | 0], 3
+  [_II, _N, _HOOI, _D, _OCC, _OEC, _MCa, _QCI, _EAC, _Ta],
+  [[0, 1], 0, 0, 0, () => OutboundCallerConfig$, () => OutboundEmailConfig$, 1, 64 | 0, () => EmailAddressConfigList, 128 | 0], 3
 ];
 export var CreateQueueResponse$: StaticStructureSchema = [3, n0, _CQRr,
   0,
@@ -4957,6 +4976,11 @@ export var DisassociatePhoneNumberContactFlowRequest$: StaticStructureSchema = [
   [_PNI, _II],
   [[0, 1], [0, { [_hQ]: _iI }]], 2
 ];
+export var DisassociateQueueEmailAddressesRequest$: StaticStructureSchema = [3, n0, _DQEAR,
+  0,
+  [_II, _QI, _EAIm, _CT],
+  [[0, 1], [0, 1], 64 | 0, [0, 4]], 3
+];
 export var DisassociateQueueQuickConnectsRequest$: StaticStructureSchema = [3, n0, _DQQCR,
   0,
   [_II, _QI, _QCI],
@@ -5042,7 +5066,12 @@ export var EffectiveOverrideHours$: StaticStructureSchema = [3, n0, _EOH,
   [_Da, _OHv],
   [0, () => OverrideHours]
 ];
-export var EmailAddressInfo$: StaticStructureSchema = [3, n0, _EAIm,
+export var EmailAddressConfig$: StaticStructureSchema = [3, n0, _EACm,
+  0,
+  [_EAI],
+  [0], 1
+];
+export var EmailAddressInfo$: StaticStructureSchema = [3, n0, _EAIma,
   0,
   [_EA, _DN],
   [[() => EmailAddress, 0], [() => EmailAddressDisplayName, 0]], 1
@@ -5061,6 +5090,11 @@ export var EmailAddressSearchFilter$: StaticStructureSchema = [3, n0, _EASF,
   0,
   [_TF],
   [() => ControlPlaneTagFilter$]
+];
+export var EmailAddressSummary$: StaticStructureSchema = [3, n0, _EAS,
+  0,
+  [_I, _A, _IDOE],
+  [0, 0, 2]
 ];
 export var EmailAttachment$: StaticStructureSchema = [3, n0, _EAm,
   0,
@@ -5132,7 +5166,7 @@ export var EvaluationAcknowledgement$: StaticStructureSchema = [3, n0, _EAva,
   [_ATck, _AB, _ACc],
   [4, 0, 0], 2
 ];
-export var EvaluationAcknowledgementSummary$: StaticStructureSchema = [3, n0, _EAS,
+export var EvaluationAcknowledgementSummary$: StaticStructureSchema = [3, n0, _EASv,
   0,
   [_ATck, _AB, _ACc],
   [4, 0, 0]
@@ -6236,6 +6270,16 @@ export var ListPromptsResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
   [_PSL, _NT],
   [() => PromptSummaryList, 0]
+];
+export var ListQueueEmailAddressesRequest$: StaticStructureSchema = [3, n0, _LQEAR,
+  0,
+  [_II, _QI, _NT, _MR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+];
+export var ListQueueEmailAddressesResponse$: StaticStructureSchema = [3, n0, _LQEARi,
+  0,
+  [_NT, _EAML, _LMT, _LMR],
+  [0, () => EmailAddressMetadataList, 4, 0]
 ];
 export var ListQueueQuickConnectsRequest$: StaticStructureSchema = [3, n0, _LQQCR,
   0,
@@ -9012,9 +9056,16 @@ var EffectiveHoursOfOperationList: StaticListSchema = [1, n0, _EHOOL,
 var EffectiveOverrideHoursList: StaticListSchema = [1, n0, _EOHL,
   0, () => EffectiveOverrideHours$
 ];
+var EmailAddressConfigList: StaticListSchema = [1, n0, _EACL,
+  0, () => EmailAddressConfig$
+];
+var EmailAddressIdList = 64 | 0;
 var EmailAddressList: StaticListSchema = [1, n0, _EAL,
   0, [() => EmailAddressMetadata$,
     0]
+];
+var EmailAddressMetadataList: StaticListSchema = [1, n0, _EAML,
+  0, () => EmailAddressSummary$
 ];
 var EmailAddressRecipientList: StaticListSchema = [1, n0, _EARL,
   0, [() => EmailAddressInfo$,
@@ -9762,6 +9813,9 @@ export var AssociateLexBot$: StaticOperationSchema = [9, n0, _ALB,
 export var AssociatePhoneNumberContactFlow$: StaticOperationSchema = [9, n0, _APNCF,
   { [_h]: ["PUT", "/phone-number/{PhoneNumberId}/contact-flow", 200] }, () => AssociatePhoneNumberContactFlowRequest$, () => __Unit
 ];
+export var AssociateQueueEmailAddresses$: StaticOperationSchema = [9, n0, _AQEA,
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/associate-email-addresses", 200] }, () => AssociateQueueEmailAddressesRequest$, () => __Unit
+];
 export var AssociateQueueQuickConnects$: StaticOperationSchema = [9, n0, _AQQC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/associate-quick-connects", 200] }, () => AssociateQueueQuickConnectsRequest$, () => __Unit
 ];
@@ -10167,6 +10221,9 @@ export var DisassociateLexBot$: StaticOperationSchema = [9, n0, _DLB,
 export var DisassociatePhoneNumberContactFlow$: StaticOperationSchema = [9, n0, _DPNCF,
   { [_h]: ["DELETE", "/phone-number/{PhoneNumberId}/contact-flow", 200] }, () => DisassociatePhoneNumberContactFlowRequest$, () => __Unit
 ];
+export var DisassociateQueueEmailAddresses$: StaticOperationSchema = [9, n0, _DQEA,
+  { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/disassociate-email-addresses", 200] }, () => DisassociateQueueEmailAddressesRequest$, () => __Unit
+];
 export var DisassociateQueueQuickConnects$: StaticOperationSchema = [9, n0, _DQQC,
   { [_h]: ["POST", "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects", 200] }, () => DisassociateQueueQuickConnectsRequest$, () => __Unit
 ];
@@ -10352,6 +10409,9 @@ export var ListPredefinedAttributes$: StaticOperationSchema = [9, n0, _LPA,
 ];
 export var ListPrompts$: StaticOperationSchema = [9, n0, _LP,
   { [_h]: ["GET", "/prompts-summary/{InstanceId}", 200] }, () => ListPromptsRequest$, () => ListPromptsResponse$
+];
+export var ListQueueEmailAddresses$: StaticOperationSchema = [9, n0, _LQEA,
+  { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}/email-addresses", 200] }, () => ListQueueEmailAddressesRequest$, () => ListQueueEmailAddressesResponse$
 ];
 export var ListQueueQuickConnects$: StaticOperationSchema = [9, n0, _LQQC,
   { [_h]: ["GET", "/queues/{InstanceId}/{QueueId}/quick-connects", 200] }, () => ListQueueQuickConnectsRequest$, () => ListQueueQuickConnectsResponse$

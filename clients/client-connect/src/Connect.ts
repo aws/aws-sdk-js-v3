@@ -68,6 +68,11 @@ import {
   AssociatePhoneNumberContactFlowCommandOutput,
 } from "./commands/AssociatePhoneNumberContactFlowCommand";
 import {
+  AssociateQueueEmailAddressesCommand,
+  AssociateQueueEmailAddressesCommandInput,
+  AssociateQueueEmailAddressesCommandOutput,
+} from "./commands/AssociateQueueEmailAddressesCommand";
+import {
   AssociateQueueQuickConnectsCommand,
   AssociateQueueQuickConnectsCommandInput,
   AssociateQueueQuickConnectsCommandOutput,
@@ -711,6 +716,11 @@ import {
   DisassociatePhoneNumberContactFlowCommandOutput,
 } from "./commands/DisassociatePhoneNumberContactFlowCommand";
 import {
+  DisassociateQueueEmailAddressesCommand,
+  DisassociateQueueEmailAddressesCommandInput,
+  DisassociateQueueEmailAddressesCommandOutput,
+} from "./commands/DisassociateQueueEmailAddressesCommand";
+import {
   DisassociateQueueQuickConnectsCommand,
   DisassociateQueueQuickConnectsCommandInput,
   DisassociateQueueQuickConnectsCommandOutput,
@@ -1008,6 +1018,11 @@ import {
   ListPredefinedAttributesCommandOutput,
 } from "./commands/ListPredefinedAttributesCommand";
 import { ListPromptsCommand, ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
+import {
+  ListQueueEmailAddressesCommand,
+  ListQueueEmailAddressesCommandInput,
+  ListQueueEmailAddressesCommandOutput,
+} from "./commands/ListQueueEmailAddressesCommand";
 import {
   ListQueueQuickConnectsCommand,
   ListQueueQuickConnectsCommandInput,
@@ -1843,6 +1858,7 @@ const commands = {
   AssociateLambdaFunctionCommand,
   AssociateLexBotCommand,
   AssociatePhoneNumberContactFlowCommand,
+  AssociateQueueEmailAddressesCommand,
   AssociateQueueQuickConnectsCommand,
   AssociateRoutingProfileQueuesCommand,
   AssociateSecurityKeyCommand,
@@ -1978,6 +1994,7 @@ const commands = {
   DisassociateLambdaFunctionCommand,
   DisassociateLexBotCommand,
   DisassociatePhoneNumberContactFlowCommand,
+  DisassociateQueueEmailAddressesCommand,
   DisassociateQueueQuickConnectsCommand,
   DisassociateRoutingProfileQueuesCommand,
   DisassociateSecurityKeyCommand,
@@ -2040,6 +2057,7 @@ const commands = {
   ListPhoneNumbersV2Command,
   ListPredefinedAttributesCommand,
   ListPromptsCommand,
+  ListQueueEmailAddressesCommand,
   ListQueueQuickConnectsCommand,
   ListQueuesCommand,
   ListQuickConnectsCommand,
@@ -2503,6 +2521,23 @@ export interface Connect {
     args: AssociatePhoneNumberContactFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociatePhoneNumberContactFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateQueueEmailAddressesCommand}
+   */
+  associateQueueEmailAddresses(
+    args: AssociateQueueEmailAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateQueueEmailAddressesCommandOutput>;
+  associateQueueEmailAddresses(
+    args: AssociateQueueEmailAddressesCommandInput,
+    cb: (err: any, data?: AssociateQueueEmailAddressesCommandOutput) => void
+  ): void;
+  associateQueueEmailAddresses(
+    args: AssociateQueueEmailAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateQueueEmailAddressesCommandOutput) => void
   ): void;
 
   /**
@@ -4801,6 +4836,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DisassociateQueueEmailAddressesCommand}
+   */
+  disassociateQueueEmailAddresses(
+    args: DisassociateQueueEmailAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateQueueEmailAddressesCommandOutput>;
+  disassociateQueueEmailAddresses(
+    args: DisassociateQueueEmailAddressesCommandInput,
+    cb: (err: any, data?: DisassociateQueueEmailAddressesCommandOutput) => void
+  ): void;
+  disassociateQueueEmailAddresses(
+    args: DisassociateQueueEmailAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateQueueEmailAddressesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateQueueQuickConnectsCommand}
    */
   disassociateQueueQuickConnects(
@@ -5854,6 +5906,23 @@ export interface Connect {
     args: ListPromptsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPromptsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQueueEmailAddressesCommand}
+   */
+  listQueueEmailAddresses(
+    args: ListQueueEmailAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueueEmailAddressesCommandOutput>;
+  listQueueEmailAddresses(
+    args: ListQueueEmailAddressesCommandInput,
+    cb: (err: any, data?: ListQueueEmailAddressesCommandOutput) => void
+  ): void;
+  listQueueEmailAddresses(
+    args: ListQueueEmailAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueueEmailAddressesCommandOutput) => void
   ): void;
 
   /**

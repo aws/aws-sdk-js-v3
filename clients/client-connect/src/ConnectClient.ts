@@ -107,6 +107,10 @@ import {
   AssociatePhoneNumberContactFlowCommandOutput,
 } from "./commands/AssociatePhoneNumberContactFlowCommand";
 import {
+  AssociateQueueEmailAddressesCommandInput,
+  AssociateQueueEmailAddressesCommandOutput,
+} from "./commands/AssociateQueueEmailAddressesCommand";
+import {
   AssociateQueueQuickConnectsCommandInput,
   AssociateQueueQuickConnectsCommandOutput,
 } from "./commands/AssociateQueueQuickConnectsCommand";
@@ -482,6 +486,10 @@ import {
   DisassociatePhoneNumberContactFlowCommandOutput,
 } from "./commands/DisassociatePhoneNumberContactFlowCommand";
 import {
+  DisassociateQueueEmailAddressesCommandInput,
+  DisassociateQueueEmailAddressesCommandOutput,
+} from "./commands/DisassociateQueueEmailAddressesCommand";
+import {
   DisassociateQueueQuickConnectsCommandInput,
   DisassociateQueueQuickConnectsCommandOutput,
 } from "./commands/DisassociateQueueQuickConnectsCommand";
@@ -666,6 +674,10 @@ import {
   ListPredefinedAttributesCommandOutput,
 } from "./commands/ListPredefinedAttributesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
+import {
+  ListQueueEmailAddressesCommandInput,
+  ListQueueEmailAddressesCommandOutput,
+} from "./commands/ListQueueEmailAddressesCommand";
 import {
   ListQueueQuickConnectsCommandInput,
   ListQueueQuickConnectsCommandOutput,
@@ -1148,6 +1160,7 @@ export type ServiceInputTypes =
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
   | AssociatePhoneNumberContactFlowCommandInput
+  | AssociateQueueEmailAddressesCommandInput
   | AssociateQueueQuickConnectsCommandInput
   | AssociateRoutingProfileQueuesCommandInput
   | AssociateSecurityKeyCommandInput
@@ -1283,6 +1296,7 @@ export type ServiceInputTypes =
   | DisassociateLambdaFunctionCommandInput
   | DisassociateLexBotCommandInput
   | DisassociatePhoneNumberContactFlowCommandInput
+  | DisassociateQueueEmailAddressesCommandInput
   | DisassociateQueueQuickConnectsCommandInput
   | DisassociateRoutingProfileQueuesCommandInput
   | DisassociateSecurityKeyCommandInput
@@ -1345,6 +1359,7 @@ export type ServiceInputTypes =
   | ListPhoneNumbersV2CommandInput
   | ListPredefinedAttributesCommandInput
   | ListPromptsCommandInput
+  | ListQueueEmailAddressesCommandInput
   | ListQueueQuickConnectsCommandInput
   | ListQueuesCommandInput
   | ListQuickConnectsCommandInput
@@ -1517,6 +1532,7 @@ export type ServiceOutputTypes =
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
   | AssociatePhoneNumberContactFlowCommandOutput
+  | AssociateQueueEmailAddressesCommandOutput
   | AssociateQueueQuickConnectsCommandOutput
   | AssociateRoutingProfileQueuesCommandOutput
   | AssociateSecurityKeyCommandOutput
@@ -1652,6 +1668,7 @@ export type ServiceOutputTypes =
   | DisassociateLambdaFunctionCommandOutput
   | DisassociateLexBotCommandOutput
   | DisassociatePhoneNumberContactFlowCommandOutput
+  | DisassociateQueueEmailAddressesCommandOutput
   | DisassociateQueueQuickConnectsCommandOutput
   | DisassociateRoutingProfileQueuesCommandOutput
   | DisassociateSecurityKeyCommandOutput
@@ -1714,6 +1731,7 @@ export type ServiceOutputTypes =
   | ListPhoneNumbersV2CommandOutput
   | ListPredefinedAttributesCommandOutput
   | ListPromptsCommandOutput
+  | ListQueueEmailAddressesCommandOutput
   | ListQueueQuickConnectsCommandOutput
   | ListQueuesCommandOutput
   | ListQuickConnectsCommandOutput

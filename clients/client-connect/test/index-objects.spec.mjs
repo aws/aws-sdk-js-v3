@@ -85,6 +85,9 @@ import {
   AssociatePhoneNumberContactFlow$,
   AssociatePhoneNumberContactFlowCommand,
   AssociatePhoneNumberContactFlowRequest$,
+  AssociateQueueEmailAddresses$,
+  AssociateQueueEmailAddressesCommand,
+  AssociateQueueEmailAddressesRequest$,
   AssociateQueueQuickConnects$,
   AssociateQueueQuickConnectsCommand,
   AssociateQueueQuickConnectsRequest$,
@@ -739,6 +742,9 @@ import {
   DisassociatePhoneNumberContactFlow$,
   DisassociatePhoneNumberContactFlowCommand,
   DisassociatePhoneNumberContactFlowRequest$,
+  DisassociateQueueEmailAddresses$,
+  DisassociateQueueEmailAddressesCommand,
+  DisassociateQueueEmailAddressesRequest$,
   DisassociateQueueQuickConnects$,
   DisassociateQueueQuickConnectsCommand,
   DisassociateQueueQuickConnectsRequest$,
@@ -775,10 +781,12 @@ import {
   DuplicateResourceException$,
   EffectiveHoursOfOperations$,
   EffectiveOverrideHours$,
+  EmailAddressConfig$,
   EmailAddressInfo$,
   EmailAddressMetadata$,
   EmailAddressSearchCriteria$,
   EmailAddressSearchFilter$,
+  EmailAddressSummary$,
   EmailAttachment$,
   EmailHeaderType,
   EmailMessageReference$,
@@ -1196,6 +1204,10 @@ import {
   ListPromptsCommand,
   ListPromptsRequest$,
   ListPromptsResponse$,
+  ListQueueEmailAddresses$,
+  ListQueueEmailAddressesCommand,
+  ListQueueEmailAddressesRequest$,
+  ListQueueEmailAddressesResponse$,
   ListQueueQuickConnects$,
   ListQueueQuickConnectsCommand,
   ListQueueQuickConnectsRequest$,
@@ -2250,6 +2262,8 @@ assert(typeof AssociateLexBotCommand === "function");
 assert(typeof AssociateLexBot$ === "object");
 assert(typeof AssociatePhoneNumberContactFlowCommand === "function");
 assert(typeof AssociatePhoneNumberContactFlow$ === "object");
+assert(typeof AssociateQueueEmailAddressesCommand === "function");
+assert(typeof AssociateQueueEmailAddresses$ === "object");
 assert(typeof AssociateQueueQuickConnectsCommand === "function");
 assert(typeof AssociateQueueQuickConnects$ === "object");
 assert(typeof AssociateRoutingProfileQueuesCommand === "function");
@@ -2520,6 +2534,8 @@ assert(typeof DisassociateLexBotCommand === "function");
 assert(typeof DisassociateLexBot$ === "object");
 assert(typeof DisassociatePhoneNumberContactFlowCommand === "function");
 assert(typeof DisassociatePhoneNumberContactFlow$ === "object");
+assert(typeof DisassociateQueueEmailAddressesCommand === "function");
+assert(typeof DisassociateQueueEmailAddresses$ === "object");
 assert(typeof DisassociateQueueQuickConnectsCommand === "function");
 assert(typeof DisassociateQueueQuickConnects$ === "object");
 assert(typeof DisassociateRoutingProfileQueuesCommand === "function");
@@ -2644,6 +2660,8 @@ assert(typeof ListPredefinedAttributesCommand === "function");
 assert(typeof ListPredefinedAttributes$ === "object");
 assert(typeof ListPromptsCommand === "function");
 assert(typeof ListPrompts$ === "object");
+assert(typeof ListQueueEmailAddressesCommand === "function");
+assert(typeof ListQueueEmailAddresses$ === "object");
 assert(typeof ListQueueQuickConnectsCommand === "function");
 assert(typeof ListQueueQuickConnects$ === "object");
 assert(typeof ListQueuesCommand === "function");
@@ -3001,6 +3019,7 @@ assert(typeof AssociateInstanceStorageConfigResponse$ === "object");
 assert(typeof AssociateLambdaFunctionRequest$ === "object");
 assert(typeof AssociateLexBotRequest$ === "object");
 assert(typeof AssociatePhoneNumberContactFlowRequest$ === "object");
+assert(typeof AssociateQueueEmailAddressesRequest$ === "object");
 assert(typeof AssociateQueueQuickConnectsRequest$ === "object");
 assert(typeof AssociateRoutingProfileQueuesRequest$ === "object");
 assert(typeof AssociateSecurityKeyRequest$ === "object");
@@ -3342,6 +3361,7 @@ assert(typeof DisassociateInstanceStorageConfigRequest$ === "object");
 assert(typeof DisassociateLambdaFunctionRequest$ === "object");
 assert(typeof DisassociateLexBotRequest$ === "object");
 assert(typeof DisassociatePhoneNumberContactFlowRequest$ === "object");
+assert(typeof DisassociateQueueEmailAddressesRequest$ === "object");
 assert(typeof DisassociateQueueQuickConnectsRequest$ === "object");
 assert(typeof DisassociateRoutingProfileQueuesRequest$ === "object");
 assert(typeof DisassociateSecurityKeyRequest$ === "object");
@@ -3359,10 +3379,12 @@ assert(typeof Distribution$ === "object");
 assert(typeof DownloadUrlMetadata$ === "object");
 assert(typeof EffectiveHoursOfOperations$ === "object");
 assert(typeof EffectiveOverrideHours$ === "object");
+assert(typeof EmailAddressConfig$ === "object");
 assert(typeof EmailAddressInfo$ === "object");
 assert(typeof EmailAddressMetadata$ === "object");
 assert(typeof EmailAddressSearchCriteria$ === "object");
 assert(typeof EmailAddressSearchFilter$ === "object");
+assert(typeof EmailAddressSummary$ === "object");
 assert(typeof EmailAttachment$ === "object");
 assert(typeof EmailMessageReference$ === "object");
 assert(typeof EmailRecipient$ === "object");
@@ -3608,6 +3630,8 @@ assert(typeof ListPredefinedAttributesRequest$ === "object");
 assert(typeof ListPredefinedAttributesResponse$ === "object");
 assert(typeof ListPromptsRequest$ === "object");
 assert(typeof ListPromptsResponse$ === "object");
+assert(typeof ListQueueEmailAddressesRequest$ === "object");
+assert(typeof ListQueueEmailAddressesResponse$ === "object");
 assert(typeof ListQueueQuickConnectsRequest$ === "object");
 assert(typeof ListQueueQuickConnectsResponse$ === "object");
 assert(typeof ListQueuesRequest$ === "object");

@@ -312,6 +312,13 @@ AssociatePhoneNumberContactFlow
 </details>
 <details>
 <summary>
+AssociateQueueEmailAddresses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/AssociateQueueEmailAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateQueueEmailAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/AssociateQueueEmailAddressesCommandOutput/)
+</details>
+<details>
+<summary>
 AssociateQueueQuickConnects
 </summary>
 
@@ -1257,6 +1264,13 @@ DisassociatePhoneNumberContactFlow
 </details>
 <details>
 <summary>
+DisassociateQueueEmailAddresses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DisassociateQueueEmailAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateQueueEmailAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DisassociateQueueEmailAddressesCommandOutput/)
+</details>
+<details>
+<summary>
 DisassociateQueueQuickConnects
 </summary>
 
@@ -1688,6 +1702,13 @@ ListPrompts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListPromptsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListPromptsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListPromptsCommandOutput/)
+</details>
+<details>
+<summary>
+ListQueueEmailAddresses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListQueueEmailAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListQueueEmailAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListQueueEmailAddressesCommandOutput/)
 </details>
 <details>
 <summary>

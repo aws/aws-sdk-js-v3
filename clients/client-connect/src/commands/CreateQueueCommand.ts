@@ -74,6 +74,11 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *   QuickConnectIds: [ // QuickConnectsList
  *     "STRING_VALUE",
  *   ],
+ *   EmailAddressesConfig: [ // EmailAddressConfigList
+ *     { // EmailAddressConfig
+ *       EmailAddressId: "STRING_VALUE", // required
+ *     },
+ *   ],
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

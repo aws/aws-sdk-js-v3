@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { GetTrafficDistributionRequest } from "../models/models_1";
-import type { GetTrafficDistributionResponse } from "../models/models_2";
+import type { GetTrafficDistributionRequest, GetTrafficDistributionResponse } from "../models/models_2";
 import { GetTrafficDistribution$ } from "../schemas/schemas_0";
 
 /**

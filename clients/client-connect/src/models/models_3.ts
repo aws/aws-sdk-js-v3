@@ -132,6 +132,7 @@ import {
   HierarchyGroup,
   NextContactEntry,
   RecordingInfo,
+  TestCase,
 } from "./models_1";
 import type {
   BooleanCondition,
@@ -154,12 +155,151 @@ import type {
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RoutingProfileSearchFilter,
-  SecurityProfilesSearchFilter,
   SignInConfig,
   TelephonyConfig,
-  TestCaseSearchFilter,
-  UserHierarchyGroupSearchFilter,
 } from "./models_2";
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface SecurityProfilesSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * <p>Information about the returned security profiles.</p>
+ * @public
+ */
+export interface SecurityProfileSearchSummary {
+  /**
+   * <p>The identifier of the security profile.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The organization resource identifier.</p>
+   * @public
+   */
+  OrganizationResourceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the security profile.</p>
+   * @public
+   */
+  SecurityProfileName?: string | undefined;
+
+  /**
+   * <p>The description of the security profile.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSecurityProfilesResponse {
+  /**
+   * <p>Information about the security profiles.</p>
+   * @public
+   */
+  SecurityProfiles?: SecurityProfileSearchSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of security profiles which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface TestCaseSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the SearchFilter. This accepts an OR of AND (List of List) input where: Top level list specifies conditions that need to be applied with OR operator. Inner list specifies conditions that need to be applied with AND operator.</p>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTestCasesResponse {
+  /**
+   * <p>Information about the test cases.</p>
+   * @public
+   */
+  TestCases?: TestCase[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of test cases which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface UserHierarchyGroupSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the SearchFilter. This accepts an OR or AND (List of
+   *    List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
+}
 
 /**
  * @public

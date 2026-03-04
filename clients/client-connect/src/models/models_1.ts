@@ -56,7 +56,6 @@ import {
   Status,
   StorageType,
   TaskTemplateStatus,
-  TestCaseExecutionStatus,
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   Unit,
@@ -84,8 +83,6 @@ import {
   type OutboundEmailConfig,
   type OverrideTimeSlice,
   type PaletteCanvas,
-  type PaletteHeader,
-  type PaletteNavigation,
   type ParticipantCapabilities,
   type PredefinedAttributeValues,
   type QueueReference,
@@ -119,6 +116,84 @@ import {
   TaskTemplateField,
   VoiceEnhancementConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains color configuration for header elements in a workspace theme.</p>
+ * @public
+ */
+export interface PaletteHeader {
+  /**
+   * <p>The background color of the header.</p>
+   * @public
+   */
+  Background?: string | undefined;
+
+  /**
+   * <p>The text color in the header.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The text color when hovering over header elements.</p>
+   * @public
+   */
+  TextHover?: string | undefined;
+
+  /**
+   * <p>Whether to invert the colors of action buttons in the header.</p>
+   * @public
+   */
+  InvertActionsColors?: boolean | undefined;
+}
+
+/**
+ * <p>Contains color configuration for navigation elements in a workspace theme.</p>
+ * @public
+ */
+export interface PaletteNavigation {
+  /**
+   * <p>The background color of the navigation area.</p>
+   * @public
+   */
+  Background?: string | undefined;
+
+  /**
+   * <p>The background color when hovering over navigation text.</p>
+   * @public
+   */
+  TextBackgroundHover?: string | undefined;
+
+  /**
+   * <p>The background color for active navigation items.</p>
+   * @public
+   */
+  TextBackgroundActive?: string | undefined;
+
+  /**
+   * <p>The text color in the navigation area.</p>
+   * @public
+   */
+  Text?: string | undefined;
+
+  /**
+   * <p>The text color when hovering over navigation items.</p>
+   * @public
+   */
+  TextHover?: string | undefined;
+
+  /**
+   * <p>The text color for active navigation items.</p>
+   * @public
+   */
+  TextActive?: string | undefined;
+
+  /**
+   * <p>Whether to invert the colors of action buttons in the navigation area.</p>
+   * @public
+   */
+  InvertActionsColors?: boolean | undefined;
+}
 
 /**
  * <p>Contains primary color configuration for a workspace theme.</p>
@@ -5962,6 +6037,38 @@ export interface DisassociatePhoneNumberContactFlowRequest {
 /**
  * @public
  */
+export interface DisassociateQueueEmailAddressesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the queue.</p>
+   * @public
+   */
+  QueueId: string | undefined;
+
+  /**
+   * <p>List of email address identifiers to disassociate from the queue. These are the unique identifiers of email addresses that should no longer be routed to this queue.</p>
+   * @public
+   */
+  EmailAddressesId: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateQueueQuickConnectsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -10266,64 +10373,4 @@ export interface ObservationSummary {
    * @public
    */
   ObservationsFailed?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTestCaseExecutionSummaryResponse {
-  /**
-   * <p>The timestamp when the test case execution started.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the test case execution ended.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The status of the test case execution.</p>
-   * @public
-   */
-  Status?: TestCaseExecutionStatus | undefined;
-
-  /**
-   * <p>Summary statistics for the test case execution.</p>
-   * @public
-   */
-  ObservationSummary?: ObservationSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTrafficDistributionRequest {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN if the API is being called in the Region where the traffic distribution group was created.
-   * The ARN must be provided if the call is from the replicated Region.</p>
-   * @public
-   */
-  Id: string | undefined;
-}
-
-/**
- * <p>The distribution of sign in traffic between the instance and its replica(s).</p>
- * @public
- */
-export interface SignInDistribution {
-  /**
-   * <p>The Amazon Web Services Region of the sign in distribution.</p>
-   * @public
-   */
-  Region: string | undefined;
-
-  /**
-   * <p>Whether sign in distribution is enabled.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
 }
