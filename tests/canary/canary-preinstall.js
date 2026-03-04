@@ -1,4 +1,4 @@
-const assert = require("assert");
+const assert = require("node:assert");
 
 /**
  * This test asserts that prior to the installation of
