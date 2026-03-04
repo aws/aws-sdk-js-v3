@@ -178,6 +178,9 @@ export interface DescribeElasticsearchDomainsCommandOutput extends DescribeElast
  * //           ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //         },
  * //       ],
+ * //       DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
  * //     },
  * //   ],
  * // };

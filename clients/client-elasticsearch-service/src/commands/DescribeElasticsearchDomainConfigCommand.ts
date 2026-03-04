@@ -245,6 +245,12 @@ export interface DescribeElasticsearchDomainConfigCommandOutput extends Describe
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
+ * //       Options: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //   },
  * // };
  *

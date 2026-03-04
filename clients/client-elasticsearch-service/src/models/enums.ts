@@ -117,6 +117,19 @@ export type TimeUnit = (typeof TimeUnit)[keyof typeof TimeUnit];
  * @public
  * @enum
  */
+export const DeploymentStrategy = {
+  CAPACITY_OPTIMIZED: "CapacityOptimized",
+  DEFAULT: "Default",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentStrategy = (typeof DeploymentStrategy)[keyof typeof DeploymentStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const TLSSecurityPolicy = {
   POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
   POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",

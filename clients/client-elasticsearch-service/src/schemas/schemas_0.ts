@@ -179,6 +179,9 @@ const _DREIRe = "DescribeReservedElasticsearchInstancesResponse";
 const _DRR = "DryRunResults";
 const _DS = "DesiredState";
 const _DSL = "DomainStatusList";
+const _DSO = "DeploymentStrategyOptions";
+const _DSOS = "DeploymentStrategyOptionsStatus";
+const _DSe = "DeploymentStrategy";
 const _DSo = "DomainStatus";
 const _DT = "DeploymentType";
 const _DVE = "DeleteVpcEndpoint";
@@ -766,8 +769,8 @@ export var CompatibleVersionsMap$: StaticStructureSchema = [3, n0, _CVM,
 ];
 export var CreateElasticsearchDomainRequest$: StaticStructureSchema = [3, n0, _CEDR,
   0,
-  [_DN, _EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _TL],
-  [0, 0, () => ElasticsearchClusterConfig$, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => AutoTuneOptionsInput$, () => TagList], 1
+  [_DN, _EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _TL, _DSO],
+  [0, 0, () => ElasticsearchClusterConfig$, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => AutoTuneOptionsInput$, () => TagList, () => DeploymentStrategyOptions$], 1
 ];
 export var CreateElasticsearchDomainResponse$: StaticStructureSchema = [3, n0, _CEDRr,
   0,
@@ -853,6 +856,16 @@ export var DeleteVpcEndpointResponse$: StaticStructureSchema = [3, n0, _DVERe,
   0,
   [_VES],
   [() => VpcEndpointSummary$], 1
+];
+export var DeploymentStrategyOptions$: StaticStructureSchema = [3, n0, _DSO,
+  0,
+  [_DSe],
+  [0], 1
+];
+export var DeploymentStrategyOptionsStatus$: StaticStructureSchema = [3, n0, _DSOS,
+  0,
+  [_O, _S],
+  [() => DeploymentStrategyOptions$, () => OptionStatus$], 2
 ];
 export var DescribeDomainAutoTunesRequest$: StaticStructureSchema = [3, n0, _DDATR,
   0,
@@ -1046,13 +1059,13 @@ export var ElasticsearchClusterConfigStatus$: StaticStructureSchema = [3, n0, _E
 ];
 export var ElasticsearchDomainConfig$: StaticStructureSchema = [3, n0, _EDC,
   0,
-  [_EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _CPD, _MP],
-  [() => ElasticsearchVersionStatus$, () => ElasticsearchClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => ModifyingPropertiesList]
+  [_EV, _ECC, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _DEO, _ASO, _ATO, _CPD, _MP, _DSO],
+  [() => ElasticsearchVersionStatus$, () => ElasticsearchClusterConfigStatus$, () => EBSOptionsStatus$, () => AccessPoliciesStatus$, () => SnapshotOptionsStatus$, () => VPCDerivedInfoStatus$, () => CognitoOptionsStatus$, () => EncryptionAtRestOptionsStatus$, () => NodeToNodeEncryptionOptionsStatus$, () => AdvancedOptionsStatus$, () => LogPublishingOptionsStatus$, () => DomainEndpointOptionsStatus$, () => AdvancedSecurityOptionsStatus$, () => AutoTuneOptionsStatus$, () => ChangeProgressDetails$, () => ModifyingPropertiesList, () => DeploymentStrategyOptionsStatus$]
 ];
 export var ElasticsearchDomainStatus$: StaticStructureSchema = [3, n0, _EDS,
   0,
-  [_DIom, _DN, _ARN, _ECC, _C, _Del, _En, _End, _Pro, _UP, _EV, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ATO, _CPD, _DPSo, _MP],
-  [0, 0, 0, () => ElasticsearchClusterConfig$, 2, 2, 0, 128 | 0, 2, 2, 0, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, 0, () => ModifyingPropertiesList], 4
+  [_DIom, _DN, _ARN, _ECC, _C, _Del, _En, _End, _Pro, _UP, _EV, _EBSO, _APc, _SO, _VPCO, _CO, _EARO, _NTNEO, _AO, _LPO, _SSO, _DEO, _ASO, _ATO, _CPD, _DPSo, _MP, _DSO],
+  [0, 0, 0, () => ElasticsearchClusterConfig$, 2, 2, 0, 128 | 0, 2, 2, 0, () => EBSOptions$, 0, () => SnapshotOptions$, () => VPCDerivedInfo$, () => CognitoOptions$, () => EncryptionAtRestOptions$, () => NodeToNodeEncryptionOptions$, 128 | 0, () => LogPublishingOptions, () => ServiceSoftwareOptions$, () => DomainEndpointOptions$, () => AdvancedSecurityOptions$, () => AutoTuneOptionsOutput$, () => ChangeProgressDetails$, 0, () => ModifyingPropertiesList, () => DeploymentStrategyOptions$], 4
 ];
 export var ElasticsearchVersionStatus$: StaticStructureSchema = [3, n0, _EVS,
   0,
@@ -1406,8 +1419,8 @@ export var Tag$: StaticStructureSchema = [3, n0, _Ta,
 ];
 export var UpdateElasticsearchDomainConfigRequest$: StaticStructureSchema = [3, n0, _UEDCR,
   0,
-  [_DN, _ECC, _EBSO, _SO, _VPCO, _CO, _AO, _APc, _LPO, _DEO, _ASO, _NTNEO, _EARO, _ATO, _DR],
-  [[0, 1], () => ElasticsearchClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => NodeToNodeEncryptionOptions$, () => EncryptionAtRestOptions$, () => AutoTuneOptions$, 2], 1
+  [_DN, _ECC, _EBSO, _SO, _VPCO, _CO, _AO, _APc, _LPO, _DEO, _ASO, _NTNEO, _EARO, _ATO, _DR, _DSO],
+  [[0, 1], () => ElasticsearchClusterConfig$, () => EBSOptions$, () => SnapshotOptions$, () => VPCOptions$, () => CognitoOptions$, 128 | 0, 0, () => LogPublishingOptions, () => DomainEndpointOptions$, [() => AdvancedSecurityOptionsInput$, 0], () => NodeToNodeEncryptionOptions$, () => EncryptionAtRestOptions$, () => AutoTuneOptions$, 2, () => DeploymentStrategyOptions$], 1
 ];
 export var UpdateElasticsearchDomainConfigResponse$: StaticStructureSchema = [3, n0, _UEDCRp,
   0,

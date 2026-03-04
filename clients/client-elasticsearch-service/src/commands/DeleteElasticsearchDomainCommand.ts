@@ -175,6 +175,9 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
  * //   },
  * // };
  *

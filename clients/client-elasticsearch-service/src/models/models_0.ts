@@ -5,6 +5,7 @@ import {
   AutoTuneType,
   ConfigChangeStatus,
   DeploymentStatus,
+  DeploymentStrategy,
   DescribePackagesFilterName,
   DomainPackageStatus,
   DomainProcessingStatusType,
@@ -907,6 +908,18 @@ export interface CognitoOptions {
 }
 
 /**
+ * <p>Specifies the deployment strategy options for the domain.</p>
+ * @public
+ */
+export interface DeploymentStrategyOptions {
+  /**
+   * <p>Specifies the deployment strategy for the domain. Valid values are <code>Default</code> and <code>CapacityOptimized</code>.</p>
+   * @public
+   */
+  DeploymentStrategy: DeploymentStrategy | undefined;
+}
+
+/**
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  * @public
  */
@@ -1266,6 +1279,12 @@ export interface CreateElasticsearchDomainRequest {
    * @public
    */
   TagList?: Tag[] | undefined;
+
+  /**
+   * <p>Specifies the deployment strategy options.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**
@@ -1553,6 +1572,12 @@ export interface ElasticsearchDomainStatus {
    * @public
    */
   ModifyingProperties?: ModifyingProperties[] | undefined;
+
+  /**
+   * <p>The current status of the Elasticsearch domain's deployment strategy options.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**
@@ -2430,6 +2455,24 @@ export interface CognitoOptionsStatus {
 }
 
 /**
+ * <p>Specifies the status of deployment strategy options for the specified Elasticsearch domain.</p>
+ * @public
+ */
+export interface DeploymentStrategyOptionsStatus {
+  /**
+   * <p>Specifies deployment strategy options for the specified Elasticsearch domain.</p>
+   * @public
+   */
+  Options: DeploymentStrategyOptions | undefined;
+
+  /**
+   * <p>Specifies the status of the deployment strategy options for the specified Elasticsearch domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>The configured endpoint options for the domain and their current status.</p>
  * @public
  */
@@ -2691,6 +2734,12 @@ export interface ElasticsearchDomainConfig {
    * @public
    */
   ModifyingProperties?: ModifyingProperties[] | undefined;
+
+  /**
+   * <p>Specifies <code>DeploymentStrategyOptions</code> for the domain. </p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptionsStatus | undefined;
 }
 
 /**
@@ -4555,6 +4604,12 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    */
   DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specifies the deployment strategy options.</p>
+   * @public
+   */
+  DeploymentStrategyOptions?: DeploymentStrategyOptions | undefined;
 }
 
 /**

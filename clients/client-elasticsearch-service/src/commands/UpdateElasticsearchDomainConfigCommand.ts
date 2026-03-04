@@ -147,6 +147,9 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  *     ],
  *   },
  *   DryRun: true || false,
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ *   },
  * };
  * const command = new UpdateElasticsearchDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -347,6 +350,12 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptionsStatus
+ * //       Options: { // DeploymentStrategyOptions
+ * //         DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //   },
  * //   DryRunResults: { // DryRunResults
  * //     DeploymentType: "STRING_VALUE",

@@ -150,6 +150,9 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ *     DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ *   },
  * };
  * const command = new CreateElasticsearchDomainCommand(input);
  * const response = await client.send(command);
@@ -283,6 +286,9 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
  * //       },
  * //     ],
+ * //     DeploymentStrategyOptions: { // DeploymentStrategyOptions
+ * //       DeploymentStrategy: "Default" || "CapacityOptimized", // required
+ * //     },
  * //   },
  * // };
  *
