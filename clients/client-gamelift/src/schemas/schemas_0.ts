@@ -322,8 +322,10 @@ const _ETv = "EventTime";
 const _ETx = "ExpirationTimestamp";
 const _ETxp = "ExpirationTime";
 const _EWT = "EstimatedWaitTime";
+const _En = "Endpoints";
 const _Es = "Essential";
 const _Ev = "Event";
+const _Ex = "Expiration";
 const _F = "Filters";
 const _FA = "FleetArn";
 const _FAL = "FleetAttributesList";
@@ -361,6 +363,9 @@ const _GLAE = "GameLiftAgentEndpoint";
 const _GLSSE = "GameLiftServiceSdkEndpoint";
 const _GLVI = "GameLiftVpcId";
 const _GP = "GameProperties";
+const _GPCD = "GetPlayerConnectionDetails";
+const _GPCDI = "GetPlayerConnectionDetailsInput";
+const _GPCDO = "GetPlayerConnectionDetailsOutput";
 const _GPL = "GamePropertyList";
 const _GPa = "GameProperty";
 const _GS = "GameServer";
@@ -387,6 +392,7 @@ const _GSGASP = "GameServerGroupAutoScalingPolicy";
 const _GSGN = "GameServerGroupName";
 const _GSGa = "GameServerGroups";
 const _GSI = "GameServerId";
+const _GSIPS = "GameServerIpProtocolSupported";
 const _GSIa = "GameSessionId";
 const _GSIam = "GameServerInstances";
 const _GSIame = "GameServerInstance";
@@ -562,6 +568,11 @@ const _PA = "PlayerAttributes";
 const _PAM = "PlayerAttributeMap";
 const _PB = "PingBeacon";
 const _PC = "PriorityConfiguration";
+const _PCD = "PlayerConnectionDetails";
+const _PCDL = "PlayerConnectionDetailList";
+const _PCDl = "PlayerConnectionDetail";
+const _PCE = "PlayerConnectionEndpoint";
+const _PCEL = "PlayerConnectionEndpointList";
 const _PCO = "PriorityConfigurationOverride";
 const _PCo = "PortConfiguration";
 const _PD = "PlayerData";
@@ -569,6 +580,10 @@ const _PDM = "PlayerDataMap";
 const _PDS = "PolicyDurationSeconds";
 const _PENDING = "PENDING";
 const _PFS = "PlacementFallbackStrategy";
+const _PGC = "PlayerGatewayConfiguration";
+const _PGM = "PlayerGatewayMode";
+const _PGS = "PlayerGatewayStatus";
+const _PGT = "PlayerGatewayToken";
 const _PI = "PlayerId";
 const _PIBA = "PerInstanceBinaryArn";
 const _PICGDA = "PerInstanceContainerGroupDefinitionArn";
@@ -1054,13 +1069,13 @@ export var ContainerEnvironment$: StaticStructureSchema = [3, n0, _CEo,
 ];
 export var ContainerFleet$: StaticStructureSchema = [3, n0, _CF,
   0,
-  [_FI, _FA, _FRA, _GSCGDN, _GSCGDA, _PICGDN, _PICGDA, _ICPR, _IIP, _GSCGPI, _MGSCGPI, _IT, _BT, _D, _CT, _MG, _NGSPP, _GSCLP, _St, _DD, _LC, _LA],
-  [0, 0, 0, 0, 0, 0, 0, [() => ConnectionPortRange$, 0], [() => IpPermissionsList, 0], 1, 1, 0, 0, 0, 4, 64 | 0, 0, () => GameSessionCreationLimitPolicy$, 0, () => DeploymentDetails$, () => LogConfiguration$, () => ContainerFleetLocationAttributesList]
+  [_FI, _FA, _FRA, _GSCGDN, _GSCGDA, _PICGDN, _PICGDA, _ICPR, _IIP, _GSCGPI, _MGSCGPI, _IT, _BT, _D, _CT, _MG, _NGSPP, _GSCLP, _St, _DD, _LC, _LA, _PGM],
+  [0, 0, 0, 0, 0, 0, 0, [() => ConnectionPortRange$, 0], [() => IpPermissionsList, 0], 1, 1, 0, 0, 0, 4, 64 | 0, 0, () => GameSessionCreationLimitPolicy$, 0, () => DeploymentDetails$, () => LogConfiguration$, () => ContainerFleetLocationAttributesList, 0]
 ];
 export var ContainerFleetLocationAttributes$: StaticStructureSchema = [3, n0, _CFLA,
   0,
-  [_L, _St],
-  [0, 0]
+  [_L, _St, _PGS],
+  [0, 0, 0]
 ];
 export var ContainerGroupDefinition$: StaticStructureSchema = [3, n0, _CGD,
   0,
@@ -1114,8 +1129,8 @@ export var CreateBuildOutput$: StaticStructureSchema = [3, n0, _CBO,
 ];
 export var CreateContainerFleetInput$: StaticStructureSchema = [3, n0, _CCFI,
   0,
-  [_FRA, _D, _GSCGDN, _PICGDN, _ICPR, _IIP, _GSCGPI, _IT, _BT, _Lo, _MG, _NGSPP, _GSCLP, _LC, _Ta],
-  [0, 0, 0, 0, [() => ConnectionPortRange$, 0], [() => IpPermissionsList, 0], 1, 0, 0, () => LocationConfigurationList, 64 | 0, 0, () => GameSessionCreationLimitPolicy$, () => LogConfiguration$, () => TagList], 1
+  [_FRA, _D, _GSCGDN, _PICGDN, _ICPR, _IIP, _GSCGPI, _IT, _BT, _Lo, _MG, _NGSPP, _GSCLP, _LC, _Ta, _PGM],
+  [0, 0, 0, 0, [() => ConnectionPortRange$, 0], [() => IpPermissionsList, 0], 1, 0, 0, () => LocationConfigurationList, 64 | 0, 0, () => GameSessionCreationLimitPolicy$, () => LogConfiguration$, () => TagList, 0], 1
 ];
 export var CreateContainerFleetOutput$: StaticStructureSchema = [3, n0, _CCFO,
   0,
@@ -1134,8 +1149,8 @@ export var CreateContainerGroupDefinitionOutput$: StaticStructureSchema = [3, n0
 ];
 export var CreateFleetInput$: StaticStructureSchema = [3, n0, _CFI,
   0,
-  [_N, _D, _BI, _SI, _SLP, _SLPe, _LP, _ECIT, _ECIP, _NGSPP, _RC, _RCLP, _MG, _PVAAI, _PVI, _FT, _IRA, _CC, _Lo, _Ta, _CTo, _AC, _IRCP],
-  [0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => IpPermissionsList, 0], 0, () => RuntimeConfiguration$, () => ResourceCreationLimitPolicy$, 64 | 0, 0, 0, 0, 0, () => CertificateConfiguration$, () => LocationConfigurationList, () => TagList, 0, () => AnywhereConfiguration$, 0], 1
+  [_N, _D, _BI, _SI, _SLP, _SLPe, _LP, _ECIT, _ECIP, _NGSPP, _RC, _RCLP, _MG, _PVAAI, _PVI, _FT, _IRA, _CC, _Lo, _Ta, _CTo, _AC, _IRCP, _PGM, _PGC],
+  [0, 0, 0, 0, 0, 0, 64 | 0, 0, [() => IpPermissionsList, 0], 0, () => RuntimeConfiguration$, () => ResourceCreationLimitPolicy$, 64 | 0, 0, 0, 0, 0, () => CertificateConfiguration$, () => LocationConfigurationList, () => TagList, 0, () => AnywhereConfiguration$, 0, 0, () => PlayerGatewayConfiguration$], 1
 ];
 export var CreateFleetLocationsInput$: StaticStructureSchema = [3, n0, _CFLI,
   0,
@@ -1759,8 +1774,8 @@ export var FilterConfiguration$: StaticStructureSchema = [3, n0, _FC,
 ];
 export var FleetAttributes$: StaticStructureSchema = [3, n0, _FAl,
   0,
-  [_FI, _FA, _FT, _IT, _D, _N, _CT, _TT, _St, _BI, _BA, _SI, _SA, _SLP, _SLPe, _LP, _NGSPP, _OS, _RCLP, _MG, _SAt, _IRA, _CC, _CTo, _AC, _IRCP],
-  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, () => ResourceCreationLimitPolicy$, 64 | 0, 64 | 0, 0, () => CertificateConfiguration$, 0, () => AnywhereConfiguration$, 0]
+  [_FI, _FA, _FT, _IT, _D, _N, _CT, _TT, _St, _BI, _BA, _SI, _SA, _SLP, _SLPe, _LP, _NGSPP, _OS, _RCLP, _MG, _SAt, _IRA, _CC, _CTo, _AC, _IRCP, _PGM, _PGC],
+  [0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, () => ResourceCreationLimitPolicy$, 64 | 0, 64 | 0, 0, () => CertificateConfiguration$, 0, () => AnywhereConfiguration$, 0, 0, () => PlayerGatewayConfiguration$]
 ];
 export var FleetCapacity$: StaticStructureSchema = [3, n0, _FCl,
   0,
@@ -1819,13 +1834,13 @@ export var GameServerInstance$: StaticStructureSchema = [3, n0, _GSIame,
 ];
 export var GameSession$: StaticStructureSchema = [3, n0, _GSa,
   0,
-  [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L],
-  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0]
+  [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L, _PGS],
+  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0, 0]
 ];
 export var GameSessionConnectionInfo$: StaticStructureSchema = [3, n0, _GSCI,
   0,
-  [_GSA, _IA, _DN, _Po, _MPS],
-  [0, [() => IpAddress, 0], 0, 1, [() => MatchedPlayerSessionList, 0]]
+  [_GSA, _IA, _DN, _Po, _MPS, _PGS],
+  [0, [() => IpAddress, 0], 0, 1, [() => MatchedPlayerSessionList, 0], 0]
 ];
 export var GameSessionCreationLimitPolicy$: StaticStructureSchema = [3, n0, _GSCLP,
   0,
@@ -1839,8 +1854,8 @@ export var GameSessionDetail$: StaticStructureSchema = [3, n0, _GSDame,
 ];
 export var GameSessionPlacement$: StaticStructureSchema = [3, n0, _GSP,
   0,
-  [_PIla, _GSQN, _St, _GP, _MPSC, _GSN, _GSIa, _GSA, _GSR, _PL, _STt, _ET, _IA, _DN, _Po, _PPS, _GSDa, _MD, _PCO],
-  [0, 0, 0, () => GamePropertyList, 1, 0, 0, 0, 0, [() => PlayerLatencyList, 0], 4, 4, [() => IpAddress, 0], 0, [() => PortNumber, 0], [() => PlacedPlayerSessionList, 0], 0, 0, () => PriorityConfigurationOverride$]
+  [_PIla, _GSQN, _St, _GP, _MPSC, _GSN, _GSIa, _GSA, _GSR, _PL, _STt, _ET, _IA, _DN, _Po, _PPS, _GSDa, _MD, _PCO, _PGS],
+  [0, 0, 0, () => GamePropertyList, 1, 0, 0, 0, 0, [() => PlayerLatencyList, 0], 4, 4, [() => IpAddress, 0], 0, [() => PortNumber, 0], [() => PlacedPlayerSessionList, 0], 0, 0, () => PriorityConfigurationOverride$, 0]
 ];
 export var GameSessionQueue$: StaticStructureSchema = [3, n0, _GSQ,
   0,
@@ -1891,6 +1906,16 @@ export var GetInstanceAccessOutput$: StaticStructureSchema = [3, n0, _GIAO,
   0,
   [_IAn],
   [[() => InstanceAccess$, 0]]
+];
+export var GetPlayerConnectionDetailsInput$: StaticStructureSchema = [3, n0, _GPCDI,
+  0,
+  [_GSIa, _PIl],
+  [0, [() => PlayerIdList, 0]], 2
+];
+export var GetPlayerConnectionDetailsOutput$: StaticStructureSchema = [3, n0, _GPCDO,
+  0,
+  [_GSIa, _PCD],
+  [0, [() => PlayerConnectionDetailList, 0]]
 ];
 export var Instance$: StaticStructureSchema = [3, n0, _Ins,
   0,
@@ -2074,8 +2099,8 @@ export var LocationModel$: StaticStructureSchema = [3, n0, _LM,
 ];
 export var LocationState$: StaticStructureSchema = [3, n0, _LSo,
   0,
-  [_L, _St],
-  [0, 0]
+  [_L, _St, _PGS],
+  [0, 0, 0]
 ];
 export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -2121,6 +2146,21 @@ export var Player$: StaticStructureSchema = [3, n0, _Pla,
   0,
   [_PI, _PA, _Te, _LIM],
   [[() => PlayerId, 0], () => PlayerAttributeMap, 0, 128 | 1]
+];
+export var PlayerConnectionDetail$: StaticStructureSchema = [3, n0, _PCDl,
+  0,
+  [_PI, _En, _PGT, _Ex],
+  [[() => PlayerId, 0], [() => PlayerConnectionEndpointList, 0], 0, 4]
+];
+export var PlayerConnectionEndpoint$: StaticStructureSchema = [3, n0, _PCE,
+  0,
+  [_IA, _Po],
+  [[() => IpAddress, 0], [() => PortNumber, 0]]
+];
+export var PlayerGatewayConfiguration$: StaticStructureSchema = [3, n0, _PGC,
+  0,
+  [_GSIPS],
+  [0]
 ];
 export var PlayerLatency$: StaticStructureSchema = [3, n0, _PLl,
   0,
@@ -2704,6 +2744,14 @@ var PlacedPlayerSessionList: StaticListSchema = [1, n0, _PPSL,
     0]
 ];
 var PlayerAttributeStringList = 64 | 0;
+var PlayerConnectionDetailList: StaticListSchema = [1, n0, _PCDL,
+  0, [() => PlayerConnectionDetail$,
+    0]
+];
+var PlayerConnectionEndpointList: StaticListSchema = [1, n0, _PCEL,
+  0, [() => PlayerConnectionEndpoint$,
+    0]
+];
 var PlayerIdList: StaticListSchema = [1, n0, _PIL,
   8, [() => PlayerId,
     0]
@@ -2982,6 +3030,9 @@ export var GetGameSessionLogUrl$: StaticOperationSchema = [9, n0, _GGSLU,
 ];
 export var GetInstanceAccess$: StaticOperationSchema = [9, n0, _GIA,
   0, () => GetInstanceAccessInput$, () => GetInstanceAccessOutput$
+];
+export var GetPlayerConnectionDetails$: StaticOperationSchema = [9, n0, _GPCD,
+  0, () => GetPlayerConnectionDetailsInput$, () => GetPlayerConnectionDetailsOutput$
 ];
 export var ListAliases$: StaticOperationSchema = [9, n0, _LAi,
   0, () => ListAliasesInput$, () => ListAliasesOutput$

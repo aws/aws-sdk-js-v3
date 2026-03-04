@@ -740,6 +740,19 @@ export type IpProtocol = (typeof IpProtocol)[keyof typeof IpProtocol];
  * @public
  * @enum
  */
+export const PlayerGatewayStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type PlayerGatewayStatus = (typeof PlayerGatewayStatus)[keyof typeof PlayerGatewayStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ContainerFleetLocationStatus = {
   ACTIVATING: "ACTIVATING",
   ACTIVE: "ACTIVE",
@@ -781,6 +794,20 @@ export const ProtectionPolicy = {
  * @public
  */
 export type ProtectionPolicy = (typeof ProtectionPolicy)[keyof typeof ProtectionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlayerGatewayMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  REQUIRED: "REQUIRED",
+} as const;
+/**
+ * @public
+ */
+export type PlayerGatewayMode = (typeof PlayerGatewayMode)[keyof typeof PlayerGatewayMode];
 
 /**
  * @public
@@ -892,6 +919,20 @@ export const InstanceRoleCredentialsProvider = {
  */
 export type InstanceRoleCredentialsProvider =
   (typeof InstanceRoleCredentialsProvider)[keyof typeof InstanceRoleCredentialsProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const GameServerIpProtocolSupported = {
+  DUAL_STACK: "DUAL_STACK",
+  IPv4: "IPv4",
+} as const;
+/**
+ * @public
+ */
+export type GameServerIpProtocolSupported =
+  (typeof GameServerIpProtocolSupported)[keyof typeof GameServerIpProtocolSupported];
 
 /**
  * @public

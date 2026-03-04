@@ -120,8 +120,10 @@ export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOut
  * //         { // ContainerFleetLocationAttributes
  * //           Location: "STRING_VALUE",
  * //           Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //           PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //         },
  * //       ],
+ * //       PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

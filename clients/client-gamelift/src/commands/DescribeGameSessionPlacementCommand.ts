@@ -36,7 +36,9 @@ export interface DescribeGameSessionPlacementCommandOutput extends DescribeGameS
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
  *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
  *             queues. Continuously polling with <code>DescribeGameSessionPlacement</code> should only
- *             be used for games in development with low game session usage. </p>
+ *             be used for games in development with low game session usage. For a reference
+ *             implementation of event-based game session placement tracking, see <a href="https://github.com/amazon-gamelift/amazon-gamelift-toolkit/tree/main/event-based-session-placement">
+ *                 Event-based game session placement guidance</a> in the Amazon GameLift Toolkit.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +94,7 @@ export interface DescribeGameSessionPlacementCommandOutput extends DescribeGameS
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

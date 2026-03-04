@@ -66,6 +66,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  * //     { // LocationState
  * //       Location: "STRING_VALUE",
  * //       Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //   ],
  * // };

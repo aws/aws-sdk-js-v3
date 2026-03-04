@@ -33,6 +33,7 @@ import {
   GameServerGroupInstanceType,
   GameServerGroupStatus,
   GameServerInstanceStatus,
+  GameServerIpProtocolSupported,
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSessionPlacementState,
@@ -49,6 +50,8 @@ import {
   MetricName,
   OperatingSystem,
   PlacementFallbackStrategy,
+  PlayerGatewayMode,
+  PlayerGatewayStatus,
   PlayerSessionCreationPolicy,
   PlayerSessionStatus,
   PolicyType,
@@ -961,6 +964,23 @@ export interface ContainerFleetLocationAttributes {
    * @public
    */
   Status?: ContainerFleetLocationStatus | undefined;
+
+  /**
+   * <p>The current status of player gateway in this location for this container fleet. Note, even if a container fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available for this container fleet location.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> -- Player gateway is not available for this container fleet location.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayStatus?: PlayerGatewayStatus | undefined;
 }
 
 /**
@@ -1221,6 +1241,13 @@ export interface ContainerFleet {
    * @public
    */
   LocationAttributes?: ContainerFleetLocationAttributes[] | undefined;
+
+  /**
+   * <p>Indicates whether player gateway is enabled for this container fleet. Player gateway provides benefits such as DDoS protection with negligible impact to latency.</p>
+   *          <p>If <code>ENABLED</code> or <code>REQUIRED</code>, game clients can use player gateway to connect with the game server. If <code>DISABLED</code>, game clients cannot use player gateway. Instead, they have to directly connect to the game server.</p>
+   * @public
+   */
+  PlayerGatewayMode?: PlayerGatewayMode | undefined;
 }
 
 /**
@@ -2234,6 +2261,29 @@ export interface CreateContainerFleetInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy.</p>
+   *          <p>
+   *             <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS protection with Amazon GameLift Servers player gateway</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default) -- Game clients connect to the game server endpoint. Use this when you do not intend to integrate your game with player gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available in fleet locations where it is supported. Your game backend can call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to obtain a player gateway token and endpoints for game clients.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRED</code> -- Player gateway is available in fleet locations where it is supported, and the fleet can only use locations that support this feature. Attempting to add a remote location to your fleet which does not support player gateway will result in an <code>InvalidRequestException</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayMode?: PlayerGatewayMode | undefined;
 }
 
 /**
@@ -2578,6 +2628,18 @@ export interface CreateContainerGroupDefinitionOutput {
    * @public
    */
   ContainerGroupDefinition?: ContainerGroupDefinition | undefined;
+}
+
+/**
+ * <p>Configuration settings for player gateway. Use these settings to specify advanced options for how player gateway handles connections.</p>
+ * @public
+ */
+export interface PlayerGatewayConfiguration {
+  /**
+   * <p>The IP protocol that your game servers support for player connections through player gateway. If the value is set to <code>IPv4</code>, GameLift will install and execute a lightweight IP translation software on fleet instances to receive and transform incoming IPv6 traffic to IPv4. If the value is set to <code>DUAL_STACK</code>, the lightweight IP translation software will not be installed on fleet instances. <code>DUAL_STACK</code> provides slightly better performance than <code>IPv4</code>.</p>
+   * @public
+   */
+  GameServerIpProtocolSupported?: GameServerIpProtocolSupported | undefined;
 }
 
 /**
@@ -2944,6 +3006,35 @@ export interface CreateFleetInput {
    * @public
    */
   InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider | undefined;
+
+  /**
+   * <p>Configures player gateway for your fleet. Player gateway provides benefits such as DDoS protection by rate limiting and validating traﬃc before it reaches game servers, hiding game server IP addresses from players, and providing updated endpoints when relay endpoints become unhealthy. Note, player gateway is only available for fleets using server SDK 5.x or later game server builds.</p>
+   *          <p>
+   *             <b>How it works:</b> When enabled, game clients connect to relay endpoints instead of to your game servers. Player gateway validates player gateway tokens and routes traffic to the appropriate game server. Your game backend calls <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to retrieve relay endpoints and player gateway tokens for your game clients. To learn more about this topic, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/ddos-protection-intro.html">DDoS protection with Amazon GameLift Servers player gateway</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> (default) -- Game clients connect to the game server endpoint. Use this when you do not intend to integrate your game with player gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available in fleet locations where it is supported. Your game backend can call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to obtain a player gateway token and endpoints for game clients.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REQUIRED</code> -- Player gateway is available in fleet locations where it is supported, and the fleet can only use locations that support this feature. Attempting to add a remote location to your fleet which does not support player gateway will result in an <code>InvalidRequestException</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayMode?: PlayerGatewayMode | undefined;
+
+  /**
+   * <p>Configuration settings for player gateway. Use this to specify advanced options for how player gateway handles connections.</p>
+   * @public
+   */
+  PlayerGatewayConfiguration?: PlayerGatewayConfiguration | undefined;
 }
 
 /**
@@ -3224,6 +3315,19 @@ export interface FleetAttributes {
    * @public
    */
   InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider | undefined;
+
+  /**
+   * <p>Indicates whether player gateway is enabled for this fleet. Player gateway provides benefits such as DDoS protection with negligible impact to latency.</p>
+   *          <p>If <code>ENABLED</code> or <code>REQUIRED</code>, game clients can use player gateway to connect with the game server. If <code>DISABLED</code>, game clients cannot use player gateway. Instead, they have to directly connect to the game server.</p>
+   * @public
+   */
+  PlayerGatewayMode?: PlayerGatewayMode | undefined;
+
+  /**
+   * <p>Configuration settings for player gateway on this fleet.</p>
+   * @public
+   */
+  PlayerGatewayConfiguration?: PlayerGatewayConfiguration | undefined;
 }
 
 /**
@@ -3284,6 +3388,23 @@ export interface LocationState {
    * @public
    */
   Status?: FleetStatus | undefined;
+
+  /**
+   * <p>The current status of player gateway in this location for this fleet. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available for this fleet location.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> -- Player gateway is not available for this fleet location.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayStatus?: PlayerGatewayStatus | undefined;
 }
 
 /**
@@ -3788,7 +3909,14 @@ export interface GameProperty {
   /**
    * <p>The game property identifier.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -3838,7 +3966,14 @@ export interface CreateGameSessionInput {
    *           For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-create">Create a game session with custom properties</a>.
    *         </p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -4001,7 +4136,14 @@ export interface GameSession {
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -4073,6 +4215,23 @@ export interface GameSession {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>Indicates whether player gateway is available for use for this game session. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available for routing player connections for this game session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> -- Player gateway is not available for this game session.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayStatus?: PlayerGatewayStatus | undefined;
 }
 
 /**
@@ -4549,7 +4708,14 @@ export interface CreateMatchmakingConfigurationInput {
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -4710,7 +4876,14 @@ export interface MatchmakingConfiguration {
    *             created for a successful match. This parameter is not used when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -7445,7 +7618,14 @@ export interface GameSessionPlacement {
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -7568,6 +7748,23 @@ export interface GameSessionPlacement {
    * @public
    */
   PriorityConfigurationOverride?: PriorityConfigurationOverride | undefined;
+
+  /**
+   * <p>The current status of player gateway for the game session placement. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service locations</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available for this game session placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> -- Player gateway is not available for this game session placement.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayStatus?: PlayerGatewayStatus | undefined;
 }
 
 /**
@@ -7941,6 +8138,23 @@ export interface GameSessionConnectionInfo {
    * @public
    */
   MatchedPlayerSessions?: MatchedPlayerSession[] | undefined;
+
+  /**
+   * <p>The current status of player gateway for the game session. Note, even if a fleet has PlayerGatewayMode configured as <code>ENABLED</code>, player gateway might not be available in a specific location. For more information about locations where player gateway is supported, see <a href="https://docs.aws.amazon.com/gameliftservers/latest/developerguide/gamelift-regions.html">supported locations</a>.</p>
+   *          <p>Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> -- Player gateway is available for this game session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> -- Player gateway is not available for this game session.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PlayerGatewayStatus?: PlayerGatewayStatus | undefined;
 }
 
 /**
@@ -9085,6 +9299,95 @@ export interface GetInstanceAccessOutput {
    * @public
    */
   InstanceAccess?: InstanceAccess | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPlayerConnectionDetailsInput {
+  /**
+   * <p>A unique identifier for the game session for which to retrieve player connection details.</p>
+   * @public
+   */
+  GameSessionId: string | undefined;
+
+  /**
+   * <p>List of unique identifiers for players. Connection details are returned for each player in this list.</p>
+   * @public
+   */
+  PlayerIds: string[] | undefined;
+}
+
+/**
+ * <p>Network address(es) and port(s) for connecting to a game session. </p>
+ * @public
+ */
+export interface PlayerConnectionEndpoint {
+  /**
+   * <p>IP address for connecting to the game session. When player gateway is enabled, this is a player gateway IP address. When player gateway is disabled, this is the game server IP address.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>Port number for connecting to the game session. When player gateway is enabled, this is a player gateway port. When player gateway is disabled, this is the game server port.</p>
+   * @public
+   */
+  Port?: number | undefined;
+}
+
+/**
+ * <p>Connection information for a game client to connect to a game session. This object contains the IP address(es), port(s), and authentication details your game client needs to establish a connection.</p>
+ *          <p>
+ *             <b>With player gateway enabled:</b> Contains relay endpoints and a player gateway token. Your game client must prepend player gateway token to each payload for validation and connection through relay endpoints.</p>
+ *          <p>
+ *             <b>With player gateway disabled:</b> Contains game server endpoint. Player gateway token and expiration fields are empty.</p>
+ * @public
+ */
+export interface PlayerConnectionDetail {
+  /**
+   * <p>A unique identifier for a player associated with this connection.</p>
+   * @public
+   */
+  PlayerId?: string | undefined;
+
+  /**
+   * <p>List of connection endpoints for the game client. Your game client uses these IP address(es) and port(s) to connect to the game session.</p>
+   *          <p>When player gateway is enabled, these are relay endpoints with benefits such as DDoS protection. When disabled, this is the game server endpoint.</p>
+   * @public
+   */
+  Endpoints?: PlayerConnectionEndpoint[] | undefined;
+
+  /**
+   * <p>Access token that your game client must prepend to all traffic sent through player gateway. Player gateway verifies identity and authorizes connection based on this token.</p>
+   *          <p>This value is empty when player gateway is disabled.</p>
+   * @public
+   */
+  PlayerGatewayToken?: string | undefined;
+
+  /**
+   * <p>When player gateway is enabled, this is the timestamp indicating when player gateway token expires. Your game backend should call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetPlayerConnectionDetails.html">GetPlayerConnectionDetails</a> to retrieve fresh connection information for your game clients before this time. Format is a number expressed in Unix time as milliseconds (for example <code>"1469498468.057"</code>). </p>
+   *          <p>This value is empty when player gateway is disabled.</p>
+   * @public
+   */
+  Expiration?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPlayerConnectionDetailsOutput {
+  /**
+   * <p>A unique identifier for the game session for which the player connection details were retrieved.</p>
+   * @public
+   */
+  GameSessionId?: string | undefined;
+
+  /**
+   * <p>A collection of player connection detail objects, one for each requested player.</p>
+   * @public
+   */
+  PlayerConnectionDetails?: PlayerConnectionDetail[] | undefined;
 }
 
 /**
@@ -10271,7 +10574,14 @@ export interface StartGameSessionPlacementInput {
    * <p>A set of key-value pairs that can store custom data in a game session.
    *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -10965,191 +11275,4 @@ export interface UpdateContainerGroupDefinitionOutput {
    * @public
    */
   ContainerGroupDefinition?: ContainerGroupDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetAttributesInput {
-  /**
-   * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
-   *             value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A human-readable description of a fleet.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The game session protection policy to apply to all new game sessions created in this
-   *             fleet. Game sessions that already exist are not affected. You can set protection for
-   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>NoProtection</b> -- The game session can be
-   *                     terminated during a scale-down event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>FullProtection</b> -- If the game session is in an
-   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
-   *                     event.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | undefined;
-
-  /**
-   * <p>Policy settings that limit the number of game sessions an individual player can create
-   *             over a span of time. </p>
-   * @public
-   */
-  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy | undefined;
-
-  /**
-   * <p>The name of a metric group to add this fleet to. Use a metric group in Amazon
-   *             CloudWatch to aggregate the metrics from multiple fleets. Provide an existing metric
-   *             group name, or create a new metric group by providing a new name. A fleet can only be in
-   *             one metric group at a time.</p>
-   * @public
-   */
-  MetricGroups?: string[] | undefined;
-
-  /**
-   * <p>Amazon GameLift Servers Anywhere configuration options.</p>
-   * @public
-   */
-  AnywhereConfiguration?: AnywhereConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetAttributesOutput {
-  /**
-   * <p>A unique identifier for the fleet that was updated.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
-   * @public
-   */
-  FleetArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetCapacityInput {
-  /**
-   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
-   *             value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
-   *             This value must fall between the minimum and maximum size limits. Changes in desired
-   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
-   *             settings.</p>
-   * @public
-   */
-  DesiredInstances?: number | undefined;
-
-  /**
-   * <p>The minimum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 0. This parameter cannot be set when using a
-   *             ManagedCapacityConfiguration where ZeroCapacityStrategy has a value of SCALE_TO_AND_FROM_ZERO.</p>
-   * @public
-   */
-  MinSize?: number | undefined;
-
-  /**
-   * <p>The maximum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 1.</p>
-   * @public
-   */
-  MaxSize?: number | undefined;
-
-  /**
-   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
-   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
-   * @public
-   */
-  Location?: string | undefined;
-
-  /**
-   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
-   * @public
-   */
-  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetCapacityOutput {
-  /**
-   * <p>A unique identifier for the fleet that was updated.</p>
-   * @public
-   */
-  FleetId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>. </p>
-   * @public
-   */
-  FleetArn?: string | undefined;
-
-  /**
-   * <p>The remote location being updated, expressed as an Amazon Web Services Region code, such as
-   *             <code>us-west-2</code>.</p>
-   * @public
-   */
-  Location?: string | undefined;
-
-  /**
-   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
-   * @public
-   */
-  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateFleetPortSettingsInput {
-  /**
-   * <p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN
-   *             value.</p>
-   * @public
-   */
-  FleetId: string | undefined;
-
-  /**
-   * <p>A collection of port settings to be added to the fleet resource.</p>
-   * @public
-   */
-  InboundPermissionAuthorizations?: IpPermission[] | undefined;
-
-  /**
-   * <p>A collection of port settings to be removed from the fleet resource.</p>
-   * @public
-   */
-  InboundPermissionRevocations?: IpPermission[] | undefined;
 }

@@ -206,8 +206,10 @@ export interface UpdateContainerFleetCommandOutput extends UpdateContainerFleetO
  * //       { // ContainerFleetLocationAttributes
  * //         Location: "STRING_VALUE",
  * //         Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //         PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //       },
  * //     ],
+ * //     PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
  * //   },
  * // };
  *

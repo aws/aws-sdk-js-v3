@@ -92,6 +92,7 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

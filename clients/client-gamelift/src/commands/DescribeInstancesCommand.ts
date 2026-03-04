@@ -28,7 +28,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesOutput,
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2</p>
+ *             <b>This API works with the following fleet types:</b>EC2, Container</p>
  *          <p>Retrieves information about the EC2 instances in an Amazon GameLift Servers managed fleet, including
  *             instance ID, connection data, and status. You can use this operation with a
  *             multi-location fleet to get location-specific instance information. As an alternative,

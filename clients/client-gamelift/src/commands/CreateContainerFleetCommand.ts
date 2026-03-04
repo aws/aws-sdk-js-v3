@@ -185,6 +185,7 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
  * };
  * const command = new CreateContainerFleetCommand(input);
  * const response = await client.send(command);
@@ -236,8 +237,10 @@ export interface CreateContainerFleetCommandOutput extends CreateContainerFleetO
  * //       { // ContainerFleetLocationAttributes
  * //         Location: "STRING_VALUE",
  * //         Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //         PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //       },
  * //     ],
+ * //     PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
  * //   },
  * // };
  *

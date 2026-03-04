@@ -762,6 +762,13 @@ GetInstanceAccess
 </details>
 <details>
 <summary>
+GetPlayerConnectionDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gamelift/command/GetPlayerConnectionDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/GetPlayerConnectionDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gamelift/Interface/GetPlayerConnectionDetailsCommandOutput/)
+</details>
+<details>
+<summary>
 ListAliases
 </summary>
 

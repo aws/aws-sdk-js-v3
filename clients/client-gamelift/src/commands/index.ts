@@ -71,6 +71,7 @@ export * from "./GetComputeAccessCommand";
 export * from "./GetComputeAuthTokenCommand";
 export * from "./GetGameSessionLogUrlCommand";
 export * from "./GetInstanceAccessCommand";
+export * from "./GetPlayerConnectionDetailsCommand";
 export * from "./ListAliasesCommand";
 export * from "./ListBuildsCommand";
 export * from "./ListComputeCommand";

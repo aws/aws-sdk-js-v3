@@ -109,6 +109,7 @@ export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOut
  * //             PlayerSessionId: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //       },
  * //       EstimatedWaitTime: Number("int"),
  * //     },

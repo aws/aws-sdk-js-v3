@@ -117,6 +117,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * //       GameSessionData: "STRING_VALUE",
  * //       MatchmakerData: "STRING_VALUE",
  * //       Location: "STRING_VALUE",
+ * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -200,6 +200,10 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *     Cost: "STRING_VALUE", // required
  *   },
  *   InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
+ *   PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
+ *   PlayerGatewayConfiguration: { // PlayerGatewayConfiguration
+ *     GameServerIpProtocolSupported: "IPv4" || "DUAL_STACK",
+ *   },
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
@@ -244,11 +248,16 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //       Cost: "STRING_VALUE", // required
  * //     },
  * //     InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
+ * //     PlayerGatewayMode: "DISABLED" || "ENABLED" || "REQUIRED",
+ * //     PlayerGatewayConfiguration: { // PlayerGatewayConfiguration
+ * //       GameServerIpProtocolSupported: "IPv4" || "DUAL_STACK",
+ * //     },
  * //   },
  * //   LocationStates: [ // LocationStateList
  * //     { // LocationState
  * //       Location: "STRING_VALUE",
  * //       Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //   ],
  * // };

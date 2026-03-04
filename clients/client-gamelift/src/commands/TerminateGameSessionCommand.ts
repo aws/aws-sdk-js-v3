@@ -118,6 +118,7 @@ export interface TerminateGameSessionCommandOutput extends TerminateGameSessionO
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
  * //     Location: "STRING_VALUE",
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

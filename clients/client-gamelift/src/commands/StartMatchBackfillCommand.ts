@@ -145,6 +145,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  * //           PlayerSessionId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //     EstimatedWaitTime: Number("int"),
  * //   },

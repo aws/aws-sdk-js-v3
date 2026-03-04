@@ -219,6 +219,7 @@ export interface StartGameSessionPlacementCommandOutput extends StartGameSession
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

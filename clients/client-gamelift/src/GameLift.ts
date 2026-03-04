@@ -334,6 +334,11 @@ import {
   GetInstanceAccessCommandInput,
   GetInstanceAccessCommandOutput,
 } from "./commands/GetInstanceAccessCommand";
+import {
+  GetPlayerConnectionDetailsCommand,
+  GetPlayerConnectionDetailsCommandInput,
+  GetPlayerConnectionDetailsCommandOutput,
+} from "./commands/GetPlayerConnectionDetailsCommand";
 import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommand, ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
@@ -636,6 +641,7 @@ const commands = {
   GetComputeAuthTokenCommand,
   GetGameSessionLogUrlCommand,
   GetInstanceAccessCommand,
+  GetPlayerConnectionDetailsCommand,
   ListAliasesCommand,
   ListBuildsCommand,
   ListComputeCommand,
@@ -1950,6 +1956,23 @@ export interface GameLift {
     args: GetInstanceAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInstanceAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPlayerConnectionDetailsCommand}
+   */
+  getPlayerConnectionDetails(
+    args: GetPlayerConnectionDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPlayerConnectionDetailsCommandOutput>;
+  getPlayerConnectionDetails(
+    args: GetPlayerConnectionDetailsCommandInput,
+    cb: (err: any, data?: GetPlayerConnectionDetailsCommandOutput) => void
+  ): void;
+  getPlayerConnectionDetails(
+    args: GetPlayerConnectionDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPlayerConnectionDetailsCommandOutput) => void
   ): void;
 
   /**

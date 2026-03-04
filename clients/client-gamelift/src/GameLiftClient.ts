@@ -285,6 +285,10 @@ import {
   GetGameSessionLogUrlCommandOutput,
 } from "./commands/GetGameSessionLogUrlCommand";
 import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from "./commands/GetInstanceAccessCommand";
+import {
+  GetPlayerConnectionDetailsCommandInput,
+  GetPlayerConnectionDetailsCommandOutput,
+} from "./commands/GetPlayerConnectionDetailsCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
@@ -484,6 +488,7 @@ export type ServiceInputTypes =
   | GetComputeAuthTokenCommandInput
   | GetGameSessionLogUrlCommandInput
   | GetInstanceAccessCommandInput
+  | GetPlayerConnectionDetailsCommandInput
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListComputeCommandInput
@@ -607,6 +612,7 @@ export type ServiceOutputTypes =
   | GetComputeAuthTokenCommandOutput
   | GetGameSessionLogUrlCommandOutput
   | GetInstanceAccessCommandOutput
+  | GetPlayerConnectionDetailsCommandOutput
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListComputeCommandOutput

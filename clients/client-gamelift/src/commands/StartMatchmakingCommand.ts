@@ -136,6 +136,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  * //           PlayerSessionId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //     EstimatedWaitTime: Number("int"),
  * //   },

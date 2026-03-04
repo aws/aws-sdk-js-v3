@@ -126,6 +126,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
  * //     Location: "STRING_VALUE",
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

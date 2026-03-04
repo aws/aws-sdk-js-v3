@@ -85,6 +85,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
  * //     Location: "STRING_VALUE",
+ * //     PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //   },
  * // };
  *

@@ -10,21 +10,212 @@ import {
   ProtectionPolicy,
 } from "./enums";
 import {
+  type AnywhereConfiguration,
   type FilterConfiguration,
   type GameServer,
   type GameServerGroup,
   type GameSession,
   type GameSessionQueue,
+  type ManagedCapacityConfiguration,
   type MatchmakingConfiguration,
   type PriorityConfiguration,
+  type ResourceCreationLimitPolicy,
   type RuntimeConfiguration,
   type S3Location,
   type Script,
   GameProperty,
   GameSessionQueueDestination,
   InstanceDefinition,
+  IpPermission,
   PlayerLatencyPolicy,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateFleetAttributesInput {
+  /**
+   * <p>A unique identifier for the fleet to update attribute metadata for. You can use either the fleet ID or ARN
+   *             value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>A descriptive label that is associated with a fleet. Fleet names do not need to be unique.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A human-readable description of a fleet.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The game session protection policy to apply to all new game sessions created in this
+   *             fleet. Game sessions that already exist are not affected. You can set protection for
+   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>NoProtection</b> -- The game session can be
+   *                     terminated during a scale-down event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FullProtection</b> -- If the game session is in an
+   *                         <code>ACTIVE</code> status, it cannot be terminated during a scale-down
+   *                     event.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  NewGameSessionProtectionPolicy?: ProtectionPolicy | undefined;
+
+  /**
+   * <p>Policy settings that limit the number of game sessions an individual player can create
+   *             over a span of time. </p>
+   * @public
+   */
+  ResourceCreationLimitPolicy?: ResourceCreationLimitPolicy | undefined;
+
+  /**
+   * <p>The name of a metric group to add this fleet to. Use a metric group in Amazon
+   *             CloudWatch to aggregate the metrics from multiple fleets. Provide an existing metric
+   *             group name, or create a new metric group by providing a new name. A fleet can only be in
+   *             one metric group at a time.</p>
+   * @public
+   */
+  MetricGroups?: string[] | undefined;
+
+  /**
+   * <p>Amazon GameLift Servers Anywhere configuration options.</p>
+   * @public
+   */
+  AnywhereConfiguration?: AnywhereConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetAttributesOutput {
+  /**
+   * <p>A unique identifier for the fleet that was updated.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.</p>
+   * @public
+   */
+  FleetArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetCapacityInput {
+  /**
+   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
+   *             value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
+   *             This value must fall between the minimum and maximum size limits. Changes in desired
+   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
+   *             settings.</p>
+   * @public
+   */
+  DesiredInstances?: number | undefined;
+
+  /**
+   * <p>The minimum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 0. This parameter cannot be set when using a
+   *             ManagedCapacityConfiguration where ZeroCapacityStrategy has a value of SCALE_TO_AND_FROM_ZERO.</p>
+   * @public
+   */
+  MinSize?: number | undefined;
+
+  /**
+   * <p>The maximum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 1.</p>
+   * @public
+   */
+  MaxSize?: number | undefined;
+
+  /**
+   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
+   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetCapacityOutput {
+  /**
+   * <p>A unique identifier for the fleet that was updated.</p>
+   * @public
+   */
+  FleetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that is assigned to a Amazon GameLift Servers fleet resource and uniquely identifies it. ARNs are unique across all Regions. Format is <code>arn:aws:gamelift:<region>::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>. </p>
+   * @public
+   */
+  FleetArn?: string | undefined;
+
+  /**
+   * <p>The remote location being updated, expressed as an Amazon Web Services Region code, such as
+   *             <code>us-west-2</code>.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>Configuration for Amazon GameLift Servers-managed capacity scaling options.</p>
+   * @public
+   */
+  ManagedCapacityConfiguration?: ManagedCapacityConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateFleetPortSettingsInput {
+  /**
+   * <p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN
+   *             value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>A collection of port settings to be added to the fleet resource.</p>
+   * @public
+   */
+  InboundPermissionAuthorizations?: IpPermission[] | undefined;
+
+  /**
+   * <p>A collection of port settings to be removed from the fleet resource.</p>
+   * @public
+   */
+  InboundPermissionRevocations?: IpPermission[] | undefined;
+}
 
 /**
  * @public
@@ -236,7 +427,14 @@ export interface UpdateGameSessionInput {
    *         For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update the value of a game property</a>.
    *       </p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */
@@ -415,7 +613,14 @@ export interface UpdateMatchmakingConfigurationInput {
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    *          <note>
-   *             <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Avoid using periods (".") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    * @public
    */

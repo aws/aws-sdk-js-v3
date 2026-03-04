@@ -345,6 +345,7 @@ import {
   GameServerHealthCheck,
   GameServerInstance$,
   GameServerInstanceStatus,
+  GameServerIpProtocolSupported,
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSession$,
@@ -375,6 +376,10 @@ import {
   GetInstanceAccessCommand,
   GetInstanceAccessInput$,
   GetInstanceAccessOutput$,
+  GetPlayerConnectionDetails$,
+  GetPlayerConnectionDetailsCommand,
+  GetPlayerConnectionDetailsInput$,
+  GetPlayerConnectionDetailsOutput$,
   IdempotentParameterMismatchException,
   IdempotentParameterMismatchException$,
   Instance$,
@@ -503,6 +508,11 @@ import {
   PlacedPlayerSession$,
   PlacementFallbackStrategy,
   Player$,
+  PlayerConnectionDetail$,
+  PlayerConnectionEndpoint$,
+  PlayerGatewayConfiguration$,
+  PlayerGatewayMode,
+  PlayerGatewayStatus,
   PlayerLatency$,
   PlayerLatencyPolicy$,
   PlayerSession$,
@@ -825,6 +835,8 @@ assert(typeof GetGameSessionLogUrlCommand === "function");
 assert(typeof GetGameSessionLogUrl$ === "object");
 assert(typeof GetInstanceAccessCommand === "function");
 assert(typeof GetInstanceAccess$ === "object");
+assert(typeof GetPlayerConnectionDetailsCommand === "function");
+assert(typeof GetPlayerConnectionDetails$ === "object");
 assert(typeof ListAliasesCommand === "function");
 assert(typeof ListAliases$ === "object");
 assert(typeof ListBuildsCommand === "function");
@@ -1102,6 +1114,8 @@ assert(typeof GetGameSessionLogUrlInput$ === "object");
 assert(typeof GetGameSessionLogUrlOutput$ === "object");
 assert(typeof GetInstanceAccessInput$ === "object");
 assert(typeof GetInstanceAccessOutput$ === "object");
+assert(typeof GetPlayerConnectionDetailsInput$ === "object");
+assert(typeof GetPlayerConnectionDetailsOutput$ === "object");
 assert(typeof Instance$ === "object");
 assert(typeof InstanceAccess$ === "object");
 assert(typeof InstanceCredentials$ === "object");
@@ -1148,6 +1162,9 @@ assert(typeof MatchmakingTicket$ === "object");
 assert(typeof PingBeacon$ === "object");
 assert(typeof PlacedPlayerSession$ === "object");
 assert(typeof Player$ === "object");
+assert(typeof PlayerConnectionDetail$ === "object");
+assert(typeof PlayerConnectionEndpoint$ === "object");
+assert(typeof PlayerGatewayConfiguration$ === "object");
 assert(typeof PlayerLatency$ === "object");
 assert(typeof PlayerLatencyPolicy$ === "object");
 assert(typeof PlayerSession$ === "object");
@@ -1270,6 +1287,7 @@ assert(typeof GameServerGroupInstanceType === "object");
 assert(typeof GameServerGroupStatus === "object");
 assert(typeof GameServerHealthCheck === "object");
 assert(typeof GameServerInstanceStatus === "object");
+assert(typeof GameServerIpProtocolSupported === "object");
 assert(typeof GameServerProtectionPolicy === "object");
 assert(typeof GameServerUtilizationStatus === "object");
 assert(typeof GameSessionPlacementState === "object");
@@ -1286,6 +1304,8 @@ assert(typeof MatchmakingConfigurationStatus === "object");
 assert(typeof MetricName === "object");
 assert(typeof OperatingSystem === "object");
 assert(typeof PlacementFallbackStrategy === "object");
+assert(typeof PlayerGatewayMode === "object");
+assert(typeof PlayerGatewayStatus === "object");
 assert(typeof PlayerSessionCreationPolicy === "object");
 assert(typeof PlayerSessionStatus === "object");
 assert(typeof PolicyType === "object");
