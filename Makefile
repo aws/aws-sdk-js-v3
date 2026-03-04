@@ -32,7 +32,7 @@ test-codegen:
 	git diff --exit-code ./
 
 # typecheck for test code.
-test-types:
+test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.json
 
 test-indices:
@@ -78,7 +78,13 @@ test-x: test-browser-cross-platform
 # e2e tests run in browser, but using tests that also run in Node.js
 test-browser-cross-platform:
 	node ./scripts/browser-testing/writeTestCredentials.mjs
-	yarn g:vitest run -c vitest.config.cross-platform.e2e.mts --retry=4 --test-timeout=60000
+	yarn g:vitest run -c vitest.config.cross-platform.e2e.mts --retry=4 --test-timeout=60000; \
+		EXIT_CODE=$$?; \
+		make reset-test-credentials; \
+		exit $$EXIT_CODE;
+
+reset-test-credentials:
+	echo "export const testCredentials = {}" > ./scripts/browser-testing/aws.testCredentials.browser.ts
 
 test-bundlers:
 	(cd ./tests/bundlers && make build test)

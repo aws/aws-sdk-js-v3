@@ -3,6 +3,7 @@ import { BedrockRuntime, BidirectionalOutputPayloadPart$ } from "@aws-sdk/client
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
 import { LogLevel } from "@aws-sdk/config/logger";
 import { EventStreamCodec } from "@smithy/eventstream-codec";
+import type { HttpRequest } from "@smithy/protocol-http";
 import { toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 import { WebSocket } from "mock-socket";
@@ -79,7 +80,7 @@ describe("middleware-websocket", () => {
       },
       region: "us-west-2",
       requestHandler: new (class extends WebSocketFetchHandler {
-        async handle(request) {
+        async handle(request: HttpRequest) {
           request.hostname = `localhost`;
           request.protocol = "ws:";
           request.port = 6855;
@@ -148,8 +149,8 @@ describe("middleware-websocket", () => {
 
       let receiveCount = 0;
       const [serverConfirmation, resolve, reject] = (() => {
-        let resolve: (value?: unknown) => void;
-        let reject: (value?: unknown) => void;
+        let resolve: ((value?: unknown) => void) | undefined;
+        let reject: ((value?: unknown) => void) | undefined;
         const p = new Promise((res, rej) => {
           resolve = res;
           reject = rej;
@@ -202,13 +203,13 @@ describe("middleware-websocket", () => {
                 expect(deserialized.body).toEqual({
                   bytes: new Uint8Array([8, 9, 10, 11]),
                 });
-                resolve();
+                resolve?.();
                 break;
               default:
-                reject(new Error(`Exceeded expected message count=${receiveCount}`));
+                reject?.(new Error(`Exceeded expected message count=${receiveCount}`));
             }
           } catch (e) {
-            reject(new Error(`In socket receiveCount=${receiveCount}`, { cause: e }));
+            reject?.(new Error(`In socket receiveCount=${receiveCount}`, { cause: e }));
           }
         });
       });
@@ -251,7 +252,7 @@ describe("middleware-websocket", () => {
       server.send(toBase64(bytes));
 
       const responseChunks = [];
-      for await (const event of websocketResponse.body) {
+      for await (const event of websocketResponse.body ?? []) {
         responseChunks.push(event);
         expect(event).toEqual({
           chunk: {

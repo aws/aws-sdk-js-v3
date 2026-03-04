@@ -6,7 +6,10 @@
   },
   "extends": "./tsconfig.cjs.json",
   "include": [
+    "vitest.browser.setup.mts",
+    "vitest.nodejs.setup.mts",
     "packages/**/*.spec.ts",
+    "packages-internal/**/*.spec.ts",
     "lib/**/*.spec.ts",
     "clients/**/*.spec.ts",
     "private/**/*.spec.ts",
@@ -18,7 +21,7 @@
     "clients/client-s3/test/e2e/S3.browser.e2e.spec.ts",
     "private/aws-restjson-server/**/*.spec.ts",
     "private/aws-restjson-validation-server/**/*.spec.ts",
-    "packages/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
+    "packages-internal/signature-v4-multi-region/src/SignatureV4MultiRegion.browser.spec.ts",
     "**/snapshots.integ.spec.ts"
   ]
 }

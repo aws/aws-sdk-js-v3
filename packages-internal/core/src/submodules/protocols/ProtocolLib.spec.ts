@@ -55,8 +55,8 @@ describe("ProtocolLib", () => {
         expect(result.RequestId).toBe("test-request-id");
 
         expect(result.Error).toBeDefined();
-        expect(result.Error.Type).toBeUndefined();
-        expect(result.Error.Code).toBeUndefined();
+        expect(result.Error?.Type).toBeUndefined();
+        expect(result.Error?.Code).toBeUndefined();
       });
 
       it("should properly populate error.Error when it exists on the unmodeled error response structure", () => {
@@ -80,9 +80,9 @@ describe("ProtocolLib", () => {
         const result = lib.decorateServiceException(error, additions);
 
         expect(result.Error).toBeDefined();
-        expect(result.Error.Code).toBe("SomeOtherException");
-        expect(result.Error.Type).toBe("Sender");
-        expect(result.Error.Message).toBe("I forgot my umbrella.");
+        expect(result.Error?.Code).toBe("SomeOtherException");
+        expect(result.Error?.Type).toBe("Sender");
+        expect(result.Error?.Message).toBe("I forgot my umbrella.");
       });
 
       it("should use Message from additions when error.Error is missing", () => {
@@ -105,7 +105,7 @@ describe("ProtocolLib", () => {
 
         // The message property is set from Message
         expect(result.message).toBe("Since this is a spaceship, between zero and one.");
-        expect(result.Error.Message).toBe("Since this is a spaceship, between zero and one.");
+        expect(result.Error?.Message).toBe("Since this is a spaceship, between zero and one.");
       });
     });
 

@@ -2,8 +2,9 @@ import type { AwsCredentialIdentity } from "@aws-sdk/types";
 import { beforeAll, expect } from "vitest";
 
 declare global {
-  const aws: {
-    testCredentials: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
+  // eslint-disable-next-line no-var
+  var aws: {
+    testCredentials?: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
   };
 }
 

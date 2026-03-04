@@ -16,8 +16,9 @@ const sourceIdentity = testCredentials as unknown as Writable<AwsCredentialIdent
  *
  */
 declare global {
-  const aws: {
-    testCredentials: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
+  // eslint-disable-next-line no-var
+  var aws: {
+    testCredentials?: AwsCredentialIdentity | (() => Promise<AwsCredentialIdentity>);
   };
 }
 
