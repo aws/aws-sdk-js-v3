@@ -43,7 +43,7 @@ export interface DescribeSavingsPlansOfferingsCommandOutput extends DescribeSavi
  *   paymentOptions: [ // SavingsPlanPaymentOptionList
  *     "All Upfront" || "Partial Upfront" || "No Upfront",
  *   ],
- *   productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ *   productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
  *   planTypes: [ // SavingsPlanTypeList
  *     "Compute" || "EC2Instance" || "SageMaker" || "Database",
  *   ],
@@ -83,7 +83,7 @@ export interface DescribeSavingsPlansOfferingsCommandOutput extends DescribeSavi
  * //     { // SavingsPlanOffering
  * //       offeringId: "STRING_VALUE",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
  * //       ],
  * //       planType: "Compute" || "EC2Instance" || "SageMaker" || "Database",
  * //       description: "STRING_VALUE",

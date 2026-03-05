@@ -57,9 +57,9 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * //     { // SavingsPlanRate
  * //       rate: "STRING_VALUE",
  * //       currency: "CNY" || "USD" || "EUR",
- * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr",
- * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
- * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr" || "OCU-hours" || "Jobs",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc" || "AmazonES",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanRatePropertyList

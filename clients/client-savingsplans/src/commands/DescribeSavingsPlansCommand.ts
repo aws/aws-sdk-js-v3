@@ -74,7 +74,7 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * //       savingsPlanType: "Compute" || "EC2Instance" || "SageMaker" || "Database",
  * //       paymentOption: "All Upfront" || "Partial Upfront" || "No Upfront",
  * //       productTypes: [ // SavingsPlanProductTypeList
- * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ * //         "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
  * //       ],
  * //       currency: "CNY" || "USD" || "EUR",
  * //       commitment: "STRING_VALUE",

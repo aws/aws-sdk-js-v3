@@ -50,10 +50,10 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput extends Describe
  *     "Compute" || "EC2Instance" || "SageMaker" || "Database",
  *   ],
  *   products: [ // SavingsPlanProductTypeList
- *     "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
+ *     "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
  *   ],
  *   serviceCodes: [ // SavingsPlanRateServiceCodeList
- *     "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
+ *     "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc" || "AmazonES",
  *   ],
  *   usageTypes: [ // SavingsPlanRateUsageTypeList
  *     "STRING_VALUE",
@@ -86,9 +86,9 @@ export interface DescribeSavingsPlansOfferingRatesCommandOutput extends Describe
  * //         planDescription: "STRING_VALUE",
  * //       },
  * //       rate: "STRING_VALUE",
- * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr",
- * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS",
- * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc",
+ * //       unit: "Hrs" || "Lambda-GB-Second" || "Request" || "ACU-Hr" || "ReadRequestUnits" || "WriteRequestUnits" || "ReadCapacityUnit-Hrs" || "WriteCapacityUnit-Hrs" || "ReplicatedWriteRequestUnits" || "ReplicatedWriteCapacityUnit-Hrs" || "GB-Hours" || "DPU" || "ElastiCacheProcessingUnit" || "DCU-Hr" || "NCU-hr" || "OCU-hours" || "Jobs",
+ * //       productType: "EC2" || "Fargate" || "Lambda" || "SageMaker" || "RDS" || "DSQL" || "DynamoDB" || "ElastiCache" || "DocDB" || "Neptune" || "Timestream" || "Keyspaces" || "DMS" || "OpenSearch",
+ * //       serviceCode: "AmazonEC2" || "AmazonECS" || "AmazonEKS" || "AWSLambda" || "AmazonSageMaker" || "AmazonRDS" || "AuroraDSQL" || "AmazonDynamoDB" || "AmazonElastiCache" || "AmazonDocDB" || "AmazonNeptune" || "AmazonTimestream" || "AmazonMCS" || "AWSDatabaseMigrationSvc" || "AmazonES",
  * //       usageType: "STRING_VALUE",
  * //       operation: "STRING_VALUE",
  * //       properties: [ // SavingsPlanOfferingRatePropertyList
