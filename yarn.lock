@@ -24395,6 +24395,7 @@ __metadata:
     "@smithy/core": "npm:^3.23.8"
     "@smithy/protocol-http": "npm:^5.3.11"
     "@smithy/types": "npm:^4.13.0"
+    "@smithy/util-retry": "npm:^4.2.11"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"

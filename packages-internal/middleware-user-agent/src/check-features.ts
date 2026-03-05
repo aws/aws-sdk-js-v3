@@ -6,13 +6,8 @@ import type {
   AwsSdkCredentialsFeatures,
 } from "@aws-sdk/types";
 import type { IHttpRequest } from "@smithy/protocol-http";
-import type {
-  AwsCredentialIdentityProvider,
-  BuildHandlerArguments,
-  Provider,
-  RetryStrategy,
-  RetryStrategyV2,
-} from "@smithy/types";
+import type { AwsCredentialIdentityProvider, BuildHandlerArguments, Provider } from "@smithy/types";
+import { RETRY_MODES } from "@smithy/util-retry";
 
 /**
  * @internal
@@ -20,7 +15,7 @@ import type {
 type PreviouslyResolved = Partial<{
   credentials?: AwsCredentialIdentityProvider;
   accountIdEndpointMode?: Provider<AccountIdEndpointMode>;
-  retryStrategy?: Provider<RetryStrategy | RetryStrategyV2>;
+  retryStrategy?: Provider<{ mode?: string }>;
 }>;
 
 /**
@@ -46,14 +41,15 @@ export async function checkFeatures(
 
   if (typeof config.retryStrategy === "function") {
     const retryStrategy = await config.retryStrategy();
-    if (typeof (retryStrategy as RetryStrategyV2).acquireInitialRetryToken === "function") {
-      if (retryStrategy.constructor?.name?.includes("Adaptive")) {
-        setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
-      } else {
-        setFeature(context, "RETRY_MODE_STANDARD", "E");
+    if (typeof retryStrategy.mode === "string") {
+      switch (retryStrategy.mode) {
+        case RETRY_MODES.ADAPTIVE:
+          setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
+          break;
+        case RETRY_MODES.STANDARD:
+          setFeature(context, "RETRY_MODE_STANDARD", "E");
+          break;
       }
-    } else {
-      setFeature(context, "RETRY_MODE_LEGACY", "D");
     }
   }
 
