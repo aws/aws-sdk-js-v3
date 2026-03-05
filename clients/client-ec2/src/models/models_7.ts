@@ -110,7 +110,6 @@ import {
   type AttributeBooleanValue,
   type Byoasn,
   type ClientVpnConnectionStatus,
-  type InstanceState,
   type InstanceTagNotificationAttribute,
   type IpamPoolCidr,
   CapacityBlock,
@@ -118,6 +117,7 @@ import {
   Filter,
 } from "./models_3";
 import {
+  type InstanceState,
   type Monitoring,
   type NetworkInsightsAccessScopeAnalysis,
   type NetworkInsightsAnalysis,
@@ -134,7 +134,38 @@ import type {
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
-import { type CapacityReservationSpecification, Purchase } from "./models_6";
+import { type CapacityReservationSpecification, type ModifyTransitGatewayOptions, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The description for the transit gateway.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The options to modify.</p>
+   * @public
+   */
+  Options?: ModifyTransitGatewayOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

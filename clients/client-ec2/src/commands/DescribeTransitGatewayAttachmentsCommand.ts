@@ -5,8 +5,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DescribeTransitGatewayAttachmentsRequest } from "../models/models_4";
-import type { DescribeTransitGatewayAttachmentsResult } from "../models/models_5";
+import type {
+  DescribeTransitGatewayAttachmentsRequest,
+  DescribeTransitGatewayAttachmentsResult,
+} from "../models/models_5";
 import { DescribeTransitGatewayAttachments$ } from "../schemas/schemas_0";
 
 /**

@@ -31,6 +31,7 @@ import {
   PayerResponsibility,
   ProtocolValue,
   SecondaryNetworkType,
+  SecondarySubnetCidrBlockAssociationState,
   SecondarySubnetState,
   SecurityGroupReferencingSupportValue,
   ServiceConnectivityType,
@@ -103,31 +104,60 @@ import {
   UnsuccessfulItem,
   VpcAttachment,
 } from "./models_0";
-import {
-  type Ec2InstanceConnectEndpoint,
-  type Ipam,
-  type IpamExternalResourceVerificationToken,
-  type IpamPolicy,
-  type IpamPool,
-  type IpamPrefixListResolver,
-  type IpamPrefixListResolverTarget,
-  type IpamResourceDiscovery,
-  type IpamScope,
-  type LaunchTemplate,
-  type LocalGatewayRoute,
-  type LocalGatewayRouteTable,
-  type LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  type LocalGatewayRouteTableVpcAssociation,
-  type LocalGatewayVirtualInterface,
-  type LocalGatewayVirtualInterfaceGroup,
-  type ManagedPrefixList,
-  type OperatorRequest,
-  type RouteServer,
-  type RouteServerEndpoint,
-  type RouteServerPeer,
-  type SecondaryNetwork,
-  SecondarySubnetIpv4CidrBlockAssociation,
+import type {
+  Ec2InstanceConnectEndpoint,
+  Ipam,
+  IpamExternalResourceVerificationToken,
+  IpamPolicy,
+  IpamPool,
+  IpamPrefixListResolver,
+  IpamPrefixListResolverTarget,
+  IpamResourceDiscovery,
+  IpamScope,
+  LaunchTemplate,
+  LocalGatewayRoute,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  LocalGatewayRouteTableVpcAssociation,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
+  ManagedPrefixList,
+  OperatorRequest,
+  RouteServer,
+  RouteServerEndpoint,
+  RouteServerPeer,
+  SecondaryNetwork,
 } from "./models_1";
+
+/**
+ * <p>Describes an IPv4 CIDR block associated with a secondary subnet.</p>
+ * @public
+ */
+export interface SecondarySubnetIpv4CidrBlockAssociation {
+  /**
+   * <p>The association ID for the IPv4 CIDR block.</p>
+   * @public
+   */
+  AssociationId?: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR block.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The state of the CIDR block association.</p>
+   * @public
+   */
+  State?: SecondarySubnetCidrBlockAssociationState | undefined;
+
+  /**
+   * <p>The reason for the current state of the CIDR block association.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+}
 
 /**
  * <p>Describes a secondary subnet.</p>
@@ -9461,23 +9491,4 @@ export interface DeleteTrafficMirrorSessionResult {
    * @public
    */
   TrafficMirrorSessionId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteTrafficMirrorTargetRequest {
-  /**
-   * <p>The ID of the Traffic Mirror target.</p>
-   * @public
-   */
-  TrafficMirrorTargetId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

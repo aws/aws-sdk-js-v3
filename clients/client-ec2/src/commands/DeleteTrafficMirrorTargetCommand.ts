@@ -5,8 +5,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { DeleteTrafficMirrorTargetRequest } from "../models/models_2";
-import type { DeleteTrafficMirrorTargetResult } from "../models/models_3";
+import type { DeleteTrafficMirrorTargetRequest, DeleteTrafficMirrorTargetResult } from "../models/models_3";
 import { DeleteTrafficMirrorTarget$ } from "../schemas/schemas_0";
 
 /**

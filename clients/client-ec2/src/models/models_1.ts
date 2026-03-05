@@ -106,7 +106,6 @@ import {
   SecondaryNetworkCidrBlockAssociationState,
   SecondaryNetworkState,
   SecondaryNetworkType,
-  SecondarySubnetCidrBlockAssociationState,
   ShutdownBehavior,
   SnapshotLocationEnum,
   SpotAllocationStrategy,
@@ -136,12 +135,29 @@ import {
   AddPrefixListEntry,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
-  NewDhcpConfiguration,
   ReservedInstancesListing,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
 } from "./models_0";
+
+/**
+ * <p>Describes a DHCP configuration option.</p>
+ * @public
+ */
+export interface NewDhcpConfiguration {
+  /**
+   * <p>The name of a DHCP option.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The values for the DHCP option.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
 
 /**
  * @public
@@ -14154,34 +14170,4 @@ export interface CreateSecondarySubnetRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * <p>Describes an IPv4 CIDR block associated with a secondary subnet.</p>
- * @public
- */
-export interface SecondarySubnetIpv4CidrBlockAssociation {
-  /**
-   * <p>The association ID for the IPv4 CIDR block.</p>
-   * @public
-   */
-  AssociationId?: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR block.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The state of the CIDR block association.</p>
-   * @public
-   */
-  State?: SecondarySubnetCidrBlockAssociationState | undefined;
-
-  /**
-   * <p>The reason for the current state of the CIDR block association.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
 }

@@ -2885,6 +2885,7 @@ export type {
   CancelSpotInstanceRequestsRequest,
   CancelSpotInstanceRequestsResult,
   CapacityAllocation,
+  CapacityAllocationMetadataEntry,
   CapacityBlock,
   CapacityBlockExtension,
   CapacityBlockExtensionOffering,

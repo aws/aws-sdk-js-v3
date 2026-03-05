@@ -165,7 +165,7 @@ const _ALT = "AttachmentLimitType";
 const _ALc = "AccessLogs";
 const _ALd = "AddressList";
 const _ALr = "ArnList";
-const _AM = "AvailabilityMode";
+const _AM = "AllocationMetadata";
 const _AMAI = "AddMiddleboxAttachmentIds";
 const _AMAId = "AddMiddleboxAttachmentId";
 const _AMIT = "AllowsMultipleInstanceTypes";
@@ -175,6 +175,7 @@ const _AMS = "ApplianceModeSupport";
 const _AMSc = "AcceleratorManufacturerSet";
 const _AMc = "AcceleratorManufacturers";
 const _AMcc = "AcceleratorManufacturer";
+const _AMv = "AvailabilityMode";
 const _AN = "AttributeName";
 const _ANGA = "AssociateNatGatewayAddress";
 const _ANGAR = "AssociateNatGatewayAddressRequest";
@@ -488,6 +489,8 @@ const _C = "Component";
 const _CA = "ComponentArn";
 const _CAC = "CidrAuthorizationContext";
 const _CADNL = "ClearAllocationDefaultNetmaskLength";
+const _CAME = "CapacityAllocationMetadataEntry";
+const _CAML = "CapacityAllocationMetadataList";
 const _CAR = "CertificateAuthenticationRequest";
 const _CAU = "CoipAddressUsage";
 const _CAUS = "CoipAddressUsageSet";
@@ -6083,6 +6086,7 @@ const _aLT = "attachmentLimitType";
 const _aLc = "accessLogs";
 const _aM = "availabilityMode";
 const _aMIT = "allowsMultipleInstanceTypes";
+const _aML = "allocationMetadataList";
 const _aMNL = "allocationMinNetmaskLength";
 const _aMNLl = "allocationMaxNetmaskLength";
 const _aMS = "acceleratorManufacturerSet";
@@ -9326,10 +9330,18 @@ export var CancelSpotInstanceRequestsResult$: StaticStructureSchema = [3, n0, _C
 ];
 export var CapacityAllocation$: StaticStructureSchema = [3, n0, _CAa,
   0,
-  [_ATl, _Cou],
+  [_ATl, _Cou, _AM],
   [[0, { [_eQN]: `AllocationType`
   , [_xN]: _aTl }], [1, { [_eQN]: `Count`
-  , [_xN]: _cou }]]
+  , [_xN]: _cou }], [() => CapacityAllocationMetadataList, { [_eQN]: `AllocationMetadataList`
+  , [_xN]: _aML }]]
+];
+export var CapacityAllocationMetadataEntry$: StaticStructureSchema = [3, n0, _CAME,
+  0,
+  [_K, _V],
+  [[0, { [_eQN]: `Key`
+  , [_xN]: _k }], [0, { [_eQN]: `Value`
+  , [_xN]: _v }]]
 ];
 export var CapacityBlock$: StaticStructureSchema = [3, n0, _CBa,
   0,
@@ -10568,7 +10580,7 @@ export var CreateManagedPrefixListResult$: StaticStructureSchema = [3, n0, _CMPL
 ];
 export var CreateNatGatewayRequest$: StaticStructureSchema = [3, n0, _CNGR,
   0,
-  [_AM, _AIl, _CT, _DR, _SIu, _VI, _AZAv, _TS, _CTon, _PIAr, _SAI, _SPIA, _SPIAC],
+  [_AMv, _AIl, _CT, _DR, _SIu, _VI, _AZAv, _TS, _CTon, _PIAr, _SAI, _SPIA, _SPIAC],
   [0, 0, [0, 4], 2, 0, 0, [() => AvailabilityZoneAddresses, { [_xN]: _AZA }], [() => TagSpecificationList, { [_xN]: _TSa }], 0, 0, [() => AllocationIdList, { [_xN]: _SAIe }], [() => IpList, { [_xN]: _SPIAe }], 1]
 ];
 export var CreateNatGatewayResult$: StaticStructureSchema = [3, n0, _CNGRr,
@@ -20837,7 +20849,7 @@ export var MovingAddressStatus$: StaticStructureSchema = [3, n0, _MASo,
 ];
 export var NatGateway$: StaticStructureSchema = [3, n0, _NG,
   0,
-  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AM, _ASIu, _APZ, _AAt, _RTI],
+  [_CTr, _DTel, _FCa, _FM, _NGA, _NGI, _PB, _St, _SIu, _VI, _T, _CTon, _AMv, _ASIu, _APZ, _AAt, _RTI],
   [[4, { [_eQN]: `CreateTime`
   , [_xN]: _cTr }], [4, { [_eQN]: `DeleteTime`
   , [_xN]: _dTel }], [0, { [_eQN]: `FailureCode`
@@ -25665,6 +25677,10 @@ var CancelSpotFleetRequestsErrorSet: StaticListSchema = [1, n0, _CSFRES,
 ];
 var CancelSpotFleetRequestsSuccessSet: StaticListSchema = [1, n0, _CSFRSS,
   0, [() => CancelSpotFleetRequestsSuccessItem$,
+    { [_xN]: _it }]
+];
+var CapacityAllocationMetadataList: StaticListSchema = [1, n0, _CAML,
+  0, [() => CapacityAllocationMetadataEntry$,
     { [_xN]: _it }]
 ];
 var CapacityAllocations: StaticListSchema = [1, n0, _CAap,

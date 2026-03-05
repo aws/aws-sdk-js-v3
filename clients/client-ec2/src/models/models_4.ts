@@ -42,6 +42,7 @@ import {
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
   InstanceRebootMigrationState,
+  InstanceStateName,
   InstanceStorageEncryptionSupport,
   InstanceTypeHypervisor,
   KeyType,
@@ -170,13 +171,71 @@ import {
   type EnclaveOptions,
   type EventInformation,
   type ImageMetadata,
-  type InstanceState,
   Byoasn,
   Filter,
   IdFormat,
   InstanceBlockDeviceMapping,
   ProductCode,
 } from "./models_3";
+
+/**
+ * <p>Describes the current state of an instance.</p>
+ * @public
+ */
+export interface InstanceState {
+  /**
+   * <p>The state of the instance as a 16-bit unsigned integer. </p>
+   *          <p>The high byte is all of the bits between 2^8 and (2^16)-1, which equals decimal values
+   *             between 256 and 65,535. These numerical values are used for internal purposes and should
+   *             be ignored.</p>
+   *          <p>The low byte is all of the bits between 2^0 and (2^8)-1, which equals decimal values
+   *             between 0 and 255. </p>
+   *          <p>The valid values for instance-state-code will all be in the range of the low byte and
+   *             they are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>0</code> : <code>pending</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>16</code> : <code>running</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>32</code> : <code>shutting-down</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>48</code> : <code>terminated</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>64</code> : <code>stopping</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>80</code> : <code>stopped</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can ignore the high byte value by zeroing out all of the bits above 2^8 or 256 in
+   *             decimal.</p>
+   * @public
+   */
+  Code?: number | undefined;
+
+  /**
+   * <p>The current state of the instance.</p>
+   * @public
+   */
+  Name?: InstanceStateName | undefined;
+}
 
 /**
  * <p>Information about the instance and the AMI used to launch the instance.</p>
@@ -14727,83 +14786,4 @@ export interface DescribeTrafficMirrorTargetsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTransitGatewayAttachmentsRequest {
-  /**
-   * <p>The IDs of the attachments.</p>
-   * @public
-   */
-  TransitGatewayAttachmentIds?: string[] | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
-   *                <code>disassociating</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-owner-id</code> - The ID of the Amazon Web Services account that owns the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
-   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
-   *                     | <code>connect</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

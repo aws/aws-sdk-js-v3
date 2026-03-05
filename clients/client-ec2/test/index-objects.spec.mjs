@@ -331,6 +331,7 @@ import {
   CancelSpotInstanceRequestsResult$,
   CancelSpotInstanceRequestState,
   CapacityAllocation$,
+  CapacityAllocationMetadataEntry$,
   CapacityBlock$,
   CapacityBlockExtension$,
   CapacityBlockExtensionOffering$,
@@ -6255,6 +6256,7 @@ assert(typeof CancelSpotFleetRequestsSuccessItem$ === "object");
 assert(typeof CancelSpotInstanceRequestsRequest$ === "object");
 assert(typeof CancelSpotInstanceRequestsResult$ === "object");
 assert(typeof CapacityAllocation$ === "object");
+assert(typeof CapacityAllocationMetadataEntry$ === "object");
 assert(typeof CapacityBlock$ === "object");
 assert(typeof CapacityBlockExtension$ === "object");
 assert(typeof CapacityBlockExtensionOffering$ === "object");

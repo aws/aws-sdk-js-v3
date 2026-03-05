@@ -104,6 +104,12 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       { // CapacityAllocation
  * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
+ * //         AllocationMetadata: [ // CapacityAllocationMetadataList
+ * //           { // CapacityAllocationMetadataEntry
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
@@ -159,6 +165,12 @@ export interface MoveCapacityReservationInstancesCommandOutput extends MoveCapac
  * //       {
  * //         AllocationType: "used" || "future",
  * //         Count: Number("int"),
+ * //         AllocationMetadata: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     ReservationType: "default" || "capacity-block",

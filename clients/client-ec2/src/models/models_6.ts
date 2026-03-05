@@ -169,7 +169,27 @@ import {
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
 } from "./models_4";
-import { type InstanceFamilyCreditSpecification, RouteServerPropagation } from "./models_5";
+import { RouteServerPropagation } from "./models_5";
+
+/**
+ * <p>Describes the default credit option for CPU usage of a burstable performance instance
+ *             family.</p>
+ * @public
+ */
+export interface InstanceFamilyCreditSpecification {
+  /**
+   * <p>The instance family.</p>
+   * @public
+   */
+  InstanceFamily?: UnlimitedSupportedInstanceFamily | undefined;
+
+  /**
+   * <p>The default credit option for CPU usage of the instance family. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   * @public
+   */
+  CpuCredits?: string | undefined;
+}
 
 /**
  * @public
@@ -10078,35 +10098,4 @@ export interface ModifyTransitGatewayOptions {
    * @public
    */
   EncryptionSupport?: EncryptionSupportOptionValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayRequest {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId: string | undefined;
-
-  /**
-   * <p>The description for the transit gateway.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The options to modify.</p>
-   * @public
-   */
-  Options?: ModifyTransitGatewayOptions | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

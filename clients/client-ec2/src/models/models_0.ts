@@ -8389,6 +8389,24 @@ export interface CreateCapacityReservationRequest {
 }
 
 /**
+ * <p>A key-value pair that provides additional metadata about a capacity allocation.</p>
+ * @public
+ */
+export interface CapacityAllocationMetadataEntry {
+  /**
+   * <p>The key of the metadata entry.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the metadata entry.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
  * <p>Information about instance capacity usage for a Capacity Reservation.</p>
  * @public
  */
@@ -8407,6 +8425,13 @@ export interface CapacityAllocation {
    * @public
    */
   Count?: number | undefined;
+
+  /**
+   * <p>Additional metadata associated with the capacity allocation. Each entry contains a key-value pair providing context
+   * 			about the allocation.</p>
+   * @public
+   */
+  AllocationMetadata?: CapacityAllocationMetadataEntry[] | undefined;
 }
 
 /**
@@ -10792,22 +10817,4 @@ export interface CreateDelegateMacVolumeOwnershipTaskResult {
    * @public
    */
   MacModificationTask?: MacModificationTask | undefined;
-}
-
-/**
- * <p>Describes a DHCP configuration option.</p>
- * @public
- */
-export interface NewDhcpConfiguration {
-  /**
-   * <p>The name of a DHCP option.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The values for the DHCP option.</p>
-   * @public
-   */
-  Values?: string[] | undefined;
 }

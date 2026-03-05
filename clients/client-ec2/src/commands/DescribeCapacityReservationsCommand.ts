@@ -91,6 +91,12 @@ export interface DescribeCapacityReservationsCommandOutput extends DescribeCapac
  * //         { // CapacityAllocation
  * //           AllocationType: "used" || "future",
  * //           Count: Number("int"),
+ * //           AllocationMetadata: [ // CapacityAllocationMetadataList
+ * //             { // CapacityAllocationMetadataEntry
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       ReservationType: "default" || "capacity-block",
