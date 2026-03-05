@@ -40,7 +40,7 @@
     "@aws-sdk/core": "workspace:^3.973.17",
     "@aws-sdk/crc64-nvme": "workspace:^3.972.3",
     "@aws-sdk/types": "workspace:^3.973.4",
-    "@smithy/is-array-buffer": "^4.2.1",
+    "@smithy/is-array-buffer": "^4.2.2",
     "@smithy/node-config-provider": "^4.3.11",
     "@smithy/protocol-http": "^5.3.11",
     "@smithy/types": "^4.13.0",

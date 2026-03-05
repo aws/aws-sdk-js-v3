@@ -28,8 +28,8 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.17",
     "@aws-sdk/types": "workspace:^3.973.4",
-    "@smithy/property-provider": "^4.2.10",
-    "@smithy/shared-ini-file-loader": "^4.4.5",
+    "@smithy/property-provider": "^4.2.11",
+    "@smithy/shared-ini-file-loader": "^4.4.6",
     "@smithy/types": "^4.13.0",
     "tslib": "^2.6.2"
   },

@@ -94,7 +94,7 @@
     "@smithy/node-http-handler": "^4.4.14",
     "@smithy/protocol-http": "^5.3.11",
     "@smithy/smithy-client": "^4.12.2",
-    "@smithy/typecheck": "^1.0.15",
+    "@smithy/typecheck": "^1.0.16",
     "@smithy/types": "^4.13.0",
     "@smithy/util-retry": "^4.2.11",
     "tslib": "^2.6.2"
