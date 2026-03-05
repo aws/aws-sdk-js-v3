@@ -144,7 +144,7 @@ export interface CreateApplicationRequest {
   ApplicationSourceConfig: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>.
+   * <p>The events that the application subscribes.</p>
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -152,7 +152,7 @@ export interface CreateApplicationRequest {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>.
+   * <p>The events that the application publishes.</p>
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -181,7 +181,7 @@ export interface CreateApplicationRequest {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>.
+   * <p>Indicates whether the application is a service.</p>
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -688,7 +688,7 @@ export interface GetApplicationResponse {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>.
+   * <p>The events that the application subscribes.</p>
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -696,7 +696,7 @@ export interface GetApplicationResponse {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>.
+   * <p>The events that the application publishes.</p>
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -728,7 +728,7 @@ export interface GetApplicationResponse {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>.
+   * <p>Indicates whether the application is a service.</p>
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -1019,7 +1019,7 @@ export interface ApplicationSummary {
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>.
+   * <p>Indicates whether the application is a service.</p>
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public
@@ -1466,7 +1466,7 @@ export interface UpdateApplicationRequest {
   ApplicationSourceConfig?: ApplicationSourceConfig | undefined;
 
   /**
-   * <p>The events that the application subscribes.</p>.
+   * <p>The events that the application subscribes.</p>
    *
    * @deprecated Subscriptions has been replaced with Permissions.
    * @public
@@ -1474,7 +1474,7 @@ export interface UpdateApplicationRequest {
   Subscriptions?: Subscription[] | undefined;
 
   /**
-   * <p>The events that the application publishes.</p>.
+   * <p>The events that the application publishes.</p>
    *
    * @deprecated Publications has been replaced with Permissions.
    * @public
@@ -1488,7 +1488,7 @@ export interface UpdateApplicationRequest {
   Permissions?: string[] | undefined;
 
   /**
-   * <p>Indicates whether the application is a service.</p>.
+   * <p>Indicates whether the application is a service.</p>
    *
    * @deprecated (since 2025-12-01) IsService has been deprecated in favor of ApplicationType.
    * @public

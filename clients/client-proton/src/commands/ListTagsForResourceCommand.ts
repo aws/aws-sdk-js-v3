@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
 
 /**
  * <p>List tags for a resource. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/resources.html">Proton
- *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>.
+ *     resources and tagging</a> in the <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

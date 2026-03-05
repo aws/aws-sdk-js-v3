@@ -321,7 +321,7 @@ export interface MemberDetail {
 
   /**
    * <p>The Amazon Web Services account identifier of the administrator account for the behavior
-   *          graph.</p>.
+   *          graph.</p>
    *
    * @deprecated This property is deprecated. Use AdministratorId instead.
    * @public
@@ -419,7 +419,7 @@ export interface MemberDetail {
   UpdatedTime?: Date | undefined;
 
   /**
-   * <p>The data volume in bytes per day for the member account.</p>.
+   * <p>The data volume in bytes per day for the member account.</p>
    *
    * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
@@ -428,7 +428,7 @@ export interface MemberDetail {
 
   /**
    * <p>The data and time when the member account data volume was last updated. The value is an
-   *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>.
+   *          ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
    *
    * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
@@ -442,7 +442,7 @@ export interface MemberDetail {
    *          <p>For example, the data volume for the behavior graph is 80 GB per day. The maximum data
    *          volume is 160 GB per day. If the data volume for the member account is 40 GB per day, then
    *             <code>PercentOfGraphUtilization</code> is 25. It represents 25% of the maximum allowed
-   *          data volume. </p>.
+   *          data volume. </p>
    *
    * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public
@@ -451,7 +451,7 @@ export interface MemberDetail {
 
   /**
    * <p>The date and time when the graph utilization percentage was last updated. The value is
-   *          an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>.
+   *          an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
    *
    * @deprecated This property is deprecated. Use VolumeUsageByDatasourcePackage instead.
    * @public

@@ -31,7 +31,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all tags on an AWS IoT Things Graph resource.</p>.
+ * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

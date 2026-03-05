@@ -31,7 +31,7 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput extends Notif
 
 /**
  * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>.
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

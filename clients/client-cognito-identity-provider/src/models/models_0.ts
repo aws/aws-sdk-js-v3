@@ -6102,7 +6102,7 @@ export interface UserPoolType {
   LambdaConfig?: LambdaConfigType | undefined;
 
   /**
-   * <p>This parameter is no longer used.</p>.
+   * <p>This parameter is no longer used.</p>
    *
    * @deprecated This property is no longer available.
    * @public
@@ -9980,7 +9980,7 @@ export interface UserPoolDescriptionType {
   LambdaConfig?: LambdaConfigType | undefined;
 
   /**
-   * <p>The user pool status.</p>.
+   * <p>The user pool status.</p>
    *
    * @deprecated This property is no longer available.
    * @public

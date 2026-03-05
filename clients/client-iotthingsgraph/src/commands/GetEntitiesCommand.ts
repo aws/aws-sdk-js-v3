@@ -62,7 +62,7 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *                <p>Services</p>
  *             </li>
  *          </ul>
- *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>.
+ *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

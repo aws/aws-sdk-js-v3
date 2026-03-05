@@ -31,7 +31,7 @@ export interface ListFlowExecutionMessagesCommandInput extends ListFlowExecution
 export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutionMessagesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of objects that contain information about events in a flow execution.</p>.
+ * <p>Returns a list of objects that contain information about events in a flow execution.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

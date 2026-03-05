@@ -27,7 +27,7 @@ export interface DeleteEnvironmentTemplateCommandInput extends DeleteEnvironment
 export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmentTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>.
+ * <p>If no other major or minor versions of an environment template exist, delete the environment template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

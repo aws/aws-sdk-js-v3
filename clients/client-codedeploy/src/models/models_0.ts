@@ -334,7 +334,7 @@ export interface S3Location {
 /**
  * <p>A revision for an Lambda deployment that is a YAML-formatted or
  *             JSON-formatted string. For Lambda deployments, the revision is the same
- *             as the AppSpec file.</p>.
+ *             as the AppSpec file.</p>
  *
  * @deprecated RawString and String revision type are deprecated, use AppSpecContent type instead.
  * @public
@@ -399,7 +399,7 @@ export interface RevisionLocation {
 
   /**
    * <p>Information about the location of an Lambda deployment revision stored
-   *             as a RawString.</p>.
+   *             as a RawString.</p>
    *
    * @deprecated RawString and String revision type are deprecated, use AppSpecContent type instead.
    * @public
@@ -1328,7 +1328,7 @@ export interface LifecycleEvent {
 }
 
 /**
- * <p>Information about an instance in a deployment.</p>.
+ * <p>Information about an instance in a deployment.</p>
  *
  * @deprecated InstanceSummary is deprecated, use DeploymentTarget instead.
  * @public
@@ -1376,7 +1376,7 @@ export interface InstanceSummary {
    *                   <code>Unknown</code>: The deployment status is unknown for this
    *                     instance.</p>
    *             </li>
-   *          </ul>.
+   *          </ul>
    *
    * @deprecated InstanceStatus is deprecated, use TargetStatus instead.
    * @public
@@ -1831,7 +1831,7 @@ export interface DeploymentInfo {
 
   /**
    * <p>Provides information about the results of a deployment, such as whether instances in
-   *             the original environment in a blue/green deployment were not terminated.</p>.
+   *             the original environment in a blue/green deployment were not terminated.</p>
    *
    * @deprecated AdditionalDeploymentStatusInfo is deprecated, use DeploymentStatusMessageList instead.
    * @public
@@ -3416,7 +3416,7 @@ export interface GetDeploymentInstanceInput {
  */
 export interface GetDeploymentInstanceOutput {
   /**
-   * <p> Information about the instance. </p>.
+   * <p> Information about the instance. </p>
    *
    * @deprecated InstanceSummary is deprecated, use DeploymentTarget instead.
    * @public

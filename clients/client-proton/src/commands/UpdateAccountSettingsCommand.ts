@@ -27,7 +27,7 @@ export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettings
 export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsOutput, __MetadataBearer {}
 
 /**
- * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>.
+ * <p>Update Proton settings that are used for multiple services in the Amazon Web Services account.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

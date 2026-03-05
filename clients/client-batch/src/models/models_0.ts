@@ -821,7 +821,7 @@ export interface ComputeResource {
    *     Amazon ECS-optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized
    *     Amazon Linux 2 AMI</a>
    *     in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated This field is deprecated, use ec2Configuration[].imageIdOverride instead.
    * @public
@@ -2955,7 +2955,7 @@ export interface ContainerProperties {
    *    in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
    *     <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The
    *    number of vCPUs must be specified but can be specified in several places. You must specify it at
-   *    least once for each node.</p>.
+   *    least once for each node.</p>
    *
    * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
@@ -2968,7 +2968,7 @@ export interface ContainerProperties {
    *    For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a
    *    container. If your container attempts to exceed the specified number, it's terminated. You must
    *    specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be
-   *    specified in several places. It must be specified for each node at least once.</p>.
+   *    specified in several places. It must be specified for each node at least once.</p>
    *
    * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
@@ -7776,7 +7776,7 @@ export interface ContainerOverrides {
    *    structure in the job definition, <code>resourceRequirements</code> must be specified in the
    *     <code>SubmitJob</code> request, with <code>type</code> set to <code>VCPU</code> and
    *     <code>value</code> set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
-   *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>.
+   *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    *
    * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public
@@ -7793,7 +7793,7 @@ export interface ContainerOverrides {
    *    definition, <code>resourceRequirements</code> must be specified in the <code>SubmitJob</code>
    *    request, with <code>type</code> set to <code>MEMORY</code> and <code>value</code> set to the new
    *    value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't override job
-   *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>.
+   *     definition resource requirements</a> in the <i>Batch User Guide</i>.</p>
    *
    * @deprecated This field is deprecated, use resourceRequirements instead.
    * @public

@@ -27,7 +27,7 @@ export interface ListRepositoriesCommandInput extends ListRepositoriesInput {}
 export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, __MetadataBearer {}
 
 /**
- * <p>List linked repositories with detail data.</p>.
+ * <p>List linked repositories with detail data.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

@@ -4707,7 +4707,7 @@ export interface DescribeDomainResponse {
   AppNetworkAccessType?: AppNetworkAccessType | undefined;
 
   /**
-   * <p>Use <code>KmsKeyId</code>.</p>.
+   * <p>Use <code>KmsKeyId</code>.</p>
    *
    * @deprecated This property is deprecated, use KmsKeyId instead.
    * @public

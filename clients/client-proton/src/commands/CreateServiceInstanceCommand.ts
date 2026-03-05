@@ -27,7 +27,7 @@ export interface CreateServiceInstanceCommandInput extends CreateServiceInstance
 export interface CreateServiceInstanceCommandOutput extends CreateServiceInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Create a service instance.</p>.
+ * <p>Create a service instance.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

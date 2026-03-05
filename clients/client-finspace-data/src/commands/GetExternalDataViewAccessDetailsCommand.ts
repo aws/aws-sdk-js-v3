@@ -38,7 +38,7 @@ export interface GetExternalDataViewAccessDetailsCommandOutput extends GetExtern
  *             <li>
  *                <p>You must be a member of a FinSpace user group, where the dataset that you want to access has <code>Read Dataset Data</code> permissions.</p>
  *             </li>
- *          </ul>.
+ *          </ul>
  *
  * @deprecated This method will be discontinued.
  * @example

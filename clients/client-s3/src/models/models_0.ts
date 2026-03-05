@@ -7147,7 +7147,7 @@ export interface LifecycleRule {
    *             <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using
    *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
    *             XML related object key constraints</a>.</p>
-   *          </important>.
+   *          </important>
    *
    * @deprecated deprecated.
    * @public
@@ -9034,7 +9034,7 @@ export interface ReplicationRule {
    *             <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using
    *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
    *             XML related object key constraints</a>.</p>
-   *          </important>.
+   *          </important>
    *
    * @deprecated deprecated.
    * @public

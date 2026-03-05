@@ -41,7 +41,7 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  *          <p>The IDs for all of the entities should be in URN format. Each entity must be in the user's namespace. Users can't create entities in the public namespace, but entity definitions can refer to entities in the public namespace.</p>
  *          <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>,
  *          <code>Mapping</code>, <code>Enum</code>.
- *          </p>.
+ *          </p>
  *
  * @deprecated since: 2022-08-30.
  * @example

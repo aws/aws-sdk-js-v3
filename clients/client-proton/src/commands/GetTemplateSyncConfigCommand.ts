@@ -27,7 +27,7 @@ export interface GetTemplateSyncConfigCommandInput extends GetTemplateSyncConfig
 export interface GetTemplateSyncConfigCommandOutput extends GetTemplateSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Get detail data for a template sync configuration.</p>.
+ * <p>Get detail data for a template sync configuration.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

@@ -7101,7 +7101,7 @@ export interface StartJobRunRequest {
    *       You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
-   *         pricing page</a>.</p>.
+   *         pricing page</a>.</p>
    *
    * @deprecated This property is deprecated, use MaxCapacity instead.
    * @public

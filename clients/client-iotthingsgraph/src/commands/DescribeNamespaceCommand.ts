@@ -31,7 +31,7 @@ export interface DescribeNamespaceCommandInput extends DescribeNamespaceRequest 
 export interface DescribeNamespaceCommandOutput extends DescribeNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>.
+ * <p>Gets the latest version of the user's namespace and the public version that it is tracking.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

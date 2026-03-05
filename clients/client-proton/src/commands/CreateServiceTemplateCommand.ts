@@ -32,7 +32,7 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  *       select the service template from Proton. If the selected service template includes a
  *       service pipeline definition, they provide a link to their source code repository. Proton
  *       then deploys and manages the infrastructure defined by the selected service template. For more
- *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User Guide</i>.</p>.
+ *       information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-templates.html">Proton templates</a> in the <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

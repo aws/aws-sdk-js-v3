@@ -27,7 +27,7 @@ export interface GetServiceTemplateCommandInput extends GetServiceTemplateInput 
 export interface GetServiceTemplateCommandOutput extends GetServiceTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a service template.</p>.
+ * <p>Get detailed data for a service template.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

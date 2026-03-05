@@ -27,7 +27,7 @@ export interface DeleteServiceSyncConfigCommandInput extends DeleteServiceSyncCo
 export interface DeleteServiceSyncConfigCommandOutput extends DeleteServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Delete the Proton Ops file.</p>.
+ * <p>Delete the Proton Ops file.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

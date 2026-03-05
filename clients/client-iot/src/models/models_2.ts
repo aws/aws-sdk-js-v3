@@ -1331,7 +1331,7 @@ export interface RegisterCertificateRequest {
   /**
    * <p>A boolean value that specifies if the certificate is set to active.</p>
    *          <p>Valid values: <code>ACTIVE | INACTIVE</code>
-   *          </p>.
+   *          </p>
    *
    * @deprecated deprecated.
    * @public
@@ -3585,7 +3585,7 @@ export interface UpdateSecurityProfileRequest {
    *      whose data is retained (stored). By default, data is retained for any metric
    *       used in the profile's <code>behaviors</code>, but
    *       it is
-   *       also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>.
+   *       also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
    *
    * @deprecated Use additionalMetricsToRetainV2.
    * @public
@@ -3685,7 +3685,7 @@ export interface UpdateSecurityProfileResponse {
    *       whose data is retained (stored). By default, data is retained for any metric
    *       used in the security profile's <code>behaviors</code>, but
    *       it is
-   *       also retained for any metric specified here.</p>.
+   *       also retained for any metric specified here.</p>
    *
    * @deprecated Use additionalMetricsToRetainV2.
    * @public

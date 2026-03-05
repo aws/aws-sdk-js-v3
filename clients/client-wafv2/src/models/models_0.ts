@@ -2157,7 +2157,7 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>. </p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet LoginPath.
    * @public
@@ -2167,7 +2167,7 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PayloadType.
    * @public
@@ -2177,7 +2177,7 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection UsernameField.
    * @public
@@ -2187,7 +2187,7 @@ export interface ManagedRuleGroupConfig {
   /**
    * <note>
    *             <p>Instead of this setting, provide your configuration under the request inspection configuration for <code>AWSManagedRulesATPRuleSet</code> or <code>AWSManagedRulesACFPRuleSet</code>. </p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated Deprecated. Use AWSManagedRulesATPRuleSet RequestInspection PasswordField.
    * @public

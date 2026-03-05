@@ -27,7 +27,7 @@ export interface DeleteDeploymentCommandInput extends DeleteDeploymentInput {}
 export interface DeleteDeploymentCommandOutput extends DeleteDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Delete the deployment.</p>.
+ * <p>Delete the deployment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

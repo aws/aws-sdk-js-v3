@@ -33,7 +33,7 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
- *          </note>.
+ *          </note>
  *
  * @deprecated deprecated.
  * @example

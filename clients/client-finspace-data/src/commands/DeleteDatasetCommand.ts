@@ -27,7 +27,7 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a FinSpace Dataset.</p>.
+ * <p>Deletes a FinSpace Dataset.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

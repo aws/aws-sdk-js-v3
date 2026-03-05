@@ -2459,7 +2459,7 @@ export interface AwsIamAccessKeyDetails {
    * <p>The user associated with the IAM access key related to a finding.</p>
    *          <p>The <code>UserName</code> parameter has been replaced with the
    *             <code>PrincipalName</code> parameter because access keys can also be assigned to
-   *          principals that are not IAM users.</p>.
+   *          principals that are not IAM users.</p>
    *
    * @deprecated This filter is deprecated. Instead, use PrincipalName.
    * @public

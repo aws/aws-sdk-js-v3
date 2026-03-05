@@ -27,7 +27,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsInput {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, __MetadataBearer {}
 
 /**
- * <p>List environments with detail data summaries.</p>.
+ * <p>List environments with detail data summaries.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

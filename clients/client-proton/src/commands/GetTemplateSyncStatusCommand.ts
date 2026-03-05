@@ -27,7 +27,7 @@ export interface GetTemplateSyncStatusCommandInput extends GetTemplateSyncStatus
 export interface GetTemplateSyncStatusCommandOutput extends GetTemplateSyncStatusOutput, __MetadataBearer {}
 
 /**
- * <p>Get the status of a template sync.</p>.
+ * <p>Get the status of a template sync.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

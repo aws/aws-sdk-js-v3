@@ -31,7 +31,7 @@ export interface SearchFlowTemplatesCommandInput extends SearchFlowTemplatesRequ
 export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for summary information about workflows.</p>.
+ * <p>Searches for summary information about workflows.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

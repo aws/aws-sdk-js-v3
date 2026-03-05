@@ -27,7 +27,7 @@ export interface CreateServiceSyncConfigCommandInput extends CreateServiceSyncCo
 export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Create the Proton Ops configuration file.</p>.
+ * <p>Create the Proton Ops configuration file.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

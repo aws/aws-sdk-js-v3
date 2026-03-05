@@ -33,7 +33,7 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
 /**
  * <p>Deletes a system instance.
  *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
- *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>.
+ *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

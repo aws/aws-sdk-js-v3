@@ -31,7 +31,7 @@ export interface SearchSystemTemplatesCommandInput extends SearchSystemTemplates
 export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>.
+ * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

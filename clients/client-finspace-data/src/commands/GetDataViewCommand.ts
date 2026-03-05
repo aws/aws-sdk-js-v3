@@ -27,7 +27,7 @@ export interface GetDataViewCommandInput extends GetDataViewRequest {}
 export interface GetDataViewCommandOutput extends GetDataViewResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a Dataview.</p>.
+ * <p>Gets information about a Dataview.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

@@ -711,7 +711,7 @@ export interface CreateKeyRequest {
    * <p>Instead, use the <code>KeySpec</code> parameter.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> parameters work the same
    *       way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
-   *       code. However, to avoid breaking changes, KMS supports both parameters.</p>.
+   *       code. However, to avoid breaking changes, KMS supports both parameters.</p>
    *
    * @deprecated This parameter has been deprecated. Instead, use the KeySpec parameter.
    * @public
@@ -1185,7 +1185,7 @@ export interface KeyMetadata {
    * <p>Instead, use the <code>KeySpec</code> field.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
-   *       avoid breaking changes, KMS supports both fields.</p>.
+   *       avoid breaking changes, KMS supports both fields.</p>
    *
    * @deprecated This field has been deprecated. Instead, use the KeySpec field.
    * @public
@@ -3326,7 +3326,7 @@ export interface GetPublicKeyResponse {
    *       response.</p>
    *          <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same
    *       value. We recommend that you use the <code>KeySpec</code> field in your code. However, to
-   *       avoid breaking changes, KMS supports both fields.</p>.
+   *       avoid breaking changes, KMS supports both fields.</p>
    *
    * @deprecated This field has been deprecated. Instead, use the KeySpec field.
    * @public

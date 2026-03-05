@@ -27,7 +27,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Delete an environment.</p>.
+ * <p>Delete an environment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

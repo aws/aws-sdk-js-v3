@@ -6729,7 +6729,7 @@ export interface UpdateFleetRequest {
   DisconnectTimeoutInSeconds?: number | undefined;
 
   /**
-   * <p>Deletes the VPC association for the specified fleet.</p>.
+   * <p>Deletes the VPC association for the specified fleet.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -6913,7 +6913,7 @@ export interface UpdateStackRequest {
   StorageConnectors?: StorageConnector[] | undefined;
 
   /**
-   * <p>Deletes the storage connectors currently enabled for the stack.</p>.
+   * <p>Deletes the storage connectors currently enabled for the stack.</p>
    *
    * @deprecated deprecated.
    * @public

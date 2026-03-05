@@ -4440,7 +4440,7 @@ export interface ReportInstanceStatusRequest {
   ReasonCodes: ReportInstanceReasonCodes[] | undefined;
 
   /**
-   * <p>Descriptive text about the health state of your instance.</p>.
+   * <p>Descriptive text about the health state of your instance.</p>
    *
    * @deprecated This member has been deprecated.
    * @public
@@ -6172,7 +6172,7 @@ export interface RunInstancesRequest {
    * <p>An elastic GPU to associate with the instance.</p>
    *          <note>
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated (since 2024-01-08) Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
    * @public
@@ -6183,7 +6183,7 @@ export interface RunInstancesRequest {
    * <p>An elastic inference accelerator to associate with the instance.</p>
    *          <note>
    *             <p>Amazon Elastic Inference is no longer available.</p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated (since 2024-01-08) Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
    * @public

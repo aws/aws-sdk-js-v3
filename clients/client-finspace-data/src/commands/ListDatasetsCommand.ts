@@ -27,7 +27,7 @@ export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the active Datasets that a user has access to.</p>.
+ * <p>Lists all of the active Datasets that a user has access to.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

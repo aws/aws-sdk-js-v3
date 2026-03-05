@@ -9269,7 +9269,7 @@ export interface ModifyReplicationGroupMessage {
   MultiAZEnabled?: boolean | undefined;
 
   /**
-   * <p>Deprecated. This parameter is not used.</p>.
+   * <p>Deprecated. This parameter is not used.</p>
    *
    * @deprecated deprecated.
    * @public

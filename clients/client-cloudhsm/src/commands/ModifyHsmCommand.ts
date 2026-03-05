@@ -43,7 +43,7 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  *         CloudHSM service is reconfigured. If you are modifying a production HSM, you should ensure
  *         that your AWS CloudHSM service is configured for high availability, and consider executing this
  *         operation during a maintenance window.</p>
- *          </important>.
+ *          </important>
  *
  * @deprecated This API is deprecated.
  * @example

@@ -11269,7 +11269,7 @@ export interface CreateSubscriptionGrantOutput {
   assets?: SubscribedAsset[] | undefined;
 
   /**
-   * <p>The identifier of the subscription grant.</p>.
+   * <p>The identifier of the subscription grant.</p>
    *
    * @deprecated Multiple subscriptions can exist for a single grant.
    * @public

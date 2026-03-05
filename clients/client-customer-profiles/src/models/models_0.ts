@@ -1334,7 +1334,7 @@ export interface Profile {
   AdditionalInformation?: string | undefined;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>.
+   * <p>The type of profile used to describe the customer.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -1372,7 +1372,7 @@ export interface Profile {
   BirthDate?: string | undefined;
 
   /**
-   * <p>The gender with which the customer identifies. </p>.
+   * <p>The gender with which the customer identifies. </p>
    *
    * @deprecated deprecated.
    * @public
@@ -3067,7 +3067,7 @@ export interface CreateProfileRequest {
   AdditionalInformation?: string | undefined;
 
   /**
-   * <p>The type of profile used to describe the customer.</p>.
+   * <p>The type of profile used to describe the customer.</p>
    *
    * @deprecated deprecated.
    * @public
@@ -3105,7 +3105,7 @@ export interface CreateProfileRequest {
   BirthDate?: string | undefined;
 
   /**
-   * <p>The gender with which the customer identifies. </p>.
+   * <p>The gender with which the customer identifies. </p>
    *
    * @deprecated deprecated.
    * @public

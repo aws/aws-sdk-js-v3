@@ -5094,7 +5094,7 @@ export interface DescribeClusterVersionsRequest {
    *             <p>This field is deprecated. Use <code>versionStatus</code> instead, as that field
    *                 matches for input and output of this action.</p>
    *          </important>
-   *          <p>Filter versions by their current status.</p>.
+   *          <p>Filter versions by their current status.</p>
    *
    * @deprecated (since 2025-02-15) status has been replaced by versionStatus.
    * @public

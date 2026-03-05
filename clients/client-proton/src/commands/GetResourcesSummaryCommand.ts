@@ -36,7 +36,7 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  *     <code>serviceTemplates</code> field descriptions.</p>
  *          <p>For context, the action also returns the total number of each type of Proton template in the Amazon Web Services account.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/monitoring-dashboard.html">Proton dashboard</a> in the
- *     <i>Proton User Guide</i>.</p>.
+ *     <i>Proton User Guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

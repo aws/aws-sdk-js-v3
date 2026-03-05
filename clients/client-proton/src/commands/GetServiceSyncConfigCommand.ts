@@ -27,7 +27,7 @@ export interface GetServiceSyncConfigCommandInput extends GetServiceSyncConfigIn
 export interface GetServiceSyncConfigCommandOutput extends GetServiceSyncConfigOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed information for the service sync configuration.</p>.
+ * <p>Get detailed information for the service sync configuration.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

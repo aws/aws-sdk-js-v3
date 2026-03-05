@@ -27,7 +27,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an FinSpace environment.</p>.
+ * <p>Delete an FinSpace environment.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

@@ -7910,7 +7910,7 @@ export interface RequestLaunchTemplateData {
    * <p>Deprecated.</p>
    *          <note>
    *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated (since 2024-01-08) Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
    * @public
@@ -7924,7 +7924,7 @@ export interface RequestLaunchTemplateData {
    *          <p>An elastic inference accelerator to associate with the instance. Elastic inference
    *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
    *             your Deep Learning (DL) inference workloads.</p>
-   *          <p>You cannot specify accelerators from different generations in the same request.</p>.
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
    *
    * @deprecated (since 2024-01-08) Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
    * @public

@@ -27,7 +27,7 @@ export interface GetDeploymentCommandInput extends GetDeploymentInput {}
 export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __MetadataBearer {}
 
 /**
- * <p>Get detailed data for a deployment.</p>.
+ * <p>Get detailed data for a deployment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

@@ -4476,7 +4476,7 @@ export interface DataSourceConfiguration {
    *         We recommend migrating to or using the Alfresco data source template
    *         schema / <a href="https://docs.aws.amazon.com/kendra/latest/APIReference/API_TemplateConfiguration.html">TemplateConfiguration</a>
    *         API.</p>
-   *          </note>.
+   *          </note>
    *
    * @deprecated Deprecated AlfrescoConfiguration in favor of TemplateConfiguration.
    * @public

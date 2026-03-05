@@ -27,7 +27,7 @@ export interface CreateChangesetCommandInput extends CreateChangesetRequest {}
 export interface CreateChangesetCommandOutput extends CreateChangesetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Changeset in a FinSpace Dataset.</p>.
+ * <p>Creates a new Changeset in a FinSpace Dataset.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

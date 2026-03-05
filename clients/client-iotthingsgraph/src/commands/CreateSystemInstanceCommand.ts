@@ -39,7 +39,7 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  *          to both the specified Greengrass group and S3 bucket. Otherwise, the call will fail with an authorization error.</p>
  *          <p>For cloud deployments, this action requires a <code>flowActionsRoleArn</code> value. This is an IAM role
  *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
- *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>.
+ *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
  *
  * @deprecated since: 2022-08-30.
  * @example

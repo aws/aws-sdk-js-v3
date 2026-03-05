@@ -35,7 +35,7 @@ export interface RejectEnvironmentAccountConnectionCommandOutput extends RejectE
  *       connection.</p>
  *          <p>You <i>can’t</i> reject an environment account connection that's connected to an environment.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
- *         connections</a> in the <i>Proton User guide</i>.</p>.
+ *         connections</a> in the <i>Proton User guide</i>.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

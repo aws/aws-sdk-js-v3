@@ -722,7 +722,7 @@ export interface ListGroupsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code> ListGroups</code> requests.</p>.
+   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code> ListGroups</code> requests.</p>
    *
    * @deprecated Using filters with ListGroups API is deprecated, please use GetGroupId API instead.
    * @public
@@ -1454,7 +1454,7 @@ export interface ListUsersRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code> ListGroups</code> requests. </p>.
+   * <p>A list of <code>Filter</code> objects, which is used in the <code>ListUsers</code> and <code> ListGroups</code> requests. </p>
    *
    * @deprecated Using filters with ListUsers API is deprecated, please use GetGroupId API instead.
    * @public

@@ -27,7 +27,7 @@ export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
 export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse, __MetadataBearer {}
 
 /**
- * <p>A list of all of your FinSpace environments.</p>.
+ * <p>A list of all of your FinSpace environments.</p>
  *
  * @deprecated This method will be discontinued.
  * @example

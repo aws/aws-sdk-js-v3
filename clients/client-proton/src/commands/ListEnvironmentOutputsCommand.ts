@@ -27,7 +27,7 @@ export interface ListEnvironmentOutputsCommandInput extends ListEnvironmentOutpu
 export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutputsOutput, __MetadataBearer {}
 
 /**
- * <p>List the infrastructure as code outputs for your environment.</p>.
+ * <p>List the infrastructure as code outputs for your environment.</p>
  *
  * @deprecated (since 10/07/2025) AWS Proton is not accepting new customers.
  * @example

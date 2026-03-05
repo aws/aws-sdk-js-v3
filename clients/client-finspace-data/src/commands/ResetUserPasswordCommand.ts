@@ -27,7 +27,7 @@ export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest 
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>.
+ * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
  *
  * @deprecated This method will be discontinued.
  * @example
