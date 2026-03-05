@@ -27,8 +27,8 @@
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.4",
     "@smithy/types": "^4.13.0",
-    "@smithy/url-parser": "^4.2.10",
-    "@smithy/util-endpoints": "^3.3.1",
+    "@smithy/url-parser": "^4.2.11",
+    "@smithy/util-endpoints": "^3.3.2",
     "tslib": "^2.6.2"
   },
   "engines": {
