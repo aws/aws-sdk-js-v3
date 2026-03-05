@@ -15811,6 +15811,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Tags consisting of key-value pairs used to manage metadata for the tracking server.</p>"
           }
+        },
+        "S3BucketOwnerAccountId": {
+          "target": "com.amazonaws.sagemaker#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage. Defaults to caller's account ID if not provided.</p>"
+          }
+        },
+        "S3BucketOwnerVerification": {
+          "target": "com.amazonaws.sagemaker#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable Amazon S3 Ownership checks when interacting with Amazon S3 buckets from a SageMaker Managed MLflow Tracking Server. Defaults to <code>True</code> if not provided. </p>"
+          }
         }
       },
       "traits": {
@@ -27635,6 +27647,18 @@
         },
         "LastModifiedBy": {
           "target": "com.amazonaws.sagemaker#UserContext"
+        },
+        "S3BucketOwnerAccountId": {
+          "target": "com.amazonaws.sagemaker#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage.</p>"
+          }
+        },
+        "S3BucketOwnerVerification": {
+          "target": "com.amazonaws.sagemaker#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether Amazon S3 Bucket Ownership checks are enabled whenever the tracking server interacts with Amazon Amazon S3.</p>"
+          }
         }
       },
       "traits": {
@@ -82708,6 +82732,18 @@
           "target": "com.amazonaws.sagemaker#WeeklyMaintenanceWindowStart",
           "traits": {
             "smithy.api#documentation": "<p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>"
+          }
+        },
+        "S3BucketOwnerAccountId": {
+          "target": "com.amazonaws.sagemaker#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The new expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage.</p>"
+          }
+        },
+        "S3BucketOwnerVerification": {
+          "target": "com.amazonaws.sagemaker#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Whether to enable or disable Amazon S3 Bucket Owenrship Verifaction whenever the MLflow Tracking Server interacts with Amazon Amazon S3.</p>"
           }
         }
       },

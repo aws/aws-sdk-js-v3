@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.UpdateMlflowTrackingServer
-content-length: 236
+content-length: 324
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 9f158e3eff9801d387db4fccb18e1b16463aea186022af507aae0df9eeb265ce
+x-amz-content-sha256: 93a4d1f2dd20e0c41a7bb2d774ace10a96e6df6966fbdd7a0fd289231c9a0237
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -19,5 +19,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
   "ArtifactStoreUri": "__ArtifactStoreUri__",
   "TrackingServerSize": "__TrackingServerSize__",
   "AutomaticModelRegistration": false,
-  "WeeklyMaintenanceWindowStart": "__WeeklyMaintenanceWindowStart__"
+  "WeeklyMaintenanceWindowStart": "__WeeklyMaintenanceWindowStart__",
+  "S3BucketOwnerAccountId": "__S3BucketOwnerAccountId__",
+  "S3BucketOwnerVerification": false
 }

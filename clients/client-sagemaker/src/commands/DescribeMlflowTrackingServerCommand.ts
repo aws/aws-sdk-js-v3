@@ -76,6 +76,8 @@ export interface DescribeMlflowTrackingServerCommandOutput extends DescribeMlflo
  * //       SourceIdentity: "STRING_VALUE",
  * //     },
  * //   },
+ * //   S3BucketOwnerAccountId: "STRING_VALUE",
+ * //   S3BucketOwnerVerification: true || false,
  * // };
  *
  * ```

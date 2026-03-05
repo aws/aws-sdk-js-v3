@@ -7929,6 +7929,18 @@ export interface DescribeMlflowTrackingServerResponse {
    * @public
    */
   LastModifiedBy?: UserContext | undefined;
+
+  /**
+   * <p>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage.</p>
+   * @public
+   */
+  S3BucketOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>Whether Amazon S3 Bucket Ownership checks are enabled whenever the tracking server interacts with Amazon Amazon S3.</p>
+   * @public
+   */
+  S3BucketOwnerVerification?: boolean | undefined;
 }
 
 /**

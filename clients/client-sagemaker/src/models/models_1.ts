@@ -5029,6 +5029,18 @@ export interface CreateMlflowTrackingServerRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage. Defaults to caller's account ID if not provided.</p>
+   * @public
+   */
+  S3BucketOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>Enable Amazon S3 Ownership checks when interacting with Amazon S3 buckets from a SageMaker Managed MLflow Tracking Server. Defaults to <code>True</code> if not provided. </p>
+   * @public
+   */
+  S3BucketOwnerVerification?: boolean | undefined;
 }
 
 /**

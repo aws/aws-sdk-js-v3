@@ -42,6 +42,8 @@ export interface UpdateMlflowTrackingServerCommandOutput extends UpdateMlflowTra
  *   TrackingServerSize: "Small" || "Medium" || "Large",
  *   AutomaticModelRegistration: true || false,
  *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
+ *   S3BucketOwnerAccountId: "STRING_VALUE",
+ *   S3BucketOwnerVerification: true || false,
  * };
  * const command = new UpdateMlflowTrackingServerCommand(input);
  * const response = await client.send(command);

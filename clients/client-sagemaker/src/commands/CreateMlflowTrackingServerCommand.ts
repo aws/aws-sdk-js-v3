@@ -50,6 +50,8 @@ export interface CreateMlflowTrackingServerCommandOutput extends CreateMlflowTra
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   S3BucketOwnerAccountId: "STRING_VALUE",
+ *   S3BucketOwnerVerification: true || false,
  * };
  * const command = new CreateMlflowTrackingServerCommand(input);
  * const response = await client.send(command);

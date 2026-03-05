@@ -2768,6 +2768,8 @@ const _SAp = "SpaceArn";
 const _SAt = "StartArns";
 const _SB = "ShapBaseline";
 const _SBC = "ShapBaselineConfig";
+const _SBOAI = "S3BucketOwnerAccountId";
+const _SBOV = "S3BucketOwnerVerification";
 const _SBU = "ShapBaselineUri";
 const _SBo = "SortBy";
 const _SC = "SecurityConfig";
@@ -4748,8 +4750,8 @@ export var CreateMlflowAppResponse$: StaticStructureSchema = [3, n0, _CMARr,
 ];
 export var CreateMlflowTrackingServerRequest$: StaticStructureSchema = [3, n0, _CMTSR,
   0,
-  [_TSN, _ASU, _RAo, _TSS, _MVl, _AMR, _WMWS, _Ta],
-  [0, 0, 0, 0, 0, 2, 0, () => TagList], 3
+  [_TSN, _ASU, _RAo, _TSS, _MVl, _AMR, _WMWS, _Ta, _SBOAI, _SBOV],
+  [0, 0, 0, 0, 0, 2, 0, () => TagList, 0, 2], 3
 ];
 export var CreateMlflowTrackingServerResponse$: StaticStructureSchema = [3, n0, _CMTSRr,
   0,
@@ -5993,8 +5995,8 @@ export var DescribeMlflowTrackingServerRequest$: StaticStructureSchema = [3, n0,
 ];
 export var DescribeMlflowTrackingServerResponse$: StaticStructureSchema = [3, n0, _DMTSResc,
   0,
-  [_TSA, _TSN, _ASU, _TSS, _MVl, _RAo, _TSSr, _TSMS, _IAs, _TSU, _WMWS, _AMR, _CT, _CB, _LMT, _LMB],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, () => UserContext$, 4, () => UserContext$]
+  [_TSA, _TSN, _ASU, _TSS, _MVl, _RAo, _TSSr, _TSMS, _IAs, _TSU, _WMWS, _AMR, _CT, _CB, _LMT, _LMB, _SBOAI, _SBOV],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4, () => UserContext$, 4, () => UserContext$, 0, 2]
 ];
 export var DescribeModelBiasJobDefinitionRequest$: StaticStructureSchema = [3, n0, _DMBJDRe,
   0,
@@ -10308,8 +10310,8 @@ export var UpdateMlflowAppResponse$: StaticStructureSchema = [3, n0, _UMARp,
 ];
 export var UpdateMlflowTrackingServerRequest$: StaticStructureSchema = [3, n0, _UMTSR,
   0,
-  [_TSN, _ASU, _TSS, _AMR, _WMWS],
-  [0, 0, 0, 2, 0], 1
+  [_TSN, _ASU, _TSS, _AMR, _WMWS, _SBOAI, _SBOV],
+  [0, 0, 0, 2, 0, 0, 2], 1
 ];
 export var UpdateMlflowTrackingServerResponse$: StaticStructureSchema = [3, n0, _UMTSRp,
   0,
