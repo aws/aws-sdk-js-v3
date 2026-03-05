@@ -68,7 +68,7 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  * //       RequesterRegion: "STRING_VALUE",
  * //       RequesterAccountId: "STRING_VALUE",
  * //       Status: "PENDING" || "CANCELLED" || "APPROVED" || "FAILED" || "CREATING",
- * //       StatusCode: "REJECTED" || "EXPIRED" || "CONFIGURATION_CHANGED",
+ * //       StatusCode: "REJECTED" || "EXPIRED" || "CONFIGURATION_CHANGED" || "ALL_APPROVERS_IN_SESSION",
  * //       StatusMessage: "STRING_VALUE",
  * //       ActionCompletionStrategy: "AUTO_COMPLETION_UPON_APPROVAL",
  * //       AdditionalSecurityRequirements: [ // AdditionalSecurityRequirements

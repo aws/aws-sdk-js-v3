@@ -4,6 +4,7 @@ import {
   AdditionalSecurityRequirement,
   ApprovalTeamStatus,
   ApprovalTeamStatusCode,
+  ApproverLastActivity,
   FilterField,
   IdentitySourceStatus,
   IdentitySourceStatusCode,
@@ -304,6 +305,24 @@ export interface GetApprovalTeamResponseApprover {
   PrimaryIdentityStatus?: IdentityStatus | undefined;
 
   /**
+   * <p>Last Activity performed by the approver.</p>
+   * @public
+   */
+  LastActivity?: ApproverLastActivity | undefined;
+
+  /**
+   * <p>Timestamp when the approver last responded to an operation or invitation request.</p>
+   * @public
+   */
+  LastActivityTime?: Date | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) for the pending baseline session.</p>
+   * @public
+   */
+  PendingBaselineSessionArn?: string | undefined;
+
+  /**
    * <p>Multi-factor authentication configuration for the approver</p>
    * @public
    */
@@ -591,6 +610,34 @@ export interface StartActiveApprovalTeamDeletionResponse {
    * @public
    */
   DeletionStartTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartApprovalTeamBaselineRequest {
+  /**
+   * <p>Amazon Resource Name (ARN) for the approval team.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Array of approver IDs.</p>
+   * @public
+   */
+  ApproverIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartApprovalTeamBaselineResponse {
+  /**
+   * <p>Amazon Resource Name (ARN) for the session.</p>
+   * @public
+   */
+  BaselineSessionArn?: string | undefined;
 }
 
 /**

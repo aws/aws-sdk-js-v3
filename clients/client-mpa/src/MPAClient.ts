@@ -102,6 +102,10 @@ import {
   StartActiveApprovalTeamDeletionCommandInput,
   StartActiveApprovalTeamDeletionCommandOutput,
 } from "./commands/StartActiveApprovalTeamDeletionCommand";
+import {
+  StartApprovalTeamBaselineCommandInput,
+  StartApprovalTeamBaselineCommandOutput,
+} from "./commands/StartApprovalTeamBaselineCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApprovalTeamCommandInput, UpdateApprovalTeamCommandOutput } from "./commands/UpdateApprovalTeamCommand";
@@ -138,6 +142,7 @@ export type ServiceInputTypes =
   | ListSessionsCommandInput
   | ListTagsForResourceCommandInput
   | StartActiveApprovalTeamDeletionCommandInput
+  | StartApprovalTeamBaselineCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApprovalTeamCommandInput;
@@ -164,6 +169,7 @@ export type ServiceOutputTypes =
   | ListSessionsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartActiveApprovalTeamDeletionCommandOutput
+  | StartApprovalTeamBaselineCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApprovalTeamCommandOutput;

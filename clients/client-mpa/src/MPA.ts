@@ -88,6 +88,11 @@ import {
   StartActiveApprovalTeamDeletionCommandInput,
   StartActiveApprovalTeamDeletionCommandOutput,
 } from "./commands/StartActiveApprovalTeamDeletionCommand";
+import {
+  StartApprovalTeamBaselineCommand,
+  StartApprovalTeamBaselineCommandInput,
+  StartApprovalTeamBaselineCommandOutput,
+} from "./commands/StartApprovalTeamBaselineCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -126,6 +131,7 @@ const commands = {
   ListSessionsCommand,
   ListTagsForResourceCommand,
   StartActiveApprovalTeamDeletionCommand,
+  StartApprovalTeamBaselineCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApprovalTeamCommand,
@@ -447,6 +453,23 @@ export interface MPA {
     args: StartActiveApprovalTeamDeletionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartActiveApprovalTeamDeletionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartApprovalTeamBaselineCommand}
+   */
+  startApprovalTeamBaseline(
+    args: StartApprovalTeamBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartApprovalTeamBaselineCommandOutput>;
+  startApprovalTeamBaseline(
+    args: StartApprovalTeamBaselineCommandInput,
+    cb: (err: any, data?: StartApprovalTeamBaselineCommandOutput) => void
+  ): void;
+  startApprovalTeamBaseline(
+    args: StartApprovalTeamBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartApprovalTeamBaselineCommandOutput) => void
   ): void;
 
   /**

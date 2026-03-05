@@ -60,7 +60,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   Status: "PENDING" || "CANCELLED" || "APPROVED" || "FAILED" || "CREATING",
- * //   StatusCode: "REJECTED" || "EXPIRED" || "CONFIGURATION_CHANGED",
+ * //   StatusCode: "REJECTED" || "EXPIRED" || "CONFIGURATION_CHANGED" || "ALL_APPROVERS_IN_SESSION",
  * //   StatusMessage: "STRING_VALUE",
  * //   ExecutionStatus: "EXECUTED" || "FAILED" || "PENDING",
  * //   ActionName: "STRING_VALUE",

@@ -28,6 +28,20 @@ export type AdditionalSecurityRequirement =
  * @public
  * @enum
  */
+export const ApproverLastActivity = {
+  BASELINED: "BASELINED",
+  RESPONDED_TO_INVITATION: "RESPONDED_TO_INVITATION",
+  VOTED: "VOTED",
+} as const;
+/**
+ * @public
+ */
+export type ApproverLastActivity = (typeof ApproverLastActivity)[keyof typeof ApproverLastActivity];
+
+/**
+ * @public
+ * @enum
+ */
 export const MfaSyncStatus = {
   IN_SYNC: "IN_SYNC",
   OUT_OF_SYNC: "OUT_OF_SYNC",
@@ -231,6 +245,7 @@ export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
  * @enum
  */
 export const SessionStatusCode = {
+  ALL_APPROVERS_IN_SESSION: "ALL_APPROVERS_IN_SESSION",
   CONFIGURATION_CHANGED: "CONFIGURATION_CHANGED",
   EXPIRED: "EXPIRED",
   REJECTED: "REJECTED",

@@ -327,6 +327,13 @@ StartActiveApprovalTeamDeletion
 </details>
 <details>
 <summary>
+StartApprovalTeamBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mpa/command/StartApprovalTeamBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mpa/Interface/StartApprovalTeamBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mpa/Interface/StartApprovalTeamBaselineCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

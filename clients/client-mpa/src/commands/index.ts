@@ -17,6 +17,7 @@ export * from "./ListResourcePoliciesCommand";
 export * from "./ListSessionsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartActiveApprovalTeamDeletionCommand";
+export * from "./StartApprovalTeamBaselineCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateApprovalTeamCommand";

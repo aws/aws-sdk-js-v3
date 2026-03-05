@@ -8,6 +8,7 @@ import {
   ApprovalTeamRequestApprover$,
   ApprovalTeamStatus,
   ApprovalTeamStatusCode,
+  ApproverLastActivity,
   CancelSession$,
   CancelSessionCommand,
   CancelSessionRequest$,
@@ -132,6 +133,10 @@ import {
   StartActiveApprovalTeamDeletionCommand,
   StartActiveApprovalTeamDeletionRequest$,
   StartActiveApprovalTeamDeletionResponse$,
+  StartApprovalTeamBaseline$,
+  StartApprovalTeamBaselineCommand,
+  StartApprovalTeamBaselineRequest$,
+  StartApprovalTeamBaselineResponse$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -193,6 +198,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof StartActiveApprovalTeamDeletionCommand === "function");
 assert(typeof StartActiveApprovalTeamDeletion$ === "object");
+assert(typeof StartApprovalTeamBaselineCommand === "function");
+assert(typeof StartApprovalTeamBaseline$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -258,6 +265,8 @@ assert(typeof PolicyVersion$ === "object");
 assert(typeof PolicyVersionSummary$ === "object");
 assert(typeof StartActiveApprovalTeamDeletionRequest$ === "object");
 assert(typeof StartActiveApprovalTeamDeletionResponse$ === "object");
+assert(typeof StartApprovalTeamBaselineRequest$ === "object");
+assert(typeof StartApprovalTeamBaselineResponse$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -269,6 +278,7 @@ assert(typeof ActionCompletionStrategy === "object");
 assert(typeof AdditionalSecurityRequirement === "object");
 assert(typeof ApprovalTeamStatus === "object");
 assert(typeof ApprovalTeamStatusCode === "object");
+assert(typeof ApproverLastActivity === "object");
 assert(typeof FilterField === "object");
 assert(typeof IdentitySourceStatus === "object");
 assert(typeof IdentitySourceStatusCode === "object");

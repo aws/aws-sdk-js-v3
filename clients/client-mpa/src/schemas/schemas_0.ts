@@ -2,6 +2,7 @@ const _A = "Approvers";
 const _ACS = "ActionCompletionStrategy";
 const _ADE = "AccessDeniedException";
 const _AI = "ApproverId";
+const _AIp = "ApproverIds";
 const _AN = "ActionName";
 const _APU = "ApprovalPortalUrl";
 const _AR = "ApproverResponses";
@@ -14,6 +15,7 @@ const _ATN = "ApprovalTeamName";
 const _ATRA = "ApprovalTeamRequestApprover";
 const _ATRAp = "ApprovalTeamRequestApprovers";
 const _Ar = "Arn";
+const _BSA = "BaselineSessionArn";
 const _CAT = "CreateApprovalTeam";
 const _CATR = "CreateApprovalTeamRequest";
 const _CATRr = "CreateApprovalTeamResponse";
@@ -77,11 +79,13 @@ const _ISPFG = "IdentitySourceParametersForGet";
 const _ISPFL = "IdentitySourceParametersForList";
 const _IST = "IdentitySourceType";
 const _IT = "InitiationTime";
-const _LAT = "ListApprovalTeams";
+const _LA = "LastActivity";
+const _LAT = "LastActivityTime";
 const _LATR = "ListApprovalTeamsRequest";
 const _LATRAT = "ListApprovalTeamsResponseApprovalTeam";
 const _LATRATi = "ListApprovalTeamsResponseApprovalTeams";
 const _LATRi = "ListApprovalTeamsResponse";
+const _LATi = "ListApprovalTeams";
 const _LIS = "ListIdentitySources";
 const _LISR = "ListIdentitySourcesRequest";
 const _LISRi = "ListIdentitySourcesResponse";
@@ -120,6 +124,7 @@ const _NT = "NextToken";
 const _O = "Operator";
 const _P = "Policies";
 const _PA = "PolicyArn";
+const _PBSA = "PendingBaselineSessionArn";
 const _PD = "PolicyDocument";
 const _PII = "PrimaryIdentityId";
 const _PIS = "PrimaryIdentityStatus";
@@ -153,6 +158,9 @@ const _SA = "SessionArn";
 const _SAATD = "StartActiveApprovalTeamDeletion";
 const _SAATDR = "StartActiveApprovalTeamDeletionRequest";
 const _SAATDRt = "StartActiveApprovalTeamDeletionResponse";
+const _SATB = "StartApprovalTeamBaseline";
+const _SATBR = "StartApprovalTeamBaselineRequest";
+const _SATBRt = "StartApprovalTeamBaselineResponse";
 const _SC = "StatusCode";
 const _SK = "SessionKey";
 const _SM = "StatusMessage";
@@ -360,8 +368,8 @@ export var GetApprovalTeamResponse$: StaticStructureSchema = [3, n0, _GATRe,
 ];
 export var GetApprovalTeamResponseApprover$: StaticStructureSchema = [3, n0, _GATRA,
   0,
-  [_AI, _RT, _PII, _PISA, _PIS, _MM],
-  [0, 5, 0, 0, 0, () => MfaMethods]
+  [_AI, _RT, _PII, _PISA, _PIS, _LA, _LAT, _PBSA, _MM],
+  [0, 5, 0, 0, 0, 0, 5, 0, () => MfaMethods]
 ];
 export var GetIdentitySourceRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
@@ -563,6 +571,16 @@ export var StartActiveApprovalTeamDeletionResponse$: StaticStructureSchema = [3,
   [_DCT, _DST],
   [5, 5]
 ];
+export var StartApprovalTeamBaselineRequest$: StaticStructureSchema = [3, n0, _SATBR,
+  0,
+  [_Ar, _AIp],
+  [[0, 1], 64 | 0], 1
+];
+export var StartApprovalTeamBaselineResponse$: StaticStructureSchema = [3, n0, _SATBRt,
+  0,
+  [_BSA],
+  [0]
+];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
   [_RA, _T],
@@ -633,6 +651,7 @@ var PoliciesReferences: StaticListSchema = [1, n0, _PRo,
 var PolicyVersions: StaticListSchema = [1, n0, _PVo,
   0, () => PolicyVersionSummary$
 ];
+var StartApprovalTeamBaselineApproverIds = 64 | 0;
 var TagKeyList: StaticListSchema = [1, n0, _TKL,
   8, [() => TagKey,
     0]
@@ -700,7 +719,7 @@ export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
 export var GetSession$: StaticOperationSchema = [9, n0, _GS,
   { [_h]: ["GET", "/sessions/{SessionArn}", 200] }, () => GetSessionRequest$, () => GetSessionResponse$
 ];
-export var ListApprovalTeams$: StaticOperationSchema = [9, n0, _LAT,
+export var ListApprovalTeams$: StaticOperationSchema = [9, n0, _LATi,
   { [_h]: ["POST", "/approval-teams/?List", 200] }, () => ListApprovalTeamsRequest$, () => ListApprovalTeamsResponse$
 ];
 export var ListIdentitySources$: StaticOperationSchema = [9, n0, _LIS,
@@ -723,6 +742,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var StartActiveApprovalTeamDeletion$: StaticOperationSchema = [9, n0, _SAATD,
   { [_h]: ["POST", "/approval-teams/{Arn}?Delete", 200] }, () => StartActiveApprovalTeamDeletionRequest$, () => StartActiveApprovalTeamDeletionResponse$
+];
+export var StartApprovalTeamBaseline$: StaticOperationSchema = [9, n0, _SATB,
+  { [_h]: ["POST", "/approval-teams/{Arn}/baseline", 200] }, () => StartApprovalTeamBaselineRequest$, () => StartApprovalTeamBaselineResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["PUT", "/tags/{ResourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
