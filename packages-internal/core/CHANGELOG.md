@@ -21,6 +21,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.18 (2026-03-05)
+### Chores
+* bump '@smithy/*' dependencies ([#7822](https://github.com/aws/aws-sdk-js-v3/issues/7822)) ([8ddd544](https://github.com/aws/aws-sdk-js-v3/commit/8ddd54420b62212cf3d797050e924efba1fada28))
+* set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))
+### Tests
+* **clients:** run client feature tests in browser mode too ([#7808](https://github.com/aws/aws-sdk-js-v3/issues/7808)) ([37f1adc](https://github.com/aws/aws-sdk-js-v3/commit/37f1adc72295176f8d844f5eaa13b427e27b28d6))
+
+
+
 # 3.973.17 (2026-03-03)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dns",
-  "version": "3.972.6",
+  "version": "3.972.7",
   "description": "Implementations of DNS host resolvers.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -27,7 +27,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.973.4",
+    "@aws-sdk/types": "workspace:^3.973.5",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.16 (2026-03-04)
+### Chores
+* set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))
+
+
+
 # 3.972.15 (2026-03-04)
 ### Chores
 * **karma-credential-loader:** update dependencies.

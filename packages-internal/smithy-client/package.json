@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/smithy-client",
-  "version": "3.993.3",
+  "version": "3.993.4",
   "private": true,
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",

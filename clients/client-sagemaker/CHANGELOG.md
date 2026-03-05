@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for S3 Bucket Ownership validation for SageMaker Managed MLflow. ([b621656](https://github.com/aws/aws-sdk-js-v3/commit/b62165643e03cc036e13cd463cde57116f36b38b))
+
+
+
+
+
 # [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
+
+
+### Bug Fixes
+
+* **nested-clients:** add bundler instructions for browser credential clients ([#7823](https://github.com/aws/aws-sdk-js-v3/issues/7823)) ([f32f353](https://github.com/aws/aws-sdk-js-v3/commit/f32f353945f0bda18e6518ec017f81ea6843f33e))
+
+
+### Features
+
+* **client-connecthealth:** Connect-Health SDK is AWS's unified SDK for the Amazon Connect Health offering. It allows healthcare developers to integrate purpose-built agents - such as patient insights, ambient documentation, and medical coding - into their existing applications, including EHRs, telehealth, and revenue cycle. ([454c6cb](https://github.com/aws/aws-sdk-js-v3/commit/454c6cb7d73b92d737c008a9d9ef7fdb6365d647))
+* **client-ec2:** Added metadata field to CapacityAllocation. ([d7cce1c](https://github.com/aws/aws-sdk-js-v3/commit/d7cce1c2a1a299c49f16f9bc02ee88d904d723de))
+* **client-guardduty:** Added MALICIOUS FILE to IndicatorType enum in MDC Sequence ([bb9d466](https://github.com/aws/aws-sdk-js-v3/commit/bb9d466281db2b1023129d249ed576bd94730b18))
+* **client-mpa:** Updates to multi-party approval (MPA) service to add support for approval team baseline operations. ([e958154](https://github.com/aws/aws-sdk-js-v3/commit/e95815438c56f42e2ffa47962c1aaa3c82afeef8))
+* **client-sagemaker:** Adds support for S3 Bucket Ownership validation for SageMaker Managed MLflow. ([b621656](https://github.com/aws/aws-sdk-js-v3/commit/b62165643e03cc036e13cd463cde57116f36b38b))
+* **client-savingsplans:** Added support for OpenSearch and Neptune Analytics to Database Savings Plans. ([9e06391](https://github.com/aws/aws-sdk-js-v3/commit/9e0639134fff8635622886260fb2127daa8778de))
+* **clients:** update client endpoints as of 2026-03-05 ([e9a8d8d](https://github.com/aws/aws-sdk-js-v3/commit/e9a8d8dea104165b03857c991d4e9e8ae4dec3a3))
+
+
+
+
+
 # [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
 
 

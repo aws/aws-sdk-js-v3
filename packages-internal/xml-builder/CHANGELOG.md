@@ -12,6 +12,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.10 (2026-03-04)
+### Chores
+* set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))
+
+
+
 # 3.972.9 (2026-02-28)
 ### Chores
 * **deps:** bump fast-xml-parser from 5.3.6 to 5.4.1 ([#7796](https://github.com/aws/aws-sdk-js-v3/issues/7796)) ([c0dac29](https://github.com/aws/aws-sdk-js-v3/commit/c0dac298b8b015abd3523c045f239a39dae90a3e))

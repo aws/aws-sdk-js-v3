@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor",
   "description": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor client",
-  "version": "3.1002.0",
+  "version": "3.1003.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -22,12 +22,12 @@
   "dependencies": {
     "@aws-crypto/sha256-browser": "5.2.0",
     "@aws-crypto/sha256-js": "5.2.0",
-    "@aws-sdk/middleware-host-header": "workspace:^3.972.6",
-    "@aws-sdk/middleware-logger": "workspace:^3.972.6",
-    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.6",
-    "@aws-sdk/middleware-user-agent": "workspace:^3.972.17",
-    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.6",
-    "@aws-sdk/util-user-agent-node": "workspace:^3.973.2",
+    "@aws-sdk/middleware-host-header": "workspace:^3.972.7",
+    "@aws-sdk/middleware-logger": "workspace:^3.972.7",
+    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.7",
+    "@aws-sdk/middleware-user-agent": "workspace:^3.972.18",
+    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.7",
+    "@aws-sdk/util-user-agent-node": "workspace:^3.973.3",
     "@smithy/config-resolver": "^4.4.10",
     "@smithy/core": "^3.23.8",
     "@smithy/fetch-http-handler": "^5.3.13",

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 
+
+# 3.996.2 (2026-03-04)
+### Chores
+* set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))
+
+
+
 # 3.996.1 (2026-02-23)
 ### Chores
 * **packages:** use open version range for additional packages ([#7774](https://github.com/aws/aws-sdk-js-v3/issues/7774)) ([3f776c3](https://github.com/aws/aws-sdk-js-v3/commit/3f776c331961a98d88a8f6c3c4f4b51e18c1373c))

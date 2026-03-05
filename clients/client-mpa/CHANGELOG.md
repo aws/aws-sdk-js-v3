@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
+
+
+### Features
+
+* **client-mpa:** Updates to multi-party approval (MPA) service to add support for approval team baseline operations. ([e958154](https://github.com/aws/aws-sdk-js-v3/commit/e95815438c56f42e2ffa47962c1aaa3c82afeef8))
+
+
+
+
+
 # [3.1002.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1001.0...v3.1002.0) (2026-03-04)
 
 **Note:** Version bump only for package @aws-sdk/client-mpa

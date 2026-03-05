@@ -6,6 +6,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.4 (2026-03-05)
+### Chores
+* bump '@smithy/*' dependencies ([#7822](https://github.com/aws/aws-sdk-js-v3/issues/7822)) ([8ddd544](https://github.com/aws/aws-sdk-js-v3/commit/8ddd54420b62212cf3d797050e924efba1fada28))
+
+
+
 # 3.972.3 (2026-02-25)
 ### Chores
 * **packages:** reapply eslint rules ([#7789](https://github.com/aws/aws-sdk-js-v3/issues/7789)) ([ab81c73](https://github.com/aws/aws-sdk-js-v3/commit/ab81c738436db219e5163ccaab953805776b33d6))
