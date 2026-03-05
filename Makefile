@@ -72,6 +72,7 @@ test-e2e: bundles
 	yarn g:vitest run -c vitest.config.e2e.mts --retry=4 --test-timeout=60000
 	make test-browser-cross-platform
 	make test-bundlers
+	make test-canary
 
 test-x: test-browser-cross-platform
 
@@ -88,6 +89,9 @@ reset-test-credentials:
 
 test-bundlers:
 	(cd ./tests/bundlers && make build test)
+
+test-canary:
+	node ./tests/canary/canary-runner.js
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
