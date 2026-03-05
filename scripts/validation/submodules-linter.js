@@ -41,6 +41,10 @@ for (const submodulePackage of submodulePackages) {
         }
       }
       // package.json metadata.
+      const pushPkgJson = () => {
+        fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+      };
+
       if (!pkgJson.exports[`./${submodule}`]) {
         errors.push(`${submodule} submodule is missing exports statement in package.json`);
         pkgJson.exports[`./${submodule}`] = {
@@ -50,14 +54,23 @@ for (const submodulePackage of submodulePackages) {
           import: `./dist-es/submodules/${submodule}/index.js`,
           require: `./dist-cjs/submodules/${submodule}/index.js`,
         };
-        fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+        pushPkgJson();
+      }
+      if (submodulePackage === "nested-clients") {
+        if (!pkgJson.browser[`./dist-es/submodules/${submodule}/runtimeConfig`]) {
+          pkgJson.browser[
+            `./dist-es/submodules/${submodule}/runtimeConfig`
+          ] = `./dist-es/submodules/${submodule}/runtimeConfig.browser`;
+          errors.push(`${submodule} is missing browser replacement directive.`);
+        }
+        pushPkgJson();
       }
       if (!pkgJson.files.includes(`./${submodule}.js`) || !pkgJson.files.includes(`./${submodule}.d.ts`)) {
         pkgJson.files.push(`./${submodule}.js`);
         pkgJson.files.push(`./${submodule}.d.ts`);
         errors.push(`package.json files array missing ${submodule}.js compatibility redirect file.`);
         pkgJson.files = [...new Set(pkgJson.files)].sort();
-        fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+        pushPkgJson();
       }
       // tsconfig metadata.
       for (const [kind, tsconfig] of Object.entries(tsconfigs)) {
