@@ -31768,6 +31768,7 @@
                 }
               ]
             },
+            "eu-central-2": {},
             "eu-west-1": {
               "variants": [
                 {
@@ -31812,6 +31813,7 @@
               "deprecated": true,
               "hostname": "transcribestreaming-fips.us-west-2.amazonaws.com"
             },
+            "mx-central-1": {},
             "sa-east-1": {
               "variants": [
                 {
