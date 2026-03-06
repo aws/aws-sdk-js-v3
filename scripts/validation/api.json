@@ -578,7 +578,8 @@
     "TransactWriteCommand": "function, since <=3.930.0",
     "UpdateCommand": "function, since <=3.930.0",
     "paginateQuery": "function, since <=3.930.0",
-    "paginateScan": "function, since <=3.930.0"
+    "paginateScan": "function, since <=3.930.0",
+    "paginatedBatchGet": "function, since 3.967.0"
   },
   "@aws-sdk/lib-storage": {
     "Upload": "function, since <=3.930.0"
