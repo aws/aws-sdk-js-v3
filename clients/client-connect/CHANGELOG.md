@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1004.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1003.0...v3.1004.0) (2026-03-06)
+
+
+### Features
+
+* **client-connect:** Amazon Connect now supports the ability to programmatically configure and run automated tests for contact center experiences for Chat. Integrate testing into CICD pipelines, run multiple tests at scale, and retrieve results via API to automate validation of chat interactions and workflows. ([696614a](https://github.com/aws/aws-sdk-js-v3/commit/696614ae8195f9ba2f9d3366e2d27e3aacf45726))
+
+
+
+
+
 # [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

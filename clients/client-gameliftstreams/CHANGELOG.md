@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1004.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1003.0...v3.1004.0) (2026-03-06)
+
+
+### Features
+
+* **client-gameliftstreams:** Added new Gen6 stream classes based on the EC2 G6f instance family. These stream classes provide cost-optimized options for streaming well-optimized or lower-fidelity games on Windows environments. ([3ce882b](https://github.com/aws/aws-sdk-js-v3/commit/3ce882b68e004b3589f882c1d5fbb9443e07b5b1))
+
+
+
+
+
 # [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
 
 **Note:** Version bump only for package @aws-sdk/client-gameliftstreams

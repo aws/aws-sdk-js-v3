@@ -12,6 +12,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.10 (2026-03-06)
+### Chores
+* **credential-provider-cognito-identity:** update dependencies.
+
+
+
 # 3.972.9 (2026-03-05)
 ### Chores
 * bump '@smithy/*' dependencies ([#7822](https://github.com/aws/aws-sdk-js-v3/issues/7822)) ([8ddd544](https://github.com/aws/aws-sdk-js-v3/commit/8ddd54420b62212cf3d797050e924efba1fada28))

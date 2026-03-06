@@ -9,6 +9,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.7 (2026-03-06)
+### Chores
+* **nested-clients:** update dependencies.
+
+
+
 # 3.996.6 (2026-03-05)
 ### Bug Fixes
 * **nested-clients:** add bundler instructions for browser credential clients ([#7823](https://github.com/aws/aws-sdk-js-v3/issues/7823)) ([f32f353](https://github.com/aws/aws-sdk-js-v3/commit/f32f353945f0bda18e6518ec017f81ea6843f33e))

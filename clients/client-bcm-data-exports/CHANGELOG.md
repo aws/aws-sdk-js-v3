@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1004.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1003.0...v3.1004.0) (2026-03-06)
+
+
+### Features
+
+* **client-bcm-data-exports:** Fixed wrong endpoint resolutions in few regions. Added AWS CFN resource schema for BCM Data Exports. Added max value validation for pagination parameter. Fixed ARN format validation for BCM Data Exports resources. Updated size constraints for table properties. Added AccessDeniedException error. ([23fdf99](https://github.com/aws/aws-sdk-js-v3/commit/23fdf9940dbeb9fab236e565d4ef529779a19862))
+
+
+
+
+
 # [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-data-exports

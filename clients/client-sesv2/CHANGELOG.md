@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1004.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1003.0...v3.1004.0) (2026-03-06)
+
+
+### Features
+
+* **client-sesv2:** Adds support for longer email message header values, increasing the maximum length from 870 to 995 characters for RFC 5322 compliance. ([3a57303](https://github.com/aws/aws-sdk-js-v3/commit/3a573039fa760964ce4b8aef17b46b96183f3087))
+
+
+
+
+
 # [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

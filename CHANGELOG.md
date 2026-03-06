@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1004.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1003.0...v3.1004.0) (2026-03-06)
+
+
+### Bug Fixes
+
+* **build:** fix package release ordering ([#7829](https://github.com/aws/aws-sdk-js-v3/issues/7829)) ([cc6da58](https://github.com/aws/aws-sdk-js-v3/commit/cc6da58f9b94de5e1bd45b6486fecdf222f669d1))
+* **middleware-user-agent:** use retry strategy mode property instead of legacy fallback ([#7811](https://github.com/aws/aws-sdk-js-v3/issues/7811)) ([db78633](https://github.com/aws/aws-sdk-js-v3/commit/db7863372abba6035e12aaf8a015f9f6bc020bbb))
+
+
+### Features
+
+* **client-appintegrations:** This release adds support for webhooks, allowing customers to create an Event Integration with a webhook source. ([c86ed4e](https://github.com/aws/aws-sdk-js-v3/commit/c86ed4e1a4295d2654b2cc1ef8e195a6a97bcb58))
+* **client-bcm-data-exports:** Fixed wrong endpoint resolutions in few regions. Added AWS CFN resource schema for BCM Data Exports. Added max value validation for pagination parameter. Fixed ARN format validation for BCM Data Exports resources. Updated size constraints for table properties. Added AccessDeniedException error. ([23fdf99](https://github.com/aws/aws-sdk-js-v3/commit/23fdf9940dbeb9fab236e565d4ef529779a19862))
+* **client-bedrock-agentcore-control:** Adds support for streaming memory records in AgentCore Memory ([1746857](https://github.com/aws/aws-sdk-js-v3/commit/174685704e07d5b8cbb6414cd6d9f2f6a85736c3))
+* **client-bedrock:** Amazon Bedrock Guardrails account-level enforcement APIs now support lists for model inclusion and exclusion from guardrail enforcement. ([63b3598](https://github.com/aws/aws-sdk-js-v3/commit/63b3598691d116dadd5c389362be5369d5901a39))
+* **client-connect:** Amazon Connect now supports the ability to programmatically configure and run automated tests for contact center experiences for Chat. Integrate testing into CICD pipelines, run multiple tests at scale, and retrieve results via API to automate validation of chat interactions and workflows. ([696614a](https://github.com/aws/aws-sdk-js-v3/commit/696614ae8195f9ba2f9d3366e2d27e3aacf45726))
+* **client-deadline:** AWS Deadline Cloud now supports cost scale factors for farms, enabling studios to adjust reported costs to reflect their actual rendering economics. Adjusted costs are reflected in Deadline Cloud's Usage Explorer and Budgets. ([16f6d51](https://github.com/aws/aws-sdk-js-v3/commit/16f6d5104bf57a9d034affe12f33d4f424c7ed0f))
+* **client-gameliftstreams:** Added new Gen6 stream classes based on the EC2 G6f instance family. These stream classes provide cost-optimized options for streaming well-optimized or lower-fidelity games on Windows environments. ([3ce882b](https://github.com/aws/aws-sdk-js-v3/commit/3ce882b68e004b3589f882c1d5fbb9443e07b5b1))
+* **client-sesv2:** Adds support for longer email message header values, increasing the maximum length from 870 to 995 characters for RFC 5322 compliance. ([3a57303](https://github.com/aws/aws-sdk-js-v3/commit/3a573039fa760964ce4b8aef17b46b96183f3087))
+* **clients:** update client endpoints as of 2026-03-06 ([8c6015c](https://github.com/aws/aws-sdk-js-v3/commit/8c6015c0d1c17e8807e3be1326377bcf2176efdd))
+
+
+
+
+
 # [3.1003.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1002.0...v3.1003.0) (2026-03-05)
 
 
