@@ -60,7 +60,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  * //   ApplicationSourceUri: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
  * //   Status: "INITIALIZED" || "PROCESSING" || "READY" || "DELETING" || "ERROR",
- * //   StatusReason: "internalError" || "accessDenied",
+ * //   StatusReason: "internalError" || "accessDenied" || "sourceModified",
  * //   ReplicationStatuses: [ // ReplicationStatuses
  * //     { // ReplicationStatus
  * //       Location: "STRING_VALUE",

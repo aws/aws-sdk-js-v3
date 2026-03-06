@@ -65,7 +65,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationOutput,
  * //   ApplicationSourceUri: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
  * //   Status: "INITIALIZED" || "PROCESSING" || "READY" || "DELETING" || "ERROR",
- * //   StatusReason: "internalError" || "accessDenied",
+ * //   StatusReason: "internalError" || "accessDenied" || "sourceModified",
  * //   ReplicationStatuses: [ // ReplicationStatuses
  * //     { // ReplicationStatus
  * //       Location: "STRING_VALUE",
