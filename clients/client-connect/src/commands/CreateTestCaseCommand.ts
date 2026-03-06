@@ -42,10 +42,13 @@ export interface CreateTestCaseCommandOutput extends CreateTestCaseResponse, __M
  *   Description: "STRING_VALUE",
  *   Content: "STRING_VALUE", // required
  *   EntryPoint: { // TestCaseEntryPoint
- *     Type: "VOICE_CALL",
+ *     Type: "VOICE_CALL" || "CHAT",
  *     VoiceCallEntryPointParameters: { // VoiceCallEntryPointParameters
  *       SourcePhoneNumber: "STRING_VALUE",
  *       DestinationPhoneNumber: "STRING_VALUE",
+ *       FlowId: "STRING_VALUE",
+ *     },
+ *     ChatEntryPointParameters: { // ChatEntryPointParameters
  *       FlowId: "STRING_VALUE",
  *     },
  *   },

@@ -50,10 +50,13 @@ export interface DescribeTestCaseCommandOutput extends DescribeTestCaseResponse,
  * //     Name: "STRING_VALUE",
  * //     Content: "STRING_VALUE",
  * //     EntryPoint: { // TestCaseEntryPoint
- * //       Type: "VOICE_CALL",
+ * //       Type: "VOICE_CALL" || "CHAT",
  * //       VoiceCallEntryPointParameters: { // VoiceCallEntryPointParameters
  * //         SourcePhoneNumber: "STRING_VALUE",
  * //         DestinationPhoneNumber: "STRING_VALUE",
+ * //         FlowId: "STRING_VALUE",
+ * //       },
+ * //       ChatEntryPointParameters: { // ChatEntryPointParameters
  * //         FlowId: "STRING_VALUE",
  * //       },
  * //     },

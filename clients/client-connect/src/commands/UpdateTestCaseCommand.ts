@@ -41,10 +41,13 @@ export interface UpdateTestCaseCommandOutput extends UpdateTestCaseResponse, __M
  *   TestCaseId: "STRING_VALUE", // required
  *   Content: "STRING_VALUE",
  *   EntryPoint: { // TestCaseEntryPoint
- *     Type: "VOICE_CALL",
+ *     Type: "VOICE_CALL" || "CHAT",
  *     VoiceCallEntryPointParameters: { // VoiceCallEntryPointParameters
  *       SourcePhoneNumber: "STRING_VALUE",
  *       DestinationPhoneNumber: "STRING_VALUE",
+ *       FlowId: "STRING_VALUE",
+ *     },
+ *     ChatEntryPointParameters: { // ChatEntryPointParameters
  *       FlowId: "STRING_VALUE",
  *     },
  *   },

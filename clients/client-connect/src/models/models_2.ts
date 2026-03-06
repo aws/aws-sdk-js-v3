@@ -93,7 +93,6 @@ import {
 import {
   type EvaluationContactParticipant,
   type EvaluationScore,
-  type ObservationSummary,
   Attribute,
   ContactFlow,
   ContactFlowModule,
@@ -108,8 +107,31 @@ import {
   Prompt,
   Queue,
   QuickConnect,
-  RoutingProfile,
 } from "./models_1";
+
+/**
+ * <p>Contains summary statistics about a test case execution.</p>
+ * @public
+ */
+export interface ObservationSummary {
+  /**
+   * <p>The total number of observations in the test case.</p>
+   * @public
+   */
+  TotalObservations?: number | undefined;
+
+  /**
+   * <p>The number of observations that passed during execution.</p>
+   * @public
+   */
+  ObservationsPassed?: number | undefined;
+
+  /**
+   * <p>The number of observations that failed during execution.</p>
+   * @public
+   */
+  ObservationsFailed?: number | undefined;
+}
 
 /**
  * @public
@@ -8614,27 +8636,4 @@ export interface RoutingProfileSearchFilter {
    * @public
    */
   TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRoutingProfilesResponse {
-  /**
-   * <p>Information about the routing profiles.</p>
-   * @public
-   */
-  RoutingProfiles?: RoutingProfile[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of routing profiles which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
 }

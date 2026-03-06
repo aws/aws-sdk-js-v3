@@ -7077,6 +7077,18 @@ export interface PropertyValidationExceptionProperty {
 }
 
 /**
+ * <p>Parameters for initiating a chat test.</p>
+ * @public
+ */
+export interface ChatEntryPointParameters {
+  /**
+   * <p>The flow identifier for the test.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+}
+
+/**
  * <p>Parameters for initiating a voice call test.</p>
  * @public
  */
@@ -7116,6 +7128,12 @@ export interface TestCaseEntryPoint {
    * @public
    */
   VoiceCallEntryPointParameters?: VoiceCallEntryPointParameters | undefined;
+
+  /**
+   * <p>Parameters for chat entry point.</p>
+   * @public
+   */
+  ChatEntryPointParameters?: ChatEntryPointParameters | undefined;
 }
 
 /**
@@ -8007,28 +8025,4 @@ export interface WorkspaceThemeImages {
    * @public
    */
   Logo?: ImagesLogo | undefined;
-}
-
-/**
- * <p>Contains color configuration for canvas elements in a workspace theme.</p>
- * @public
- */
-export interface PaletteCanvas {
-  /**
-   * <p>The background color for container elements.</p>
-   * @public
-   */
-  ContainerBackground?: string | undefined;
-
-  /**
-   * <p>The background color for page elements.</p>
-   * @public
-   */
-  PageBackground?: string | undefined;
-
-  /**
-   * <p>The background color for active elements.</p>
-   * @public
-   */
-  ActiveBackground?: string | undefined;
 }

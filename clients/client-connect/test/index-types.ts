@@ -1379,6 +1379,7 @@ export type {
   Campaign,
   CaseSlaConfiguration,
   ChatContactMetrics,
+  ChatEntryPointParameters,
   ChatEvent,
   ChatMessage,
   ChatMetrics,

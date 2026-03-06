@@ -132,6 +132,7 @@ import {
   HierarchyGroup,
   NextContactEntry,
   RecordingInfo,
+  RoutingProfile,
   TestCase,
 } from "./models_1";
 import type {
@@ -158,6 +159,29 @@ import type {
   SignInConfig,
   TelephonyConfig,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface SearchRoutingProfilesResponse {
+  /**
+   * <p>Information about the routing profiles.</p>
+   * @public
+   */
+  RoutingProfiles?: RoutingProfile[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of routing profiles which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
 
 /**
  * <p>Filters to be applied to search results.</p>

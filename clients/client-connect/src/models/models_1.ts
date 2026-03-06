@@ -82,7 +82,6 @@ import {
   type OutboundCallerConfig,
   type OutboundEmailConfig,
   type OverrideTimeSlice,
-  type PaletteCanvas,
   type ParticipantCapabilities,
   type PredefinedAttributeValues,
   type QueueReference,
@@ -116,6 +115,30 @@ import {
   TaskTemplateField,
   VoiceEnhancementConfig,
 } from "./models_0";
+
+/**
+ * <p>Contains color configuration for canvas elements in a workspace theme.</p>
+ * @public
+ */
+export interface PaletteCanvas {
+  /**
+   * <p>The background color for container elements.</p>
+   * @public
+   */
+  ContainerBackground?: string | undefined;
+
+  /**
+   * <p>The background color for page elements.</p>
+   * @public
+   */
+  PageBackground?: string | undefined;
+
+  /**
+   * <p>The background color for active elements.</p>
+   * @public
+   */
+  ActiveBackground?: string | undefined;
+}
 
 /**
  * <p>Contains color configuration for header elements in a workspace theme.</p>
@@ -10349,28 +10372,4 @@ export interface GetTestCaseExecutionSummaryRequest {
    * @public
    */
   TestCaseExecutionId: string | undefined;
-}
-
-/**
- * <p>Contains summary statistics about a test case execution.</p>
- * @public
- */
-export interface ObservationSummary {
-  /**
-   * <p>The total number of observations in the test case.</p>
-   * @public
-   */
-  TotalObservations?: number | undefined;
-
-  /**
-   * <p>The number of observations that passed during execution.</p>
-   * @public
-   */
-  ObservationsPassed?: number | undefined;
-
-  /**
-   * <p>The number of observations that failed during execution.</p>
-   * @public
-   */
-  ObservationsFailed?: number | undefined;
 }

@@ -346,6 +346,7 @@ const _CEAr = "CreateEmailAddress";
 const _CEF = "CreateEvaluationForm";
 const _CEFR = "CreateEvaluationFormRequest";
 const _CEFRr = "CreateEvaluationFormResponse";
+const _CEPP = "ChatEntryPointParameters";
 const _CEh = "ChatEvent";
 const _CEo = "ContactEvaluations";
 const _CEon = "ContactEvaluation";
@@ -3560,6 +3561,11 @@ export var ChatContactMetrics$: StaticStructureSchema = [3, n0, _CCM,
   0,
   [_MP, _TM, _TBM, _TBMLIC, _CCTIM, _CTC, _AFRT, _AFRTIM],
   [2, 1, 1, 1, 1, 1, 4, 1]
+];
+export var ChatEntryPointParameters$: StaticStructureSchema = [3, n0, _CEPP,
+  0,
+  [_FI],
+  [0]
 ];
 export var ChatEvent$: StaticStructureSchema = [3, n0, _CEh,
   0,
@@ -8038,8 +8044,8 @@ export var TestCase$: StaticStructureSchema = [3, n0, _TCe,
 ];
 export var TestCaseEntryPoint$: StaticStructureSchema = [3, n0, _TCEP,
   0,
-  [_T, _VCEPP],
-  [0, () => VoiceCallEntryPointParameters$]
+  [_T, _VCEPP, _CEPP],
+  [0, () => VoiceCallEntryPointParameters$, () => ChatEntryPointParameters$]
 ];
 export var TestCaseExecution$: StaticStructureSchema = [3, n0, _TCEe,
   0,

@@ -1246,6 +1246,7 @@ export type PropertyValidationExceptionReason =
  * @enum
  */
 export const TestCaseEntryPointType = {
+  CHAT: "CHAT",
   VOICE_CALL: "VOICE_CALL",
 } as const;
 /**

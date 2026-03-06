@@ -182,6 +182,7 @@ import {
   CaseSlaConfiguration$,
   Channel,
   ChatContactMetrics$,
+  ChatEntryPointParameters$,
   ChatEvent$,
   ChatEventType,
   ChatMessage$,
@@ -3076,6 +3077,7 @@ assert(typeof BooleanCondition$ === "object");
 assert(typeof Campaign$ === "object");
 assert(typeof CaseSlaConfiguration$ === "object");
 assert(typeof ChatContactMetrics$ === "object");
+assert(typeof ChatEntryPointParameters$ === "object");
 assert(typeof ChatEvent$ === "object");
 assert(typeof ChatMessage$ === "object");
 assert(typeof ChatMetrics$ === "object");
