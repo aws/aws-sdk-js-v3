@@ -49,24 +49,26 @@ describe("SQS Queues", () => {
   });
 
   describe("Creating and deleting queues", () => {
+    const prefix = `aws-sdk-${Date.now()}-`;
+
     it("should create queues and eventually list them", async () => {
       // Create first queue
       const createResult1 = await client.createQueue({
-        QueueName: `aws-js-sdk-${Date.now()}`,
+        QueueName: `${prefix}-q1`,
       });
       const queueUrl1 = createResult1.QueueUrl!;
       createdQueues.push(queueUrl1);
 
       // Create second queue
       const createResult2 = await client.createQueue({
-        QueueName: `aws-js-sdk-${Date.now() + 1}`,
+        QueueName: `${prefix}-q2`,
       });
       const queueUrl2 = createResult2.QueueUrl!;
       createdQueues.push(queueUrl2);
 
       // Wait for queues to be eventually consistent and available in list
       const listResult = await eventually(
-        () => client.listQueues({ QueueNamePrefix: "aws-js-sdk-" }),
+        () => client.listQueues({ QueueNamePrefix: prefix }),
         (result) => {
           const queueUrls = result.QueueUrls || [];
           return createdQueues.every((createdQueue) => queueUrls.includes(createdQueue));
