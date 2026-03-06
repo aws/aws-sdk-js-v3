@@ -594,6 +594,7 @@ const _cM = "customerManaged";
 const _cR = "consumersResolved";
 const _cS = "completedStatus";
 const _cSA = "cancelSessionActions";
+const _cSF = "costScaleFactor";
 const _cT = "clientToken";
 const _cU = "consumersUnresolved";
 const _ca = "capabilities";
@@ -1167,8 +1168,8 @@ export var CreateBudgetResponse$: StaticStructureSchema = [3, n0, _CBRr,
 ];
 export var CreateFarmRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_dN, _cT, _de, _kKA, _ta],
-  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, 128 | 0], 1
+  [_dN, _cT, _de, _kKA, _cSF, _ta],
+  [0, [0, { [_hH]: _XACT, [_iT]: 1 }], [() => Description, 0], 0, 1, 128 | 0], 1
 ];
 export var CreateFarmResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -1582,8 +1583,8 @@ export var GetFarmRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFarmResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_fI, _dN, _cA, _cB, _de, _kKA, _uA, _uB],
-  [0, 0, 5, 0, [() => Description, 0], 0, 5, 0], 4
+  [_fI, _dN, _cSF, _cA, _cB, _de, _kKA, _uA, _uB],
+  [0, 0, 1, 5, 0, [() => Description, 0], 0, 5, 0], 5
 ];
 export var GetFleetRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
@@ -2472,8 +2473,8 @@ export var UpdatedSessionActionInfo$: StaticStructureSchema = [3, n0, _USAI,
 ];
 export var UpdateFarmRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_fI, _dN, _de],
-  [[0, 1], 0, [() => Description, 0]], 1
+  [_fI, _dN, _de, _cSF],
+  [[0, 1], 0, [() => Description, 0], 1], 1
 ];
 export var UpdateFarmResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,

@@ -2376,6 +2376,12 @@ export interface CreateFarmRequest {
   kmsKeyArn?: string | undefined;
 
   /**
+   * <p>The cost scale factor to apply on the farm.</p>
+   * @public
+   */
+  costScaleFactor?: number | undefined;
+
+  /**
    * <p>The tags to add to your farm. Each tag consists of a tag key and a tag value. Tag keys and values are both required, but tag values can be empty strings.</p>
    * @public
    */
@@ -4790,6 +4796,12 @@ export interface GetFarmResponse {
    * @public
    */
   kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The cost scale factor applied on the farm.</p>
+   * @public
+   */
+  costScaleFactor: number | undefined;
 
   /**
    * <p>The date and time the resource was created.</p>
@@ -8483,6 +8495,12 @@ export interface UpdateFarmRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The cost scale factor of the farm to update.</p>
+   * @public
+   */
+  costScaleFactor?: number | undefined;
 }
 
 /**

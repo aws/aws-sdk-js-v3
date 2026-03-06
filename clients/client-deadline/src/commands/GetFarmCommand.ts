@@ -46,6 +46,7 @@ export interface GetFarmCommandOutput extends GetFarmResponse, __MetadataBearer 
  * //   displayName: "STRING_VALUE", // required
  * //   description: "STRING_VALUE",
  * //   kmsKeyArn: "STRING_VALUE",
+ * //   costScaleFactor: Number("float"), // required
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
  * //   updatedAt: new Date("TIMESTAMP"),

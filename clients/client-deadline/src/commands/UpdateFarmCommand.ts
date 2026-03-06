@@ -40,6 +40,7 @@ export interface UpdateFarmCommandOutput extends UpdateFarmResponse, __MetadataB
  *   farmId: "STRING_VALUE", // required
  *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   costScaleFactor: Number("float"),
  * };
  * const command = new UpdateFarmCommand(input);
  * const response = await client.send(command);

@@ -41,6 +41,7 @@ export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataB
  *   displayName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   kmsKeyArn: "STRING_VALUE",
+ *   costScaleFactor: Number("float"),
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
