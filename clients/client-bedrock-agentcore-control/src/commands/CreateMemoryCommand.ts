@@ -152,6 +152,21 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  *       },
  *     },
  *   ],
+ *   streamDeliveryResources: { // StreamDeliveryResources
+ *     resources: [ // StreamDeliveryResourcesList // required
+ *       { // StreamDeliveryResource Union: only one key present
+ *         kinesis: { // KinesisResource
+ *           dataStreamArn: "STRING_VALUE", // required
+ *           contentConfigurations: [ // ContentConfigurationList // required
+ *             { // ContentConfiguration
+ *               type: "MEMORY_RECORDS", // required
+ *               level: "METADATA_ONLY" || "FULL_CONTENT",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -258,6 +273,21 @@ export interface CreateMemoryCommandOutput extends CreateMemoryOutput, __Metadat
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
  * //       },
  * //     ],
+ * //     streamDeliveryResources: { // StreamDeliveryResources
+ * //       resources: [ // StreamDeliveryResourcesList // required
+ * //         { // StreamDeliveryResource Union: only one key present
+ * //           kinesis: { // KinesisResource
+ * //             dataStreamArn: "STRING_VALUE", // required
+ * //             contentConfigurations: [ // ContentConfigurationList // required
+ * //               { // ContentConfiguration
+ * //                 type: "MEMORY_RECORDS", // required
+ * //                 level: "METADATA_ONLY" || "FULL_CONTENT",
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

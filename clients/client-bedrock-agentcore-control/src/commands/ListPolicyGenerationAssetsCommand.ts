@@ -9,7 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../BedrockAgentCoreControlClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListPolicyGenerationAssetsRequest, ListPolicyGenerationAssetsResponse } from "../models/models_0";
+import type { ListPolicyGenerationAssetsRequest } from "../models/models_0";
+import type { ListPolicyGenerationAssetsResponse } from "../models/models_1";
 import { ListPolicyGenerationAssets$ } from "../schemas/schemas_0";
 
 /**

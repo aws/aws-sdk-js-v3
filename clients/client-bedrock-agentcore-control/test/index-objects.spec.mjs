@@ -50,6 +50,9 @@ import {
   ConsolidationConfiguration$,
   ContainerConfiguration$,
   Content$,
+  ContentConfiguration$,
+  ContentLevel,
+  ContentType,
   CreateAgentRuntime$,
   CreateAgentRuntimeCommand,
   CreateAgentRuntimeEndpoint$,
@@ -317,6 +320,7 @@ import {
   InvocationConfiguration$,
   InvocationConfigurationInput$,
   KeyType,
+  KinesisResource$,
   KmsConfiguration$,
   LambdaInterceptorConfiguration$,
   LifecycleConfiguration$,
@@ -519,6 +523,8 @@ import {
   StartPolicyGenerationRequest$,
   StartPolicyGenerationResponse$,
   StrategyConfiguration$,
+  StreamDeliveryResource$,
+  StreamDeliveryResources$,
   SummaryConsolidationOverride$,
   SummaryMemoryStrategyInput$,
   SummaryOverrideConfigurationInput$,
@@ -836,6 +842,7 @@ assert(typeof CodeInterpreterSummary$ === "object");
 assert(typeof ConsolidationConfiguration$ === "object");
 assert(typeof ContainerConfiguration$ === "object");
 assert(typeof Content$ === "object");
+assert(typeof ContentConfiguration$ === "object");
 assert(typeof CreateAgentRuntimeEndpointRequest$ === "object");
 assert(typeof CreateAgentRuntimeEndpointResponse$ === "object");
 assert(typeof CreateAgentRuntimeRequest$ === "object");
@@ -985,6 +992,7 @@ assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
 assert(typeof InvocationConfiguration$ === "object");
 assert(typeof InvocationConfigurationInput$ === "object");
+assert(typeof KinesisResource$ === "object");
 assert(typeof KmsConfiguration$ === "object");
 assert(typeof LambdaInterceptorConfiguration$ === "object");
 assert(typeof LifecycleConfiguration$ === "object");
@@ -1099,6 +1107,8 @@ assert(typeof SlackOauth2ProviderConfigOutput$ === "object");
 assert(typeof StartPolicyGenerationRequest$ === "object");
 assert(typeof StartPolicyGenerationResponse$ === "object");
 assert(typeof StrategyConfiguration$ === "object");
+assert(typeof StreamDeliveryResource$ === "object");
+assert(typeof StreamDeliveryResources$ === "object");
 assert(typeof SummaryConsolidationOverride$ === "object");
 assert(typeof SummaryMemoryStrategyInput$ === "object");
 assert(typeof SummaryOverrideConfigurationInput$ === "object");
@@ -1166,6 +1176,8 @@ assert(typeof BrowserStatus === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof CodeInterpreterNetworkMode === "object");
 assert(typeof CodeInterpreterStatus === "object");
+assert(typeof ContentLevel === "object");
+assert(typeof ContentType === "object");
 assert(typeof CredentialProviderType === "object");
 assert(typeof CredentialProviderVendorType === "object");
 assert(typeof EvaluatorLevel === "object");

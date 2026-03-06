@@ -235,6 +235,21 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *       },
  *     ],
  *   },
+ *   streamDeliveryResources: { // StreamDeliveryResources
+ *     resources: [ // StreamDeliveryResourcesList // required
+ *       { // StreamDeliveryResource Union: only one key present
+ *         kinesis: { // KinesisResource
+ *           dataStreamArn: "STRING_VALUE", // required
+ *           contentConfigurations: [ // ContentConfigurationList // required
+ *             { // ContentConfiguration
+ *               type: "MEMORY_RECORDS", // required
+ *               level: "METADATA_ONLY" || "FULL_CONTENT",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateMemoryCommand(input);
  * const response = await client.send(command);
@@ -338,6 +353,21 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
  * //       },
  * //     ],
+ * //     streamDeliveryResources: { // StreamDeliveryResources
+ * //       resources: [ // StreamDeliveryResourcesList // required
+ * //         { // StreamDeliveryResource Union: only one key present
+ * //           kinesis: { // KinesisResource
+ * //             dataStreamArn: "STRING_VALUE", // required
+ * //             contentConfigurations: [ // ContentConfigurationList // required
+ * //               { // ContentConfiguration
+ * //                 type: "MEMORY_RECORDS", // required
+ * //                 level: "METADATA_ONLY" || "FULL_CONTENT",
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *

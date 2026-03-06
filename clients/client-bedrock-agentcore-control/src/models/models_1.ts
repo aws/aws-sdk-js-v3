@@ -1,17 +1,143 @@
 // smithy-typescript generated code
-import { PolicyGenerationStatus, PolicyStatus, PolicyValidationMode, SchemaType, TargetStatus } from "./enums";
+import {
+  FindingType,
+  PolicyGenerationStatus,
+  PolicyStatus,
+  PolicyValidationMode,
+  SchemaType,
+  TargetStatus,
+} from "./enums";
 import {
   type KmsConfiguration,
   type MetadataConfiguration,
-  type PolicyDefinition,
   type Resource,
   type UpdatedDescription,
   ApiGatewayTargetConfiguration,
   ApiSchemaConfiguration,
+  CedarPolicy,
   CredentialProviderConfiguration,
   McpServerTargetConfiguration,
+  PolicyGenerationDetails,
   S3Configuration,
 } from "./models_0";
+
+/**
+ * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+ * @public
+ */
+export type PolicyDefinition =
+  | PolicyDefinition.CedarMember
+  | PolicyDefinition.PolicyGenerationMember
+  | PolicyDefinition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PolicyDefinition {
+  /**
+   * <p>The Cedar policy definition within the policy definition structure. This contains the Cedar policy statement that defines the authorization logic using Cedar's human-readable, analyzable policy language. Cedar policies specify principals (who can access), actions (what operations are allowed), resources (what can be accessed), and optional conditions for fine-grained control. Cedar provides a formal policy language designed for authorization with deterministic evaluation, making policies testable, reviewable, and auditable. All Cedar policies follow a default-deny model where actions are denied unless explicitly permitted, and forbid policies always override permit policies.</p>
+   * @public
+   */
+  export interface CedarMember {
+    cedar: CedarPolicy;
+    policyGeneration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+   * @public
+   */
+  export interface PolicyGenerationMember {
+    cedar?: never;
+    policyGeneration: PolicyGenerationDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cedar?: never;
+    policyGeneration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    cedar: (value: CedarPolicy) => T;
+    policyGeneration: (value: PolicyGenerationDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Represents a finding or issue discovered during policy generation or validation. Findings provide insights about potential problems, recommendations, or validation results from policy analysis operations. Finding types include: VALID (policy is ready to use), INVALID (policy has validation errors that must be fixed), NOT_TRANSLATABLE (input couldn't be converted to policy), ALLOW_ALL (policy would allow all actions, potential security risk), ALLOW_NONE (policy would allow no actions, unusable), DENY_ALL (policy would deny all actions, may be too restrictive), and DENY_NONE (policy would deny no actions, ineffective). Review all findings before creating policies from generated assets to ensure they match your security requirements.</p>
+ * @public
+ */
+export interface Finding {
+  /**
+   * <p>The type or category of the finding. This classifies the finding as an error, warning, recommendation, or informational message to help users understand the severity and nature of the issue.</p>
+   * @public
+   */
+  type?: FindingType | undefined;
+
+  /**
+   * <p>A human-readable description of the finding. This provides detailed information about the issue, recommendation, or validation result to help users understand and address the finding. </p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * <p>Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
+ * @public
+ */
+export interface PolicyGenerationAsset {
+  /**
+   * <p>The unique identifier for this generated policy asset within the policy generation request. This ID can be used to reference specific generated policy options when creating actual policies from the generation results.</p>
+   * @public
+   */
+  policyGenerationAssetId: string | undefined;
+
+  /**
+   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
+   * @public
+   */
+  definition?: PolicyDefinition | undefined;
+
+  /**
+   * <p>The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Cedar policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Cedar policies.</p>
+   * @public
+   */
+  rawTextFragment: string | undefined;
+
+  /**
+   * <p>Analysis findings and insights related to this specific generated policy asset. These findings may include validation results, potential issues, or recommendations for improvement to help users evaluate the quality and appropriateness of the generated policy.</p>
+   * @public
+   */
+  findings: Finding[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPolicyGenerationAssetsResponse {
+  /**
+   * <p>An array of generated policy assets including Cedar policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.</p>
+   * @public
+   */
+  policyGenerationAssets?: PolicyGenerationAsset[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> calls to retrieve additional assets. This token is only present when there are more generated policy assets available beyond the current response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
 
 /**
  * @public

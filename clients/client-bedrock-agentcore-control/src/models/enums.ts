@@ -456,6 +456,31 @@ export type KeyType = (typeof KeyType)[keyof typeof KeyType];
  * @public
  * @enum
  */
+export const ContentLevel = {
+  FULL_CONTENT: "FULL_CONTENT",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ContentLevel = (typeof ContentLevel)[keyof typeof ContentLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentType = {
+  MEMORY_RECORDS: "MEMORY_RECORDS",
+} as const;
+/**
+ * @public
+ */
+export type ContentType = (typeof ContentType)[keyof typeof ContentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const MemoryStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",
