@@ -15,7 +15,7 @@ jobs:
       pull-requests: write
       issues: write
     steps:
-      - uses: dessant/lock-threads@v2
+      - uses: dessant/lock-threads@v6
         if: github.repository == 'aws/aws-sdk-js-v3'
         with:
           github-token: ${{ github.token }}
