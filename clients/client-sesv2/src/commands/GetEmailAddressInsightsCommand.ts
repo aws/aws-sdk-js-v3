@@ -83,6 +83,45 @@ export interface GetEmailAddressInsightsCommandOutput extends GetEmailAddressIns
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
  *
+ * @example Get Email Address Insights
+ * ```javascript
+ * // Performs email validation against an email address.
+ * const input = {
+ *   EmailAddress: "hello@example.com"
+ * };
+ * const command = new GetEmailAddressInsightsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   MailboxValidation: {
+ *     Evaluations: {
+ *       HasValidDnsRecords: {
+ *         ConfidenceVerdict: "MEDIUM"
+ *       },
+ *       HasValidSyntax: {
+ *         ConfidenceVerdict: "HIGH"
+ *       },
+ *       IsDisposable: {
+ *         ConfidenceVerdict: "LOW"
+ *       },
+ *       IsRandomInput: {
+ *         ConfidenceVerdict: "LOW"
+ *       },
+ *       IsRoleAddress: {
+ *         ConfidenceVerdict: "LOW"
+ *       },
+ *       MailboxExists: {
+ *         ConfidenceVerdict: "MEDIUM"
+ *       }
+ *     },
+ *     IsValid: {
+ *       ConfidenceVerdict: "HIGH"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetEmailAddressInsightsCommand extends $Command

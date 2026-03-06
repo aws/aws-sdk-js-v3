@@ -549,7 +549,10 @@ export interface MessageHeader {
    *                <p>Can contain any printable ASCII character.</p>
    *             </li>
    *             <li>
-   *                <p>Can contain no more than 870 characters.</p>
+   *                <p>Can contain no more than 995 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>The combined length of the header name and value must not exceed 996 characters.</p>
    *             </li>
    *          </ul>
    * @public
