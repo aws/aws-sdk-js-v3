@@ -1,3 +1,4 @@
+const _ADE = "AccessDeniedException";
 const _C = "Column";
 const _CA = "CreatedAt";
 const _CAo = "CompletedAt";
@@ -124,6 +125,7 @@ import type {
 
 import { BCMDataExportsServiceException } from "../models/BCMDataExportsServiceException";
 import {
+  AccessDeniedException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
@@ -136,6 +138,12 @@ const _s_registry = TypeRegistry.for(_s);
 export var BCMDataExportsServiceException$: StaticErrorSchema = [-3, _s, "BCMDataExportsServiceException", 0, [], []];
 _s_registry.registerError(BCMDataExportsServiceException$, BCMDataExportsServiceException);
 const n0_registry = TypeRegistry.for(n0);
+export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
+  { [_e]: _c, [_hE]: 403 },
+  [_M],
+  [0], 1
+];
+n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_M],

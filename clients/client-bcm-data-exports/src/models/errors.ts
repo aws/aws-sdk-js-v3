@@ -6,8 +6,29 @@ import { ValidationExceptionReason } from "./enums";
 import { ValidationExceptionField } from "./models_0";
 
 /**
- * <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ * <p>You don't have sufficient access to perform this action.</p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name = "AccessDeniedException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -29,8 +50,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>You've reached the limit on the number of resources you can create, or exceeded the size
- *       of an individual resource.</p>
+ * <p>You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -56,8 +76,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   QuotaCode: string | undefined;
 
   /**
-   * <p>The service code that exceeded quota. It will always be
-   *       “AWSBillingAndCostManagementDataExports”.</p>
+   * <p>The service code that exceeded quota. It will always be “AWSBillingAndCostManagementDataExports”.</p>
    * @public
    */
   ServiceCode: string | undefined;
@@ -94,8 +113,7 @@ export class ThrottlingException extends __BaseException {
   QuotaCode?: string | undefined;
 
   /**
-   * <p>The service code that exceeded the throttling limit. It will always be
-   *       “AWSBillingAndCostManagementDataExports”.</p>
+   * <p>The service code that exceeded the throttling limit. It will always be “AWSBillingAndCostManagementDataExports”.</p>
    * @public
    */
   ServiceCode?: string | undefined;
@@ -116,8 +134,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  * @public
  */
 export class ValidationException extends __BaseException {

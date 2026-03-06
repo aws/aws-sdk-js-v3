@@ -6,14 +6,7 @@
 
 AWS SDK for JavaScript BCMDataExports Client for Node.js, Browser and React Native.
 
-<p>You can use the Data Exports API to create customized exports from multiple Amazon Web Services cost management and billing datasets, such as cost and usage data and cost
-optimization recommendations.</p>
-<p>The Data Exports API provides the following endpoint:</p>
-<ul>
-<li>
-<p>https://bcm-data-exports.us-east-1.api.aws</p>
-</li>
-</ul>
+<p>You can use the Data Exports API to create customized exports from multiple Amazon Web Services cost management and billing datasets, such as cost and usage data and cost optimization recommendations.</p> <p>The Data Exports API provides the following endpoint:</p> <ul> <li> <p>https://bcm-data-exports.us-east-1.api.aws</p> </li> </ul>
 
 ## Installing
 To install this package, simply type add or install @aws-sdk/client-bcm-data-exports

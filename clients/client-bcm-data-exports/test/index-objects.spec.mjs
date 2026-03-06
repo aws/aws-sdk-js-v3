@@ -1,4 +1,6 @@
 import {
+  AccessDeniedException,
+  AccessDeniedException$,
   BCMDataExports,
   BCMDataExportsClient,
   BCMDataExportsServiceException,
@@ -168,6 +170,8 @@ assert(typeof OverwriteOption === "object");
 assert(typeof S3OutputType === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
+assert(AccessDeniedException.prototype instanceof BCMDataExportsServiceException);
+assert(typeof AccessDeniedException$ === "object");
 assert(InternalServerException.prototype instanceof BCMDataExportsServiceException);
 assert(typeof InternalServerException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof BCMDataExportsServiceException);

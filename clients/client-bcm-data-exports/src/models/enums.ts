@@ -81,19 +81,14 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
-export const ExecutionStatusCode = {
-  DELIVERY_FAILURE: "DELIVERY_FAILURE",
-  DELIVERY_IN_PROCESS: "DELIVERY_IN_PROCESS",
-  DELIVERY_SUCCESS: "DELIVERY_SUCCESS",
-  INITIATION_IN_PROCESS: "INITIATION_IN_PROCESS",
-  QUERY_FAILURE: "QUERY_FAILURE",
-  QUERY_IN_PROCESS: "QUERY_IN_PROCESS",
-  QUERY_QUEUED: "QUERY_QUEUED",
+export const ExportStatusCode = {
+  HEALTHY: "HEALTHY",
+  UNHEALTHY: "UNHEALTHY",
 } as const;
 /**
  * @public
  */
-export type ExecutionStatusCode = (typeof ExecutionStatusCode)[keyof typeof ExecutionStatusCode];
+export type ExportStatusCode = (typeof ExportStatusCode)[keyof typeof ExportStatusCode];
 
 /**
  * @public
@@ -113,11 +108,16 @@ export type ExecutionStatusReason = (typeof ExecutionStatusReason)[keyof typeof 
  * @public
  * @enum
  */
-export const ExportStatusCode = {
-  HEALTHY: "HEALTHY",
-  UNHEALTHY: "UNHEALTHY",
+export const ExecutionStatusCode = {
+  DELIVERY_FAILURE: "DELIVERY_FAILURE",
+  DELIVERY_IN_PROCESS: "DELIVERY_IN_PROCESS",
+  DELIVERY_SUCCESS: "DELIVERY_SUCCESS",
+  INITIATION_IN_PROCESS: "INITIATION_IN_PROCESS",
+  QUERY_FAILURE: "QUERY_FAILURE",
+  QUERY_IN_PROCESS: "QUERY_IN_PROCESS",
+  QUERY_QUEUED: "QUERY_QUEUED",
 } as const;
 /**
  * @public
  */
-export type ExportStatusCode = (typeof ExportStatusCode)[keyof typeof ExportStatusCode];
+export type ExecutionStatusCode = (typeof ExecutionStatusCode)[keyof typeof ExecutionStatusCode];

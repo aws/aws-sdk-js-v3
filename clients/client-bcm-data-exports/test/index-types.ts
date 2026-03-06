@@ -86,6 +86,7 @@ export type {
   UpdateExportRequest,
   UpdateExportResponse,
   ValidationExceptionField,
+  AccessDeniedException,
   InternalServerException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,

@@ -31,8 +31,7 @@ export interface UpdateExportCommandInput extends UpdateExportRequest {}
 export interface UpdateExportCommandOutput extends UpdateExportResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing data export by overwriting all export parameters. All export
- *       parameters must be provided in the UpdateExport request.</p>
+ * <p>Updates an existing data export by overwriting all export parameters. All export parameters must be provided in the UpdateExport request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,8 +87,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  * @see {@link BCMDataExportsClientResolvedConfig | config} for BCMDataExportsClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified Amazon Resource Name (ARN) in the request doesn't exist.</p>
@@ -98,8 +96,7 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>

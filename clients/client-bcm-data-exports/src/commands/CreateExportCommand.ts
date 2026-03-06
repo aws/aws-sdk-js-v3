@@ -31,23 +31,7 @@ export interface CreateExportCommandInput extends CreateExportRequest {}
 export interface CreateExportCommandOutput extends CreateExportResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data export and specifies the data query, the delivery preference, and any
- *       optional resource tags.</p>
- *          <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and
- *         <code>TableConfigurations</code>.</p>
- *          <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited
- *       subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data query</a>. To
- *       view the available tables and columns, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data Exports table
- *         dictionary</a>.</p>
- *          <p>The <code>TableConfigurations</code> is a collection of specified
- *         <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>.
- *       TableProperties are additional configurations you can provide to change the data and schema of
- *       a table. Each table can have different TableProperties. However, tables are not required to
- *       have any TableProperties. Each table property has a default value that it assumes if not
- *       specified. For more information on table configurations, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data query</a>. To
- *       view the table properties available for each table, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data Exports table
- *         dictionary</a> or use the <code>ListTables</code> API to get a response of all tables
- *       and their available properties.</p>
+ * <p>Creates a data export and specifies the data query, the delivery preference, and any optional resource tags.</p> <p>A <code>DataQuery</code> consists of both a <code>QueryStatement</code> and <code>TableConfigurations</code>.</p> <p>The <code>QueryStatement</code> is an SQL statement. Data Exports only supports a limited subset of the SQL syntax. For more information on the SQL syntax that is supported, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data query</a>. To view the available tables and columns, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data Exports table dictionary</a>.</p> <p>The <code>TableConfigurations</code> is a collection of specified <code>TableProperties</code> for the table being queried in the <code>QueryStatement</code>. TableProperties are additional configurations you can provide to change the data and schema of a table. Each table can have different TableProperties. However, tables are not required to have any TableProperties. Each table property has a default value that it assumes if not specified. For more information on table configurations, see <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-data-query.html">Data query</a>. To view the table properties available for each table, see the <a href="https://docs.aws.amazon.com/cur/latest/userguide/de-table-dictionary.html">Data Exports table dictionary</a> or use the <code>ListTables</code> API to get a response of all tables and their available properties.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,20 +91,20 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  * @see {@link CreateExportCommandOutput} for command's `response` shape.
  * @see {@link BCMDataExportsClientResolvedConfig | config} for BCMDataExportsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient access to perform this action.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You've reached the limit on the number of resources you can create, or exceeded the size
- *       of an individual resource.</p>
+ *  <p>You've reached the limit on the number of resources you can create, or exceeded the size of an individual resource.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link BCMDataExportsServiceException}
  * <p>Base exception class for all service exceptions from BCMDataExports service.</p>
