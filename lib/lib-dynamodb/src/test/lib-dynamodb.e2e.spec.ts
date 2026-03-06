@@ -32,14 +32,14 @@ import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
 // expected running time: table creation (~20s) + operations 10s
 
 describe(DynamoDBDocument.name, () => {
-  it("should deny initialization with cacheMiddleware: true", () => {
+  it("should allow initialization with cacheMiddleware: true", () => {
     const dynamodb = new DynamoDB({
       credentials: {} as any,
       cacheMiddleware: true,
     });
     expect(() => {
       DynamoDBDocument.from(dynamodb);
-    }).toThrow();
+    }).not.toThrow();
   });
 });
 
