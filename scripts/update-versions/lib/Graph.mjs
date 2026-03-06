@@ -1,3 +1,8 @@
+import fs from "node:fs";
+import path from "node:path";
+
+import { graphTest } from "./Graph.test.mjs";
+import { root } from "./release.mjs";
 /**
  * Dependency graph used to increment package versions.
  */
@@ -6,6 +11,47 @@ export class Graph {
     this.registry = {};
     this.up = {};
     this.down = {};
+  }
+
+  /**
+   * @param _list - of items having package name and location relative to the root.
+   * @returns sorted list.
+   */
+  static toposort(_list) {
+    const list = [..._list].sort((a, b) => {
+      return a.name < b.name;
+    });
+
+    const graph = new Graph();
+    for (const { location } of list) {
+      const pkgJson = JSON.parse(fs.readFileSync(path.join(root, location, "package.json"), "utf-8"));
+      graph.register(pkgJson);
+    }
+
+    const byName = Object.fromEntries(list.map((item) => [item.name, item]));
+
+    const visited = new Set();
+    const sorted = [];
+
+    const visit = (name) => {
+      if (visited.has(name)) {
+        return;
+      }
+      visited.add(name);
+
+      for (const dep of graph.up[name] ?? []) {
+        if (dep in byName) {
+          visit(dep);
+        }
+      }
+      sorted.push(byName[name]);
+    };
+
+    for (const { name } of list) {
+      visit(name);
+    }
+
+    return sorted;
   }
 
   /**
@@ -50,3 +96,5 @@ export class Graph {
     return out;
   }
 }
+
+graphTest();

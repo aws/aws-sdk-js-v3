@@ -13,6 +13,7 @@
 import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { Graph } from "./lib/Graph.mjs";
 import {
   getLernaList,
   getLocalChangedPackagesManifest,
@@ -37,7 +38,8 @@ const relativeLocation = (pkg) => {
     location: relative(root, pkg.location),
   };
 };
-const list = [...linked, ...unlinked].map(relativeLocation);
+
+const list = Graph.toposort([...unlinked, ...linked].map(relativeLocation));
 
 /*
 [
