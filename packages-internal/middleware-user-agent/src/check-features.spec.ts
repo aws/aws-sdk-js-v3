@@ -32,4 +32,23 @@ describe(checkFeatures.name, () => {
   it("should not throw an error if no fields are present", async () => {
     await checkFeatures({}, {}, {} as any);
   });
+
+  it.each([
+    ["standard", "RETRY_MODE_STANDARD", "E"],
+    ["adaptive", "RETRY_MODE_ADAPTIVE", "F"],
+  ] as const)("should set %s retry mode feature", async (mode, featureKey, featureValue) => {
+    const context = {} as AwsHandlerExecutionContext;
+    const config = { retryStrategy: async () => ({ mode }) };
+    await checkFeatures(context, config, { request: undefined, input: undefined });
+    expect(context.__aws_sdk_context?.features?.[featureKey]).toBe(featureValue);
+  });
+
+  it.each([["unknown"], [undefined]])("should not set any retry mode feature when mode is %s", async (mode) => {
+    const context = {} as AwsHandlerExecutionContext;
+    const config = { retryStrategy: async () => ({ ...(mode !== undefined && { mode }) }) };
+    await checkFeatures(context, config, { request: undefined, input: undefined });
+    expect(context.__aws_sdk_context?.features?.RETRY_MODE_STANDARD).toBeUndefined();
+    expect(context.__aws_sdk_context?.features?.RETRY_MODE_ADAPTIVE).toBeUndefined();
+    expect(context.__aws_sdk_context?.features?.RETRY_MODE_LEGACY).toBeUndefined();
+  });
 });
