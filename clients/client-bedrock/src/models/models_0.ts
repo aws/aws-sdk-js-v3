@@ -51,6 +51,24 @@ import {
 } from "./enums";
 
 /**
+ * <p>Model-specific information for the enforced guardrail configuration.</p>
+ * @public
+ */
+export interface ModelEnforcement {
+  /**
+   * <p>Models to enforce the guardrail on.</p>
+   * @public
+   */
+  includedModels: string[] | undefined;
+
+  /**
+   * <p>Models to exclude from enforcement of the guardrail.</p>
+   * @public
+   */
+  excludedModels: string[] | undefined;
+}
+
+/**
  * <p>Account-level enforced guardrail input configuration.</p>
  * @public
  */
@@ -72,6 +90,12 @@ export interface AccountEnforcedGuardrailInferenceInputConfiguration {
    * @public
    */
   inputTags: InputTags | undefined;
+
+  /**
+   * <p>Model-specific information for the enforced guardrail configuration. If not present, the configuration is enforced on all models</p>
+   * @public
+   */
+  modelEnforcement?: ModelEnforcement | undefined;
 }
 
 /**
@@ -138,6 +162,12 @@ export interface AccountEnforcedGuardrailOutputConfiguration {
    * @public
    */
   owner?: ConfigurationOwner | undefined;
+
+  /**
+   * <p>Model-specific information for the enforced guardrail configuration.</p>
+   * @public
+   */
+  modelEnforcement?: ModelEnforcement | undefined;
 }
 
 /**
@@ -8099,16 +8129,4 @@ export interface GuardrailSensitiveInformationPolicy {
    * @public
    */
   regexes?: GuardrailRegex[] | undefined;
-}
-
-/**
- * <p>The tier that your guardrail uses for denied topic filters.</p>
- * @public
- */
-export interface GuardrailTopicsTier {
-  /**
-   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
-   * @public
-   */
-  tierName: GuardrailTopicsTierName | undefined;
 }

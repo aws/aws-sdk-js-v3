@@ -563,6 +563,7 @@ const _MCJSo = "ModelCustomizationJobSummary";
 const _MCJSod = "ModelCopyJobSummaries";
 const _MCJSode = "ModelCustomizationJobSummaries";
 const _MDS = "ModelDataSource";
+const _ME = "ModelEnforcement";
 const _MIJIDC = "ModelInvocationJobInputDataConfig";
 const _MIJODC = "ModelInvocationJobOutputDataConfig";
 const _MIJS = "ModelImportJobSummary";
@@ -844,6 +845,7 @@ const _eJ = "evaluationJobs";
 const _eM = "errorMessage";
 const _eMC = "evaluatorModelConfig";
 const _eMI = "evaluatorModelIdentifiers";
+const _eMx = "excludedModels";
 const _eN = "endpointName";
 const _eOLT = "endOfLifeTime";
 const _eR = "expectedResult";
@@ -924,6 +926,7 @@ const _iMKKI = "importedModelKmsKeyId";
 const _iMN = "importedModelName";
 const _iMT = "importedModelTags";
 const _iMTn = "inferenceMaxTokens";
+const _iMn = "includedModels";
 const _iO = "isOwned";
 const _iP = "inferenceParams";
 const _iPA = "inferenceProfileArn";
@@ -1000,6 +1003,7 @@ const _mD = "modelDetails";
 const _mDN = "modelDeploymentName";
 const _mDS = "modelDataSource";
 const _mDSo = "modelDeploymentSummaries";
+const _mE = "modelEnforcement";
 const _mI = "modelIdentifier";
 const _mIJS = "modelImportJobSummaries";
 const _mIT = "modelInvocationType";
@@ -1429,13 +1433,13 @@ var PromptRouterDescription: StaticSimpleSchema = [0, n0, _PRD, 8, 0];
 var TextPromptTemplate: StaticSimpleSchema = [0, n0, _TPT, 8, 0];
 export var AccountEnforcedGuardrailInferenceInputConfiguration$: StaticStructureSchema = [3, n0, _AEGIIC,
   0,
-  [_gI, _gV, _iT],
-  [0, 0, 0], 3
+  [_gI, _gV, _iT, _mE],
+  [0, 0, 0, () => ModelEnforcement$], 3
 ];
 export var AccountEnforcedGuardrailOutputConfiguration$: StaticStructureSchema = [3, n0, _AEGOC,
   0,
-  [_cI, _gA, _gIu, _iT, _gV, _cA, _cB, _uA, _uB, _o],
-  [0, 0, 0, 0, 0, 5, 0, 5, 0, 0]
+  [_cI, _gA, _gIu, _iT, _gV, _cA, _cB, _uA, _uB, _o, _mE],
+  [0, 0, 0, 0, 0, 5, 0, 5, 0, 0, () => ModelEnforcement$]
 ];
 export var AgreementAvailability$: StaticStructureSchema = [3, n0, _AA,
   0,
@@ -3077,6 +3081,11 @@ export var ModelCustomizationJobSummary$: StaticStructureSchema = [3, n0, _MCJSo
   [_jA, _bMA, _jN, _st, _cTr, _sD, _lMT, _eT, _cMA, _cMN, _cTu],
   [0, 0, 0, 0, 5, () => StatusDetails$, 5, 5, 0, 0, 0], 5
 ];
+export var ModelEnforcement$: StaticStructureSchema = [3, n0, _ME,
+  0,
+  [_iMn, _eMx],
+  [64 | 0, 64 | 0], 2
+];
 export var ModelImportJobSummary$: StaticStructureSchema = [3, n0, _MIJS,
   0,
   [_jA, _jN, _st, _cTr, _lMT, _eT, _iMA, _iMN],
@@ -3667,6 +3676,7 @@ var EvaluationSummaries: StaticListSchema = [1, n0, _ESv,
 ];
 var EvaluationTaskTypes = 64 | 0;
 var EvaluatorModelIdentifiers = 64 | 0;
+var ExcludedModelsList = 64 | 0;
 var ExternalSources: StaticListSchema = [1, n0, _ESxt,
   0, [() => ExternalSource$,
     0]
@@ -3756,6 +3766,7 @@ var HumanEvaluationCustomMetrics: StaticListSchema = [1, n0, _HECMu,
 var ImportedModelSummaryList: StaticListSchema = [1, n0, _IMSL,
   0, () => ImportedModelSummary$
 ];
+var IncludedModelsList = 64 | 0;
 var InferenceProfileModels: StaticListSchema = [1, n0, _IPMn,
   0, () => InferenceProfileModel$
 ];

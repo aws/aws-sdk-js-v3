@@ -722,6 +722,7 @@ export type {
   ModelCopyJobSummary,
   ModelCustomizationJobSummary,
   ModelDataSource,
+  ModelEnforcement,
   ModelImportJobSummary,
   ModelInvocationJobInputDataConfig,
   ModelInvocationJobOutputDataConfig,

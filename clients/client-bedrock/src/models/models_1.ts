@@ -12,6 +12,7 @@ import {
   GuardrailManagedWordsType,
   GuardrailStatus,
   GuardrailTopicAction,
+  GuardrailTopicsTierName,
   GuardrailTopicType,
   GuardrailWordAction,
   InferenceProfileStatus,
@@ -56,7 +57,6 @@ import {
   type GuardrailSensitiveInformationPolicy,
   type GuardrailSensitiveInformationPolicyConfig,
   type GuardrailTopicPolicyConfig,
-  type GuardrailTopicsTier,
   type GuardrailWordPolicyConfig,
   type ImplicitFilterConfiguration,
   type ModelDataSource,
@@ -73,6 +73,18 @@ import {
   Tag,
   ValidatorMetric,
 } from "./models_0";
+
+/**
+ * <p>The tier that your guardrail uses for denied topic filters.</p>
+ * @public
+ */
+export interface GuardrailTopicsTier {
+  /**
+   * <p>The tier that your guardrail uses for denied topic filters. Valid values include:</p> <ul> <li> <p> <code>CLASSIC</code> tier – Provides established guardrails functionality supporting English, French, and Spanish languages.</p> </li> <li> <p> <code>STANDARD</code> tier – Provides a more robust solution than the <code>CLASSIC</code> tier and has more comprehensive language support. This tier requires that your guardrail use <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region.html">cross-Region inference</a>.</p> </li> </ul>
+   * @public
+   */
+  tierName: GuardrailTopicsTierName | undefined;
+}
 
 /**
  * <p>Details about topics for the guardrail to identify and deny.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetGuardrail.html#API_GetGuardrail_ResponseSyntax">GetGuardrail response body</a> </p> </li> </ul>

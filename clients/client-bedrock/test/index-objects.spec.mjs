@@ -571,6 +571,7 @@ import {
   ModelCustomizationJobStatus,
   ModelCustomizationJobSummary$,
   ModelDataSource$,
+  ModelEnforcement$,
   ModelImportJobStatus,
   ModelImportJobSummary$,
   ModelInvocationJobInputDataConfig$,
@@ -1305,6 +1306,7 @@ assert(typeof MetadataConfigurationForReranking$ === "object");
 assert(typeof ModelCopyJobSummary$ === "object");
 assert(typeof ModelCustomizationJobSummary$ === "object");
 assert(typeof ModelDataSource$ === "object");
+assert(typeof ModelEnforcement$ === "object");
 assert(typeof ModelImportJobSummary$ === "object");
 assert(typeof ModelInvocationJobInputDataConfig$ === "object");
 assert(typeof ModelInvocationJobOutputDataConfig$ === "object");

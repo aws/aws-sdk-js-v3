@@ -45,6 +45,14 @@ export interface PutEnforcedGuardrailConfigurationCommandOutput extends PutEnfor
  *     guardrailIdentifier: "STRING_VALUE", // required
  *     guardrailVersion: "STRING_VALUE", // required
  *     inputTags: "HONOR" || "IGNORE", // required
+ *     modelEnforcement: { // ModelEnforcement
+ *       includedModels: [ // IncludedModelsList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       excludedModels: [ // ExcludedModelsList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new PutEnforcedGuardrailConfigurationCommand(input);

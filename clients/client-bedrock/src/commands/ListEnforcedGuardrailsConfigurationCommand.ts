@@ -57,6 +57,14 @@ export interface ListEnforcedGuardrailsConfigurationCommandOutput extends ListEn
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       updatedBy: "STRING_VALUE",
  * //       owner: "STRING_VALUE",
+ * //       modelEnforcement: { // ModelEnforcement
+ * //         includedModels: [ // IncludedModelsList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         excludedModels: [ // ExcludedModelsList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
