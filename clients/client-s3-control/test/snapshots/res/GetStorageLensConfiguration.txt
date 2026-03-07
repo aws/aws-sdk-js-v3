@@ -1,0 +1,434 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StorageLensConfiguration xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <AccountLevel>
+        <BucketLevel>
+            <ActivityMetrics>
+                <IsEnabled>
+                    false
+                </IsEnabled>
+            </ActivityMetrics>
+            <PrefixLevel>
+                <StorageMetrics>
+                    <IsEnabled>
+                        false
+                    </IsEnabled>
+                    <SelectionCriteria>
+                        <Delimiter>
+                            __Delimiter__
+                        </Delimiter>
+                        <MaxDepth>
+                            0
+                        </MaxDepth>
+                        <MinStorageBytesPercentage>
+                            0
+                        </MinStorageBytesPercentage>
+                    </SelectionCriteria>
+                </StorageMetrics>
+            </PrefixLevel>
+            <AdvancedCostOptimizationMetrics>
+                <IsEnabled>
+                    false
+                </IsEnabled>
+            </AdvancedCostOptimizationMetrics>
+            <AdvancedDataProtectionMetrics>
+                <IsEnabled>
+                    false
+                </IsEnabled>
+            </AdvancedDataProtectionMetrics>
+            <DetailedStatusCodesMetrics>
+                <IsEnabled>
+                    false
+                </IsEnabled>
+            </DetailedStatusCodesMetrics>
+            <AdvancedPerformanceMetrics>
+                <IsEnabled>
+                    false
+                </IsEnabled>
+            </AdvancedPerformanceMetrics>
+        </BucketLevel>
+        <ActivityMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </ActivityMetrics>
+        <AdvancedCostOptimizationMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </AdvancedCostOptimizationMetrics>
+        <AdvancedDataProtectionMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </AdvancedDataProtectionMetrics>
+        <DetailedStatusCodesMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </DetailedStatusCodesMetrics>
+        <AdvancedPerformanceMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </AdvancedPerformanceMetrics>
+        <StorageLensGroupLevel>
+            <SelectionCriteria>
+                <Include>
+                    <Arn>
+                        __member__
+                    </Arn>
+                    <Arn>
+                        __member__
+                    </Arn>
+                    <Arn>
+                        __member__
+                    </Arn>
+                </Include>
+                <Exclude>
+                    <Arn>
+                        __member__
+                    </Arn>
+                    <Arn>
+                        __member__
+                    </Arn>
+                    <Arn>
+                        __member__
+                    </Arn>
+                </Exclude>
+            </SelectionCriteria>
+        </StorageLensGroupLevel>
+    </AccountLevel>
+    <IsEnabled>
+        false
+    </IsEnabled>
+    <Include>
+        <Buckets>
+            <Arn>
+                __member__
+            </Arn>
+            <Arn>
+                __member__
+            </Arn>
+            <Arn>
+                __member__
+            </Arn>
+        </Buckets>
+        <Regions>
+            <Region>
+                __member__
+            </Region>
+            <Region>
+                __member__
+            </Region>
+            <Region>
+                __member__
+            </Region>
+        </Regions>
+    </Include>
+    <Exclude>
+        <Buckets>
+            <Arn>
+                __member__
+            </Arn>
+            <Arn>
+                __member__
+            </Arn>
+            <Arn>
+                __member__
+            </Arn>
+        </Buckets>
+        <Regions>
+            <Region>
+                __member__
+            </Region>
+            <Region>
+                __member__
+            </Region>
+            <Region>
+                __member__
+            </Region>
+        </Regions>
+    </Exclude>
+    <DataExport>
+        <S3BucketDestination>
+            <Format>
+                __Format__
+            </Format>
+            <OutputSchemaVersion>
+                __OutputSchemaVersion__
+            </OutputSchemaVersion>
+            <Arn>
+                __Arn__
+            </Arn>
+            <AccountId>
+                123456789012
+            </AccountId>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Encryption>
+                <SSE-S3/>
+<SSE-KMS>
+                    <KeyId>
+                        __KeyId__
+                    </KeyId>
+                </SSE-KMS>
+            </Encryption>
+        </S3BucketDestination>
+        <CloudWatchMetrics>
+            <IsEnabled>
+                false
+            </IsEnabled>
+        </CloudWatchMetrics>
+        <StorageLensTableDestination>
+            <IsEnabled>
+                false
+            </IsEnabled>
+            <Encryption>
+                <SSE-S3/>
+<SSE-KMS>
+                    <KeyId>
+                        __KeyId__
+                    </KeyId>
+                </SSE-KMS>
+            </Encryption>
+        </StorageLensTableDestination>
+    </DataExport>
+    <ExpandedPrefixesDataExport>
+        <S3BucketDestination>
+            <Format>
+                __Format__
+            </Format>
+            <OutputSchemaVersion>
+                __OutputSchemaVersion__
+            </OutputSchemaVersion>
+            <Arn>
+                __Arn__
+            </Arn>
+            <AccountId>
+                123456789012
+            </AccountId>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Encryption>
+                <SSE-S3/>
+<SSE-KMS>
+                    <KeyId>
+                        __KeyId__
+                    </KeyId>
+                </SSE-KMS>
+            </Encryption>
+        </S3BucketDestination>
+        <StorageLensTableDestination>
+            <IsEnabled>
+                false
+            </IsEnabled>
+            <Encryption>
+                <SSE-S3/>
+<SSE-KMS>
+                    <KeyId>
+                        __KeyId__
+                    </KeyId>
+                </SSE-KMS>
+            </Encryption>
+        </StorageLensTableDestination>
+    </ExpandedPrefixesDataExport>
+    <AwsOrg>
+        <Arn>
+            __Arn__
+        </Arn>
+    </AwsOrg>
+    <StorageLensArn>
+        __StorageLensArn__
+    </StorageLensArn>
+    <PrefixDelimiter>
+        __PrefixDelimiter__
+    </PrefixDelimiter>
+</StorageLensConfiguration>
+
+
+--- [output object] ---
+{
+  StorageLensConfiguration: {
+    Id: "__Id__",
+    AccountLevel: {
+      BucketLevel: {
+        ActivityMetrics: {
+          IsEnabled: (boolean) false
+        },
+        PrefixLevel: {
+          StorageMetrics: {
+            IsEnabled: (boolean) false,
+            SelectionCriteria: {
+              Delimiter: "__Delimiter__",
+              MaxDepth: (number) 0,
+              MinStorageBytesPercentage: (number) 0
+            }
+          }
+        },
+        AdvancedCostOptimizationMetrics: {
+          IsEnabled: (boolean) false
+        },
+        AdvancedDataProtectionMetrics: {
+          IsEnabled: (boolean) false
+        },
+        DetailedStatusCodesMetrics: {
+          IsEnabled: (boolean) false
+        },
+        AdvancedPerformanceMetrics: {
+          IsEnabled: (boolean) false
+        }
+      },
+      ActivityMetrics: {
+        IsEnabled: (boolean) false
+      },
+      AdvancedCostOptimizationMetrics: {
+        IsEnabled: (boolean) false
+      },
+      AdvancedDataProtectionMetrics: {
+        IsEnabled: (boolean) false
+      },
+      DetailedStatusCodesMetrics: {
+        IsEnabled: (boolean) false
+      },
+      AdvancedPerformanceMetrics: {
+        IsEnabled: (boolean) false
+      },
+      StorageLensGroupLevel: {
+        SelectionCriteria: {
+          Include: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          Exclude: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    IsEnabled: (boolean) false,
+    Include: {
+      Buckets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Regions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    Exclude: {
+      Buckets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Regions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    DataExport: {
+      S3BucketDestination: {
+        Format: "__Format__",
+        OutputSchemaVersion: "__OutputSchemaVersion__",
+        Arn: "__Arn__",
+        AccountId: "123456789012",
+        Prefix: "__Prefix__",
+        Encryption: {
+          SSES3: {},
+          SSEKMS: {
+            KeyId: "__KeyId__"
+          }
+        }
+      },
+      CloudWatchMetrics: {
+        IsEnabled: (boolean) false
+      },
+      StorageLensTableDestination: {
+        IsEnabled: (boolean) false,
+        Encryption: {
+          SSES3: {},
+          SSEKMS: {
+            KeyId: "__KeyId__"
+          }
+        }
+      }
+    },
+    ExpandedPrefixesDataExport: {
+      S3BucketDestination: {
+        Format: "__Format__",
+        OutputSchemaVersion: "__OutputSchemaVersion__",
+        Arn: "__Arn__",
+        AccountId: "123456789012",
+        Prefix: "__Prefix__",
+        Encryption: {
+          SSES3: {},
+          SSEKMS: {
+            KeyId: "__KeyId__"
+          }
+        }
+      },
+      StorageLensTableDestination: {
+        IsEnabled: (boolean) false,
+        Encryption: {
+          SSES3: {},
+          SSEKMS: {
+            KeyId: "__KeyId__"
+          }
+        }
+      }
+    },
+    AwsOrg: {
+      Arn: "__Arn__"
+    },
+    StorageLensArn: "__StorageLensArn__",
+    PrefixDelimiter: "__PrefixDelimiter__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

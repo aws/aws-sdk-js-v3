@@ -1,0 +1,393 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<InstanceAttribute xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<InstanceAttribute xmlns="https://placeholder.amazonaws.com">
+    <blockDeviceMapping>
+        <item>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <ebs>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <status>
+                    __Status__
+                </status>
+                <volumeId>
+                    __VolumeId__
+                </volumeId>
+                <associatedResource>
+                    __AssociatedResource__
+                </associatedResource>
+                <volumeOwnerId>
+                    __VolumeOwnerId__
+                </volumeOwnerId>
+                <operator>
+                    <managed>
+                        false
+                    </managed>
+                    <principal>
+                        __Principal__
+                    </principal>
+                </operator>
+                <ebsCardIndex>
+                    0
+                </ebsCardIndex>
+            </ebs>
+        </item>
+        <item>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <ebs>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <status>
+                    __Status__
+                </status>
+                <volumeId>
+                    __VolumeId__
+                </volumeId>
+                <associatedResource>
+                    __AssociatedResource__
+                </associatedResource>
+                <volumeOwnerId>
+                    __VolumeOwnerId__
+                </volumeOwnerId>
+                <operator>
+                    <managed>
+                        false
+                    </managed>
+                    <principal>
+                        __Principal__
+                    </principal>
+                </operator>
+                <ebsCardIndex>
+                    0
+                </ebsCardIndex>
+            </ebs>
+        </item>
+        <item>
+            <deviceName>
+                __DeviceName__
+            </deviceName>
+            <ebs>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <status>
+                    __Status__
+                </status>
+                <volumeId>
+                    __VolumeId__
+                </volumeId>
+                <associatedResource>
+                    __AssociatedResource__
+                </associatedResource>
+                <volumeOwnerId>
+                    __VolumeOwnerId__
+                </volumeOwnerId>
+                <operator>
+                    <managed>
+                        false
+                    </managed>
+                    <principal>
+                        __Principal__
+                    </principal>
+                </operator>
+                <ebsCardIndex>
+                    0
+                </ebsCardIndex>
+            </ebs>
+        </item>
+    </blockDeviceMapping>
+    <disableApiTermination>
+        <value>
+            false
+        </value>
+    </disableApiTermination>
+    <enaSupport>
+        <value>
+            false
+        </value>
+    </enaSupport>
+    <enclaveOptions>
+        <enabled>
+            false
+        </enabled>
+    </enclaveOptions>
+    <ebsOptimized>
+        <value>
+            false
+        </value>
+    </ebsOptimized>
+    <instanceId>
+        __InstanceId__
+    </instanceId>
+    <instanceInitiatedShutdownBehavior>
+        <value>
+            __Value__
+        </value>
+    </instanceInitiatedShutdownBehavior>
+    <instanceType>
+        <value>
+            __Value__
+        </value>
+    </instanceType>
+    <kernel>
+        <value>
+            __Value__
+        </value>
+    </kernel>
+    <productCodes>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+        <item>
+            <productCode>
+                __ProductCodeId__
+            </productCode>
+            <type>
+                __ProductCodeType__
+            </type>
+        </item>
+    </productCodes>
+    <ramdisk>
+        <value>
+            __Value__
+        </value>
+    </ramdisk>
+    <rootDeviceName>
+        <value>
+            __Value__
+        </value>
+    </rootDeviceName>
+    <sourceDestCheck>
+        <value>
+            false
+        </value>
+    </sourceDestCheck>
+    <sriovNetSupport>
+        <value>
+            __Value__
+        </value>
+    </sriovNetSupport>
+    <userData>
+        <value>
+            __Value__
+        </value>
+    </userData>
+    <disableApiStop>
+        <value>
+            false
+        </value>
+    </disableApiStop>
+    <groupSet>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+        </item>
+    </groupSet>
+</InstanceAttribute>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  BlockDeviceMappings: [
+    {
+      DeviceName: "__DeviceName__",
+      Ebs: {
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        Status: "__Status__",
+        VolumeId: "__VolumeId__",
+        AssociatedResource: "__AssociatedResource__",
+        VolumeOwnerId: "__VolumeOwnerId__",
+        Operator: {
+          Managed: (boolean) false,
+          Principal: "__Principal__"
+        },
+        EbsCardIndex: (number) 0
+      }
+    },
+    {
+      DeviceName: "__DeviceName__",
+      Ebs: {
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        Status: "__Status__",
+        VolumeId: "__VolumeId__",
+        AssociatedResource: "__AssociatedResource__",
+        VolumeOwnerId: "__VolumeOwnerId__",
+        Operator: {
+          Managed: (boolean) false,
+          Principal: "__Principal__"
+        },
+        EbsCardIndex: (number) 0
+      }
+    },
+    {
+      DeviceName: "__DeviceName__",
+      Ebs: {
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        Status: "__Status__",
+        VolumeId: "__VolumeId__",
+        AssociatedResource: "__AssociatedResource__",
+        VolumeOwnerId: "__VolumeOwnerId__",
+        Operator: {
+          Managed: (boolean) false,
+          Principal: "__Principal__"
+        },
+        EbsCardIndex: (number) 0
+      }
+    }
+  ],
+  DisableApiTermination: {
+    Value: (boolean) false
+  },
+  EnaSupport: {
+    Value: (boolean) false
+  },
+  EnclaveOptions: {
+    Enabled: (boolean) false
+  },
+  EbsOptimized: {
+    Value: (boolean) false
+  },
+  InstanceId: "__InstanceId__",
+  InstanceInitiatedShutdownBehavior: {
+    Value: "__Value__"
+  },
+  InstanceType: {
+    Value: "__Value__"
+  },
+  KernelId: {
+    Value: "__Value__"
+  },
+  ProductCodes: [
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    },
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    },
+    {
+      ProductCodeId: "__ProductCodeId__",
+      ProductCodeType: "__ProductCodeType__"
+    }
+  ],
+  RamdiskId: {
+    Value: "__Value__"
+  },
+  RootDeviceName: {
+    Value: "__Value__"
+  },
+  SourceDestCheck: {
+    Value: (boolean) false
+  },
+  SriovNetSupport: {
+    Value: "__Value__"
+  },
+  UserData: {
+    Value: "__Value__"
+  },
+  DisableApiStop: {
+    Value: (boolean) false
+  },
+  Groups: [
+    {
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__"
+    },
+    {
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__"
+    },
+    {
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__"
+    }
+  ]
+}
+

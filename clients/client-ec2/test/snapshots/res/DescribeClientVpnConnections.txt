@@ -1,0 +1,305 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnConnectionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnConnectionsResult xmlns="https://placeholder.amazonaws.com">
+    <connections>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <timestamp>
+                __Timestamp__
+            </timestamp>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <username>
+                __Username__
+            </username>
+            <connectionEstablishedTime>
+                __ConnectionEstablishedTime__
+            </connectionEstablishedTime>
+            <ingressBytes>
+                __IngressBytes__
+            </ingressBytes>
+            <egressBytes>
+                __EgressBytes__
+            </egressBytes>
+            <ingressPackets>
+                __IngressPackets__
+            </ingressPackets>
+            <egressPackets>
+                __EgressPackets__
+            </egressPackets>
+            <clientIp>
+                __ClientIp__
+            </clientIp>
+            <clientIpv6Address>
+                __ClientIpv6Address__
+            </clientIpv6Address>
+            <commonName>
+                __CommonName__
+            </commonName>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <connectionEndTime>
+                __ConnectionEndTime__
+            </connectionEndTime>
+            <postureComplianceStatusSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </postureComplianceStatusSet>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <timestamp>
+                __Timestamp__
+            </timestamp>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <username>
+                __Username__
+            </username>
+            <connectionEstablishedTime>
+                __ConnectionEstablishedTime__
+            </connectionEstablishedTime>
+            <ingressBytes>
+                __IngressBytes__
+            </ingressBytes>
+            <egressBytes>
+                __EgressBytes__
+            </egressBytes>
+            <ingressPackets>
+                __IngressPackets__
+            </ingressPackets>
+            <egressPackets>
+                __EgressPackets__
+            </egressPackets>
+            <clientIp>
+                __ClientIp__
+            </clientIp>
+            <clientIpv6Address>
+                __ClientIpv6Address__
+            </clientIpv6Address>
+            <commonName>
+                __CommonName__
+            </commonName>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <connectionEndTime>
+                __ConnectionEndTime__
+            </connectionEndTime>
+            <postureComplianceStatusSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </postureComplianceStatusSet>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <timestamp>
+                __Timestamp__
+            </timestamp>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <username>
+                __Username__
+            </username>
+            <connectionEstablishedTime>
+                __ConnectionEstablishedTime__
+            </connectionEstablishedTime>
+            <ingressBytes>
+                __IngressBytes__
+            </ingressBytes>
+            <egressBytes>
+                __EgressBytes__
+            </egressBytes>
+            <ingressPackets>
+                __IngressPackets__
+            </ingressPackets>
+            <egressPackets>
+                __EgressPackets__
+            </egressPackets>
+            <clientIp>
+                __ClientIp__
+            </clientIp>
+            <clientIpv6Address>
+                __ClientIpv6Address__
+            </clientIpv6Address>
+            <commonName>
+                __CommonName__
+            </commonName>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <connectionEndTime>
+                __ConnectionEndTime__
+            </connectionEndTime>
+            <postureComplianceStatusSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </postureComplianceStatusSet>
+        </item>
+    </connections>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClientVpnConnectionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Connections: [
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Timestamp: "__Timestamp__",
+      ConnectionId: "__ConnectionId__",
+      Username: "__Username__",
+      ConnectionEstablishedTime: "__ConnectionEstablishedTime__",
+      IngressBytes: "__IngressBytes__",
+      EgressBytes: "__EgressBytes__",
+      IngressPackets: "__IngressPackets__",
+      EgressPackets: "__EgressPackets__",
+      ClientIp: "__ClientIp__",
+      ClientIpv6Address: "__ClientIpv6Address__",
+      CommonName: "__CommonName__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ConnectionEndTime: "__ConnectionEndTime__",
+      PostureComplianceStatuses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Timestamp: "__Timestamp__",
+      ConnectionId: "__ConnectionId__",
+      Username: "__Username__",
+      ConnectionEstablishedTime: "__ConnectionEstablishedTime__",
+      IngressBytes: "__IngressBytes__",
+      EgressBytes: "__EgressBytes__",
+      IngressPackets: "__IngressPackets__",
+      EgressPackets: "__EgressPackets__",
+      ClientIp: "__ClientIp__",
+      ClientIpv6Address: "__ClientIpv6Address__",
+      CommonName: "__CommonName__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ConnectionEndTime: "__ConnectionEndTime__",
+      PostureComplianceStatuses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Timestamp: "__Timestamp__",
+      ConnectionId: "__ConnectionId__",
+      Username: "__Username__",
+      ConnectionEstablishedTime: "__ConnectionEstablishedTime__",
+      IngressBytes: "__IngressBytes__",
+      EgressBytes: "__EgressBytes__",
+      IngressPackets: "__IngressPackets__",
+      EgressPackets: "__EgressPackets__",
+      ClientIp: "__ClientIp__",
+      ClientIpv6Address: "__ClientIpv6Address__",
+      CommonName: "__CommonName__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      ConnectionEndTime: "__ConnectionEndTime__",
+      PostureComplianceStatuses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

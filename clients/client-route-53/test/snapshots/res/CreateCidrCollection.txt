@@ -1,0 +1,67 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateCidrCollectionResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+
+[Uint8Array (xml)]
+<CreateCidrCollectionResponse xmlns="https://placeholder.amazonaws.com">
+    <Collection>
+        <Arn>
+            __Arn__
+        </Arn>
+        <Id>
+            __Id__
+        </Id>
+        <Name>
+            __Name__
+        </Name>
+        <Version>
+            0
+        </Version>
+    </Collection>
+</CreateCidrCollectionResponse>
+
+
+--- [output object] ---
+{
+  Location: "__Location__",
+  Collection: {
+    Arn: "__Arn__",
+    Id: "__Id__",
+    Name: "__Name__",
+    Version: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

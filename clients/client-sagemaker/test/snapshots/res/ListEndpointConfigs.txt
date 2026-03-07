@@ -1,0 +1,118 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EndpointConfigs": [
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    },
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    },
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  EndpointConfigs: [
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EndpointConfigs": [
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    },
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    },
+    {
+      "EndpointConfigName": "__EndpointConfigName__",
+      "EndpointConfigArn": "__EndpointConfigArn__",
+      "CreationTime": 946702799.999
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  EndpointConfigs: [
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EndpointConfigName: "__EndpointConfigName__",
+      EndpointConfigArn: "__EndpointConfigArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

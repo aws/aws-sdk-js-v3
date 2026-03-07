@@ -1,0 +1,365 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <vpcEndpointAssociationSet>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <serviceNetworkName>
+                __ServiceNetworkName__
+            </serviceNetworkName>
+            <associatedResourceAccessibility>
+                __AssociatedResourceAccessibility__
+            </associatedResourceAccessibility>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <dnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </dnsEntry>
+            <privateDnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </privateDnsEntry>
+            <associatedResourceArn>
+                __AssociatedResourceArn__
+            </associatedResourceArn>
+            <resourceConfigurationGroupArn>
+                __ResourceConfigurationGroupArn__
+            </resourceConfigurationGroupArn>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <serviceNetworkName>
+                __ServiceNetworkName__
+            </serviceNetworkName>
+            <associatedResourceAccessibility>
+                __AssociatedResourceAccessibility__
+            </associatedResourceAccessibility>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <dnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </dnsEntry>
+            <privateDnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </privateDnsEntry>
+            <associatedResourceArn>
+                __AssociatedResourceArn__
+            </associatedResourceArn>
+            <resourceConfigurationGroupArn>
+                __ResourceConfigurationGroupArn__
+            </resourceConfigurationGroupArn>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <serviceNetworkName>
+                __ServiceNetworkName__
+            </serviceNetworkName>
+            <associatedResourceAccessibility>
+                __AssociatedResourceAccessibility__
+            </associatedResourceAccessibility>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <failureCode>
+                __FailureCode__
+            </failureCode>
+            <dnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </dnsEntry>
+            <privateDnsEntry>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <hostedZoneId>
+                    __HostedZoneId__
+                </hostedZoneId>
+            </privateDnsEntry>
+            <associatedResourceArn>
+                __AssociatedResourceArn__
+            </associatedResourceArn>
+            <resourceConfigurationGroupArn>
+                __ResourceConfigurationGroupArn__
+            </resourceConfigurationGroupArn>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </vpcEndpointAssociationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVpcEndpointAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcEndpointAssociations: [
+    {
+      Id: "__Id__",
+      VpcEndpointId: "__VpcEndpointId__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ServiceNetworkName: "__ServiceNetworkName__",
+      AssociatedResourceAccessibility: "__AssociatedResourceAccessibility__",
+      FailureReason: "__FailureReason__",
+      FailureCode: "__FailureCode__",
+      DnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      PrivateDnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      AssociatedResourceArn: "__AssociatedResourceArn__",
+      ResourceConfigurationGroupArn: "__ResourceConfigurationGroupArn__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Id: "__Id__",
+      VpcEndpointId: "__VpcEndpointId__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ServiceNetworkName: "__ServiceNetworkName__",
+      AssociatedResourceAccessibility: "__AssociatedResourceAccessibility__",
+      FailureReason: "__FailureReason__",
+      FailureCode: "__FailureCode__",
+      DnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      PrivateDnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      AssociatedResourceArn: "__AssociatedResourceArn__",
+      ResourceConfigurationGroupArn: "__ResourceConfigurationGroupArn__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Id: "__Id__",
+      VpcEndpointId: "__VpcEndpointId__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ServiceNetworkName: "__ServiceNetworkName__",
+      AssociatedResourceAccessibility: "__AssociatedResourceAccessibility__",
+      FailureReason: "__FailureReason__",
+      FailureCode: "__FailureCode__",
+      DnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      PrivateDnsEntry: {
+        DnsName: "__DnsName__",
+        HostedZoneId: "__HostedZoneId__"
+      },
+      AssociatedResourceArn: "__AssociatedResourceArn__",
+      ResourceConfigurationGroupArn: "__ResourceConfigurationGroupArn__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

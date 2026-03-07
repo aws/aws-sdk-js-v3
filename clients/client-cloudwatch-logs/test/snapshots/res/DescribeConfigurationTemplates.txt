@@ -1,0 +1,339 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "configurationTemplates": [
+    {
+      "service": "__service__",
+      "logType": "__logType__",
+      "resourceType": "__resourceType__",
+      "deliveryDestinationType": "__deliveryDestinationType__",
+      "defaultDeliveryConfigValues": {
+        "recordFields": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "fieldDelimiter": "__fieldDelimiter__",
+        "s3DeliveryConfiguration": {
+          "suffixPath": "__suffixPath__",
+          "enableHiveCompatiblePath": false
+        }
+      },
+      "allowedFields": [
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        }
+      ],
+      "allowedOutputFormats": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedActionForAllowVendedLogsDeliveryForResource": "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      "allowedFieldDelimiters": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedSuffixPathFields": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "service": "__service__",
+      "logType": "__logType__",
+      "resourceType": "__resourceType__",
+      "deliveryDestinationType": "__deliveryDestinationType__",
+      "defaultDeliveryConfigValues": {
+        "recordFields": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "fieldDelimiter": "__fieldDelimiter__",
+        "s3DeliveryConfiguration": {
+          "suffixPath": "__suffixPath__",
+          "enableHiveCompatiblePath": false
+        }
+      },
+      "allowedFields": [
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        }
+      ],
+      "allowedOutputFormats": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedActionForAllowVendedLogsDeliveryForResource": "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      "allowedFieldDelimiters": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedSuffixPathFields": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "service": "__service__",
+      "logType": "__logType__",
+      "resourceType": "__resourceType__",
+      "deliveryDestinationType": "__deliveryDestinationType__",
+      "defaultDeliveryConfigValues": {
+        "recordFields": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "fieldDelimiter": "__fieldDelimiter__",
+        "s3DeliveryConfiguration": {
+          "suffixPath": "__suffixPath__",
+          "enableHiveCompatiblePath": false
+        }
+      },
+      "allowedFields": [
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        },
+        {
+          "name": "__name__",
+          "mandatory": false
+        }
+      ],
+      "allowedOutputFormats": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedActionForAllowVendedLogsDeliveryForResource": "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      "allowedFieldDelimiters": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "allowedSuffixPathFields": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  configurationTemplates: [
+    {
+      service: "__service__",
+      logType: "__logType__",
+      resourceType: "__resourceType__",
+      deliveryDestinationType: "__deliveryDestinationType__",
+      defaultDeliveryConfigValues: {
+        recordFields: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        fieldDelimiter: "__fieldDelimiter__",
+        s3DeliveryConfiguration: {
+          suffixPath: "__suffixPath__",
+          enableHiveCompatiblePath: (boolean) false
+        }
+      },
+      allowedFields: [
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        }
+      ],
+      allowedOutputFormats: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedActionForAllowVendedLogsDeliveryForResource: "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      allowedFieldDelimiters: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedSuffixPathFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      service: "__service__",
+      logType: "__logType__",
+      resourceType: "__resourceType__",
+      deliveryDestinationType: "__deliveryDestinationType__",
+      defaultDeliveryConfigValues: {
+        recordFields: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        fieldDelimiter: "__fieldDelimiter__",
+        s3DeliveryConfiguration: {
+          suffixPath: "__suffixPath__",
+          enableHiveCompatiblePath: (boolean) false
+        }
+      },
+      allowedFields: [
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        }
+      ],
+      allowedOutputFormats: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedActionForAllowVendedLogsDeliveryForResource: "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      allowedFieldDelimiters: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedSuffixPathFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      service: "__service__",
+      logType: "__logType__",
+      resourceType: "__resourceType__",
+      deliveryDestinationType: "__deliveryDestinationType__",
+      defaultDeliveryConfigValues: {
+        recordFields: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        fieldDelimiter: "__fieldDelimiter__",
+        s3DeliveryConfiguration: {
+          suffixPath: "__suffixPath__",
+          enableHiveCompatiblePath: (boolean) false
+        }
+      },
+      allowedFields: [
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        },
+        {
+          name: "__name__",
+          mandatory: (boolean) false
+        }
+      ],
+      allowedOutputFormats: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedActionForAllowVendedLogsDeliveryForResource: "__allowedActionForAllowVendedLogsDeliveryForResource__",
+      allowedFieldDelimiters: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      allowedSuffixPathFields: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

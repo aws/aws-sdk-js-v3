@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyInstanceCreditSpecificationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyInstanceCreditSpecificationResult xmlns="https://placeholder.amazonaws.com">
+    <successfulInstanceCreditSpecificationSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+        </item>
+    </successfulInstanceCreditSpecificationSet>
+    <unsuccessfulInstanceCreditSpecificationSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <error>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </error>
+        </item>
+    </unsuccessfulInstanceCreditSpecificationSet>
+</ModifyInstanceCreditSpecificationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SuccessfulInstanceCreditSpecifications: [
+    {
+      InstanceId: "__InstanceId__"
+    },
+    {
+      InstanceId: "__InstanceId__"
+    },
+    {
+      InstanceId: "__InstanceId__"
+    }
+  ],
+  UnsuccessfulInstanceCreditSpecifications: [
+    {
+      InstanceId: "__InstanceId__",
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      InstanceId: "__InstanceId__",
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      InstanceId: "__InstanceId__",
+      Error: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    }
+  ]
+}
+

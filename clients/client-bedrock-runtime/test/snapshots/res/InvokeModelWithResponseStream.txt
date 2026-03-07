@@ -1,0 +1,308 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+X-Amzn-Bedrock-Content-Type: __contentType__
+X-Amzn-Bedrock-PerformanceConfig-Latency: __performanceConfigLatency__
+X-Amzn-Bedrock-Service-Tier: __serviceTier__
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 93 [header-size] 75 [prelude-crc] 1152338955
+:event-type: chunk
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 2235761731
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 111 [header-size] 93 [prelude-crc] 1805259452
+:event-type: internalServerException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 4208551713
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 113 [header-size] 95 [prelude-crc] 1514429043
+:event-type: modelStreamErrorException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 2768969912
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 107 [header-size] 89 [prelude-crc] 2574741605
+:event-type: validationException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 1508021316
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 107 [header-size] 89 [prelude-crc] 2574741605
+:event-type: throttlingException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 900585804
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 109 [header-size] 91 [prelude-crc] 4164543721
+:event-type: modelTimeoutException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 1919303831
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 115 [header-size] 97 [prelude-crc] 3789886648
+:event-type: serviceUnavailableException
+:message-type: event
+:content-type: application/json
+
+[json]
+{}
+
+[message-crc] 3847737427
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  body: async_it[
+    {
+      chunk: {}
+    },
+    {
+      internalServerException: {}
+    },
+    {
+      modelStreamErrorException: {}
+    },
+    {
+      validationException: {}
+    },
+    {
+      throttlingException: {}
+    },
+    {
+      modelTimeoutException: {}
+    },
+    {
+      serviceUnavailableException: {}
+    }
+  ],
+  contentType: "__contentType__",
+  performanceConfigLatency: "__performanceConfigLatency__",
+  serviceTier: "__serviceTier__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+X-Amzn-Bedrock-Content-Type: __contentType__
+X-Amzn-Bedrock-PerformanceConfig-Latency: __performanceConfigLatency__
+X-Amzn-Bedrock-Service-Tier: __serviceTier__
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 111 [header-size] 75 [prelude-crc] 2672732141
+:event-type: chunk
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "bytes": "AQAAAQ=="
+}
+
+[message-crc] 3888096204
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 134 [header-size] 93 [prelude-crc] 1314830098
+:event-type: internalServerException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 2687650811
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 199 [header-size] 95 [prelude-crc] 3317934023
+:event-type: modelStreamErrorException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__",
+  "originalStatusCode": 0,
+  "originalMessage": "__originalMessage__"
+}
+
+[message-crc] 4192425637
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: validationException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1820325195
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: throttlingException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 277105475
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 132 [header-size] 91 [prelude-crc] 3724362055
+:event-type: modelTimeoutException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 3447874713
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 138 [header-size] 97 [prelude-crc] 2764121748
+:event-type: serviceUnavailableException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 12874618
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  body: async_it[
+    {
+      chunk: {
+        bytes: (Uint8Array) bytes[1, 0, 0, 1]
+      }
+    },
+    {
+      internalServerException: {
+        message: "__message__"
+      }
+    },
+    {
+      modelStreamErrorException: {
+        message: "__message__",
+        originalStatusCode: (number) 0,
+        originalMessage: "__originalMessage__"
+      }
+    },
+    {
+      validationException: {
+        message: "__message__"
+      }
+    },
+    {
+      throttlingException: {
+        message: "__message__"
+      }
+    },
+    {
+      modelTimeoutException: {
+        message: "__message__"
+      }
+    },
+    {
+      serviceUnavailableException: {
+        message: "__message__"
+      }
+    }
+  ],
+  contentType: "__contentType__",
+  performanceConfigLatency: "__performanceConfigLatency__",
+  serviceTier: "__serviceTier__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

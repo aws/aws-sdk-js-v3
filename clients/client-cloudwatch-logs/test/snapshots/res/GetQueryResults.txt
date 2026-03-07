@@ -1,0 +1,155 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "queryLanguage": "__queryLanguage__",
+  "results": [
+    [
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      }
+    ],
+    [
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      }
+    ],
+    [
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      },
+      {
+        "field": "__field__",
+        "value": "__value__"
+      }
+    ]
+  ],
+  "statistics": {
+    "recordsMatched": 0,
+    "recordsScanned": 0,
+    "estimatedRecordsSkipped": 0,
+    "bytesScanned": 0,
+    "estimatedBytesSkipped": 0,
+    "logGroupsScanned": 0
+  },
+  "status": "__status__",
+  "encryptionKey": "__encryptionKey__"
+}
+
+
+--- [output object] ---
+{
+  queryLanguage: "__queryLanguage__",
+  results: [
+    [
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      }
+    ],
+    [
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      }
+    ],
+    [
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      },
+      {
+        field: "__field__",
+        value: "__value__"
+      }
+    ]
+  ],
+  statistics: {
+    recordsMatched: (number) 0,
+    recordsScanned: (number) 0,
+    estimatedRecordsSkipped: (number) 0,
+    bytesScanned: (number) 0,
+    estimatedBytesSkipped: (number) 0,
+    logGroupsScanned: (number) 0
+  },
+  status: "__status__",
+  encryptionKey: "__encryptionKey__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

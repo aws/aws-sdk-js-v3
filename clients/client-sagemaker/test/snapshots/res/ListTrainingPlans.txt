@@ -1,0 +1,838 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TrainingPlanSummaries": [
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    },
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    },
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  TrainingPlanSummaries: [
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    },
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    },
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TrainingPlanSummaries": [
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    },
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    },
+    {
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanName": "__TrainingPlanName__",
+      "Status": "__Status__",
+      "StatusMessage": "__StatusMessage__",
+      "DurationHours": 0,
+      "DurationMinutes": 0,
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__",
+      "TotalInstanceCount": 0,
+      "AvailableInstanceCount": 0,
+      "InUseInstanceCount": 0,
+      "TotalUltraServerCount": 0,
+      "TargetResources": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ReservedCapacitySummaries": [
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        },
+        {
+          "ReservedCapacityArn": "__ReservedCapacityArn__",
+          "InstanceType": "__InstanceType__",
+          "TotalInstanceCount": 0,
+          "Status": "__Status__",
+          "ReservedCapacityType": "__ReservedCapacityType__",
+          "UltraServerType": "__UltraServerType__",
+          "UltraServerCount": 0,
+          "AvailabilityZone": "__AvailabilityZone__",
+          "DurationHours": 0,
+          "DurationMinutes": 0,
+          "StartTime": 946702799.999,
+          "EndTime": 946702799.999
+        }
+      ]
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  TrainingPlanSummaries: [
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    },
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    },
+    {
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanName: "__TrainingPlanName__",
+      Status: "__Status__",
+      StatusMessage: "__StatusMessage__",
+      DurationHours: (number) 0,
+      DurationMinutes: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      TotalInstanceCount: (number) 0,
+      AvailableInstanceCount: (number) 0,
+      InUseInstanceCount: (number) 0,
+      TotalUltraServerCount: (number) 0,
+      TargetResources: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ReservedCapacitySummaries: [
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          ReservedCapacityArn: "__ReservedCapacityArn__",
+          InstanceType: "__InstanceType__",
+          TotalInstanceCount: (number) 0,
+          Status: "__Status__",
+          ReservedCapacityType: "__ReservedCapacityType__",
+          UltraServerType: "__UltraServerType__",
+          UltraServerCount: (number) 0,
+          AvailabilityZone: "__AvailabilityZone__",
+          DurationHours: (number) 0,
+          DurationMinutes: (number) 0,
+          StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

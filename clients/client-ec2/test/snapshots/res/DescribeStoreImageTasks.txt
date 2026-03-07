@@ -1,0 +1,149 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeStoreImageTasksResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeStoreImageTasksResult xmlns="https://placeholder.amazonaws.com">
+    <storeImageTaskResultSet>
+        <item>
+            <amiId>
+                __AmiId__
+            </amiId>
+            <taskStartTime>
+                2000-01-01T04:59:59.999Z
+            </taskStartTime>
+            <bucket>
+                __Bucket__
+            </bucket>
+            <s3objectKey>
+                __S3objectKey__
+            </s3objectKey>
+            <progressPercentage>
+                0
+            </progressPercentage>
+            <storeTaskState>
+                __StoreTaskState__
+            </storeTaskState>
+            <storeTaskFailureReason>
+                __StoreTaskFailureReason__
+            </storeTaskFailureReason>
+        </item>
+        <item>
+            <amiId>
+                __AmiId__
+            </amiId>
+            <taskStartTime>
+                2000-01-01T04:59:59.999Z
+            </taskStartTime>
+            <bucket>
+                __Bucket__
+            </bucket>
+            <s3objectKey>
+                __S3objectKey__
+            </s3objectKey>
+            <progressPercentage>
+                0
+            </progressPercentage>
+            <storeTaskState>
+                __StoreTaskState__
+            </storeTaskState>
+            <storeTaskFailureReason>
+                __StoreTaskFailureReason__
+            </storeTaskFailureReason>
+        </item>
+        <item>
+            <amiId>
+                __AmiId__
+            </amiId>
+            <taskStartTime>
+                2000-01-01T04:59:59.999Z
+            </taskStartTime>
+            <bucket>
+                __Bucket__
+            </bucket>
+            <s3objectKey>
+                __S3objectKey__
+            </s3objectKey>
+            <progressPercentage>
+                0
+            </progressPercentage>
+            <storeTaskState>
+                __StoreTaskState__
+            </storeTaskState>
+            <storeTaskFailureReason>
+                __StoreTaskFailureReason__
+            </storeTaskFailureReason>
+        </item>
+    </storeImageTaskResultSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeStoreImageTasksResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  StoreImageTaskResults: [
+    {
+      AmiId: "__AmiId__",
+      TaskStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Bucket: "__Bucket__",
+      S3objectKey: "__S3objectKey__",
+      ProgressPercentage: (number) 0,
+      StoreTaskState: "__StoreTaskState__",
+      StoreTaskFailureReason: "__StoreTaskFailureReason__"
+    },
+    {
+      AmiId: "__AmiId__",
+      TaskStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Bucket: "__Bucket__",
+      S3objectKey: "__S3objectKey__",
+      ProgressPercentage: (number) 0,
+      StoreTaskState: "__StoreTaskState__",
+      StoreTaskFailureReason: "__StoreTaskFailureReason__"
+    },
+    {
+      AmiId: "__AmiId__",
+      TaskStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Bucket: "__Bucket__",
+      S3objectKey: "__S3objectKey__",
+      ProgressPercentage: (number) 0,
+      StoreTaskState: "__StoreTaskState__",
+      StoreTaskFailureReason: "__StoreTaskFailureReason__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

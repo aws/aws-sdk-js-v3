@@ -42,6 +42,14 @@ describe(AwsJson1_0Protocol.name, () => {
     utf8Encoder: toUtf8,
   } as any;
 
+  it("is 1.0", async () => {
+    const protocol = new AwsJson1_0Protocol({
+      defaultNamespace: "",
+      serviceTarget: "JsonRpc10",
+    });
+    expect(protocol.getShapeId()).toEqual("aws.protocols#awsJson1_0");
+  });
+
   describe("codec", () => {
     it("serializes blobs and timestamps", () => {
       const protocol = new AwsJson1_0Protocol({

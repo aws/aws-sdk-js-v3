@@ -1,0 +1,261 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAllowedImagesSettingsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAllowedImagesSettingsResult xmlns="https://placeholder.amazonaws.com">
+    <state>
+        __State__
+    </state>
+    <imageCriterionSet>
+        <item>
+            <imageProviderSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageProviderSet>
+            <marketplaceProductCodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </marketplaceProductCodeSet>
+            <imageNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageNameSet>
+            <deprecationTimeCondition>
+                <maximumDaysSinceDeprecated>
+                    0
+                </maximumDaysSinceDeprecated>
+            </deprecationTimeCondition>
+            <creationDateCondition>
+                <maximumDaysSinceCreated>
+                    0
+                </maximumDaysSinceCreated>
+            </creationDateCondition>
+        </item>
+        <item>
+            <imageProviderSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageProviderSet>
+            <marketplaceProductCodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </marketplaceProductCodeSet>
+            <imageNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageNameSet>
+            <deprecationTimeCondition>
+                <maximumDaysSinceDeprecated>
+                    0
+                </maximumDaysSinceDeprecated>
+            </deprecationTimeCondition>
+            <creationDateCondition>
+                <maximumDaysSinceCreated>
+                    0
+                </maximumDaysSinceCreated>
+            </creationDateCondition>
+        </item>
+        <item>
+            <imageProviderSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageProviderSet>
+            <marketplaceProductCodeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </marketplaceProductCodeSet>
+            <imageNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </imageNameSet>
+            <deprecationTimeCondition>
+                <maximumDaysSinceDeprecated>
+                    0
+                </maximumDaysSinceDeprecated>
+            </deprecationTimeCondition>
+            <creationDateCondition>
+                <maximumDaysSinceCreated>
+                    0
+                </maximumDaysSinceCreated>
+            </creationDateCondition>
+        </item>
+    </imageCriterionSet>
+    <managedBy>
+        __ManagedBy__
+    </managedBy>
+</GetAllowedImagesSettingsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  State: "__State__",
+  ImageCriteria: [
+    {
+      ImageProviders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MarketplaceProductCodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ImageNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DeprecationTimeCondition: {
+        MaximumDaysSinceDeprecated: (number) 0
+      },
+      CreationDateCondition: {
+        MaximumDaysSinceCreated: (number) 0
+      }
+    },
+    {
+      ImageProviders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MarketplaceProductCodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ImageNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DeprecationTimeCondition: {
+        MaximumDaysSinceDeprecated: (number) 0
+      },
+      CreationDateCondition: {
+        MaximumDaysSinceCreated: (number) 0
+      }
+    },
+    {
+      ImageProviders: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      MarketplaceProductCodes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ImageNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DeprecationTimeCondition: {
+        MaximumDaysSinceDeprecated: (number) 0
+      },
+      CreationDateCondition: {
+        MaximumDaysSinceCreated: (number) 0
+      }
+    }
+  ],
+  ManagedBy: "__ManagedBy__"
+}
+

@@ -1,0 +1,65 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeprovisionIpamByoasnResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeprovisionIpamByoasnResult xmlns="https://placeholder.amazonaws.com">
+    <byoasn>
+        <asn>
+            __Asn__
+        </asn>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+        <statusMessage>
+            __StatusMessage__
+        </statusMessage>
+        <state>
+            __State__
+        </state>
+    </byoasn>
+</DeprovisionIpamByoasnResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Byoasn: {
+    Asn: "__Asn__",
+    IpamId: "__IpamId__",
+    StatusMessage: "__StatusMessage__",
+    State: "__State__"
+  }
+}
+

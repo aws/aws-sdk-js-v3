@@ -1,0 +1,305 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamExternalResourceVerificationTokensResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamExternalResourceVerificationTokensResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <ipamExternalResourceVerificationTokenSet>
+        <item>
+            <ipamExternalResourceVerificationTokenId>
+                __IpamExternalResourceVerificationTokenId__
+            </ipamExternalResourceVerificationTokenId>
+            <ipamExternalResourceVerificationTokenArn>
+                __IpamExternalResourceVerificationTokenArn__
+            </ipamExternalResourceVerificationTokenArn>
+            <ipamId>
+                __IpamId__
+            </ipamId>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <tokenValue>
+                __TokenValue__
+            </tokenValue>
+            <tokenName>
+                __TokenName__
+            </tokenName>
+            <notAfter>
+                2000-01-01T04:59:59.999Z
+            </notAfter>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <ipamExternalResourceVerificationTokenId>
+                __IpamExternalResourceVerificationTokenId__
+            </ipamExternalResourceVerificationTokenId>
+            <ipamExternalResourceVerificationTokenArn>
+                __IpamExternalResourceVerificationTokenArn__
+            </ipamExternalResourceVerificationTokenArn>
+            <ipamId>
+                __IpamId__
+            </ipamId>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <tokenValue>
+                __TokenValue__
+            </tokenValue>
+            <tokenName>
+                __TokenName__
+            </tokenName>
+            <notAfter>
+                2000-01-01T04:59:59.999Z
+            </notAfter>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <ipamExternalResourceVerificationTokenId>
+                __IpamExternalResourceVerificationTokenId__
+            </ipamExternalResourceVerificationTokenId>
+            <ipamExternalResourceVerificationTokenArn>
+                __IpamExternalResourceVerificationTokenArn__
+            </ipamExternalResourceVerificationTokenArn>
+            <ipamId>
+                __IpamId__
+            </ipamId>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <tokenValue>
+                __TokenValue__
+            </tokenValue>
+            <tokenName>
+                __TokenName__
+            </tokenName>
+            <notAfter>
+                2000-01-01T04:59:59.999Z
+            </notAfter>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <state>
+                __State__
+            </state>
+        </item>
+    </ipamExternalResourceVerificationTokenSet>
+</DescribeIpamExternalResourceVerificationTokensResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  IpamExternalResourceVerificationTokens: [
+    {
+      IpamExternalResourceVerificationTokenId: "__IpamExternalResourceVerificationTokenId__",
+      IpamExternalResourceVerificationTokenArn: "__IpamExternalResourceVerificationTokenArn__",
+      IpamId: "__IpamId__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      TokenValue: "__TokenValue__",
+      TokenName: "__TokenName__",
+      NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      State: "__State__"
+    },
+    {
+      IpamExternalResourceVerificationTokenId: "__IpamExternalResourceVerificationTokenId__",
+      IpamExternalResourceVerificationTokenArn: "__IpamExternalResourceVerificationTokenArn__",
+      IpamId: "__IpamId__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      TokenValue: "__TokenValue__",
+      TokenName: "__TokenName__",
+      NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      State: "__State__"
+    },
+    {
+      IpamExternalResourceVerificationTokenId: "__IpamExternalResourceVerificationTokenId__",
+      IpamExternalResourceVerificationTokenArn: "__IpamExternalResourceVerificationTokenArn__",
+      IpamId: "__IpamId__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      TokenValue: "__TokenValue__",
+      TokenName: "__TokenName__",
+      NotAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      State: "__State__"
+    }
+  ]
+}
+

@@ -1,0 +1,244 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ClusterNodeSummaries": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {},
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {},
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {},
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ClusterNodeSummaries: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {},
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {},
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {},
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ClusterNodeSummaries": [
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {
+        "Id": "__Id__",
+        "Type": "__Type__"
+      },
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {
+        "Id": "__Id__",
+        "Type": "__Type__"
+      },
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    },
+    {
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceId": "__InstanceId__",
+      "InstanceType": "__InstanceType__",
+      "LaunchTime": 946702799.999,
+      "InstanceStatus": {
+        "Status": "__Status__",
+        "Message": "__Message__"
+      },
+      "NodeLogicalId": "__NodeLogicalId__",
+      "LastSoftwareUpdateTime": 946702799.999,
+      "UltraServerInfo": {
+        "Id": "__Id__",
+        "Type": "__Type__"
+      },
+      "PrivateDnsHostname": "__PrivateDnsHostname__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ClusterNodeSummaries: [
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {
+        Id: "__Id__",
+        Type: "__Type__"
+      },
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {
+        Id: "__Id__",
+        Type: "__Type__"
+      },
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    },
+    {
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceId: "__InstanceId__",
+      InstanceType: "__InstanceType__",
+      LaunchTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      InstanceStatus: {
+        Status: "__Status__",
+        Message: "__Message__"
+      },
+      NodeLogicalId: "__NodeLogicalId__",
+      LastSoftwareUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UltraServerInfo: {
+        Id: "__Id__",
+        Type: "__Type__"
+      },
+      PrivateDnsHostname: "__PrivateDnsHostname__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

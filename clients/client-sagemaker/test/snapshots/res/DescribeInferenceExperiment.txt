@@ -1,0 +1,386 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Name": "__Name__",
+  "Type": "__Type__",
+  "Status": "__Status__",
+  "EndpointMetadata": {
+    "EndpointName": "__EndpointName__",
+    "EndpointConfigName": "__EndpointConfigName__",
+    "EndpointStatus": "__EndpointStatus__",
+    "FailureReason": "__FailureReason__"
+  },
+  "ModelVariants": [
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    }
+  ],
+  "Schedule": {},
+  "StatusReason": "__StatusReason__",
+  "Description": "__Description__",
+  "CreationTime": 946702799.999,
+  "CompletionTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "RoleArn": "__RoleArn__",
+  "DataStorageConfig": {
+    "Destination": "__Destination__",
+    "KmsKey": "__KmsKey__",
+    "ContentType": {}
+  },
+  "ShadowModeConfig": {
+    "SourceModelVariantName": "__SourceModelVariantName__",
+    "ShadowModelVariants": [
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      }
+    ]
+  },
+  "KmsKey": "__KmsKey__"
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Name: "__Name__",
+  Type: "__Type__",
+  Status: "__Status__",
+  EndpointMetadata: {
+    EndpointName: "__EndpointName__",
+    EndpointConfigName: "__EndpointConfigName__",
+    EndpointStatus: "__EndpointStatus__",
+    FailureReason: "__FailureReason__"
+  },
+  ModelVariants: [
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    },
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    },
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    }
+  ],
+  Schedule: {},
+  StatusReason: "__StatusReason__",
+  Description: "__Description__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  RoleArn: "__RoleArn__",
+  DataStorageConfig: {
+    Destination: "__Destination__",
+    KmsKey: "__KmsKey__",
+    ContentType: {}
+  },
+  ShadowModeConfig: {
+    SourceModelVariantName: "__SourceModelVariantName__",
+    ShadowModelVariants: [
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      },
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      },
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      }
+    ]
+  },
+  KmsKey: "__KmsKey__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Arn": "__Arn__",
+  "Name": "__Name__",
+  "Type": "__Type__",
+  "Status": "__Status__",
+  "EndpointMetadata": {
+    "EndpointName": "__EndpointName__",
+    "EndpointConfigName": "__EndpointConfigName__",
+    "EndpointStatus": "__EndpointStatus__",
+    "FailureReason": "__FailureReason__"
+  },
+  "ModelVariants": [
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    },
+    {
+      "ModelName": "__ModelName__",
+      "VariantName": "__VariantName__",
+      "InfrastructureConfig": {
+        "InfrastructureType": "__InfrastructureType__",
+        "RealTimeInferenceConfig": {
+          "InstanceType": "__InstanceType__",
+          "InstanceCount": 0
+        }
+      },
+      "Status": "__Status__"
+    }
+  ],
+  "Schedule": {
+    "StartTime": 946702799.999,
+    "EndTime": 946702799.999
+  },
+  "StatusReason": "__StatusReason__",
+  "Description": "__Description__",
+  "CreationTime": 946702799.999,
+  "CompletionTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "RoleArn": "__RoleArn__",
+  "DataStorageConfig": {
+    "Destination": "__Destination__",
+    "KmsKey": "__KmsKey__",
+    "ContentType": {
+      "CsvContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "JsonContentTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "ShadowModeConfig": {
+    "SourceModelVariantName": "__SourceModelVariantName__",
+    "ShadowModelVariants": [
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      },
+      {
+        "ShadowModelVariantName": "__ShadowModelVariantName__",
+        "SamplingPercentage": 0
+      }
+    ]
+  },
+  "KmsKey": "__KmsKey__"
+}
+
+
+--- [output object] ---
+{
+  Arn: "__Arn__",
+  Name: "__Name__",
+  Type: "__Type__",
+  Status: "__Status__",
+  EndpointMetadata: {
+    EndpointName: "__EndpointName__",
+    EndpointConfigName: "__EndpointConfigName__",
+    EndpointStatus: "__EndpointStatus__",
+    FailureReason: "__FailureReason__"
+  },
+  ModelVariants: [
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    },
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    },
+    {
+      ModelName: "__ModelName__",
+      VariantName: "__VariantName__",
+      InfrastructureConfig: {
+        InfrastructureType: "__InfrastructureType__",
+        RealTimeInferenceConfig: {
+          InstanceType: "__InstanceType__",
+          InstanceCount: (number) 0
+        }
+      },
+      Status: "__Status__"
+    }
+  ],
+  Schedule: {
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+  },
+  StatusReason: "__StatusReason__",
+  Description: "__Description__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CompletionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  RoleArn: "__RoleArn__",
+  DataStorageConfig: {
+    Destination: "__Destination__",
+    KmsKey: "__KmsKey__",
+    ContentType: {
+      CsvContentTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      JsonContentTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  ShadowModeConfig: {
+    SourceModelVariantName: "__SourceModelVariantName__",
+    ShadowModelVariants: [
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      },
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      },
+      {
+        ShadowModelVariantName: "__ShadowModelVariantName__",
+        SamplingPercentage: (number) 0
+      }
+    ]
+  },
+  KmsKey: "__KmsKey__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

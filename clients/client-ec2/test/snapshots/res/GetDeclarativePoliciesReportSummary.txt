@@ -1,0 +1,297 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetDeclarativePoliciesReportSummaryResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetDeclarativePoliciesReportSummaryResult xmlns="https://placeholder.amazonaws.com">
+    <reportId>
+        __ReportId__
+    </reportId>
+    <s3Bucket>
+        __S3Bucket__
+    </s3Bucket>
+    <s3Prefix>
+        __S3Prefix__
+    </s3Prefix>
+    <targetId>
+        __TargetId__
+    </targetId>
+    <startTime>
+        2000-01-01T04:59:59.999Z
+    </startTime>
+    <endTime>
+        2000-01-01T04:59:59.999Z
+    </endTime>
+    <numberOfAccounts>
+        0
+    </numberOfAccounts>
+    <numberOfFailedAccounts>
+        0
+    </numberOfFailedAccounts>
+    <attributeSummarySet>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <mostFrequentValue>
+                __MostFrequentValue__
+            </mostFrequentValue>
+            <numberOfMatchedAccounts>
+                0
+            </numberOfMatchedAccounts>
+            <numberOfUnmatchedAccounts>
+                0
+            </numberOfUnmatchedAccounts>
+            <regionalSummarySet>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+            </regionalSummarySet>
+        </item>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <mostFrequentValue>
+                __MostFrequentValue__
+            </mostFrequentValue>
+            <numberOfMatchedAccounts>
+                0
+            </numberOfMatchedAccounts>
+            <numberOfUnmatchedAccounts>
+                0
+            </numberOfUnmatchedAccounts>
+            <regionalSummarySet>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+            </regionalSummarySet>
+        </item>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <mostFrequentValue>
+                __MostFrequentValue__
+            </mostFrequentValue>
+            <numberOfMatchedAccounts>
+                0
+            </numberOfMatchedAccounts>
+            <numberOfUnmatchedAccounts>
+                0
+            </numberOfUnmatchedAccounts>
+            <regionalSummarySet>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+                <item>
+                    <regionName>
+                        __RegionName__
+                    </regionName>
+                    <numberOfMatchedAccounts>
+                        0
+                    </numberOfMatchedAccounts>
+                    <numberOfUnmatchedAccounts>
+                        0
+                    </numberOfUnmatchedAccounts>
+                </item>
+            </regionalSummarySet>
+        </item>
+    </attributeSummarySet>
+</GetDeclarativePoliciesReportSummaryResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ReportId: "__ReportId__",
+  S3Bucket: "__S3Bucket__",
+  S3Prefix: "__S3Prefix__",
+  TargetId: "__TargetId__",
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  NumberOfAccounts: (number) 0,
+  NumberOfFailedAccounts: (number) 0,
+  AttributeSummaries: [
+    {
+      AttributeName: "__AttributeName__",
+      MostFrequentValue: "__MostFrequentValue__",
+      NumberOfMatchedAccounts: (number) 0,
+      NumberOfUnmatchedAccounts: (number) 0,
+      RegionalSummaries: [
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        }
+      ]
+    },
+    {
+      AttributeName: "__AttributeName__",
+      MostFrequentValue: "__MostFrequentValue__",
+      NumberOfMatchedAccounts: (number) 0,
+      NumberOfUnmatchedAccounts: (number) 0,
+      RegionalSummaries: [
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        }
+      ]
+    },
+    {
+      AttributeName: "__AttributeName__",
+      MostFrequentValue: "__MostFrequentValue__",
+      NumberOfMatchedAccounts: (number) 0,
+      NumberOfUnmatchedAccounts: (number) 0,
+      RegionalSummaries: [
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        },
+        {
+          RegionName: "__RegionName__",
+          NumberOfMatchedAccounts: (number) 0,
+          NumberOfUnmatchedAccounts: (number) 0
+        }
+      ]
+    }
+  ]
+}
+

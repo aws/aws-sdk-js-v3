@@ -1,0 +1,131 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CancelSpotFleetRequestsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CancelSpotFleetRequestsResponse xmlns="https://placeholder.amazonaws.com">
+    <successfulFleetRequestSet>
+        <item>
+            <currentSpotFleetRequestState>
+                __CurrentSpotFleetRequestState__
+            </currentSpotFleetRequestState>
+            <previousSpotFleetRequestState>
+                __PreviousSpotFleetRequestState__
+            </previousSpotFleetRequestState>
+            <spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+        <item>
+            <currentSpotFleetRequestState>
+                __CurrentSpotFleetRequestState__
+            </currentSpotFleetRequestState>
+            <previousSpotFleetRequestState>
+                __PreviousSpotFleetRequestState__
+            </previousSpotFleetRequestState>
+            <spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+        <item>
+            <currentSpotFleetRequestState>
+                __CurrentSpotFleetRequestState__
+            </currentSpotFleetRequestState>
+            <previousSpotFleetRequestState>
+                __PreviousSpotFleetRequestState__
+            </previousSpotFleetRequestState>
+            <spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+    </successfulFleetRequestSet>
+    <unsuccessfulFleetRequestSet>
+        <item>
+            <error/>
+<spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+        <item>
+            <error/>
+<spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+        <item>
+            <error/>
+<spotFleetRequestId>
+                __SpotFleetRequestId__
+            </spotFleetRequestId>
+        </item>
+    </unsuccessfulFleetRequestSet>
+</CancelSpotFleetRequestsResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SuccessfulFleetRequests: [
+    {
+      CurrentSpotFleetRequestState: "__CurrentSpotFleetRequestState__",
+      PreviousSpotFleetRequestState: "__PreviousSpotFleetRequestState__",
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    },
+    {
+      CurrentSpotFleetRequestState: "__CurrentSpotFleetRequestState__",
+      PreviousSpotFleetRequestState: "__PreviousSpotFleetRequestState__",
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    },
+    {
+      CurrentSpotFleetRequestState: "__CurrentSpotFleetRequestState__",
+      PreviousSpotFleetRequestState: "__PreviousSpotFleetRequestState__",
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    }
+  ],
+  UnsuccessfulFleetRequests: [
+    {
+      Error: {},
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    },
+    {
+      Error: {},
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    },
+    {
+      Error: {},
+      SpotFleetRequestId: "__SpotFleetRequestId__"
+    }
+  ]
+}
+

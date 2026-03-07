@@ -1,0 +1,154 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ProjectSummaryList": [
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    },
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    },
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ProjectSummaryList: [
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    },
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    },
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ProjectSummaryList": [
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    },
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    },
+    {
+      "ProjectName": "__ProjectName__",
+      "ProjectArn": "__ProjectArn__",
+      "ProjectId": "__ProjectId__",
+      "CreationTime": 946702799.999,
+      "ProjectStatus": "__ProjectStatus__",
+      "ProjectDescription": "__ProjectDescription__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ProjectSummaryList: [
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    },
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    },
+    {
+      ProjectName: "__ProjectName__",
+      ProjectArn: "__ProjectArn__",
+      ProjectId: "__ProjectId__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProjectStatus: "__ProjectStatus__",
+      ProjectDescription: "__ProjectDescription__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

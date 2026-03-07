@@ -1,0 +1,533 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeNetworkInsightsPathsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeNetworkInsightsPathsResult xmlns="https://placeholder.amazonaws.com">
+    <networkInsightsPathSet>
+        <item>
+            <networkInsightsPathId>
+                __NetworkInsightsPathId__
+            </networkInsightsPathId>
+            <networkInsightsPathArn>
+                __NetworkInsightsPathArn__
+            </networkInsightsPathArn>
+            <createdDate>
+                2000-01-01T04:59:59.999Z
+            </createdDate>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <sourceArn>
+                __SourceArn__
+            </sourceArn>
+            <destinationArn>
+                __DestinationArn__
+            </destinationArn>
+            <sourceIp>
+                __SourceIp__
+            </sourceIp>
+            <destinationIp>
+                __DestinationIp__
+            </destinationIp>
+            <protocol>
+                __Protocol__
+            </protocol>
+            <destinationPort>
+                0
+            </destinationPort>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <filterAtSource>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtSource>
+            <filterAtDestination>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtDestination>
+        </item>
+        <item>
+            <networkInsightsPathId>
+                __NetworkInsightsPathId__
+            </networkInsightsPathId>
+            <networkInsightsPathArn>
+                __NetworkInsightsPathArn__
+            </networkInsightsPathArn>
+            <createdDate>
+                2000-01-01T04:59:59.999Z
+            </createdDate>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <sourceArn>
+                __SourceArn__
+            </sourceArn>
+            <destinationArn>
+                __DestinationArn__
+            </destinationArn>
+            <sourceIp>
+                __SourceIp__
+            </sourceIp>
+            <destinationIp>
+                __DestinationIp__
+            </destinationIp>
+            <protocol>
+                __Protocol__
+            </protocol>
+            <destinationPort>
+                0
+            </destinationPort>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <filterAtSource>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtSource>
+            <filterAtDestination>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtDestination>
+        </item>
+        <item>
+            <networkInsightsPathId>
+                __NetworkInsightsPathId__
+            </networkInsightsPathId>
+            <networkInsightsPathArn>
+                __NetworkInsightsPathArn__
+            </networkInsightsPathArn>
+            <createdDate>
+                2000-01-01T04:59:59.999Z
+            </createdDate>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <sourceArn>
+                __SourceArn__
+            </sourceArn>
+            <destinationArn>
+                __DestinationArn__
+            </destinationArn>
+            <sourceIp>
+                __SourceIp__
+            </sourceIp>
+            <destinationIp>
+                __DestinationIp__
+            </destinationIp>
+            <protocol>
+                __Protocol__
+            </protocol>
+            <destinationPort>
+                0
+            </destinationPort>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <filterAtSource>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtSource>
+            <filterAtDestination>
+                <sourceAddress>
+                    __SourceAddress__
+                </sourceAddress>
+                <sourcePortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </sourcePortRange>
+                <destinationAddress>
+                    __DestinationAddress__
+                </destinationAddress>
+                <destinationPortRange>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <toPort>
+                        0
+                    </toPort>
+                </destinationPortRange>
+            </filterAtDestination>
+        </item>
+    </networkInsightsPathSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeNetworkInsightsPathsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NetworkInsightsPaths: [
+    {
+      NetworkInsightsPathId: "__NetworkInsightsPathId__",
+      NetworkInsightsPathArn: "__NetworkInsightsPathArn__",
+      CreatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Source: "__Source__",
+      Destination: "__Destination__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      SourceIp: "__SourceIp__",
+      DestinationIp: "__DestinationIp__",
+      Protocol: "__Protocol__",
+      DestinationPort: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      FilterAtSource: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      },
+      FilterAtDestination: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      }
+    },
+    {
+      NetworkInsightsPathId: "__NetworkInsightsPathId__",
+      NetworkInsightsPathArn: "__NetworkInsightsPathArn__",
+      CreatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Source: "__Source__",
+      Destination: "__Destination__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      SourceIp: "__SourceIp__",
+      DestinationIp: "__DestinationIp__",
+      Protocol: "__Protocol__",
+      DestinationPort: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      FilterAtSource: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      },
+      FilterAtDestination: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      }
+    },
+    {
+      NetworkInsightsPathId: "__NetworkInsightsPathId__",
+      NetworkInsightsPathArn: "__NetworkInsightsPathArn__",
+      CreatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Source: "__Source__",
+      Destination: "__Destination__",
+      SourceArn: "__SourceArn__",
+      DestinationArn: "__DestinationArn__",
+      SourceIp: "__SourceIp__",
+      DestinationIp: "__DestinationIp__",
+      Protocol: "__Protocol__",
+      DestinationPort: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      FilterAtSource: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      },
+      FilterAtDestination: {
+        SourceAddress: "__SourceAddress__",
+        SourcePortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        },
+        DestinationAddress: "__DestinationAddress__",
+        DestinationPortRange: {
+          FromPort: (number) 0,
+          ToPort: (number) 0
+        }
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

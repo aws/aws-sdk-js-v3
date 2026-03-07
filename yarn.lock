@@ -24686,6 +24686,25 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/snapshot-testing@workspace:packages-internal/snapshot-testing":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/snapshot-testing@workspace:packages-internal/snapshot-testing"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.973.18"
+    "@smithy/core": "npm:^3.23.8"
+    "@smithy/snapshot-testing": "npm:^1.0.9"
+    "@smithy/types": "npm:^4.13.0"
+    "@smithy/util-utf8": "npm:^4.2.2"
+    "@tsconfig/recommended": "npm:1.0.1"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/token-providers@workspace:3.1004.0, @aws-sdk/token-providers@workspace:packages/token-providers":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/token-providers@workspace:packages/token-providers"

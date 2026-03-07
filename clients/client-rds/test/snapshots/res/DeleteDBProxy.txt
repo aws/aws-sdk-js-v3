@@ -1,0 +1,176 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBProxyResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBProxyResponse xmlns="https://placeholder.amazonaws.com">
+    <DBProxy>
+        <DBProxyName>
+            __DBProxyName__
+        </DBProxyName>
+        <DBProxyArn>
+            __DBProxyArn__
+        </DBProxyArn>
+        <Status>
+            __Status__
+        </Status>
+        <EngineFamily>
+            __EngineFamily__
+        </EngineFamily>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <VpcSecurityGroupIds>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+        </VpcSecurityGroupIds>
+        <VpcSubnetIds>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+        </VpcSubnetIds>
+        <DefaultAuthScheme>
+            __DefaultAuthScheme__
+        </DefaultAuthScheme>
+        <Auth>
+            <member>
+                <Description>
+                    __Description__
+                </Description>
+                <UserName>
+                    __UserName__
+                </UserName>
+                <AuthScheme>
+                    __AuthScheme__
+                </AuthScheme>
+                <SecretArn>
+                    __SecretArn__
+                </SecretArn>
+                <IAMAuth>
+                    __IAMAuth__
+                </IAMAuth>
+                <ClientPasswordAuthType>
+                    __ClientPasswordAuthType__
+                </ClientPasswordAuthType>
+            </member>
+            <member>
+                <Description>
+                    __Description__
+                </Description>
+                <UserName>
+                    __UserName__
+                </UserName>
+                <AuthScheme>
+                    __AuthScheme__
+                </AuthScheme>
+                <SecretArn>
+                    __SecretArn__
+                </SecretArn>
+                <IAMAuth>
+                    __IAMAuth__
+                </IAMAuth>
+                <ClientPasswordAuthType>
+                    __ClientPasswordAuthType__
+                </ClientPasswordAuthType>
+            </member>
+            <member>
+                <Description>
+                    __Description__
+                </Description>
+                <UserName>
+                    __UserName__
+                </UserName>
+                <AuthScheme>
+                    __AuthScheme__
+                </AuthScheme>
+                <SecretArn>
+                    __SecretArn__
+                </SecretArn>
+                <IAMAuth>
+                    __IAMAuth__
+                </IAMAuth>
+                <ClientPasswordAuthType>
+                    __ClientPasswordAuthType__
+                </ClientPasswordAuthType>
+            </member>
+        </Auth>
+        <RoleArn>
+            __RoleArn__
+        </RoleArn>
+        <Endpoint>
+            __Endpoint__
+        </Endpoint>
+        <RequireTLS>
+            false
+        </RequireTLS>
+        <IdleClientTimeout>
+            0
+        </IdleClientTimeout>
+        <DebugLogging>
+            false
+        </DebugLogging>
+        <CreatedDate>
+            2000-01-01T04:59:59.999Z
+        </CreatedDate>
+        <UpdatedDate>
+            2000-01-01T04:59:59.999Z
+        </UpdatedDate>
+        <EndpointNetworkType>
+            __EndpointNetworkType__
+        </EndpointNetworkType>
+        <TargetConnectionNetworkType>
+            __TargetConnectionNetworkType__
+        </TargetConnectionNetworkType>
+    </DBProxy>
+</DeleteDBProxyResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

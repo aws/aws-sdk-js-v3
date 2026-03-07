@@ -1,0 +1,101 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportTask xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportTask xmlns="https://placeholder.amazonaws.com">
+    <ExportTaskIdentifier>
+        __ExportTaskIdentifier__
+    </ExportTaskIdentifier>
+    <SourceArn>
+        __SourceArn__
+    </SourceArn>
+    <ExportOnly>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+        <member>
+            __member__
+        </member>
+    </ExportOnly>
+    <SnapshotTime>
+        2000-01-01T04:59:59.999Z
+    </SnapshotTime>
+    <TaskStartTime>
+        2000-01-01T04:59:59.999Z
+    </TaskStartTime>
+    <TaskEndTime>
+        2000-01-01T04:59:59.999Z
+    </TaskEndTime>
+    <S3Bucket>
+        __S3Bucket__
+    </S3Bucket>
+    <S3Prefix>
+        __S3Prefix__
+    </S3Prefix>
+    <IamRoleArn>
+        __IamRoleArn__
+    </IamRoleArn>
+    <KmsKeyId>
+        __KmsKeyId__
+    </KmsKeyId>
+    <Status>
+        __Status__
+    </Status>
+    <PercentProgress>
+        0
+    </PercentProgress>
+    <TotalExtractedDataInGB>
+        0
+    </TotalExtractedDataInGB>
+    <FailureCause>
+        __FailureCause__
+    </FailureCause>
+    <WarningMessage>
+        __WarningMessage__
+    </WarningMessage>
+    <SourceType>
+        __SourceType__
+    </SourceType>
+</ExportTask>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

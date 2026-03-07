@@ -1,0 +1,109 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RejectTransitGatewayMulticastDomainAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RejectTransitGatewayMulticastDomainAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <associations>
+        <transitGatewayMulticastDomainId>
+            __TransitGatewayMulticastDomainId__
+        </transitGatewayMulticastDomainId>
+        <transitGatewayAttachmentId>
+            __TransitGatewayAttachmentId__
+        </transitGatewayAttachmentId>
+        <resourceId>
+            __ResourceId__
+        </resourceId>
+        <resourceType>
+            __ResourceType__
+        </resourceType>
+        <resourceOwnerId>
+            __ResourceOwnerId__
+        </resourceOwnerId>
+        <subnets>
+            <item>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+                <state>
+                    __State__
+                </state>
+            </item>
+            <item>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+                <state>
+                    __State__
+                </state>
+            </item>
+            <item>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+                <state>
+                    __State__
+                </state>
+            </item>
+        </subnets>
+    </associations>
+</RejectTransitGatewayMulticastDomainAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Associations: {
+    TransitGatewayMulticastDomainId: "__TransitGatewayMulticastDomainId__",
+    TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+    ResourceId: "__ResourceId__",
+    ResourceType: "__ResourceType__",
+    ResourceOwnerId: "__ResourceOwnerId__",
+    Subnets: [
+      {
+        SubnetId: "__SubnetId__",
+        State: "__State__"
+      },
+      {
+        SubnetId: "__SubnetId__",
+        State: "__State__"
+      },
+      {
+        SubnetId: "__SubnetId__",
+        State: "__State__"
+      }
+    ]
+  }
+}
+

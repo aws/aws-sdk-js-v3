@@ -1,0 +1,978 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelName": "__ModelName__",
+  "CreationTime": 946702799.999,
+  "ModelArn": "__ModelArn__",
+  "PrimaryContainer": {},
+  "Containers": [
+    {},
+    {},
+    {}
+  ],
+  "InferenceExecutionConfig": {
+    "Mode": "__Mode__"
+  },
+  "ExecutionRoleArn": "__ExecutionRoleArn__",
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "EnableNetworkIsolation": false,
+  "DeploymentRecommendation": {
+    "RecommendationStatus": "__RecommendationStatus__",
+    "RealTimeInferenceRecommendations": [
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  ModelName: "__ModelName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelArn: "__ModelArn__",
+  PrimaryContainer: {},
+  Containers: [
+    {},
+    {},
+    {}
+  ],
+  InferenceExecutionConfig: {
+    Mode: "__Mode__"
+  },
+  ExecutionRoleArn: "__ExecutionRoleArn__",
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  EnableNetworkIsolation: (boolean) false,
+  DeploymentRecommendation: {
+    RecommendationStatus: "__RecommendationStatus__",
+    RealTimeInferenceRecommendations: [
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelName": "__ModelName__",
+  "CreationTime": 946702799.999,
+  "ModelArn": "__ModelArn__",
+  "PrimaryContainer": {
+    "ContainerHostname": "__ContainerHostname__",
+    "Image": "__Image__",
+    "ImageConfig": {
+      "RepositoryAccessMode": "__RepositoryAccessMode__",
+      "RepositoryAuthConfig": {
+        "RepositoryCredentialsProviderArn": "__RepositoryCredentialsProviderArn__"
+      }
+    },
+    "Mode": "__Mode__",
+    "ModelDataUrl": "__ModelDataUrl__",
+    "ModelDataSource": {
+      "S3DataSource": {
+        "S3Uri": "__S3Uri__",
+        "S3DataType": "__S3DataType__",
+        "CompressionType": "__CompressionType__",
+        "ModelAccessConfig": {
+          "AcceptEula": false
+        },
+        "HubAccessConfig": {
+          "HubContentArn": "__HubContentArn__"
+        },
+        "ManifestS3Uri": "__ManifestS3Uri__",
+        "ETag": "__ETag__",
+        "ManifestEtag": "__ManifestEtag__"
+      }
+    },
+    "AdditionalModelDataSources": [
+      {
+        "ChannelName": "__ChannelName__",
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      },
+      {
+        "ChannelName": "__ChannelName__",
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      },
+      {
+        "ChannelName": "__ChannelName__",
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      }
+    ],
+    "Environment": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "ModelPackageName": "__ModelPackageName__",
+    "InferenceSpecificationName": "__InferenceSpecificationName__",
+    "MultiModelConfig": {
+      "ModelCacheSetting": "__ModelCacheSetting__"
+    }
+  },
+  "Containers": [
+    {
+      "ContainerHostname": "__ContainerHostname__",
+      "Image": "__Image__",
+      "ImageConfig": {
+        "RepositoryAccessMode": "__RepositoryAccessMode__",
+        "RepositoryAuthConfig": {
+          "RepositoryCredentialsProviderArn": "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      "Mode": "__Mode__",
+      "ModelDataUrl": "__ModelDataUrl__",
+      "ModelDataSource": {
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      },
+      "AdditionalModelDataSources": [
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        }
+      ],
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "ModelPackageName": "__ModelPackageName__",
+      "InferenceSpecificationName": "__InferenceSpecificationName__",
+      "MultiModelConfig": {
+        "ModelCacheSetting": "__ModelCacheSetting__"
+      }
+    },
+    {
+      "ContainerHostname": "__ContainerHostname__",
+      "Image": "__Image__",
+      "ImageConfig": {
+        "RepositoryAccessMode": "__RepositoryAccessMode__",
+        "RepositoryAuthConfig": {
+          "RepositoryCredentialsProviderArn": "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      "Mode": "__Mode__",
+      "ModelDataUrl": "__ModelDataUrl__",
+      "ModelDataSource": {
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      },
+      "AdditionalModelDataSources": [
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        }
+      ],
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "ModelPackageName": "__ModelPackageName__",
+      "InferenceSpecificationName": "__InferenceSpecificationName__",
+      "MultiModelConfig": {
+        "ModelCacheSetting": "__ModelCacheSetting__"
+      }
+    },
+    {
+      "ContainerHostname": "__ContainerHostname__",
+      "Image": "__Image__",
+      "ImageConfig": {
+        "RepositoryAccessMode": "__RepositoryAccessMode__",
+        "RepositoryAuthConfig": {
+          "RepositoryCredentialsProviderArn": "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      "Mode": "__Mode__",
+      "ModelDataUrl": "__ModelDataUrl__",
+      "ModelDataSource": {
+        "S3DataSource": {
+          "S3Uri": "__S3Uri__",
+          "S3DataType": "__S3DataType__",
+          "CompressionType": "__CompressionType__",
+          "ModelAccessConfig": {
+            "AcceptEula": false
+          },
+          "HubAccessConfig": {
+            "HubContentArn": "__HubContentArn__"
+          },
+          "ManifestS3Uri": "__ManifestS3Uri__",
+          "ETag": "__ETag__",
+          "ManifestEtag": "__ManifestEtag__"
+        }
+      },
+      "AdditionalModelDataSources": [
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        },
+        {
+          "ChannelName": "__ChannelName__",
+          "S3DataSource": {
+            "S3Uri": "__S3Uri__",
+            "S3DataType": "__S3DataType__",
+            "CompressionType": "__CompressionType__",
+            "ModelAccessConfig": {
+              "AcceptEula": false
+            },
+            "HubAccessConfig": {
+              "HubContentArn": "__HubContentArn__"
+            },
+            "ManifestS3Uri": "__ManifestS3Uri__",
+            "ETag": "__ETag__",
+            "ManifestEtag": "__ManifestEtag__"
+          }
+        }
+      ],
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "ModelPackageName": "__ModelPackageName__",
+      "InferenceSpecificationName": "__InferenceSpecificationName__",
+      "MultiModelConfig": {
+        "ModelCacheSetting": "__ModelCacheSetting__"
+      }
+    }
+  ],
+  "InferenceExecutionConfig": {
+    "Mode": "__Mode__"
+  },
+  "ExecutionRoleArn": "__ExecutionRoleArn__",
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "EnableNetworkIsolation": false,
+  "DeploymentRecommendation": {
+    "RecommendationStatus": "__RecommendationStatus__",
+    "RealTimeInferenceRecommendations": [
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      {
+        "RecommendationId": "__RecommendationId__",
+        "InstanceType": "__InstanceType__",
+        "Environment": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  ModelName: "__ModelName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelArn: "__ModelArn__",
+  PrimaryContainer: {
+    ContainerHostname: "__ContainerHostname__",
+    Image: "__Image__",
+    ImageConfig: {
+      RepositoryAccessMode: "__RepositoryAccessMode__",
+      RepositoryAuthConfig: {
+        RepositoryCredentialsProviderArn: "__RepositoryCredentialsProviderArn__"
+      }
+    },
+    Mode: "__Mode__",
+    ModelDataUrl: "__ModelDataUrl__",
+    ModelDataSource: {
+      S3DataSource: {
+        S3Uri: "__S3Uri__",
+        S3DataType: "__S3DataType__",
+        CompressionType: "__CompressionType__",
+        ModelAccessConfig: {
+          AcceptEula: (boolean) false
+        },
+        HubAccessConfig: {
+          HubContentArn: "__HubContentArn__"
+        },
+        ManifestS3Uri: "__ManifestS3Uri__",
+        ETag: "__ETag__",
+        ManifestEtag: "__ManifestEtag__"
+      }
+    },
+    AdditionalModelDataSources: [
+      {
+        ChannelName: "__ChannelName__",
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      },
+      {
+        ChannelName: "__ChannelName__",
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      },
+      {
+        ChannelName: "__ChannelName__",
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      }
+    ],
+    Environment: {
+      key1: "__value__",
+      key2: "__value__"
+    },
+    ModelPackageName: "__ModelPackageName__",
+    InferenceSpecificationName: "__InferenceSpecificationName__",
+    MultiModelConfig: {
+      ModelCacheSetting: "__ModelCacheSetting__"
+    }
+  },
+  Containers: [
+    {
+      ContainerHostname: "__ContainerHostname__",
+      Image: "__Image__",
+      ImageConfig: {
+        RepositoryAccessMode: "__RepositoryAccessMode__",
+        RepositoryAuthConfig: {
+          RepositoryCredentialsProviderArn: "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      Mode: "__Mode__",
+      ModelDataUrl: "__ModelDataUrl__",
+      ModelDataSource: {
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      },
+      AdditionalModelDataSources: [
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        }
+      ],
+      Environment: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      ModelPackageName: "__ModelPackageName__",
+      InferenceSpecificationName: "__InferenceSpecificationName__",
+      MultiModelConfig: {
+        ModelCacheSetting: "__ModelCacheSetting__"
+      }
+    },
+    {
+      ContainerHostname: "__ContainerHostname__",
+      Image: "__Image__",
+      ImageConfig: {
+        RepositoryAccessMode: "__RepositoryAccessMode__",
+        RepositoryAuthConfig: {
+          RepositoryCredentialsProviderArn: "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      Mode: "__Mode__",
+      ModelDataUrl: "__ModelDataUrl__",
+      ModelDataSource: {
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      },
+      AdditionalModelDataSources: [
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        }
+      ],
+      Environment: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      ModelPackageName: "__ModelPackageName__",
+      InferenceSpecificationName: "__InferenceSpecificationName__",
+      MultiModelConfig: {
+        ModelCacheSetting: "__ModelCacheSetting__"
+      }
+    },
+    {
+      ContainerHostname: "__ContainerHostname__",
+      Image: "__Image__",
+      ImageConfig: {
+        RepositoryAccessMode: "__RepositoryAccessMode__",
+        RepositoryAuthConfig: {
+          RepositoryCredentialsProviderArn: "__RepositoryCredentialsProviderArn__"
+        }
+      },
+      Mode: "__Mode__",
+      ModelDataUrl: "__ModelDataUrl__",
+      ModelDataSource: {
+        S3DataSource: {
+          S3Uri: "__S3Uri__",
+          S3DataType: "__S3DataType__",
+          CompressionType: "__CompressionType__",
+          ModelAccessConfig: {
+            AcceptEula: (boolean) false
+          },
+          HubAccessConfig: {
+            HubContentArn: "__HubContentArn__"
+          },
+          ManifestS3Uri: "__ManifestS3Uri__",
+          ETag: "__ETag__",
+          ManifestEtag: "__ManifestEtag__"
+        }
+      },
+      AdditionalModelDataSources: [
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        },
+        {
+          ChannelName: "__ChannelName__",
+          S3DataSource: {
+            S3Uri: "__S3Uri__",
+            S3DataType: "__S3DataType__",
+            CompressionType: "__CompressionType__",
+            ModelAccessConfig: {
+              AcceptEula: (boolean) false
+            },
+            HubAccessConfig: {
+              HubContentArn: "__HubContentArn__"
+            },
+            ManifestS3Uri: "__ManifestS3Uri__",
+            ETag: "__ETag__",
+            ManifestEtag: "__ManifestEtag__"
+          }
+        }
+      ],
+      Environment: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      ModelPackageName: "__ModelPackageName__",
+      InferenceSpecificationName: "__InferenceSpecificationName__",
+      MultiModelConfig: {
+        ModelCacheSetting: "__ModelCacheSetting__"
+      }
+    }
+  ],
+  InferenceExecutionConfig: {
+    Mode: "__Mode__"
+  },
+  ExecutionRoleArn: "__ExecutionRoleArn__",
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  EnableNetworkIsolation: (boolean) false,
+  DeploymentRecommendation: {
+    RecommendationStatus: "__RecommendationStatus__",
+    RealTimeInferenceRecommendations: [
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      {
+        RecommendationId: "__RecommendationId__",
+        InstanceType: "__InstanceType__",
+        Environment: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

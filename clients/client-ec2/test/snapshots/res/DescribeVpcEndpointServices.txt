@@ -1,0 +1,681 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointServicesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointServicesResult xmlns="https://placeholder.amazonaws.com">
+    <serviceNameSet>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+    </serviceNameSet>
+    <serviceDetailSet>
+        <item>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <serviceType>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+            </serviceType>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <owner>
+                __Owner__
+            </owner>
+            <baseEndpointDnsNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </baseEndpointDnsNameSet>
+            <privateDnsName>
+                __PrivateDnsName__
+            </privateDnsName>
+            <privateDnsNameSet>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+            </privateDnsNameSet>
+            <vpcEndpointPolicySupported>
+                false
+            </vpcEndpointPolicySupported>
+            <acceptanceRequired>
+                false
+            </acceptanceRequired>
+            <managesVpcEndpoints>
+                false
+            </managesVpcEndpoints>
+            <payerResponsibility>
+                __PayerResponsibility__
+            </payerResponsibility>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <privateDnsNameVerificationState>
+                __PrivateDnsNameVerificationState__
+            </privateDnsNameVerificationState>
+            <supportedIpAddressTypeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedIpAddressTypeSet>
+        </item>
+        <item>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <serviceType>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+            </serviceType>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <owner>
+                __Owner__
+            </owner>
+            <baseEndpointDnsNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </baseEndpointDnsNameSet>
+            <privateDnsName>
+                __PrivateDnsName__
+            </privateDnsName>
+            <privateDnsNameSet>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+            </privateDnsNameSet>
+            <vpcEndpointPolicySupported>
+                false
+            </vpcEndpointPolicySupported>
+            <acceptanceRequired>
+                false
+            </acceptanceRequired>
+            <managesVpcEndpoints>
+                false
+            </managesVpcEndpoints>
+            <payerResponsibility>
+                __PayerResponsibility__
+            </payerResponsibility>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <privateDnsNameVerificationState>
+                __PrivateDnsNameVerificationState__
+            </privateDnsNameVerificationState>
+            <supportedIpAddressTypeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedIpAddressTypeSet>
+        </item>
+        <item>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <serviceType>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+                <item>
+                    <serviceType>
+                        __ServiceType__
+                    </serviceType>
+                </item>
+            </serviceType>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+            <availabilityZoneIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneIdSet>
+            <availabilityZoneSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </availabilityZoneSet>
+            <owner>
+                __Owner__
+            </owner>
+            <baseEndpointDnsNameSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </baseEndpointDnsNameSet>
+            <privateDnsName>
+                __PrivateDnsName__
+            </privateDnsName>
+            <privateDnsNameSet>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+                <item>
+                    <privateDnsName>
+                        __PrivateDnsName__
+                    </privateDnsName>
+                </item>
+            </privateDnsNameSet>
+            <vpcEndpointPolicySupported>
+                false
+            </vpcEndpointPolicySupported>
+            <acceptanceRequired>
+                false
+            </acceptanceRequired>
+            <managesVpcEndpoints>
+                false
+            </managesVpcEndpoints>
+            <payerResponsibility>
+                __PayerResponsibility__
+            </payerResponsibility>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <privateDnsNameVerificationState>
+                __PrivateDnsNameVerificationState__
+            </privateDnsNameVerificationState>
+            <supportedIpAddressTypeSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedIpAddressTypeSet>
+        </item>
+    </serviceDetailSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVpcEndpointServicesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ServiceNames: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  ServiceDetails: [
+    {
+      ServiceName: "__ServiceName__",
+      ServiceId: "__ServiceId__",
+      ServiceType: [
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        }
+      ],
+      ServiceRegion: "__ServiceRegion__",
+      AvailabilityZoneIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Owner: "__Owner__",
+      BaseEndpointDnsNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PrivateDnsName: "__PrivateDnsName__",
+      PrivateDnsNames: [
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        }
+      ],
+      VpcEndpointPolicySupported: (boolean) false,
+      AcceptanceRequired: (boolean) false,
+      ManagesVpcEndpoints: (boolean) false,
+      PayerResponsibility: "__PayerResponsibility__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PrivateDnsNameVerificationState: "__PrivateDnsNameVerificationState__",
+      SupportedIpAddressTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      ServiceName: "__ServiceName__",
+      ServiceId: "__ServiceId__",
+      ServiceType: [
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        }
+      ],
+      ServiceRegion: "__ServiceRegion__",
+      AvailabilityZoneIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Owner: "__Owner__",
+      BaseEndpointDnsNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PrivateDnsName: "__PrivateDnsName__",
+      PrivateDnsNames: [
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        }
+      ],
+      VpcEndpointPolicySupported: (boolean) false,
+      AcceptanceRequired: (boolean) false,
+      ManagesVpcEndpoints: (boolean) false,
+      PayerResponsibility: "__PayerResponsibility__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PrivateDnsNameVerificationState: "__PrivateDnsNameVerificationState__",
+      SupportedIpAddressTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      ServiceName: "__ServiceName__",
+      ServiceId: "__ServiceId__",
+      ServiceType: [
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        },
+        {
+          ServiceType: "__ServiceType__"
+        }
+      ],
+      ServiceRegion: "__ServiceRegion__",
+      AvailabilityZoneIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      AvailabilityZones: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Owner: "__Owner__",
+      BaseEndpointDnsNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PrivateDnsName: "__PrivateDnsName__",
+      PrivateDnsNames: [
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        },
+        {
+          PrivateDnsName: "__PrivateDnsName__"
+        }
+      ],
+      VpcEndpointPolicySupported: (boolean) false,
+      AcceptanceRequired: (boolean) false,
+      ManagesVpcEndpoints: (boolean) false,
+      PayerResponsibility: "__PayerResponsibility__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      PrivateDnsNameVerificationState: "__PrivateDnsNameVerificationState__",
+      SupportedIpAddressTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

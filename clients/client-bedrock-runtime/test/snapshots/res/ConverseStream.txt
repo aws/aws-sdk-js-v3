@@ -1,0 +1,1820 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Object)]
+
+
+
+
+--- [output object] ---
+{
+  stream: async_it[<empty>],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (event-stream object view)]
+  [total-size] 117 [header-size] 82 [prelude-crc] 3514138638
+:event-type: messageStart
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "role": "__role__"
+}
+
+[message-crc] 4090186464
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 168 [header-size] 87 [prelude-crc] 3497709417
+:event-type: contentBlockStart
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "start": {
+    "image": {
+      "format": "__format__"
+    }
+  },
+  "contentBlockIndex": 0
+}
+
+[message-crc] 1537322770
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 401 [header-size] 87 [prelude-crc] 3071788603
+:event-type: contentBlockDelta
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "delta": {
+    "toolResult": [
+      {
+        "json": {
+          "doc_note": "this is a document",
+          "doc_date": 946702799.999,
+          "doc_blob": "AQAAAQ==",
+          "doc_list": [
+            -7,
+            -3,
+            0,
+            1,
+            5
+          ]
+        }
+      },
+      {
+        "text": "__text__"
+      },
+      {
+        "json": {
+          "doc_note": "this is a document",
+          "doc_date": 946702799.999,
+          "doc_blob": "AQAAAQ==",
+          "doc_list": [
+            -7,
+            -3,
+            0,
+            1,
+            5
+          ]
+        }
+      }
+    ]
+  },
+  "contentBlockIndex": 0
+}
+
+[message-crc] 1722973636
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 125 [header-size] 86 [prelude-crc] 3865579478
+:event-type: contentBlockStop
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "contentBlockIndex": 0
+}
+
+[message-crc] 1480746266
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 266 [header-size] 81 [prelude-crc] 4171396367
+:event-type: messageStop
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "stopReason": "__stopReason__",
+  "additionalModelResponseFields": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  }
+}
+
+[message-crc] 3474500693
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 9327 [header-size] 78 [prelude-crc] 1931023426
+:event-type: metadata
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "usage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "totalTokens": 0,
+    "cacheReadInputTokens": 0,
+    "cacheWriteInputTokens": 0,
+    "cacheDetails": [
+      {
+        "ttl": "__ttl__",
+        "inputTokens": 0
+      },
+      {
+        "ttl": "__ttl__",
+        "inputTokens": 0
+      },
+      {
+        "ttl": "__ttl__",
+        "inputTokens": 0
+      }
+    ]
+  },
+  "metrics": {
+    "latencyMs": 0
+  },
+  "trace": {
+    "guardrail": {
+      "modelOutput": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "inputAssessment": {
+        "key1": {
+          "topicPolicy": {
+            "topics": [
+              {},
+              {},
+              {}
+            ]
+          },
+          "contentPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              }
+            ]
+          },
+          "wordPolicy": {
+            "customWords": [
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "managedWordLists": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "sensitiveInformationPolicy": {
+            "piiEntities": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "regexes": [
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              }
+            ]
+          },
+          "contextualGroundingPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "automatedReasoningPolicy": {
+            "findings": [
+              {
+                "translationAmbiguous": {
+                  "options": [
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    },
+                    {
+                      "translations": [
+                        {},
+                        {},
+                        {}
+                      ]
+                    }
+                  ],
+                  "differenceScenarios": [
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    },
+                    {
+                      "statements": [
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        },
+                        {
+                          "logic": "__logic__",
+                          "naturalLanguage": "__naturalLanguage__"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "tooComplex": {}
+              },
+              {
+                "noTranslations": {}
+              }
+            ]
+          },
+          "invocationMetrics": {
+            "guardrailProcessingLatency": 0,
+            "usage": {
+              "topicPolicyUnits": 0,
+              "contentPolicyUnits": 0,
+              "wordPolicyUnits": 0,
+              "sensitiveInformationPolicyUnits": 0,
+              "sensitiveInformationPolicyFreeUnits": 0,
+              "contextualGroundingPolicyUnits": 0,
+              "contentPolicyImageUnits": 0,
+              "automatedReasoningPolicyUnits": 0,
+              "automatedReasoningPolicies": 0
+            },
+            "guardrailCoverage": {
+              "textCharacters": {
+                "guarded": 0,
+                "total": 0
+              },
+              "images": {
+                "guarded": 0,
+                "total": 0
+              }
+            }
+          },
+          "appliedGuardrailDetails": {
+            "guardrailId": "__guardrailId__",
+            "guardrailVersion": "__guardrailVersion__",
+            "guardrailArn": "__guardrailArn__",
+            "guardrailOrigin": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "guardrailOwnership": "__guardrailOwnership__"
+          }
+        },
+        "key2": {
+          "topicPolicy": {
+            "topics": [
+              {},
+              {},
+              {}
+            ]
+          },
+          "contentPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "confidence": "__confidence__",
+                "action": "__action__",
+                "filterStrength": "__filterStrength__",
+                "detected": false
+              }
+            ]
+          },
+          "wordPolicy": {
+            "customWords": [
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "managedWordLists": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "sensitiveInformationPolicy": {
+            "piiEntities": [
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "match": "__match__",
+                "type": "__type__",
+                "action": "__action__",
+                "detected": false
+              }
+            ],
+            "regexes": [
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              },
+              {
+                "action": "__action__",
+                "name": "__name__",
+                "match": "__match__",
+                "regex": "__regex__",
+                "detected": false
+              }
+            ]
+          },
+          "contextualGroundingPolicy": {
+            "filters": [
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              },
+              {
+                "type": "__type__",
+                "threshold": 0,
+                "score": 0,
+                "action": "__action__",
+                "detected": false
+              }
+            ]
+          },
+          "automatedReasoningPolicy": {
+            "findings": [
+              {
+                "noTranslations": {}
+              },
+              {
+                "valid": {
+                  "translation": {
+                    "premises": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "claims": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "untranslatedPremises": [
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      }
+                    ],
+                    "untranslatedClaims": [
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      }
+                    ],
+                    "confidence": 0
+                  },
+                  "claimsTrueScenario": {
+                    "statements": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ]
+                  },
+                  "supportingRules": [
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    },
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    },
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    }
+                  ],
+                  "logicWarning": {
+                    "type": "__type__",
+                    "premises": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "claims": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "invalid": {
+                  "translation": {
+                    "premises": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "claims": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "untranslatedPremises": [
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      }
+                    ],
+                    "untranslatedClaims": [
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      },
+                      {
+                        "text": "__text__"
+                      }
+                    ],
+                    "confidence": 0
+                  },
+                  "contradictingRules": [
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    },
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    },
+                    {
+                      "identifier": "__identifier__",
+                      "policyVersionArn": "__policyVersionArn__"
+                    }
+                  ],
+                  "logicWarning": {
+                    "type": "__type__",
+                    "premises": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ],
+                    "claims": [
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      },
+                      {
+                        "logic": "__logic__",
+                        "naturalLanguage": "__naturalLanguage__"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "invocationMetrics": {
+            "guardrailProcessingLatency": 0,
+            "usage": {
+              "topicPolicyUnits": 0,
+              "contentPolicyUnits": 0,
+              "wordPolicyUnits": 0,
+              "sensitiveInformationPolicyUnits": 0,
+              "sensitiveInformationPolicyFreeUnits": 0,
+              "contextualGroundingPolicyUnits": 0,
+              "contentPolicyImageUnits": 0,
+              "automatedReasoningPolicyUnits": 0,
+              "automatedReasoningPolicies": 0
+            },
+            "guardrailCoverage": {
+              "textCharacters": {
+                "guarded": 0,
+                "total": 0
+              },
+              "images": {
+                "guarded": 0,
+                "total": 0
+              }
+            }
+          },
+          "appliedGuardrailDetails": {
+            "guardrailId": "__guardrailId__",
+            "guardrailVersion": "__guardrailVersion__",
+            "guardrailArn": "__guardrailArn__",
+            "guardrailOrigin": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            "guardrailOwnership": "__guardrailOwnership__"
+          }
+        }
+      },
+      "outputAssessments": {
+        "key1": [
+          {},
+          {},
+          {}
+        ],
+        "key2": [
+          {},
+          {},
+          {}
+        ]
+      },
+      "actionReason": "__actionReason__"
+    },
+    "promptRouter": {
+      "invokedModelId": "__invokedModelId__"
+    }
+  },
+  "performanceConfig": {
+    "latency": "__latency__"
+  },
+  "serviceTier": {
+    "type": "__type__"
+  }
+}
+
+[message-crc] 2234340211
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 134 [header-size] 93 [prelude-crc] 1314830098
+:event-type: internalServerException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 2687650811
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 199 [header-size] 95 [prelude-crc] 3317934023
+:event-type: modelStreamErrorException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__",
+  "originalStatusCode": 0,
+  "originalMessage": "__originalMessage__"
+}
+
+[message-crc] 4192425637
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: validationException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 1820325195
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 130 [header-size] 89 [prelude-crc] 3165902283
+:event-type: throttlingException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 277105475
+============================================================
+
+[chunk (event-stream object view)]
+  [total-size] 138 [header-size] 97 [prelude-crc] 2764121748
+:event-type: serviceUnavailableException
+:message-type: event
+:content-type: application/json
+
+[json]
+{
+  "message": "__message__"
+}
+
+[message-crc] 12874618
+============================================================
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  stream: async_it[
+    {
+      messageStart: {
+        role: "__role__"
+      }
+    },
+    {
+      contentBlockStart: {
+        start: {
+          image: {
+            format: "__format__"
+          }
+        },
+        contentBlockIndex: (number) 0
+      }
+    },
+    {
+      contentBlockDelta: {
+        delta: {
+          toolResult: [
+            {
+              json: {
+                doc_note: "this is a document",
+                doc_date: (number) 946702799.999,
+                doc_blob: "AQAAAQ==",
+                doc_list: [
+                  (number) -7,
+                  (number) -3,
+                  (number) 0,
+                  (number) 1,
+                  (number) 5
+                ]
+              }
+            },
+            {
+              text: "__text__"
+            },
+            {
+              json: {
+                doc_note: "this is a document",
+                doc_date: (number) 946702799.999,
+                doc_blob: "AQAAAQ==",
+                doc_list: [
+                  (number) -7,
+                  (number) -3,
+                  (number) 0,
+                  (number) 1,
+                  (number) 5
+                ]
+              }
+            }
+          ]
+        },
+        contentBlockIndex: (number) 0
+      }
+    },
+    {
+      contentBlockStop: {
+        contentBlockIndex: (number) 0
+      }
+    },
+    {
+      messageStop: {
+        stopReason: "__stopReason__",
+        additionalModelResponseFields: {
+          doc_note: "this is a document",
+          doc_date: (number) 946702799.999,
+          doc_blob: "AQAAAQ==",
+          doc_list: [
+            (number) -7,
+            (number) -3,
+            (number) 0,
+            (number) 1,
+            (number) 5
+          ]
+        }
+      }
+    },
+    {
+      metadata: {
+        usage: {
+          inputTokens: (number) 0,
+          outputTokens: (number) 0,
+          totalTokens: (number) 0,
+          cacheReadInputTokens: (number) 0,
+          cacheWriteInputTokens: (number) 0,
+          cacheDetails: [
+            {
+              ttl: "__ttl__",
+              inputTokens: (number) 0
+            },
+            {
+              ttl: "__ttl__",
+              inputTokens: (number) 0
+            },
+            {
+              ttl: "__ttl__",
+              inputTokens: (number) 0
+            }
+          ]
+        },
+        metrics: {
+          latencyMs: (number) 0
+        },
+        trace: {
+          guardrail: {
+            modelOutput: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            inputAssessment: {
+              key1: {
+                topicPolicy: {
+                  topics: [
+                    {},
+                    {},
+                    {}
+                  ]
+                },
+                contentPolicy: {
+                  filters: [
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                wordPolicy: {
+                  customWords: [
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ],
+                  managedWordLists: [
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                sensitiveInformationPolicy: {
+                  piiEntities: [
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ],
+                  regexes: [
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    },
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    },
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                contextualGroundingPolicy: {
+                  filters: [
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                automatedReasoningPolicy: {
+                  findings: [
+                    {
+                      translationAmbiguous: {
+                        options: [
+                          {
+                            translations: [
+                              {},
+                              {},
+                              {}
+                            ]
+                          },
+                          {
+                            translations: [
+                              {},
+                              {},
+                              {}
+                            ]
+                          },
+                          {
+                            translations: [
+                              {},
+                              {},
+                              {}
+                            ]
+                          }
+                        ],
+                        differenceScenarios: [
+                          {
+                            statements: [
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              }
+                            ]
+                          },
+                          {
+                            statements: [
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              }
+                            ]
+                          },
+                          {
+                            statements: [
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              },
+                              {
+                                logic: "__logic__",
+                                naturalLanguage: "__naturalLanguage__"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      tooComplex: {}
+                    },
+                    {
+                      noTranslations: {}
+                    }
+                  ]
+                },
+                invocationMetrics: {
+                  guardrailProcessingLatency: (number) 0,
+                  usage: {
+                    topicPolicyUnits: (number) 0,
+                    contentPolicyUnits: (number) 0,
+                    wordPolicyUnits: (number) 0,
+                    sensitiveInformationPolicyUnits: (number) 0,
+                    sensitiveInformationPolicyFreeUnits: (number) 0,
+                    contextualGroundingPolicyUnits: (number) 0,
+                    contentPolicyImageUnits: (number) 0,
+                    automatedReasoningPolicyUnits: (number) 0,
+                    automatedReasoningPolicies: (number) 0
+                  },
+                  guardrailCoverage: {
+                    textCharacters: {
+                      guarded: (number) 0,
+                      total: (number) 0
+                    },
+                    images: {
+                      guarded: (number) 0,
+                      total: (number) 0
+                    }
+                  }
+                },
+                appliedGuardrailDetails: {
+                  guardrailId: "__guardrailId__",
+                  guardrailVersion: "__guardrailVersion__",
+                  guardrailArn: "__guardrailArn__",
+                  guardrailOrigin: [
+                    "__member__",
+                    "__member__",
+                    "__member__"
+                  ],
+                  guardrailOwnership: "__guardrailOwnership__"
+                }
+              },
+              key2: {
+                topicPolicy: {
+                  topics: [
+                    {},
+                    {},
+                    {}
+                  ]
+                },
+                contentPolicy: {
+                  filters: [
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      confidence: "__confidence__",
+                      action: "__action__",
+                      filterStrength: "__filterStrength__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                wordPolicy: {
+                  customWords: [
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ],
+                  managedWordLists: [
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                sensitiveInformationPolicy: {
+                  piiEntities: [
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      match: "__match__",
+                      type: "__type__",
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ],
+                  regexes: [
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    },
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    },
+                    {
+                      action: "__action__",
+                      name: "__name__",
+                      match: "__match__",
+                      regex: "__regex__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                contextualGroundingPolicy: {
+                  filters: [
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    },
+                    {
+                      type: "__type__",
+                      threshold: (number) 0,
+                      score: (number) 0,
+                      action: "__action__",
+                      detected: (boolean) false
+                    }
+                  ]
+                },
+                automatedReasoningPolicy: {
+                  findings: [
+                    {
+                      noTranslations: {}
+                    },
+                    {
+                      valid: {
+                        translation: {
+                          premises: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          claims: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          untranslatedPremises: [
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            }
+                          ],
+                          untranslatedClaims: [
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            }
+                          ],
+                          confidence: (number) 0
+                        },
+                        claimsTrueScenario: {
+                          statements: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ]
+                        },
+                        supportingRules: [
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          },
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          },
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          }
+                        ],
+                        logicWarning: {
+                          type: "__type__",
+                          premises: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          claims: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      invalid: {
+                        translation: {
+                          premises: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          claims: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          untranslatedPremises: [
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            }
+                          ],
+                          untranslatedClaims: [
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            },
+                            {
+                              text: "__text__"
+                            }
+                          ],
+                          confidence: (number) 0
+                        },
+                        contradictingRules: [
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          },
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          },
+                          {
+                            identifier: "__identifier__",
+                            policyVersionArn: "__policyVersionArn__"
+                          }
+                        ],
+                        logicWarning: {
+                          type: "__type__",
+                          premises: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ],
+                          claims: [
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            },
+                            {
+                              logic: "__logic__",
+                              naturalLanguage: "__naturalLanguage__"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                },
+                invocationMetrics: {
+                  guardrailProcessingLatency: (number) 0,
+                  usage: {
+                    topicPolicyUnits: (number) 0,
+                    contentPolicyUnits: (number) 0,
+                    wordPolicyUnits: (number) 0,
+                    sensitiveInformationPolicyUnits: (number) 0,
+                    sensitiveInformationPolicyFreeUnits: (number) 0,
+                    contextualGroundingPolicyUnits: (number) 0,
+                    contentPolicyImageUnits: (number) 0,
+                    automatedReasoningPolicyUnits: (number) 0,
+                    automatedReasoningPolicies: (number) 0
+                  },
+                  guardrailCoverage: {
+                    textCharacters: {
+                      guarded: (number) 0,
+                      total: (number) 0
+                    },
+                    images: {
+                      guarded: (number) 0,
+                      total: (number) 0
+                    }
+                  }
+                },
+                appliedGuardrailDetails: {
+                  guardrailId: "__guardrailId__",
+                  guardrailVersion: "__guardrailVersion__",
+                  guardrailArn: "__guardrailArn__",
+                  guardrailOrigin: [
+                    "__member__",
+                    "__member__",
+                    "__member__"
+                  ],
+                  guardrailOwnership: "__guardrailOwnership__"
+                }
+              }
+            },
+            outputAssessments: {
+              key1: [
+                {},
+                {},
+                {}
+              ],
+              key2: [
+                {},
+                {},
+                {}
+              ]
+            },
+            actionReason: "__actionReason__"
+          },
+          promptRouter: {
+            invokedModelId: "__invokedModelId__"
+          }
+        },
+        performanceConfig: {
+          latency: "__latency__"
+        },
+        serviceTier: {
+          type: "__type__"
+        }
+      }
+    },
+    {
+      internalServerException: {
+        message: "__message__"
+      }
+    },
+    {
+      modelStreamErrorException: {
+        message: "__message__",
+        originalStatusCode: (number) 0,
+        originalMessage: "__originalMessage__"
+      }
+    },
+    {
+      validationException: {
+        message: "__message__"
+      }
+    },
+    {
+      throttlingException: {
+        message: "__message__"
+      }
+    },
+    {
+      serviceUnavailableException: {
+        message: "__message__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

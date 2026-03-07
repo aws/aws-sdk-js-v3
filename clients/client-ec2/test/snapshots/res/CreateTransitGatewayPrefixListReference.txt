@@ -1,0 +1,85 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayPrefixListReferenceResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayPrefixListReferenceResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayPrefixListReference>
+        <transitGatewayRouteTableId>
+            __TransitGatewayRouteTableId__
+        </transitGatewayRouteTableId>
+        <prefixListId>
+            __PrefixListId__
+        </prefixListId>
+        <prefixListOwnerId>
+            __PrefixListOwnerId__
+        </prefixListOwnerId>
+        <state>
+            __State__
+        </state>
+        <blackhole>
+            false
+        </blackhole>
+        <transitGatewayAttachment>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+        </transitGatewayAttachment>
+    </transitGatewayPrefixListReference>
+</CreateTransitGatewayPrefixListReferenceResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGatewayPrefixListReference: {
+    TransitGatewayRouteTableId: "__TransitGatewayRouteTableId__",
+    PrefixListId: "__PrefixListId__",
+    PrefixListOwnerId: "__PrefixListOwnerId__",
+    State: "__State__",
+    Blackhole: (boolean) false,
+    TransitGatewayAttachment: {
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__"
+    }
+  }
+}
+

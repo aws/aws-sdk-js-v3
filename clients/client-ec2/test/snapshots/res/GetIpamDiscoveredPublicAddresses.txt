@@ -1,0 +1,435 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamDiscoveredPublicAddressesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamDiscoveredPublicAddressesResult xmlns="https://placeholder.amazonaws.com">
+    <ipamDiscoveredPublicAddressSet>
+        <item>
+            <ipamResourceDiscoveryId>
+                __IpamResourceDiscoveryId__
+            </ipamResourceDiscoveryId>
+            <addressRegion>
+                __AddressRegion__
+            </addressRegion>
+            <address>
+                __Address__
+            </address>
+            <addressOwnerId>
+                __AddressOwnerId__
+            </addressOwnerId>
+            <addressAllocationId>
+                __AddressAllocationId__
+            </addressAllocationId>
+            <associationStatus>
+                __AssociationStatus__
+            </associationStatus>
+            <addressType>
+                __AddressType__
+            </addressType>
+            <service>
+                __Service__
+            </service>
+            <serviceResource>
+                __ServiceResource__
+            </serviceResource>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <publicIpv4PoolId>
+                __PublicIpv4PoolId__
+            </publicIpv4PoolId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceDescription>
+                __NetworkInterfaceDescription__
+            </networkInterfaceDescription>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tags>
+                <eipTagSet>
+                    <item/>
+<item/>
+<item/>
+                </eipTagSet>
+            </tags>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <securityGroupSet>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+            </securityGroupSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+        </item>
+        <item>
+            <ipamResourceDiscoveryId>
+                __IpamResourceDiscoveryId__
+            </ipamResourceDiscoveryId>
+            <addressRegion>
+                __AddressRegion__
+            </addressRegion>
+            <address>
+                __Address__
+            </address>
+            <addressOwnerId>
+                __AddressOwnerId__
+            </addressOwnerId>
+            <addressAllocationId>
+                __AddressAllocationId__
+            </addressAllocationId>
+            <associationStatus>
+                __AssociationStatus__
+            </associationStatus>
+            <addressType>
+                __AddressType__
+            </addressType>
+            <service>
+                __Service__
+            </service>
+            <serviceResource>
+                __ServiceResource__
+            </serviceResource>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <publicIpv4PoolId>
+                __PublicIpv4PoolId__
+            </publicIpv4PoolId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceDescription>
+                __NetworkInterfaceDescription__
+            </networkInterfaceDescription>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tags>
+                <eipTagSet>
+                    <item/>
+<item/>
+<item/>
+                </eipTagSet>
+            </tags>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <securityGroupSet>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+            </securityGroupSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+        </item>
+        <item>
+            <ipamResourceDiscoveryId>
+                __IpamResourceDiscoveryId__
+            </ipamResourceDiscoveryId>
+            <addressRegion>
+                __AddressRegion__
+            </addressRegion>
+            <address>
+                __Address__
+            </address>
+            <addressOwnerId>
+                __AddressOwnerId__
+            </addressOwnerId>
+            <addressAllocationId>
+                __AddressAllocationId__
+            </addressAllocationId>
+            <associationStatus>
+                __AssociationStatus__
+            </associationStatus>
+            <addressType>
+                __AddressType__
+            </addressType>
+            <service>
+                __Service__
+            </service>
+            <serviceResource>
+                __ServiceResource__
+            </serviceResource>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <publicIpv4PoolId>
+                __PublicIpv4PoolId__
+            </publicIpv4PoolId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <networkInterfaceDescription>
+                __NetworkInterfaceDescription__
+            </networkInterfaceDescription>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tags>
+                <eipTagSet>
+                    <item/>
+<item/>
+<item/>
+                </eipTagSet>
+            </tags>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <securityGroupSet>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+                <item>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                </item>
+            </securityGroupSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+        </item>
+    </ipamDiscoveredPublicAddressSet>
+    <oldestSampleTime>
+        2000-01-01T04:59:59.999Z
+    </oldestSampleTime>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamDiscoveredPublicAddressesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamDiscoveredPublicAddresses: [
+    {
+      IpamResourceDiscoveryId: "__IpamResourceDiscoveryId__",
+      AddressRegion: "__AddressRegion__",
+      Address: "__Address__",
+      AddressOwnerId: "__AddressOwnerId__",
+      AddressAllocationId: "__AddressAllocationId__",
+      AssociationStatus: "__AssociationStatus__",
+      AddressType: "__AddressType__",
+      Service: "__Service__",
+      ServiceResource: "__ServiceResource__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      PublicIpv4PoolId: "__PublicIpv4PoolId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceDescription: "__NetworkInterfaceDescription__",
+      InstanceId: "__InstanceId__",
+      Tags: {
+        EipTags: [
+          {},
+          {},
+          {}
+        ]
+      },
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      SecurityGroups: [
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      IpamResourceDiscoveryId: "__IpamResourceDiscoveryId__",
+      AddressRegion: "__AddressRegion__",
+      Address: "__Address__",
+      AddressOwnerId: "__AddressOwnerId__",
+      AddressAllocationId: "__AddressAllocationId__",
+      AssociationStatus: "__AssociationStatus__",
+      AddressType: "__AddressType__",
+      Service: "__Service__",
+      ServiceResource: "__ServiceResource__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      PublicIpv4PoolId: "__PublicIpv4PoolId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceDescription: "__NetworkInterfaceDescription__",
+      InstanceId: "__InstanceId__",
+      Tags: {
+        EipTags: [
+          {},
+          {},
+          {}
+        ]
+      },
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      SecurityGroups: [
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      IpamResourceDiscoveryId: "__IpamResourceDiscoveryId__",
+      AddressRegion: "__AddressRegion__",
+      Address: "__Address__",
+      AddressOwnerId: "__AddressOwnerId__",
+      AddressAllocationId: "__AddressAllocationId__",
+      AssociationStatus: "__AssociationStatus__",
+      AddressType: "__AddressType__",
+      Service: "__Service__",
+      ServiceResource: "__ServiceResource__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      PublicIpv4PoolId: "__PublicIpv4PoolId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      NetworkInterfaceDescription: "__NetworkInterfaceDescription__",
+      InstanceId: "__InstanceId__",
+      Tags: {
+        EipTags: [
+          {},
+          {},
+          {}
+        ]
+      },
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      SecurityGroups: [
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        },
+        {
+          GroupName: "__GroupName__",
+          GroupId: "__GroupId__"
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  OldestSampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,118 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<TestDNSAnswerResponse xmlns="https://placeholder.amazonaws.com">
+    <Nameserver>
+        __Nameserver__
+    </Nameserver>
+    <RecordName>
+        __RecordName__
+    </RecordName>
+    <RecordType>
+        __RecordType__
+    </RecordType>
+    <RecordData>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+    </RecordData>
+    <ResponseCode>
+        __ResponseCode__
+    </ResponseCode>
+    <Protocol>
+        __Protocol__
+    </Protocol>
+</TestDNSAnswerResponse>
+
+
+--- [output object] ---
+{
+  Nameserver: "__Nameserver__",
+  RecordName: "__RecordName__",
+  RecordType: "__RecordType__",
+  RecordData: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  ResponseCode: "__ResponseCode__",
+  Protocol: "__Protocol__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<TestDNSAnswerResponse xmlns="https://placeholder.amazonaws.com">
+    <Nameserver>
+        __Nameserver__
+    </Nameserver>
+    <RecordName>
+        __RecordName__
+    </RecordName>
+    <RecordType>
+        __RecordType__
+    </RecordType>
+    <RecordData>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+        <RecordDataEntry>
+            __member__
+        </RecordDataEntry>
+    </RecordData>
+    <ResponseCode>
+        __ResponseCode__
+    </ResponseCode>
+    <Protocol>
+        __Protocol__
+    </Protocol>
+</TestDNSAnswerResponse>
+
+
+--- [output object] ---
+{
+  Nameserver: "__Nameserver__",
+  RecordName: "__RecordName__",
+  RecordType: "__RecordType__",
+  RecordData: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  ResponseCode: "__ResponseCode__",
+  Protocol: "__Protocol__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

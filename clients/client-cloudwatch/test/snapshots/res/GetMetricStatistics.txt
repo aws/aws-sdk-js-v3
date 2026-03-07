@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Label": "__Label__",
+  "Datapoints": [
+    {
+      "Timestamp": 946702799.999,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0,
+      "Unit": "__Unit__",
+      "ExtendedStatistics": {
+        "key1": 0,
+        "key2": 0
+      }
+    },
+    {
+      "Timestamp": 946702799.999,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0,
+      "Unit": "__Unit__",
+      "ExtendedStatistics": {
+        "key1": 0,
+        "key2": 0
+      }
+    },
+    {
+      "Timestamp": 946702799.999,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0,
+      "Unit": "__Unit__",
+      "ExtendedStatistics": {
+        "key1": 0,
+        "key2": 0
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  Label: "__Label__",
+  Datapoints: [
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0,
+      Unit: "__Unit__",
+      ExtendedStatistics: {
+        key1: (number) 0,
+        key2: (number) 0
+      }
+    },
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0,
+      Unit: "__Unit__",
+      ExtendedStatistics: {
+        key1: (number) 0,
+        key2: (number) 0
+      }
+    },
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0,
+      Unit: "__Unit__",
+      ExtendedStatistics: {
+        key1: (number) 0,
+        key2: (number) 0
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,305 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPrefixListResolversResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPrefixListResolversResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <ipamPrefixListResolverSet>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ipamPrefixListResolverArn>
+                __IpamPrefixListResolverArn__
+            </ipamPrefixListResolverArn>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <description>
+                __Description__
+            </description>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <lastVersionCreationStatus>
+                __LastVersionCreationStatus__
+            </lastVersionCreationStatus>
+            <lastVersionCreationStatusMessage>
+                __LastVersionCreationStatusMessage__
+            </lastVersionCreationStatusMessage>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ipamPrefixListResolverArn>
+                __IpamPrefixListResolverArn__
+            </ipamPrefixListResolverArn>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <description>
+                __Description__
+            </description>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <lastVersionCreationStatus>
+                __LastVersionCreationStatus__
+            </lastVersionCreationStatus>
+            <lastVersionCreationStatusMessage>
+                __LastVersionCreationStatusMessage__
+            </lastVersionCreationStatusMessage>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPrefixListResolverId>
+                __IpamPrefixListResolverId__
+            </ipamPrefixListResolverId>
+            <ipamPrefixListResolverArn>
+                __IpamPrefixListResolverArn__
+            </ipamPrefixListResolverArn>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <description>
+                __Description__
+            </description>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <state>
+                __State__
+            </state>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <lastVersionCreationStatus>
+                __LastVersionCreationStatus__
+            </lastVersionCreationStatus>
+            <lastVersionCreationStatusMessage>
+                __LastVersionCreationStatusMessage__
+            </lastVersionCreationStatusMessage>
+        </item>
+    </ipamPrefixListResolverSet>
+</DescribeIpamPrefixListResolversResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  IpamPrefixListResolvers: [
+    {
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      IpamPrefixListResolverArn: "__IpamPrefixListResolverArn__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Description: "__Description__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      LastVersionCreationStatus: "__LastVersionCreationStatus__",
+      LastVersionCreationStatusMessage: "__LastVersionCreationStatusMessage__"
+    },
+    {
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      IpamPrefixListResolverArn: "__IpamPrefixListResolverArn__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Description: "__Description__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      LastVersionCreationStatus: "__LastVersionCreationStatus__",
+      LastVersionCreationStatusMessage: "__LastVersionCreationStatusMessage__"
+    },
+    {
+      OwnerId: "__OwnerId__",
+      IpamPrefixListResolverId: "__IpamPrefixListResolverId__",
+      IpamPrefixListResolverArn: "__IpamPrefixListResolverArn__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Description: "__Description__",
+      AddressFamily: "__AddressFamily__",
+      State: "__State__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      LastVersionCreationStatus: "__LastVersionCreationStatus__",
+      LastVersionCreationStatusMessage: "__LastVersionCreationStatusMessage__"
+    }
+  ]
+}
+

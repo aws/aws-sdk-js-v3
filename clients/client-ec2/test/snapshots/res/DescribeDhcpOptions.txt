@@ -1,0 +1,545 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDhcpOptionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDhcpOptionsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <dhcpOptionsSet>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+            <dhcpConfigurationSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+            </dhcpConfigurationSet>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+            <dhcpConfigurationSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+            </dhcpConfigurationSet>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+            <dhcpConfigurationSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <valueSet>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </valueSet>
+                </item>
+            </dhcpConfigurationSet>
+        </item>
+    </dhcpOptionsSet>
+</DescribeDhcpOptionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  DhcpOptions: [
+    {
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      DhcpOptionsId: "__DhcpOptionsId__",
+      DhcpConfigurations: [
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      DhcpOptionsId: "__DhcpOptionsId__",
+      DhcpConfigurations: [
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      DhcpOptionsId: "__DhcpOptionsId__",
+      DhcpConfigurations: [
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          Key: "__Key__",
+          Values: [
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            },
+            {
+              Value: "__Value__"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

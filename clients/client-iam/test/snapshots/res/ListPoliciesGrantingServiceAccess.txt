@@ -1,0 +1,239 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListPoliciesGrantingServiceAccessResponse xmlns="https://placeholder.amazonaws.com">
+    <PoliciesGrantingServiceAccess>
+        <member/>
+<member/>
+<member/>
+    </PoliciesGrantingServiceAccess>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+</ListPoliciesGrantingServiceAccessResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListPoliciesGrantingServiceAccessResponse xmlns="https://placeholder.amazonaws.com">
+    <PoliciesGrantingServiceAccess>
+        <member>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Policies>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+            </Policies>
+        </member>
+        <member>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Policies>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+            </Policies>
+        </member>
+        <member>
+            <ServiceNamespace>
+                __ServiceNamespace__
+            </ServiceNamespace>
+            <Policies>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+                <member>
+                    <PolicyName>
+                        __PolicyName__
+                    </PolicyName>
+                    <PolicyType>
+                        __PolicyType__
+                    </PolicyType>
+                    <PolicyArn>
+                        __PolicyArn__
+                    </PolicyArn>
+                    <EntityType>
+                        __EntityType__
+                    </EntityType>
+                    <EntityName>
+                        __EntityName__
+                    </EntityName>
+                </member>
+            </Policies>
+        </member>
+    </PoliciesGrantingServiceAccess>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+</ListPoliciesGrantingServiceAccessResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

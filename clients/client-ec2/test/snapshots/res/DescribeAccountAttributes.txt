@@ -1,0 +1,157 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAccountAttributesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAccountAttributesResult xmlns="https://placeholder.amazonaws.com">
+    <accountAttributeSet>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <attributeValueSet>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+            </attributeValueSet>
+        </item>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <attributeValueSet>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+            </attributeValueSet>
+        </item>
+        <item>
+            <attributeName>
+                __AttributeName__
+            </attributeName>
+            <attributeValueSet>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+                <item>
+                    <attributeValue>
+                        __AttributeValue__
+                    </attributeValue>
+                </item>
+            </attributeValueSet>
+        </item>
+    </accountAttributeSet>
+</DescribeAccountAttributesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AccountAttributes: [
+    {
+      AttributeName: "__AttributeName__",
+      AttributeValues: [
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        }
+      ]
+    },
+    {
+      AttributeName: "__AttributeName__",
+      AttributeValues: [
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        }
+      ]
+    },
+    {
+      AttributeName: "__AttributeName__",
+      AttributeValues: [
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        },
+        {
+          AttributeValue: "__AttributeValue__"
+        }
+      ]
+    }
+  ]
+}
+

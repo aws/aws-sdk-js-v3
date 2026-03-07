@@ -1,0 +1,269 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateCapacityReservationFleetResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateCapacityReservationFleetResult xmlns="https://placeholder.amazonaws.com">
+    <capacityReservationFleetId>
+        __CapacityReservationFleetId__
+    </capacityReservationFleetId>
+    <state>
+        __State__
+    </state>
+    <totalTargetCapacity>
+        0
+    </totalTargetCapacity>
+    <totalFulfilledCapacity>
+        0
+    </totalFulfilledCapacity>
+    <instanceMatchCriteria>
+        __InstanceMatchCriteria__
+    </instanceMatchCriteria>
+    <allocationStrategy>
+        __AllocationStrategy__
+    </allocationStrategy>
+    <createTime>
+        2000-01-01T04:59:59.999Z
+    </createTime>
+    <endDate>
+        2000-01-01T04:59:59.999Z
+    </endDate>
+    <tenancy>
+        __Tenancy__
+    </tenancy>
+    <fleetCapacityReservationSet>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <totalInstanceCount>
+                0
+            </totalInstanceCount>
+            <fulfilledCapacity>
+                0
+            </fulfilledCapacity>
+            <ebsOptimized>
+                false
+            </ebsOptimized>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <weight>
+                0
+            </weight>
+            <priority>
+                0
+            </priority>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <totalInstanceCount>
+                0
+            </totalInstanceCount>
+            <fulfilledCapacity>
+                0
+            </fulfilledCapacity>
+            <ebsOptimized>
+                false
+            </ebsOptimized>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <weight>
+                0
+            </weight>
+            <priority>
+                0
+            </priority>
+        </item>
+        <item>
+            <capacityReservationId>
+                __CapacityReservationId__
+            </capacityReservationId>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <totalInstanceCount>
+                0
+            </totalInstanceCount>
+            <fulfilledCapacity>
+                0
+            </fulfilledCapacity>
+            <ebsOptimized>
+                false
+            </ebsOptimized>
+            <createDate>
+                2000-01-01T04:59:59.999Z
+            </createDate>
+            <weight>
+                0
+            </weight>
+            <priority>
+                0
+            </priority>
+        </item>
+    </fleetCapacityReservationSet>
+    <tagSet>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+    </tagSet>
+</CreateCapacityReservationFleetResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CapacityReservationFleetId: "__CapacityReservationFleetId__",
+  State: "__State__",
+  TotalTargetCapacity: (number) 0,
+  TotalFulfilledCapacity: (number) 0,
+  InstanceMatchCriteria: "__InstanceMatchCriteria__",
+  AllocationStrategy: "__AllocationStrategy__",
+  CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  Tenancy: "__Tenancy__",
+  FleetCapacityReservations: [
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      AvailabilityZone: "__AvailabilityZone__",
+      TotalInstanceCount: (number) 0,
+      FulfilledCapacity: (number) 0,
+      EbsOptimized: (boolean) false,
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Weight: (number) 0,
+      Priority: (number) 0
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      AvailabilityZone: "__AvailabilityZone__",
+      TotalInstanceCount: (number) 0,
+      FulfilledCapacity: (number) 0,
+      EbsOptimized: (boolean) false,
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Weight: (number) 0,
+      Priority: (number) 0
+    },
+    {
+      CapacityReservationId: "__CapacityReservationId__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      AvailabilityZone: "__AvailabilityZone__",
+      TotalInstanceCount: (number) 0,
+      FulfilledCapacity: (number) 0,
+      EbsOptimized: (boolean) false,
+      CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Weight: (number) 0,
+      Priority: (number) 0
+    }
+  ],
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ]
+}
+

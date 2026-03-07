@@ -1,0 +1,250 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "OptimizationJobSummaries": [
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    },
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    },
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  OptimizationJobSummaries: [
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    },
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    },
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "OptimizationJobSummaries": [
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    },
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    },
+    {
+      "OptimizationJobName": "__OptimizationJobName__",
+      "OptimizationJobArn": "__OptimizationJobArn__",
+      "CreationTime": 946702799.999,
+      "OptimizationJobStatus": "__OptimizationJobStatus__",
+      "DeploymentInstanceType": "__DeploymentInstanceType__",
+      "OptimizationTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "OptimizationStartTime": 946702799.999,
+      "OptimizationEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "MaxInstanceCount": 0
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  OptimizationJobSummaries: [
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    },
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    },
+    {
+      OptimizationJobName: "__OptimizationJobName__",
+      OptimizationJobArn: "__OptimizationJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationJobStatus: "__OptimizationJobStatus__",
+      DeploymentInstanceType: "__DeploymentInstanceType__",
+      OptimizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      OptimizationStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OptimizationEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      MaxInstanceCount: (number) 0
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

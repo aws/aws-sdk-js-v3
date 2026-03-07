@@ -1,0 +1,181 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamResult xmlns="https://placeholder.amazonaws.com">
+    <ipam>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+        <ipamArn>
+            __IpamArn__
+        </ipamArn>
+        <ipamRegion>
+            __IpamRegion__
+        </ipamRegion>
+        <publicDefaultScopeId>
+            __PublicDefaultScopeId__
+        </publicDefaultScopeId>
+        <privateDefaultScopeId>
+            __PrivateDefaultScopeId__
+        </privateDefaultScopeId>
+        <scopeCount>
+            0
+        </scopeCount>
+        <description>
+            __Description__
+        </description>
+        <operatingRegionSet>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+            <item>
+                <regionName>
+                    __RegionName__
+                </regionName>
+            </item>
+        </operatingRegionSet>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <defaultResourceDiscoveryId>
+            __DefaultResourceDiscoveryId__
+        </defaultResourceDiscoveryId>
+        <defaultResourceDiscoveryAssociationId>
+            __DefaultResourceDiscoveryAssociationId__
+        </defaultResourceDiscoveryAssociationId>
+        <resourceDiscoveryAssociationCount>
+            0
+        </resourceDiscoveryAssociationCount>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
+        <tier>
+            __Tier__
+        </tier>
+        <enablePrivateGua>
+            false
+        </enablePrivateGua>
+        <meteredAccount>
+            __MeteredAccount__
+        </meteredAccount>
+    </ipam>
+</DeleteIpamResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Ipam: {
+    OwnerId: "__OwnerId__",
+    IpamId: "__IpamId__",
+    IpamArn: "__IpamArn__",
+    IpamRegion: "__IpamRegion__",
+    PublicDefaultScopeId: "__PublicDefaultScopeId__",
+    PrivateDefaultScopeId: "__PrivateDefaultScopeId__",
+    ScopeCount: (number) 0,
+    Description: "__Description__",
+    OperatingRegions: [
+      {
+        RegionName: "__RegionName__"
+      },
+      {
+        RegionName: "__RegionName__"
+      },
+      {
+        RegionName: "__RegionName__"
+      }
+    ],
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    DefaultResourceDiscoveryId: "__DefaultResourceDiscoveryId__",
+    DefaultResourceDiscoveryAssociationId: "__DefaultResourceDiscoveryAssociationId__",
+    ResourceDiscoveryAssociationCount: (number) 0,
+    StateMessage: "__StateMessage__",
+    Tier: "__Tier__",
+    EnablePrivateGua: (boolean) false,
+    MeteredAccount: "__MeteredAccount__"
+  }
+}
+

@@ -1,0 +1,97 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UnmonitorInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UnmonitorInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <instancesSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <monitoring>
+                <state>
+                    __State__
+                </state>
+            </monitoring>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <monitoring>
+                <state>
+                    __State__
+                </state>
+            </monitoring>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <monitoring>
+                <state>
+                    __State__
+                </state>
+            </monitoring>
+        </item>
+    </instancesSet>
+</UnmonitorInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceMonitorings: [
+    {
+      InstanceId: "__InstanceId__",
+      Monitoring: {
+        State: "__State__"
+      }
+    },
+    {
+      InstanceId: "__InstanceId__",
+      Monitoring: {
+        State: "__State__"
+      }
+    },
+    {
+      InstanceId: "__InstanceId__",
+      Monitoring: {
+        State: "__State__"
+      }
+    }
+  ]
+}
+

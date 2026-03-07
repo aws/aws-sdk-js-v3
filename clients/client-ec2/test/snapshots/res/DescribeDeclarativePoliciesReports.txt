@@ -1,0 +1,269 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDeclarativePoliciesReportsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDeclarativePoliciesReportsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <reportSet>
+        <item>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <s3Bucket>
+                __S3Bucket__
+            </s3Bucket>
+            <s3Prefix>
+                __S3Prefix__
+            </s3Prefix>
+            <targetId>
+                __TargetId__
+            </targetId>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <s3Bucket>
+                __S3Bucket__
+            </s3Bucket>
+            <s3Prefix>
+                __S3Prefix__
+            </s3Prefix>
+            <targetId>
+                __TargetId__
+            </targetId>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <s3Bucket>
+                __S3Bucket__
+            </s3Bucket>
+            <s3Prefix>
+                __S3Prefix__
+            </s3Prefix>
+            <targetId>
+                __TargetId__
+            </targetId>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </reportSet>
+</DescribeDeclarativePoliciesReportsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Reports: [
+    {
+      ReportId: "__ReportId__",
+      S3Bucket: "__S3Bucket__",
+      S3Prefix: "__S3Prefix__",
+      TargetId: "__TargetId__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      ReportId: "__ReportId__",
+      S3Bucket: "__S3Bucket__",
+      S3Prefix: "__S3Prefix__",
+      TargetId: "__TargetId__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      ReportId: "__ReportId__",
+      S3Bucket: "__S3Bucket__",
+      S3Prefix: "__S3Prefix__",
+      TargetId: "__TargetId__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ]
+}
+

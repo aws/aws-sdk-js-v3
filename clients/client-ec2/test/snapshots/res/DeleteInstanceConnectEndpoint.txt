@@ -1,0 +1,205 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteInstanceConnectEndpointResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteInstanceConnectEndpointResult xmlns="https://placeholder.amazonaws.com">
+    <instanceConnectEndpoint>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <instanceConnectEndpointId>
+            __InstanceConnectEndpointId__
+        </instanceConnectEndpointId>
+        <instanceConnectEndpointArn>
+            __InstanceConnectEndpointArn__
+        </instanceConnectEndpointArn>
+        <state>
+            __State__
+        </state>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
+        <dnsName>
+            __DnsName__
+        </dnsName>
+        <fipsDnsName>
+            __FipsDnsName__
+        </fipsDnsName>
+        <networkInterfaceIdSet>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </networkInterfaceIdSet>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <availabilityZone>
+            __AvailabilityZone__
+        </availabilityZone>
+        <createdAt>
+            2000-01-01T04:59:59.999Z
+        </createdAt>
+        <subnetId>
+            __SubnetId__
+        </subnetId>
+        <preserveClientIp>
+            false
+        </preserveClientIp>
+        <securityGroupIdSet>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </securityGroupIdSet>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <ipAddressType>
+            __IpAddressType__
+        </ipAddressType>
+        <publicDnsNames>
+            <ipv4>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <fipsDnsName>
+                    __FipsDnsName__
+                </fipsDnsName>
+            </ipv4>
+            <dualstack>
+                <dnsName>
+                    __DnsName__
+                </dnsName>
+                <fipsDnsName>
+                    __FipsDnsName__
+                </fipsDnsName>
+            </dualstack>
+        </publicDnsNames>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+    </instanceConnectEndpoint>
+</DeleteInstanceConnectEndpointResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceConnectEndpoint: {
+    OwnerId: "__OwnerId__",
+    InstanceConnectEndpointId: "__InstanceConnectEndpointId__",
+    InstanceConnectEndpointArn: "__InstanceConnectEndpointArn__",
+    State: "__State__",
+    StateMessage: "__StateMessage__",
+    DnsName: "__DnsName__",
+    FipsDnsName: "__FipsDnsName__",
+    NetworkInterfaceIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    VpcId: "__VpcId__",
+    AvailabilityZone: "__AvailabilityZone__",
+    CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    SubnetId: "__SubnetId__",
+    PreserveClientIp: (boolean) false,
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    IpAddressType: "__IpAddressType__",
+    PublicDnsNames: {
+      Ipv4: {
+        DnsName: "__DnsName__",
+        FipsDnsName: "__FipsDnsName__"
+      },
+      Dualstack: {
+        DnsName: "__DnsName__",
+        FipsDnsName: "__FipsDnsName__"
+      }
+    },
+    AvailabilityZoneId: "__AvailabilityZoneId__"
+  }
+}
+

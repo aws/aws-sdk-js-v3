@@ -1,0 +1,1397 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImagesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImagesResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <imagesSet>
+        <item>
+            <platformDetails>
+                __PlatformDetails__
+            </platformDetails>
+            <usageOperation>
+                __UsageOperation__
+            </usageOperation>
+            <blockDeviceMapping>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+            </blockDeviceMapping>
+            <description>
+                __Description__
+            </description>
+            <enaSupport>
+                false
+            </enaSupport>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <imageOwnerAlias>
+                __ImageOwnerAlias__
+            </imageOwnerAlias>
+            <name>
+                __Name__
+            </name>
+            <rootDeviceName>
+                __RootDeviceName__
+            </rootDeviceName>
+            <rootDeviceType>
+                __RootDeviceType__
+            </rootDeviceType>
+            <sriovNetSupport>
+                __SriovNetSupport__
+            </sriovNetSupport>
+            <stateReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </stateReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <virtualizationType>
+                __VirtualizationType__
+            </virtualizationType>
+            <bootMode>
+                __BootMode__
+            </bootMode>
+            <tpmSupport>
+                __TpmSupport__
+            </tpmSupport>
+            <deprecationTime>
+                __DeprecationTime__
+            </deprecationTime>
+            <imdsSupport>
+                __ImdsSupport__
+            </imdsSupport>
+            <sourceInstanceId>
+                __SourceInstanceId__
+            </sourceInstanceId>
+            <deregistrationProtection>
+                __DeregistrationProtection__
+            </deregistrationProtection>
+            <lastLaunchedTime>
+                __LastLaunchedTime__
+            </lastLaunchedTime>
+            <imageAllowed>
+                false
+            </imageAllowed>
+            <sourceImageId>
+                __SourceImageId__
+            </sourceImageId>
+            <sourceImageRegion>
+                __SourceImageRegion__
+            </sourceImageRegion>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <imageLocation>
+                __ImageLocation__
+            </imageLocation>
+            <imageState>
+                __State__
+            </imageState>
+            <imageOwnerId>
+                __OwnerId__
+            </imageOwnerId>
+            <creationDate>
+                __CreationDate__
+            </creationDate>
+            <isPublic>
+                false
+            </isPublic>
+            <productCodes>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+            </productCodes>
+            <architecture>
+                __Architecture__
+            </architecture>
+            <imageType>
+                __ImageType__
+            </imageType>
+            <kernelId>
+                __KernelId__
+            </kernelId>
+            <ramdiskId>
+                __RamdiskId__
+            </ramdiskId>
+            <platform>
+                __Platform__
+            </platform>
+        </item>
+        <item>
+            <platformDetails>
+                __PlatformDetails__
+            </platformDetails>
+            <usageOperation>
+                __UsageOperation__
+            </usageOperation>
+            <blockDeviceMapping>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+            </blockDeviceMapping>
+            <description>
+                __Description__
+            </description>
+            <enaSupport>
+                false
+            </enaSupport>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <imageOwnerAlias>
+                __ImageOwnerAlias__
+            </imageOwnerAlias>
+            <name>
+                __Name__
+            </name>
+            <rootDeviceName>
+                __RootDeviceName__
+            </rootDeviceName>
+            <rootDeviceType>
+                __RootDeviceType__
+            </rootDeviceType>
+            <sriovNetSupport>
+                __SriovNetSupport__
+            </sriovNetSupport>
+            <stateReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </stateReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <virtualizationType>
+                __VirtualizationType__
+            </virtualizationType>
+            <bootMode>
+                __BootMode__
+            </bootMode>
+            <tpmSupport>
+                __TpmSupport__
+            </tpmSupport>
+            <deprecationTime>
+                __DeprecationTime__
+            </deprecationTime>
+            <imdsSupport>
+                __ImdsSupport__
+            </imdsSupport>
+            <sourceInstanceId>
+                __SourceInstanceId__
+            </sourceInstanceId>
+            <deregistrationProtection>
+                __DeregistrationProtection__
+            </deregistrationProtection>
+            <lastLaunchedTime>
+                __LastLaunchedTime__
+            </lastLaunchedTime>
+            <imageAllowed>
+                false
+            </imageAllowed>
+            <sourceImageId>
+                __SourceImageId__
+            </sourceImageId>
+            <sourceImageRegion>
+                __SourceImageRegion__
+            </sourceImageRegion>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <imageLocation>
+                __ImageLocation__
+            </imageLocation>
+            <imageState>
+                __State__
+            </imageState>
+            <imageOwnerId>
+                __OwnerId__
+            </imageOwnerId>
+            <creationDate>
+                __CreationDate__
+            </creationDate>
+            <isPublic>
+                false
+            </isPublic>
+            <productCodes>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+            </productCodes>
+            <architecture>
+                __Architecture__
+            </architecture>
+            <imageType>
+                __ImageType__
+            </imageType>
+            <kernelId>
+                __KernelId__
+            </kernelId>
+            <ramdiskId>
+                __RamdiskId__
+            </ramdiskId>
+            <platform>
+                __Platform__
+            </platform>
+        </item>
+        <item>
+            <platformDetails>
+                __PlatformDetails__
+            </platformDetails>
+            <usageOperation>
+                __UsageOperation__
+            </usageOperation>
+            <blockDeviceMapping>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+                <item>
+                    <ebs>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <throughput>
+                            0
+                        </throughput>
+                        <outpostArn>
+                            __OutpostArn__
+                        </outpostArn>
+                        <availabilityZone>
+                            __AvailabilityZone__
+                        </availabilityZone>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <VolumeInitializationRate>
+                            0
+                        </VolumeInitializationRate>
+                        <AvailabilityZoneId>
+                            __AvailabilityZoneId__
+                        </AvailabilityZoneId>
+                        <EbsCardIndex>
+                            0
+                        </EbsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                </item>
+            </blockDeviceMapping>
+            <description>
+                __Description__
+            </description>
+            <enaSupport>
+                false
+            </enaSupport>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <imageOwnerAlias>
+                __ImageOwnerAlias__
+            </imageOwnerAlias>
+            <name>
+                __Name__
+            </name>
+            <rootDeviceName>
+                __RootDeviceName__
+            </rootDeviceName>
+            <rootDeviceType>
+                __RootDeviceType__
+            </rootDeviceType>
+            <sriovNetSupport>
+                __SriovNetSupport__
+            </sriovNetSupport>
+            <stateReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </stateReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <virtualizationType>
+                __VirtualizationType__
+            </virtualizationType>
+            <bootMode>
+                __BootMode__
+            </bootMode>
+            <tpmSupport>
+                __TpmSupport__
+            </tpmSupport>
+            <deprecationTime>
+                __DeprecationTime__
+            </deprecationTime>
+            <imdsSupport>
+                __ImdsSupport__
+            </imdsSupport>
+            <sourceInstanceId>
+                __SourceInstanceId__
+            </sourceInstanceId>
+            <deregistrationProtection>
+                __DeregistrationProtection__
+            </deregistrationProtection>
+            <lastLaunchedTime>
+                __LastLaunchedTime__
+            </lastLaunchedTime>
+            <imageAllowed>
+                false
+            </imageAllowed>
+            <sourceImageId>
+                __SourceImageId__
+            </sourceImageId>
+            <sourceImageRegion>
+                __SourceImageRegion__
+            </sourceImageRegion>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <imageLocation>
+                __ImageLocation__
+            </imageLocation>
+            <imageState>
+                __State__
+            </imageState>
+            <imageOwnerId>
+                __OwnerId__
+            </imageOwnerId>
+            <creationDate>
+                __CreationDate__
+            </creationDate>
+            <isPublic>
+                false
+            </isPublic>
+            <productCodes>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+                <item>
+                    <productCode>
+                        __ProductCodeId__
+                    </productCode>
+                    <type>
+                        __ProductCodeType__
+                    </type>
+                </item>
+            </productCodes>
+            <architecture>
+                __Architecture__
+            </architecture>
+            <imageType>
+                __ImageType__
+            </imageType>
+            <kernelId>
+                __KernelId__
+            </kernelId>
+            <ramdiskId>
+                __RamdiskId__
+            </ramdiskId>
+            <platform>
+                __Platform__
+            </platform>
+        </item>
+    </imagesSet>
+</DescribeImagesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Images: [
+    {
+      PlatformDetails: "__PlatformDetails__",
+      UsageOperation: "__UsageOperation__",
+      BlockDeviceMappings: [
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        }
+      ],
+      Description: "__Description__",
+      EnaSupport: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ImageOwnerAlias: "__ImageOwnerAlias__",
+      Name: "__Name__",
+      RootDeviceName: "__RootDeviceName__",
+      RootDeviceType: "__RootDeviceType__",
+      SriovNetSupport: "__SriovNetSupport__",
+      StateReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VirtualizationType: "__VirtualizationType__",
+      BootMode: "__BootMode__",
+      TpmSupport: "__TpmSupport__",
+      DeprecationTime: "__DeprecationTime__",
+      ImdsSupport: "__ImdsSupport__",
+      SourceInstanceId: "__SourceInstanceId__",
+      DeregistrationProtection: "__DeregistrationProtection__",
+      LastLaunchedTime: "__LastLaunchedTime__",
+      ImageAllowed: (boolean) false,
+      SourceImageId: "__SourceImageId__",
+      SourceImageRegion: "__SourceImageRegion__",
+      FreeTierEligible: (boolean) false,
+      ImageId: "__ImageId__",
+      ImageLocation: "__ImageLocation__",
+      State: "__State__",
+      OwnerId: "__OwnerId__",
+      CreationDate: "__CreationDate__",
+      Public: (boolean) false,
+      ProductCodes: [
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        }
+      ],
+      Architecture: "__Architecture__",
+      ImageType: "__ImageType__",
+      KernelId: "__KernelId__",
+      RamdiskId: "__RamdiskId__",
+      Platform: "__Platform__"
+    },
+    {
+      PlatformDetails: "__PlatformDetails__",
+      UsageOperation: "__UsageOperation__",
+      BlockDeviceMappings: [
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        }
+      ],
+      Description: "__Description__",
+      EnaSupport: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ImageOwnerAlias: "__ImageOwnerAlias__",
+      Name: "__Name__",
+      RootDeviceName: "__RootDeviceName__",
+      RootDeviceType: "__RootDeviceType__",
+      SriovNetSupport: "__SriovNetSupport__",
+      StateReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VirtualizationType: "__VirtualizationType__",
+      BootMode: "__BootMode__",
+      TpmSupport: "__TpmSupport__",
+      DeprecationTime: "__DeprecationTime__",
+      ImdsSupport: "__ImdsSupport__",
+      SourceInstanceId: "__SourceInstanceId__",
+      DeregistrationProtection: "__DeregistrationProtection__",
+      LastLaunchedTime: "__LastLaunchedTime__",
+      ImageAllowed: (boolean) false,
+      SourceImageId: "__SourceImageId__",
+      SourceImageRegion: "__SourceImageRegion__",
+      FreeTierEligible: (boolean) false,
+      ImageId: "__ImageId__",
+      ImageLocation: "__ImageLocation__",
+      State: "__State__",
+      OwnerId: "__OwnerId__",
+      CreationDate: "__CreationDate__",
+      Public: (boolean) false,
+      ProductCodes: [
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        }
+      ],
+      Architecture: "__Architecture__",
+      ImageType: "__ImageType__",
+      KernelId: "__KernelId__",
+      RamdiskId: "__RamdiskId__",
+      Platform: "__Platform__"
+    },
+    {
+      PlatformDetails: "__PlatformDetails__",
+      UsageOperation: "__UsageOperation__",
+      BlockDeviceMappings: [
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        },
+        {
+          Ebs: {
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            KmsKeyId: "__KmsKeyId__",
+            Throughput: (number) 0,
+            OutpostArn: "__OutpostArn__",
+            AvailabilityZone: "__AvailabilityZone__",
+            Encrypted: (boolean) false,
+            VolumeInitializationRate: (number) 0,
+            AvailabilityZoneId: "__AvailabilityZoneId__",
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__",
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__"
+        }
+      ],
+      Description: "__Description__",
+      EnaSupport: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ImageOwnerAlias: "__ImageOwnerAlias__",
+      Name: "__Name__",
+      RootDeviceName: "__RootDeviceName__",
+      RootDeviceType: "__RootDeviceType__",
+      SriovNetSupport: "__SriovNetSupport__",
+      StateReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VirtualizationType: "__VirtualizationType__",
+      BootMode: "__BootMode__",
+      TpmSupport: "__TpmSupport__",
+      DeprecationTime: "__DeprecationTime__",
+      ImdsSupport: "__ImdsSupport__",
+      SourceInstanceId: "__SourceInstanceId__",
+      DeregistrationProtection: "__DeregistrationProtection__",
+      LastLaunchedTime: "__LastLaunchedTime__",
+      ImageAllowed: (boolean) false,
+      SourceImageId: "__SourceImageId__",
+      SourceImageRegion: "__SourceImageRegion__",
+      FreeTierEligible: (boolean) false,
+      ImageId: "__ImageId__",
+      ImageLocation: "__ImageLocation__",
+      State: "__State__",
+      OwnerId: "__OwnerId__",
+      CreationDate: "__CreationDate__",
+      Public: (boolean) false,
+      ProductCodes: [
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        },
+        {
+          ProductCodeId: "__ProductCodeId__",
+          ProductCodeType: "__ProductCodeType__"
+        }
+      ],
+      Architecture: "__Architecture__",
+      ImageType: "__ImageType__",
+      KernelId: "__KernelId__",
+      RamdiskId: "__RamdiskId__",
+      Platform: "__Platform__"
+    }
+  ]
+}
+

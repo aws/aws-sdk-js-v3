@@ -1,0 +1,121 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTrafficMirrorTargetResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTrafficMirrorTargetResult xmlns="https://placeholder.amazonaws.com">
+    <trafficMirrorTarget>
+        <trafficMirrorTargetId>
+            __TrafficMirrorTargetId__
+        </trafficMirrorTargetId>
+        <networkInterfaceId>
+            __NetworkInterfaceId__
+        </networkInterfaceId>
+        <networkLoadBalancerArn>
+            __NetworkLoadBalancerArn__
+        </networkLoadBalancerArn>
+        <type>
+            __Type__
+        </type>
+        <description>
+            __Description__
+        </description>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <gatewayLoadBalancerEndpointId>
+            __GatewayLoadBalancerEndpointId__
+        </gatewayLoadBalancerEndpointId>
+    </trafficMirrorTarget>
+    <clientToken>
+        __ClientToken__
+    </clientToken>
+</CreateTrafficMirrorTargetResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TrafficMirrorTarget: {
+    TrafficMirrorTargetId: "__TrafficMirrorTargetId__",
+    NetworkInterfaceId: "__NetworkInterfaceId__",
+    NetworkLoadBalancerArn: "__NetworkLoadBalancerArn__",
+    Type: "__Type__",
+    Description: "__Description__",
+    OwnerId: "__OwnerId__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    GatewayLoadBalancerEndpointId: "__GatewayLoadBalancerEndpointId__"
+  },
+  ClientToken: "__ClientToken__"
+}
+

@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnTargetNetworksResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnTargetNetworksResult xmlns="https://placeholder.amazonaws.com">
+    <clientVpnTargetNetworks>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <targetNetworkId>
+                __TargetNetworkId__
+            </targetNetworkId>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <securityGroups>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroups>
+        </item>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <targetNetworkId>
+                __TargetNetworkId__
+            </targetNetworkId>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <securityGroups>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroups>
+        </item>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <targetNetworkId>
+                __TargetNetworkId__
+            </targetNetworkId>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <securityGroups>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroups>
+        </item>
+    </clientVpnTargetNetworks>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClientVpnTargetNetworksResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ClientVpnTargetNetworks: [
+    {
+      AssociationId: "__AssociationId__",
+      VpcId: "__VpcId__",
+      TargetNetworkId: "__TargetNetworkId__",
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      AssociationId: "__AssociationId__",
+      VpcId: "__VpcId__",
+      TargetNetworkId: "__TargetNetworkId__",
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      AssociationId: "__AssociationId__",
+      VpcId: "__VpcId__",
+      TargetNetworkId: "__TargetNetworkId__",
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

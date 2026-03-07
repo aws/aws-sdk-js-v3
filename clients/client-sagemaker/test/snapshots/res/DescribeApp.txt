@@ -1,0 +1,87 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "AppArn": "__AppArn__",
+  "AppType": "__AppType__",
+  "AppName": "__AppName__",
+  "DomainId": "__DomainId__",
+  "UserProfileName": "__UserProfileName__",
+  "SpaceName": "__SpaceName__",
+  "Status": "__Status__",
+  "EffectiveTrustedIdentityPropagationStatus": "__EffectiveTrustedIdentityPropagationStatus__",
+  "RecoveryMode": false,
+  "LastHealthCheckTimestamp": 946702799.999,
+  "LastUserActivityTimestamp": 946702799.999,
+  "CreationTime": 946702799.999,
+  "FailureReason": "__FailureReason__",
+  "ResourceSpec": {
+    "SageMakerImageArn": "__SageMakerImageArn__",
+    "SageMakerImageVersionArn": "__SageMakerImageVersionArn__",
+    "SageMakerImageVersionAlias": "__SageMakerImageVersionAlias__",
+    "InstanceType": "__InstanceType__",
+    "LifecycleConfigArn": "__LifecycleConfigArn__"
+  },
+  "BuiltInLifecycleConfigArn": "__BuiltInLifecycleConfigArn__"
+}
+
+
+--- [output object] ---
+{
+  AppArn: "__AppArn__",
+  AppType: "__AppType__",
+  AppName: "__AppName__",
+  DomainId: "__DomainId__",
+  UserProfileName: "__UserProfileName__",
+  SpaceName: "__SpaceName__",
+  Status: "__Status__",
+  EffectiveTrustedIdentityPropagationStatus: "__EffectiveTrustedIdentityPropagationStatus__",
+  RecoveryMode: (boolean) false,
+  LastHealthCheckTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastUserActivityTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureReason: "__FailureReason__",
+  ResourceSpec: {
+    SageMakerImageArn: "__SageMakerImageArn__",
+    SageMakerImageVersionArn: "__SageMakerImageVersionArn__",
+    SageMakerImageVersionAlias: "__SageMakerImageVersionAlias__",
+    InstanceType: "__InstanceType__",
+    LifecycleConfigArn: "__LifecycleConfigArn__"
+  },
+  BuiltInLifecycleConfigArn: "__BuiltInLifecycleConfigArn__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,193 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteSecondarySubnetResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteSecondarySubnetResult xmlns="https://placeholder.amazonaws.com">
+    <secondarySubnet>
+        <secondarySubnetId>
+            __SecondarySubnetId__
+        </secondarySubnetId>
+        <secondarySubnetArn>
+            __SecondarySubnetArn__
+        </secondarySubnetArn>
+        <secondaryNetworkId>
+            __SecondaryNetworkId__
+        </secondaryNetworkId>
+        <secondaryNetworkType>
+            __SecondaryNetworkType__
+        </secondaryNetworkType>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+        <availabilityZone>
+            __AvailabilityZone__
+        </availabilityZone>
+        <ipv4CidrBlockAssociationSet>
+            <item>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <state>
+                    __State__
+                </state>
+                <stateReason>
+                    __StateReason__
+                </stateReason>
+            </item>
+            <item>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <state>
+                    __State__
+                </state>
+                <stateReason>
+                    __StateReason__
+                </stateReason>
+            </item>
+            <item>
+                <associationId>
+                    __AssociationId__
+                </associationId>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <state>
+                    __State__
+                </state>
+                <stateReason>
+                    __StateReason__
+                </stateReason>
+            </item>
+        </ipv4CidrBlockAssociationSet>
+        <state>
+            __State__
+        </state>
+        <stateReason>
+            __StateReason__
+        </stateReason>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </secondarySubnet>
+    <clientToken>
+        __ClientToken__
+    </clientToken>
+</DeleteSecondarySubnetResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SecondarySubnet: {
+    SecondarySubnetId: "__SecondarySubnetId__",
+    SecondarySubnetArn: "__SecondarySubnetArn__",
+    SecondaryNetworkId: "__SecondaryNetworkId__",
+    SecondaryNetworkType: "__SecondaryNetworkType__",
+    OwnerId: "__OwnerId__",
+    AvailabilityZoneId: "__AvailabilityZoneId__",
+    AvailabilityZone: "__AvailabilityZone__",
+    Ipv4CidrBlockAssociations: [
+      {
+        AssociationId: "__AssociationId__",
+        CidrBlock: "__CidrBlock__",
+        State: "__State__",
+        StateReason: "__StateReason__"
+      },
+      {
+        AssociationId: "__AssociationId__",
+        CidrBlock: "__CidrBlock__",
+        State: "__State__",
+        StateReason: "__StateReason__"
+      },
+      {
+        AssociationId: "__AssociationId__",
+        CidrBlock: "__CidrBlock__",
+        State: "__State__",
+        StateReason: "__StateReason__"
+      }
+    ],
+    State: "__State__",
+    StateReason: "__StateReason__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  },
+  ClientToken: "__ClientToken__"
+}
+

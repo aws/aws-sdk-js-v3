@@ -1,0 +1,293 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrafficMirrorSessionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrafficMirrorSessionsResult xmlns="https://placeholder.amazonaws.com">
+    <trafficMirrorSessionSet>
+        <item>
+            <trafficMirrorSessionId>
+                __TrafficMirrorSessionId__
+            </trafficMirrorSessionId>
+            <trafficMirrorTargetId>
+                __TrafficMirrorTargetId__
+            </trafficMirrorTargetId>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <packetLength>
+                0
+            </packetLength>
+            <sessionNumber>
+                0
+            </sessionNumber>
+            <virtualNetworkId>
+                0
+            </virtualNetworkId>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <trafficMirrorSessionId>
+                __TrafficMirrorSessionId__
+            </trafficMirrorSessionId>
+            <trafficMirrorTargetId>
+                __TrafficMirrorTargetId__
+            </trafficMirrorTargetId>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <packetLength>
+                0
+            </packetLength>
+            <sessionNumber>
+                0
+            </sessionNumber>
+            <virtualNetworkId>
+                0
+            </virtualNetworkId>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <trafficMirrorSessionId>
+                __TrafficMirrorSessionId__
+            </trafficMirrorSessionId>
+            <trafficMirrorTargetId>
+                __TrafficMirrorTargetId__
+            </trafficMirrorTargetId>
+            <trafficMirrorFilterId>
+                __TrafficMirrorFilterId__
+            </trafficMirrorFilterId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <packetLength>
+                0
+            </packetLength>
+            <sessionNumber>
+                0
+            </sessionNumber>
+            <virtualNetworkId>
+                0
+            </virtualNetworkId>
+            <description>
+                __Description__
+            </description>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </trafficMirrorSessionSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeTrafficMirrorSessionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TrafficMirrorSessions: [
+    {
+      TrafficMirrorSessionId: "__TrafficMirrorSessionId__",
+      TrafficMirrorTargetId: "__TrafficMirrorTargetId__",
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      OwnerId: "__OwnerId__",
+      PacketLength: (number) 0,
+      SessionNumber: (number) 0,
+      VirtualNetworkId: (number) 0,
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      TrafficMirrorSessionId: "__TrafficMirrorSessionId__",
+      TrafficMirrorTargetId: "__TrafficMirrorTargetId__",
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      OwnerId: "__OwnerId__",
+      PacketLength: (number) 0,
+      SessionNumber: (number) 0,
+      VirtualNetworkId: (number) 0,
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      TrafficMirrorSessionId: "__TrafficMirrorSessionId__",
+      TrafficMirrorTargetId: "__TrafficMirrorTargetId__",
+      TrafficMirrorFilterId: "__TrafficMirrorFilterId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      OwnerId: "__OwnerId__",
+      PacketLength: (number) 0,
+      SessionNumber: (number) 0,
+      VirtualNetworkId: (number) 0,
+      Description: "__Description__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

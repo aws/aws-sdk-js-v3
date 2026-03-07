@@ -1,0 +1,293 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AcceptVpcPeeringConnectionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AcceptVpcPeeringConnectionResult xmlns="https://placeholder.amazonaws.com">
+    <vpcPeeringConnection>
+        <accepterVpcInfo>
+            <cidrBlock>
+                __CidrBlock__
+            </cidrBlock>
+            <ipv6CidrBlockSet>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+            </ipv6CidrBlockSet>
+            <cidrBlockSet>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+            </cidrBlockSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <peeringOptions>
+                <allowDnsResolutionFromRemoteVpc>
+                    false
+                </allowDnsResolutionFromRemoteVpc>
+                <allowEgressFromLocalClassicLinkToRemoteVpc>
+                    false
+                </allowEgressFromLocalClassicLinkToRemoteVpc>
+                <allowEgressFromLocalVpcToRemoteClassicLink>
+                    false
+                </allowEgressFromLocalVpcToRemoteClassicLink>
+            </peeringOptions>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <region>
+                __Region__
+            </region>
+        </accepterVpcInfo>
+        <expirationTime>
+            2000-01-01T04:59:59.999Z
+        </expirationTime>
+        <requesterVpcInfo>
+            <cidrBlock>
+                __CidrBlock__
+            </cidrBlock>
+            <ipv6CidrBlockSet>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+                <item>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                </item>
+            </ipv6CidrBlockSet>
+            <cidrBlockSet>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+                <item>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                </item>
+            </cidrBlockSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <peeringOptions>
+                <allowDnsResolutionFromRemoteVpc>
+                    false
+                </allowDnsResolutionFromRemoteVpc>
+                <allowEgressFromLocalClassicLinkToRemoteVpc>
+                    false
+                </allowEgressFromLocalClassicLinkToRemoteVpc>
+                <allowEgressFromLocalVpcToRemoteClassicLink>
+                    false
+                </allowEgressFromLocalVpcToRemoteClassicLink>
+            </peeringOptions>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <region>
+                __Region__
+            </region>
+        </requesterVpcInfo>
+        <status>
+            <code>
+                __Code__
+            </code>
+            <message>
+                __Message__
+            </message>
+        </status>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <vpcPeeringConnectionId>
+            __VpcPeeringConnectionId__
+        </vpcPeeringConnectionId>
+    </vpcPeeringConnection>
+</AcceptVpcPeeringConnectionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcPeeringConnection: {
+    AccepterVpcInfo: {
+      CidrBlock: "__CidrBlock__",
+      Ipv6CidrBlockSet: [
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        },
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        },
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        }
+      ],
+      CidrBlockSet: [
+        {
+          CidrBlock: "__CidrBlock__"
+        },
+        {
+          CidrBlock: "__CidrBlock__"
+        },
+        {
+          CidrBlock: "__CidrBlock__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      PeeringOptions: {
+        AllowDnsResolutionFromRemoteVpc: (boolean) false,
+        AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
+        AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+      },
+      VpcId: "__VpcId__",
+      Region: "__Region__"
+    },
+    ExpirationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    RequesterVpcInfo: {
+      CidrBlock: "__CidrBlock__",
+      Ipv6CidrBlockSet: [
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        },
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        },
+        {
+          Ipv6CidrBlock: "__Ipv6CidrBlock__"
+        }
+      ],
+      CidrBlockSet: [
+        {
+          CidrBlock: "__CidrBlock__"
+        },
+        {
+          CidrBlock: "__CidrBlock__"
+        },
+        {
+          CidrBlock: "__CidrBlock__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      PeeringOptions: {
+        AllowDnsResolutionFromRemoteVpc: (boolean) false,
+        AllowEgressFromLocalClassicLinkToRemoteVpc: (boolean) false,
+        AllowEgressFromLocalVpcToRemoteClassicLink: (boolean) false
+      },
+      VpcId: "__VpcId__",
+      Region: "__Region__"
+    },
+    Status: {
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    VpcPeeringConnectionId: "__VpcPeeringConnectionId__"
+  }
+}
+

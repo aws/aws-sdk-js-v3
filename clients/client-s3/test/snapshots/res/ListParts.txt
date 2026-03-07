@@ -1,0 +1,237 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListPartsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-abort-date: Sat, 01 Jan 2000 04:59:59 GMT
+x-amz-abort-rule-id: __AbortRuleId__
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<ListPartsResult xmlns="https://placeholder.amazonaws.com">
+    <Bucket>
+        __Bucket__
+    </Bucket>
+    <Key>
+        __Key__
+    </Key>
+    <UploadId>
+        __UploadId__
+    </UploadId>
+    <PartNumberMarker>
+        __PartNumberMarker__
+    </PartNumberMarker>
+    <NextPartNumberMarker>
+        __NextPartNumberMarker__
+    </NextPartNumberMarker>
+    <MaxParts>
+        0
+    </MaxParts>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Part>
+        <PartNumber>
+            0
+        </PartNumber>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <Size>
+            0
+        </Size>
+        <ChecksumCRC32>
+            __ChecksumCRC32__
+        </ChecksumCRC32>
+        <ChecksumCRC32C>
+            __ChecksumCRC32C__
+        </ChecksumCRC32C>
+        <ChecksumCRC64NVME>
+            __ChecksumCRC64NVME__
+        </ChecksumCRC64NVME>
+        <ChecksumSHA1>
+            __ChecksumSHA1__
+        </ChecksumSHA1>
+        <ChecksumSHA256>
+            __ChecksumSHA256__
+        </ChecksumSHA256>
+    </Part>
+    <Part>
+        <PartNumber>
+            0
+        </PartNumber>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <Size>
+            0
+        </Size>
+        <ChecksumCRC32>
+            __ChecksumCRC32__
+        </ChecksumCRC32>
+        <ChecksumCRC32C>
+            __ChecksumCRC32C__
+        </ChecksumCRC32C>
+        <ChecksumCRC64NVME>
+            __ChecksumCRC64NVME__
+        </ChecksumCRC64NVME>
+        <ChecksumSHA1>
+            __ChecksumSHA1__
+        </ChecksumSHA1>
+        <ChecksumSHA256>
+            __ChecksumSHA256__
+        </ChecksumSHA256>
+    </Part>
+    <Part>
+        <PartNumber>
+            0
+        </PartNumber>
+        <LastModified>
+            2000-01-01T04:59:59.999Z
+        </LastModified>
+        <ETag>
+            __ETag__
+        </ETag>
+        <Size>
+            0
+        </Size>
+        <ChecksumCRC32>
+            __ChecksumCRC32__
+        </ChecksumCRC32>
+        <ChecksumCRC32C>
+            __ChecksumCRC32C__
+        </ChecksumCRC32C>
+        <ChecksumCRC64NVME>
+            __ChecksumCRC64NVME__
+        </ChecksumCRC64NVME>
+        <ChecksumSHA1>
+            __ChecksumSHA1__
+        </ChecksumSHA1>
+        <ChecksumSHA256>
+            __ChecksumSHA256__
+        </ChecksumSHA256>
+    </Part>
+    <Initiator>
+        <ID>
+            __ID__
+        </ID>
+        <DisplayName>
+            __DisplayName__
+        </DisplayName>
+    </Initiator>
+    <Owner>
+        <DisplayName>
+            __DisplayName__
+        </DisplayName>
+        <ID>
+            __ID__
+        </ID>
+    </Owner>
+    <StorageClass>
+        __StorageClass__
+    </StorageClass>
+    <ChecksumAlgorithm>
+        CRC64NVME
+    </ChecksumAlgorithm>
+    <ChecksumType>
+        __ChecksumType__
+    </ChecksumType>
+</ListPartsResult>
+
+
+--- [output object] ---
+{
+  AbortDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  AbortRuleId: "__AbortRuleId__",
+  RequestCharged: "__RequestCharged__",
+  Bucket: "__Bucket__",
+  Key: "__Key__",
+  UploadId: "__UploadId__",
+  PartNumberMarker: "__PartNumberMarker__",
+  NextPartNumberMarker: "__NextPartNumberMarker__",
+  MaxParts: (number) 0,
+  IsTruncated: (boolean) false,
+  Parts: [
+    {
+      PartNumber: (number) 0,
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      Size: (number) 0,
+      ChecksumCRC32: "__ChecksumCRC32__",
+      ChecksumCRC32C: "__ChecksumCRC32C__",
+      ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+      ChecksumSHA1: "__ChecksumSHA1__",
+      ChecksumSHA256: "__ChecksumSHA256__"
+    },
+    {
+      PartNumber: (number) 0,
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      Size: (number) 0,
+      ChecksumCRC32: "__ChecksumCRC32__",
+      ChecksumCRC32C: "__ChecksumCRC32C__",
+      ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+      ChecksumSHA1: "__ChecksumSHA1__",
+      ChecksumSHA256: "__ChecksumSHA256__"
+    },
+    {
+      PartNumber: (number) 0,
+      LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ETag: "__ETag__",
+      Size: (number) 0,
+      ChecksumCRC32: "__ChecksumCRC32__",
+      ChecksumCRC32C: "__ChecksumCRC32C__",
+      ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+      ChecksumSHA1: "__ChecksumSHA1__",
+      ChecksumSHA256: "__ChecksumSHA256__"
+    }
+  ],
+  Initiator: {
+    ID: "__ID__",
+    DisplayName: "__DisplayName__"
+  },
+  Owner: {
+    DisplayName: "__DisplayName__",
+    ID: "__ID__"
+  },
+  StorageClass: "__StorageClass__",
+  ChecksumAlgorithm: "CRC64NVME",
+  ChecksumType: "__ChecksumType__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

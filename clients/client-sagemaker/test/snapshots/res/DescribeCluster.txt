@@ -1,0 +1,1736 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ClusterArn": "__ClusterArn__",
+  "ClusterStatus": "__ClusterStatus__",
+  "InstanceGroups": [
+    {},
+    {},
+    {}
+  ],
+  "ClusterName": "__ClusterName__",
+  "CreationTime": 946702799.999,
+  "FailureMessage": "__FailureMessage__",
+  "RestrictedInstanceGroups": [
+    {},
+    {},
+    {}
+  ],
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "Orchestrator": {},
+  "TieredStorageConfig": {
+    "Mode": "__Mode__",
+    "InstanceMemoryAllocationPercentage": 0
+  },
+  "NodeRecovery": "__NodeRecovery__",
+  "NodeProvisioningMode": "__NodeProvisioningMode__",
+  "ClusterRole": "__ClusterRole__",
+  "AutoScaling": {
+    "Mode": "__Mode__",
+    "Status": "__Status__",
+    "AutoScalerType": "__AutoScalerType__",
+    "FailureMessage": "__FailureMessage__"
+  }
+}
+
+
+--- [output object] ---
+{
+  ClusterArn: "__ClusterArn__",
+  ClusterStatus: "__ClusterStatus__",
+  InstanceGroups: [
+    {},
+    {},
+    {}
+  ],
+  ClusterName: "__ClusterName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureMessage: "__FailureMessage__",
+  RestrictedInstanceGroups: [
+    {},
+    {},
+    {}
+  ],
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  Orchestrator: {},
+  TieredStorageConfig: {
+    Mode: "__Mode__",
+    InstanceMemoryAllocationPercentage: (number) 0
+  },
+  NodeRecovery: "__NodeRecovery__",
+  NodeProvisioningMode: "__NodeProvisioningMode__",
+  ClusterRole: "__ClusterRole__",
+  AutoScaling: {
+    Mode: "__Mode__",
+    Status: "__Status__",
+    AutoScalerType: "__AutoScalerType__",
+    FailureMessage: "__FailureMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ClusterArn": "__ClusterArn__",
+  "ClusterStatus": "__ClusterStatus__",
+  "InstanceGroups": [
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "MinCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "LifeCycleConfig": {
+        "SourceS3Uri": "__SourceS3Uri__",
+        "OnCreate": "__OnCreate__"
+      },
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        },
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "CurrentImageId": "__CurrentImageId__",
+      "DesiredImageId": "__DesiredImageId__",
+      "ActiveOperations": {
+        "key1": 0,
+        "key2": 0
+      },
+      "KubernetesConfig": {
+        "CurrentLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "DesiredLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "CurrentTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ],
+        "DesiredTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "CapacityRequirements": {
+        "Spot": {},
+        "OnDemand": {}
+      },
+      "TargetStateCount": 0,
+      "SoftwareUpdateStatus": "__SoftwareUpdateStatus__",
+      "ActiveSoftwareUpdateConfig": {
+        "RollingUpdatePolicy": {
+          "MaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          },
+          "RollbackMaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          }
+        },
+        "WaitIntervalInSeconds": 0,
+        "AutoRollbackConfiguration": [
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          }
+        ]
+      },
+      "SlurmConfig": {
+        "NodeType": "__NodeType__",
+        "PartitionNames": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "MinCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "LifeCycleConfig": {
+        "SourceS3Uri": "__SourceS3Uri__",
+        "OnCreate": "__OnCreate__"
+      },
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        },
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "CurrentImageId": "__CurrentImageId__",
+      "DesiredImageId": "__DesiredImageId__",
+      "ActiveOperations": {
+        "key1": 0,
+        "key2": 0
+      },
+      "KubernetesConfig": {
+        "CurrentLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "DesiredLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "CurrentTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ],
+        "DesiredTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "CapacityRequirements": {
+        "Spot": {},
+        "OnDemand": {}
+      },
+      "TargetStateCount": 0,
+      "SoftwareUpdateStatus": "__SoftwareUpdateStatus__",
+      "ActiveSoftwareUpdateConfig": {
+        "RollingUpdatePolicy": {
+          "MaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          },
+          "RollbackMaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          }
+        },
+        "WaitIntervalInSeconds": 0,
+        "AutoRollbackConfiguration": [
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          }
+        ]
+      },
+      "SlurmConfig": {
+        "NodeType": "__NodeType__",
+        "PartitionNames": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "MinCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "LifeCycleConfig": {
+        "SourceS3Uri": "__SourceS3Uri__",
+        "OnCreate": "__OnCreate__"
+      },
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "CurrentImageId": "__CurrentImageId__",
+      "DesiredImageId": "__DesiredImageId__",
+      "ActiveOperations": {
+        "key1": 0,
+        "key2": 0
+      },
+      "KubernetesConfig": {
+        "CurrentLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "DesiredLabels": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "CurrentTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ],
+        "DesiredTaints": [
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          },
+          {
+            "Key": "__Key__",
+            "Effect": "__Effect__",
+            "Value": "__Value__"
+          }
+        ]
+      },
+      "CapacityRequirements": {
+        "Spot": {},
+        "OnDemand": {}
+      },
+      "TargetStateCount": 0,
+      "SoftwareUpdateStatus": "__SoftwareUpdateStatus__",
+      "ActiveSoftwareUpdateConfig": {
+        "RollingUpdatePolicy": {
+          "MaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          },
+          "RollbackMaximumBatchSize": {
+            "Type": "__Type__",
+            "Value": 0
+          }
+        },
+        "WaitIntervalInSeconds": 0,
+        "AutoRollbackConfiguration": [
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          },
+          {
+            "AlarmName": "__AlarmName__"
+          }
+        ]
+      },
+      "SlurmConfig": {
+        "NodeType": "__NodeType__",
+        "PartitionNames": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ],
+  "ClusterName": "__ClusterName__",
+  "CreationTime": 946702799.999,
+  "FailureMessage": "__FailureMessage__",
+  "RestrictedInstanceGroups": [
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        },
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
+        },
+        "S3OutputPath": "__S3OutputPath__"
+      }
+    },
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        },
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
+        },
+        "S3OutputPath": "__S3OutputPath__"
+      }
+    },
+    {
+      "CurrentCount": 0,
+      "TargetCount": 0,
+      "InstanceGroupName": "__InstanceGroupName__",
+      "InstanceType": "__InstanceType__",
+      "ExecutionRole": "__ExecutionRole__",
+      "ThreadsPerCore": 0,
+      "InstanceStorageConfigs": [
+        {
+          "FsxLustreConfig": {
+            "DnsName": "__DnsName__",
+            "MountName": "__MountName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "FsxOpenZfsConfig": {
+            "DnsName": "__DnsName__",
+            "MountPath": "__MountPath__"
+          }
+        },
+        {
+          "EbsVolumeConfig": {
+            "VolumeSizeInGB": 0,
+            "VolumeKmsKeyId": "__VolumeKmsKeyId__",
+            "RootVolume": false
+          }
+        }
+      ],
+      "OnStartDeepHealthChecks": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Status": "__Status__",
+      "TrainingPlanArn": "__TrainingPlanArn__",
+      "TrainingPlanStatus": "__TrainingPlanStatus__",
+      "OverrideVpcConfig": {
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "Subnets": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "ScheduledUpdateConfig": {
+        "ScheduleExpression": "__ScheduleExpression__",
+        "DeploymentConfig": {
+          "RollingUpdatePolicy": {
+            "MaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            },
+            "RollbackMaximumBatchSize": {
+              "Type": "__Type__",
+              "Value": 0
+            }
+          },
+          "WaitIntervalInSeconds": 0,
+          "AutoRollbackConfiguration": [
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            },
+            {
+              "AlarmName": "__AlarmName__"
+            }
+          ]
+        }
+      },
+      "EnvironmentConfig": {
+        "FSxLustreConfig": {
+          "SizeInGiB": 0,
+          "PerUnitStorageThroughput": 0
+        },
+        "S3OutputPath": "__S3OutputPath__"
+      }
+    }
+  ],
+  "VpcConfig": {
+    "SecurityGroupIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "Subnets": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  "Orchestrator": {
+    "Eks": {
+      "ClusterArn": "__ClusterArn__"
+    },
+    "Slurm": {
+      "SlurmConfigStrategy": "__SlurmConfigStrategy__"
+    }
+  },
+  "TieredStorageConfig": {
+    "Mode": "__Mode__",
+    "InstanceMemoryAllocationPercentage": 0
+  },
+  "NodeRecovery": "__NodeRecovery__",
+  "NodeProvisioningMode": "__NodeProvisioningMode__",
+  "ClusterRole": "__ClusterRole__",
+  "AutoScaling": {
+    "Mode": "__Mode__",
+    "Status": "__Status__",
+    "AutoScalerType": "__AutoScalerType__",
+    "FailureMessage": "__FailureMessage__"
+  }
+}
+
+
+--- [output object] ---
+{
+  ClusterArn: "__ClusterArn__",
+  ClusterStatus: "__ClusterStatus__",
+  InstanceGroups: [
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      MinCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      LifeCycleConfig: {
+        SourceS3Uri: "__SourceS3Uri__",
+        OnCreate: "__OnCreate__"
+      },
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        },
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      CurrentImageId: "__CurrentImageId__",
+      DesiredImageId: "__DesiredImageId__",
+      ActiveOperations: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      KubernetesConfig: {
+        CurrentLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        DesiredLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        CurrentTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ],
+        DesiredTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      CapacityRequirements: {
+        Spot: {},
+        OnDemand: {}
+      },
+      TargetStateCount: (number) 0,
+      SoftwareUpdateStatus: "__SoftwareUpdateStatus__",
+      ActiveSoftwareUpdateConfig: {
+        RollingUpdatePolicy: {
+          MaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          },
+          RollbackMaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          }
+        },
+        WaitIntervalInSeconds: (number) 0,
+        AutoRollbackConfiguration: [
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          }
+        ]
+      },
+      SlurmConfig: {
+        NodeType: "__NodeType__",
+        PartitionNames: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      MinCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      LifeCycleConfig: {
+        SourceS3Uri: "__SourceS3Uri__",
+        OnCreate: "__OnCreate__"
+      },
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        },
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      CurrentImageId: "__CurrentImageId__",
+      DesiredImageId: "__DesiredImageId__",
+      ActiveOperations: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      KubernetesConfig: {
+        CurrentLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        DesiredLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        CurrentTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ],
+        DesiredTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      CapacityRequirements: {
+        Spot: {},
+        OnDemand: {}
+      },
+      TargetStateCount: (number) 0,
+      SoftwareUpdateStatus: "__SoftwareUpdateStatus__",
+      ActiveSoftwareUpdateConfig: {
+        RollingUpdatePolicy: {
+          MaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          },
+          RollbackMaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          }
+        },
+        WaitIntervalInSeconds: (number) 0,
+        AutoRollbackConfiguration: [
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          }
+        ]
+      },
+      SlurmConfig: {
+        NodeType: "__NodeType__",
+        PartitionNames: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      MinCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      LifeCycleConfig: {
+        SourceS3Uri: "__SourceS3Uri__",
+        OnCreate: "__OnCreate__"
+      },
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      CurrentImageId: "__CurrentImageId__",
+      DesiredImageId: "__DesiredImageId__",
+      ActiveOperations: {
+        key1: (number) 0,
+        key2: (number) 0
+      },
+      KubernetesConfig: {
+        CurrentLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        DesiredLabels: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        CurrentTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ],
+        DesiredTaints: [
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Effect: "__Effect__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      CapacityRequirements: {
+        Spot: {},
+        OnDemand: {}
+      },
+      TargetStateCount: (number) 0,
+      SoftwareUpdateStatus: "__SoftwareUpdateStatus__",
+      ActiveSoftwareUpdateConfig: {
+        RollingUpdatePolicy: {
+          MaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          },
+          RollbackMaximumBatchSize: {
+            Type: "__Type__",
+            Value: (number) 0
+          }
+        },
+        WaitIntervalInSeconds: (number) 0,
+        AutoRollbackConfiguration: [
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          },
+          {
+            AlarmName: "__AlarmName__"
+          }
+        ]
+      },
+      SlurmConfig: {
+        NodeType: "__NodeType__",
+        PartitionNames: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ],
+  ClusterName: "__ClusterName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  FailureMessage: "__FailureMessage__",
+  RestrictedInstanceGroups: [
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        },
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      EnvironmentConfig: {
+        FSxLustreConfig: {
+          SizeInGiB: (number) 0,
+          PerUnitStorageThroughput: (number) 0
+        },
+        S3OutputPath: "__S3OutputPath__"
+      }
+    },
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        },
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      EnvironmentConfig: {
+        FSxLustreConfig: {
+          SizeInGiB: (number) 0,
+          PerUnitStorageThroughput: (number) 0
+        },
+        S3OutputPath: "__S3OutputPath__"
+      }
+    },
+    {
+      CurrentCount: (number) 0,
+      TargetCount: (number) 0,
+      InstanceGroupName: "__InstanceGroupName__",
+      InstanceType: "__InstanceType__",
+      ExecutionRole: "__ExecutionRole__",
+      ThreadsPerCore: (number) 0,
+      InstanceStorageConfigs: [
+        {
+          FsxLustreConfig: {
+            DnsName: "__DnsName__",
+            MountName: "__MountName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          FsxOpenZfsConfig: {
+            DnsName: "__DnsName__",
+            MountPath: "__MountPath__"
+          }
+        },
+        {
+          EbsVolumeConfig: {
+            VolumeSizeInGB: (number) 0,
+            VolumeKmsKeyId: "__VolumeKmsKeyId__",
+            RootVolume: (boolean) false
+          }
+        }
+      ],
+      OnStartDeepHealthChecks: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Status: "__Status__",
+      TrainingPlanArn: "__TrainingPlanArn__",
+      TrainingPlanStatus: "__TrainingPlanStatus__",
+      OverrideVpcConfig: {
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Subnets: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      ScheduledUpdateConfig: {
+        ScheduleExpression: "__ScheduleExpression__",
+        DeploymentConfig: {
+          RollingUpdatePolicy: {
+            MaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            },
+            RollbackMaximumBatchSize: {
+              Type: "__Type__",
+              Value: (number) 0
+            }
+          },
+          WaitIntervalInSeconds: (number) 0,
+          AutoRollbackConfiguration: [
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            },
+            {
+              AlarmName: "__AlarmName__"
+            }
+          ]
+        }
+      },
+      EnvironmentConfig: {
+        FSxLustreConfig: {
+          SizeInGiB: (number) 0,
+          PerUnitStorageThroughput: (number) 0
+        },
+        S3OutputPath: "__S3OutputPath__"
+      }
+    }
+  ],
+  VpcConfig: {
+    SecurityGroupIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Subnets: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  Orchestrator: {
+    Eks: {
+      ClusterArn: "__ClusterArn__"
+    },
+    Slurm: {
+      SlurmConfigStrategy: "__SlurmConfigStrategy__"
+    }
+  },
+  TieredStorageConfig: {
+    Mode: "__Mode__",
+    InstanceMemoryAllocationPercentage: (number) 0
+  },
+  NodeRecovery: "__NodeRecovery__",
+  NodeProvisioningMode: "__NodeProvisioningMode__",
+  ClusterRole: "__ClusterRole__",
+  AutoScaling: {
+    Mode: "__Mode__",
+    Status: "__Status__",
+    AutoScalerType: "__AutoScalerType__",
+    FailureMessage: "__FailureMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

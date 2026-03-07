@@ -1,0 +1,321 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkAclResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkAclResult xmlns="https://placeholder.amazonaws.com">
+    <networkAcl>
+        <associationSet>
+            <item>
+                <networkAclAssociationId>
+                    __NetworkAclAssociationId__
+                </networkAclAssociationId>
+                <networkAclId>
+                    __NetworkAclId__
+                </networkAclId>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+            </item>
+            <item>
+                <networkAclAssociationId>
+                    __NetworkAclAssociationId__
+                </networkAclAssociationId>
+                <networkAclId>
+                    __NetworkAclId__
+                </networkAclId>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+            </item>
+            <item>
+                <networkAclAssociationId>
+                    __NetworkAclAssociationId__
+                </networkAclAssociationId>
+                <networkAclId>
+                    __NetworkAclId__
+                </networkAclId>
+                <subnetId>
+                    __SubnetId__
+                </subnetId>
+            </item>
+        </associationSet>
+        <entrySet>
+            <item>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <egress>
+                    false
+                </egress>
+                <icmpTypeCode>
+                    <code>
+                        0
+                    </code>
+                    <type>
+                        0
+                    </type>
+                </icmpTypeCode>
+                <ipv6CidrBlock>
+                    __Ipv6CidrBlock__
+                </ipv6CidrBlock>
+                <portRange>
+                    <from>
+                        0
+                    </from>
+                    <to>
+                        0
+                    </to>
+                </portRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <ruleAction>
+                    __RuleAction__
+                </ruleAction>
+                <ruleNumber>
+                    0
+                </ruleNumber>
+            </item>
+            <item>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <egress>
+                    false
+                </egress>
+                <icmpTypeCode>
+                    <code>
+                        0
+                    </code>
+                    <type>
+                        0
+                    </type>
+                </icmpTypeCode>
+                <ipv6CidrBlock>
+                    __Ipv6CidrBlock__
+                </ipv6CidrBlock>
+                <portRange>
+                    <from>
+                        0
+                    </from>
+                    <to>
+                        0
+                    </to>
+                </portRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <ruleAction>
+                    __RuleAction__
+                </ruleAction>
+                <ruleNumber>
+                    0
+                </ruleNumber>
+            </item>
+            <item>
+                <cidrBlock>
+                    __CidrBlock__
+                </cidrBlock>
+                <egress>
+                    false
+                </egress>
+                <icmpTypeCode>
+                    <code>
+                        0
+                    </code>
+                    <type>
+                        0
+                    </type>
+                </icmpTypeCode>
+                <ipv6CidrBlock>
+                    __Ipv6CidrBlock__
+                </ipv6CidrBlock>
+                <portRange>
+                    <from>
+                        0
+                    </from>
+                    <to>
+                        0
+                    </to>
+                </portRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <ruleAction>
+                    __RuleAction__
+                </ruleAction>
+                <ruleNumber>
+                    0
+                </ruleNumber>
+            </item>
+        </entrySet>
+        <default>
+            false
+        </default>
+        <networkAclId>
+            __NetworkAclId__
+        </networkAclId>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+    </networkAcl>
+    <clientToken>
+        __ClientToken__
+    </clientToken>
+</CreateNetworkAclResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NetworkAcl: {
+    Associations: [
+      {
+        NetworkAclAssociationId: "__NetworkAclAssociationId__",
+        NetworkAclId: "__NetworkAclId__",
+        SubnetId: "__SubnetId__"
+      },
+      {
+        NetworkAclAssociationId: "__NetworkAclAssociationId__",
+        NetworkAclId: "__NetworkAclId__",
+        SubnetId: "__SubnetId__"
+      },
+      {
+        NetworkAclAssociationId: "__NetworkAclAssociationId__",
+        NetworkAclId: "__NetworkAclId__",
+        SubnetId: "__SubnetId__"
+      }
+    ],
+    Entries: [
+      {
+        CidrBlock: "__CidrBlock__",
+        Egress: (boolean) false,
+        IcmpTypeCode: {
+          Code: (number) 0,
+          Type: (number) 0
+        },
+        Ipv6CidrBlock: "__Ipv6CidrBlock__",
+        PortRange: {
+          From: (number) 0,
+          To: (number) 0
+        },
+        Protocol: "__Protocol__",
+        RuleAction: "__RuleAction__",
+        RuleNumber: (number) 0
+      },
+      {
+        CidrBlock: "__CidrBlock__",
+        Egress: (boolean) false,
+        IcmpTypeCode: {
+          Code: (number) 0,
+          Type: (number) 0
+        },
+        Ipv6CidrBlock: "__Ipv6CidrBlock__",
+        PortRange: {
+          From: (number) 0,
+          To: (number) 0
+        },
+        Protocol: "__Protocol__",
+        RuleAction: "__RuleAction__",
+        RuleNumber: (number) 0
+      },
+      {
+        CidrBlock: "__CidrBlock__",
+        Egress: (boolean) false,
+        IcmpTypeCode: {
+          Code: (number) 0,
+          Type: (number) 0
+        },
+        Ipv6CidrBlock: "__Ipv6CidrBlock__",
+        PortRange: {
+          From: (number) 0,
+          To: (number) 0
+        },
+        Protocol: "__Protocol__",
+        RuleAction: "__RuleAction__",
+        RuleNumber: (number) 0
+      }
+    ],
+    IsDefault: (boolean) false,
+    NetworkAclId: "__NetworkAclId__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    VpcId: "__VpcId__",
+    OwnerId: "__OwnerId__"
+  },
+  ClientToken: "__ClientToken__"
+}
+

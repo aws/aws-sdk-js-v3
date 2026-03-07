@@ -1,0 +1,148 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AccessControlPolicy xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AccessControlPolicy xmlns="https://placeholder.amazonaws.com">
+    <Owner>
+        <DisplayName>
+            __DisplayName__
+        </DisplayName>
+        <ID>
+            __ID__
+        </ID>
+    </Owner>
+    <AccessControlList>
+        <Grant>
+            <Grantee xsi:type="__Type__" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <DisplayName>
+                    __DisplayName__
+                </DisplayName>
+                <EmailAddress>
+                    __EmailAddress__
+                </EmailAddress>
+                <ID>
+                    __ID__
+                </ID>
+                <URI>
+                    __URI__
+                </URI>
+            </Grantee>
+            <Permission>
+                __Permission__
+            </Permission>
+        </Grant>
+        <Grant>
+            <Grantee xsi:type="__Type__" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <DisplayName>
+                    __DisplayName__
+                </DisplayName>
+                <EmailAddress>
+                    __EmailAddress__
+                </EmailAddress>
+                <ID>
+                    __ID__
+                </ID>
+                <URI>
+                    __URI__
+                </URI>
+            </Grantee>
+            <Permission>
+                __Permission__
+            </Permission>
+        </Grant>
+        <Grant>
+            <Grantee xsi:type="__Type__" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <DisplayName>
+                    __DisplayName__
+                </DisplayName>
+                <EmailAddress>
+                    __EmailAddress__
+                </EmailAddress>
+                <ID>
+                    __ID__
+                </ID>
+                <URI>
+                    __URI__
+                </URI>
+            </Grantee>
+            <Permission>
+                __Permission__
+            </Permission>
+        </Grant>
+    </AccessControlList>
+</AccessControlPolicy>
+
+
+--- [output object] ---
+{
+  Owner: {
+    DisplayName: "__DisplayName__",
+    ID: "__ID__"
+  },
+  Grants: [
+    {
+      Grantee: {
+        Type: "__Type__",
+        DisplayName: "__DisplayName__",
+        EmailAddress: "__EmailAddress__",
+        ID: "__ID__",
+        URI: "__URI__"
+      },
+      Permission: "__Permission__"
+    },
+    {
+      Grantee: {
+        Type: "__Type__",
+        DisplayName: "__DisplayName__",
+        EmailAddress: "__EmailAddress__",
+        ID: "__ID__",
+        URI: "__URI__"
+      },
+      Permission: "__Permission__"
+    },
+    {
+      Grantee: {
+        Type: "__Type__",
+        DisplayName: "__DisplayName__",
+        EmailAddress: "__EmailAddress__",
+        ID: "__ID__",
+        URI: "__URI__"
+      },
+      Permission: "__Permission__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

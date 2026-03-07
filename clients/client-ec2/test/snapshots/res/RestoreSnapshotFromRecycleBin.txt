@@ -1,0 +1,89 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RestoreSnapshotFromRecycleBinResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RestoreSnapshotFromRecycleBinResult xmlns="https://placeholder.amazonaws.com">
+    <snapshotId>
+        __SnapshotId__
+    </snapshotId>
+    <outpostArn>
+        __OutpostArn__
+    </outpostArn>
+    <description>
+        __Description__
+    </description>
+    <encrypted>
+        false
+    </encrypted>
+    <ownerId>
+        __OwnerId__
+    </ownerId>
+    <progress>
+        __Progress__
+    </progress>
+    <startTime>
+        2000-01-01T04:59:59.999Z
+    </startTime>
+    <status>
+        __State__
+    </status>
+    <volumeId>
+        __VolumeId__
+    </volumeId>
+    <volumeSize>
+        0
+    </volumeSize>
+    <sseType>
+        __SseType__
+    </sseType>
+</RestoreSnapshotFromRecycleBinResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SnapshotId: "__SnapshotId__",
+  OutpostArn: "__OutpostArn__",
+  Description: "__Description__",
+  Encrypted: (boolean) false,
+  OwnerId: "__OwnerId__",
+  Progress: "__Progress__",
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  State: "__State__",
+  VolumeId: "__VolumeId__",
+  VolumeSize: (number) 0,
+  SseType: "__SseType__"
+}
+

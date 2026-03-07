@@ -1,0 +1,236 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "InferenceComponentName": "__InferenceComponentName__",
+  "InferenceComponentArn": "__InferenceComponentArn__",
+  "EndpointName": "__EndpointName__",
+  "EndpointArn": "__EndpointArn__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "VariantName": "__VariantName__",
+  "FailureReason": "__FailureReason__",
+  "Specification": {},
+  "RuntimeConfig": {},
+  "InferenceComponentStatus": "__InferenceComponentStatus__",
+  "LastDeploymentConfig": {
+    "RollingUpdatePolicy": {
+      "MaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      },
+      "WaitIntervalInSeconds": 0,
+      "MaximumExecutionTimeoutInSeconds": 0,
+      "RollbackMaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      }
+    },
+    "AutoRollbackConfiguration": {}
+  }
+}
+
+
+--- [output object] ---
+{
+  InferenceComponentName: "__InferenceComponentName__",
+  InferenceComponentArn: "__InferenceComponentArn__",
+  EndpointName: "__EndpointName__",
+  EndpointArn: "__EndpointArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  VariantName: "__VariantName__",
+  FailureReason: "__FailureReason__",
+  Specification: {},
+  RuntimeConfig: {},
+  InferenceComponentStatus: "__InferenceComponentStatus__",
+  LastDeploymentConfig: {
+    RollingUpdatePolicy: {
+      MaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      },
+      WaitIntervalInSeconds: (number) 0,
+      MaximumExecutionTimeoutInSeconds: (number) 0,
+      RollbackMaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      }
+    },
+    AutoRollbackConfiguration: {}
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "InferenceComponentName": "__InferenceComponentName__",
+  "InferenceComponentArn": "__InferenceComponentArn__",
+  "EndpointName": "__EndpointName__",
+  "EndpointArn": "__EndpointArn__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "VariantName": "__VariantName__",
+  "FailureReason": "__FailureReason__",
+  "Specification": {
+    "ModelName": "__ModelName__",
+    "Container": {
+      "DeployedImage": {
+        "SpecifiedImage": "__SpecifiedImage__",
+        "ResolvedImage": "__ResolvedImage__",
+        "ResolutionTime": 946702799.999
+      },
+      "ArtifactUrl": "__ArtifactUrl__",
+      "Environment": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    "StartupParameters": {
+      "ModelDataDownloadTimeoutInSeconds": 0,
+      "ContainerStartupHealthCheckTimeoutInSeconds": 0
+    },
+    "ComputeResourceRequirements": {
+      "MinMemoryRequiredInMb": 0,
+      "NumberOfCpuCoresRequired": 0,
+      "NumberOfAcceleratorDevicesRequired": 0,
+      "MaxMemoryRequiredInMb": 0
+    },
+    "BaseInferenceComponentName": "__BaseInferenceComponentName__",
+    "DataCacheConfig": {
+      "EnableCaching": false
+    }
+  },
+  "RuntimeConfig": {
+    "DesiredCopyCount": 0,
+    "CurrentCopyCount": 0
+  },
+  "InferenceComponentStatus": "__InferenceComponentStatus__",
+  "LastDeploymentConfig": {
+    "RollingUpdatePolicy": {
+      "MaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      },
+      "WaitIntervalInSeconds": 0,
+      "MaximumExecutionTimeoutInSeconds": 0,
+      "RollbackMaximumBatchSize": {
+        "Type": "__Type__",
+        "Value": 0
+      }
+    },
+    "AutoRollbackConfiguration": {
+      "Alarms": [
+        {
+          "AlarmName": "__AlarmName__"
+        },
+        {
+          "AlarmName": "__AlarmName__"
+        },
+        {
+          "AlarmName": "__AlarmName__"
+        }
+      ]
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  InferenceComponentName: "__InferenceComponentName__",
+  InferenceComponentArn: "__InferenceComponentArn__",
+  EndpointName: "__EndpointName__",
+  EndpointArn: "__EndpointArn__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  VariantName: "__VariantName__",
+  FailureReason: "__FailureReason__",
+  Specification: {
+    ModelName: "__ModelName__",
+    Container: {
+      DeployedImage: {
+        SpecifiedImage: "__SpecifiedImage__",
+        ResolvedImage: "__ResolvedImage__",
+        ResolutionTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      },
+      ArtifactUrl: "__ArtifactUrl__",
+      Environment: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    StartupParameters: {
+      ModelDataDownloadTimeoutInSeconds: (number) 0,
+      ContainerStartupHealthCheckTimeoutInSeconds: (number) 0
+    },
+    ComputeResourceRequirements: {
+      MinMemoryRequiredInMb: (number) 0,
+      NumberOfCpuCoresRequired: (number) 0,
+      NumberOfAcceleratorDevicesRequired: (number) 0,
+      MaxMemoryRequiredInMb: (number) 0
+    },
+    BaseInferenceComponentName: "__BaseInferenceComponentName__",
+    DataCacheConfig: {
+      EnableCaching: (boolean) false
+    }
+  },
+  RuntimeConfig: {
+    DesiredCopyCount: (number) 0,
+    CurrentCopyCount: (number) 0
+  },
+  InferenceComponentStatus: "__InferenceComponentStatus__",
+  LastDeploymentConfig: {
+    RollingUpdatePolicy: {
+      MaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      },
+      WaitIntervalInSeconds: (number) 0,
+      MaximumExecutionTimeoutInSeconds: (number) 0,
+      RollbackMaximumBatchSize: {
+        Type: "__Type__",
+        Value: (number) 0
+      }
+    },
+    AutoRollbackConfiguration: {
+      Alarms: [
+        {
+          AlarmName: "__AlarmName__"
+        },
+        {
+          AlarmName: "__AlarmName__"
+        },
+        {
+          AlarmName: "__AlarmName__"
+        }
+      ]
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

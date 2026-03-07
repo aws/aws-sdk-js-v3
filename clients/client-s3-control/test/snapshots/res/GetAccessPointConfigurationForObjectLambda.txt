@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessPointConfigurationForObjectLambdaResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessPointConfigurationForObjectLambdaResult xmlns="https://placeholder.amazonaws.com">
+    <Configuration>
+        <SupportingAccessPoint>
+            __SupportingAccessPoint__
+        </SupportingAccessPoint>
+        <TransformationConfigurations>
+            <TransformationConfiguration>
+                <Actions>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                </Actions>
+                <ContentTransformation>
+                    <AwsLambda>
+                        <FunctionArn>
+                            __FunctionArn__
+                        </FunctionArn>
+                        <FunctionPayload>
+                            __FunctionPayload__
+                        </FunctionPayload>
+                    </AwsLambda>
+                </ContentTransformation>
+            </TransformationConfiguration>
+            <TransformationConfiguration>
+                <Actions>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                </Actions>
+                <ContentTransformation>
+                    <AwsLambda>
+                        <FunctionArn>
+                            __FunctionArn__
+                        </FunctionArn>
+                        <FunctionPayload>
+                            __FunctionPayload__
+                        </FunctionPayload>
+                    </AwsLambda>
+                </ContentTransformation>
+            </TransformationConfiguration>
+            <TransformationConfiguration>
+                <Actions>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                    <Action>
+                        __member__
+                    </Action>
+                </Actions>
+                <ContentTransformation>
+                    <AwsLambda>
+                        <FunctionArn>
+                            __FunctionArn__
+                        </FunctionArn>
+                        <FunctionPayload>
+                            __FunctionPayload__
+                        </FunctionPayload>
+                    </AwsLambda>
+                </ContentTransformation>
+            </TransformationConfiguration>
+        </TransformationConfigurations>
+        <CloudWatchMetricsEnabled>
+            false
+        </CloudWatchMetricsEnabled>
+        <AllowedFeatures>
+            <AllowedFeature>
+                __member__
+            </AllowedFeature>
+            <AllowedFeature>
+                __member__
+            </AllowedFeature>
+            <AllowedFeature>
+                __member__
+            </AllowedFeature>
+        </AllowedFeatures>
+    </Configuration>
+</GetAccessPointConfigurationForObjectLambdaResult>
+
+
+--- [output object] ---
+{
+  Configuration: {
+    SupportingAccessPoint: "__SupportingAccessPoint__",
+    TransformationConfigurations: [
+      {
+        Actions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ContentTransformation: {
+          AwsLambda: {
+            FunctionArn: "__FunctionArn__",
+            FunctionPayload: "__FunctionPayload__"
+          }
+        }
+      },
+      {
+        Actions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ContentTransformation: {
+          AwsLambda: {
+            FunctionArn: "__FunctionArn__",
+            FunctionPayload: "__FunctionPayload__"
+          }
+        }
+      },
+      {
+        Actions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ContentTransformation: {
+          AwsLambda: {
+            FunctionArn: "__FunctionArn__",
+            FunctionPayload: "__FunctionPayload__"
+          }
+        }
+      }
+    ],
+    CloudWatchMetricsEnabled: (boolean) false,
+    AllowedFeatures: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

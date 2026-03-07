@@ -1,0 +1,273 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "item": [
+    {
+      "id": "__id__",
+      "name": "__name__",
+      "description": "__description__",
+      "createdDate": 946702799.999,
+      "version": "__version__",
+      "warnings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "binaryMediaTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "minimumCompressionSize": 0,
+      "apiKeySource": "__apiKeySource__",
+      "endpointConfiguration": {
+        "types": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "vpcEndpointIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "policy": "__policy__",
+      "tags": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "disableExecuteApiEndpoint": false
+    },
+    {
+      "id": "__id__",
+      "name": "__name__",
+      "description": "__description__",
+      "createdDate": 946702799.999,
+      "version": "__version__",
+      "warnings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "binaryMediaTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "minimumCompressionSize": 0,
+      "apiKeySource": "__apiKeySource__",
+      "endpointConfiguration": {
+        "types": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "vpcEndpointIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "policy": "__policy__",
+      "tags": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "disableExecuteApiEndpoint": false
+    },
+    {
+      "id": "__id__",
+      "name": "__name__",
+      "description": "__description__",
+      "createdDate": 946702799.999,
+      "version": "__version__",
+      "warnings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "binaryMediaTypes": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "minimumCompressionSize": 0,
+      "apiKeySource": "__apiKeySource__",
+      "endpointConfiguration": {
+        "types": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "vpcEndpointIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "policy": "__policy__",
+      "tags": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "disableExecuteApiEndpoint": false
+    }
+  ],
+  "position": "__position__"
+}
+
+
+--- [output object] ---
+{
+  items: [
+    {
+      id: "__id__",
+      name: "__name__",
+      description: "__description__",
+      createdDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      version: "__version__",
+      warnings: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      binaryMediaTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      minimumCompressionSize: (number) 0,
+      apiKeySource: "__apiKeySource__",
+      endpointConfiguration: {
+        types: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        vpcEndpointIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      policy: "__policy__",
+      tags: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      disableExecuteApiEndpoint: (boolean) false
+    },
+    {
+      id: "__id__",
+      name: "__name__",
+      description: "__description__",
+      createdDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      version: "__version__",
+      warnings: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      binaryMediaTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      minimumCompressionSize: (number) 0,
+      apiKeySource: "__apiKeySource__",
+      endpointConfiguration: {
+        types: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        vpcEndpointIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      policy: "__policy__",
+      tags: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      disableExecuteApiEndpoint: (boolean) false
+    },
+    {
+      id: "__id__",
+      name: "__name__",
+      description: "__description__",
+      createdDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      version: "__version__",
+      warnings: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      binaryMediaTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      minimumCompressionSize: (number) 0,
+      apiKeySource: "__apiKeySource__",
+      endpointConfiguration: {
+        types: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        vpcEndpointIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      policy: "__policy__",
+      tags: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      disableExecuteApiEndpoint: (boolean) false
+    }
+  ],
+  position: "__position__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

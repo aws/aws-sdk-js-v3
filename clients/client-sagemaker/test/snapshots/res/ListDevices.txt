@@ -1,0 +1,346 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DeviceSummaries": [
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    },
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    },
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  DeviceSummaries: [
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    },
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    },
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "DeviceSummaries": [
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    },
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    },
+    {
+      "DeviceName": "__DeviceName__",
+      "DeviceArn": "__DeviceArn__",
+      "Description": "__Description__",
+      "DeviceFleetName": "__DeviceFleetName__",
+      "IotThingName": "__IotThingName__",
+      "RegistrationTime": 946702799.999,
+      "LatestHeartbeat": 946702799.999,
+      "Models": [
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        },
+        {
+          "ModelName": "__ModelName__",
+          "ModelVersion": "__ModelVersion__"
+        }
+      ],
+      "AgentVersion": "__AgentVersion__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  DeviceSummaries: [
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    },
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    },
+    {
+      DeviceName: "__DeviceName__",
+      DeviceArn: "__DeviceArn__",
+      Description: "__Description__",
+      DeviceFleetName: "__DeviceFleetName__",
+      IotThingName: "__IotThingName__",
+      RegistrationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LatestHeartbeat: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Models: [
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        },
+        {
+          ModelName: "__ModelName__",
+          ModelVersion: "__ModelVersion__"
+        }
+      ],
+      AgentVersion: "__AgentVersion__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

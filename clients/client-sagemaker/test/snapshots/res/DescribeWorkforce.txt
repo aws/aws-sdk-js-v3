@@ -1,0 +1,216 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Workforce": {
+    "WorkforceName": "__WorkforceName__",
+    "WorkforceArn": "__WorkforceArn__",
+    "LastUpdatedDate": 946702799.999,
+    "SourceIpConfig": {
+      "Cidrs": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "SubDomain": "__SubDomain__",
+    "CognitoConfig": {
+      "UserPool": "__UserPool__",
+      "ClientId": "__ClientId__"
+    },
+    "OidcConfig": {},
+    "CreateDate": 946702799.999,
+    "WorkforceVpcConfig": {
+      "VpcId": "__VpcId__",
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "VpcEndpointId": "__VpcEndpointId__"
+    },
+    "Status": "__Status__",
+    "FailureReason": "__FailureReason__",
+    "IpAddressType": "__IpAddressType__"
+  }
+}
+
+
+--- [output object] ---
+{
+  Workforce: {
+    WorkforceName: "__WorkforceName__",
+    WorkforceArn: "__WorkforceArn__",
+    LastUpdatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    SourceIpConfig: {
+      Cidrs: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    SubDomain: "__SubDomain__",
+    CognitoConfig: {
+      UserPool: "__UserPool__",
+      ClientId: "__ClientId__"
+    },
+    OidcConfig: {},
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    WorkforceVpcConfig: {
+      VpcId: "__VpcId__",
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcEndpointId: "__VpcEndpointId__"
+    },
+    Status: "__Status__",
+    FailureReason: "__FailureReason__",
+    IpAddressType: "__IpAddressType__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Workforce": {
+    "WorkforceName": "__WorkforceName__",
+    "WorkforceArn": "__WorkforceArn__",
+    "LastUpdatedDate": 946702799.999,
+    "SourceIpConfig": {
+      "Cidrs": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "SubDomain": "__SubDomain__",
+    "CognitoConfig": {
+      "UserPool": "__UserPool__",
+      "ClientId": "__ClientId__"
+    },
+    "OidcConfig": {
+      "ClientId": "__ClientId__",
+      "Issuer": "__Issuer__",
+      "AuthorizationEndpoint": "__AuthorizationEndpoint__",
+      "TokenEndpoint": "__TokenEndpoint__",
+      "UserInfoEndpoint": "__UserInfoEndpoint__",
+      "LogoutEndpoint": "__LogoutEndpoint__",
+      "JwksUri": "__JwksUri__",
+      "Scope": "__Scope__",
+      "AuthenticationRequestExtraParams": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    "CreateDate": 946702799.999,
+    "WorkforceVpcConfig": {
+      "VpcId": "__VpcId__",
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "VpcEndpointId": "__VpcEndpointId__"
+    },
+    "Status": "__Status__",
+    "FailureReason": "__FailureReason__",
+    "IpAddressType": "__IpAddressType__"
+  }
+}
+
+
+--- [output object] ---
+{
+  Workforce: {
+    WorkforceName: "__WorkforceName__",
+    WorkforceArn: "__WorkforceArn__",
+    LastUpdatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    SourceIpConfig: {
+      Cidrs: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    SubDomain: "__SubDomain__",
+    CognitoConfig: {
+      UserPool: "__UserPool__",
+      ClientId: "__ClientId__"
+    },
+    OidcConfig: {
+      ClientId: "__ClientId__",
+      Issuer: "__Issuer__",
+      AuthorizationEndpoint: "__AuthorizationEndpoint__",
+      TokenEndpoint: "__TokenEndpoint__",
+      UserInfoEndpoint: "__UserInfoEndpoint__",
+      LogoutEndpoint: "__LogoutEndpoint__",
+      JwksUri: "__JwksUri__",
+      Scope: "__Scope__",
+      AuthenticationRequestExtraParams: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    WorkforceVpcConfig: {
+      VpcId: "__VpcId__",
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcEndpointId: "__VpcEndpointId__"
+    },
+    Status: "__Status__",
+    FailureReason: "__FailureReason__",
+    IpAddressType: "__IpAddressType__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

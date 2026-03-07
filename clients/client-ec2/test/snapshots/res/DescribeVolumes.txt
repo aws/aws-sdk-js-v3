@@ -1,0 +1,809 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumesResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <volumeSet>
+        <item>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <sourceVolumeId>
+                __SourceVolumeId__
+            </sourceVolumeId>
+            <iops>
+                0
+            </iops>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <volumeType>
+                __VolumeType__
+            </volumeType>
+            <fastRestored>
+                false
+            </fastRestored>
+            <multiAttachEnabled>
+                false
+            </multiAttachEnabled>
+            <throughput>
+                0
+            </throughput>
+            <sseType>
+                __SseType__
+            </sseType>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <volumeInitializationRate>
+                0
+            </volumeInitializationRate>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <size>
+                0
+            </size>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <status>
+                __State__
+            </status>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <attachmentSet>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+            </attachmentSet>
+            <encrypted>
+                false
+            </encrypted>
+            <kmsKeyId>
+                __KmsKeyId__
+            </kmsKeyId>
+        </item>
+        <item>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <sourceVolumeId>
+                __SourceVolumeId__
+            </sourceVolumeId>
+            <iops>
+                0
+            </iops>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <volumeType>
+                __VolumeType__
+            </volumeType>
+            <fastRestored>
+                false
+            </fastRestored>
+            <multiAttachEnabled>
+                false
+            </multiAttachEnabled>
+            <throughput>
+                0
+            </throughput>
+            <sseType>
+                __SseType__
+            </sseType>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <volumeInitializationRate>
+                0
+            </volumeInitializationRate>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <size>
+                0
+            </size>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <status>
+                __State__
+            </status>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <attachmentSet>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+            </attachmentSet>
+            <encrypted>
+                false
+            </encrypted>
+            <kmsKeyId>
+                __KmsKeyId__
+            </kmsKeyId>
+        </item>
+        <item>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <sourceVolumeId>
+                __SourceVolumeId__
+            </sourceVolumeId>
+            <iops>
+                0
+            </iops>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <volumeType>
+                __VolumeType__
+            </volumeType>
+            <fastRestored>
+                false
+            </fastRestored>
+            <multiAttachEnabled>
+                false
+            </multiAttachEnabled>
+            <throughput>
+                0
+            </throughput>
+            <sseType>
+                __SseType__
+            </sseType>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <volumeInitializationRate>
+                0
+            </volumeInitializationRate>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <size>
+                0
+            </size>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <status>
+                __State__
+            </status>
+            <createTime>
+                2000-01-01T04:59:59.999Z
+            </createTime>
+            <attachmentSet>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <associatedResource>
+                        __AssociatedResource__
+                    </associatedResource>
+                    <instanceOwningService>
+                        __InstanceOwningService__
+                    </instanceOwningService>
+                    <ebsCardIndex>
+                        0
+                    </ebsCardIndex>
+                    <volumeId>
+                        __VolumeId__
+                    </volumeId>
+                    <instanceId>
+                        __InstanceId__
+                    </instanceId>
+                    <device>
+                        __Device__
+                    </device>
+                    <status>
+                        __State__
+                    </status>
+                    <attachTime>
+                        2000-01-01T04:59:59.999Z
+                    </attachTime>
+                </item>
+            </attachmentSet>
+            <encrypted>
+                false
+            </encrypted>
+            <kmsKeyId>
+                __KmsKeyId__
+            </kmsKeyId>
+        </item>
+    </volumeSet>
+</DescribeVolumesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Volumes: [
+    {
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      SourceVolumeId: "__SourceVolumeId__",
+      Iops: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VolumeType: "__VolumeType__",
+      FastRestored: (boolean) false,
+      MultiAttachEnabled: (boolean) false,
+      Throughput: (number) 0,
+      SseType: "__SseType__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      VolumeInitializationRate: (number) 0,
+      VolumeId: "__VolumeId__",
+      Size: (number) 0,
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      State: "__State__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Attachments: [
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Encrypted: (boolean) false,
+      KmsKeyId: "__KmsKeyId__"
+    },
+    {
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      SourceVolumeId: "__SourceVolumeId__",
+      Iops: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VolumeType: "__VolumeType__",
+      FastRestored: (boolean) false,
+      MultiAttachEnabled: (boolean) false,
+      Throughput: (number) 0,
+      SseType: "__SseType__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      VolumeInitializationRate: (number) 0,
+      VolumeId: "__VolumeId__",
+      Size: (number) 0,
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      State: "__State__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Attachments: [
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Encrypted: (boolean) false,
+      KmsKeyId: "__KmsKeyId__"
+    },
+    {
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      OutpostArn: "__OutpostArn__",
+      SourceVolumeId: "__SourceVolumeId__",
+      Iops: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VolumeType: "__VolumeType__",
+      FastRestored: (boolean) false,
+      MultiAttachEnabled: (boolean) false,
+      Throughput: (number) 0,
+      SseType: "__SseType__",
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      VolumeInitializationRate: (number) 0,
+      VolumeId: "__VolumeId__",
+      Size: (number) 0,
+      SnapshotId: "__SnapshotId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      State: "__State__",
+      CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Attachments: [
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          AssociatedResource: "__AssociatedResource__",
+          InstanceOwningService: "__InstanceOwningService__",
+          EbsCardIndex: (number) 0,
+          VolumeId: "__VolumeId__",
+          InstanceId: "__InstanceId__",
+          Device: "__Device__",
+          State: "__State__",
+          AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      Encrypted: (boolean) false,
+      KmsKeyId: "__KmsKeyId__"
+    }
+  ]
+}
+

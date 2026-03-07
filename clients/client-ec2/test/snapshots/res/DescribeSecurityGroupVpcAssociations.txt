@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupVpcAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecurityGroupVpcAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <securityGroupVpcAssociationSet>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <vpcOwnerId>
+                __VpcOwnerId__
+            </vpcOwnerId>
+            <state>
+                __State__
+            </state>
+            <stateReason>
+                __StateReason__
+            </stateReason>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <vpcOwnerId>
+                __VpcOwnerId__
+            </vpcOwnerId>
+            <state>
+                __State__
+            </state>
+            <stateReason>
+                __StateReason__
+            </stateReason>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+        </item>
+        <item>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <vpcOwnerId>
+                __VpcOwnerId__
+            </vpcOwnerId>
+            <state>
+                __State__
+            </state>
+            <stateReason>
+                __StateReason__
+            </stateReason>
+            <groupOwnerId>
+                __GroupOwnerId__
+            </groupOwnerId>
+        </item>
+    </securityGroupVpcAssociationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeSecurityGroupVpcAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SecurityGroupVpcAssociations: [
+    {
+      GroupId: "__GroupId__",
+      VpcId: "__VpcId__",
+      VpcOwnerId: "__VpcOwnerId__",
+      State: "__State__",
+      StateReason: "__StateReason__",
+      GroupOwnerId: "__GroupOwnerId__"
+    },
+    {
+      GroupId: "__GroupId__",
+      VpcId: "__VpcId__",
+      VpcOwnerId: "__VpcOwnerId__",
+      State: "__State__",
+      StateReason: "__StateReason__",
+      GroupOwnerId: "__GroupOwnerId__"
+    },
+    {
+      GroupId: "__GroupId__",
+      VpcId: "__VpcId__",
+      VpcOwnerId: "__VpcOwnerId__",
+      State: "__State__",
+      StateReason: "__StateReason__",
+      GroupOwnerId: "__GroupOwnerId__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

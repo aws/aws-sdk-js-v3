@@ -1,0 +1,85 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StopInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<StopInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <instancesSet>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <currentState/>
+<previousState/>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <currentState/>
+<previousState/>
+        </item>
+        <item>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <currentState/>
+<previousState/>
+        </item>
+    </instancesSet>
+</StopInstancesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  StoppingInstances: [
+    {
+      InstanceId: "__InstanceId__",
+      CurrentState: {},
+      PreviousState: {}
+    },
+    {
+      InstanceId: "__InstanceId__",
+      CurrentState: {},
+      PreviousState: {}
+    },
+    {
+      InstanceId: "__InstanceId__",
+      CurrentState: {},
+      PreviousState: {}
+    }
+  ]
+}
+

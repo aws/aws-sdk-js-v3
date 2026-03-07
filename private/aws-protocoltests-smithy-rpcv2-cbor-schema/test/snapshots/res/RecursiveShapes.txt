@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{}
+
+[actual bytes]
+160
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "nested": {
+    "foo": "__foo__",
+    "nested": {
+      "bar": "__bar__",
+      "recursiveMember": {
+        "foo": "__foo__",
+        "nested": {
+          "bar": "__bar__",
+          "recursiveMember": {}
+        }
+      }
+    }
+  }
+}
+
+[actual bytes]
+161, 102, 110, 101, 115, 116, 101, 100, 162, 99, 102, 111, 111, 103, 95, 95, 102, 111, 111, 95, 95, 102, 110, 101,
+115, 116, 101, 100, 162, 99, 98, 97, 114, 103, 95, 95, 98, 97, 114, 95, 95, 111, 114, 101, 99, 117, 114, 115,
+105, 118, 101, 77, 101, 109, 98, 101, 114, 162, 99, 102, 111, 111, 103, 95, 95, 102, 111, 111, 95, 95, 102, 110,
+101, 115, 116, 101, 100, 162, 99, 98, 97, 114, 103, 95, 95, 98, 97, 114, 95, 95, 111, 114, 101, 99, 117, 114,
+115, 105, 118, 101, 77, 101, 109, 98, 101, 114, 160
+
+
+--- [output object] ---
+{
+  nested: {
+    foo: "__foo__",
+    nested: {
+      bar: "__bar__",
+      recursiveMember: {
+        foo: "__foo__",
+        nested: {
+          bar: "__bar__",
+          recursiveMember: {}
+        }
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

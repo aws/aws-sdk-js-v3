@@ -1,0 +1,329 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeOutpostLagsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeOutpostLagsResult xmlns="https://placeholder.amazonaws.com">
+    <outpostLagSet>
+        <item>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <state>
+                __State__
+            </state>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <localGatewayVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </localGatewayVirtualInterfaceIdSet>
+            <serviceLinkVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </serviceLinkVirtualInterfaceIdSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <state>
+                __State__
+            </state>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <localGatewayVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </localGatewayVirtualInterfaceIdSet>
+            <serviceLinkVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </serviceLinkVirtualInterfaceIdSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <state>
+                __State__
+            </state>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <localGatewayVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </localGatewayVirtualInterfaceIdSet>
+            <serviceLinkVirtualInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </serviceLinkVirtualInterfaceIdSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </outpostLagSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeOutpostLagsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  OutpostLags: [
+    {
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      State: "__State__",
+      OutpostLagId: "__OutpostLagId__",
+      LocalGatewayVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ServiceLinkVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      State: "__State__",
+      OutpostLagId: "__OutpostLagId__",
+      LocalGatewayVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ServiceLinkVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      State: "__State__",
+      OutpostLagId: "__OutpostLagId__",
+      LocalGatewayVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ServiceLinkVirtualInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

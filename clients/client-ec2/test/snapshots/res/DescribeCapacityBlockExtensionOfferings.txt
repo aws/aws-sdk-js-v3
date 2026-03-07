@@ -1,0 +1,221 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityBlockExtensionOfferingsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityBlockExtensionOfferingsResult xmlns="https://placeholder.amazonaws.com">
+    <capacityBlockExtensionOfferingSet>
+        <item>
+            <capacityBlockExtensionOfferingId>
+                __CapacityBlockExtensionOfferingId__
+            </capacityBlockExtensionOfferingId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instanceCount>
+                0
+            </instanceCount>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <startDate>
+                2000-01-01T04:59:59.999Z
+            </startDate>
+            <capacityBlockExtensionStartDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionStartDate>
+            <capacityBlockExtensionEndDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionEndDate>
+            <capacityBlockExtensionDurationHours>
+                0
+            </capacityBlockExtensionDurationHours>
+            <upfrontFee>
+                __UpfrontFee__
+            </upfrontFee>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+        </item>
+        <item>
+            <capacityBlockExtensionOfferingId>
+                __CapacityBlockExtensionOfferingId__
+            </capacityBlockExtensionOfferingId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instanceCount>
+                0
+            </instanceCount>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <startDate>
+                2000-01-01T04:59:59.999Z
+            </startDate>
+            <capacityBlockExtensionStartDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionStartDate>
+            <capacityBlockExtensionEndDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionEndDate>
+            <capacityBlockExtensionDurationHours>
+                0
+            </capacityBlockExtensionDurationHours>
+            <upfrontFee>
+                __UpfrontFee__
+            </upfrontFee>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+        </item>
+        <item>
+            <capacityBlockExtensionOfferingId>
+                __CapacityBlockExtensionOfferingId__
+            </capacityBlockExtensionOfferingId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instanceCount>
+                0
+            </instanceCount>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <startDate>
+                2000-01-01T04:59:59.999Z
+            </startDate>
+            <capacityBlockExtensionStartDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionStartDate>
+            <capacityBlockExtensionEndDate>
+                2000-01-01T04:59:59.999Z
+            </capacityBlockExtensionEndDate>
+            <capacityBlockExtensionDurationHours>
+                0
+            </capacityBlockExtensionDurationHours>
+            <upfrontFee>
+                __UpfrontFee__
+            </upfrontFee>
+            <currencyCode>
+                __CurrencyCode__
+            </currencyCode>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+        </item>
+    </capacityBlockExtensionOfferingSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeCapacityBlockExtensionOfferingsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CapacityBlockExtensionOfferings: [
+    {
+      CapacityBlockExtensionOfferingId: "__CapacityBlockExtensionOfferingId__",
+      InstanceType: "__InstanceType__",
+      InstanceCount: (number) 0,
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionDurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      Tenancy: "__Tenancy__",
+      ZoneType: "__ZoneType__"
+    },
+    {
+      CapacityBlockExtensionOfferingId: "__CapacityBlockExtensionOfferingId__",
+      InstanceType: "__InstanceType__",
+      InstanceCount: (number) 0,
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionDurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      Tenancy: "__Tenancy__",
+      ZoneType: "__ZoneType__"
+    },
+    {
+      CapacityBlockExtensionOfferingId: "__CapacityBlockExtensionOfferingId__",
+      InstanceType: "__InstanceType__",
+      InstanceCount: (number) 0,
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionStartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionEndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      CapacityBlockExtensionDurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__",
+      Tenancy: "__Tenancy__",
+      ZoneType: "__ZoneType__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

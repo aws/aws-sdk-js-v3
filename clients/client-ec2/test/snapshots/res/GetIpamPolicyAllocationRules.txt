@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPolicyAllocationRulesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPolicyAllocationRulesResult xmlns="https://placeholder.amazonaws.com">
+    <ipamPolicyDocumentSet>
+        <item>
+            <ipamPolicyId>
+                __IpamPolicyId__
+            </ipamPolicyId>
+            <locale>
+                __Locale__
+            </locale>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <allocationRuleSet>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+            </allocationRuleSet>
+        </item>
+        <item>
+            <ipamPolicyId>
+                __IpamPolicyId__
+            </ipamPolicyId>
+            <locale>
+                __Locale__
+            </locale>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <allocationRuleSet>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+            </allocationRuleSet>
+        </item>
+        <item>
+            <ipamPolicyId>
+                __IpamPolicyId__
+            </ipamPolicyId>
+            <locale>
+                __Locale__
+            </locale>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <allocationRuleSet>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+                <item>
+                    <sourceIpamPoolId>
+                        __SourceIpamPoolId__
+                    </sourceIpamPoolId>
+                </item>
+            </allocationRuleSet>
+        </item>
+    </ipamPolicyDocumentSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamPolicyAllocationRulesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamPolicyDocuments: [
+    {
+      IpamPolicyId: "__IpamPolicyId__",
+      Locale: "__Locale__",
+      ResourceType: "__ResourceType__",
+      AllocationRules: [
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        }
+      ]
+    },
+    {
+      IpamPolicyId: "__IpamPolicyId__",
+      Locale: "__Locale__",
+      ResourceType: "__ResourceType__",
+      AllocationRules: [
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        }
+      ]
+    },
+    {
+      IpamPolicyId: "__IpamPolicyId__",
+      Locale: "__Locale__",
+      ResourceType: "__ResourceType__",
+      AllocationRules: [
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        },
+        {
+          SourceIpamPoolId: "__SourceIpamPoolId__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

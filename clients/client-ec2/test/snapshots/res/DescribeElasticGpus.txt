@@ -1,0 +1,273 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeElasticGpusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeElasticGpusResult xmlns="https://placeholder.amazonaws.com">
+    <elasticGpuSet>
+        <item>
+            <elasticGpuId>
+                __ElasticGpuId__
+            </elasticGpuId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <elasticGpuType>
+                __ElasticGpuType__
+            </elasticGpuType>
+            <elasticGpuHealth>
+                <status>
+                    __Status__
+                </status>
+            </elasticGpuHealth>
+            <elasticGpuState>
+                __ElasticGpuState__
+            </elasticGpuState>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <elasticGpuId>
+                __ElasticGpuId__
+            </elasticGpuId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <elasticGpuType>
+                __ElasticGpuType__
+            </elasticGpuType>
+            <elasticGpuHealth>
+                <status>
+                    __Status__
+                </status>
+            </elasticGpuHealth>
+            <elasticGpuState>
+                __ElasticGpuState__
+            </elasticGpuState>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <elasticGpuId>
+                __ElasticGpuId__
+            </elasticGpuId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <elasticGpuType>
+                __ElasticGpuType__
+            </elasticGpuType>
+            <elasticGpuHealth>
+                <status>
+                    __Status__
+                </status>
+            </elasticGpuHealth>
+            <elasticGpuState>
+                __ElasticGpuState__
+            </elasticGpuState>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </elasticGpuSet>
+    <maxResults>
+        0
+    </maxResults>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeElasticGpusResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ElasticGpuSet: [
+    {
+      ElasticGpuId: "__ElasticGpuId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      ElasticGpuType: "__ElasticGpuType__",
+      ElasticGpuHealth: {
+        Status: "__Status__"
+      },
+      ElasticGpuState: "__ElasticGpuState__",
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      ElasticGpuId: "__ElasticGpuId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      ElasticGpuType: "__ElasticGpuType__",
+      ElasticGpuHealth: {
+        Status: "__Status__"
+      },
+      ElasticGpuState: "__ElasticGpuState__",
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      ElasticGpuId: "__ElasticGpuId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      ElasticGpuType: "__ElasticGpuType__",
+      ElasticGpuHealth: {
+        Status: "__Status__"
+      },
+      ElasticGpuState: "__ElasticGpuState__",
+      InstanceId: "__InstanceId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  MaxResults: (number) 0,
+  NextToken: "__NextToken__"
+}
+

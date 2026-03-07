@@ -1,0 +1,1181 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVerifiedAccessEndpointsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVerifiedAccessEndpointsResult xmlns="https://placeholder.amazonaws.com">
+    <verifiedAccessEndpointSet>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <verifiedAccessGroupId>
+                __VerifiedAccessGroupId__
+            </verifiedAccessGroupId>
+            <verifiedAccessEndpointId>
+                __VerifiedAccessEndpointId__
+            </verifiedAccessEndpointId>
+            <applicationDomain>
+                __ApplicationDomain__
+            </applicationDomain>
+            <endpointType>
+                __EndpointType__
+            </endpointType>
+            <attachmentType>
+                __AttachmentType__
+            </attachmentType>
+            <domainCertificateArn>
+                __DomainCertificateArn__
+            </domainCertificateArn>
+            <endpointDomain>
+                __EndpointDomain__
+            </endpointDomain>
+            <deviceValidationDomain>
+                __DeviceValidationDomain__
+            </deviceValidationDomain>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <loadBalancerOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <loadBalancerArn>
+                    __LoadBalancerArn__
+                </loadBalancerArn>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </loadBalancerOptions>
+            <networkInterfaceOptions>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </networkInterfaceOptions>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <lastUpdatedTime>
+                __LastUpdatedTime__
+            </lastUpdatedTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <sseSpecification>
+                <customerManagedKeyEnabled>
+                    false
+                </customerManagedKeyEnabled>
+                <kmsKeyArn>
+                    __KmsKeyArn__
+                </kmsKeyArn>
+            </sseSpecification>
+            <rdsOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <rdsDbInstanceArn>
+                    __RdsDbInstanceArn__
+                </rdsDbInstanceArn>
+                <rdsDbClusterArn>
+                    __RdsDbClusterArn__
+                </rdsDbClusterArn>
+                <rdsDbProxyArn>
+                    __RdsDbProxyArn__
+                </rdsDbProxyArn>
+                <rdsEndpoint>
+                    __RdsEndpoint__
+                </rdsEndpoint>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </rdsOptions>
+            <cidrOptions>
+                <cidr>
+                    __Cidr__
+                </cidr>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </cidrOptions>
+        </item>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <verifiedAccessGroupId>
+                __VerifiedAccessGroupId__
+            </verifiedAccessGroupId>
+            <verifiedAccessEndpointId>
+                __VerifiedAccessEndpointId__
+            </verifiedAccessEndpointId>
+            <applicationDomain>
+                __ApplicationDomain__
+            </applicationDomain>
+            <endpointType>
+                __EndpointType__
+            </endpointType>
+            <attachmentType>
+                __AttachmentType__
+            </attachmentType>
+            <domainCertificateArn>
+                __DomainCertificateArn__
+            </domainCertificateArn>
+            <endpointDomain>
+                __EndpointDomain__
+            </endpointDomain>
+            <deviceValidationDomain>
+                __DeviceValidationDomain__
+            </deviceValidationDomain>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <loadBalancerOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <loadBalancerArn>
+                    __LoadBalancerArn__
+                </loadBalancerArn>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </loadBalancerOptions>
+            <networkInterfaceOptions>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </networkInterfaceOptions>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <lastUpdatedTime>
+                __LastUpdatedTime__
+            </lastUpdatedTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <sseSpecification>
+                <customerManagedKeyEnabled>
+                    false
+                </customerManagedKeyEnabled>
+                <kmsKeyArn>
+                    __KmsKeyArn__
+                </kmsKeyArn>
+            </sseSpecification>
+            <rdsOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <rdsDbInstanceArn>
+                    __RdsDbInstanceArn__
+                </rdsDbInstanceArn>
+                <rdsDbClusterArn>
+                    __RdsDbClusterArn__
+                </rdsDbClusterArn>
+                <rdsDbProxyArn>
+                    __RdsDbProxyArn__
+                </rdsDbProxyArn>
+                <rdsEndpoint>
+                    __RdsEndpoint__
+                </rdsEndpoint>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </rdsOptions>
+            <cidrOptions>
+                <cidr>
+                    __Cidr__
+                </cidr>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </cidrOptions>
+        </item>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <verifiedAccessGroupId>
+                __VerifiedAccessGroupId__
+            </verifiedAccessGroupId>
+            <verifiedAccessEndpointId>
+                __VerifiedAccessEndpointId__
+            </verifiedAccessEndpointId>
+            <applicationDomain>
+                __ApplicationDomain__
+            </applicationDomain>
+            <endpointType>
+                __EndpointType__
+            </endpointType>
+            <attachmentType>
+                __AttachmentType__
+            </attachmentType>
+            <domainCertificateArn>
+                __DomainCertificateArn__
+            </domainCertificateArn>
+            <endpointDomain>
+                __EndpointDomain__
+            </endpointDomain>
+            <deviceValidationDomain>
+                __DeviceValidationDomain__
+            </deviceValidationDomain>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <loadBalancerOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <loadBalancerArn>
+                    __LoadBalancerArn__
+                </loadBalancerArn>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </loadBalancerOptions>
+            <networkInterfaceOptions>
+                <networkInterfaceId>
+                    __NetworkInterfaceId__
+                </networkInterfaceId>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+            </networkInterfaceOptions>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <description>
+                __Description__
+            </description>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <lastUpdatedTime>
+                __LastUpdatedTime__
+            </lastUpdatedTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <sseSpecification>
+                <customerManagedKeyEnabled>
+                    false
+                </customerManagedKeyEnabled>
+                <kmsKeyArn>
+                    __KmsKeyArn__
+                </kmsKeyArn>
+            </sseSpecification>
+            <rdsOptions>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <port>
+                    0
+                </port>
+                <rdsDbInstanceArn>
+                    __RdsDbInstanceArn__
+                </rdsDbInstanceArn>
+                <rdsDbClusterArn>
+                    __RdsDbClusterArn__
+                </rdsDbClusterArn>
+                <rdsDbProxyArn>
+                    __RdsDbProxyArn__
+                </rdsDbProxyArn>
+                <rdsEndpoint>
+                    __RdsEndpoint__
+                </rdsEndpoint>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </rdsOptions>
+            <cidrOptions>
+                <cidr>
+                    __Cidr__
+                </cidr>
+                <portRangeSet>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                    <item>
+                        <fromPort>
+                            0
+                        </fromPort>
+                        <toPort>
+                            0
+                        </toPort>
+                    </item>
+                </portRangeSet>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <subnetIdSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </subnetIdSet>
+            </cidrOptions>
+        </item>
+    </verifiedAccessEndpointSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVerifiedAccessEndpointsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VerifiedAccessEndpoints: [
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      VerifiedAccessGroupId: "__VerifiedAccessGroupId__",
+      VerifiedAccessEndpointId: "__VerifiedAccessEndpointId__",
+      ApplicationDomain: "__ApplicationDomain__",
+      EndpointType: "__EndpointType__",
+      AttachmentType: "__AttachmentType__",
+      DomainCertificateArn: "__DomainCertificateArn__",
+      EndpointDomain: "__EndpointDomain__",
+      DeviceValidationDomain: "__DeviceValidationDomain__",
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LoadBalancerOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        LoadBalancerArn: "__LoadBalancerArn__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      NetworkInterfaceOptions: {
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__",
+      CreationTime: "__CreationTime__",
+      LastUpdatedTime: "__LastUpdatedTime__",
+      DeletionTime: "__DeletionTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SseSpecification: {
+        CustomerManagedKeyEnabled: (boolean) false,
+        KmsKeyArn: "__KmsKeyArn__"
+      },
+      RdsOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        RdsDbInstanceArn: "__RdsDbInstanceArn__",
+        RdsDbClusterArn: "__RdsDbClusterArn__",
+        RdsDbProxyArn: "__RdsDbProxyArn__",
+        RdsEndpoint: "__RdsEndpoint__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      CidrOptions: {
+        Cidr: "__Cidr__",
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ],
+        Protocol: "__Protocol__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      VerifiedAccessGroupId: "__VerifiedAccessGroupId__",
+      VerifiedAccessEndpointId: "__VerifiedAccessEndpointId__",
+      ApplicationDomain: "__ApplicationDomain__",
+      EndpointType: "__EndpointType__",
+      AttachmentType: "__AttachmentType__",
+      DomainCertificateArn: "__DomainCertificateArn__",
+      EndpointDomain: "__EndpointDomain__",
+      DeviceValidationDomain: "__DeviceValidationDomain__",
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LoadBalancerOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        LoadBalancerArn: "__LoadBalancerArn__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      NetworkInterfaceOptions: {
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__",
+      CreationTime: "__CreationTime__",
+      LastUpdatedTime: "__LastUpdatedTime__",
+      DeletionTime: "__DeletionTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SseSpecification: {
+        CustomerManagedKeyEnabled: (boolean) false,
+        KmsKeyArn: "__KmsKeyArn__"
+      },
+      RdsOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        RdsDbInstanceArn: "__RdsDbInstanceArn__",
+        RdsDbClusterArn: "__RdsDbClusterArn__",
+        RdsDbProxyArn: "__RdsDbProxyArn__",
+        RdsEndpoint: "__RdsEndpoint__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      CidrOptions: {
+        Cidr: "__Cidr__",
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ],
+        Protocol: "__Protocol__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      VerifiedAccessGroupId: "__VerifiedAccessGroupId__",
+      VerifiedAccessEndpointId: "__VerifiedAccessEndpointId__",
+      ApplicationDomain: "__ApplicationDomain__",
+      EndpointType: "__EndpointType__",
+      AttachmentType: "__AttachmentType__",
+      DomainCertificateArn: "__DomainCertificateArn__",
+      EndpointDomain: "__EndpointDomain__",
+      DeviceValidationDomain: "__DeviceValidationDomain__",
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      LoadBalancerOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        LoadBalancerArn: "__LoadBalancerArn__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      NetworkInterfaceOptions: {
+        NetworkInterfaceId: "__NetworkInterfaceId__",
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ]
+      },
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      Description: "__Description__",
+      CreationTime: "__CreationTime__",
+      LastUpdatedTime: "__LastUpdatedTime__",
+      DeletionTime: "__DeletionTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SseSpecification: {
+        CustomerManagedKeyEnabled: (boolean) false,
+        KmsKeyArn: "__KmsKeyArn__"
+      },
+      RdsOptions: {
+        Protocol: "__Protocol__",
+        Port: (number) 0,
+        RdsDbInstanceArn: "__RdsDbInstanceArn__",
+        RdsDbClusterArn: "__RdsDbClusterArn__",
+        RdsDbProxyArn: "__RdsDbProxyArn__",
+        RdsEndpoint: "__RdsEndpoint__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      CidrOptions: {
+        Cidr: "__Cidr__",
+        PortRanges: [
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          },
+          {
+            FromPort: (number) 0,
+            ToPort: (number) 0
+          }
+        ],
+        Protocol: "__Protocol__",
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

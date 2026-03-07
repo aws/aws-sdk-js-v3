@@ -1,0 +1,1157 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnEndpointsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnEndpointsResult xmlns="https://placeholder.amazonaws.com">
+    <clientVpnEndpoint>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <dnsName>
+                __DnsName__
+            </dnsName>
+            <clientCidrBlock>
+                __ClientCidrBlock__
+            </clientCidrBlock>
+            <dnsServer>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </dnsServer>
+            <splitTunnel>
+                false
+            </splitTunnel>
+            <vpnProtocol>
+                __VpnProtocol__
+            </vpnProtocol>
+            <transportProtocol>
+                __TransportProtocol__
+            </transportProtocol>
+            <vpnPort>
+                0
+            </vpnPort>
+            <associatedTargetNetwork>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+            </associatedTargetNetwork>
+            <serverCertificateArn>
+                __ServerCertificateArn__
+            </serverCertificateArn>
+            <authenticationOptions>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+            </authenticationOptions>
+            <connectionLogOptions>
+                <Enabled>
+                    false
+                </Enabled>
+                <CloudwatchLogGroup>
+                    __CloudwatchLogGroup__
+                </CloudwatchLogGroup>
+                <CloudwatchLogStream>
+                    __CloudwatchLogStream__
+                </CloudwatchLogStream>
+            </connectionLogOptions>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <selfServicePortalUrl>
+                __SelfServicePortalUrl__
+            </selfServicePortalUrl>
+            <clientConnectOptions>
+                <enabled>
+                    false
+                </enabled>
+                <lambdaFunctionArn>
+                    __LambdaFunctionArn__
+                </lambdaFunctionArn>
+                <status>
+                    <code>
+                        __Code__
+                    </code>
+                    <message>
+                        __Message__
+                    </message>
+                </status>
+            </clientConnectOptions>
+            <sessionTimeoutHours>
+                0
+            </sessionTimeoutHours>
+            <clientLoginBannerOptions>
+                <enabled>
+                    false
+                </enabled>
+                <bannerText>
+                    __BannerText__
+                </bannerText>
+            </clientLoginBannerOptions>
+            <clientRouteEnforcementOptions>
+                <enforced>
+                    false
+                </enforced>
+            </clientRouteEnforcementOptions>
+            <disconnectOnSessionTimeout>
+                false
+            </disconnectOnSessionTimeout>
+            <endpointIpAddressType>
+                __EndpointIpAddressType__
+            </endpointIpAddressType>
+            <trafficIpAddressType>
+                __TrafficIpAddressType__
+            </trafficIpAddressType>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <dnsName>
+                __DnsName__
+            </dnsName>
+            <clientCidrBlock>
+                __ClientCidrBlock__
+            </clientCidrBlock>
+            <dnsServer>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </dnsServer>
+            <splitTunnel>
+                false
+            </splitTunnel>
+            <vpnProtocol>
+                __VpnProtocol__
+            </vpnProtocol>
+            <transportProtocol>
+                __TransportProtocol__
+            </transportProtocol>
+            <vpnPort>
+                0
+            </vpnPort>
+            <associatedTargetNetwork>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+            </associatedTargetNetwork>
+            <serverCertificateArn>
+                __ServerCertificateArn__
+            </serverCertificateArn>
+            <authenticationOptions>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+            </authenticationOptions>
+            <connectionLogOptions>
+                <Enabled>
+                    false
+                </Enabled>
+                <CloudwatchLogGroup>
+                    __CloudwatchLogGroup__
+                </CloudwatchLogGroup>
+                <CloudwatchLogStream>
+                    __CloudwatchLogStream__
+                </CloudwatchLogStream>
+            </connectionLogOptions>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <selfServicePortalUrl>
+                __SelfServicePortalUrl__
+            </selfServicePortalUrl>
+            <clientConnectOptions>
+                <enabled>
+                    false
+                </enabled>
+                <lambdaFunctionArn>
+                    __LambdaFunctionArn__
+                </lambdaFunctionArn>
+                <status>
+                    <code>
+                        __Code__
+                    </code>
+                    <message>
+                        __Message__
+                    </message>
+                </status>
+            </clientConnectOptions>
+            <sessionTimeoutHours>
+                0
+            </sessionTimeoutHours>
+            <clientLoginBannerOptions>
+                <enabled>
+                    false
+                </enabled>
+                <bannerText>
+                    __BannerText__
+                </bannerText>
+            </clientLoginBannerOptions>
+            <clientRouteEnforcementOptions>
+                <enforced>
+                    false
+                </enforced>
+            </clientRouteEnforcementOptions>
+            <disconnectOnSessionTimeout>
+                false
+            </disconnectOnSessionTimeout>
+            <endpointIpAddressType>
+                __EndpointIpAddressType__
+            </endpointIpAddressType>
+            <trafficIpAddressType>
+                __TrafficIpAddressType__
+            </trafficIpAddressType>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+            <creationTime>
+                __CreationTime__
+            </creationTime>
+            <deletionTime>
+                __DeletionTime__
+            </deletionTime>
+            <dnsName>
+                __DnsName__
+            </dnsName>
+            <clientCidrBlock>
+                __ClientCidrBlock__
+            </clientCidrBlock>
+            <dnsServer>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </dnsServer>
+            <splitTunnel>
+                false
+            </splitTunnel>
+            <vpnProtocol>
+                __VpnProtocol__
+            </vpnProtocol>
+            <transportProtocol>
+                __TransportProtocol__
+            </transportProtocol>
+            <vpnPort>
+                0
+            </vpnPort>
+            <associatedTargetNetwork>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+                <item>
+                    <networkId>
+                        __NetworkId__
+                    </networkId>
+                    <networkType>
+                        __NetworkType__
+                    </networkType>
+                </item>
+            </associatedTargetNetwork>
+            <serverCertificateArn>
+                __ServerCertificateArn__
+            </serverCertificateArn>
+            <authenticationOptions>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <activeDirectory>
+                        <directoryId>
+                            __DirectoryId__
+                        </directoryId>
+                    </activeDirectory>
+                    <mutualAuthentication>
+                        <clientRootCertificateChain>
+                            __ClientRootCertificateChain__
+                        </clientRootCertificateChain>
+                    </mutualAuthentication>
+                    <federatedAuthentication>
+                        <samlProviderArn>
+                            __SamlProviderArn__
+                        </samlProviderArn>
+                        <selfServiceSamlProviderArn>
+                            __SelfServiceSamlProviderArn__
+                        </selfServiceSamlProviderArn>
+                    </federatedAuthentication>
+                </item>
+            </authenticationOptions>
+            <connectionLogOptions>
+                <Enabled>
+                    false
+                </Enabled>
+                <CloudwatchLogGroup>
+                    __CloudwatchLogGroup__
+                </CloudwatchLogGroup>
+                <CloudwatchLogStream>
+                    __CloudwatchLogStream__
+                </CloudwatchLogStream>
+            </connectionLogOptions>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <selfServicePortalUrl>
+                __SelfServicePortalUrl__
+            </selfServicePortalUrl>
+            <clientConnectOptions>
+                <enabled>
+                    false
+                </enabled>
+                <lambdaFunctionArn>
+                    __LambdaFunctionArn__
+                </lambdaFunctionArn>
+                <status>
+                    <code>
+                        __Code__
+                    </code>
+                    <message>
+                        __Message__
+                    </message>
+                </status>
+            </clientConnectOptions>
+            <sessionTimeoutHours>
+                0
+            </sessionTimeoutHours>
+            <clientLoginBannerOptions>
+                <enabled>
+                    false
+                </enabled>
+                <bannerText>
+                    __BannerText__
+                </bannerText>
+            </clientLoginBannerOptions>
+            <clientRouteEnforcementOptions>
+                <enforced>
+                    false
+                </enforced>
+            </clientRouteEnforcementOptions>
+            <disconnectOnSessionTimeout>
+                false
+            </disconnectOnSessionTimeout>
+            <endpointIpAddressType>
+                __EndpointIpAddressType__
+            </endpointIpAddressType>
+            <trafficIpAddressType>
+                __TrafficIpAddressType__
+            </trafficIpAddressType>
+        </item>
+    </clientVpnEndpoint>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClientVpnEndpointsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ClientVpnEndpoints: [
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CreationTime: "__CreationTime__",
+      DeletionTime: "__DeletionTime__",
+      DnsName: "__DnsName__",
+      ClientCidrBlock: "__ClientCidrBlock__",
+      DnsServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SplitTunnel: (boolean) false,
+      VpnProtocol: "__VpnProtocol__",
+      TransportProtocol: "__TransportProtocol__",
+      VpnPort: (number) 0,
+      AssociatedTargetNetworks: [
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        }
+      ],
+      ServerCertificateArn: "__ServerCertificateArn__",
+      AuthenticationOptions: [
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        }
+      ],
+      ConnectionLogOptions: {
+        Enabled: (boolean) false,
+        CloudwatchLogGroup: "__CloudwatchLogGroup__",
+        CloudwatchLogStream: "__CloudwatchLogStream__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcId: "__VpcId__",
+      SelfServicePortalUrl: "__SelfServicePortalUrl__",
+      ClientConnectOptions: {
+        Enabled: (boolean) false,
+        LambdaFunctionArn: "__LambdaFunctionArn__",
+        Status: {
+          Code: "__Code__",
+          Message: "__Message__"
+        }
+      },
+      SessionTimeoutHours: (number) 0,
+      ClientLoginBannerOptions: {
+        Enabled: (boolean) false,
+        BannerText: "__BannerText__"
+      },
+      ClientRouteEnforcementOptions: {
+        Enforced: (boolean) false
+      },
+      DisconnectOnSessionTimeout: (boolean) false,
+      EndpointIpAddressType: "__EndpointIpAddressType__",
+      TrafficIpAddressType: "__TrafficIpAddressType__"
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CreationTime: "__CreationTime__",
+      DeletionTime: "__DeletionTime__",
+      DnsName: "__DnsName__",
+      ClientCidrBlock: "__ClientCidrBlock__",
+      DnsServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SplitTunnel: (boolean) false,
+      VpnProtocol: "__VpnProtocol__",
+      TransportProtocol: "__TransportProtocol__",
+      VpnPort: (number) 0,
+      AssociatedTargetNetworks: [
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        }
+      ],
+      ServerCertificateArn: "__ServerCertificateArn__",
+      AuthenticationOptions: [
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        }
+      ],
+      ConnectionLogOptions: {
+        Enabled: (boolean) false,
+        CloudwatchLogGroup: "__CloudwatchLogGroup__",
+        CloudwatchLogStream: "__CloudwatchLogStream__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcId: "__VpcId__",
+      SelfServicePortalUrl: "__SelfServicePortalUrl__",
+      ClientConnectOptions: {
+        Enabled: (boolean) false,
+        LambdaFunctionArn: "__LambdaFunctionArn__",
+        Status: {
+          Code: "__Code__",
+          Message: "__Message__"
+        }
+      },
+      SessionTimeoutHours: (number) 0,
+      ClientLoginBannerOptions: {
+        Enabled: (boolean) false,
+        BannerText: "__BannerText__"
+      },
+      ClientRouteEnforcementOptions: {
+        Enforced: (boolean) false
+      },
+      DisconnectOnSessionTimeout: (boolean) false,
+      EndpointIpAddressType: "__EndpointIpAddressType__",
+      TrafficIpAddressType: "__TrafficIpAddressType__"
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CreationTime: "__CreationTime__",
+      DeletionTime: "__DeletionTime__",
+      DnsName: "__DnsName__",
+      ClientCidrBlock: "__ClientCidrBlock__",
+      DnsServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SplitTunnel: (boolean) false,
+      VpnProtocol: "__VpnProtocol__",
+      TransportProtocol: "__TransportProtocol__",
+      VpnPort: (number) 0,
+      AssociatedTargetNetworks: [
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        },
+        {
+          NetworkId: "__NetworkId__",
+          NetworkType: "__NetworkType__"
+        }
+      ],
+      ServerCertificateArn: "__ServerCertificateArn__",
+      AuthenticationOptions: [
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        },
+        {
+          Type: "__Type__",
+          ActiveDirectory: {
+            DirectoryId: "__DirectoryId__"
+          },
+          MutualAuthentication: {
+            ClientRootCertificateChain: "__ClientRootCertificateChain__"
+          },
+          FederatedAuthentication: {
+            SamlProviderArn: "__SamlProviderArn__",
+            SelfServiceSamlProviderArn: "__SelfServiceSamlProviderArn__"
+          }
+        }
+      ],
+      ConnectionLogOptions: {
+        Enabled: (boolean) false,
+        CloudwatchLogGroup: "__CloudwatchLogGroup__",
+        CloudwatchLogStream: "__CloudwatchLogStream__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      VpcId: "__VpcId__",
+      SelfServicePortalUrl: "__SelfServicePortalUrl__",
+      ClientConnectOptions: {
+        Enabled: (boolean) false,
+        LambdaFunctionArn: "__LambdaFunctionArn__",
+        Status: {
+          Code: "__Code__",
+          Message: "__Message__"
+        }
+      },
+      SessionTimeoutHours: (number) 0,
+      ClientLoginBannerOptions: {
+        Enabled: (boolean) false,
+        BannerText: "__BannerText__"
+      },
+      ClientRouteEnforcementOptions: {
+        Enforced: (boolean) false
+      },
+      DisconnectOnSessionTimeout: (boolean) false,
+      EndpointIpAddressType: "__EndpointIpAddressType__",
+      TrafficIpAddressType: "__TrafficIpAddressType__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

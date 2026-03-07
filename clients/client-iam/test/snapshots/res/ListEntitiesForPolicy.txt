@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListEntitiesForPolicyResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListEntitiesForPolicyResponse xmlns="https://placeholder.amazonaws.com">
+    <PolicyGroups>
+        <member>
+            <GroupName>
+                __GroupName__
+            </GroupName>
+            <GroupId>
+                __GroupId__
+            </GroupId>
+        </member>
+        <member>
+            <GroupName>
+                __GroupName__
+            </GroupName>
+            <GroupId>
+                __GroupId__
+            </GroupId>
+        </member>
+        <member>
+            <GroupName>
+                __GroupName__
+            </GroupName>
+            <GroupId>
+                __GroupId__
+            </GroupId>
+        </member>
+    </PolicyGroups>
+    <PolicyUsers>
+        <member>
+            <UserName>
+                __UserName__
+            </UserName>
+            <UserId>
+                __UserId__
+            </UserId>
+        </member>
+        <member>
+            <UserName>
+                __UserName__
+            </UserName>
+            <UserId>
+                __UserId__
+            </UserId>
+        </member>
+        <member>
+            <UserName>
+                __UserName__
+            </UserName>
+            <UserId>
+                __UserId__
+            </UserId>
+        </member>
+    </PolicyUsers>
+    <PolicyRoles>
+        <member>
+            <RoleName>
+                __RoleName__
+            </RoleName>
+            <RoleId>
+                __RoleId__
+            </RoleId>
+        </member>
+        <member>
+            <RoleName>
+                __RoleName__
+            </RoleName>
+            <RoleId>
+                __RoleId__
+            </RoleId>
+        </member>
+        <member>
+            <RoleName>
+                __RoleName__
+            </RoleName>
+            <RoleId>
+                __RoleId__
+            </RoleId>
+        </member>
+    </PolicyRoles>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <Marker>
+        __Marker__
+    </Marker>
+</ListEntitiesForPolicyResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

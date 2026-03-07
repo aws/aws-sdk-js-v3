@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayMulticastDomainResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateTransitGatewayMulticastDomainResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayMulticastDomain>
+        <transitGatewayMulticastDomainId>
+            __TransitGatewayMulticastDomainId__
+        </transitGatewayMulticastDomainId>
+        <transitGatewayId>
+            __TransitGatewayId__
+        </transitGatewayId>
+        <transitGatewayMulticastDomainArn>
+            __TransitGatewayMulticastDomainArn__
+        </transitGatewayMulticastDomainArn>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <options>
+            <igmpv2Support>
+                __Igmpv2Support__
+            </igmpv2Support>
+            <staticSourcesSupport>
+                __StaticSourcesSupport__
+            </staticSourcesSupport>
+            <autoAcceptSharedAssociations>
+                __AutoAcceptSharedAssociations__
+            </autoAcceptSharedAssociations>
+        </options>
+        <state>
+            __State__
+        </state>
+        <creationTime>
+            2000-01-01T04:59:59.999Z
+        </creationTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </transitGatewayMulticastDomain>
+</CreateTransitGatewayMulticastDomainResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGatewayMulticastDomain: {
+    TransitGatewayMulticastDomainId: "__TransitGatewayMulticastDomainId__",
+    TransitGatewayId: "__TransitGatewayId__",
+    TransitGatewayMulticastDomainArn: "__TransitGatewayMulticastDomainArn__",
+    OwnerId: "__OwnerId__",
+    Options: {
+      Igmpv2Support: "__Igmpv2Support__",
+      StaticSourcesSupport: "__StaticSourcesSupport__",
+      AutoAcceptSharedAssociations: "__AutoAcceptSharedAssociations__"
+    },
+    State: "__State__",
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

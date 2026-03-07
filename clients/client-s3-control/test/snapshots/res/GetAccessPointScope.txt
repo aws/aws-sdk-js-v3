@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessPointScopeResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetAccessPointScopeResult xmlns="https://placeholder.amazonaws.com">
+    <Scope>
+        <Prefixes>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+            <Prefix>
+                __member__
+            </Prefix>
+        </Prefixes>
+        <Permissions>
+            <Permission>
+                __member__
+            </Permission>
+            <Permission>
+                __member__
+            </Permission>
+            <Permission>
+                __member__
+            </Permission>
+        </Permissions>
+    </Scope>
+</GetAccessPointScopeResult>
+
+
+--- [output object] ---
+{
+  Scope: {
+    Prefixes: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    Permissions: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,226 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Workteam": {
+    "WorkteamName": "__WorkteamName__",
+    "MemberDefinitions": [
+      {},
+      {},
+      {}
+    ],
+    "WorkteamArn": "__WorkteamArn__",
+    "Description": "__Description__",
+    "WorkforceArn": "__WorkforceArn__",
+    "ProductListingIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SubDomain": "__SubDomain__",
+    "CreateDate": 946702799.999,
+    "LastUpdatedDate": 946702799.999,
+    "NotificationConfiguration": {},
+    "WorkerAccessConfiguration": {}
+  }
+}
+
+
+--- [output object] ---
+{
+  Workteam: {
+    WorkteamName: "__WorkteamName__",
+    MemberDefinitions: [
+      {},
+      {},
+      {}
+    ],
+    WorkteamArn: "__WorkteamArn__",
+    Description: "__Description__",
+    WorkforceArn: "__WorkforceArn__",
+    ProductListingIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    SubDomain: "__SubDomain__",
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastUpdatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    NotificationConfiguration: {},
+    WorkerAccessConfiguration: {}
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Workteam": {
+    "WorkteamName": "__WorkteamName__",
+    "MemberDefinitions": [
+      {
+        "CognitoMemberDefinition": {
+          "UserPool": "__UserPool__",
+          "UserGroup": "__UserGroup__",
+          "ClientId": "__ClientId__"
+        },
+        "OidcMemberDefinition": {
+          "Groups": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        "CognitoMemberDefinition": {
+          "UserPool": "__UserPool__",
+          "UserGroup": "__UserGroup__",
+          "ClientId": "__ClientId__"
+        },
+        "OidcMemberDefinition": {
+          "Groups": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        "CognitoMemberDefinition": {
+          "UserPool": "__UserPool__",
+          "UserGroup": "__UserGroup__",
+          "ClientId": "__ClientId__"
+        },
+        "OidcMemberDefinition": {
+          "Groups": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    ],
+    "WorkteamArn": "__WorkteamArn__",
+    "Description": "__Description__",
+    "WorkforceArn": "__WorkforceArn__",
+    "ProductListingIds": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "SubDomain": "__SubDomain__",
+    "CreateDate": 946702799.999,
+    "LastUpdatedDate": 946702799.999,
+    "NotificationConfiguration": {
+      "NotificationTopicArn": "__NotificationTopicArn__"
+    },
+    "WorkerAccessConfiguration": {
+      "S3Presign": {
+        "IamPolicyConstraints": {
+          "SourceIp": "__SourceIp__",
+          "VpcSourceIp": "__VpcSourceIp__"
+        }
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  Workteam: {
+    WorkteamName: "__WorkteamName__",
+    MemberDefinitions: [
+      {
+        CognitoMemberDefinition: {
+          UserPool: "__UserPool__",
+          UserGroup: "__UserGroup__",
+          ClientId: "__ClientId__"
+        },
+        OidcMemberDefinition: {
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        CognitoMemberDefinition: {
+          UserPool: "__UserPool__",
+          UserGroup: "__UserGroup__",
+          ClientId: "__ClientId__"
+        },
+        OidcMemberDefinition: {
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      {
+        CognitoMemberDefinition: {
+          UserPool: "__UserPool__",
+          UserGroup: "__UserGroup__",
+          ClientId: "__ClientId__"
+        },
+        OidcMemberDefinition: {
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    ],
+    WorkteamArn: "__WorkteamArn__",
+    Description: "__Description__",
+    WorkforceArn: "__WorkforceArn__",
+    ProductListingIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    SubDomain: "__SubDomain__",
+    CreateDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    LastUpdatedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    NotificationConfiguration: {
+      NotificationTopicArn: "__NotificationTopicArn__"
+    },
+    WorkerAccessConfiguration: {
+      S3Presign: {
+        IamPolicyConstraints: {
+          SourceIp: "__SourceIp__",
+          VpcSourceIp: "__VpcSourceIp__"
+        }
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

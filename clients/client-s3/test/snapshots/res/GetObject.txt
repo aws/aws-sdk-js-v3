@@ -1,0 +1,140 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+Cg==
+
+
+
+--- [output object] ---
+{
+  Body: async_it[
+    ""
+  ],
+  Metadata: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-delete-marker: false
+accept-ranges: __AcceptRanges__
+x-amz-expiration: __Expiration__
+x-amz-restore: __Restore__
+Last-Modified: Sat, 01 Jan 2000 04:59:59 GMT
+Content-Length: 0
+ETag: __ETag__
+x-amz-checksum-crc32: __ChecksumCRC32__
+x-amz-checksum-crc32c: __ChecksumCRC32C__
+x-amz-checksum-crc64nvme: __ChecksumCRC64NVME__
+x-amz-checksum-sha1: __ChecksumSHA1__
+x-amz-checksum-sha256: __ChecksumSHA256__
+x-amz-checksum-type: __ChecksumType__
+x-amz-missing-meta: 0
+x-amz-version-id: __VersionId__
+Cache-Control: __CacheControl__
+Content-Disposition: __ContentDisposition__
+Content-Encoding: __ContentEncoding__
+Content-Language: __ContentLanguage__
+Content-Range: __ContentRange__
+Content-Type: __ContentType__
+Expires: Sat, 01 Jan 2000 04:59:59 GMT
+ExpiresString: __ExpiresString__
+x-amz-website-redirect-location: __WebsiteRedirectLocation__
+x-amz-server-side-encryption: __ServerSideEncryption__
+x-amz-server-side-encryption-customer-algorithm: __SSECustomerAlgorithm__
+x-amz-server-side-encryption-customer-key-MD5: __SSECustomerKeyMD5__
+x-amz-server-side-encryption-aws-kms-key-id: __SSEKMSKeyId__
+x-amz-server-side-encryption-bucket-key-enabled: false
+x-amz-storage-class: __StorageClass__
+x-amz-request-charged: __RequestCharged__
+x-amz-replication-status: __ReplicationStatus__
+x-amz-mp-parts-count: 0
+x-amz-tagging-count: 0
+x-amz-object-lock-mode: __ObjectLockMode__
+x-amz-object-lock-retain-until-date: 2000-01-01T04:59:59.999Z
+x-amz-object-lock-legal-hold: __ObjectLockLegalHoldStatus__
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+MQo=
+[chunk (b64)]
+MAo=
+[chunk (b64)]
+MAo=
+[chunk (b64)]
+MQo=
+
+
+
+--- [output object] ---
+{
+  Body: async_it[
+    (number) 1,
+    (number) 0,
+    (number) 0,
+    (number) 1
+  ],
+  DeleteMarker: (boolean) false,
+  AcceptRanges: "__AcceptRanges__",
+  Expiration: "__Expiration__",
+  Restore: "__Restore__",
+  LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ContentLength: (number) 0,
+  ETag: "__ETag__",
+  ChecksumCRC32: "__ChecksumCRC32__",
+  ChecksumCRC32C: "__ChecksumCRC32C__",
+  ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+  ChecksumSHA1: "__ChecksumSHA1__",
+  ChecksumSHA256: "__ChecksumSHA256__",
+  ChecksumType: "__ChecksumType__",
+  MissingMeta: (number) 0,
+  VersionId: "__VersionId__",
+  CacheControl: "__CacheControl__",
+  ContentDisposition: "__ContentDisposition__",
+  ContentEncoding: "__ContentEncoding__",
+  ContentLanguage: "__ContentLanguage__",
+  ContentRange: "__ContentRange__",
+  ContentType: "__ContentType__",
+  Expires: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ExpiresString: "__ExpiresString__",
+  WebsiteRedirectLocation: "__WebsiteRedirectLocation__",
+  ServerSideEncryption: "__ServerSideEncryption__",
+  Metadata: {},
+  SSECustomerAlgorithm: "__SSECustomerAlgorithm__",
+  SSECustomerKeyMD5: "__SSECustomerKeyMD5__",
+  SSEKMSKeyId: "__SSEKMSKeyId__",
+  BucketKeyEnabled: (boolean) false,
+  StorageClass: "__StorageClass__",
+  RequestCharged: "__RequestCharged__",
+  ReplicationStatus: "__ReplicationStatus__",
+  PartsCount: (number) 0,
+  TagCount: (number) 0,
+  ObjectLockMode: "__ObjectLockMode__",
+  ObjectLockRetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ObjectLockLegalHoldStatus: "__ObjectLockLegalHoldStatus__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

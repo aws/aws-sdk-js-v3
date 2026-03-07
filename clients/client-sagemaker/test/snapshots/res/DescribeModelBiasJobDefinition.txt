@@ -1,0 +1,358 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobDefinitionArn": "__JobDefinitionArn__",
+  "JobDefinitionName": "__JobDefinitionName__",
+  "CreationTime": 946702799.999,
+  "ModelBiasAppSpecification": {
+    "ImageUri": "__ImageUri__",
+    "ConfigUri": "__ConfigUri__",
+    "Environment": {
+      "key1": "__value__",
+      "key2": "__value__"
+    }
+  },
+  "ModelBiasJobInput": {
+    "GroundTruthS3Input": {},
+    "EndpointInput": {
+      "EndpointName": "__EndpointName__",
+      "LocalPath": "__LocalPath__",
+      "S3InputMode": "__S3InputMode__",
+      "S3DataDistributionType": "__S3DataDistributionType__",
+      "FeaturesAttribute": "__FeaturesAttribute__",
+      "InferenceAttribute": "__InferenceAttribute__",
+      "ProbabilityAttribute": "__ProbabilityAttribute__",
+      "ProbabilityThresholdAttribute": 0,
+      "StartTimeOffset": "__StartTimeOffset__",
+      "EndTimeOffset": "__EndTimeOffset__",
+      "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+    },
+    "BatchTransformInput": {
+      "DataCapturedDestinationS3Uri": "__DataCapturedDestinationS3Uri__",
+      "DatasetFormat": {},
+      "LocalPath": "__LocalPath__",
+      "S3InputMode": "__S3InputMode__",
+      "S3DataDistributionType": "__S3DataDistributionType__",
+      "FeaturesAttribute": "__FeaturesAttribute__",
+      "InferenceAttribute": "__InferenceAttribute__",
+      "ProbabilityAttribute": "__ProbabilityAttribute__",
+      "ProbabilityThresholdAttribute": 0,
+      "StartTimeOffset": "__StartTimeOffset__",
+      "EndTimeOffset": "__EndTimeOffset__",
+      "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+    }
+  },
+  "ModelBiasJobOutputConfig": {
+    "MonitoringOutputs": [
+      {},
+      {},
+      {}
+    ],
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "JobResources": {
+    "ClusterConfig": {
+      "InstanceCount": 0,
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+    }
+  },
+  "RoleArn": "__RoleArn__",
+  "ModelBiasBaselineConfig": {},
+  "NetworkConfig": {},
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  JobDefinitionArn: "__JobDefinitionArn__",
+  JobDefinitionName: "__JobDefinitionName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelBiasAppSpecification: {
+    ImageUri: "__ImageUri__",
+    ConfigUri: "__ConfigUri__",
+    Environment: {
+      key1: "__value__",
+      key2: "__value__"
+    }
+  },
+  ModelBiasJobInput: {
+    GroundTruthS3Input: {},
+    EndpointInput: {
+      EndpointName: "__EndpointName__",
+      LocalPath: "__LocalPath__",
+      S3InputMode: "__S3InputMode__",
+      S3DataDistributionType: "__S3DataDistributionType__",
+      FeaturesAttribute: "__FeaturesAttribute__",
+      InferenceAttribute: "__InferenceAttribute__",
+      ProbabilityAttribute: "__ProbabilityAttribute__",
+      ProbabilityThresholdAttribute: (number) 0,
+      StartTimeOffset: "__StartTimeOffset__",
+      EndTimeOffset: "__EndTimeOffset__",
+      ExcludeFeaturesAttribute: "__ExcludeFeaturesAttribute__"
+    },
+    BatchTransformInput: {
+      DataCapturedDestinationS3Uri: "__DataCapturedDestinationS3Uri__",
+      DatasetFormat: {},
+      LocalPath: "__LocalPath__",
+      S3InputMode: "__S3InputMode__",
+      S3DataDistributionType: "__S3DataDistributionType__",
+      FeaturesAttribute: "__FeaturesAttribute__",
+      InferenceAttribute: "__InferenceAttribute__",
+      ProbabilityAttribute: "__ProbabilityAttribute__",
+      ProbabilityThresholdAttribute: (number) 0,
+      StartTimeOffset: "__StartTimeOffset__",
+      EndTimeOffset: "__EndTimeOffset__",
+      ExcludeFeaturesAttribute: "__ExcludeFeaturesAttribute__"
+    }
+  },
+  ModelBiasJobOutputConfig: {
+    MonitoringOutputs: [
+      {},
+      {},
+      {}
+    ],
+    KmsKeyId: "__KmsKeyId__"
+  },
+  JobResources: {
+    ClusterConfig: {
+      InstanceCount: (number) 0,
+      InstanceType: "__InstanceType__",
+      VolumeSizeInGB: (number) 0,
+      VolumeKmsKeyId: "__VolumeKmsKeyId__"
+    }
+  },
+  RoleArn: "__RoleArn__",
+  ModelBiasBaselineConfig: {},
+  NetworkConfig: {},
+  StoppingCondition: {
+    MaxRuntimeInSeconds: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "JobDefinitionArn": "__JobDefinitionArn__",
+  "JobDefinitionName": "__JobDefinitionName__",
+  "CreationTime": 946702799.999,
+  "ModelBiasAppSpecification": {
+    "ImageUri": "__ImageUri__",
+    "ConfigUri": "__ConfigUri__",
+    "Environment": {
+      "key1": "__value__",
+      "key2": "__value__"
+    }
+  },
+  "ModelBiasJobInput": {
+    "GroundTruthS3Input": {
+      "S3Uri": "__S3Uri__"
+    },
+    "EndpointInput": {
+      "EndpointName": "__EndpointName__",
+      "LocalPath": "__LocalPath__",
+      "S3InputMode": "__S3InputMode__",
+      "S3DataDistributionType": "__S3DataDistributionType__",
+      "FeaturesAttribute": "__FeaturesAttribute__",
+      "InferenceAttribute": "__InferenceAttribute__",
+      "ProbabilityAttribute": "__ProbabilityAttribute__",
+      "ProbabilityThresholdAttribute": 0,
+      "StartTimeOffset": "__StartTimeOffset__",
+      "EndTimeOffset": "__EndTimeOffset__",
+      "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+    },
+    "BatchTransformInput": {
+      "DataCapturedDestinationS3Uri": "__DataCapturedDestinationS3Uri__",
+      "DatasetFormat": {
+        "Csv": {
+          "Header": false
+        },
+        "Json": {
+          "Line": false
+        },
+        "Parquet": {}
+      },
+      "LocalPath": "__LocalPath__",
+      "S3InputMode": "__S3InputMode__",
+      "S3DataDistributionType": "__S3DataDistributionType__",
+      "FeaturesAttribute": "__FeaturesAttribute__",
+      "InferenceAttribute": "__InferenceAttribute__",
+      "ProbabilityAttribute": "__ProbabilityAttribute__",
+      "ProbabilityThresholdAttribute": 0,
+      "StartTimeOffset": "__StartTimeOffset__",
+      "EndTimeOffset": "__EndTimeOffset__",
+      "ExcludeFeaturesAttribute": "__ExcludeFeaturesAttribute__"
+    }
+  },
+  "ModelBiasJobOutputConfig": {
+    "MonitoringOutputs": [
+      {},
+      {},
+      {}
+    ],
+    "KmsKeyId": "__KmsKeyId__"
+  },
+  "JobResources": {
+    "ClusterConfig": {
+      "InstanceCount": 0,
+      "InstanceType": "__InstanceType__",
+      "VolumeSizeInGB": 0,
+      "VolumeKmsKeyId": "__VolumeKmsKeyId__"
+    }
+  },
+  "RoleArn": "__RoleArn__",
+  "ModelBiasBaselineConfig": {
+    "BaseliningJobName": "__BaseliningJobName__",
+    "ConstraintsResource": {
+      "S3Uri": "__S3Uri__"
+    }
+  },
+  "NetworkConfig": {
+    "EnableInterContainerTrafficEncryption": false,
+    "EnableNetworkIsolation": false,
+    "VpcConfig": {
+      "SecurityGroupIds": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "Subnets": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "StoppingCondition": {
+    "MaxRuntimeInSeconds": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  JobDefinitionArn: "__JobDefinitionArn__",
+  JobDefinitionName: "__JobDefinitionName__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  ModelBiasAppSpecification: {
+    ImageUri: "__ImageUri__",
+    ConfigUri: "__ConfigUri__",
+    Environment: {
+      key1: "__value__",
+      key2: "__value__"
+    }
+  },
+  ModelBiasJobInput: {
+    GroundTruthS3Input: {
+      S3Uri: "__S3Uri__"
+    },
+    EndpointInput: {
+      EndpointName: "__EndpointName__",
+      LocalPath: "__LocalPath__",
+      S3InputMode: "__S3InputMode__",
+      S3DataDistributionType: "__S3DataDistributionType__",
+      FeaturesAttribute: "__FeaturesAttribute__",
+      InferenceAttribute: "__InferenceAttribute__",
+      ProbabilityAttribute: "__ProbabilityAttribute__",
+      ProbabilityThresholdAttribute: (number) 0,
+      StartTimeOffset: "__StartTimeOffset__",
+      EndTimeOffset: "__EndTimeOffset__",
+      ExcludeFeaturesAttribute: "__ExcludeFeaturesAttribute__"
+    },
+    BatchTransformInput: {
+      DataCapturedDestinationS3Uri: "__DataCapturedDestinationS3Uri__",
+      DatasetFormat: {
+        Csv: {
+          Header: (boolean) false
+        },
+        Json: {
+          Line: (boolean) false
+        },
+        Parquet: {}
+      },
+      LocalPath: "__LocalPath__",
+      S3InputMode: "__S3InputMode__",
+      S3DataDistributionType: "__S3DataDistributionType__",
+      FeaturesAttribute: "__FeaturesAttribute__",
+      InferenceAttribute: "__InferenceAttribute__",
+      ProbabilityAttribute: "__ProbabilityAttribute__",
+      ProbabilityThresholdAttribute: (number) 0,
+      StartTimeOffset: "__StartTimeOffset__",
+      EndTimeOffset: "__EndTimeOffset__",
+      ExcludeFeaturesAttribute: "__ExcludeFeaturesAttribute__"
+    }
+  },
+  ModelBiasJobOutputConfig: {
+    MonitoringOutputs: [
+      {},
+      {},
+      {}
+    ],
+    KmsKeyId: "__KmsKeyId__"
+  },
+  JobResources: {
+    ClusterConfig: {
+      InstanceCount: (number) 0,
+      InstanceType: "__InstanceType__",
+      VolumeSizeInGB: (number) 0,
+      VolumeKmsKeyId: "__VolumeKmsKeyId__"
+    }
+  },
+  RoleArn: "__RoleArn__",
+  ModelBiasBaselineConfig: {
+    BaseliningJobName: "__BaseliningJobName__",
+    ConstraintsResource: {
+      S3Uri: "__S3Uri__"
+    }
+  },
+  NetworkConfig: {
+    EnableInterContainerTrafficEncryption: (boolean) false,
+    EnableNetworkIsolation: (boolean) false,
+    VpcConfig: {
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Subnets: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  StoppingCondition: {
+    MaxRuntimeInSeconds: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,85 @@
+======================== minimal response ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{}
+
+[actual bytes]
+160
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "trueBooleanValue": false,
+  "falseBooleanValue": false,
+  "byteValue": 0,
+  "doubleValue": 0,
+  "floatValue": 0,
+  "integerValue": 0,
+  "longValue": 0,
+  "shortValue": 0,
+  "stringValue": "__stringValue__",
+  "blobValue": {
+    "type": "Buffer",
+    "data": [
+      1,
+      0,
+      0,
+      1
+    ]
+  }
+}
+
+[actual bytes]
+170, 112, 116, 114, 117, 101, 66, 111, 111, 108, 101, 97, 110, 86, 97, 108, 117, 101, 244, 113, 102, 97, 108, 115,
+101, 66, 111, 111, 108, 101, 97, 110, 86, 97, 108, 117, 101, 244, 105, 98, 121, 116, 101, 86, 97, 108, 117, 101,
+0, 107, 100, 111, 117, 98, 108, 101, 86, 97, 108, 117, 101, 0, 106, 102, 108, 111, 97, 116, 86, 97, 108, 117,
+101, 0, 108, 105, 110, 116, 101, 103, 101, 114, 86, 97, 108, 117, 101, 0, 105, 108, 111, 110, 103, 86, 97, 108,
+117, 101, 0, 106, 115, 104, 111, 114, 116, 86, 97, 108, 117, 101, 0, 107, 115, 116, 114, 105, 110, 103, 86, 97,
+108, 117, 101, 111, 95, 95, 115, 116, 114, 105, 110, 103, 86, 97, 108, 117, 101, 95, 95, 105, 98, 108, 111, 98,
+86, 97, 108, 117, 101, 68, 1, 0, 0, 1
+
+
+--- [output object] ---
+{
+  trueBooleanValue: (boolean) false,
+  falseBooleanValue: (boolean) false,
+  byteValue: (number) 0,
+  doubleValue: (number) 0,
+  floatValue: (number) 0,
+  integerValue: (number) 0,
+  longValue: (number) 0,
+  shortValue: (number) 0,
+  stringValue: "__stringValue__",
+  blobValue: (Uint8Array) bytes[1, 0, 0, 1],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

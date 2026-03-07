@@ -1,0 +1,106 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+
+[Uint8Array (xml)]
+<CreateTrafficPolicyVersionResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicy>
+        <Id>
+            __Id__
+        </Id>
+        <Version>
+            0
+        </Version>
+        <Name>
+            __Name__
+        </Name>
+        <Type>
+            __Type__
+        </Type>
+        <Document>
+            __Document__
+        </Document>
+        <Comment>
+            __Comment__
+        </Comment>
+    </TrafficPolicy>
+</CreateTrafficPolicyVersionResponse>
+
+
+--- [output object] ---
+{
+  Location: "__Location__",
+  TrafficPolicy: {
+    Id: "__Id__",
+    Version: (number) 0,
+    Name: "__Name__",
+    Type: "__Type__",
+    Document: "__Document__",
+    Comment: "__Comment__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+Location: __Location__
+
+[Uint8Array (xml)]
+<CreateTrafficPolicyVersionResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicy>
+        <Id>
+            __Id__
+        </Id>
+        <Version>
+            0
+        </Version>
+        <Name>
+            __Name__
+        </Name>
+        <Type>
+            __Type__
+        </Type>
+        <Document>
+            __Document__
+        </Document>
+        <Comment>
+            __Comment__
+        </Comment>
+    </TrafficPolicy>
+</CreateTrafficPolicyVersionResponse>
+
+
+--- [output object] ---
+{
+  Location: "__Location__",
+  TrafficPolicy: {
+    Id: "__Id__",
+    Version: (number) 0,
+    Name: "__Name__",
+    Type: "__Type__",
+    Document: "__Document__",
+    Comment: "__Comment__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

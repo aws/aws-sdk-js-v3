@@ -1,0 +1,430 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ImportTableDescription": {}
+}
+
+
+--- [output object] ---
+{
+  ImportTableDescription: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ImportTableDescription": {
+    "ImportArn": "__ImportArn__",
+    "ImportStatus": "__ImportStatus__",
+    "TableArn": "__TableArn__",
+    "TableId": "__TableId__",
+    "ClientToken": "__ClientToken__",
+    "S3BucketSource": {
+      "S3Bucket": "__S3Bucket__",
+      "S3BucketOwner": "__S3BucketOwner__",
+      "S3KeyPrefix": "__S3KeyPrefix__"
+    },
+    "ErrorCount": 0,
+    "CloudWatchLogGroupArn": "__CloudWatchLogGroupArn__",
+    "InputFormat": "__InputFormat__",
+    "InputFormatOptions": {
+      "Csv": {
+        "Delimiter": "__Delimiter__",
+        "HeaderList": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    "InputCompressionType": "__InputCompressionType__",
+    "TableCreationParameters": {
+      "TableName": "__TableName__",
+      "AttributeDefinitions": [
+        {
+          "AttributeName": "__AttributeName__",
+          "AttributeType": "__AttributeType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "AttributeType": "__AttributeType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "AttributeType": "__AttributeType__"
+        }
+      ],
+      "KeySchema": [
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        }
+      ],
+      "BillingMode": "__BillingMode__",
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0
+      },
+      "OnDemandThroughput": {
+        "MaxReadRequestUnits": 0,
+        "MaxWriteRequestUnits": 0
+      },
+      "SSESpecification": {
+        "Enabled": false,
+        "SSEType": "__SSEType__",
+        "KMSMasterKeyId": "__KMSMasterKeyId__"
+      },
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          },
+          "WarmThroughput": {
+            "ReadUnitsPerSecond": 0,
+            "WriteUnitsPerSecond": 0
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          },
+          "WarmThroughput": {
+            "ReadUnitsPerSecond": 0,
+            "WriteUnitsPerSecond": 0
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          },
+          "WarmThroughput": {
+            "ReadUnitsPerSecond": 0,
+            "WriteUnitsPerSecond": 0
+          }
+        }
+      ]
+    },
+    "StartTime": 946702799.999,
+    "EndTime": 946702799.999,
+    "ProcessedSizeBytes": 0,
+    "ProcessedItemCount": 0,
+    "ImportedItemCount": 0,
+    "FailureCode": "__FailureCode__",
+    "FailureMessage": "__FailureMessage__"
+  }
+}
+
+
+--- [output object] ---
+{
+  ImportTableDescription: {
+    ImportArn: "__ImportArn__",
+    ImportStatus: "__ImportStatus__",
+    TableArn: "__TableArn__",
+    TableId: "__TableId__",
+    ClientToken: "__ClientToken__",
+    S3BucketSource: {
+      S3Bucket: "__S3Bucket__",
+      S3BucketOwner: "__S3BucketOwner__",
+      S3KeyPrefix: "__S3KeyPrefix__"
+    },
+    ErrorCount: (number) 0,
+    CloudWatchLogGroupArn: "__CloudWatchLogGroupArn__",
+    InputFormat: "__InputFormat__",
+    InputFormatOptions: {
+      Csv: {
+        Delimiter: "__Delimiter__",
+        HeaderList: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    InputCompressionType: "__InputCompressionType__",
+    TableCreationParameters: {
+      TableName: "__TableName__",
+      AttributeDefinitions: [
+        {
+          AttributeName: "__AttributeName__",
+          AttributeType: "__AttributeType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          AttributeType: "__AttributeType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          AttributeType: "__AttributeType__"
+        }
+      ],
+      KeySchema: [
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        }
+      ],
+      BillingMode: "__BillingMode__",
+      ProvisionedThroughput: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0
+      },
+      OnDemandThroughput: {
+        MaxReadRequestUnits: (number) 0,
+        MaxWriteRequestUnits: (number) 0
+      },
+      SSESpecification: {
+        Enabled: (boolean) false,
+        SSEType: "__SSEType__",
+        KMSMasterKeyId: "__KMSMasterKeyId__"
+      },
+      GlobalSecondaryIndexes: [
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          },
+          WarmThroughput: {
+            ReadUnitsPerSecond: (number) 0,
+            WriteUnitsPerSecond: (number) 0
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          },
+          WarmThroughput: {
+            ReadUnitsPerSecond: (number) 0,
+            WriteUnitsPerSecond: (number) 0
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          },
+          WarmThroughput: {
+            ReadUnitsPerSecond: (number) 0,
+            WriteUnitsPerSecond: (number) 0
+          }
+        }
+      ]
+    },
+    StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ProcessedSizeBytes: (number) 0,
+    ProcessedItemCount: (number) 0,
+    ImportedItemCount: (number) 0,
+    FailureCode: "__FailureCode__",
+    FailureMessage: "__FailureMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

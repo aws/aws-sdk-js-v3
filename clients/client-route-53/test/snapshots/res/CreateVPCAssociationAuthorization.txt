@@ -1,0 +1,68 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateVPCAssociationAuthorizationResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneId>
+        __HostedZoneId__
+    </HostedZoneId>
+    <VPC/>
+</CreateVPCAssociationAuthorizationResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneId: "__HostedZoneId__",
+  VPC: {},
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateVPCAssociationAuthorizationResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneId>
+        __HostedZoneId__
+    </HostedZoneId>
+    <VPC>
+        <VPCRegion>
+            __VPCRegion__
+        </VPCRegion>
+        <VPCId>
+            __VPCId__
+        </VPCId>
+    </VPC>
+</CreateVPCAssociationAuthorizationResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneId: "__HostedZoneId__",
+  VPC: {
+    VPCRegion: "__VPCRegion__",
+    VPCId: "__VPCId__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

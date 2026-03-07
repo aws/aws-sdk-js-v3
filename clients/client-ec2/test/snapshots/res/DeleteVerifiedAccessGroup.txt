@@ -1,0 +1,133 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteVerifiedAccessGroupResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteVerifiedAccessGroupResult xmlns="https://placeholder.amazonaws.com">
+    <verifiedAccessGroup>
+        <verifiedAccessGroupId>
+            __VerifiedAccessGroupId__
+        </verifiedAccessGroupId>
+        <verifiedAccessInstanceId>
+            __VerifiedAccessInstanceId__
+        </verifiedAccessInstanceId>
+        <description>
+            __Description__
+        </description>
+        <owner>
+            __Owner__
+        </owner>
+        <verifiedAccessGroupArn>
+            __VerifiedAccessGroupArn__
+        </verifiedAccessGroupArn>
+        <creationTime>
+            __CreationTime__
+        </creationTime>
+        <lastUpdatedTime>
+            __LastUpdatedTime__
+        </lastUpdatedTime>
+        <deletionTime>
+            __DeletionTime__
+        </deletionTime>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <sseSpecification>
+            <customerManagedKeyEnabled>
+                false
+            </customerManagedKeyEnabled>
+            <kmsKeyArn>
+                __KmsKeyArn__
+            </kmsKeyArn>
+        </sseSpecification>
+    </verifiedAccessGroup>
+</DeleteVerifiedAccessGroupResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VerifiedAccessGroup: {
+    VerifiedAccessGroupId: "__VerifiedAccessGroupId__",
+    VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+    Description: "__Description__",
+    Owner: "__Owner__",
+    VerifiedAccessGroupArn: "__VerifiedAccessGroupArn__",
+    CreationTime: "__CreationTime__",
+    LastUpdatedTime: "__LastUpdatedTime__",
+    DeletionTime: "__DeletionTime__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    SseSpecification: {
+      CustomerManagedKeyEnabled: (boolean) false,
+      KmsKeyArn: "__KmsKeyArn__"
+    }
+  }
+}
+

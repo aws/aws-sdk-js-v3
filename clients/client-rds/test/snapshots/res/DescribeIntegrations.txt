@@ -1,0 +1,347 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIntegrationsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIntegrationsResponse xmlns="https://placeholder.amazonaws.com">
+    <Marker>
+        __Marker__
+    </Marker>
+    <Integrations>
+        <Integration>
+            <SourceArn>
+                __SourceArn__
+            </SourceArn>
+            <TargetArn>
+                __TargetArn__
+            </TargetArn>
+            <IntegrationName>
+                __IntegrationName__
+            </IntegrationName>
+            <IntegrationArn>
+                __IntegrationArn__
+            </IntegrationArn>
+            <KMSKeyId>
+                __KMSKeyId__
+            </KMSKeyId>
+            <AdditionalEncryptionContext>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </AdditionalEncryptionContext>
+            <Status>
+                __Status__
+            </Status>
+            <Tags>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </Tags>
+            <DataFilter>
+                __DataFilter__
+            </DataFilter>
+            <Description>
+                __Description__
+            </Description>
+            <CreateTime>
+                2000-01-01T04:59:59.999Z
+            </CreateTime>
+            <Errors>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+            </Errors>
+        </Integration>
+        <Integration>
+            <SourceArn>
+                __SourceArn__
+            </SourceArn>
+            <TargetArn>
+                __TargetArn__
+            </TargetArn>
+            <IntegrationName>
+                __IntegrationName__
+            </IntegrationName>
+            <IntegrationArn>
+                __IntegrationArn__
+            </IntegrationArn>
+            <KMSKeyId>
+                __KMSKeyId__
+            </KMSKeyId>
+            <AdditionalEncryptionContext>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </AdditionalEncryptionContext>
+            <Status>
+                __Status__
+            </Status>
+            <Tags>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </Tags>
+            <DataFilter>
+                __DataFilter__
+            </DataFilter>
+            <Description>
+                __Description__
+            </Description>
+            <CreateTime>
+                2000-01-01T04:59:59.999Z
+            </CreateTime>
+            <Errors>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+            </Errors>
+        </Integration>
+        <Integration>
+            <SourceArn>
+                __SourceArn__
+            </SourceArn>
+            <TargetArn>
+                __TargetArn__
+            </TargetArn>
+            <IntegrationName>
+                __IntegrationName__
+            </IntegrationName>
+            <IntegrationArn>
+                __IntegrationArn__
+            </IntegrationArn>
+            <KMSKeyId>
+                __KMSKeyId__
+            </KMSKeyId>
+            <AdditionalEncryptionContext>
+                <entry>
+                    <key>
+                        key1
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+                <entry>
+                    <key>
+                        key2
+                    </key>
+                    <value>
+                        __value__
+                    </value>
+                </entry>
+            </AdditionalEncryptionContext>
+            <Status>
+                __Status__
+            </Status>
+            <Tags>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </Tags>
+            <DataFilter>
+                __DataFilter__
+            </DataFilter>
+            <Description>
+                __Description__
+            </Description>
+            <CreateTime>
+                2000-01-01T04:59:59.999Z
+            </CreateTime>
+            <Errors>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+                <IntegrationError>
+                    <ErrorCode>
+                        __ErrorCode__
+                    </ErrorCode>
+                    <ErrorMessage>
+                        __ErrorMessage__
+                    </ErrorMessage>
+                </IntegrationError>
+            </Errors>
+        </Integration>
+    </Integrations>
+</DescribeIntegrationsResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

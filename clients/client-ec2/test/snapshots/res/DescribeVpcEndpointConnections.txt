@@ -1,0 +1,497 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointConnectionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointConnectionsResult xmlns="https://placeholder.amazonaws.com">
+    <vpcEndpointConnectionSet>
+        <item>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointOwner>
+                __VpcEndpointOwner__
+            </vpcEndpointOwner>
+            <vpcEndpointState>
+                __VpcEndpointState__
+            </vpcEndpointState>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <networkLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkLoadBalancerArnSet>
+            <gatewayLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </gatewayLoadBalancerArnSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <vpcEndpointConnectionId>
+                __VpcEndpointConnectionId__
+            </vpcEndpointConnectionId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcEndpointRegion>
+                __VpcEndpointRegion__
+            </vpcEndpointRegion>
+        </item>
+        <item>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointOwner>
+                __VpcEndpointOwner__
+            </vpcEndpointOwner>
+            <vpcEndpointState>
+                __VpcEndpointState__
+            </vpcEndpointState>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <networkLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkLoadBalancerArnSet>
+            <gatewayLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </gatewayLoadBalancerArnSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <vpcEndpointConnectionId>
+                __VpcEndpointConnectionId__
+            </vpcEndpointConnectionId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcEndpointRegion>
+                __VpcEndpointRegion__
+            </vpcEndpointRegion>
+        </item>
+        <item>
+            <serviceId>
+                __ServiceId__
+            </serviceId>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointOwner>
+                __VpcEndpointOwner__
+            </vpcEndpointOwner>
+            <vpcEndpointState>
+                __VpcEndpointState__
+            </vpcEndpointState>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <networkLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkLoadBalancerArnSet>
+            <gatewayLoadBalancerArnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </gatewayLoadBalancerArnSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <vpcEndpointConnectionId>
+                __VpcEndpointConnectionId__
+            </vpcEndpointConnectionId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <vpcEndpointRegion>
+                __VpcEndpointRegion__
+            </vpcEndpointRegion>
+        </item>
+    </vpcEndpointConnectionSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVpcEndpointConnectionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcEndpointConnections: [
+    {
+      ServiceId: "__ServiceId__",
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointOwner: "__VpcEndpointOwner__",
+      VpcEndpointState: "__VpcEndpointState__",
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      NetworkLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      GatewayLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      IpAddressType: "__IpAddressType__",
+      VpcEndpointConnectionId: "__VpcEndpointConnectionId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcEndpointRegion: "__VpcEndpointRegion__"
+    },
+    {
+      ServiceId: "__ServiceId__",
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointOwner: "__VpcEndpointOwner__",
+      VpcEndpointState: "__VpcEndpointState__",
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      NetworkLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      GatewayLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      IpAddressType: "__IpAddressType__",
+      VpcEndpointConnectionId: "__VpcEndpointConnectionId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcEndpointRegion: "__VpcEndpointRegion__"
+    },
+    {
+      ServiceId: "__ServiceId__",
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointOwner: "__VpcEndpointOwner__",
+      VpcEndpointState: "__VpcEndpointState__",
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      NetworkLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      GatewayLoadBalancerArns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      IpAddressType: "__IpAddressType__",
+      VpcEndpointConnectionId: "__VpcEndpointConnectionId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      VpcEndpointRegion: "__VpcEndpointRegion__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

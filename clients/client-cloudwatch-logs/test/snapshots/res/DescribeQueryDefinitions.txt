@@ -1,0 +1,123 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "queryDefinitions": [
+    {
+      "queryLanguage": "__queryLanguage__",
+      "queryDefinitionId": "__queryDefinitionId__",
+      "name": "__name__",
+      "queryString": "__queryString__",
+      "lastModified": 0,
+      "logGroupNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "queryLanguage": "__queryLanguage__",
+      "queryDefinitionId": "__queryDefinitionId__",
+      "name": "__name__",
+      "queryString": "__queryString__",
+      "lastModified": 0,
+      "logGroupNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "queryLanguage": "__queryLanguage__",
+      "queryDefinitionId": "__queryDefinitionId__",
+      "name": "__name__",
+      "queryString": "__queryString__",
+      "lastModified": 0,
+      "logGroupNames": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  queryDefinitions: [
+    {
+      queryLanguage: "__queryLanguage__",
+      queryDefinitionId: "__queryDefinitionId__",
+      name: "__name__",
+      queryString: "__queryString__",
+      lastModified: (number) 0,
+      logGroupNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      queryLanguage: "__queryLanguage__",
+      queryDefinitionId: "__queryDefinitionId__",
+      name: "__name__",
+      queryString: "__queryString__",
+      lastModified: (number) 0,
+      logGroupNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      queryLanguage: "__queryLanguage__",
+      queryDefinitionId: "__queryDefinitionId__",
+      name: "__name__",
+      queryString: "__queryString__",
+      lastModified: (number) 0,
+      logGroupNames: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

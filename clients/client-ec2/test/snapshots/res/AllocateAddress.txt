@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AllocateAddressResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<AllocateAddressResult xmlns="https://placeholder.amazonaws.com">
+    <allocationId>
+        __AllocationId__
+    </allocationId>
+    <publicIpv4Pool>
+        __PublicIpv4Pool__
+    </publicIpv4Pool>
+    <networkBorderGroup>
+        __NetworkBorderGroup__
+    </networkBorderGroup>
+    <domain>
+        __Domain__
+    </domain>
+    <customerOwnedIp>
+        __CustomerOwnedIp__
+    </customerOwnedIp>
+    <customerOwnedIpv4Pool>
+        __CustomerOwnedIpv4Pool__
+    </customerOwnedIpv4Pool>
+    <carrierIp>
+        __CarrierIp__
+    </carrierIp>
+    <publicIp>
+        __PublicIp__
+    </publicIp>
+</AllocateAddressResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AllocationId: "__AllocationId__",
+  PublicIpv4Pool: "__PublicIpv4Pool__",
+  NetworkBorderGroup: "__NetworkBorderGroup__",
+  Domain: "__Domain__",
+  CustomerOwnedIp: "__CustomerOwnedIp__",
+  CustomerOwnedIpv4Pool: "__CustomerOwnedIpv4Pool__",
+  CarrierIp: "__CarrierIp__",
+  PublicIp: "__PublicIp__"
+}
+

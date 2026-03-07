@@ -1,0 +1,135 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ImportSummaryList": [
+    {
+      "ImportArn": "__ImportArn__",
+      "ImportStatus": "__ImportStatus__",
+      "TableArn": "__TableArn__",
+      "S3BucketSource": {
+        "S3Bucket": "__S3Bucket__",
+        "S3BucketOwner": "__S3BucketOwner__",
+        "S3KeyPrefix": "__S3KeyPrefix__"
+      },
+      "CloudWatchLogGroupArn": "__CloudWatchLogGroupArn__",
+      "InputFormat": "__InputFormat__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999
+    },
+    {
+      "ImportArn": "__ImportArn__",
+      "ImportStatus": "__ImportStatus__",
+      "TableArn": "__TableArn__",
+      "S3BucketSource": {
+        "S3Bucket": "__S3Bucket__",
+        "S3BucketOwner": "__S3BucketOwner__",
+        "S3KeyPrefix": "__S3KeyPrefix__"
+      },
+      "CloudWatchLogGroupArn": "__CloudWatchLogGroupArn__",
+      "InputFormat": "__InputFormat__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999
+    },
+    {
+      "ImportArn": "__ImportArn__",
+      "ImportStatus": "__ImportStatus__",
+      "TableArn": "__TableArn__",
+      "S3BucketSource": {
+        "S3Bucket": "__S3Bucket__",
+        "S3BucketOwner": "__S3BucketOwner__",
+        "S3KeyPrefix": "__S3KeyPrefix__"
+      },
+      "CloudWatchLogGroupArn": "__CloudWatchLogGroupArn__",
+      "InputFormat": "__InputFormat__",
+      "StartTime": 946702799.999,
+      "EndTime": 946702799.999
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ImportSummaryList: [
+    {
+      ImportArn: "__ImportArn__",
+      ImportStatus: "__ImportStatus__",
+      TableArn: "__TableArn__",
+      S3BucketSource: {
+        S3Bucket: "__S3Bucket__",
+        S3BucketOwner: "__S3BucketOwner__",
+        S3KeyPrefix: "__S3KeyPrefix__"
+      },
+      CloudWatchLogGroupArn: "__CloudWatchLogGroupArn__",
+      InputFormat: "__InputFormat__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ImportArn: "__ImportArn__",
+      ImportStatus: "__ImportStatus__",
+      TableArn: "__TableArn__",
+      S3BucketSource: {
+        S3Bucket: "__S3Bucket__",
+        S3BucketOwner: "__S3BucketOwner__",
+        S3KeyPrefix: "__S3KeyPrefix__"
+      },
+      CloudWatchLogGroupArn: "__CloudWatchLogGroupArn__",
+      InputFormat: "__InputFormat__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ImportArn: "__ImportArn__",
+      ImportStatus: "__ImportStatus__",
+      TableArn: "__TableArn__",
+      S3BucketSource: {
+        S3Bucket: "__S3Bucket__",
+        S3BucketOwner: "__S3BucketOwner__",
+        S3KeyPrefix: "__S3KeyPrefix__"
+      },
+      CloudWatchLogGroupArn: "__CloudWatchLogGroupArn__",
+      InputFormat: "__InputFormat__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

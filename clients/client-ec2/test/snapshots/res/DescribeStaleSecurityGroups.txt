@@ -1,0 +1,2801 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeStaleSecurityGroupsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeStaleSecurityGroupsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <staleSecurityGroupSet>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <staleIpPermissions>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissions>
+            <staleIpPermissionsEgress>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissionsEgress>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <staleIpPermissions>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissions>
+            <staleIpPermissionsEgress>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissionsEgress>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <staleIpPermissions>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissions>
+            <staleIpPermissionsEgress>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+                <item>
+                    <fromPort>
+                        0
+                    </fromPort>
+                    <ipProtocol>
+                        __IpProtocol__
+                    </ipProtocol>
+                    <ipRanges>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipRanges>
+                    <prefixListIds>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </prefixListIds>
+                    <toPort>
+                        0
+                    </toPort>
+                    <groups>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                        <item>
+                            <description>
+                                __Description__
+                            </description>
+                            <userId>
+                                __UserId__
+                            </userId>
+                            <groupName>
+                                __GroupName__
+                            </groupName>
+                            <groupId>
+                                __GroupId__
+                            </groupId>
+                            <vpcId>
+                                __VpcId__
+                            </vpcId>
+                            <vpcPeeringConnectionId>
+                                __VpcPeeringConnectionId__
+                            </vpcPeeringConnectionId>
+                            <peeringStatus>
+                                __PeeringStatus__
+                            </peeringStatus>
+                        </item>
+                    </groups>
+                </item>
+            </staleIpPermissionsEgress>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+        </item>
+    </staleSecurityGroupSet>
+</DescribeStaleSecurityGroupsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  StaleSecurityGroupSet: [
+    {
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__",
+      StaleIpPermissions: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      StaleIpPermissionsEgress: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      VpcId: "__VpcId__"
+    },
+    {
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__",
+      StaleIpPermissions: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      StaleIpPermissionsEgress: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      VpcId: "__VpcId__"
+    },
+    {
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      GroupName: "__GroupName__",
+      StaleIpPermissions: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      StaleIpPermissionsEgress: [
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        },
+        {
+          FromPort: (number) 0,
+          IpProtocol: "__IpProtocol__",
+          IpRanges: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          PrefixListIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          ToPort: (number) 0,
+          UserIdGroupPairs: [
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            },
+            {
+              Description: "__Description__",
+              UserId: "__UserId__",
+              GroupName: "__GroupName__",
+              GroupId: "__GroupId__",
+              VpcId: "__VpcId__",
+              VpcPeeringConnectionId: "__VpcPeeringConnectionId__",
+              PeeringStatus: "__PeeringStatus__"
+            }
+          ]
+        }
+      ],
+      VpcId: "__VpcId__"
+    }
+  ]
+}
+

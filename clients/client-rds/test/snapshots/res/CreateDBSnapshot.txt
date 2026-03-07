@@ -1,0 +1,275 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateDBSnapshotResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateDBSnapshotResult xmlns="https://placeholder.amazonaws.com">
+    <DBSnapshot>
+        <DBSnapshotIdentifier>
+            __DBSnapshotIdentifier__
+        </DBSnapshotIdentifier>
+        <DBInstanceIdentifier>
+            __DBInstanceIdentifier__
+        </DBInstanceIdentifier>
+        <SnapshotCreateTime>
+            2000-01-01T04:59:59.999Z
+        </SnapshotCreateTime>
+        <Engine>
+            __Engine__
+        </Engine>
+        <AllocatedStorage>
+            0
+        </AllocatedStorage>
+        <Status>
+            __Status__
+        </Status>
+        <Port>
+            0
+        </Port>
+        <AvailabilityZone>
+            __AvailabilityZone__
+        </AvailabilityZone>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <InstanceCreateTime>
+            2000-01-01T04:59:59.999Z
+        </InstanceCreateTime>
+        <MasterUsername>
+            __MasterUsername__
+        </MasterUsername>
+        <EngineVersion>
+            __EngineVersion__
+        </EngineVersion>
+        <LicenseModel>
+            __LicenseModel__
+        </LicenseModel>
+        <SnapshotType>
+            __SnapshotType__
+        </SnapshotType>
+        <Iops>
+            0
+        </Iops>
+        <StorageThroughput>
+            0
+        </StorageThroughput>
+        <OptionGroupName>
+            __OptionGroupName__
+        </OptionGroupName>
+        <PercentProgress>
+            0
+        </PercentProgress>
+        <SourceRegion>
+            __SourceRegion__
+        </SourceRegion>
+        <SourceDBSnapshotIdentifier>
+            __SourceDBSnapshotIdentifier__
+        </SourceDBSnapshotIdentifier>
+        <StorageType>
+            __StorageType__
+        </StorageType>
+        <TdeCredentialArn>
+            __TdeCredentialArn__
+        </TdeCredentialArn>
+        <Encrypted>
+            false
+        </Encrypted>
+        <StorageEncryptionType>
+            __StorageEncryptionType__
+        </StorageEncryptionType>
+        <BackupRetentionPeriod>
+            0
+        </BackupRetentionPeriod>
+        <PreferredBackupWindow>
+            __PreferredBackupWindow__
+        </PreferredBackupWindow>
+        <KmsKeyId>
+            __KmsKeyId__
+        </KmsKeyId>
+        <DBSnapshotArn>
+            __DBSnapshotArn__
+        </DBSnapshotArn>
+        <Timezone>
+            __Timezone__
+        </Timezone>
+        <IAMDatabaseAuthenticationEnabled>
+            false
+        </IAMDatabaseAuthenticationEnabled>
+        <ProcessorFeatures>
+            <ProcessorFeature>
+                <Name>
+                    __Name__
+                </Name>
+                <Value>
+                    __Value__
+                </Value>
+            </ProcessorFeature>
+            <ProcessorFeature>
+                <Name>
+                    __Name__
+                </Name>
+                <Value>
+                    __Value__
+                </Value>
+            </ProcessorFeature>
+            <ProcessorFeature>
+                <Name>
+                    __Name__
+                </Name>
+                <Value>
+                    __Value__
+                </Value>
+            </ProcessorFeature>
+        </ProcessorFeatures>
+        <DbiResourceId>
+            __DbiResourceId__
+        </DbiResourceId>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+        <SnapshotTarget>
+            __SnapshotTarget__
+        </SnapshotTarget>
+        <OriginalSnapshotCreateTime>
+            2000-01-01T04:59:59.999Z
+        </OriginalSnapshotCreateTime>
+        <SnapshotDatabaseTime>
+            2000-01-01T04:59:59.999Z
+        </SnapshotDatabaseTime>
+        <DBSystemId>
+            __DBSystemId__
+        </DBSystemId>
+        <MultiTenant>
+            false
+        </MultiTenant>
+        <DedicatedLogVolume>
+            false
+        </DedicatedLogVolume>
+        <AdditionalStorageVolumes>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+            <member>
+                <VolumeName>
+                    __VolumeName__
+                </VolumeName>
+                <AllocatedStorage>
+                    0
+                </AllocatedStorage>
+                <IOPS>
+                    0
+                </IOPS>
+                <MaxAllocatedStorage>
+                    0
+                </MaxAllocatedStorage>
+                <StorageThroughput>
+                    0
+                </StorageThroughput>
+                <StorageType>
+                    __StorageType__
+                </StorageType>
+            </member>
+        </AdditionalStorageVolumes>
+        <SnapshotAvailabilityZone>
+            __SnapshotAvailabilityZone__
+        </SnapshotAvailabilityZone>
+    </DBSnapshot>
+</CreateDBSnapshotResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

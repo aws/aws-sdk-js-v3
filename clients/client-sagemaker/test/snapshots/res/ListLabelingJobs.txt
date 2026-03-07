@@ -1,0 +1,285 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "LabelingJobSummaryList": [
+    {
+      "LabelingJobName": "__LabelingJobName__",
+      "LabelingJobArn": "__LabelingJobArn__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "LabelingJobStatus": "__LabelingJobStatus__",
+      "LabelCounters": {
+        "TotalLabeled": 0,
+        "HumanLabeled": 0,
+        "MachineLabeled": 0,
+        "FailedNonRetryableError": 0,
+        "Unlabeled": 0
+      },
+      "WorkteamArn": "__WorkteamArn__",
+      "PreHumanTaskLambdaArn": "__PreHumanTaskLambdaArn__",
+      "AnnotationConsolidationLambdaArn": "__AnnotationConsolidationLambdaArn__",
+      "FailureReason": "__FailureReason__",
+      "LabelingJobOutput": {
+        "OutputDatasetS3Uri": "__OutputDatasetS3Uri__",
+        "FinalActiveLearningModelArn": "__FinalActiveLearningModelArn__"
+      },
+      "InputConfig": {
+        "DataSource": {
+          "S3DataSource": {
+            "ManifestS3Uri": "__ManifestS3Uri__"
+          },
+          "SnsDataSource": {
+            "SnsTopicArn": "__SnsTopicArn__"
+          }
+        },
+        "DataAttributes": {
+          "ContentClassifiers": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      "LabelingJobName": "__LabelingJobName__",
+      "LabelingJobArn": "__LabelingJobArn__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "LabelingJobStatus": "__LabelingJobStatus__",
+      "LabelCounters": {
+        "TotalLabeled": 0,
+        "HumanLabeled": 0,
+        "MachineLabeled": 0,
+        "FailedNonRetryableError": 0,
+        "Unlabeled": 0
+      },
+      "WorkteamArn": "__WorkteamArn__",
+      "PreHumanTaskLambdaArn": "__PreHumanTaskLambdaArn__",
+      "AnnotationConsolidationLambdaArn": "__AnnotationConsolidationLambdaArn__",
+      "FailureReason": "__FailureReason__",
+      "LabelingJobOutput": {
+        "OutputDatasetS3Uri": "__OutputDatasetS3Uri__",
+        "FinalActiveLearningModelArn": "__FinalActiveLearningModelArn__"
+      },
+      "InputConfig": {
+        "DataSource": {
+          "S3DataSource": {
+            "ManifestS3Uri": "__ManifestS3Uri__"
+          },
+          "SnsDataSource": {
+            "SnsTopicArn": "__SnsTopicArn__"
+          }
+        },
+        "DataAttributes": {
+          "ContentClassifiers": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      "LabelingJobName": "__LabelingJobName__",
+      "LabelingJobArn": "__LabelingJobArn__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "LabelingJobStatus": "__LabelingJobStatus__",
+      "LabelCounters": {
+        "TotalLabeled": 0,
+        "HumanLabeled": 0,
+        "MachineLabeled": 0,
+        "FailedNonRetryableError": 0,
+        "Unlabeled": 0
+      },
+      "WorkteamArn": "__WorkteamArn__",
+      "PreHumanTaskLambdaArn": "__PreHumanTaskLambdaArn__",
+      "AnnotationConsolidationLambdaArn": "__AnnotationConsolidationLambdaArn__",
+      "FailureReason": "__FailureReason__",
+      "LabelingJobOutput": {
+        "OutputDatasetS3Uri": "__OutputDatasetS3Uri__",
+        "FinalActiveLearningModelArn": "__FinalActiveLearningModelArn__"
+      },
+      "InputConfig": {
+        "DataSource": {
+          "S3DataSource": {
+            "ManifestS3Uri": "__ManifestS3Uri__"
+          },
+          "SnsDataSource": {
+            "SnsTopicArn": "__SnsTopicArn__"
+          }
+        },
+        "DataAttributes": {
+          "ContentClassifiers": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  LabelingJobSummaryList: [
+    {
+      LabelingJobName: "__LabelingJobName__",
+      LabelingJobArn: "__LabelingJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LabelingJobStatus: "__LabelingJobStatus__",
+      LabelCounters: {
+        TotalLabeled: (number) 0,
+        HumanLabeled: (number) 0,
+        MachineLabeled: (number) 0,
+        FailedNonRetryableError: (number) 0,
+        Unlabeled: (number) 0
+      },
+      WorkteamArn: "__WorkteamArn__",
+      PreHumanTaskLambdaArn: "__PreHumanTaskLambdaArn__",
+      AnnotationConsolidationLambdaArn: "__AnnotationConsolidationLambdaArn__",
+      FailureReason: "__FailureReason__",
+      LabelingJobOutput: {
+        OutputDatasetS3Uri: "__OutputDatasetS3Uri__",
+        FinalActiveLearningModelArn: "__FinalActiveLearningModelArn__"
+      },
+      InputConfig: {
+        DataSource: {
+          S3DataSource: {
+            ManifestS3Uri: "__ManifestS3Uri__"
+          },
+          SnsDataSource: {
+            SnsTopicArn: "__SnsTopicArn__"
+          }
+        },
+        DataAttributes: {
+          ContentClassifiers: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      LabelingJobName: "__LabelingJobName__",
+      LabelingJobArn: "__LabelingJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LabelingJobStatus: "__LabelingJobStatus__",
+      LabelCounters: {
+        TotalLabeled: (number) 0,
+        HumanLabeled: (number) 0,
+        MachineLabeled: (number) 0,
+        FailedNonRetryableError: (number) 0,
+        Unlabeled: (number) 0
+      },
+      WorkteamArn: "__WorkteamArn__",
+      PreHumanTaskLambdaArn: "__PreHumanTaskLambdaArn__",
+      AnnotationConsolidationLambdaArn: "__AnnotationConsolidationLambdaArn__",
+      FailureReason: "__FailureReason__",
+      LabelingJobOutput: {
+        OutputDatasetS3Uri: "__OutputDatasetS3Uri__",
+        FinalActiveLearningModelArn: "__FinalActiveLearningModelArn__"
+      },
+      InputConfig: {
+        DataSource: {
+          S3DataSource: {
+            ManifestS3Uri: "__ManifestS3Uri__"
+          },
+          SnsDataSource: {
+            SnsTopicArn: "__SnsTopicArn__"
+          }
+        },
+        DataAttributes: {
+          ContentClassifiers: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    },
+    {
+      LabelingJobName: "__LabelingJobName__",
+      LabelingJobArn: "__LabelingJobArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LabelingJobStatus: "__LabelingJobStatus__",
+      LabelCounters: {
+        TotalLabeled: (number) 0,
+        HumanLabeled: (number) 0,
+        MachineLabeled: (number) 0,
+        FailedNonRetryableError: (number) 0,
+        Unlabeled: (number) 0
+      },
+      WorkteamArn: "__WorkteamArn__",
+      PreHumanTaskLambdaArn: "__PreHumanTaskLambdaArn__",
+      AnnotationConsolidationLambdaArn: "__AnnotationConsolidationLambdaArn__",
+      FailureReason: "__FailureReason__",
+      LabelingJobOutput: {
+        OutputDatasetS3Uri: "__OutputDatasetS3Uri__",
+        FinalActiveLearningModelArn: "__FinalActiveLearningModelArn__"
+      },
+      InputConfig: {
+        DataSource: {
+          S3DataSource: {
+            ManifestS3Uri: "__ManifestS3Uri__"
+          },
+          SnsDataSource: {
+            SnsTopicArn: "__SnsTopicArn__"
+          }
+        },
+        DataAttributes: {
+          ContentClassifiers: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

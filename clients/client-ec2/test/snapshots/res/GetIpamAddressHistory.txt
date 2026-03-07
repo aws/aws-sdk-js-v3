@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamAddressHistoryResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamAddressHistoryResult xmlns="https://placeholder.amazonaws.com">
+    <historyRecordSet>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceCidr>
+                __ResourceCidr__
+            </resourceCidr>
+            <resourceName>
+                __ResourceName__
+            </resourceName>
+            <resourceComplianceStatus>
+                __ResourceComplianceStatus__
+            </resourceComplianceStatus>
+            <resourceOverlapStatus>
+                __ResourceOverlapStatus__
+            </resourceOverlapStatus>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <sampledStartTime>
+                2000-01-01T04:59:59.999Z
+            </sampledStartTime>
+            <sampledEndTime>
+                2000-01-01T04:59:59.999Z
+            </sampledEndTime>
+        </item>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceCidr>
+                __ResourceCidr__
+            </resourceCidr>
+            <resourceName>
+                __ResourceName__
+            </resourceName>
+            <resourceComplianceStatus>
+                __ResourceComplianceStatus__
+            </resourceComplianceStatus>
+            <resourceOverlapStatus>
+                __ResourceOverlapStatus__
+            </resourceOverlapStatus>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <sampledStartTime>
+                2000-01-01T04:59:59.999Z
+            </sampledStartTime>
+            <sampledEndTime>
+                2000-01-01T04:59:59.999Z
+            </sampledEndTime>
+        </item>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceCidr>
+                __ResourceCidr__
+            </resourceCidr>
+            <resourceName>
+                __ResourceName__
+            </resourceName>
+            <resourceComplianceStatus>
+                __ResourceComplianceStatus__
+            </resourceComplianceStatus>
+            <resourceOverlapStatus>
+                __ResourceOverlapStatus__
+            </resourceOverlapStatus>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <sampledStartTime>
+                2000-01-01T04:59:59.999Z
+            </sampledStartTime>
+            <sampledEndTime>
+                2000-01-01T04:59:59.999Z
+            </sampledEndTime>
+        </item>
+    </historyRecordSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamAddressHistoryResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  HistoryRecords: [
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      ResourceCidr: "__ResourceCidr__",
+      ResourceName: "__ResourceName__",
+      ResourceComplianceStatus: "__ResourceComplianceStatus__",
+      ResourceOverlapStatus: "__ResourceOverlapStatus__",
+      VpcId: "__VpcId__",
+      SampledStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampledEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      ResourceCidr: "__ResourceCidr__",
+      ResourceName: "__ResourceName__",
+      ResourceComplianceStatus: "__ResourceComplianceStatus__",
+      ResourceOverlapStatus: "__ResourceOverlapStatus__",
+      VpcId: "__VpcId__",
+      SampledStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampledEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      ResourceType: "__ResourceType__",
+      ResourceId: "__ResourceId__",
+      ResourceCidr: "__ResourceCidr__",
+      ResourceName: "__ResourceName__",
+      ResourceComplianceStatus: "__ResourceComplianceStatus__",
+      ResourceOverlapStatus: "__ResourceOverlapStatus__",
+      VpcId: "__VpcId__",
+      SampledStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SampledEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

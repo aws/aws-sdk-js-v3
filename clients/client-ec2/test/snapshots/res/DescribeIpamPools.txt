@@ -1,0 +1,617 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPoolsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeIpamPoolsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <ipamPoolSet>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <sourceIpamPoolId>
+                __SourceIpamPoolId__
+            </sourceIpamPoolId>
+            <ipamPoolArn>
+                __IpamPoolArn__
+            </ipamPoolArn>
+            <ipamScopeArn>
+                __IpamScopeArn__
+            </ipamScopeArn>
+            <ipamScopeType>
+                __IpamScopeType__
+            </ipamScopeType>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <locale>
+                __Locale__
+            </locale>
+            <poolDepth>
+                0
+            </poolDepth>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <description>
+                __Description__
+            </description>
+            <autoImport>
+                false
+            </autoImport>
+            <publiclyAdvertisable>
+                false
+            </publiclyAdvertisable>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <allocationMinNetmaskLength>
+                0
+            </allocationMinNetmaskLength>
+            <allocationMaxNetmaskLength>
+                0
+            </allocationMaxNetmaskLength>
+            <allocationDefaultNetmaskLength>
+                0
+            </allocationDefaultNetmaskLength>
+            <allocationResourceTagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </allocationResourceTagSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <publicIpSource>
+                __PublicIpSource__
+            </publicIpSource>
+            <sourceResource>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+                <resourceRegion>
+                    __ResourceRegion__
+                </resourceRegion>
+                <resourceOwner>
+                    __ResourceOwner__
+                </resourceOwner>
+            </sourceResource>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <sourceIpamPoolId>
+                __SourceIpamPoolId__
+            </sourceIpamPoolId>
+            <ipamPoolArn>
+                __IpamPoolArn__
+            </ipamPoolArn>
+            <ipamScopeArn>
+                __IpamScopeArn__
+            </ipamScopeArn>
+            <ipamScopeType>
+                __IpamScopeType__
+            </ipamScopeType>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <locale>
+                __Locale__
+            </locale>
+            <poolDepth>
+                0
+            </poolDepth>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <description>
+                __Description__
+            </description>
+            <autoImport>
+                false
+            </autoImport>
+            <publiclyAdvertisable>
+                false
+            </publiclyAdvertisable>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <allocationMinNetmaskLength>
+                0
+            </allocationMinNetmaskLength>
+            <allocationMaxNetmaskLength>
+                0
+            </allocationMaxNetmaskLength>
+            <allocationDefaultNetmaskLength>
+                0
+            </allocationDefaultNetmaskLength>
+            <allocationResourceTagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </allocationResourceTagSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <publicIpSource>
+                __PublicIpSource__
+            </publicIpSource>
+            <sourceResource>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+                <resourceRegion>
+                    __ResourceRegion__
+                </resourceRegion>
+                <resourceOwner>
+                    __ResourceOwner__
+                </resourceOwner>
+            </sourceResource>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <sourceIpamPoolId>
+                __SourceIpamPoolId__
+            </sourceIpamPoolId>
+            <ipamPoolArn>
+                __IpamPoolArn__
+            </ipamPoolArn>
+            <ipamScopeArn>
+                __IpamScopeArn__
+            </ipamScopeArn>
+            <ipamScopeType>
+                __IpamScopeType__
+            </ipamScopeType>
+            <ipamArn>
+                __IpamArn__
+            </ipamArn>
+            <ipamRegion>
+                __IpamRegion__
+            </ipamRegion>
+            <locale>
+                __Locale__
+            </locale>
+            <poolDepth>
+                0
+            </poolDepth>
+            <state>
+                __State__
+            </state>
+            <stateMessage>
+                __StateMessage__
+            </stateMessage>
+            <description>
+                __Description__
+            </description>
+            <autoImport>
+                false
+            </autoImport>
+            <publiclyAdvertisable>
+                false
+            </publiclyAdvertisable>
+            <addressFamily>
+                __AddressFamily__
+            </addressFamily>
+            <allocationMinNetmaskLength>
+                0
+            </allocationMinNetmaskLength>
+            <allocationMaxNetmaskLength>
+                0
+            </allocationMaxNetmaskLength>
+            <allocationDefaultNetmaskLength>
+                0
+            </allocationDefaultNetmaskLength>
+            <allocationResourceTagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </allocationResourceTagSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <awsService>
+                __AwsService__
+            </awsService>
+            <publicIpSource>
+                __PublicIpSource__
+            </publicIpSource>
+            <sourceResource>
+                <resourceId>
+                    __ResourceId__
+                </resourceId>
+                <resourceType>
+                    __ResourceType__
+                </resourceType>
+                <resourceRegion>
+                    __ResourceRegion__
+                </resourceRegion>
+                <resourceOwner>
+                    __ResourceOwner__
+                </resourceOwner>
+            </sourceResource>
+        </item>
+    </ipamPoolSet>
+</DescribeIpamPoolsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  IpamPools: [
+    {
+      OwnerId: "__OwnerId__",
+      IpamPoolId: "__IpamPoolId__",
+      SourceIpamPoolId: "__SourceIpamPoolId__",
+      IpamPoolArn: "__IpamPoolArn__",
+      IpamScopeArn: "__IpamScopeArn__",
+      IpamScopeType: "__IpamScopeType__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Locale: "__Locale__",
+      PoolDepth: (number) 0,
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      Description: "__Description__",
+      AutoImport: (boolean) false,
+      PubliclyAdvertisable: (boolean) false,
+      AddressFamily: "__AddressFamily__",
+      AllocationMinNetmaskLength: (number) 0,
+      AllocationMaxNetmaskLength: (number) 0,
+      AllocationDefaultNetmaskLength: (number) 0,
+      AllocationResourceTags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AwsService: "__AwsService__",
+      PublicIpSource: "__PublicIpSource__",
+      SourceResource: {
+        ResourceId: "__ResourceId__",
+        ResourceType: "__ResourceType__",
+        ResourceRegion: "__ResourceRegion__",
+        ResourceOwner: "__ResourceOwner__"
+      }
+    },
+    {
+      OwnerId: "__OwnerId__",
+      IpamPoolId: "__IpamPoolId__",
+      SourceIpamPoolId: "__SourceIpamPoolId__",
+      IpamPoolArn: "__IpamPoolArn__",
+      IpamScopeArn: "__IpamScopeArn__",
+      IpamScopeType: "__IpamScopeType__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Locale: "__Locale__",
+      PoolDepth: (number) 0,
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      Description: "__Description__",
+      AutoImport: (boolean) false,
+      PubliclyAdvertisable: (boolean) false,
+      AddressFamily: "__AddressFamily__",
+      AllocationMinNetmaskLength: (number) 0,
+      AllocationMaxNetmaskLength: (number) 0,
+      AllocationDefaultNetmaskLength: (number) 0,
+      AllocationResourceTags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AwsService: "__AwsService__",
+      PublicIpSource: "__PublicIpSource__",
+      SourceResource: {
+        ResourceId: "__ResourceId__",
+        ResourceType: "__ResourceType__",
+        ResourceRegion: "__ResourceRegion__",
+        ResourceOwner: "__ResourceOwner__"
+      }
+    },
+    {
+      OwnerId: "__OwnerId__",
+      IpamPoolId: "__IpamPoolId__",
+      SourceIpamPoolId: "__SourceIpamPoolId__",
+      IpamPoolArn: "__IpamPoolArn__",
+      IpamScopeArn: "__IpamScopeArn__",
+      IpamScopeType: "__IpamScopeType__",
+      IpamArn: "__IpamArn__",
+      IpamRegion: "__IpamRegion__",
+      Locale: "__Locale__",
+      PoolDepth: (number) 0,
+      State: "__State__",
+      StateMessage: "__StateMessage__",
+      Description: "__Description__",
+      AutoImport: (boolean) false,
+      PubliclyAdvertisable: (boolean) false,
+      AddressFamily: "__AddressFamily__",
+      AllocationMinNetmaskLength: (number) 0,
+      AllocationMaxNetmaskLength: (number) 0,
+      AllocationDefaultNetmaskLength: (number) 0,
+      AllocationResourceTags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      AwsService: "__AwsService__",
+      PublicIpSource: "__PublicIpSource__",
+      SourceResource: {
+        ResourceId: "__ResourceId__",
+        ResourceType: "__ResourceType__",
+        ResourceRegion: "__ResourceRegion__",
+        ResourceOwner: "__ResourceOwner__"
+      }
+    }
+  ]
+}
+

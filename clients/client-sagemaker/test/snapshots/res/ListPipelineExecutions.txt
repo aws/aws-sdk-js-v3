@@ -1,0 +1,99 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "PipelineExecutionSummaries": [
+    {
+      "PipelineExecutionArn": "__PipelineExecutionArn__",
+      "StartTime": 946702799.999,
+      "PipelineExecutionStatus": "__PipelineExecutionStatus__",
+      "PipelineExecutionDescription": "__PipelineExecutionDescription__",
+      "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+    },
+    {
+      "PipelineExecutionArn": "__PipelineExecutionArn__",
+      "StartTime": 946702799.999,
+      "PipelineExecutionStatus": "__PipelineExecutionStatus__",
+      "PipelineExecutionDescription": "__PipelineExecutionDescription__",
+      "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+    },
+    {
+      "PipelineExecutionArn": "__PipelineExecutionArn__",
+      "StartTime": 946702799.999,
+      "PipelineExecutionStatus": "__PipelineExecutionStatus__",
+      "PipelineExecutionDescription": "__PipelineExecutionDescription__",
+      "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
+      "PipelineExecutionFailureReason": "__PipelineExecutionFailureReason__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  PipelineExecutionSummaries: [
+    {
+      PipelineExecutionArn: "__PipelineExecutionArn__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PipelineExecutionStatus: "__PipelineExecutionStatus__",
+      PipelineExecutionDescription: "__PipelineExecutionDescription__",
+      PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+    },
+    {
+      PipelineExecutionArn: "__PipelineExecutionArn__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PipelineExecutionStatus: "__PipelineExecutionStatus__",
+      PipelineExecutionDescription: "__PipelineExecutionDescription__",
+      PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+    },
+    {
+      PipelineExecutionArn: "__PipelineExecutionArn__",
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      PipelineExecutionStatus: "__PipelineExecutionStatus__",
+      PipelineExecutionDescription: "__PipelineExecutionDescription__",
+      PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
+      PipelineExecutionFailureReason: "__PipelineExecutionFailureReason__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
