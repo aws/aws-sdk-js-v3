@@ -35,6 +35,19 @@ let selectedPartitionsInfo: PartitionsInfo = partitionsInfo;
 let selectedUserAgentPrefix = "";
 
 /**
+ * Compiled regex cache for regionRegex strings.
+ * Avoids re-creating RegExp objects on every partition() call.
+ */
+const regionRegexCache: Record<string, RegExp> = {};
+
+const getRegionRegex = (regionRegex: string): RegExp => {
+  if (!regionRegexCache[regionRegex]) {
+    regionRegexCache[regionRegex] = new RegExp(regionRegex);
+  }
+  return regionRegexCache[regionRegex];
+};
+
+/**
  * Evaluates a single string argument value as a region, and matches the
  * string value to an AWS partition.
  * The matcher MUST always return a successful object describing the partition
@@ -58,7 +71,7 @@ export const partition = (value: string): EndpointPartition => {
   // Check for region that matches a regionRegex pattern.
   for (const partition of partitions) {
     const { regionRegex, outputs } = partition;
-    if (new RegExp(regionRegex).test(value)) {
+    if (getRegionRegex(regionRegex).test(value)) {
       return {
         ...outputs,
       };
@@ -87,6 +100,9 @@ export const partition = (value: string): EndpointPartition => {
 export const setPartitionInfo = (partitionsInfo: PartitionsInfo, userAgentPrefix = "") => {
   selectedPartitionsInfo = partitionsInfo;
   selectedUserAgentPrefix = userAgentPrefix;
+  for (const key in regionRegexCache) {
+    delete regionRegexCache[key];
+  }
 };
 
 /**
