@@ -41,12 +41,8 @@ export class EndpointCache {
    * @returns
    */
   get(key: string) {
-    if (!this.has(key)) {
-      return;
-    }
-
     const value = this.cache.get(key);
-    if (!value) {
+    if (!value || value.length === 0) {
       return;
     }
 

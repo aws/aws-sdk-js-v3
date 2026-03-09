@@ -54,44 +54,27 @@ describe(EndpointCache.name, () => {
 
   describe("get", () => {
     beforeEach(() => {
-      has.mockReturnValue(true);
       const endpointsWithExpiry = getEndpointsWithExpiry(mockEndpoints);
-      peek.mockReturnValue(endpointsWithExpiry);
       get.mockReturnValue(endpointsWithExpiry);
       vi.spyOn(Date, "now").mockImplementation(() => now);
     });
 
-    const verifyHasAndGetCalls = () => {
-      expect(has).toHaveBeenCalledTimes(1);
-      expect(has).toHaveBeenCalledWith(key);
+    const verifyGetCalls = () => {
       expect(get).toHaveBeenCalledTimes(1);
       expect(get).toHaveBeenCalledWith(key);
     };
 
     it("returns undefined if cache doesn't have key", () => {
-      has.mockReturnValueOnce(false);
-      expect(endpointCache.get(key)).toBeUndefined();
-      expect(has).toHaveBeenCalledTimes(1);
-      expect(has).toHaveBeenCalledWith(key);
-      expect(peek).not.toHaveBeenCalled();
-      expect(get).not.toHaveBeenCalled();
-    });
-
-    it("returns undefined if cache has empty array", () => {
-      has.mockReturnValueOnce(true);
-      peek.mockReturnValueOnce([]);
-      expect(endpointCache.get(key)).toBeUndefined();
-      expect(has).toHaveBeenCalledTimes(1);
-      expect(has).toHaveBeenCalledWith(key);
-      expect(peek).toHaveBeenCalledTimes(1);
-      expect(peek).toHaveBeenCalledWith(key);
-      expect(get).not.toHaveBeenCalled();
-    });
-
-    it("returns undefined if cache returns undefined for key", () => {
       get.mockReturnValueOnce(undefined);
       expect(endpointCache.get(key)).toBeUndefined();
-      verifyHasAndGetCalls();
+      verifyGetCalls();
+      expect(set).not.toHaveBeenCalled();
+    });
+
+    it("returns undefined if cache has empty array (soft-deleted)", () => {
+      get.mockReturnValueOnce([]);
+      expect(endpointCache.get(key)).toBeUndefined();
+      verifyGetCalls();
       expect(set).not.toHaveBeenCalled();
     });
 
@@ -99,7 +82,7 @@ describe(EndpointCache.name, () => {
       const maxCachePeriod = getMaxCachePeriodInMins(mockEndpoints);
       vi.spyOn(Date, "now").mockImplementation(() => now + (maxCachePeriod + 1) * 60 * 1000);
       expect(endpointCache.get(key)).toBeUndefined();
-      verifyHasAndGetCalls();
+      verifyGetCalls();
       expect(set).toHaveBeenCalledTimes(1);
       expect(set).toHaveBeenCalledWith(key, []);
     });
@@ -107,14 +90,14 @@ describe(EndpointCache.name, () => {
     describe("getEndpoint", () => {
       it("returns one of the un-expired endpoints", () => {
         expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.getEndpoint(key));
-        verifyHasAndGetCalls();
+        verifyGetCalls();
         expect(set).not.toHaveBeenCalled();
       });
 
       it("returns un-expired endpoint", () => {
         vi.spyOn(Date, "now").mockImplementation(() => now + 90 * 1000);
         expect(endpointCache.getEndpoint(key)).toEqual(mockEndpoints[1].Address);
-        verifyHasAndGetCalls();
+        verifyGetCalls();
         expect(set).not.toHaveBeenCalled();
       });
 
@@ -122,7 +105,7 @@ describe(EndpointCache.name, () => {
         it(`returns un-expired endpoint at index ${index}`, () => {
           vi.spyOn(Math, "floor").mockImplementation(() => index);
           expect(mockEndpoints.map((endpoint) => endpoint.Address)).toContain(endpointCache.getEndpoint(key));
-          verifyHasAndGetCalls();
+          verifyGetCalls();
           expect(set).not.toHaveBeenCalled();
         });
       });
