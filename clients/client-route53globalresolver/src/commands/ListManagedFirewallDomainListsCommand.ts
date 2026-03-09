@@ -31,7 +31,7 @@ export interface ListManagedFirewallDomainListsCommandInput extends ListManagedF
 export interface ListManagedFirewallDomainListsCommandOutput extends ListManagedFirewallDomainListsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of the AWS Managed DNS Lists and the categories for DNS Firewall. The categories are either <code>THREAT</code> or <code>CONTENT</code>.</p>
+ * <p>Returns a paginated list of the Amazon Web Services Managed DNS Lists and the categories for DNS Firewall. The categories are either <code>THREAT</code> or <code>CONTENT</code>.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

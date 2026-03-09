@@ -31,7 +31,7 @@ export interface BatchCreateFirewallRuleCommandInput extends BatchCreateFirewall
 export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewallRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Creates multiple DNS firewall rules in a single operation. This is more efficient than creating rules individually when you need to set up multiple rules at once.</p>
+ * <p>Creates multiple DNS firewall rules in a single operation. This is more efficient than creating rules individually when you need to set up multiple rules at once.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +51,7 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  *       clientToken: "STRING_VALUE", // required
  *       confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  *       description: "STRING_VALUE",
- *       dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ *       dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *       firewallDomainListId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       priority: Number("long"),
@@ -75,7 +75,7 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //         confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //         createdAt: new Date("TIMESTAMP"),
  * //         description: "STRING_VALUE",
- * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //         firewallDomainListId: "STRING_VALUE",
  * //         id: "STRING_VALUE",
  * //         managedDomainListName: "STRING_VALUE",
@@ -102,7 +102,7 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  * //         confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //         createdAt: new Date("TIMESTAMP"),
  * //         description: "STRING_VALUE",
- * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //         firewallDomainListId: "STRING_VALUE",
  * //         id: "STRING_VALUE",
  * //         managedDomainListName: "STRING_VALUE",

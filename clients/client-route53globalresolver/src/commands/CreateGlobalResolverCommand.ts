@@ -31,7 +31,7 @@ export interface CreateGlobalResolverCommandInput extends CreateGlobalResolverIn
 export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Route 53 Global Resolver instance. A Route 53 Global Resolver is a global, internet-accessible DNS resolver that provides secure DNS resolution for both public and private domains through global anycast IP addresses.</p>
+ * <p>Creates a new Route 53 Global Resolver instance. A Route 53 Global Resolver is a global, internet-accessible DNS resolver that provides secure DNS resolution for both public and private domains through global anycast IP addresses.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +43,7 @@ export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverO
  * const input = { // CreateGlobalResolverInput
  *   clientToken: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   ipAddressType: "IPV4" || "DUAL_STACK",
  *   name: "STRING_VALUE", // required
  *   observabilityRegion: "STRING_VALUE",
  *   regions: [ // Regions // required
@@ -61,7 +62,11 @@ export interface CreateGlobalResolverCommandOutput extends CreateGlobalResolverO
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   description: "STRING_VALUE",
  * //   dnsName: "STRING_VALUE", // required
+ * //   ipAddressType: "IPV4" || "DUAL_STACK",
  * //   ipv4Addresses: [ // IPv4Addresses // required
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ipv6Addresses: [ // IPv6Addresses
  * //     "STRING_VALUE",
  * //   ],
  * //   name: "STRING_VALUE", // required

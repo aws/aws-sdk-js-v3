@@ -10,6 +10,7 @@ import {
   FirewallBlockResponse,
   FirewallRuleAction,
   FirewallRulesFailOpenType,
+  GlobalResolverIpAddressType,
   HostedZoneAssociationStatus,
   IpAddressType,
   ProfileResourceStatus,
@@ -924,7 +925,7 @@ export interface AssociateHostedZoneOutput {
   updatedAt: Date | undefined;
 
   /**
-   * <p>Aggregate status for all the AWS Regions in which the Route 53 Global Resolver exists.</p>
+   * <p>Aggregate status for all the Amazon Web Services Regions in which the Route 53 Global Resolver exists.</p>
    * @public
    */
   status: HostedZoneAssociationStatus | undefined;
@@ -1961,19 +1962,25 @@ export interface CreateGlobalResolverInput {
   description?: string | undefined;
 
   /**
+   * <p>The IP address type for the Route 53 Global Resolver. Valid values are IPV4 (default) or DUAL_STACK for both IPv4 and IPv6 support.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
    * <p>A descriptive name for the Route 53 Global Resolver instance. Maximum length of 64 characters.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>The AWS region where query resolution logs and metrics will be aggregated and delivered. If not specified, logging is not enabled.</p>
+   * <p>The Amazon Web Services Region where query resolution logs and metrics will be aggregated and delivered. If not specified, logging is not enabled.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
 
   /**
-   * <p>List of AWS regions where the Route 53 Global Resolver will operate. The resolver will be distributed across these regions to provide global availability and low-latency DNS resolution.</p>
+   * <p>List of Amazon Web Services Regions where the Route 53 Global Resolver will operate. The resolver will be distributed across these Regions to provide global availability and low-latency DNS resolution.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -2026,10 +2033,22 @@ export interface CreateGlobalResolverOutput {
   dnsName: string | undefined;
 
   /**
+   * <p>The IP address type configured for the Route 53 Global Resolver (IPV4 or DUAL_STACK).</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
+
+  /**
    * <p>The global anycast IPv4 addresses associated with the Route 53 Global Resolver. DNS clients can send queries to these addresses from anywhere on the internet.</p>
    * @public
    */
   ipv4Addresses: string[] | undefined;
+
+  /**
+   * <p>The global anycast IPv6 addresses associated with the Route 53 Global Resolver. This field is only populated when ipAddressType is DUAL_STACK. DNS clients can send queries to these addresses from anywhere on the internet.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
 
   /**
    * <p>The name of the Route 53 Global Resolver.</p>
@@ -2038,13 +2057,13 @@ export interface CreateGlobalResolverOutput {
   name: string | undefined;
 
   /**
-   * <p>The AWS Region where observability data for the Route 53 Global Resolver is stored.</p>
+   * <p>The Amazon Web Services Region where observability data for the Route 53 Global Resolver is stored.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
 
   /**
-   * <p>The AWS Regions where the Route 53 Global Resolver is deployed and operational.</p>
+   * <p>The Amazon Web Services Regions where the Route 53 Global Resolver is deployed and operational.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -2348,7 +2367,7 @@ export interface DeleteGlobalResolverOutput {
   dnsName: string | undefined;
 
   /**
-   * <p>The AWS Region where observability data for the deleted Route 53 Global Resolver was stored.</p>
+   * <p>The Amazon Web Services Region where observability data for the deleted Route 53 Global Resolver was stored.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
@@ -2366,7 +2385,7 @@ export interface DeleteGlobalResolverOutput {
   description?: string | undefined;
 
   /**
-   * <p>The AWS Regions where the deleted Route 53 Global Resolver was deployed and operational.</p>
+   * <p>The Amazon Web Services Regions where the deleted Route 53 Global Resolver was deployed and operational.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -2394,6 +2413,18 @@ export interface DeleteGlobalResolverOutput {
    * @public
    */
   ipv4Addresses: string[] | undefined;
+
+  /**
+   * <p>The global anycast IPv6 addresses that were associated with the deleted Route 53 Global Resolver.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IP address type that was configured for the deleted Route 53 Global Resolver.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
 }
 
 /**
@@ -3338,7 +3369,7 @@ export interface GetFirewallRuleOutput {
   description?: string | undefined;
 
   /**
-   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA and DNS_TUNNELING.</p>
+   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA, DNS_TUNNELING, and DICTIONARY_DGA.</p>
    * @public
    */
   dnsAdvancedProtection?: DnsAdvancedProtection | undefined;
@@ -3599,7 +3630,7 @@ export interface UpdateFirewallRuleInput {
   description?: string | undefined;
 
   /**
-   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA and DNS_TUNNELING.</p>
+   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA, DNS_TUNNELING, and DICTIONARY_DGA.</p>
    * @public
    */
   dnsAdvancedProtection?: DnsAdvancedProtection | undefined;
@@ -3676,7 +3707,7 @@ export interface UpdateFirewallRuleOutput {
   description?: string | undefined;
 
   /**
-   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA and DNS_TUNNELING.</p>
+   * <p>The type of the DNS Firewall Advanced rule. Valid values are DGA, DNS_TUNNELING, and DICTIONARY_DGA.</p>
    * @public
    */
   dnsAdvancedProtection?: DnsAdvancedProtection | undefined;
@@ -3770,7 +3801,7 @@ export interface GetGlobalResolverOutput {
   dnsName: string | undefined;
 
   /**
-   * <p>The AWS Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
+   * <p>The Amazon Web Services Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
@@ -3788,7 +3819,7 @@ export interface GetGlobalResolverOutput {
   description?: string | undefined;
 
   /**
-   * <p>The AWS Regions in which the Global Resolver operate.</p>
+   * <p>The Amazon Web Services Regions in which the Global Resolver operate.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -3816,6 +3847,18 @@ export interface GetGlobalResolverOutput {
    * @public
    */
   ipv4Addresses: string[] | undefined;
+
+  /**
+   * <p>List of anycast IPv6 addresses associated with the Global Resolver instance. This field is only populated when ipAddressType is DUAL_STACK.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IP address type configured for the Global Resolver.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
 }
 
 /**
@@ -3865,7 +3908,7 @@ export interface GlobalResolversItem {
   dnsName: string | undefined;
 
   /**
-   * <p>The AWS Region where observability data is collected for the global resolver.</p>
+   * <p>The Amazon Web Services Region where observability data is collected for the global resolver.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
@@ -3883,7 +3926,7 @@ export interface GlobalResolversItem {
   description?: string | undefined;
 
   /**
-   * <p>The AWS Regions where the global resolver is deployed.</p>
+   * <p>The Amazon Web Services Regions where the global resolver is deployed.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -3911,6 +3954,18 @@ export interface GlobalResolversItem {
    * @public
    */
   ipv4Addresses: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses assigned to the global resolver. This field is only populated when ipAddressType is DUAL_STACK.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IP address type configured for the global resolver.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
 }
 
 /**
@@ -3947,7 +4002,7 @@ export interface UpdateGlobalResolverInput {
   name?: string | undefined;
 
   /**
-   * <p>The AWS Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
+   * <p>The Amazon Web Services Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
@@ -3957,6 +4012,12 @@ export interface UpdateGlobalResolverInput {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The IP address type for the Global Resolver. Valid values are IPV4 or DUAL_STACK for both IPv4 and IPv6 support.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
 }
 
 /**
@@ -3988,7 +4049,7 @@ export interface UpdateGlobalResolverOutput {
   dnsName: string | undefined;
 
   /**
-   * <p>The AWS Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
+   * <p>The Amazon Web Services Regions in which the users' Global Resolver query resolution logs will be propagated.</p>
    * @public
    */
   observabilityRegion?: string | undefined;
@@ -4006,7 +4067,7 @@ export interface UpdateGlobalResolverOutput {
   description?: string | undefined;
 
   /**
-   * <p>The AWS Regions in which the Global Resolver will operate.</p>
+   * <p>The Amazon Web Services Regions in which the Global Resolver will operate.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -4034,6 +4095,18 @@ export interface UpdateGlobalResolverOutput {
    * @public
    */
   ipv4Addresses: string[] | undefined;
+
+  /**
+   * <p>List of anycast IPv6 addresses associated with the updated Global Resolver instance. This field is only populated when ipAddressType is DUAL_STACK.</p>
+   * @public
+   */
+  ipv6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IP address type configured for the updated Global Resolver.</p>
+   * @public
+   */
+  ipAddressType?: GlobalResolverIpAddressType | undefined;
 }
 
 /**

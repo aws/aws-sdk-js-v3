@@ -31,7 +31,7 @@ export interface DeleteAccessTokenCommandInput extends DeleteAccessTokenInput {}
 export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an access token. This operation cannot be undone.</p>
+ * <p>Deletes an access token. This operation cannot be undone.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

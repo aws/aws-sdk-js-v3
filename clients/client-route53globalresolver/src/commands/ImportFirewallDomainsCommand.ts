@@ -31,7 +31,7 @@ export interface ImportFirewallDomainsCommandInput extends ImportFirewallDomains
 export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomainsOutput, __MetadataBearer {}
 
 /**
- * <p>Imports a list of domains from an Amazon S3 file into a firewall domain list. The file should contain one domain per line.</p>
+ * <p>Imports a list of domains from an Amazon S3 file into a firewall domain list. The file should contain one domain per line.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +72,9 @@ export interface ImportFirewallDomainsCommandOutput extends ImportFirewallDomain
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Wait a moment and try again.</p>

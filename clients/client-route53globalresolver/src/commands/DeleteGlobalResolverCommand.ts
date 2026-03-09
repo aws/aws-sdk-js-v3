@@ -31,7 +31,7 @@ export interface DeleteGlobalResolverCommandInput extends DeleteGlobalResolverIn
 export interface DeleteGlobalResolverCommandOutput extends DeleteGlobalResolverOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a Route 53 Global Resolver instance. This operation cannot be undone. All associated DNS views, access sources, tokens, and firewall rules are also deleted.</p>
+ * <p>Deletes a Route 53 Global Resolver instance. This operation cannot be undone. All associated DNS views, access sources, tokens, and firewall rules are also deleted.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +62,10 @@ export interface DeleteGlobalResolverCommandOutput extends DeleteGlobalResolverO
  * //   ipv4Addresses: [ // IPv4Addresses // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   ipv6Addresses: [ // IPv6Addresses
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ipAddressType: "IPV4" || "DUAL_STACK",
  * // };
  *
  * ```

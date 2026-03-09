@@ -235,6 +235,7 @@ const _hZN = "hostedZoneName";
 const _i = "id";
 const _iA = "ipv4Addresses";
 const _iAT = "ipAddressType";
+const _iAp = "ipv6Addresses";
 const _m = "message";
 const _mDLN = "managedDomainListName";
 const _mFDL = "managedFirewallDomainLists";
@@ -497,13 +498,13 @@ export var CreateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _CFRO,
 ];
 export var CreateGlobalResolverInput$: StaticStructureSchema = [3, n0, _CGRI,
   0,
-  [_n, _re, _cT, _d, _oR, _t],
-  [0, 64 | 0, [0, 4], 0, 0, 128 | 0], 2
+  [_n, _re, _cT, _d, _iAT, _oR, _t],
+  [0, 64 | 0, [0, 4], 0, 0, 0, 128 | 0], 2
 ];
 export var CreateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _CGRO,
   0,
-  [_i, _a, _cT, _cA, _dN, _iA, _n, _re, _st, _uA, _d, _oR],
-  [0, 0, 0, 5, 0, 64 | 0, 0, 64 | 0, 0, 5, 0, 0], 10
+  [_i, _a, _cT, _cA, _dN, _iA, _n, _re, _st, _uA, _d, _iAT, _iAp, _oR],
+  [0, 0, 0, 5, 0, 64 | 0, 0, 64 | 0, 0, 5, 0, 0, 64 | 0, 0], 10
 ];
 export var DeleteAccessSourceInput$: StaticStructureSchema = [3, n0, _DASI,
   0,
@@ -562,8 +563,8 @@ export var DeleteGlobalResolverInput$: StaticStructureSchema = [3, n0, _DGRI,
 ];
 export var DeleteGlobalResolverOutput$: StaticStructureSchema = [3, n0, _DGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
 ];
 export var DisableDNSViewInput$: StaticStructureSchema = [3, n0, _DDNSVIi,
   0,
@@ -667,8 +668,8 @@ export var GetGlobalResolverInput$: StaticStructureSchema = [3, n0, _GGRI,
 ];
 export var GetGlobalResolverOutput$: StaticStructureSchema = [3, n0, _GGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
 ];
 export var GetHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _GHZAI,
   0,
@@ -692,8 +693,8 @@ export var GetManagedFirewallDomainListOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var GlobalResolversItem$: StaticStructureSchema = [3, n0, _GRI,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
 ];
 export var HostedZoneAssociationSummary$: StaticStructureSchema = [3, n0, _HZAS,
   0,
@@ -887,13 +888,13 @@ export var UpdateFirewallRuleOutput$: StaticStructureSchema = [3, n0, _UFRO,
 ];
 export var UpdateGlobalResolverInput$: StaticStructureSchema = [3, n0, _UGRI,
   0,
-  [_gRI, _n, _oR, _d],
-  [[0, 1], 0, 0, 0], 1
+  [_gRI, _n, _oR, _d, _iAT],
+  [[0, 1], 0, 0, 0, 0], 1
 ];
 export var UpdateGlobalResolverOutput$: StaticStructureSchema = [3, n0, _UGRO,
   0,
-  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d],
-  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0], 10
+  [_i, _a, _cT, _dN, _n, _re, _cA, _uA, _st, _iA, _oR, _d, _iAp, _iAT],
+  [0, 0, 0, 0, 0, 64 | 0, 5, 5, 0, 64 | 0, 0, 0, 64 | 0, 0], 10
 ];
 export var UpdateHostedZoneAssociationInput$: StaticStructureSchema = [3, n0, _UHZAI,
   0,
@@ -951,6 +952,7 @@ var HostedZoneAssociations: StaticListSchema = [1, n0, _HZA,
   0, () => HostedZoneAssociationSummary$
 ];
 var IPv4Addresses = 64 | 0;
+var IPv6Addresses = 64 | 0;
 var ManagedFirewallDomainLists: StaticListSchema = [1, n0, _MFDL,
   0, () => ManagedFirewallDomainListsItem$
 ];

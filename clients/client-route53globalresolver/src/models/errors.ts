@@ -141,13 +141,13 @@ export class ServiceQuotaExceededException extends __BaseException {
   resourceType: string | undefined;
 
   /**
-   * <p>The code for the AWS service that owns the quota.</p>
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code recognized by the AWS Service Quotas service.</p>
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
    * @public
    */
   quotaCode?: string | undefined;
@@ -180,13 +180,13 @@ export class ThrottlingException extends __BaseException {
     throttling: true,
   };
   /**
-   * <p>The code for the AWS service that owns the quota.</p>
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
    * @public
    */
   serviceCode?: string | undefined;
 
   /**
-   * <p>The quota code recognized by the AWS Service Quotas service.</p>
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
    * @public
    */
   quotaCode?: string | undefined;

@@ -31,7 +31,7 @@ export interface UpdateGlobalResolverCommandInput extends UpdateGlobalResolverIn
 export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of a Route 53 Global Resolver instance. You can modify the name, description, and observability region.</p>
+ * <p>Updates the configuration of a Route 53 Global Resolver instance. You can modify the name, description, and observability Region.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,7 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  *   name: "STRING_VALUE",
  *   observabilityRegion: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   ipAddressType: "IPV4" || "DUAL_STACK",
  * };
  * const command = new UpdateGlobalResolverCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,10 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  * //   ipv4Addresses: [ // IPv4Addresses // required
  * //     "STRING_VALUE",
  * //   ],
+ * //   ipv6Addresses: [ // IPv6Addresses
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ipAddressType: "IPV4" || "DUAL_STACK",
  * // };
  *
  * ```
@@ -86,6 +91,9 @@ export interface UpdateGlobalResolverCommandOutput extends UpdateGlobalResolverO
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found. Verify the resource ID and try again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would exceed one or more service quotas. Check your current usage and quotas, then try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Wait a moment and try again.</p>

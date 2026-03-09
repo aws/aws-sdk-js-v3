@@ -31,7 +31,7 @@ export interface BatchUpdateFirewallRuleCommandInput extends BatchUpdateFirewall
 export interface BatchUpdateFirewallRuleCommandOutput extends BatchUpdateFirewallRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Updates multiple DNS firewall rules in a single operation. This is more efficient than updating rules individually.</p>
+ * <p>Updates multiple DNS firewall rules in a single operation. This is more efficient than updating rules individually.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +50,7 @@ export interface BatchUpdateFirewallRuleCommandOutput extends BatchUpdateFirewal
  *       blockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
  *       confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  *       description: "STRING_VALUE",
- *       dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ *       dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  *       firewallRuleId: "STRING_VALUE", // required
  *       name: "STRING_VALUE",
  *       priority: Number("long"),
@@ -72,7 +72,7 @@ export interface BatchUpdateFirewallRuleCommandOutput extends BatchUpdateFirewal
  * //         confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //         createdAt: new Date("TIMESTAMP"),
  * //         description: "STRING_VALUE",
- * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //         firewallDomainListId: "STRING_VALUE",
  * //         id: "STRING_VALUE", // required
  * //         name: "STRING_VALUE",
@@ -98,7 +98,7 @@ export interface BatchUpdateFirewallRuleCommandOutput extends BatchUpdateFirewal
  * //         confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //         createdAt: new Date("TIMESTAMP"),
  * //         description: "STRING_VALUE",
- * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ * //         dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //         firewallDomainListId: "STRING_VALUE",
  * //         id: "STRING_VALUE", // required
  * //         name: "STRING_VALUE",

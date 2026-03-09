@@ -135,6 +135,7 @@ import {
   GetManagedFirewallDomainListCommand,
   GetManagedFirewallDomainListInput$,
   GetManagedFirewallDomainListOutput$,
+  GlobalResolverIpAddressType,
   GlobalResolversItem$,
   HostedZoneAssociationStatus,
   HostedZoneAssociationSummary$,
@@ -470,6 +471,7 @@ assert(typeof EdnsClientSubnetType === "object");
 assert(typeof FirewallBlockResponse === "object");
 assert(typeof FirewallRuleAction === "object");
 assert(typeof FirewallRulesFailOpenType === "object");
+assert(typeof GlobalResolverIpAddressType === "object");
 assert(typeof HostedZoneAssociationStatus === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof ProfileResourceStatus === "object");

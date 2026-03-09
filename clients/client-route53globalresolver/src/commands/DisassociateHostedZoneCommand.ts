@@ -31,7 +31,7 @@ export interface DisassociateHostedZoneCommandInput extends DisassociateHostedZo
 export interface DisassociateHostedZoneCommandOutput extends DisassociateHostedZoneOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates a Route 53 private hosted zone from a Route 53 Global Resolver resource.</p>
+ * <p>Disassociates a Route 53 private hosted zone from a Route 53 Global Resolver resource.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

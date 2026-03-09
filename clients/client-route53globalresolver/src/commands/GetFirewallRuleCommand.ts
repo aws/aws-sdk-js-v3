@@ -31,7 +31,7 @@ export interface GetFirewallRuleCommandInput extends GetFirewallRuleInput {}
 export interface GetFirewallRuleCommandOutput extends GetFirewallRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about a DNS firewall rule.</p>
+ * <p>Retrieves information about a DNS firewall rule.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +54,7 @@ export interface GetFirewallRuleCommandOutput extends GetFirewallRuleOutput, __M
  * //   confidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   description: "STRING_VALUE",
- * //   dnsAdvancedProtection: "DGA" || "DNS_TUNNELING",
+ * //   dnsAdvancedProtection: "DGA" || "DNS_TUNNELING" || "DICTIONARY_DGA",
  * //   firewallDomainListId: "STRING_VALUE",
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required

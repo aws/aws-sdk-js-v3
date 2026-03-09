@@ -145,6 +145,7 @@ export type ConfidenceThreshold = (typeof ConfidenceThreshold)[keyof typeof Conf
  */
 export const DnsAdvancedProtection = {
   DGA: "DGA",
+  DICTIONARY_DGA: "DICTIONARY_DGA",
   DNS_TUNNELING: "DNS_TUNNELING",
 } as const;
 /**
@@ -208,3 +209,17 @@ export const ProfileResourceStatus = {
  * @public
  */
 export type ProfileResourceStatus = (typeof ProfileResourceStatus)[keyof typeof ProfileResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const GlobalResolverIpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+} as const;
+/**
+ * @public
+ */
+export type GlobalResolverIpAddressType =
+  (typeof GlobalResolverIpAddressType)[keyof typeof GlobalResolverIpAddressType];

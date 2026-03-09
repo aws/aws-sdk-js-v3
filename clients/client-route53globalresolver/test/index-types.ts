@@ -153,6 +153,7 @@ export type {
   FirewallBlockResponse,
   FirewallRuleAction,
   FirewallRulesFailOpenType,
+  GlobalResolverIpAddressType,
   HostedZoneAssociationStatus,
   IpAddressType,
   ProfileResourceStatus,

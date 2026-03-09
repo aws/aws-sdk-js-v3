@@ -31,7 +31,7 @@ export interface ListGlobalResolversCommandInput extends ListGlobalResolversInpu
 export interface ListGlobalResolversCommandOutput extends ListGlobalResolversOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all Route 53 Global Resolver instances in your account with pagination support.</p>
+ * <p>Lists all Route 53 Global Resolver instances in your account with pagination support.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +66,10 @@ export interface ListGlobalResolversCommandOutput extends ListGlobalResolversOut
  * //       ipv4Addresses: [ // IPv4Addresses // required
  * //         "STRING_VALUE",
  * //       ],
+ * //       ipv6Addresses: [ // IPv6Addresses
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       ipAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //   ],
  * // };
