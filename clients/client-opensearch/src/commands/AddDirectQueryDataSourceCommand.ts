@@ -51,6 +51,7 @@ export interface AddDirectQueryDataSourceCommandOutput extends AddDirectQueryDat
  *   OpenSearchArns: [ // DirectQueryOpenSearchARNList // required
  *     "STRING_VALUE",
  *   ],
+ *   DataSourceAccessPolicy: "STRING_VALUE",
  *   TagList: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

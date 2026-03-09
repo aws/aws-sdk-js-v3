@@ -51,6 +51,7 @@ export interface UpdateDirectQueryDataSourceCommandOutput extends UpdateDirectQu
  *   OpenSearchArns: [ // DirectQueryOpenSearchARNList // required
  *     "STRING_VALUE",
  *   ],
+ *   DataSourceAccessPolicy: "STRING_VALUE",
  * };
  * const command = new UpdateDirectQueryDataSourceCommand(input);
  * const response = await client.send(command);
@@ -74,6 +75,9 @@ export interface UpdateDirectQueryDataSourceCommandOutput extends UpdateDirectQu
  *
  * @throws {@link InternalException} (server fault)
  *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>

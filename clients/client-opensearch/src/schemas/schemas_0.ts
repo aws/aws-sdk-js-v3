@@ -274,6 +274,7 @@ const _DRR = "DryRunResults";
 const _DRS = "DryRunStatus";
 const _DS = "DesiredState";
 const _DSA = "DataSourceArn";
+const _DSAP = "DataSourceAccessPolicy";
 const _DSD = "DataSourceDetails";
 const _DSL = "DomainStatusList";
 const _DSLa = "DataSourceList";
@@ -755,6 +756,7 @@ const _i = "id";
 const _iICAA = "iamIdentityCenterApplicationArn";
 const _iICIA = "iamIdentityCenterInstanceArn";
 const _iICO = "iamIdentityCenterOptions";
+const _iRFDSA = "iamRoleForDataSourceArn";
 const _iRFICAA = "iamRoleForIdentityCenterApplicationArn";
 const _iT = "instanceType";
 const _k = "key";
@@ -937,8 +939,8 @@ export var AddDataSourceResponse$: StaticStructureSchema = [3, n0, _ADSRd,
 ];
 export var AddDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _ADQDSR,
   0,
-  [_DSN, _DST, _OSA, _D, _TL],
-  [0, () => DirectQueryDataSourceType$, 64 | 0, 0, () => TagList], 3
+  [_DSN, _DST, _OSA, _D, _DSAP, _TL],
+  [0, () => DirectQueryDataSourceType$, 64 | 0, 0, 0, () => TagList], 3
 ];
 export var AddDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _ADQDSRd,
   0,
@@ -1232,8 +1234,8 @@ export var CrossClusterSearchConnectionProperties$: StaticStructureSchema = [3, 
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   0,
-  [_dSA, _dSD],
-  [0, 0]
+  [_dSA, _dSD, _iRFDSA],
+  [0, 0, 0]
 ];
 export var DataSourceDetails$: StaticStructureSchema = [3, n0, _DSD,
   0,
@@ -1657,8 +1659,8 @@ export var GetDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _GD
 ];
 export var GetDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _GDQDSRe,
   0,
-  [_DSN, _DST, _D, _OSA, _DSA],
-  [0, () => DirectQueryDataSourceType$, 0, 64 | 0, 0]
+  [_DSN, _DST, _D, _OSA, _DSAP, _DSA],
+  [0, () => DirectQueryDataSourceType$, 0, 64 | 0, 0, 0]
 ];
 export var GetDomainMaintenanceStatusRequest$: StaticStructureSchema = [3, n0, _GDMSR,
   0,
@@ -2247,8 +2249,8 @@ export var UpdateDataSourceResponse$: StaticStructureSchema = [3, n0, _UDSRp,
 ];
 export var UpdateDirectQueryDataSourceRequest$: StaticStructureSchema = [3, n0, _UDQDSR,
   0,
-  [_DSN, _DST, _OSA, _D],
-  [[0, 1], () => DirectQueryDataSourceType$, 64 | 0, 0], 3
+  [_DSN, _DST, _OSA, _D, _DSAP],
+  [[0, 1], () => DirectQueryDataSourceType$, 64 | 0, 0, 0], 3
 ];
 export var UpdateDirectQueryDataSourceResponse$: StaticStructureSchema = [3, n0, _UDQDSRp,
   0,

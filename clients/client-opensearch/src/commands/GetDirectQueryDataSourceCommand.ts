@@ -56,6 +56,7 @@ export interface GetDirectQueryDataSourceCommandOutput extends GetDirectQueryDat
  * //   OpenSearchArns: [ // DirectQueryOpenSearchARNList
  * //     "STRING_VALUE",
  * //   ],
+ * //   DataSourceAccessPolicy: "STRING_VALUE",
  * //   DataSourceArn: "STRING_VALUE",
  * // };
  *

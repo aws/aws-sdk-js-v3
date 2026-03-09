@@ -42,6 +42,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     { // DataSource
  *       dataSourceArn: "STRING_VALUE",
  *       dataSourceDescription: "STRING_VALUE",
+ *       iamRoleForDataSourceArn: "STRING_VALUE",
  *     },
  *   ],
  *   appConfigs: [ // AppConfigs
@@ -61,6 +62,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     { // DataSource
  * //       dataSourceArn: "STRING_VALUE",
  * //       dataSourceDescription: "STRING_VALUE",
+ * //       iamRoleForDataSourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   iamIdentityCenterOptions: { // IamIdentityCenterOptions

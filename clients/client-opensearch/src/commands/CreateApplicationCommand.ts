@@ -43,6 +43,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     { // DataSource
  *       dataSourceArn: "STRING_VALUE",
  *       dataSourceDescription: "STRING_VALUE",
+ *       iamRoleForDataSourceArn: "STRING_VALUE",
  *     },
  *   ],
  *   iamIdentityCenterOptions: { // IamIdentityCenterOptionsInput
@@ -74,6 +75,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * //     { // DataSource
  * //       dataSourceArn: "STRING_VALUE",
  * //       dataSourceDescription: "STRING_VALUE",
+ * //       iamRoleForDataSourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   iamIdentityCenterOptions: { // IamIdentityCenterOptions

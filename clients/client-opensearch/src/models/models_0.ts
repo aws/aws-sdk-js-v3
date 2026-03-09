@@ -508,6 +508,13 @@ export interface AddDirectQueryDataSourceRequest {
   OpenSearchArns: string[] | undefined;
 
   /**
+   * <p> An optional IAM access policy document that defines the permissions for accessing the data source.
+   *             The policy document must be in valid JSON format and follow IAM policy syntax.</p>
+   * @public
+   */
+  DataSourceAccessPolicy?: string | undefined;
+
+  /**
    * <p>A list of tags attached to a domain.</p>
    * @public
    */
@@ -1601,6 +1608,12 @@ export interface DataSource {
    * @public
    */
   dataSourceDescription?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role to be used for cross account/region data source association.</p>
+   * @public
+   */
+  iamRoleForDataSourceArn?: string | undefined;
 }
 
 /**
@@ -6190,6 +6203,12 @@ export interface GetDirectQueryDataSourceResponse {
   OpenSearchArns?: string[] | undefined;
 
   /**
+   * <p> The IAM access policy document that defines the permissions for accessing the direct query data source. Returns the current policy configuration in JSON format, or null if no custom policy is configured. </p>
+   * @public
+   */
+  DataSourceAccessPolicy?: string | undefined;
+
+  /**
    * <p> The unique, system-generated identifier that represents the data source. </p>
    * @public
    */
@@ -7882,6 +7901,13 @@ export interface UpdateDirectQueryDataSourceRequest {
    * @public
    */
   OpenSearchArns: string[] | undefined;
+
+  /**
+   * <p> An optional IAM access policy document that defines the updated permissions for accessing the direct query data source.
+   *             The policy document must be in valid JSON format and follow IAM policy syntax. If not specified, the existing access policy if present remains unchanged. </p>
+   * @public
+   */
+  DataSourceAccessPolicy?: string | undefined;
 }
 
 /**

@@ -57,6 +57,7 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //     { // DataSource
  * //       dataSourceArn: "STRING_VALUE",
  * //       dataSourceDescription: "STRING_VALUE",
+ * //       iamRoleForDataSourceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   appConfigs: [ // AppConfigs
