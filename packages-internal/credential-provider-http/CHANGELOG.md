@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.19 (2026-03-09)
+### Tests
+* **snapshot-testing:** implement response snapshots ([#7803](https://github.com/aws/aws-sdk-js-v3/issues/7803)) ([2b96330](https://github.com/aws/aws-sdk-js-v3/commit/2b96330d9048ca3df807a4775da859f76d041554))
+
+
+
 # 3.972.18 (2026-03-05)
 ### Chores
 * bump '@smithy/*' dependencies ([#7822](https://github.com/aws/aws-sdk-js-v3/issues/7822)) ([8ddd544](https://github.com/aws/aws-sdk-js-v3/commit/8ddd54420b62212cf3d797050e924efba1fada28))

@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-03-09)
+### Tests
+* **snapshot-testing:** implement response snapshots ([#7803](https://github.com/aws/aws-sdk-js-v3/issues/7803)) ([2b96330](https://github.com/aws/aws-sdk-js-v3/commit/2b96330d9048ca3df807a4775da859f76d041554))
+
+
+
 # 3.972.19 (2026-03-06)
 ### Bug Fixes
 * **middleware-user-agent:** use retry strategy mode property instead of legacy fallback ([#7811](https://github.com/aws/aws-sdk-js-v3/issues/7811)) ([db78633](https://github.com/aws/aws-sdk-js-v3/commit/db7863372abba6035e12aaf8a015f9f6bc020bbb))
