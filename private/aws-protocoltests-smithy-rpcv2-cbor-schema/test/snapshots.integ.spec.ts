@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  ComplexError$,
   EmptyInputOutput$,
   EmptyInputOutputCommand,
   Float16$,
@@ -12,6 +13,7 @@ import {
   FractionalSecondsCommand,
   GreetingWithErrors$,
   GreetingWithErrorsCommand,
+  InvalidGreeting$,
   NoInputOutput$,
   NoInputOutputCommand,
   OperationWithDefaults$,
@@ -31,6 +33,7 @@ import {
   SimpleScalarPropertiesCommand,
   SparseNullsOperation$,
   SparseNullsOperationCommand,
+  ValidationException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -50,24 +53,26 @@ describe("RpcV2ProtocolClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [EmptyInputOutput$, EmptyInputOutputCommand],
-        [Float16$, Float16Command],
-        [FractionalSeconds$, FractionalSecondsCommand],
-        [GreetingWithErrors$, GreetingWithErrorsCommand],
-        [NoInputOutput$, NoInputOutputCommand],
-        [OperationWithDefaults$, OperationWithDefaultsCommand],
-        [OptionalInputOutput$, OptionalInputOutputCommand],
-        [RecursiveShapes$, RecursiveShapesCommand],
-        [RpcV2CborDenseMaps$, RpcV2CborDenseMapsCommand],
-        [RpcV2CborLists$, RpcV2CborListsCommand],
-        [RpcV2CborSparseMaps$, RpcV2CborSparseMapsCommand],
-        [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
-        [SparseNullsOperation$, SparseNullsOperationCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [EmptyInputOutput$, EmptyInputOutputCommand],
+      [Float16$, Float16Command],
+      [FractionalSeconds$, FractionalSecondsCommand],
+      [GreetingWithErrors$, GreetingWithErrorsCommand],
+      [NoInputOutput$, NoInputOutputCommand],
+      [OperationWithDefaults$, OperationWithDefaultsCommand],
+      [OptionalInputOutput$, OptionalInputOutputCommand],
+      [RecursiveShapes$, RecursiveShapesCommand],
+      [RpcV2CborDenseMaps$, RpcV2CborDenseMapsCommand],
+      [RpcV2CborLists$, RpcV2CborListsCommand],
+      [RpcV2CborSparseMaps$, RpcV2CborSparseMapsCommand],
+      [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
+      [SparseNullsOperation$, SparseNullsOperationCommand],
+    ]),
+    errors: [
+      ValidationException$,
+      ComplexError$,
+      InvalidGreeting$,
+    ],
   });
-
   runner.run();
 }, 30_000);

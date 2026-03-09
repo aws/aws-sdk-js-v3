@@ -1,0 +1,50 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/json
+
+[Uint8Array (json)]
+{
+  "XAmznErrorType": "com.amazonaws.glacier#UnmodeledServiceException"
+}
+
+
+--- [error name & message] ---
+Error: Unable to calculate checksums for non-file streams.
+
+--- [error object] ---
+{}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/json
+
+[Uint8Array (json)]
+{
+  "XAmznErrorType": "com.amazonaws.glacier#UnmodeledServiceException",
+  "Message": "__Message__"
+}
+
+
+--- [error name & message] ---
+Error: Unable to calculate checksums for non-file streams.
+
+--- [error object] ---
+{}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: Unable to calculate checksums for non-file streams.
+
+--- [error object] ---
+{}
+

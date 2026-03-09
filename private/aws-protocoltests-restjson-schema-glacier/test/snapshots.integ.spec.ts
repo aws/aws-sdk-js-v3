@@ -5,6 +5,11 @@ import { describe, expect, test as it, vi } from "vitest";
 
 import {
   GlacierClient,
+  InvalidParameterValueException$,
+  MissingParameterValueException$,
+  RequestTimeoutException$,
+  ResourceNotFoundException$,
+  ServiceUnavailableException$,
   UploadArchive$,
   UploadArchiveCommand,
   UploadMultipartPart$,
@@ -28,13 +33,17 @@ describe("GlacierClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [UploadArchive$, UploadArchiveCommand],
-        [UploadMultipartPart$, UploadMultipartPartCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [UploadArchive$, UploadArchiveCommand],
+      [UploadMultipartPart$, UploadMultipartPartCommand],
+    ]),
+    errors: [
+      InvalidParameterValueException$,
+      MissingParameterValueException$,
+      RequestTimeoutException$,
+      ResourceNotFoundException$,
+      ServiceUnavailableException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

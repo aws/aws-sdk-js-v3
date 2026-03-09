@@ -4,8 +4,14 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  BadRequestException$,
+  ConflictException$,
   GetMedicalScribeStream$,
   GetMedicalScribeStreamCommand,
+  InternalFailureException$,
+  LimitExceededException$,
+  ResourceNotFoundException$,
+  ServiceUnavailableException$,
   StartCallAnalyticsStreamTranscription$,
   StartCallAnalyticsStreamTranscriptionCommand,
   StartMedicalScribeStream$,
@@ -34,16 +40,21 @@ describe("TranscribeStreamingClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [GetMedicalScribeStream$, GetMedicalScribeStreamCommand],
-        [StartCallAnalyticsStreamTranscription$, StartCallAnalyticsStreamTranscriptionCommand],
-        [StartMedicalScribeStream$, StartMedicalScribeStreamCommand],
-        [StartMedicalStreamTranscription$, StartMedicalStreamTranscriptionCommand],
-        [StartStreamTranscription$, StartStreamTranscriptionCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [GetMedicalScribeStream$, GetMedicalScribeStreamCommand],
+      [StartCallAnalyticsStreamTranscription$, StartCallAnalyticsStreamTranscriptionCommand],
+      [StartMedicalScribeStream$, StartMedicalScribeStreamCommand],
+      [StartMedicalStreamTranscription$, StartMedicalStreamTranscriptionCommand],
+      [StartStreamTranscription$, StartStreamTranscriptionCommand],
+    ]),
+    errors: [
+      BadRequestException$,
+      ConflictException$,
+      InternalFailureException$,
+      LimitExceededException$,
+      ResourceNotFoundException$,
+      ServiceUnavailableException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.19",
     "@smithy/core": "^3.23.9",
-    "@smithy/snapshot-testing": "^1.0.10",
+    "@smithy/snapshot-testing": "^2.0.0",
     "@smithy/types": "^4.13.0",
     "@smithy/util-utf8": "^4.2.2",
     "tslib": "^2.6.2"

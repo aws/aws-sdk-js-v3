@@ -1,0 +1,105 @@
+======================== minimal response ========================
+[status] 500
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "__type": "smithy.protocoltests.rpcv2Cbor#UnmodeledServiceException"
+}
+
+[actual bytes]
+161, 102, 95, 95, 116, 121, 112, 101, 120, 56, 115, 109, 105, 116, 104, 121, 46, 112, 114, 111, 116, 111, 99, 111,
+108, 116, 101, 115, 116, 115, 46, 114, 112, 99, 118, 50, 67, 98, 111, 114, 35, 85, 110, 109, 111, 100, 101, 108,
+101, 100, 83, 101, 114, 118, 105, 99, 101, 69, 120, 99, 101, 112, 116, 105, 111, 110
+
+
+--- [error name & message] ---
+UnmodeledServiceException: UnknownError
+
+--- [error object] ---
+{
+  $fault: "server",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "UnmodeledServiceException",
+  __type: "smithy.protocoltests.rpcv2Cbor#UnmodeledServiceException",
+  message: "UnknownError"
+}
+
+======================== w/ optional fields ========================
+[status] 500
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "Message": "__Message__",
+  "__type": "smithy.protocoltests.rpcv2Cbor#UnmodeledServiceException"
+}
+
+[actual bytes]
+162, 103, 77, 101, 115, 115, 97, 103, 101, 107, 95, 95, 77, 101, 115, 115, 97, 103, 101, 95, 95, 102, 95, 95,
+116, 121, 112, 101, 120, 56, 115, 109, 105, 116, 104, 121, 46, 112, 114, 111, 116, 111, 99, 111, 108, 116, 101, 115,
+116, 115, 46, 114, 112, 99, 118, 50, 67, 98, 111, 114, 35, 85, 110, 109, 111, 100, 101, 108, 101, 100, 83, 101,
+114, 118, 105, 99, 101, 69, 120, 99, 101, 112, 116, 105, 111, 110
+
+
+--- [error name & message] ---
+UnmodeledServiceException: __Message__
+
+--- [error object] ---
+{
+  $fault: "server",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "UnmodeledServiceException",
+  __type: "smithy.protocoltests.rpcv2Cbor#UnmodeledServiceException",
+  message: "__Message__"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  0: (number) 110,
+  $fault: "server",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "Unknown",
+  message: "UnknownError"
+}
+

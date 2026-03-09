@@ -3,7 +3,14 @@ import { SnapshotRunner } from "@smithy/snapshot-testing";
 import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { APIGatewayClient, GetRestApis$, GetRestApisCommand } from "../src";
+import {
+  APIGatewayClient,
+  BadRequestException$,
+  GetRestApis$,
+  GetRestApisCommand,
+  TooManyRequestsException$,
+  UnauthorizedException$,
+} from "../src";
 
 vi.setSystemTime(new Date(946702799999));
 const Client = APIGatewayClient;
@@ -22,12 +29,14 @@ describe("APIGatewayClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [GetRestApis$, GetRestApisCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [GetRestApis$, GetRestApisCommand],
+    ]),
+    errors: [
+      BadRequestException$,
+      TooManyRequestsException$,
+      UnauthorizedException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

@@ -1,8 +1,17 @@
 import { NormalizedSchema } from "@smithy/core/schema";
 import { SnapshotProtocol } from "@smithy/snapshot-testing";
-import type { $Codec, $ShapeDeserializer, $ShapeSerializer, HttpResponse, StaticOperationSchema } from "@smithy/types";
+import type {
+  $Codec,
+  $ShapeDeserializer,
+  $ShapeSerializer,
+  HttpResponse,
+  StaticErrorSchema,
+  StaticOperationSchema,
+} from "@smithy/types";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "node:stream";
+
+import { setResponseBody } from "./setResponseBody";
 
 /**
  * @internal
@@ -69,13 +78,7 @@ export abstract class HttpBindingSnapshotResponseSerializer extends SnapshotProt
         response.body = payloadBinding ?? Readable.from(payloadBinding);
       } else {
         serializer.write($payload, payloadBinding);
-        const flushed = serializer.flush();
-
-        if (flushed instanceof Uint8Array) {
-          response.body = Readable.from([flushed]);
-        } else if (typeof flushed === "string") {
-          response.body = Readable.from([fromUtf8(flushed)]);
-        }
+        setResponseBody(serializer, response);
       }
     }
 
@@ -85,5 +88,47 @@ export abstract class HttpBindingSnapshotResponseSerializer extends SnapshotProt
     }
 
     return response;
+  }
+
+  public async serializeErrorResponse(errorSchema: StaticErrorSchema, output: any): Promise<HttpResponse> {
+    const $error = NormalizedSchema.of(errorSchema);
+    const httpError = $error.getMergedTraits().httpError;
+    const status = Number(typeof httpError === "number" ? httpError : 400);
+
+    const response: HttpResponse = {
+      statusCode: status,
+      headers: {
+        "content-type": this.getDefaultContentType(),
+      },
+    };
+
+    const { serializer } = this;
+
+    let payloadBinding: any = output;
+    let $payload: NormalizedSchema = $error;
+
+    for (const [member, $] of $error.structIterator()) {
+      const traits = $.getMergedTraits();
+      if (traits.httpHeader) {
+        if (output[member] != null) {
+          serializer.write($, output[member]);
+          response.headers[traits.httpHeader] = serializer.flush();
+        }
+        delete output[member];
+      } else if (traits.httpPayload) {
+        payloadBinding = output[member];
+        $payload = $;
+      }
+    }
+
+    const [$, o] = this.errorTransform($payload, payloadBinding);
+    serializer.write($, o);
+    setResponseBody(serializer, response);
+
+    return response;
+  }
+
+  protected errorTransform($error: NormalizedSchema, output: any): [NormalizedSchema, any] {
+    return [$error, output];
   }
 }

@@ -1,0 +1,115 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<UnmodeledServiceException xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        UnmodeledServiceException
+    </Code>
+    <Message>
+        unmodeled message.
+    </Message>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</UnmodeledServiceException>
+
+
+--- [error name & message] ---
+UnmodeledServiceException: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "UnmodeledServiceException",
+  Type: "Sender",
+  Code: "UnmodeledServiceException",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  message: "unmodeled message."
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<UnmodeledServiceException xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        UnmodeledServiceException
+    </Code>
+    <Message>
+        __Message__
+    </Message>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+</UnmodeledServiceException>
+
+
+--- [error name & message] ---
+UnmodeledServiceException: __Message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "UnmodeledServiceException",
+  Type: "Sender",
+  Code: "UnmodeledServiceException",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com",
+  message: "__Message__"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: char 'A' is not expected.:1:1
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,6 +1,12 @@
 import { type JsonSettings, JsonCodec } from "@aws-sdk/core/protocols";
 import { HttpInterceptingShapeDeserializer, HttpInterceptingShapeSerializer } from "@smithy/core/protocols";
-import type { $ShapeDeserializer, $ShapeSerializer, TimestampEpochSecondsSchema } from "@smithy/types";
+import { NormalizedSchema } from "@smithy/core/schema";
+import type {
+  $ShapeDeserializer,
+  $ShapeSerializer,
+  StaticErrorSchema,
+  TimestampEpochSecondsSchema,
+} from "@smithy/types";
 
 import { HttpBindingSnapshotResponseSerializer } from "./abstract/HttpBindingSnapshotResponseSerializer";
 
@@ -43,5 +49,31 @@ export class AwsRestJsonSnapshotResponseSerializer extends HttpBindingSnapshotRe
 
   public getShapeId(): string {
     return "aws.protocols#restJson1";
+  }
+
+  protected errorTransform($error: NormalizedSchema, output: any): [NormalizedSchema, any] {
+    const [, namespace, name, traits, fields, members] = $error.getSchema() as StaticErrorSchema;
+
+    const $typed = [
+      -3,
+      namespace,
+      name,
+      traits,
+      ["XAmznErrorType", ...fields],
+      [[0, { httpHeader: "x-amzn-errortype" }], ...members],
+    ] satisfies StaticErrorSchema;
+
+    if (!fields.some((f) => f.toLowerCase() === "message")) {
+      $typed[4].push("message");
+      $typed[5].push(0);
+    }
+
+    return [
+      NormalizedSchema.of($typed),
+      {
+        XAmznErrorType: `${namespace}#${name}`,
+        ...output,
+      },
+    ];
   }
 }

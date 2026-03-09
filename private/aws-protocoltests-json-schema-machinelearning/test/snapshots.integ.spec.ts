@@ -3,7 +3,16 @@ import { SnapshotRunner } from "@smithy/snapshot-testing";
 import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { MachineLearningClient, Predict$, PredictCommand } from "../src";
+import {
+  InternalServerException$,
+  InvalidInputException$,
+  LimitExceededException$,
+  MachineLearningClient,
+  Predict$,
+  PredictCommand,
+  PredictorNotMountedException$,
+  ResourceNotFoundException$,
+} from "../src";
 
 vi.setSystemTime(new Date(946702799999));
 const Client = MachineLearningClient;
@@ -22,12 +31,16 @@ describe("MachineLearningClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [Predict$, PredictCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [Predict$, PredictCommand],
+    ]),
+    errors: [
+      InternalServerException$,
+      InvalidInputException$,
+      LimitExceededException$,
+      PredictorNotMountedException$,
+      ResourceNotFoundException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

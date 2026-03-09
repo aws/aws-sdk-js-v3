@@ -5,10 +5,14 @@ import { describe, expect, test as it, vi } from "vitest";
 
 import {
   AppConfigDataClient,
+  BadRequestException$,
   GetLatestConfiguration$,
   GetLatestConfigurationCommand,
+  InternalServerException$,
+  ResourceNotFoundException$,
   StartConfigurationSession$,
   StartConfigurationSessionCommand,
+  ThrottlingException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -28,13 +32,16 @@ describe("AppConfigDataClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [GetLatestConfiguration$, GetLatestConfigurationCommand],
-        [StartConfigurationSession$, StartConfigurationSessionCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [GetLatestConfiguration$, GetLatestConfigurationCommand],
+      [StartConfigurationSession$, StartConfigurationSessionCommand],
+    ]),
+    errors: [
+      BadRequestException$,
+      InternalServerException$,
+      ResourceNotFoundException$,
+      ThrottlingException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

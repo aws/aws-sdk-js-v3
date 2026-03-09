@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 403
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<InvalidObjectState xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        InvalidObjectState
+    </Code>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+    <Message>
+        unmodeled message.
+    </Message>
+</InvalidObjectState>
+
+
+--- [error name & message] ---
+InvalidObjectState: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 403,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "InvalidObjectState",
+  StorageClass: (undefined),
+  AccessTier: (undefined),
+  message: "unmodeled message.",
+  Type: "Sender",
+  Code: "InvalidObjectState",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com"
+}
+
+======================== w/ optional fields ========================
+[status] 403
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<InvalidObjectState xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        InvalidObjectState
+    </Code>
+    <StorageClass>
+        __StorageClass__
+    </StorageClass>
+    <AccessTier>
+        __AccessTier__
+    </AccessTier>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+    <Message>
+        unmodeled message.
+    </Message>
+</InvalidObjectState>
+
+
+--- [error name & message] ---
+InvalidObjectState: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 403,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "InvalidObjectState",
+  StorageClass: "__StorageClass__",
+  AccessTier: "__AccessTier__",
+  message: "unmodeled message.",
+  Type: "Sender",
+  Code: "InvalidObjectState",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: char 'A' is not expected.:1:1
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,83 @@
+======================== minimal response ========================
+[status] 409
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 409,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "Unknown",
+  xmlns: "https://placeholder.amazonaws.com",
+  message: "UnknownError"
+}
+
+======================== w/ optional fields ========================
+[status] 409
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<ErrorResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 409,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "Unknown",
+  xmlns: "https://placeholder.amazonaws.com",
+  message: "UnknownError"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: char 'A' is not expected.:1:1
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

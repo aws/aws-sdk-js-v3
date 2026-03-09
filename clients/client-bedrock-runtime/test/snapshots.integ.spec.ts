@@ -4,9 +4,11 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  AccessDeniedException$,
   ApplyGuardrail$,
   ApplyGuardrailCommand,
   BedrockRuntimeClient,
+  ConflictException$,
   Converse$,
   ConverseCommand,
   ConverseStream$,
@@ -15,6 +17,7 @@ import {
   CountTokensCommand,
   GetAsyncInvoke$,
   GetAsyncInvokeCommand,
+  InternalServerException$,
   InvokeModel$,
   InvokeModelCommand,
   InvokeModelWithBidirectionalStream$,
@@ -23,8 +26,17 @@ import {
   InvokeModelWithResponseStreamCommand,
   ListAsyncInvokes$,
   ListAsyncInvokesCommand,
+  ModelErrorException$,
+  ModelNotReadyException$,
+  ModelStreamErrorException$,
+  ModelTimeoutException$,
+  ResourceNotFoundException$,
+  ServiceQuotaExceededException$,
+  ServiceUnavailableException$,
   StartAsyncInvoke$,
   StartAsyncInvokeCommand,
+  ThrottlingException$,
+  ValidationException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -44,21 +56,32 @@ describe("BedrockRuntimeClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [ApplyGuardrail$, ApplyGuardrailCommand],
-        [Converse$, ConverseCommand],
-        [ConverseStream$, ConverseStreamCommand],
-        [CountTokens$, CountTokensCommand],
-        [GetAsyncInvoke$, GetAsyncInvokeCommand],
-        [InvokeModel$, InvokeModelCommand],
-        [InvokeModelWithBidirectionalStream$, InvokeModelWithBidirectionalStreamCommand],
-        [InvokeModelWithResponseStream$, InvokeModelWithResponseStreamCommand],
-        [ListAsyncInvokes$, ListAsyncInvokesCommand],
-        [StartAsyncInvoke$, StartAsyncInvokeCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [ApplyGuardrail$, ApplyGuardrailCommand],
+      [Converse$, ConverseCommand],
+      [ConverseStream$, ConverseStreamCommand],
+      [CountTokens$, CountTokensCommand],
+      [GetAsyncInvoke$, GetAsyncInvokeCommand],
+      [InvokeModel$, InvokeModelCommand],
+      [InvokeModelWithBidirectionalStream$, InvokeModelWithBidirectionalStreamCommand],
+      [InvokeModelWithResponseStream$, InvokeModelWithResponseStreamCommand],
+      [ListAsyncInvokes$, ListAsyncInvokesCommand],
+      [StartAsyncInvoke$, StartAsyncInvokeCommand],
+    ]),
+    errors: [
+      AccessDeniedException$,
+      ConflictException$,
+      InternalServerException$,
+      ModelErrorException$,
+      ModelNotReadyException$,
+      ModelStreamErrorException$,
+      ModelTimeoutException$,
+      ResourceNotFoundException$,
+      ServiceQuotaExceededException$,
+      ServiceUnavailableException$,
+      ThrottlingException$,
+      ValidationException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

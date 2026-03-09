@@ -1,0 +1,86 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/json
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+eyJYQW16bkVycm9yVHlwZSI6ImNvbS5hbWF6b25hd3Muc2FnZW1ha2VycnVudGltZWh0dHAyI1VubW9kZWxlZFNlcnZpY2VFeGNlcHRpb24ifQo=
+
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined)
+  },
+  name: "Unknown",
+  XAmznErrorType: "com.amazonaws.sagemakerruntimehttp2#UnmodeledServiceException",
+  message: "UnknownError"
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/json
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+eyJYQW16bkVycm9yVHlwZSI6ImNvbS5hbWF6b25hd3Muc2FnZW1ha2VycnVudGltZWh0dHAyI1VubW9kZWxlZFNlcnZpY2VFeGNlcHRpb24iLCJNZXNzYWdlIjoiX19NZXNzYWdlX18ifQo=
+
+
+
+--- [error name & message] ---
+Unknown: __Message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined)
+  },
+  name: "Unknown",
+  XAmznErrorType: "com.amazonaws.sagemakerruntimehttp2#UnmodeledServiceException",
+  message: "__Message__"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[async_iterable (Readable)]
+
+[chunk (b64)]
+QW4gdW5tb2RlbGVkIGVycm9yIG9jY3VycmVkIGluIGEgZnJvbnQgZW5kIGxheWVyLgo=
+
+
+
+--- [error name & message] ---
+SyntaxError: Unexpected token 'A', "An unmodel"... is not valid JSON
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined)
+  }
+}
+

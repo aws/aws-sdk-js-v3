@@ -1,0 +1,114 @@
+======================== minimal response ========================
+[status] 400
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "__type": "smithy.protocoltests.rpcv2Cbor#ComplexError"
+}
+
+[actual bytes]
+161, 102, 95, 95, 116, 121, 112, 101, 120, 43, 115, 109, 105, 116, 104, 121, 46, 112, 114, 111, 116, 111, 99, 111,
+108, 116, 101, 115, 116, 115, 46, 114, 112, 99, 118, 50, 67, 98, 111, 114, 35, 67, 111, 109, 112, 108, 101, 120,
+69, 114, 114, 111, 114
+
+
+--- [error name & message] ---
+ComplexError: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "ComplexError",
+  TopLevel: (undefined),
+  Nested: (undefined),
+  message: "Unknown",
+  __type: "smithy.protocoltests.rpcv2Cbor#ComplexError"
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "TopLevel": "__TopLevel__",
+  "Nested": {
+    "Foo": "__Foo__"
+  },
+  "__type": "smithy.protocoltests.rpcv2Cbor#ComplexError"
+}
+
+[actual bytes]
+163, 104, 84, 111, 112, 76, 101, 118, 101, 108, 108, 95, 95, 84, 111, 112, 76, 101, 118, 101, 108, 95, 95, 102,
+78, 101, 115, 116, 101, 100, 161, 99, 70, 111, 111, 103, 95, 95, 70, 111, 111, 95, 95, 102, 95, 95, 116, 121,
+112, 101, 120, 43, 115, 109, 105, 116, 104, 121, 46, 112, 114, 111, 116, 111, 99, 111, 108, 116, 101, 115, 116, 115,
+46, 114, 112, 99, 118, 50, 67, 98, 111, 114, 35, 67, 111, 109, 112, 108, 101, 120, 69, 114, 114, 111, 114
+
+
+--- [error name & message] ---
+ComplexError: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "ComplexError",
+  TopLevel: "__TopLevel__",
+  Nested: {
+    Foo: "__Foo__"
+  },
+  message: "Unknown",
+  __type: "smithy.protocoltests.rpcv2Cbor#ComplexError"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  0: (number) 110,
+  $fault: "server",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "Unknown",
+  message: "UnknownError"
+}
+

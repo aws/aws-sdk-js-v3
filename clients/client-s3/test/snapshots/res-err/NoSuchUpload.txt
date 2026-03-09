@@ -1,0 +1,115 @@
+======================== minimal response ========================
+[status] 404
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<NoSuchUpload xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        NoSuchUpload
+    </Code>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+    <Message>
+        unmodeled message.
+    </Message>
+</NoSuchUpload>
+
+
+--- [error name & message] ---
+NoSuchUpload: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 404,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "NoSuchUpload",
+  message: "unmodeled message.",
+  Type: "Sender",
+  Code: "NoSuchUpload",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com"
+}
+
+======================== w/ optional fields ========================
+[status] 404
+  
+content-type: application/xml
+
+[Uint8Array (xml)]
+<NoSuchUpload xmlns="https://placeholder.amazonaws.com">
+    <Type>
+        Sender
+    </Type>
+    <Code>
+        NoSuchUpload
+    </Code>
+    <RequestId>
+        00000000-0000-4000-8000-000000000000
+    </RequestId>
+    <Message>
+        unmodeled message.
+    </Message>
+</NoSuchUpload>
+
+
+--- [error name & message] ---
+NoSuchUpload: unmodeled message.
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 404,
+    requestId: "00000000-0000-4000-8000-000000000000",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "NoSuchUpload",
+  message: "unmodeled message.",
+  Type: "Sender",
+  Code: "NoSuchUpload",
+  RequestId: "00000000-0000-4000-8000-000000000000",
+  xmlns: "https://placeholder.amazonaws.com"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Error: char 'A' is not expected.:1:1
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
