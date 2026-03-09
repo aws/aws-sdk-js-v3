@@ -67,6 +67,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  *   useFipsEndpoint: true || false,
  *   accountID: "STRING_VALUE",
  *   internetProtocol: "STRING_VALUE",
+ *   storeSnapshotOnLocalZone: true || false,
  * };
  * const command = new UpdateReplicationConfigurationCommand(input);
  * const response = await client.send(command);
@@ -100,6 +101,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * //   },
  * //   useFipsEndpoint: true || false,
  * //   internetProtocol: "STRING_VALUE",
+ * //   storeSnapshotOnLocalZone: true || false,
  * // };
  *
  * ```

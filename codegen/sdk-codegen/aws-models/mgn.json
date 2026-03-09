@@ -2309,6 +2309,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Request to configure the internet protocol to IPv4 or IPv6.</p>"
           }
+        },
+        "storeSnapshotOnLocalZone": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to store snapshot on local zone during Replication Settings template creation.</p>"
+          }
         }
       }
     },
@@ -7562,6 +7568,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Replication Configuration internet protocol.</p>"
           }
+        },
+        "storeSnapshotOnLocalZone": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Replication Configuration store snapshot on local zone.</p>"
+          }
         }
       }
     },
@@ -7810,6 +7822,12 @@
           "target": "com.amazonaws.mgn#InternetProtocol",
           "traits": {
             "smithy.api#documentation": "<p>Replication Configuration template internet protocol.</p>"
+          }
+        },
+        "storeSnapshotOnLocalZone": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Replication Configuration template store snapshot on local zone.</p>"
           }
         }
       }
@@ -10183,6 +10201,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Update replication configuration internet protocol.</p>"
           }
+        },
+        "storeSnapshotOnLocalZone": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Update replication configuration store snapshot on local zone.</p>"
+          }
         }
       }
     },
@@ -10316,6 +10340,12 @@
           "target": "com.amazonaws.mgn#InternetProtocol",
           "traits": {
             "smithy.api#documentation": "<p>Update replication configuration template internet protocol request.</p>"
+          }
+        },
+        "storeSnapshotOnLocalZone": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Update replication configuration template store snapshot on local zone request.</p>"
           }
         }
       }

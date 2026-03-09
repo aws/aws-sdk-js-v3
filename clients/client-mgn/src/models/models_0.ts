@@ -2556,6 +2556,12 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+
+  /**
+   * <p>Request to store snapshot on local zone during Replication Settings template creation.</p>
+   * @public
+   */
+  storeSnapshotOnLocalZone?: boolean | undefined;
 }
 
 /**
@@ -2663,6 +2669,12 @@ export interface ReplicationConfigurationTemplate {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+
+  /**
+   * <p>Replication Configuration template store snapshot on local zone.</p>
+   * @public
+   */
+  storeSnapshotOnLocalZone?: boolean | undefined;
 }
 
 /**
@@ -2820,6 +2832,12 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+
+  /**
+   * <p>Update replication configuration template store snapshot on local zone request.</p>
+   * @public
+   */
+  storeSnapshotOnLocalZone?: boolean | undefined;
 }
 
 /**
@@ -3870,6 +3888,12 @@ export interface ReplicationConfiguration {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+
+  /**
+   * <p>Replication Configuration store snapshot on local zone.</p>
+   * @public
+   */
+  storeSnapshotOnLocalZone?: boolean | undefined;
 }
 
 /**
@@ -4522,6 +4546,12 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+
+  /**
+   * <p>Update replication configuration store snapshot on local zone.</p>
+   * @public
+   */
+  storeSnapshotOnLocalZone?: boolean | undefined;
 }
 
 /**

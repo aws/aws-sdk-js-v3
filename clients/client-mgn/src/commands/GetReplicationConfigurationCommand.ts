@@ -72,6 +72,7 @@ export interface GetReplicationConfigurationCommandOutput extends ReplicationCon
  * //   },
  * //   useFipsEndpoint: true || false,
  * //   internetProtocol: "STRING_VALUE",
+ * //   storeSnapshotOnLocalZone: true || false,
  * // };
  *
  * ```

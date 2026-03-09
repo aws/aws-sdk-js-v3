@@ -491,6 +491,7 @@ const _sOKP = "s3OutputKeyPrefix";
 const _sP = "sourceProperties";
 const _sSID = "sourceServerIDs";
 const _sSIDo = "sourceServerID";
+const _sSOLZ = "storeSnapshotOnLocalZone";
 const _sST = "sourceServerTags";
 const _sVC = "smallVolumeConf";
 const _sVMS = "smallVolumeMaxSize";
@@ -693,8 +694,8 @@ export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
-  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _eEKA, _uFE, _t, _iP],
-  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], 0, 2, [() => TagsMap, 0], 0], 11
+  [_sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _bT, _dPR, _cPIP, _sAT, _eEKA, _uFE, _t, _iP, _sSOLZ],
+  [0, 2, 64 | 0, 0, 2, 0, 0, 1, 0, 2, [() => TagsMap, 0], 0, 2, [() => TagsMap, 0], 0, 2], 11
 ];
 export var CreateWaveRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
@@ -1283,8 +1284,8 @@ export var RemoveTemplateActionResponse$: StaticStructureSchema = [3, n0, _RTARe
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0]
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2]
 ];
 export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, n0, _RCRD,
   0,
@@ -1293,8 +1294,8 @@ export var ReplicationConfigurationReplicatedDisk$: StaticStructureSchema = [3, 
 ];
 export var ReplicationConfigurationTemplate$: StaticStructureSchema = [3, n0, _RCT,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _t, _iP, _sSOLZ],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, [() => TagsMap, 0], 0, 2], 1
 ];
 export var ResumeReplicationRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
@@ -1458,13 +1459,13 @@ export var UpdateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
 ];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
-  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0], 1
+  [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP, _sSOLZ],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, () => ReplicationConfigurationReplicatedDisks, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 0, 2], 1
 ];
 export var UpdateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _URCTR,
   0,
-  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP],
-  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0], 1
+  [_rCTID, _a, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _iP, _sSOLZ],
+  [0, 0, 0, 2, 64 | 0, 0, 2, 0, 0, 0, 1, 0, 2, [() => TagsMap, 0], 2, 0, 2], 1
 ];
 export var UpdateSourceServerReplicationTypeRequest$: StaticStructureSchema = [3, n0, _USSRTR,
   0,

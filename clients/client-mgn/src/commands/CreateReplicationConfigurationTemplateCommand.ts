@@ -61,6 +61,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  *     "<keys>": "STRING_VALUE",
  *   },
  *   internetProtocol: "STRING_VALUE",
+ *   storeSnapshotOnLocalZone: true || false,
  * };
  * const command = new CreateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -88,6 +89,7 @@ export interface CreateReplicationConfigurationTemplateCommandOutput extends Rep
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   internetProtocol: "STRING_VALUE",
+ * //   storeSnapshotOnLocalZone: true || false,
  * // };
  *
  * ```

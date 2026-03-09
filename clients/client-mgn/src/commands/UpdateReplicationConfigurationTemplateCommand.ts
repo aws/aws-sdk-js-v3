@@ -60,6 +60,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  *   },
  *   useFipsEndpoint: true || false,
  *   internetProtocol: "STRING_VALUE",
+ *   storeSnapshotOnLocalZone: true || false,
  * };
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -87,6 +88,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   internetProtocol: "STRING_VALUE",
+ * //   storeSnapshotOnLocalZone: true || false,
  * // };
  *
  * ```

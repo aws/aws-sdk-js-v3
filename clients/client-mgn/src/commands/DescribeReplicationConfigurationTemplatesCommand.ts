@@ -74,6 +74,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput extends 
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       internetProtocol: "STRING_VALUE",
+ * //       storeSnapshotOnLocalZone: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
