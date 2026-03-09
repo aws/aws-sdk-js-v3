@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetVpnConnectionDeviceTypesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetVpnConnectionDeviceTypesResult xmlns="https://placeholder.amazonaws.com">
+    <vpnConnectionDeviceTypeSet>
+        <item>
+            <vpnConnectionDeviceTypeId>
+                __VpnConnectionDeviceTypeId__
+            </vpnConnectionDeviceTypeId>
+            <vendor>
+                __Vendor__
+            </vendor>
+            <platform>
+                __Platform__
+            </platform>
+            <software>
+                __Software__
+            </software>
+        </item>
+        <item>
+            <vpnConnectionDeviceTypeId>
+                __VpnConnectionDeviceTypeId__
+            </vpnConnectionDeviceTypeId>
+            <vendor>
+                __Vendor__
+            </vendor>
+            <platform>
+                __Platform__
+            </platform>
+            <software>
+                __Software__
+            </software>
+        </item>
+        <item>
+            <vpnConnectionDeviceTypeId>
+                __VpnConnectionDeviceTypeId__
+            </vpnConnectionDeviceTypeId>
+            <vendor>
+                __Vendor__
+            </vendor>
+            <platform>
+                __Platform__
+            </platform>
+            <software>
+                __Software__
+            </software>
+        </item>
+    </vpnConnectionDeviceTypeSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetVpnConnectionDeviceTypesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpnConnectionDeviceTypes: [
+    {
+      VpnConnectionDeviceTypeId: "__VpnConnectionDeviceTypeId__",
+      Vendor: "__Vendor__",
+      Platform: "__Platform__",
+      Software: "__Software__"
+    },
+    {
+      VpnConnectionDeviceTypeId: "__VpnConnectionDeviceTypeId__",
+      Vendor: "__Vendor__",
+      Platform: "__Platform__",
+      Software: "__Software__"
+    },
+    {
+      VpnConnectionDeviceTypeId: "__VpnConnectionDeviceTypeId__",
+      Vendor: "__Vendor__",
+      Platform: "__Platform__",
+      Software: "__Software__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

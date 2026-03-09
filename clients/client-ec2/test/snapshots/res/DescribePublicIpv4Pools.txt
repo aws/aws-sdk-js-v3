@@ -1,0 +1,437 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribePublicIpv4PoolsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribePublicIpv4PoolsResult xmlns="https://placeholder.amazonaws.com">
+    <publicIpv4PoolSet>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolAddressRangeSet>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+            </poolAddressRangeSet>
+            <totalAddressCount>
+                0
+            </totalAddressCount>
+            <totalAvailableAddressCount>
+                0
+            </totalAvailableAddressCount>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolAddressRangeSet>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+            </poolAddressRangeSet>
+            <totalAddressCount>
+                0
+            </totalAddressCount>
+            <totalAvailableAddressCount>
+                0
+            </totalAvailableAddressCount>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <description>
+                __Description__
+            </description>
+            <poolAddressRangeSet>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+                <item>
+                    <firstAddress>
+                        __FirstAddress__
+                    </firstAddress>
+                    <lastAddress>
+                        __LastAddress__
+                    </lastAddress>
+                    <addressCount>
+                        0
+                    </addressCount>
+                    <availableAddressCount>
+                        0
+                    </availableAddressCount>
+                </item>
+            </poolAddressRangeSet>
+            <totalAddressCount>
+                0
+            </totalAddressCount>
+            <totalAvailableAddressCount>
+                0
+            </totalAvailableAddressCount>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </publicIpv4PoolSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribePublicIpv4PoolsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  PublicIpv4Pools: [
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolAddressRanges: [
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        }
+      ],
+      TotalAddressCount: (number) 0,
+      TotalAvailableAddressCount: (number) 0,
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolAddressRanges: [
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        }
+      ],
+      TotalAddressCount: (number) 0,
+      TotalAvailableAddressCount: (number) 0,
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      PoolId: "__PoolId__",
+      Description: "__Description__",
+      PoolAddressRanges: [
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        },
+        {
+          FirstAddress: "__FirstAddress__",
+          LastAddress: "__LastAddress__",
+          AddressCount: (number) 0,
+          AvailableAddressCount: (number) 0
+        }
+      ],
+      TotalAddressCount: (number) 0,
+      TotalAvailableAddressCount: (number) 0,
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

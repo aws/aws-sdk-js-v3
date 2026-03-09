@@ -1,0 +1,68 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<UploadPartOutput xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-server-side-encryption: __ServerSideEncryption__
+ETag: __ETag__
+x-amz-checksum-crc32: __ChecksumCRC32__
+x-amz-checksum-crc32c: __ChecksumCRC32C__
+x-amz-checksum-crc64nvme: __ChecksumCRC64NVME__
+x-amz-checksum-sha1: __ChecksumSHA1__
+x-amz-checksum-sha256: __ChecksumSHA256__
+x-amz-server-side-encryption-customer-algorithm: __SSECustomerAlgorithm__
+x-amz-server-side-encryption-customer-key-MD5: __SSECustomerKeyMD5__
+x-amz-server-side-encryption-aws-kms-key-id: __SSEKMSKeyId__
+x-amz-server-side-encryption-bucket-key-enabled: false
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<UploadPartOutput xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  ServerSideEncryption: "__ServerSideEncryption__",
+  ETag: "__ETag__",
+  ChecksumCRC32: "__ChecksumCRC32__",
+  ChecksumCRC32C: "__ChecksumCRC32C__",
+  ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+  ChecksumSHA1: "__ChecksumSHA1__",
+  ChecksumSHA256: "__ChecksumSHA256__",
+  SSECustomerAlgorithm: "__SSECustomerAlgorithm__",
+  SSECustomerKeyMD5: "__SSECustomerKeyMD5__",
+  SSEKMSKeyId: "__SSEKMSKeyId__",
+  BucketKeyEnabled: (boolean) false,
+  RequestCharged: "__RequestCharged__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

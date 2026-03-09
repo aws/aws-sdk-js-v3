@@ -1,0 +1,229 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportVerifiedAccessInstanceClientConfigurationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportVerifiedAccessInstanceClientConfigurationResult xmlns="https://placeholder.amazonaws.com">
+    <version>
+        __Version__
+    </version>
+    <verifiedAccessInstanceId>
+        __VerifiedAccessInstanceId__
+    </verifiedAccessInstanceId>
+    <region>
+        __Region__
+    </region>
+    <deviceTrustProviderSet>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+        <item>
+            __member__
+        </item>
+    </deviceTrustProviderSet>
+    <userTrustProvider>
+        <type>
+            __Type__
+        </type>
+        <scopes>
+            __Scopes__
+        </scopes>
+        <issuer>
+            __Issuer__
+        </issuer>
+        <authorizationEndpoint>
+            __AuthorizationEndpoint__
+        </authorizationEndpoint>
+        <publicSigningKeyEndpoint>
+            __PublicSigningKeyEndpoint__
+        </publicSigningKeyEndpoint>
+        <tokenEndpoint>
+            __TokenEndpoint__
+        </tokenEndpoint>
+        <userInfoEndpoint>
+            __UserInfoEndpoint__
+        </userInfoEndpoint>
+        <clientId>
+            __ClientId__
+        </clientId>
+        <clientSecret>
+            __ClientSecret__
+        </clientSecret>
+        <pkceEnabled>
+            false
+        </pkceEnabled>
+    </userTrustProvider>
+    <openVpnConfigurationSet>
+        <item>
+            <config>
+                __Config__
+            </config>
+            <routeSet>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </routeSet>
+        </item>
+        <item>
+            <config>
+                __Config__
+            </config>
+            <routeSet>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </routeSet>
+        </item>
+        <item>
+            <config>
+                __Config__
+            </config>
+            <routeSet>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+                <item>
+                    <cidr>
+                        __Cidr__
+                    </cidr>
+                </item>
+            </routeSet>
+        </item>
+    </openVpnConfigurationSet>
+</ExportVerifiedAccessInstanceClientConfigurationResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Version: "__Version__",
+  VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+  Region: "__Region__",
+  DeviceTrustProviders: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  UserTrustProvider: {
+    Type: "__Type__",
+    Scopes: "__Scopes__",
+    Issuer: "__Issuer__",
+    AuthorizationEndpoint: "__AuthorizationEndpoint__",
+    PublicSigningKeyEndpoint: "__PublicSigningKeyEndpoint__",
+    TokenEndpoint: "__TokenEndpoint__",
+    UserInfoEndpoint: "__UserInfoEndpoint__",
+    ClientId: "__ClientId__",
+    ClientSecret: "__ClientSecret__",
+    PkceEnabled: (boolean) false
+  },
+  OpenVpnConfigurations: [
+    {
+      Config: "__Config__",
+      Routes: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ]
+    },
+    {
+      Config: "__Config__",
+      Routes: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ]
+    },
+    {
+      Config: "__Config__",
+      Routes: [
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        },
+        {
+          Cidr: "__Cidr__"
+        }
+      ]
+    }
+  ]
+}
+

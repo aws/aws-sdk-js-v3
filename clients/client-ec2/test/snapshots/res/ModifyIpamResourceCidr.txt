@@ -1,0 +1,149 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyIpamResourceCidrResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyIpamResourceCidrResult xmlns="https://placeholder.amazonaws.com">
+    <ipamResourceCidr>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+        <ipamScopeId>
+            __IpamScopeId__
+        </ipamScopeId>
+        <ipamPoolId>
+            __IpamPoolId__
+        </ipamPoolId>
+        <resourceRegion>
+            __ResourceRegion__
+        </resourceRegion>
+        <resourceOwnerId>
+            __ResourceOwnerId__
+        </resourceOwnerId>
+        <resourceId>
+            __ResourceId__
+        </resourceId>
+        <resourceName>
+            __ResourceName__
+        </resourceName>
+        <resourceCidr>
+            __ResourceCidr__
+        </resourceCidr>
+        <resourceType>
+            __ResourceType__
+        </resourceType>
+        <resourceTagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </resourceTagSet>
+        <ipUsage>
+            0
+        </ipUsage>
+        <complianceStatus>
+            __ComplianceStatus__
+        </complianceStatus>
+        <managementState>
+            __ManagementState__
+        </managementState>
+        <overlapStatus>
+            __OverlapStatus__
+        </overlapStatus>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <availabilityZoneId>
+            __AvailabilityZoneId__
+        </availabilityZoneId>
+    </ipamResourceCidr>
+</ModifyIpamResourceCidrResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamResourceCidr: {
+    IpamId: "__IpamId__",
+    IpamScopeId: "__IpamScopeId__",
+    IpamPoolId: "__IpamPoolId__",
+    ResourceRegion: "__ResourceRegion__",
+    ResourceOwnerId: "__ResourceOwnerId__",
+    ResourceId: "__ResourceId__",
+    ResourceName: "__ResourceName__",
+    ResourceCidr: "__ResourceCidr__",
+    ResourceType: "__ResourceType__",
+    ResourceTags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    IpUsage: (number) 0,
+    ComplianceStatus: "__ComplianceStatus__",
+    ManagementState: "__ManagementState__",
+    OverlapStatus: "__OverlapStatus__",
+    VpcId: "__VpcId__",
+    AvailabilityZoneId: "__AvailabilityZoneId__"
+  }
+}
+

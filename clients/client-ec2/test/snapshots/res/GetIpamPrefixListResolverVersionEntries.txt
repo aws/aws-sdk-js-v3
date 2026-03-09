@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPrefixListResolverVersionEntriesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamPrefixListResolverVersionEntriesResult xmlns="https://placeholder.amazonaws.com">
+    <entrySet>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+        </item>
+    </entrySet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamPrefixListResolverVersionEntriesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Entries: [
+    {
+      Cidr: "__Cidr__"
+    },
+    {
+      Cidr: "__Cidr__"
+    },
+    {
+      Cidr: "__Cidr__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,215 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetObjectAttributesResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+x-amz-delete-marker: false
+Last-Modified: Sat, 01 Jan 2000 04:59:59 GMT
+x-amz-version-id: __VersionId__
+x-amz-request-charged: __RequestCharged__
+
+[Uint8Array (xml)]
+<GetObjectAttributesResponse xmlns="https://placeholder.amazonaws.com">
+    <ETag>
+        __ETag__
+    </ETag>
+    <Checksum>
+        <ChecksumCRC32>
+            __ChecksumCRC32__
+        </ChecksumCRC32>
+        <ChecksumCRC32C>
+            __ChecksumCRC32C__
+        </ChecksumCRC32C>
+        <ChecksumCRC64NVME>
+            __ChecksumCRC64NVME__
+        </ChecksumCRC64NVME>
+        <ChecksumSHA1>
+            __ChecksumSHA1__
+        </ChecksumSHA1>
+        <ChecksumSHA256>
+            __ChecksumSHA256__
+        </ChecksumSHA256>
+        <ChecksumType>
+            __ChecksumType__
+        </ChecksumType>
+    </Checksum>
+    <ObjectParts>
+        <PartsCount>
+            0
+        </PartsCount>
+        <PartNumberMarker>
+            __PartNumberMarker__
+        </PartNumberMarker>
+        <NextPartNumberMarker>
+            __NextPartNumberMarker__
+        </NextPartNumberMarker>
+        <MaxParts>
+            0
+        </MaxParts>
+        <IsTruncated>
+            false
+        </IsTruncated>
+        <Part>
+            <PartNumber>
+                0
+            </PartNumber>
+            <Size>
+                0
+            </Size>
+            <ChecksumCRC32>
+                __ChecksumCRC32__
+            </ChecksumCRC32>
+            <ChecksumCRC32C>
+                __ChecksumCRC32C__
+            </ChecksumCRC32C>
+            <ChecksumCRC64NVME>
+                __ChecksumCRC64NVME__
+            </ChecksumCRC64NVME>
+            <ChecksumSHA1>
+                __ChecksumSHA1__
+            </ChecksumSHA1>
+            <ChecksumSHA256>
+                __ChecksumSHA256__
+            </ChecksumSHA256>
+        </Part>
+        <Part>
+            <PartNumber>
+                0
+            </PartNumber>
+            <Size>
+                0
+            </Size>
+            <ChecksumCRC32>
+                __ChecksumCRC32__
+            </ChecksumCRC32>
+            <ChecksumCRC32C>
+                __ChecksumCRC32C__
+            </ChecksumCRC32C>
+            <ChecksumCRC64NVME>
+                __ChecksumCRC64NVME__
+            </ChecksumCRC64NVME>
+            <ChecksumSHA1>
+                __ChecksumSHA1__
+            </ChecksumSHA1>
+            <ChecksumSHA256>
+                __ChecksumSHA256__
+            </ChecksumSHA256>
+        </Part>
+        <Part>
+            <PartNumber>
+                0
+            </PartNumber>
+            <Size>
+                0
+            </Size>
+            <ChecksumCRC32>
+                __ChecksumCRC32__
+            </ChecksumCRC32>
+            <ChecksumCRC32C>
+                __ChecksumCRC32C__
+            </ChecksumCRC32C>
+            <ChecksumCRC64NVME>
+                __ChecksumCRC64NVME__
+            </ChecksumCRC64NVME>
+            <ChecksumSHA1>
+                __ChecksumSHA1__
+            </ChecksumSHA1>
+            <ChecksumSHA256>
+                __ChecksumSHA256__
+            </ChecksumSHA256>
+        </Part>
+    </ObjectParts>
+    <StorageClass>
+        __StorageClass__
+    </StorageClass>
+    <ObjectSize>
+        0
+    </ObjectSize>
+</GetObjectAttributesResponse>
+
+
+--- [output object] ---
+{
+  DeleteMarker: (boolean) false,
+  LastModified: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  VersionId: "__VersionId__",
+  RequestCharged: "__RequestCharged__",
+  ETag: "__ETag__",
+  Checksum: {
+    ChecksumCRC32: "__ChecksumCRC32__",
+    ChecksumCRC32C: "__ChecksumCRC32C__",
+    ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+    ChecksumSHA1: "__ChecksumSHA1__",
+    ChecksumSHA256: "__ChecksumSHA256__",
+    ChecksumType: "__ChecksumType__"
+  },
+  ObjectParts: {
+    TotalPartsCount: (number) 0,
+    PartNumberMarker: "__PartNumberMarker__",
+    NextPartNumberMarker: "__NextPartNumberMarker__",
+    MaxParts: (number) 0,
+    IsTruncated: (boolean) false,
+    Parts: [
+      {
+        PartNumber: (number) 0,
+        Size: (number) 0,
+        ChecksumCRC32: "__ChecksumCRC32__",
+        ChecksumCRC32C: "__ChecksumCRC32C__",
+        ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+        ChecksumSHA1: "__ChecksumSHA1__",
+        ChecksumSHA256: "__ChecksumSHA256__"
+      },
+      {
+        PartNumber: (number) 0,
+        Size: (number) 0,
+        ChecksumCRC32: "__ChecksumCRC32__",
+        ChecksumCRC32C: "__ChecksumCRC32C__",
+        ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+        ChecksumSHA1: "__ChecksumSHA1__",
+        ChecksumSHA256: "__ChecksumSHA256__"
+      },
+      {
+        PartNumber: (number) 0,
+        Size: (number) 0,
+        ChecksumCRC32: "__ChecksumCRC32__",
+        ChecksumCRC32C: "__ChecksumCRC32C__",
+        ChecksumCRC64NVME: "__ChecksumCRC64NVME__",
+        ChecksumSHA1: "__ChecksumSHA1__",
+        ChecksumSHA256: "__ChecksumSHA256__"
+      }
+    ]
+  },
+  StorageClass: "__StorageClass__",
+  ObjectSize: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

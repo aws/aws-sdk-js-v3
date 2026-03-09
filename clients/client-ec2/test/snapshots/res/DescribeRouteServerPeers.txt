@@ -1,0 +1,389 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRouteServerPeersResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRouteServerPeersResult xmlns="https://placeholder.amazonaws.com">
+    <routeServerPeerSet>
+        <item>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <endpointEniId>
+                __EndpointEniId__
+            </endpointEniId>
+            <endpointEniAddress>
+                __EndpointEniAddress__
+            </endpointEniAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <bgpOptions>
+                <peerAsn>
+                    0
+                </peerAsn>
+                <peerLivenessDetection>
+                    __PeerLivenessDetection__
+                </peerLivenessDetection>
+            </bgpOptions>
+            <bgpStatus>
+                <status>
+                    __Status__
+                </status>
+            </bgpStatus>
+            <bfdStatus>
+                <status>
+                    __Status__
+                </status>
+            </bfdStatus>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <endpointEniId>
+                __EndpointEniId__
+            </endpointEniId>
+            <endpointEniAddress>
+                __EndpointEniAddress__
+            </endpointEniAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <bgpOptions>
+                <peerAsn>
+                    0
+                </peerAsn>
+                <peerLivenessDetection>
+                    __PeerLivenessDetection__
+                </peerLivenessDetection>
+            </bgpOptions>
+            <bgpStatus>
+                <status>
+                    __Status__
+                </status>
+            </bgpStatus>
+            <bfdStatus>
+                <status>
+                    __Status__
+                </status>
+            </bfdStatus>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <endpointEniId>
+                __EndpointEniId__
+            </endpointEniId>
+            <endpointEniAddress>
+                __EndpointEniAddress__
+            </endpointEniAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <bgpOptions>
+                <peerAsn>
+                    0
+                </peerAsn>
+                <peerLivenessDetection>
+                    __PeerLivenessDetection__
+                </peerLivenessDetection>
+            </bgpOptions>
+            <bgpStatus>
+                <status>
+                    __Status__
+                </status>
+            </bgpStatus>
+            <bfdStatus>
+                <status>
+                    __Status__
+                </status>
+            </bfdStatus>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </routeServerPeerSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeRouteServerPeersResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  RouteServerPeers: [
+    {
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerId: "__RouteServerId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      EndpointEniId: "__EndpointEniId__",
+      EndpointEniAddress: "__EndpointEniAddress__",
+      PeerAddress: "__PeerAddress__",
+      BgpOptions: {
+        PeerAsn: (number) 0,
+        PeerLivenessDetection: "__PeerLivenessDetection__"
+      },
+      BgpStatus: {
+        Status: "__Status__"
+      },
+      BfdStatus: {
+        Status: "__Status__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerId: "__RouteServerId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      EndpointEniId: "__EndpointEniId__",
+      EndpointEniAddress: "__EndpointEniAddress__",
+      PeerAddress: "__PeerAddress__",
+      BgpOptions: {
+        PeerAsn: (number) 0,
+        PeerLivenessDetection: "__PeerLivenessDetection__"
+      },
+      BgpStatus: {
+        Status: "__Status__"
+      },
+      BfdStatus: {
+        Status: "__Status__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerId: "__RouteServerId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      EndpointEniId: "__EndpointEniId__",
+      EndpointEniAddress: "__EndpointEniAddress__",
+      PeerAddress: "__PeerAddress__",
+      BgpOptions: {
+        PeerAsn: (number) 0,
+        PeerLivenessDetection: "__PeerLivenessDetection__"
+      },
+      BgpStatus: {
+        Status: "__Status__"
+      },
+      BfdStatus: {
+        Status: "__Status__"
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

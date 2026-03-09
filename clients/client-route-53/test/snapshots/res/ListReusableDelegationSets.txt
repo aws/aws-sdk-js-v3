@@ -1,0 +1,254 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListReusableDelegationSetsResponse xmlns="https://placeholder.amazonaws.com">
+    <DelegationSets>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+    </DelegationSets>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListReusableDelegationSetsResponse>
+
+
+--- [output object] ---
+{
+  DelegationSets: [
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    },
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    },
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListReusableDelegationSetsResponse xmlns="https://placeholder.amazonaws.com">
+    <DelegationSets>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+        <DelegationSet>
+            <NameServers>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+                <NameServer>
+                    __member__
+                </NameServer>
+            </NameServers>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+        </DelegationSet>
+    </DelegationSets>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListReusableDelegationSetsResponse>
+
+
+--- [output object] ---
+{
+  DelegationSets: [
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    },
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    },
+    {
+      NameServers: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Id: "__Id__",
+      CallerReference: "__CallerReference__"
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

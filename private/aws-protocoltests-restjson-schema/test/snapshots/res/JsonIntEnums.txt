@@ -1,0 +1,79 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "integerEnum1": 0,
+  "integerEnum2": 0,
+  "integerEnum3": 0,
+  "integerEnumList": [
+    0,
+    0,
+    0
+  ],
+  "integerEnumSet": [
+    0,
+    0,
+    0
+  ],
+  "integerEnumMap": {
+    "key1": 0,
+    "key2": 0
+  }
+}
+
+
+--- [output object] ---
+{
+  integerEnum1: (number) 0,
+  integerEnum2: (number) 0,
+  integerEnum3: (number) 0,
+  integerEnumList: [
+    (number) 0,
+    (number) 0,
+    (number) 0
+  ],
+  integerEnumSet: [
+    (number) 0,
+    (number) 0,
+    (number) 0
+  ],
+  integerEnumMap: {
+    key1: (number) 0,
+    key2: (number) 0
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

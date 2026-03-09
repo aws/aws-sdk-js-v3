@@ -1,5 +1,8 @@
 import type { CodecSettings } from "@smithy/types";
 
+/**
+ * @internal
+ */
 export type QuerySerializerSettings = CodecSettings & {
   capitalizeKeys?: boolean;
   flattenLists?: boolean;

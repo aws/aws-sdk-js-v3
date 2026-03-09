@@ -1,0 +1,83 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "events": [
+    {
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0
+    },
+    {
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0
+    },
+    {
+      "timestamp": 0,
+      "message": "__message__",
+      "ingestionTime": 0
+    }
+  ],
+  "nextForwardToken": "__nextForwardToken__",
+  "nextBackwardToken": "__nextBackwardToken__"
+}
+
+
+--- [output object] ---
+{
+  events: [
+    {
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0
+    },
+    {
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0
+    },
+    {
+      timestamp: (number) 0,
+      message: "__message__",
+      ingestionTime: (number) 0
+    }
+  ],
+  nextForwardToken: "__nextForwardToken__",
+  nextBackwardToken: "__nextBackwardToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

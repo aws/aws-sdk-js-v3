@@ -1,0 +1,149 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSpotFleetRequestHistoryResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSpotFleetRequestHistoryResponse xmlns="https://placeholder.amazonaws.com">
+    <historyRecordSet>
+        <item>
+            <eventInformation>
+                <eventDescription>
+                    __EventDescription__
+                </eventDescription>
+                <eventSubType>
+                    __EventSubType__
+                </eventSubType>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+            </eventInformation>
+            <eventType>
+                __EventType__
+            </eventType>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+        <item>
+            <eventInformation>
+                <eventDescription>
+                    __EventDescription__
+                </eventDescription>
+                <eventSubType>
+                    __EventSubType__
+                </eventSubType>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+            </eventInformation>
+            <eventType>
+                __EventType__
+            </eventType>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+        <item>
+            <eventInformation>
+                <eventDescription>
+                    __EventDescription__
+                </eventDescription>
+                <eventSubType>
+                    __EventSubType__
+                </eventSubType>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+            </eventInformation>
+            <eventType>
+                __EventType__
+            </eventType>
+            <timestamp>
+                2000-01-01T04:59:59.999Z
+            </timestamp>
+        </item>
+    </historyRecordSet>
+    <lastEvaluatedTime>
+        2000-01-01T04:59:59.999Z
+    </lastEvaluatedTime>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <spotFleetRequestId>
+        __SpotFleetRequestId__
+    </spotFleetRequestId>
+    <startTime>
+        2000-01-01T04:59:59.999Z
+    </startTime>
+</DescribeSpotFleetRequestHistoryResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  HistoryRecords: [
+    {
+      EventInformation: {
+        EventDescription: "__EventDescription__",
+        EventSubType: "__EventSubType__",
+        InstanceId: "__InstanceId__"
+      },
+      EventType: "__EventType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EventInformation: {
+        EventDescription: "__EventDescription__",
+        EventSubType: "__EventSubType__",
+        InstanceId: "__InstanceId__"
+      },
+      EventType: "__EventType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      EventInformation: {
+        EventDescription: "__EventDescription__",
+        EventSubType: "__EventSubType__",
+        InstanceId: "__InstanceId__"
+      },
+      EventType: "__EventType__",
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  LastEvaluatedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  NextToken: "__NextToken__",
+  SpotFleetRequestId: "__SpotFleetRequestId__",
+  StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+}
+

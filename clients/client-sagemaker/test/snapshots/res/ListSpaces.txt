@@ -1,0 +1,189 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "Spaces": [
+    {
+      "DomainId": "__DomainId__",
+      "SpaceName": "__SpaceName__",
+      "Status": "__Status__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "SpaceSettingsSummary": {
+        "AppType": "__AppType__",
+        "RemoteAccess": "__RemoteAccess__",
+        "SpaceStorageSettings": {
+          "EbsStorageSettings": {
+            "EbsVolumeSizeInGb": 0
+          }
+        }
+      },
+      "SpaceSharingSettingsSummary": {
+        "SharingType": "__SharingType__"
+      },
+      "OwnershipSettingsSummary": {
+        "OwnerUserProfileName": "__OwnerUserProfileName__"
+      },
+      "SpaceDisplayName": "__SpaceDisplayName__"
+    },
+    {
+      "DomainId": "__DomainId__",
+      "SpaceName": "__SpaceName__",
+      "Status": "__Status__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "SpaceSettingsSummary": {
+        "AppType": "__AppType__",
+        "RemoteAccess": "__RemoteAccess__",
+        "SpaceStorageSettings": {
+          "EbsStorageSettings": {
+            "EbsVolumeSizeInGb": 0
+          }
+        }
+      },
+      "SpaceSharingSettingsSummary": {
+        "SharingType": "__SharingType__"
+      },
+      "OwnershipSettingsSummary": {
+        "OwnerUserProfileName": "__OwnerUserProfileName__"
+      },
+      "SpaceDisplayName": "__SpaceDisplayName__"
+    },
+    {
+      "DomainId": "__DomainId__",
+      "SpaceName": "__SpaceName__",
+      "Status": "__Status__",
+      "CreationTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "SpaceSettingsSummary": {
+        "AppType": "__AppType__",
+        "RemoteAccess": "__RemoteAccess__",
+        "SpaceStorageSettings": {
+          "EbsStorageSettings": {
+            "EbsVolumeSizeInGb": 0
+          }
+        }
+      },
+      "SpaceSharingSettingsSummary": {
+        "SharingType": "__SharingType__"
+      },
+      "OwnershipSettingsSummary": {
+        "OwnerUserProfileName": "__OwnerUserProfileName__"
+      },
+      "SpaceDisplayName": "__SpaceDisplayName__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  Spaces: [
+    {
+      DomainId: "__DomainId__",
+      SpaceName: "__SpaceName__",
+      Status: "__Status__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SpaceSettingsSummary: {
+        AppType: "__AppType__",
+        RemoteAccess: "__RemoteAccess__",
+        SpaceStorageSettings: {
+          EbsStorageSettings: {
+            EbsVolumeSizeInGb: (number) 0
+          }
+        }
+      },
+      SpaceSharingSettingsSummary: {
+        SharingType: "__SharingType__"
+      },
+      OwnershipSettingsSummary: {
+        OwnerUserProfileName: "__OwnerUserProfileName__"
+      },
+      SpaceDisplayName: "__SpaceDisplayName__"
+    },
+    {
+      DomainId: "__DomainId__",
+      SpaceName: "__SpaceName__",
+      Status: "__Status__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SpaceSettingsSummary: {
+        AppType: "__AppType__",
+        RemoteAccess: "__RemoteAccess__",
+        SpaceStorageSettings: {
+          EbsStorageSettings: {
+            EbsVolumeSizeInGb: (number) 0
+          }
+        }
+      },
+      SpaceSharingSettingsSummary: {
+        SharingType: "__SharingType__"
+      },
+      OwnershipSettingsSummary: {
+        OwnerUserProfileName: "__OwnerUserProfileName__"
+      },
+      SpaceDisplayName: "__SpaceDisplayName__"
+    },
+    {
+      DomainId: "__DomainId__",
+      SpaceName: "__SpaceName__",
+      Status: "__Status__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      SpaceSettingsSummary: {
+        AppType: "__AppType__",
+        RemoteAccess: "__RemoteAccess__",
+        SpaceStorageSettings: {
+          EbsStorageSettings: {
+            EbsVolumeSizeInGb: (number) 0
+          }
+        }
+      },
+      SpaceSharingSettingsSummary: {
+        SharingType: "__SharingType__"
+      },
+      OwnershipSettingsSummary: {
+        OwnerUserProfileName: "__OwnerUserProfileName__"
+      },
+      SpaceDisplayName: "__SpaceDisplayName__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcBlockPublicAccessOptionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcBlockPublicAccessOptionsResult xmlns="https://placeholder.amazonaws.com">
+    <vpcBlockPublicAccessOptions>
+        <awsAccountId>
+            __AwsAccountId__
+        </awsAccountId>
+        <awsRegion>
+            __AwsRegion__
+        </awsRegion>
+        <state>
+            __State__
+        </state>
+        <internetGatewayBlockMode>
+            __InternetGatewayBlockMode__
+        </internetGatewayBlockMode>
+        <reason>
+            __Reason__
+        </reason>
+        <lastUpdateTimestamp>
+            2000-01-01T04:59:59.999Z
+        </lastUpdateTimestamp>
+        <managedBy>
+            __ManagedBy__
+        </managedBy>
+        <exclusionsAllowed>
+            __ExclusionsAllowed__
+        </exclusionsAllowed>
+    </vpcBlockPublicAccessOptions>
+</DescribeVpcBlockPublicAccessOptionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcBlockPublicAccessOptions: {
+    AwsAccountId: "__AwsAccountId__",
+    AwsRegion: "__AwsRegion__",
+    State: "__State__",
+    InternetGatewayBlockMode: "__InternetGatewayBlockMode__",
+    Reason: "__Reason__",
+    LastUpdateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ManagedBy: "__ManagedBy__",
+    ExclusionsAllowed: "__ExclusionsAllowed__"
+  }
+}
+

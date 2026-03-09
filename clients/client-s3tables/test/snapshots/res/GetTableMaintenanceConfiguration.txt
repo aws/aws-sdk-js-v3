@@ -1,0 +1,98 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "tableARN": "__tableARN__",
+  "configuration": {
+    "key1": {},
+    "key2": {}
+  }
+}
+
+
+--- [output object] ---
+{
+  tableARN: "__tableARN__",
+  configuration: {
+    key1: {},
+    key2: {}
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "tableARN": "__tableARN__",
+  "configuration": {
+    "key1": {
+      "status": "__status__",
+      "settings": {
+        "icebergSnapshotManagement": {
+          "minSnapshotsToKeep": 0,
+          "maxSnapshotAgeHours": 0
+        }
+      }
+    },
+    "key2": {
+      "status": "__status__",
+      "settings": {
+        "icebergSnapshotManagement": {
+          "minSnapshotsToKeep": 0,
+          "maxSnapshotAgeHours": 0
+        }
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  tableARN: "__tableARN__",
+  configuration: {
+    key1: {
+      status: "__status__",
+      settings: {
+        icebergSnapshotManagement: {
+          minSnapshotsToKeep: (number) 0,
+          maxSnapshotAgeHours: (number) 0
+        }
+      }
+    },
+    key2: {
+      status: "__status__",
+      settings: {
+        icebergSnapshotManagement: {
+          minSnapshotsToKeep: (number) 0,
+          maxSnapshotAgeHours: (number) 0
+        }
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

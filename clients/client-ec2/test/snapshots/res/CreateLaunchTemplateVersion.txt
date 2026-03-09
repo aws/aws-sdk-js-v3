@@ -1,0 +1,2109 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateLaunchTemplateVersionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateLaunchTemplateVersionResult xmlns="https://placeholder.amazonaws.com">
+    <launchTemplateVersion>
+        <launchTemplateId>
+            __LaunchTemplateId__
+        </launchTemplateId>
+        <launchTemplateName>
+            __LaunchTemplateName__
+        </launchTemplateName>
+        <versionNumber>
+            0
+        </versionNumber>
+        <versionDescription>
+            __VersionDescription__
+        </versionDescription>
+        <createTime>
+            2000-01-01T04:59:59.999Z
+        </createTime>
+        <createdBy>
+            __CreatedBy__
+        </createdBy>
+        <defaultVersion>
+            false
+        </defaultVersion>
+        <launchTemplateData>
+            <kernelId>
+                __KernelId__
+            </kernelId>
+            <ebsOptimized>
+                false
+            </ebsOptimized>
+            <iamInstanceProfile>
+                <arn>
+                    __Arn__
+                </arn>
+                <name>
+                    __Name__
+                </name>
+            </iamInstanceProfile>
+            <blockDeviceMappingSet>
+                <item>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                    <ebs>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <throughput>
+                            0
+                        </throughput>
+                        <volumeInitializationRate>
+                            0
+                        </volumeInitializationRate>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                </item>
+                <item>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                    <ebs>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <throughput>
+                            0
+                        </throughput>
+                        <volumeInitializationRate>
+                            0
+                        </volumeInitializationRate>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                </item>
+                <item>
+                    <deviceName>
+                        __DeviceName__
+                    </deviceName>
+                    <virtualName>
+                        __VirtualName__
+                    </virtualName>
+                    <ebs>
+                        <encrypted>
+                            false
+                        </encrypted>
+                        <deleteOnTermination>
+                            false
+                        </deleteOnTermination>
+                        <iops>
+                            0
+                        </iops>
+                        <kmsKeyId>
+                            __KmsKeyId__
+                        </kmsKeyId>
+                        <snapshotId>
+                            __SnapshotId__
+                        </snapshotId>
+                        <volumeSize>
+                            0
+                        </volumeSize>
+                        <volumeType>
+                            __VolumeType__
+                        </volumeType>
+                        <throughput>
+                            0
+                        </throughput>
+                        <volumeInitializationRate>
+                            0
+                        </volumeInitializationRate>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                    </ebs>
+                    <noDevice>
+                        __NoDevice__
+                    </noDevice>
+                </item>
+            </blockDeviceMappingSet>
+            <networkInterfaceSet>
+                <item>
+                    <associateCarrierIpAddress>
+                        false
+                    </associateCarrierIpAddress>
+                    <associatePublicIpAddress>
+                        false
+                    </associatePublicIpAddress>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <description>
+                        __Description__
+                    </description>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <groupSet>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                    </groupSet>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <ipv6AddressCount>
+                        0
+                    </ipv6AddressCount>
+                    <ipv6AddressesSet>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                    </ipv6AddressesSet>
+                    <networkInterfaceId>
+                        __NetworkInterfaceId__
+                    </networkInterfaceId>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                    <privateIpAddressesSet>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <secondaryPrivateIpAddressCount>
+                        0
+                    </secondaryPrivateIpAddressCount>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                    <ipv4PrefixSet>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                    </ipv4PrefixSet>
+                    <ipv4PrefixCount>
+                        0
+                    </ipv4PrefixCount>
+                    <ipv6PrefixSet>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                    </ipv6PrefixSet>
+                    <ipv6PrefixCount>
+                        0
+                    </ipv6PrefixCount>
+                    <primaryIpv6>
+                        false
+                    </primaryIpv6>
+                    <enaSrdSpecification>
+                        <enaSrdEnabled>
+                            false
+                        </enaSrdEnabled>
+                        <enaSrdUdpSpecification>
+                            <enaSrdUdpEnabled>
+                                false
+                            </enaSrdUdpEnabled>
+                        </enaSrdUdpSpecification>
+                    </enaSrdSpecification>
+                    <connectionTrackingSpecification>
+                        <tcpEstablishedTimeout>
+                            0
+                        </tcpEstablishedTimeout>
+                        <udpTimeout>
+                            0
+                        </udpTimeout>
+                        <udpStreamTimeout>
+                            0
+                        </udpStreamTimeout>
+                    </connectionTrackingSpecification>
+                    <enaQueueCount>
+                        0
+                    </enaQueueCount>
+                </item>
+                <item>
+                    <associateCarrierIpAddress>
+                        false
+                    </associateCarrierIpAddress>
+                    <associatePublicIpAddress>
+                        false
+                    </associatePublicIpAddress>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <description>
+                        __Description__
+                    </description>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <groupSet>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                    </groupSet>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <ipv6AddressCount>
+                        0
+                    </ipv6AddressCount>
+                    <ipv6AddressesSet>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                    </ipv6AddressesSet>
+                    <networkInterfaceId>
+                        __NetworkInterfaceId__
+                    </networkInterfaceId>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                    <privateIpAddressesSet>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <secondaryPrivateIpAddressCount>
+                        0
+                    </secondaryPrivateIpAddressCount>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                    <ipv4PrefixSet>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                    </ipv4PrefixSet>
+                    <ipv4PrefixCount>
+                        0
+                    </ipv4PrefixCount>
+                    <ipv6PrefixSet>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                    </ipv6PrefixSet>
+                    <ipv6PrefixCount>
+                        0
+                    </ipv6PrefixCount>
+                    <primaryIpv6>
+                        false
+                    </primaryIpv6>
+                    <enaSrdSpecification>
+                        <enaSrdEnabled>
+                            false
+                        </enaSrdEnabled>
+                        <enaSrdUdpSpecification>
+                            <enaSrdUdpEnabled>
+                                false
+                            </enaSrdUdpEnabled>
+                        </enaSrdUdpSpecification>
+                    </enaSrdSpecification>
+                    <connectionTrackingSpecification>
+                        <tcpEstablishedTimeout>
+                            0
+                        </tcpEstablishedTimeout>
+                        <udpTimeout>
+                            0
+                        </udpTimeout>
+                        <udpStreamTimeout>
+                            0
+                        </udpStreamTimeout>
+                    </connectionTrackingSpecification>
+                    <enaQueueCount>
+                        0
+                    </enaQueueCount>
+                </item>
+                <item>
+                    <associateCarrierIpAddress>
+                        false
+                    </associateCarrierIpAddress>
+                    <associatePublicIpAddress>
+                        false
+                    </associatePublicIpAddress>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <description>
+                        __Description__
+                    </description>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <groupSet>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                        <groupId>
+                            __member__
+                        </groupId>
+                    </groupSet>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <ipv6AddressCount>
+                        0
+                    </ipv6AddressCount>
+                    <ipv6AddressesSet>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                        <item>
+                            <ipv6Address>
+                                __Ipv6Address__
+                            </ipv6Address>
+                            <isPrimaryIpv6>
+                                false
+                            </isPrimaryIpv6>
+                        </item>
+                    </ipv6AddressesSet>
+                    <networkInterfaceId>
+                        __NetworkInterfaceId__
+                    </networkInterfaceId>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                    <privateIpAddressesSet>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <primary>
+                                false
+                            </primary>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <secondaryPrivateIpAddressCount>
+                        0
+                    </secondaryPrivateIpAddressCount>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                    <ipv4PrefixSet>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                        <item>
+                            <ipv4Prefix>
+                                __Ipv4Prefix__
+                            </ipv4Prefix>
+                        </item>
+                    </ipv4PrefixSet>
+                    <ipv4PrefixCount>
+                        0
+                    </ipv4PrefixCount>
+                    <ipv6PrefixSet>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                        <item>
+                            <ipv6Prefix>
+                                __Ipv6Prefix__
+                            </ipv6Prefix>
+                        </item>
+                    </ipv6PrefixSet>
+                    <ipv6PrefixCount>
+                        0
+                    </ipv6PrefixCount>
+                    <primaryIpv6>
+                        false
+                    </primaryIpv6>
+                    <enaSrdSpecification>
+                        <enaSrdEnabled>
+                            false
+                        </enaSrdEnabled>
+                        <enaSrdUdpSpecification>
+                            <enaSrdUdpEnabled>
+                                false
+                            </enaSrdUdpEnabled>
+                        </enaSrdUdpSpecification>
+                    </enaSrdSpecification>
+                    <connectionTrackingSpecification>
+                        <tcpEstablishedTimeout>
+                            0
+                        </tcpEstablishedTimeout>
+                        <udpTimeout>
+                            0
+                        </udpTimeout>
+                        <udpStreamTimeout>
+                            0
+                        </udpStreamTimeout>
+                    </connectionTrackingSpecification>
+                    <enaQueueCount>
+                        0
+                    </enaQueueCount>
+                </item>
+            </networkInterfaceSet>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <keyName>
+                __KeyName__
+            </keyName>
+            <monitoring>
+                <enabled>
+                    false
+                </enabled>
+            </monitoring>
+            <placement>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+                <affinity>
+                    __Affinity__
+                </affinity>
+                <groupName>
+                    __GroupName__
+                </groupName>
+                <hostId>
+                    __HostId__
+                </hostId>
+                <tenancy>
+                    __Tenancy__
+                </tenancy>
+                <spreadDomain>
+                    __SpreadDomain__
+                </spreadDomain>
+                <hostResourceGroupArn>
+                    __HostResourceGroupArn__
+                </hostResourceGroupArn>
+                <partitionNumber>
+                    0
+                </partitionNumber>
+                <groupId>
+                    __GroupId__
+                </groupId>
+            </placement>
+            <ramDiskId>
+                __RamDiskId__
+            </ramDiskId>
+            <disableApiTermination>
+                false
+            </disableApiTermination>
+            <instanceInitiatedShutdownBehavior>
+                __InstanceInitiatedShutdownBehavior__
+            </instanceInitiatedShutdownBehavior>
+            <userData>
+                __UserData__
+            </userData>
+            <tagSpecificationSet>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+                <item>
+                    <resourceType>
+                        __ResourceType__
+                    </resourceType>
+                    <tagSet>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                        <item>
+                            <key>
+                                __Key__
+                            </key>
+                            <value>
+                                __Value__
+                            </value>
+                        </item>
+                    </tagSet>
+                </item>
+            </tagSpecificationSet>
+            <elasticGpuSpecificationSet>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                </item>
+            </elasticGpuSpecificationSet>
+            <elasticInferenceAcceleratorSet>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <count>
+                        0
+                    </count>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <count>
+                        0
+                    </count>
+                </item>
+                <item>
+                    <type>
+                        __Type__
+                    </type>
+                    <count>
+                        0
+                    </count>
+                </item>
+            </elasticInferenceAcceleratorSet>
+            <securityGroupIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupIdSet>
+            <securityGroupSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </securityGroupSet>
+            <instanceMarketOptions>
+                <marketType>
+                    __MarketType__
+                </marketType>
+                <spotOptions>
+                    <maxPrice>
+                        __MaxPrice__
+                    </maxPrice>
+                    <spotInstanceType>
+                        __SpotInstanceType__
+                    </spotInstanceType>
+                    <blockDurationMinutes>
+                        0
+                    </blockDurationMinutes>
+                    <validUntil>
+                        2000-01-01T04:59:59.999Z
+                    </validUntil>
+                    <instanceInterruptionBehavior>
+                        __InstanceInterruptionBehavior__
+                    </instanceInterruptionBehavior>
+                </spotOptions>
+            </instanceMarketOptions>
+            <creditSpecification>
+                <cpuCredits>
+                    __CpuCredits__
+                </cpuCredits>
+            </creditSpecification>
+            <cpuOptions>
+                <coreCount>
+                    0
+                </coreCount>
+                <threadsPerCore>
+                    0
+                </threadsPerCore>
+                <amdSevSnp>
+                    __AmdSevSnp__
+                </amdSevSnp>
+                <nestedVirtualization>
+                    __NestedVirtualization__
+                </nestedVirtualization>
+            </cpuOptions>
+            <capacityReservationSpecification>
+                <capacityReservationPreference>
+                    __CapacityReservationPreference__
+                </capacityReservationPreference>
+                <capacityReservationTarget>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <capacityReservationResourceGroupArn>
+                        __CapacityReservationResourceGroupArn__
+                    </capacityReservationResourceGroupArn>
+                </capacityReservationTarget>
+            </capacityReservationSpecification>
+            <licenseSet>
+                <item>
+                    <licenseConfigurationArn>
+                        __LicenseConfigurationArn__
+                    </licenseConfigurationArn>
+                </item>
+                <item>
+                    <licenseConfigurationArn>
+                        __LicenseConfigurationArn__
+                    </licenseConfigurationArn>
+                </item>
+                <item>
+                    <licenseConfigurationArn>
+                        __LicenseConfigurationArn__
+                    </licenseConfigurationArn>
+                </item>
+            </licenseSet>
+            <hibernationOptions>
+                <configured>
+                    false
+                </configured>
+            </hibernationOptions>
+            <metadataOptions>
+                <state>
+                    __State__
+                </state>
+                <httpTokens>
+                    __HttpTokens__
+                </httpTokens>
+                <httpPutResponseHopLimit>
+                    0
+                </httpPutResponseHopLimit>
+                <httpEndpoint>
+                    __HttpEndpoint__
+                </httpEndpoint>
+                <httpProtocolIpv6>
+                    __HttpProtocolIpv6__
+                </httpProtocolIpv6>
+                <instanceMetadataTags>
+                    __InstanceMetadataTags__
+                </instanceMetadataTags>
+            </metadataOptions>
+            <enclaveOptions>
+                <enabled>
+                    false
+                </enabled>
+            </enclaveOptions>
+            <instanceRequirements>
+                <vCpuCount>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </vCpuCount>
+                <memoryMiB>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </memoryMiB>
+                <cpuManufacturerSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </cpuManufacturerSet>
+                <memoryGiBPerVCpu>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </memoryGiBPerVCpu>
+                <excludedInstanceTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </excludedInstanceTypeSet>
+                <instanceGenerationSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </instanceGenerationSet>
+                <spotMaxPricePercentageOverLowestPrice>
+                    0
+                </spotMaxPricePercentageOverLowestPrice>
+                <onDemandMaxPricePercentageOverLowestPrice>
+                    0
+                </onDemandMaxPricePercentageOverLowestPrice>
+                <bareMetal>
+                    __BareMetal__
+                </bareMetal>
+                <burstablePerformance>
+                    __BurstablePerformance__
+                </burstablePerformance>
+                <requireHibernateSupport>
+                    false
+                </requireHibernateSupport>
+                <networkInterfaceCount>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </networkInterfaceCount>
+                <localStorage>
+                    __LocalStorage__
+                </localStorage>
+                <localStorageTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </localStorageTypeSet>
+                <totalLocalStorageGB>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </totalLocalStorageGB>
+                <baselineEbsBandwidthMbps>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </baselineEbsBandwidthMbps>
+                <acceleratorTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </acceleratorTypeSet>
+                <acceleratorCount>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </acceleratorCount>
+                <acceleratorManufacturerSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </acceleratorManufacturerSet>
+                <acceleratorNameSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </acceleratorNameSet>
+                <acceleratorTotalMemoryMiB>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </acceleratorTotalMemoryMiB>
+                <networkBandwidthGbps>
+                    <min>
+                        0
+                    </min>
+                    <max>
+                        0
+                    </max>
+                </networkBandwidthGbps>
+                <allowedInstanceTypeSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </allowedInstanceTypeSet>
+                <maxSpotPriceAsPercentageOfOptimalOnDemandPrice>
+                    0
+                </maxSpotPriceAsPercentageOfOptimalOnDemandPrice>
+                <baselinePerformanceFactors>
+                    <cpu>
+                        <referenceSet>
+                            <item>
+                                <instanceFamily>
+                                    __InstanceFamily__
+                                </instanceFamily>
+                            </item>
+                            <item>
+                                <instanceFamily>
+                                    __InstanceFamily__
+                                </instanceFamily>
+                            </item>
+                            <item>
+                                <instanceFamily>
+                                    __InstanceFamily__
+                                </instanceFamily>
+                            </item>
+                        </referenceSet>
+                    </cpu>
+                </baselinePerformanceFactors>
+                <requireEncryptionInTransit>
+                    false
+                </requireEncryptionInTransit>
+            </instanceRequirements>
+            <privateDnsNameOptions>
+                <hostnameType>
+                    __HostnameType__
+                </hostnameType>
+                <enableResourceNameDnsARecord>
+                    false
+                </enableResourceNameDnsARecord>
+                <enableResourceNameDnsAAAARecord>
+                    false
+                </enableResourceNameDnsAAAARecord>
+            </privateDnsNameOptions>
+            <maintenanceOptions>
+                <autoRecovery>
+                    __AutoRecovery__
+                </autoRecovery>
+            </maintenanceOptions>
+            <disableApiStop>
+                false
+            </disableApiStop>
+            <operator>
+                <managed>
+                    false
+                </managed>
+                <principal>
+                    __Principal__
+                </principal>
+            </operator>
+            <networkPerformanceOptions>
+                <bandwidthWeighting>
+                    __BandwidthWeighting__
+                </bandwidthWeighting>
+            </networkPerformanceOptions>
+            <secondaryInterfaceSet>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <privateIpAddressesSet>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <privateIpAddressCount>
+                        0
+                    </privateIpAddressCount>
+                    <secondarySubnetId>
+                        __SecondarySubnetId__
+                    </secondarySubnetId>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <privateIpAddressesSet>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <privateIpAddressCount>
+                        0
+                    </privateIpAddressCount>
+                    <secondarySubnetId>
+                        __SecondarySubnetId__
+                    </secondarySubnetId>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                </item>
+                <item>
+                    <deleteOnTermination>
+                        false
+                    </deleteOnTermination>
+                    <deviceIndex>
+                        0
+                    </deviceIndex>
+                    <privateIpAddressesSet>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                        <item>
+                            <privateIpAddress>
+                                __PrivateIpAddress__
+                            </privateIpAddress>
+                        </item>
+                    </privateIpAddressesSet>
+                    <privateIpAddressCount>
+                        0
+                    </privateIpAddressCount>
+                    <secondarySubnetId>
+                        __SecondarySubnetId__
+                    </secondarySubnetId>
+                    <interfaceType>
+                        __InterfaceType__
+                    </interfaceType>
+                    <networkCardIndex>
+                        0
+                    </networkCardIndex>
+                </item>
+            </secondaryInterfaceSet>
+        </launchTemplateData>
+        <operator>
+            <managed>
+                false
+            </managed>
+            <principal>
+                __Principal__
+            </principal>
+        </operator>
+    </launchTemplateVersion>
+    <warning>
+        <errorSet>
+            <item>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </item>
+            <item>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </item>
+            <item>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </item>
+        </errorSet>
+    </warning>
+</CreateLaunchTemplateVersionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  LaunchTemplateVersion: {
+    LaunchTemplateId: "__LaunchTemplateId__",
+    LaunchTemplateName: "__LaunchTemplateName__",
+    VersionNumber: (number) 0,
+    VersionDescription: "__VersionDescription__",
+    CreateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    CreatedBy: "__CreatedBy__",
+    DefaultVersion: (boolean) false,
+    LaunchTemplateData: {
+      KernelId: "__KernelId__",
+      EbsOptimized: (boolean) false,
+      IamInstanceProfile: {
+        Arn: "__Arn__",
+        Name: "__Name__"
+      },
+      BlockDeviceMappings: [
+        {
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__",
+          Ebs: {
+            Encrypted: (boolean) false,
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            KmsKeyId: "__KmsKeyId__",
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            Throughput: (number) 0,
+            VolumeInitializationRate: (number) 0,
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__"
+        },
+        {
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__",
+          Ebs: {
+            Encrypted: (boolean) false,
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            KmsKeyId: "__KmsKeyId__",
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            Throughput: (number) 0,
+            VolumeInitializationRate: (number) 0,
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__"
+        },
+        {
+          DeviceName: "__DeviceName__",
+          VirtualName: "__VirtualName__",
+          Ebs: {
+            Encrypted: (boolean) false,
+            DeleteOnTermination: (boolean) false,
+            Iops: (number) 0,
+            KmsKeyId: "__KmsKeyId__",
+            SnapshotId: "__SnapshotId__",
+            VolumeSize: (number) 0,
+            VolumeType: "__VolumeType__",
+            Throughput: (number) 0,
+            VolumeInitializationRate: (number) 0,
+            EbsCardIndex: (number) 0
+          },
+          NoDevice: "__NoDevice__"
+        }
+      ],
+      NetworkInterfaces: [
+        {
+          AssociateCarrierIpAddress: (boolean) false,
+          AssociatePublicIpAddress: (boolean) false,
+          DeleteOnTermination: (boolean) false,
+          Description: "__Description__",
+          DeviceIndex: (number) 0,
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InterfaceType: "__InterfaceType__",
+          Ipv6AddressCount: (number) 0,
+          Ipv6Addresses: [
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            }
+          ],
+          NetworkInterfaceId: "__NetworkInterfaceId__",
+          PrivateIpAddress: "__PrivateIpAddress__",
+          PrivateIpAddresses: [
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          SecondaryPrivateIpAddressCount: (number) 0,
+          SubnetId: "__SubnetId__",
+          NetworkCardIndex: (number) 0,
+          Ipv4Prefixes: [
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            }
+          ],
+          Ipv4PrefixCount: (number) 0,
+          Ipv6Prefixes: [
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            }
+          ],
+          Ipv6PrefixCount: (number) 0,
+          PrimaryIpv6: (boolean) false,
+          EnaSrdSpecification: {
+            EnaSrdEnabled: (boolean) false,
+            EnaSrdUdpSpecification: {
+              EnaSrdUdpEnabled: (boolean) false
+            }
+          },
+          ConnectionTrackingSpecification: {
+            TcpEstablishedTimeout: (number) 0,
+            UdpTimeout: (number) 0,
+            UdpStreamTimeout: (number) 0
+          },
+          EnaQueueCount: (number) 0
+        },
+        {
+          AssociateCarrierIpAddress: (boolean) false,
+          AssociatePublicIpAddress: (boolean) false,
+          DeleteOnTermination: (boolean) false,
+          Description: "__Description__",
+          DeviceIndex: (number) 0,
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InterfaceType: "__InterfaceType__",
+          Ipv6AddressCount: (number) 0,
+          Ipv6Addresses: [
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            }
+          ],
+          NetworkInterfaceId: "__NetworkInterfaceId__",
+          PrivateIpAddress: "__PrivateIpAddress__",
+          PrivateIpAddresses: [
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          SecondaryPrivateIpAddressCount: (number) 0,
+          SubnetId: "__SubnetId__",
+          NetworkCardIndex: (number) 0,
+          Ipv4Prefixes: [
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            }
+          ],
+          Ipv4PrefixCount: (number) 0,
+          Ipv6Prefixes: [
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            }
+          ],
+          Ipv6PrefixCount: (number) 0,
+          PrimaryIpv6: (boolean) false,
+          EnaSrdSpecification: {
+            EnaSrdEnabled: (boolean) false,
+            EnaSrdUdpSpecification: {
+              EnaSrdUdpEnabled: (boolean) false
+            }
+          },
+          ConnectionTrackingSpecification: {
+            TcpEstablishedTimeout: (number) 0,
+            UdpTimeout: (number) 0,
+            UdpStreamTimeout: (number) 0
+          },
+          EnaQueueCount: (number) 0
+        },
+        {
+          AssociateCarrierIpAddress: (boolean) false,
+          AssociatePublicIpAddress: (boolean) false,
+          DeleteOnTermination: (boolean) false,
+          Description: "__Description__",
+          DeviceIndex: (number) 0,
+          Groups: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          InterfaceType: "__InterfaceType__",
+          Ipv6AddressCount: (number) 0,
+          Ipv6Addresses: [
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            },
+            {
+              Ipv6Address: "__Ipv6Address__",
+              IsPrimaryIpv6: (boolean) false
+            }
+          ],
+          NetworkInterfaceId: "__NetworkInterfaceId__",
+          PrivateIpAddress: "__PrivateIpAddress__",
+          PrivateIpAddresses: [
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              Primary: (boolean) false,
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          SecondaryPrivateIpAddressCount: (number) 0,
+          SubnetId: "__SubnetId__",
+          NetworkCardIndex: (number) 0,
+          Ipv4Prefixes: [
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            },
+            {
+              Ipv4Prefix: "__Ipv4Prefix__"
+            }
+          ],
+          Ipv4PrefixCount: (number) 0,
+          Ipv6Prefixes: [
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            },
+            {
+              Ipv6Prefix: "__Ipv6Prefix__"
+            }
+          ],
+          Ipv6PrefixCount: (number) 0,
+          PrimaryIpv6: (boolean) false,
+          EnaSrdSpecification: {
+            EnaSrdEnabled: (boolean) false,
+            EnaSrdUdpSpecification: {
+              EnaSrdUdpEnabled: (boolean) false
+            }
+          },
+          ConnectionTrackingSpecification: {
+            TcpEstablishedTimeout: (number) 0,
+            UdpTimeout: (number) 0,
+            UdpStreamTimeout: (number) 0
+          },
+          EnaQueueCount: (number) 0
+        }
+      ],
+      ImageId: "__ImageId__",
+      InstanceType: "__InstanceType__",
+      KeyName: "__KeyName__",
+      Monitoring: {
+        Enabled: (boolean) false
+      },
+      Placement: {
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__",
+        Affinity: "__Affinity__",
+        GroupName: "__GroupName__",
+        HostId: "__HostId__",
+        Tenancy: "__Tenancy__",
+        SpreadDomain: "__SpreadDomain__",
+        HostResourceGroupArn: "__HostResourceGroupArn__",
+        PartitionNumber: (number) 0,
+        GroupId: "__GroupId__"
+      },
+      RamDiskId: "__RamDiskId__",
+      DisableApiTermination: (boolean) false,
+      InstanceInitiatedShutdownBehavior: "__InstanceInitiatedShutdownBehavior__",
+      UserData: "__UserData__",
+      TagSpecifications: [
+        {
+          ResourceType: "__ResourceType__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        },
+        {
+          ResourceType: "__ResourceType__",
+          Tags: [
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            },
+            {
+              Key: "__Key__",
+              Value: "__Value__"
+            }
+          ]
+        }
+      ],
+      ElasticGpuSpecifications: [
+        {
+          Type: "__Type__"
+        },
+        {
+          Type: "__Type__"
+        },
+        {
+          Type: "__Type__"
+        }
+      ],
+      ElasticInferenceAccelerators: [
+        {
+          Type: "__Type__",
+          Count: (number) 0
+        },
+        {
+          Type: "__Type__",
+          Count: (number) 0
+        },
+        {
+          Type: "__Type__",
+          Count: (number) 0
+        }
+      ],
+      SecurityGroupIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SecurityGroups: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      InstanceMarketOptions: {
+        MarketType: "__MarketType__",
+        SpotOptions: {
+          MaxPrice: "__MaxPrice__",
+          SpotInstanceType: "__SpotInstanceType__",
+          BlockDurationMinutes: (number) 0,
+          ValidUntil: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          InstanceInterruptionBehavior: "__InstanceInterruptionBehavior__"
+        }
+      },
+      CreditSpecification: {
+        CpuCredits: "__CpuCredits__"
+      },
+      CpuOptions: {
+        CoreCount: (number) 0,
+        ThreadsPerCore: (number) 0,
+        AmdSevSnp: "__AmdSevSnp__",
+        NestedVirtualization: "__NestedVirtualization__"
+      },
+      CapacityReservationSpecification: {
+        CapacityReservationPreference: "__CapacityReservationPreference__",
+        CapacityReservationTarget: {
+          CapacityReservationId: "__CapacityReservationId__",
+          CapacityReservationResourceGroupArn: "__CapacityReservationResourceGroupArn__"
+        }
+      },
+      LicenseSpecifications: [
+        {
+          LicenseConfigurationArn: "__LicenseConfigurationArn__"
+        },
+        {
+          LicenseConfigurationArn: "__LicenseConfigurationArn__"
+        },
+        {
+          LicenseConfigurationArn: "__LicenseConfigurationArn__"
+        }
+      ],
+      HibernationOptions: {
+        Configured: (boolean) false
+      },
+      MetadataOptions: {
+        State: "__State__",
+        HttpTokens: "__HttpTokens__",
+        HttpPutResponseHopLimit: (number) 0,
+        HttpEndpoint: "__HttpEndpoint__",
+        HttpProtocolIpv6: "__HttpProtocolIpv6__",
+        InstanceMetadataTags: "__InstanceMetadataTags__"
+      },
+      EnclaveOptions: {
+        Enabled: (boolean) false
+      },
+      InstanceRequirements: {
+        VCpuCount: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        MemoryMiB: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        CpuManufacturers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MemoryGiBPerVCpu: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        ExcludedInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        InstanceGenerations: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SpotMaxPricePercentageOverLowestPrice: (number) 0,
+        OnDemandMaxPricePercentageOverLowestPrice: (number) 0,
+        BareMetal: "__BareMetal__",
+        BurstablePerformance: "__BurstablePerformance__",
+        RequireHibernateSupport: (boolean) false,
+        NetworkInterfaceCount: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        LocalStorage: "__LocalStorage__",
+        LocalStorageTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        TotalLocalStorageGB: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        BaselineEbsBandwidthMbps: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        AcceleratorTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AcceleratorCount: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        AcceleratorManufacturers: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AcceleratorNames: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AcceleratorTotalMemoryMiB: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        NetworkBandwidthGbps: {
+          Min: (number) 0,
+          Max: (number) 0
+        },
+        AllowedInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: (number) 0,
+        BaselinePerformanceFactors: {
+          Cpu: {
+            References: [
+              {
+                InstanceFamily: "__InstanceFamily__"
+              },
+              {
+                InstanceFamily: "__InstanceFamily__"
+              },
+              {
+                InstanceFamily: "__InstanceFamily__"
+              }
+            ]
+          }
+        },
+        RequireEncryptionInTransit: (boolean) false
+      },
+      PrivateDnsNameOptions: {
+        HostnameType: "__HostnameType__",
+        EnableResourceNameDnsARecord: (boolean) false,
+        EnableResourceNameDnsAAAARecord: (boolean) false
+      },
+      MaintenanceOptions: {
+        AutoRecovery: "__AutoRecovery__"
+      },
+      DisableApiStop: (boolean) false,
+      Operator: {
+        Managed: (boolean) false,
+        Principal: "__Principal__"
+      },
+      NetworkPerformanceOptions: {
+        BandwidthWeighting: "__BandwidthWeighting__"
+      },
+      SecondaryInterfaces: [
+        {
+          DeleteOnTermination: (boolean) false,
+          DeviceIndex: (number) 0,
+          PrivateIpAddresses: [
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          PrivateIpAddressCount: (number) 0,
+          SecondarySubnetId: "__SecondarySubnetId__",
+          InterfaceType: "__InterfaceType__",
+          NetworkCardIndex: (number) 0
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          DeviceIndex: (number) 0,
+          PrivateIpAddresses: [
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          PrivateIpAddressCount: (number) 0,
+          SecondarySubnetId: "__SecondarySubnetId__",
+          InterfaceType: "__InterfaceType__",
+          NetworkCardIndex: (number) 0
+        },
+        {
+          DeleteOnTermination: (boolean) false,
+          DeviceIndex: (number) 0,
+          PrivateIpAddresses: [
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            },
+            {
+              PrivateIpAddress: "__PrivateIpAddress__"
+            }
+          ],
+          PrivateIpAddressCount: (number) 0,
+          SecondarySubnetId: "__SecondarySubnetId__",
+          InterfaceType: "__InterfaceType__",
+          NetworkCardIndex: (number) 0
+        }
+      ]
+    },
+    Operator: {
+      Managed: (boolean) false,
+      Principal: "__Principal__"
+    }
+  },
+  Warning: {
+    Errors: [
+      {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    ]
+  }
+}
+

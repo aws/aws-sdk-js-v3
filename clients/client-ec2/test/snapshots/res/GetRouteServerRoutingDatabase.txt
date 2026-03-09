@@ -1,0 +1,345 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetRouteServerRoutingDatabaseResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetRouteServerRoutingDatabaseResult xmlns="https://placeholder.amazonaws.com">
+    <areRoutesPersisted>
+        false
+    </areRoutesPersisted>
+    <routeSet>
+        <item>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeInstallationDetailSet>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+            </routeInstallationDetailSet>
+            <routeStatus>
+                __RouteStatus__
+            </routeStatus>
+            <prefix>
+                __Prefix__
+            </prefix>
+            <asPathSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asPathSet>
+            <med>
+                0
+            </med>
+            <nextHopIp>
+                __NextHopIp__
+            </nextHopIp>
+        </item>
+        <item>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeInstallationDetailSet>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+            </routeInstallationDetailSet>
+            <routeStatus>
+                __RouteStatus__
+            </routeStatus>
+            <prefix>
+                __Prefix__
+            </prefix>
+            <asPathSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asPathSet>
+            <med>
+                0
+            </med>
+            <nextHopIp>
+                __NextHopIp__
+            </nextHopIp>
+        </item>
+        <item>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <routeServerPeerId>
+                __RouteServerPeerId__
+            </routeServerPeerId>
+            <routeInstallationDetailSet>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+                <item>
+                    <routeTableId>
+                        __RouteTableId__
+                    </routeTableId>
+                    <routeInstallationStatus>
+                        __RouteInstallationStatus__
+                    </routeInstallationStatus>
+                    <routeInstallationStatusReason>
+                        __RouteInstallationStatusReason__
+                    </routeInstallationStatusReason>
+                </item>
+            </routeInstallationDetailSet>
+            <routeStatus>
+                __RouteStatus__
+            </routeStatus>
+            <prefix>
+                __Prefix__
+            </prefix>
+            <asPathSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asPathSet>
+            <med>
+                0
+            </med>
+            <nextHopIp>
+                __NextHopIp__
+            </nextHopIp>
+        </item>
+    </routeSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetRouteServerRoutingDatabaseResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AreRoutesPersisted: (boolean) false,
+  Routes: [
+    {
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteInstallationDetails: [
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        }
+      ],
+      RouteStatus: "__RouteStatus__",
+      Prefix: "__Prefix__",
+      AsPaths: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Med: (number) 0,
+      NextHopIp: "__NextHopIp__"
+    },
+    {
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteInstallationDetails: [
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        }
+      ],
+      RouteStatus: "__RouteStatus__",
+      Prefix: "__Prefix__",
+      AsPaths: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Med: (number) 0,
+      NextHopIp: "__NextHopIp__"
+    },
+    {
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      RouteServerPeerId: "__RouteServerPeerId__",
+      RouteInstallationDetails: [
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        },
+        {
+          RouteTableId: "__RouteTableId__",
+          RouteInstallationStatus: "__RouteInstallationStatus__",
+          RouteInstallationStatusReason: "__RouteInstallationStatusReason__"
+        }
+      ],
+      RouteStatus: "__RouteStatus__",
+      Prefix: "__Prefix__",
+      AsPaths: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Med: (number) 0,
+      NextHopIp: "__NextHopIp__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAllMyDirectoryBucketsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAllMyDirectoryBucketsResult xmlns="https://placeholder.amazonaws.com">
+    <Buckets>
+        <Bucket>
+            <Name>
+                __Name__
+            </Name>
+            <CreationDate>
+                2000-01-01T04:59:59.999Z
+            </CreationDate>
+            <BucketRegion>
+                __BucketRegion__
+            </BucketRegion>
+            <BucketArn>
+                __BucketArn__
+            </BucketArn>
+        </Bucket>
+        <Bucket>
+            <Name>
+                __Name__
+            </Name>
+            <CreationDate>
+                2000-01-01T04:59:59.999Z
+            </CreationDate>
+            <BucketRegion>
+                __BucketRegion__
+            </BucketRegion>
+            <BucketArn>
+                __BucketArn__
+            </BucketArn>
+        </Bucket>
+        <Bucket>
+            <Name>
+                __Name__
+            </Name>
+            <CreationDate>
+                2000-01-01T04:59:59.999Z
+            </CreationDate>
+            <BucketRegion>
+                __BucketRegion__
+            </BucketRegion>
+            <BucketArn>
+                __BucketArn__
+            </BucketArn>
+        </Bucket>
+    </Buckets>
+    <ContinuationToken>
+        __ContinuationToken__
+    </ContinuationToken>
+</ListAllMyDirectoryBucketsResult>
+
+
+--- [output object] ---
+{
+  Buckets: [
+    {
+      Name: "__Name__",
+      CreationDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      BucketRegion: "__BucketRegion__",
+      BucketArn: "__BucketArn__"
+    },
+    {
+      Name: "__Name__",
+      CreationDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      BucketRegion: "__BucketRegion__",
+      BucketArn: "__BucketArn__"
+    },
+    {
+      Name: "__Name__",
+      CreationDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      BucketRegion: "__BucketRegion__",
+      BucketArn: "__BucketArn__"
+    }
+  ],
+  ContinuationToken: "__ContinuationToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

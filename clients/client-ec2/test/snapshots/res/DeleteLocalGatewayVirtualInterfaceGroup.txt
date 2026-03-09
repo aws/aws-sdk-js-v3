@@ -1,0 +1,133 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteLocalGatewayVirtualInterfaceGroupResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteLocalGatewayVirtualInterfaceGroupResult xmlns="https://placeholder.amazonaws.com">
+    <localGatewayVirtualInterfaceGroup>
+        <localGatewayVirtualInterfaceGroupId>
+            __LocalGatewayVirtualInterfaceGroupId__
+        </localGatewayVirtualInterfaceGroupId>
+        <localGatewayVirtualInterfaceIdSet>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+            <item>
+                __member__
+            </item>
+        </localGatewayVirtualInterfaceIdSet>
+        <localGatewayId>
+            __LocalGatewayId__
+        </localGatewayId>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <localBgpAsn>
+            0
+        </localBgpAsn>
+        <localBgpAsnExtended>
+            0
+        </localBgpAsnExtended>
+        <localGatewayVirtualInterfaceGroupArn>
+            __LocalGatewayVirtualInterfaceGroupArn__
+        </localGatewayVirtualInterfaceGroupArn>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <configurationState>
+            __ConfigurationState__
+        </configurationState>
+    </localGatewayVirtualInterfaceGroup>
+</DeleteLocalGatewayVirtualInterfaceGroupResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  LocalGatewayVirtualInterfaceGroup: {
+    LocalGatewayVirtualInterfaceGroupId: "__LocalGatewayVirtualInterfaceGroupId__",
+    LocalGatewayVirtualInterfaceIds: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    LocalGatewayId: "__LocalGatewayId__",
+    OwnerId: "__OwnerId__",
+    LocalBgpAsn: (number) 0,
+    LocalBgpAsnExtended: (number) 0,
+    LocalGatewayVirtualInterfaceGroupArn: "__LocalGatewayVirtualInterfaceGroupArn__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    ConfigurationState: "__ConfigurationState__"
+  }
+}
+

@@ -1,0 +1,1304 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHealthChecksResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthChecks>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService/>
+<CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService/>
+<CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService/>
+<CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+    </HealthChecks>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListHealthChecksResponse>
+
+
+--- [output object] ---
+{
+  HealthChecks: [
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {},
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    },
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {},
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    },
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {},
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHealthChecksResponse xmlns="https://placeholder.amazonaws.com">
+    <HealthChecks>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+        <HealthCheck>
+            <Id>
+                __Id__
+            </Id>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <HealthCheckConfig>
+                <Type>
+                    __Type__
+                </Type>
+                <IPAddress>
+                    __IPAddress__
+                </IPAddress>
+                <Port>
+                    0
+                </Port>
+                <ResourcePath>
+                    __ResourcePath__
+                </ResourcePath>
+                <FullyQualifiedDomainName>
+                    __FullyQualifiedDomainName__
+                </FullyQualifiedDomainName>
+                <SearchString>
+                    __SearchString__
+                </SearchString>
+                <RequestInterval>
+                    0
+                </RequestInterval>
+                <FailureThreshold>
+                    0
+                </FailureThreshold>
+                <MeasureLatency>
+                    false
+                </MeasureLatency>
+                <Inverted>
+                    false
+                </Inverted>
+                <Disabled>
+                    false
+                </Disabled>
+                <HealthThreshold>
+                    0
+                </HealthThreshold>
+                <ChildHealthChecks>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                    <ChildHealthCheck>
+                        __member__
+                    </ChildHealthCheck>
+                </ChildHealthChecks>
+                <EnableSNI>
+                    false
+                </EnableSNI>
+                <Regions>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                    <Region>
+                        __member__
+                    </Region>
+                </Regions>
+                <AlarmIdentifier>
+                    <Region>
+                        __Region__
+                    </Region>
+                    <Name>
+                        __Name__
+                    </Name>
+                </AlarmIdentifier>
+                <InsufficientDataHealthStatus>
+                    __InsufficientDataHealthStatus__
+                </InsufficientDataHealthStatus>
+                <RoutingControlArn>
+                    __RoutingControlArn__
+                </RoutingControlArn>
+            </HealthCheckConfig>
+            <HealthCheckVersion>
+                0
+            </HealthCheckVersion>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <CloudWatchAlarmConfiguration>
+                <EvaluationPeriods>
+                    0
+                </EvaluationPeriods>
+                <Threshold>
+                    0
+                </Threshold>
+                <ComparisonOperator>
+                    __ComparisonOperator__
+                </ComparisonOperator>
+                <Period>
+                    0
+                </Period>
+                <MetricName>
+                    __MetricName__
+                </MetricName>
+                <Namespace>
+                    __Namespace__
+                </Namespace>
+                <Statistic>
+                    __Statistic__
+                </Statistic>
+                <Dimensions>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                    <Dimension>
+                        <Name>
+                            __Name__
+                        </Name>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </Dimension>
+                </Dimensions>
+            </CloudWatchAlarmConfiguration>
+        </HealthCheck>
+    </HealthChecks>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListHealthChecksResponse>
+
+
+--- [output object] ---
+{
+  HealthChecks: [
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    },
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    },
+    {
+      Id: "__Id__",
+      CallerReference: "__CallerReference__",
+      HealthCheckConfig: {
+        Type: "__Type__",
+        IPAddress: "__IPAddress__",
+        Port: (number) 0,
+        ResourcePath: "__ResourcePath__",
+        FullyQualifiedDomainName: "__FullyQualifiedDomainName__",
+        SearchString: "__SearchString__",
+        RequestInterval: (number) 0,
+        FailureThreshold: (number) 0,
+        MeasureLatency: (boolean) false,
+        Inverted: (boolean) false,
+        Disabled: (boolean) false,
+        HealthThreshold: (number) 0,
+        ChildHealthChecks: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        EnableSNI: (boolean) false,
+        Regions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AlarmIdentifier: {
+          Region: "__Region__",
+          Name: "__Name__"
+        },
+        InsufficientDataHealthStatus: "__InsufficientDataHealthStatus__",
+        RoutingControlArn: "__RoutingControlArn__"
+      },
+      HealthCheckVersion: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      CloudWatchAlarmConfiguration: {
+        EvaluationPeriods: (number) 0,
+        Threshold: (number) 0,
+        ComparisonOperator: "__ComparisonOperator__",
+        Period: (number) 0,
+        MetricName: "__MetricName__",
+        Namespace: "__Namespace__",
+        Statistic: "__Statistic__",
+        Dimensions: [
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          },
+          {
+            Name: "__Name__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

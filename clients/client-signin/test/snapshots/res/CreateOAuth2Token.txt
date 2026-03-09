@@ -1,0 +1,86 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "accessToken": {
+    "accessKeyId": "__accessKeyId__",
+    "secretAccessKey": "__secretAccessKey__",
+    "sessionToken": "__sessionToken__"
+  },
+  "tokenType": "__tokenType__",
+  "expiresIn": 0,
+  "refreshToken": "__refreshToken__",
+  "idToken": "__idToken__"
+}
+
+
+--- [output object] ---
+{
+  tokenOutput: {
+    accessToken: {
+      accessKeyId: "__accessKeyId__",
+      secretAccessKey: "__secretAccessKey__",
+      sessionToken: "__sessionToken__"
+    },
+    tokenType: "__tokenType__",
+    expiresIn: (number) 0,
+    refreshToken: "__refreshToken__",
+    idToken: "__idToken__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "accessToken": {
+    "accessKeyId": "__accessKeyId__",
+    "secretAccessKey": "__secretAccessKey__",
+    "sessionToken": "__sessionToken__"
+  },
+  "tokenType": "__tokenType__",
+  "expiresIn": 0,
+  "refreshToken": "__refreshToken__",
+  "idToken": "__idToken__"
+}
+
+
+--- [output object] ---
+{
+  tokenOutput: {
+    accessToken: {
+      accessKeyId: "__accessKeyId__",
+      secretAccessKey: "__secretAccessKey__",
+      sessionToken: "__sessionToken__"
+    },
+    tokenType: "__tokenType__",
+    expiresIn: (number) 0,
+    refreshToken: "__refreshToken__",
+    idToken: "__idToken__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

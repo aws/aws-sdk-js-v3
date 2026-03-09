@@ -1,0 +1,1337 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcEndpointsResult xmlns="https://placeholder.amazonaws.com">
+    <vpcEndpointSet>
+        <item>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointType>
+                __VpcEndpointType__
+            </vpcEndpointType>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <state>
+                __State__
+            </state>
+            <policyDocument>
+                __PolicyDocument__
+            </policyDocument>
+            <routeTableIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </routeTableIdSet>
+            <subnetIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </subnetIdSet>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <dnsOptions>
+                <dnsRecordIpType>
+                    __DnsRecordIpType__
+                </dnsRecordIpType>
+                <privateDnsOnlyForInboundResolverEndpoint>
+                    false
+                </privateDnsOnlyForInboundResolverEndpoint>
+                <privateDnsPreference>
+                    __PrivateDnsPreference__
+                </privateDnsPreference>
+                <privateDnsSpecifiedDomainSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </privateDnsSpecifiedDomainSet>
+            </dnsOptions>
+            <privateDnsEnabled>
+                false
+            </privateDnsEnabled>
+            <requesterManaged>
+                false
+            </requesterManaged>
+            <networkInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkInterfaceIdSet>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <lastError>
+                <message>
+                    __Message__
+                </message>
+                <code>
+                    __Code__
+                </code>
+            </lastError>
+            <ipv4PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv4PrefixSet>
+            <ipv6PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv6PrefixSet>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <resourceConfigurationArn>
+                __ResourceConfigurationArn__
+            </resourceConfigurationArn>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+        </item>
+        <item>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointType>
+                __VpcEndpointType__
+            </vpcEndpointType>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <state>
+                __State__
+            </state>
+            <policyDocument>
+                __PolicyDocument__
+            </policyDocument>
+            <routeTableIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </routeTableIdSet>
+            <subnetIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </subnetIdSet>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <dnsOptions>
+                <dnsRecordIpType>
+                    __DnsRecordIpType__
+                </dnsRecordIpType>
+                <privateDnsOnlyForInboundResolverEndpoint>
+                    false
+                </privateDnsOnlyForInboundResolverEndpoint>
+                <privateDnsPreference>
+                    __PrivateDnsPreference__
+                </privateDnsPreference>
+                <privateDnsSpecifiedDomainSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </privateDnsSpecifiedDomainSet>
+            </dnsOptions>
+            <privateDnsEnabled>
+                false
+            </privateDnsEnabled>
+            <requesterManaged>
+                false
+            </requesterManaged>
+            <networkInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkInterfaceIdSet>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <lastError>
+                <message>
+                    __Message__
+                </message>
+                <code>
+                    __Code__
+                </code>
+            </lastError>
+            <ipv4PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv4PrefixSet>
+            <ipv6PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv6PrefixSet>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <resourceConfigurationArn>
+                __ResourceConfigurationArn__
+            </resourceConfigurationArn>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+        </item>
+        <item>
+            <vpcEndpointId>
+                __VpcEndpointId__
+            </vpcEndpointId>
+            <vpcEndpointType>
+                __VpcEndpointType__
+            </vpcEndpointType>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <serviceName>
+                __ServiceName__
+            </serviceName>
+            <state>
+                __State__
+            </state>
+            <policyDocument>
+                __PolicyDocument__
+            </policyDocument>
+            <routeTableIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </routeTableIdSet>
+            <subnetIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </subnetIdSet>
+            <groupSet>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+                <item>
+                    <groupId>
+                        __GroupId__
+                    </groupId>
+                    <groupName>
+                        __GroupName__
+                    </groupName>
+                </item>
+            </groupSet>
+            <ipAddressType>
+                __IpAddressType__
+            </ipAddressType>
+            <dnsOptions>
+                <dnsRecordIpType>
+                    __DnsRecordIpType__
+                </dnsRecordIpType>
+                <privateDnsOnlyForInboundResolverEndpoint>
+                    false
+                </privateDnsOnlyForInboundResolverEndpoint>
+                <privateDnsPreference>
+                    __PrivateDnsPreference__
+                </privateDnsPreference>
+                <privateDnsSpecifiedDomainSet>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </privateDnsSpecifiedDomainSet>
+            </dnsOptions>
+            <privateDnsEnabled>
+                false
+            </privateDnsEnabled>
+            <requesterManaged>
+                false
+            </requesterManaged>
+            <networkInterfaceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </networkInterfaceIdSet>
+            <dnsEntrySet>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+                <item>
+                    <dnsName>
+                        __DnsName__
+                    </dnsName>
+                    <hostedZoneId>
+                        __HostedZoneId__
+                    </hostedZoneId>
+                </item>
+            </dnsEntrySet>
+            <creationTimestamp>
+                2000-01-01T04:59:59.999Z
+            </creationTimestamp>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <lastError>
+                <message>
+                    __Message__
+                </message>
+                <code>
+                    __Code__
+                </code>
+            </lastError>
+            <ipv4PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv4PrefixSet>
+            <ipv6PrefixSet>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+                <item>
+                    <subnetId>
+                        __SubnetId__
+                    </subnetId>
+                    <ipPrefixSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </ipPrefixSet>
+                </item>
+            </ipv6PrefixSet>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <serviceNetworkArn>
+                __ServiceNetworkArn__
+            </serviceNetworkArn>
+            <resourceConfigurationArn>
+                __ResourceConfigurationArn__
+            </resourceConfigurationArn>
+            <serviceRegion>
+                __ServiceRegion__
+            </serviceRegion>
+        </item>
+    </vpcEndpointSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVpcEndpointsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcEndpoints: [
+    {
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointType: "__VpcEndpointType__",
+      VpcId: "__VpcId__",
+      ServiceName: "__ServiceName__",
+      State: "__State__",
+      PolicyDocument: "__PolicyDocument__",
+      RouteTableIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      IpAddressType: "__IpAddressType__",
+      DnsOptions: {
+        DnsRecordIpType: "__DnsRecordIpType__",
+        PrivateDnsOnlyForInboundResolverEndpoint: (boolean) false,
+        PrivateDnsPreference: "__PrivateDnsPreference__",
+        PrivateDnsSpecifiedDomains: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      PrivateDnsEnabled: (boolean) false,
+      RequesterManaged: (boolean) false,
+      NetworkInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      LastError: {
+        Message: "__Message__",
+        Code: "__Code__"
+      },
+      Ipv4Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      Ipv6Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      FailureReason: "__FailureReason__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ResourceConfigurationArn: "__ResourceConfigurationArn__",
+      ServiceRegion: "__ServiceRegion__"
+    },
+    {
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointType: "__VpcEndpointType__",
+      VpcId: "__VpcId__",
+      ServiceName: "__ServiceName__",
+      State: "__State__",
+      PolicyDocument: "__PolicyDocument__",
+      RouteTableIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      IpAddressType: "__IpAddressType__",
+      DnsOptions: {
+        DnsRecordIpType: "__DnsRecordIpType__",
+        PrivateDnsOnlyForInboundResolverEndpoint: (boolean) false,
+        PrivateDnsPreference: "__PrivateDnsPreference__",
+        PrivateDnsSpecifiedDomains: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      PrivateDnsEnabled: (boolean) false,
+      RequesterManaged: (boolean) false,
+      NetworkInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      LastError: {
+        Message: "__Message__",
+        Code: "__Code__"
+      },
+      Ipv4Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      Ipv6Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      FailureReason: "__FailureReason__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ResourceConfigurationArn: "__ResourceConfigurationArn__",
+      ServiceRegion: "__ServiceRegion__"
+    },
+    {
+      VpcEndpointId: "__VpcEndpointId__",
+      VpcEndpointType: "__VpcEndpointType__",
+      VpcId: "__VpcId__",
+      ServiceName: "__ServiceName__",
+      State: "__State__",
+      PolicyDocument: "__PolicyDocument__",
+      RouteTableIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SubnetIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Groups: [
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        },
+        {
+          GroupId: "__GroupId__",
+          GroupName: "__GroupName__"
+        }
+      ],
+      IpAddressType: "__IpAddressType__",
+      DnsOptions: {
+        DnsRecordIpType: "__DnsRecordIpType__",
+        PrivateDnsOnlyForInboundResolverEndpoint: (boolean) false,
+        PrivateDnsPreference: "__PrivateDnsPreference__",
+        PrivateDnsSpecifiedDomains: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      PrivateDnsEnabled: (boolean) false,
+      RequesterManaged: (boolean) false,
+      NetworkInterfaceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      DnsEntries: [
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        },
+        {
+          DnsName: "__DnsName__",
+          HostedZoneId: "__HostedZoneId__"
+        }
+      ],
+      CreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      OwnerId: "__OwnerId__",
+      LastError: {
+        Message: "__Message__",
+        Code: "__Code__"
+      },
+      Ipv4Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      Ipv6Prefixes: [
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        {
+          SubnetId: "__SubnetId__",
+          IpPrefixes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      ],
+      FailureReason: "__FailureReason__",
+      ServiceNetworkArn: "__ServiceNetworkArn__",
+      ResourceConfigurationArn: "__ResourceConfigurationArn__",
+      ServiceRegion: "__ServiceRegion__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,401 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeFlowLogsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeFlowLogsResult xmlns="https://placeholder.amazonaws.com">
+    <flowLogSet>
+        <item>
+            <creationTime>
+                2000-01-01T04:59:59.999Z
+            </creationTime>
+            <deliverLogsErrorMessage>
+                __DeliverLogsErrorMessage__
+            </deliverLogsErrorMessage>
+            <deliverLogsPermissionArn>
+                __DeliverLogsPermissionArn__
+            </deliverLogsPermissionArn>
+            <deliverCrossAccountRole>
+                __DeliverCrossAccountRole__
+            </deliverCrossAccountRole>
+            <deliverLogsStatus>
+                __DeliverLogsStatus__
+            </deliverLogsStatus>
+            <flowLogId>
+                __FlowLogId__
+            </flowLogId>
+            <flowLogStatus>
+                __FlowLogStatus__
+            </flowLogStatus>
+            <logGroupName>
+                __LogGroupName__
+            </logGroupName>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <trafficType>
+                __TrafficType__
+            </trafficType>
+            <logDestinationType>
+                __LogDestinationType__
+            </logDestinationType>
+            <logDestination>
+                __LogDestination__
+            </logDestination>
+            <logFormat>
+                __LogFormat__
+            </logFormat>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <maxAggregationInterval>
+                0
+            </maxAggregationInterval>
+            <destinationOptions>
+                <fileFormat>
+                    __FileFormat__
+                </fileFormat>
+                <hiveCompatiblePartitions>
+                    false
+                </hiveCompatiblePartitions>
+                <perHourPartition>
+                    false
+                </perHourPartition>
+            </destinationOptions>
+        </item>
+        <item>
+            <creationTime>
+                2000-01-01T04:59:59.999Z
+            </creationTime>
+            <deliverLogsErrorMessage>
+                __DeliverLogsErrorMessage__
+            </deliverLogsErrorMessage>
+            <deliverLogsPermissionArn>
+                __DeliverLogsPermissionArn__
+            </deliverLogsPermissionArn>
+            <deliverCrossAccountRole>
+                __DeliverCrossAccountRole__
+            </deliverCrossAccountRole>
+            <deliverLogsStatus>
+                __DeliverLogsStatus__
+            </deliverLogsStatus>
+            <flowLogId>
+                __FlowLogId__
+            </flowLogId>
+            <flowLogStatus>
+                __FlowLogStatus__
+            </flowLogStatus>
+            <logGroupName>
+                __LogGroupName__
+            </logGroupName>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <trafficType>
+                __TrafficType__
+            </trafficType>
+            <logDestinationType>
+                __LogDestinationType__
+            </logDestinationType>
+            <logDestination>
+                __LogDestination__
+            </logDestination>
+            <logFormat>
+                __LogFormat__
+            </logFormat>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <maxAggregationInterval>
+                0
+            </maxAggregationInterval>
+            <destinationOptions>
+                <fileFormat>
+                    __FileFormat__
+                </fileFormat>
+                <hiveCompatiblePartitions>
+                    false
+                </hiveCompatiblePartitions>
+                <perHourPartition>
+                    false
+                </perHourPartition>
+            </destinationOptions>
+        </item>
+        <item>
+            <creationTime>
+                2000-01-01T04:59:59.999Z
+            </creationTime>
+            <deliverLogsErrorMessage>
+                __DeliverLogsErrorMessage__
+            </deliverLogsErrorMessage>
+            <deliverLogsPermissionArn>
+                __DeliverLogsPermissionArn__
+            </deliverLogsPermissionArn>
+            <deliverCrossAccountRole>
+                __DeliverCrossAccountRole__
+            </deliverCrossAccountRole>
+            <deliverLogsStatus>
+                __DeliverLogsStatus__
+            </deliverLogsStatus>
+            <flowLogId>
+                __FlowLogId__
+            </flowLogId>
+            <flowLogStatus>
+                __FlowLogStatus__
+            </flowLogStatus>
+            <logGroupName>
+                __LogGroupName__
+            </logGroupName>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <trafficType>
+                __TrafficType__
+            </trafficType>
+            <logDestinationType>
+                __LogDestinationType__
+            </logDestinationType>
+            <logDestination>
+                __LogDestination__
+            </logDestination>
+            <logFormat>
+                __LogFormat__
+            </logFormat>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <maxAggregationInterval>
+                0
+            </maxAggregationInterval>
+            <destinationOptions>
+                <fileFormat>
+                    __FileFormat__
+                </fileFormat>
+                <hiveCompatiblePartitions>
+                    false
+                </hiveCompatiblePartitions>
+                <perHourPartition>
+                    false
+                </perHourPartition>
+            </destinationOptions>
+        </item>
+    </flowLogSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeFlowLogsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  FlowLogs: [
+    {
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DeliverLogsErrorMessage: "__DeliverLogsErrorMessage__",
+      DeliverLogsPermissionArn: "__DeliverLogsPermissionArn__",
+      DeliverCrossAccountRole: "__DeliverCrossAccountRole__",
+      DeliverLogsStatus: "__DeliverLogsStatus__",
+      FlowLogId: "__FlowLogId__",
+      FlowLogStatus: "__FlowLogStatus__",
+      LogGroupName: "__LogGroupName__",
+      ResourceId: "__ResourceId__",
+      TrafficType: "__TrafficType__",
+      LogDestinationType: "__LogDestinationType__",
+      LogDestination: "__LogDestination__",
+      LogFormat: "__LogFormat__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      MaxAggregationInterval: (number) 0,
+      DestinationOptions: {
+        FileFormat: "__FileFormat__",
+        HiveCompatiblePartitions: (boolean) false,
+        PerHourPartition: (boolean) false
+      }
+    },
+    {
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DeliverLogsErrorMessage: "__DeliverLogsErrorMessage__",
+      DeliverLogsPermissionArn: "__DeliverLogsPermissionArn__",
+      DeliverCrossAccountRole: "__DeliverCrossAccountRole__",
+      DeliverLogsStatus: "__DeliverLogsStatus__",
+      FlowLogId: "__FlowLogId__",
+      FlowLogStatus: "__FlowLogStatus__",
+      LogGroupName: "__LogGroupName__",
+      ResourceId: "__ResourceId__",
+      TrafficType: "__TrafficType__",
+      LogDestinationType: "__LogDestinationType__",
+      LogDestination: "__LogDestination__",
+      LogFormat: "__LogFormat__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      MaxAggregationInterval: (number) 0,
+      DestinationOptions: {
+        FileFormat: "__FileFormat__",
+        HiveCompatiblePartitions: (boolean) false,
+        PerHourPartition: (boolean) false
+      }
+    },
+    {
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DeliverLogsErrorMessage: "__DeliverLogsErrorMessage__",
+      DeliverLogsPermissionArn: "__DeliverLogsPermissionArn__",
+      DeliverCrossAccountRole: "__DeliverCrossAccountRole__",
+      DeliverLogsStatus: "__DeliverLogsStatus__",
+      FlowLogId: "__FlowLogId__",
+      FlowLogStatus: "__FlowLogStatus__",
+      LogGroupName: "__LogGroupName__",
+      ResourceId: "__ResourceId__",
+      TrafficType: "__TrafficType__",
+      LogDestinationType: "__LogDestinationType__",
+      LogDestination: "__LogDestination__",
+      LogFormat: "__LogFormat__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      MaxAggregationInterval: (number) 0,
+      DestinationOptions: {
+        FileFormat: "__FileFormat__",
+        HiveCompatiblePartitions: (boolean) false,
+        PerHourPartition: (boolean) false
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

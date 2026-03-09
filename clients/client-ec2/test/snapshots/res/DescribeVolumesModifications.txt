@@ -1,0 +1,257 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumesModificationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVolumesModificationsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <volumeModificationSet>
+        <item>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <modificationState>
+                __ModificationState__
+            </modificationState>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <targetSize>
+                0
+            </targetSize>
+            <targetIops>
+                0
+            </targetIops>
+            <targetVolumeType>
+                __TargetVolumeType__
+            </targetVolumeType>
+            <targetThroughput>
+                0
+            </targetThroughput>
+            <targetMultiAttachEnabled>
+                false
+            </targetMultiAttachEnabled>
+            <originalSize>
+                0
+            </originalSize>
+            <originalIops>
+                0
+            </originalIops>
+            <originalVolumeType>
+                __OriginalVolumeType__
+            </originalVolumeType>
+            <originalThroughput>
+                0
+            </originalThroughput>
+            <originalMultiAttachEnabled>
+                false
+            </originalMultiAttachEnabled>
+            <progress>
+                0
+            </progress>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+        </item>
+        <item>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <modificationState>
+                __ModificationState__
+            </modificationState>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <targetSize>
+                0
+            </targetSize>
+            <targetIops>
+                0
+            </targetIops>
+            <targetVolumeType>
+                __TargetVolumeType__
+            </targetVolumeType>
+            <targetThroughput>
+                0
+            </targetThroughput>
+            <targetMultiAttachEnabled>
+                false
+            </targetMultiAttachEnabled>
+            <originalSize>
+                0
+            </originalSize>
+            <originalIops>
+                0
+            </originalIops>
+            <originalVolumeType>
+                __OriginalVolumeType__
+            </originalVolumeType>
+            <originalThroughput>
+                0
+            </originalThroughput>
+            <originalMultiAttachEnabled>
+                false
+            </originalMultiAttachEnabled>
+            <progress>
+                0
+            </progress>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+        </item>
+        <item>
+            <volumeId>
+                __VolumeId__
+            </volumeId>
+            <modificationState>
+                __ModificationState__
+            </modificationState>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+            <targetSize>
+                0
+            </targetSize>
+            <targetIops>
+                0
+            </targetIops>
+            <targetVolumeType>
+                __TargetVolumeType__
+            </targetVolumeType>
+            <targetThroughput>
+                0
+            </targetThroughput>
+            <targetMultiAttachEnabled>
+                false
+            </targetMultiAttachEnabled>
+            <originalSize>
+                0
+            </originalSize>
+            <originalIops>
+                0
+            </originalIops>
+            <originalVolumeType>
+                __OriginalVolumeType__
+            </originalVolumeType>
+            <originalThroughput>
+                0
+            </originalThroughput>
+            <originalMultiAttachEnabled>
+                false
+            </originalMultiAttachEnabled>
+            <progress>
+                0
+            </progress>
+            <startTime>
+                2000-01-01T04:59:59.999Z
+            </startTime>
+            <endTime>
+                2000-01-01T04:59:59.999Z
+            </endTime>
+        </item>
+    </volumeModificationSet>
+</DescribeVolumesModificationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  VolumesModifications: [
+    {
+      VolumeId: "__VolumeId__",
+      ModificationState: "__ModificationState__",
+      StatusMessage: "__StatusMessage__",
+      TargetSize: (number) 0,
+      TargetIops: (number) 0,
+      TargetVolumeType: "__TargetVolumeType__",
+      TargetThroughput: (number) 0,
+      TargetMultiAttachEnabled: (boolean) false,
+      OriginalSize: (number) 0,
+      OriginalIops: (number) 0,
+      OriginalVolumeType: "__OriginalVolumeType__",
+      OriginalThroughput: (number) 0,
+      OriginalMultiAttachEnabled: (boolean) false,
+      Progress: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      VolumeId: "__VolumeId__",
+      ModificationState: "__ModificationState__",
+      StatusMessage: "__StatusMessage__",
+      TargetSize: (number) 0,
+      TargetIops: (number) 0,
+      TargetVolumeType: "__TargetVolumeType__",
+      TargetThroughput: (number) 0,
+      TargetMultiAttachEnabled: (boolean) false,
+      OriginalSize: (number) 0,
+      OriginalIops: (number) 0,
+      OriginalVolumeType: "__OriginalVolumeType__",
+      OriginalThroughput: (number) 0,
+      OriginalMultiAttachEnabled: (boolean) false,
+      Progress: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      VolumeId: "__VolumeId__",
+      ModificationState: "__ModificationState__",
+      StatusMessage: "__StatusMessage__",
+      TargetSize: (number) 0,
+      TargetIops: (number) 0,
+      TargetVolumeType: "__TargetVolumeType__",
+      TargetThroughput: (number) 0,
+      TargetMultiAttachEnabled: (boolean) false,
+      OriginalSize: (number) 0,
+      OriginalIops: (number) 0,
+      OriginalVolumeType: "__OriginalVolumeType__",
+      OriginalThroughput: (number) 0,
+      OriginalMultiAttachEnabled: (boolean) false,
+      Progress: (number) 0,
+      StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ]
+}
+

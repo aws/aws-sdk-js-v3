@@ -11,6 +11,8 @@ export * from "./json/awsExpectUnion";
 export * from "./json/parseJsonBody";
 export * from "./query/AwsEc2QueryProtocol";
 export * from "./query/AwsQueryProtocol";
+export * from "./query/QuerySerializerSettings";
+export * from "./query/QueryShapeSerializer";
 export * from "./xml/AwsRestXmlProtocol";
 export * from "./xml/XmlCodec";
 export * from "./xml/XmlShapeDeserializer";

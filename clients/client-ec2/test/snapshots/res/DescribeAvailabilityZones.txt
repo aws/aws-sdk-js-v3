@@ -1,0 +1,445 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAvailabilityZonesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAvailabilityZonesResult xmlns="https://placeholder.amazonaws.com">
+    <availabilityZoneInfo>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <messageSet>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+            </messageSet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <zoneName>
+                __ZoneName__
+            </zoneName>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+            <parentZoneName>
+                __ParentZoneName__
+            </parentZoneName>
+            <parentZoneId>
+                __ParentZoneId__
+            </parentZoneId>
+            <groupLongName>
+                __GroupLongName__
+            </groupLongName>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <subGeographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </subGeographySet>
+            <zoneState>
+                __State__
+            </zoneState>
+        </item>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <messageSet>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+            </messageSet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <zoneName>
+                __ZoneName__
+            </zoneName>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+            <parentZoneName>
+                __ParentZoneName__
+            </parentZoneName>
+            <parentZoneId>
+                __ParentZoneId__
+            </parentZoneId>
+            <groupLongName>
+                __GroupLongName__
+            </groupLongName>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <subGeographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </subGeographySet>
+            <zoneState>
+                __State__
+            </zoneState>
+        </item>
+        <item>
+            <optInStatus>
+                __OptInStatus__
+            </optInStatus>
+            <messageSet>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+                <item>
+                    <message>
+                        __Message__
+                    </message>
+                </item>
+            </messageSet>
+            <regionName>
+                __RegionName__
+            </regionName>
+            <zoneName>
+                __ZoneName__
+            </zoneName>
+            <zoneId>
+                __ZoneId__
+            </zoneId>
+            <groupName>
+                __GroupName__
+            </groupName>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <zoneType>
+                __ZoneType__
+            </zoneType>
+            <parentZoneName>
+                __ParentZoneName__
+            </parentZoneName>
+            <parentZoneId>
+                __ParentZoneId__
+            </parentZoneId>
+            <groupLongName>
+                __GroupLongName__
+            </groupLongName>
+            <geographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </geographySet>
+            <subGeographySet>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+                <item>
+                    <name>
+                        __Name__
+                    </name>
+                </item>
+            </subGeographySet>
+            <zoneState>
+                __State__
+            </zoneState>
+        </item>
+    </availabilityZoneInfo>
+</DescribeAvailabilityZonesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AvailabilityZones: [
+    {
+      OptInStatus: "__OptInStatus__",
+      Messages: [
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      ZoneName: "__ZoneName__",
+      ZoneId: "__ZoneId__",
+      GroupName: "__GroupName__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      ZoneType: "__ZoneType__",
+      ParentZoneName: "__ParentZoneName__",
+      ParentZoneId: "__ParentZoneId__",
+      GroupLongName: "__GroupLongName__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      SubGeography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      State: "__State__"
+    },
+    {
+      OptInStatus: "__OptInStatus__",
+      Messages: [
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      ZoneName: "__ZoneName__",
+      ZoneId: "__ZoneId__",
+      GroupName: "__GroupName__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      ZoneType: "__ZoneType__",
+      ParentZoneName: "__ParentZoneName__",
+      ParentZoneId: "__ParentZoneId__",
+      GroupLongName: "__GroupLongName__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      SubGeography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      State: "__State__"
+    },
+    {
+      OptInStatus: "__OptInStatus__",
+      Messages: [
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        },
+        {
+          Message: "__Message__"
+        }
+      ],
+      RegionName: "__RegionName__",
+      ZoneName: "__ZoneName__",
+      ZoneId: "__ZoneId__",
+      GroupName: "__GroupName__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      ZoneType: "__ZoneType__",
+      ParentZoneName: "__ParentZoneName__",
+      ParentZoneId: "__ParentZoneId__",
+      GroupLongName: "__GroupLongName__",
+      Geography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      SubGeography: [
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        },
+        {
+          Name: "__Name__"
+        }
+      ],
+      State: "__State__"
+    }
+  ]
+}
+

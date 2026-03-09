@@ -1,0 +1,94 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "invocationArn": "__invocationArn__",
+  "modelArn": "__modelArn__",
+  "status": "__status__",
+  "submitTime": "2000-01-01T04:59:59.999Z",
+  "outputDataConfig": {},
+  "clientRequestToken": "__clientRequestToken__",
+  "failureMessage": "__failureMessage__",
+  "lastModifiedTime": "2000-01-01T04:59:59.999Z",
+  "endTime": "2000-01-01T04:59:59.999Z"
+}
+
+
+--- [output object] ---
+{
+  invocationArn: "__invocationArn__",
+  modelArn: "__modelArn__",
+  status: "__status__",
+  submitTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  outputDataConfig: {},
+  clientRequestToken: "__clientRequestToken__",
+  failureMessage: "__failureMessage__",
+  lastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  endTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "invocationArn": "__invocationArn__",
+  "modelArn": "__modelArn__",
+  "status": "__status__",
+  "submitTime": "2000-01-01T04:59:59.999Z",
+  "outputDataConfig": {
+    "s3OutputDataConfig": {
+      "s3Uri": "__s3Uri__",
+      "kmsKeyId": "__kmsKeyId__",
+      "bucketOwner": "__bucketOwner__"
+    }
+  },
+  "clientRequestToken": "__clientRequestToken__",
+  "failureMessage": "__failureMessage__",
+  "lastModifiedTime": "2000-01-01T04:59:59.999Z",
+  "endTime": "2000-01-01T04:59:59.999Z"
+}
+
+
+--- [output object] ---
+{
+  invocationArn: "__invocationArn__",
+  modelArn: "__modelArn__",
+  status: "__status__",
+  submitTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  outputDataConfig: {
+    s3OutputDataConfig: {
+      s3Uri: "__s3Uri__",
+      kmsKeyId: "__kmsKeyId__",
+      bucketOwner: "__bucketOwner__"
+    }
+  },
+  clientRequestToken: "__clientRequestToken__",
+  failureMessage: "__failureMessage__",
+  lastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  endTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

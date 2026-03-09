@@ -1,0 +1,85 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetActiveVpnTunnelStatusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetActiveVpnTunnelStatusResult xmlns="https://placeholder.amazonaws.com">
+    <activeVpnTunnelStatus>
+        <phase1EncryptionAlgorithm>
+            __Phase1EncryptionAlgorithm__
+        </phase1EncryptionAlgorithm>
+        <phase2EncryptionAlgorithm>
+            __Phase2EncryptionAlgorithm__
+        </phase2EncryptionAlgorithm>
+        <phase1IntegrityAlgorithm>
+            __Phase1IntegrityAlgorithm__
+        </phase1IntegrityAlgorithm>
+        <phase2IntegrityAlgorithm>
+            __Phase2IntegrityAlgorithm__
+        </phase2IntegrityAlgorithm>
+        <phase1DHGroup>
+            0
+        </phase1DHGroup>
+        <phase2DHGroup>
+            0
+        </phase2DHGroup>
+        <ikeVersion>
+            __IkeVersion__
+        </ikeVersion>
+        <provisioningStatus>
+            __ProvisioningStatus__
+        </provisioningStatus>
+        <provisioningStatusReason>
+            __ProvisioningStatusReason__
+        </provisioningStatusReason>
+    </activeVpnTunnelStatus>
+</GetActiveVpnTunnelStatusResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ActiveVpnTunnelStatus: {
+    Phase1EncryptionAlgorithm: "__Phase1EncryptionAlgorithm__",
+    Phase2EncryptionAlgorithm: "__Phase2EncryptionAlgorithm__",
+    Phase1IntegrityAlgorithm: "__Phase1IntegrityAlgorithm__",
+    Phase2IntegrityAlgorithm: "__Phase2IntegrityAlgorithm__",
+    Phase1DHGroup: (number) 0,
+    Phase2DHGroup: (number) 0,
+    IkeVersion: "__IkeVersion__",
+    ProvisioningStatus: "__ProvisioningStatus__",
+    ProvisioningStatusReason: "__ProvisioningStatusReason__"
+  }
+}
+

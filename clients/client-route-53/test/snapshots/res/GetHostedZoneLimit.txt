@@ -1,0 +1,78 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostedZoneLimitResponse xmlns="https://placeholder.amazonaws.com">
+    <Limit>
+        <Type>
+            __Type__
+        </Type>
+        <Value>
+            0
+        </Value>
+    </Limit>
+    <Count>
+        0
+    </Count>
+</GetHostedZoneLimitResponse>
+
+
+--- [output object] ---
+{
+  Limit: {
+    Type: "__Type__",
+    Value: (number) 0
+  },
+  Count: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetHostedZoneLimitResponse xmlns="https://placeholder.amazonaws.com">
+    <Limit>
+        <Type>
+            __Type__
+        </Type>
+        <Value>
+            0
+        </Value>
+    </Limit>
+    <Count>
+        0
+    </Count>
+</GetHostedZoneLimitResponse>
+
+
+--- [output object] ---
+{
+  Limit: {
+    Type: "__Type__",
+    Value: (number) 0
+  },
+  Count: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

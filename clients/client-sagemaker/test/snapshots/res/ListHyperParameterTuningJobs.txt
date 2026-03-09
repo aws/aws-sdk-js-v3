@@ -1,0 +1,310 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "HyperParameterTuningJobSummaries": [
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {},
+      "ObjectiveStatusCounters": {},
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    },
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {},
+      "ObjectiveStatusCounters": {},
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    },
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {},
+      "ObjectiveStatusCounters": {},
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  HyperParameterTuningJobSummaries: [
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {},
+      ObjectiveStatusCounters: {},
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    },
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {},
+      ObjectiveStatusCounters: {},
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    },
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {},
+      ObjectiveStatusCounters: {},
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "HyperParameterTuningJobSummaries": [
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {
+        "Completed": 0,
+        "InProgress": 0,
+        "RetryableError": 0,
+        "NonRetryableError": 0,
+        "Stopped": 0
+      },
+      "ObjectiveStatusCounters": {
+        "Succeeded": 0,
+        "Pending": 0,
+        "Failed": 0
+      },
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    },
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {
+        "Completed": 0,
+        "InProgress": 0,
+        "RetryableError": 0,
+        "NonRetryableError": 0,
+        "Stopped": 0
+      },
+      "ObjectiveStatusCounters": {
+        "Succeeded": 0,
+        "Pending": 0,
+        "Failed": 0
+      },
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    },
+    {
+      "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
+      "HyperParameterTuningJobArn": "__HyperParameterTuningJobArn__",
+      "HyperParameterTuningJobStatus": "__HyperParameterTuningJobStatus__",
+      "Strategy": "__Strategy__",
+      "CreationTime": 946702799.999,
+      "TrainingJobStatusCounters": {
+        "Completed": 0,
+        "InProgress": 0,
+        "RetryableError": 0,
+        "NonRetryableError": 0,
+        "Stopped": 0
+      },
+      "ObjectiveStatusCounters": {
+        "Succeeded": 0,
+        "Pending": 0,
+        "Failed": 0
+      },
+      "HyperParameterTuningEndTime": 946702799.999,
+      "LastModifiedTime": 946702799.999,
+      "ResourceLimits": {
+        "MaxParallelTrainingJobs": 0,
+        "MaxNumberOfTrainingJobs": 0,
+        "MaxRuntimeInSeconds": 0
+      }
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  HyperParameterTuningJobSummaries: [
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {
+        Completed: (number) 0,
+        InProgress: (number) 0,
+        RetryableError: (number) 0,
+        NonRetryableError: (number) 0,
+        Stopped: (number) 0
+      },
+      ObjectiveStatusCounters: {
+        Succeeded: (number) 0,
+        Pending: (number) 0,
+        Failed: (number) 0
+      },
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    },
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {
+        Completed: (number) 0,
+        InProgress: (number) 0,
+        RetryableError: (number) 0,
+        NonRetryableError: (number) 0,
+        Stopped: (number) 0
+      },
+      ObjectiveStatusCounters: {
+        Succeeded: (number) 0,
+        Pending: (number) 0,
+        Failed: (number) 0
+      },
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    },
+    {
+      HyperParameterTuningJobName: "__HyperParameterTuningJobName__",
+      HyperParameterTuningJobArn: "__HyperParameterTuningJobArn__",
+      HyperParameterTuningJobStatus: "__HyperParameterTuningJobStatus__",
+      Strategy: "__Strategy__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      TrainingJobStatusCounters: {
+        Completed: (number) 0,
+        InProgress: (number) 0,
+        RetryableError: (number) 0,
+        NonRetryableError: (number) 0,
+        Stopped: (number) 0
+      },
+      ObjectiveStatusCounters: {
+        Succeeded: (number) 0,
+        Pending: (number) 0,
+        Failed: (number) 0
+      },
+      HyperParameterTuningEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ResourceLimits: {
+        MaxParallelTrainingJobs: (number) 0,
+        MaxNumberOfTrainingJobs: (number) 0,
+        MaxRuntimeInSeconds: (number) 0
+      }
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

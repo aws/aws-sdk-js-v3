@@ -1,0 +1,281 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReplaceRootVolumeTasksResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeReplaceRootVolumeTasksResult xmlns="https://placeholder.amazonaws.com">
+    <replaceRootVolumeTaskSet>
+        <item>
+            <replaceRootVolumeTaskId>
+                __ReplaceRootVolumeTaskId__
+            </replaceRootVolumeTaskId>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <taskState>
+                __TaskState__
+            </taskState>
+            <startTime>
+                __StartTime__
+            </startTime>
+            <completeTime>
+                __CompleteTime__
+            </completeTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <deleteReplacedRootVolume>
+                false
+            </deleteReplacedRootVolume>
+        </item>
+        <item>
+            <replaceRootVolumeTaskId>
+                __ReplaceRootVolumeTaskId__
+            </replaceRootVolumeTaskId>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <taskState>
+                __TaskState__
+            </taskState>
+            <startTime>
+                __StartTime__
+            </startTime>
+            <completeTime>
+                __CompleteTime__
+            </completeTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <deleteReplacedRootVolume>
+                false
+            </deleteReplacedRootVolume>
+        </item>
+        <item>
+            <replaceRootVolumeTaskId>
+                __ReplaceRootVolumeTaskId__
+            </replaceRootVolumeTaskId>
+            <instanceId>
+                __InstanceId__
+            </instanceId>
+            <taskState>
+                __TaskState__
+            </taskState>
+            <startTime>
+                __StartTime__
+            </startTime>
+            <completeTime>
+                __CompleteTime__
+            </completeTime>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <snapshotId>
+                __SnapshotId__
+            </snapshotId>
+            <deleteReplacedRootVolume>
+                false
+            </deleteReplacedRootVolume>
+        </item>
+    </replaceRootVolumeTaskSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeReplaceRootVolumeTasksResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ReplaceRootVolumeTasks: [
+    {
+      ReplaceRootVolumeTaskId: "__ReplaceRootVolumeTaskId__",
+      InstanceId: "__InstanceId__",
+      TaskState: "__TaskState__",
+      StartTime: "__StartTime__",
+      CompleteTime: "__CompleteTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ImageId: "__ImageId__",
+      SnapshotId: "__SnapshotId__",
+      DeleteReplacedRootVolume: (boolean) false
+    },
+    {
+      ReplaceRootVolumeTaskId: "__ReplaceRootVolumeTaskId__",
+      InstanceId: "__InstanceId__",
+      TaskState: "__TaskState__",
+      StartTime: "__StartTime__",
+      CompleteTime: "__CompleteTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ImageId: "__ImageId__",
+      SnapshotId: "__SnapshotId__",
+      DeleteReplacedRootVolume: (boolean) false
+    },
+    {
+      ReplaceRootVolumeTaskId: "__ReplaceRootVolumeTaskId__",
+      InstanceId: "__InstanceId__",
+      TaskState: "__TaskState__",
+      StartTime: "__StartTime__",
+      CompleteTime: "__CompleteTime__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ImageId: "__ImageId__",
+      SnapshotId: "__SnapshotId__",
+      DeleteReplacedRootVolume: (boolean) false
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

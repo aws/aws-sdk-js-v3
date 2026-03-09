@@ -1,0 +1,132 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RevokeDBSecurityGroupIngressResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<RevokeDBSecurityGroupIngressResult xmlns="https://placeholder.amazonaws.com">
+    <DBSecurityGroup>
+        <OwnerId>
+            __OwnerId__
+        </OwnerId>
+        <DBSecurityGroupName>
+            __DBSecurityGroupName__
+        </DBSecurityGroupName>
+        <DBSecurityGroupDescription>
+            __DBSecurityGroupDescription__
+        </DBSecurityGroupDescription>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <EC2SecurityGroups>
+            <EC2SecurityGroup>
+                <Status>
+                    __Status__
+                </Status>
+                <EC2SecurityGroupName>
+                    __EC2SecurityGroupName__
+                </EC2SecurityGroupName>
+                <EC2SecurityGroupId>
+                    __EC2SecurityGroupId__
+                </EC2SecurityGroupId>
+                <EC2SecurityGroupOwnerId>
+                    __EC2SecurityGroupOwnerId__
+                </EC2SecurityGroupOwnerId>
+            </EC2SecurityGroup>
+            <EC2SecurityGroup>
+                <Status>
+                    __Status__
+                </Status>
+                <EC2SecurityGroupName>
+                    __EC2SecurityGroupName__
+                </EC2SecurityGroupName>
+                <EC2SecurityGroupId>
+                    __EC2SecurityGroupId__
+                </EC2SecurityGroupId>
+                <EC2SecurityGroupOwnerId>
+                    __EC2SecurityGroupOwnerId__
+                </EC2SecurityGroupOwnerId>
+            </EC2SecurityGroup>
+            <EC2SecurityGroup>
+                <Status>
+                    __Status__
+                </Status>
+                <EC2SecurityGroupName>
+                    __EC2SecurityGroupName__
+                </EC2SecurityGroupName>
+                <EC2SecurityGroupId>
+                    __EC2SecurityGroupId__
+                </EC2SecurityGroupId>
+                <EC2SecurityGroupOwnerId>
+                    __EC2SecurityGroupOwnerId__
+                </EC2SecurityGroupOwnerId>
+            </EC2SecurityGroup>
+        </EC2SecurityGroups>
+        <IPRanges>
+            <IPRange>
+                <Status>
+                    __Status__
+                </Status>
+                <CIDRIP>
+                    __CIDRIP__
+                </CIDRIP>
+            </IPRange>
+            <IPRange>
+                <Status>
+                    __Status__
+                </Status>
+                <CIDRIP>
+                    __CIDRIP__
+                </CIDRIP>
+            </IPRange>
+            <IPRange>
+                <Status>
+                    __Status__
+                </Status>
+                <CIDRIP>
+                    __CIDRIP__
+                </CIDRIP>
+            </IPRange>
+        </IPRanges>
+        <DBSecurityGroupArn>
+            __DBSecurityGroupArn__
+        </DBSecurityGroupArn>
+    </DBSecurityGroup>
+</RevokeDBSecurityGroupIngressResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

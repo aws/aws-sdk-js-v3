@@ -1,0 +1,182 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "IdentityPoolId": "__IdentityPoolId__",
+  "IdentityPoolName": "__IdentityPoolName__",
+  "AllowUnauthenticatedIdentities": false,
+  "AllowClassicFlow": false,
+  "SupportedLoginProviders": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "DeveloperProviderName": "__DeveloperProviderName__",
+  "OpenIdConnectProviderARNs": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "CognitoIdentityProviders": [
+    {},
+    {},
+    {}
+  ],
+  "SamlProviderARNs": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "IdentityPoolTags": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  IdentityPoolId: "__IdentityPoolId__",
+  IdentityPoolName: "__IdentityPoolName__",
+  AllowUnauthenticatedIdentities: (boolean) false,
+  AllowClassicFlow: (boolean) false,
+  SupportedLoginProviders: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  DeveloperProviderName: "__DeveloperProviderName__",
+  OpenIdConnectProviderARNs: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  CognitoIdentityProviders: [
+    {},
+    {},
+    {}
+  ],
+  SamlProviderARNs: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  IdentityPoolTags: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "IdentityPoolId": "__IdentityPoolId__",
+  "IdentityPoolName": "__IdentityPoolName__",
+  "AllowUnauthenticatedIdentities": false,
+  "AllowClassicFlow": false,
+  "SupportedLoginProviders": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "DeveloperProviderName": "__DeveloperProviderName__",
+  "OpenIdConnectProviderARNs": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "CognitoIdentityProviders": [
+    {
+      "ProviderName": "__ProviderName__",
+      "ClientId": "__ClientId__",
+      "ServerSideTokenCheck": false
+    },
+    {
+      "ProviderName": "__ProviderName__",
+      "ClientId": "__ClientId__",
+      "ServerSideTokenCheck": false
+    },
+    {
+      "ProviderName": "__ProviderName__",
+      "ClientId": "__ClientId__",
+      "ServerSideTokenCheck": false
+    }
+  ],
+  "SamlProviderARNs": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "IdentityPoolTags": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  IdentityPoolId: "__IdentityPoolId__",
+  IdentityPoolName: "__IdentityPoolName__",
+  AllowUnauthenticatedIdentities: (boolean) false,
+  AllowClassicFlow: (boolean) false,
+  SupportedLoginProviders: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  DeveloperProviderName: "__DeveloperProviderName__",
+  OpenIdConnectProviderARNs: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  CognitoIdentityProviders: [
+    {
+      ProviderName: "__ProviderName__",
+      ClientId: "__ClientId__",
+      ServerSideTokenCheck: (boolean) false
+    },
+    {
+      ProviderName: "__ProviderName__",
+      ClientId: "__ClientId__",
+      ServerSideTokenCheck: (boolean) false
+    },
+    {
+      ProviderName: "__ProviderName__",
+      ClientId: "__ClientId__",
+      ServerSideTokenCheck: (boolean) false
+    }
+  ],
+  SamlProviderARNs: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  IdentityPoolTags: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

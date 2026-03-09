@@ -1,0 +1,344 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHostedZonesResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZones>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config/>
+<ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService/>
+<Features/>
+        </HostedZone>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config/>
+<ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService/>
+<Features/>
+        </HostedZone>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config/>
+<ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService/>
+<Features/>
+        </HostedZone>
+    </HostedZones>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListHostedZonesResponse>
+
+
+--- [output object] ---
+{
+  HostedZones: [
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {},
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {},
+      Features: {}
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {},
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {},
+      Features: {}
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {},
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {},
+      Features: {}
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHostedZonesResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZones>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config>
+                <Comment>
+                    __Comment__
+                </Comment>
+                <PrivateZone>
+                    false
+                </PrivateZone>
+            </Config>
+            <ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <Features>
+                <AcceleratedRecoveryStatus>
+                    __AcceleratedRecoveryStatus__
+                </AcceleratedRecoveryStatus>
+                <FailureReasons>
+                    <AcceleratedRecovery>
+                        __AcceleratedRecovery__
+                    </AcceleratedRecovery>
+                </FailureReasons>
+            </Features>
+        </HostedZone>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config>
+                <Comment>
+                    __Comment__
+                </Comment>
+                <PrivateZone>
+                    false
+                </PrivateZone>
+            </Config>
+            <ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <Features>
+                <AcceleratedRecoveryStatus>
+                    __AcceleratedRecoveryStatus__
+                </AcceleratedRecoveryStatus>
+                <FailureReasons>
+                    <AcceleratedRecovery>
+                        __AcceleratedRecovery__
+                    </AcceleratedRecovery>
+                </FailureReasons>
+            </Features>
+        </HostedZone>
+        <HostedZone>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <CallerReference>
+                __CallerReference__
+            </CallerReference>
+            <Config>
+                <Comment>
+                    __Comment__
+                </Comment>
+                <PrivateZone>
+                    false
+                </PrivateZone>
+            </Config>
+            <ResourceRecordSetCount>
+                0
+            </ResourceRecordSetCount>
+            <LinkedService>
+                <ServicePrincipal>
+                    __ServicePrincipal__
+                </ServicePrincipal>
+                <Description>
+                    __Description__
+                </Description>
+            </LinkedService>
+            <Features>
+                <AcceleratedRecoveryStatus>
+                    __AcceleratedRecoveryStatus__
+                </AcceleratedRecoveryStatus>
+                <FailureReasons>
+                    <AcceleratedRecovery>
+                        __AcceleratedRecovery__
+                    </AcceleratedRecovery>
+                </FailureReasons>
+            </Features>
+        </HostedZone>
+    </HostedZones>
+    <Marker>
+        __Marker__
+    </Marker>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextMarker>
+        __NextMarker__
+    </NextMarker>
+</ListHostedZonesResponse>
+
+
+--- [output object] ---
+{
+  HostedZones: [
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {
+        Comment: "__Comment__",
+        PrivateZone: (boolean) false
+      },
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      Features: {
+        AcceleratedRecoveryStatus: "__AcceleratedRecoveryStatus__",
+        FailureReasons: {
+          AcceleratedRecovery: "__AcceleratedRecovery__"
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {
+        Comment: "__Comment__",
+        PrivateZone: (boolean) false
+      },
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      Features: {
+        AcceleratedRecoveryStatus: "__AcceleratedRecoveryStatus__",
+        FailureReasons: {
+          AcceleratedRecovery: "__AcceleratedRecovery__"
+        }
+      }
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      CallerReference: "__CallerReference__",
+      Config: {
+        Comment: "__Comment__",
+        PrivateZone: (boolean) false
+      },
+      ResourceRecordSetCount: (number) 0,
+      LinkedService: {
+        ServicePrincipal: "__ServicePrincipal__",
+        Description: "__Description__"
+      },
+      Features: {
+        AcceleratedRecoveryStatus: "__AcceleratedRecoveryStatus__",
+        FailureReasons: {
+          AcceleratedRecovery: "__AcceleratedRecovery__"
+        }
+      }
+    }
+  ],
+  Marker: "__Marker__",
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextMarker: "__NextMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

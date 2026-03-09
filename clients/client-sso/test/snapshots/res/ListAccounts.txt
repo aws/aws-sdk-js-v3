@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "nextToken": "__nextToken__",
+  "accountList": [
+    {
+      "accountId": "__accountId__",
+      "accountName": "__accountName__",
+      "emailAddress": "__emailAddress__"
+    },
+    {
+      "accountId": "__accountId__",
+      "accountName": "__accountName__",
+      "emailAddress": "__emailAddress__"
+    },
+    {
+      "accountId": "__accountId__",
+      "accountName": "__accountName__",
+      "emailAddress": "__emailAddress__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  nextToken: "__nextToken__",
+  accountList: [
+    {
+      accountId: "__accountId__",
+      accountName: "__accountName__",
+      emailAddress: "__emailAddress__"
+    },
+    {
+      accountId: "__accountId__",
+      accountName: "__accountName__",
+      emailAddress: "__emailAddress__"
+    },
+    {
+      accountId: "__accountId__",
+      accountName: "__accountName__",
+      emailAddress: "__emailAddress__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

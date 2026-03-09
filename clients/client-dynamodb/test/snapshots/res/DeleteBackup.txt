@@ -1,0 +1,517 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "BackupDescription": {
+    "BackupDetails": {
+      "BackupArn": "__BackupArn__",
+      "BackupName": "__BackupName__",
+      "BackupStatus": "__BackupStatus__",
+      "BackupType": "__BackupType__",
+      "BackupCreationDateTime": 946702799.999,
+      "BackupSizeBytes": 0,
+      "BackupExpiryDateTime": 946702799.999
+    },
+    "SourceTableDetails": {
+      "TableName": "__TableName__",
+      "TableId": "__TableId__",
+      "KeySchema": [
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        },
+        {
+          "AttributeName": "__AttributeName__",
+          "KeyType": "__KeyType__"
+        }
+      ],
+      "TableCreationDateTime": 946702799.999,
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 0,
+        "WriteCapacityUnits": 0
+      },
+      "TableArn": "__TableArn__",
+      "TableSizeBytes": 0,
+      "OnDemandThroughput": {
+        "MaxReadRequestUnits": 0,
+        "MaxWriteRequestUnits": 0
+      },
+      "ItemCount": 0,
+      "BillingMode": "__BillingMode__"
+    },
+    "SourceTableFeatureDetails": {
+      "LocalSecondaryIndexes": [
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          }
+        },
+        {
+          "IndexName": "__IndexName__",
+          "KeySchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "KeyType": "__KeyType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "ProvisionedThroughput": {
+            "ReadCapacityUnits": 0,
+            "WriteCapacityUnits": 0
+          },
+          "OnDemandThroughput": {
+            "MaxReadRequestUnits": 0,
+            "MaxWriteRequestUnits": 0
+          }
+        }
+      ],
+      "StreamDescription": {
+        "StreamEnabled": false,
+        "StreamViewType": "__StreamViewType__"
+      },
+      "TimeToLiveDescription": {
+        "TimeToLiveStatus": "__TimeToLiveStatus__",
+        "AttributeName": "__AttributeName__"
+      },
+      "SSEDescription": {
+        "Status": "__Status__",
+        "SSEType": "__SSEType__",
+        "KMSMasterKeyArn": "__KMSMasterKeyArn__",
+        "InaccessibleEncryptionDateTime": 946702799.999
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  BackupDescription: {
+    BackupDetails: {
+      BackupArn: "__BackupArn__",
+      BackupName: "__BackupName__",
+      BackupStatus: "__BackupStatus__",
+      BackupType: "__BackupType__",
+      BackupCreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      BackupSizeBytes: (number) 0,
+      BackupExpiryDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    SourceTableDetails: {
+      TableName: "__TableName__",
+      TableId: "__TableId__",
+      KeySchema: [
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        },
+        {
+          AttributeName: "__AttributeName__",
+          KeyType: "__KeyType__"
+        }
+      ],
+      TableCreationDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ProvisionedThroughput: {
+        ReadCapacityUnits: (number) 0,
+        WriteCapacityUnits: (number) 0
+      },
+      TableArn: "__TableArn__",
+      TableSizeBytes: (number) 0,
+      OnDemandThroughput: {
+        MaxReadRequestUnits: (number) 0,
+        MaxWriteRequestUnits: (number) 0
+      },
+      ItemCount: (number) 0,
+      BillingMode: "__BillingMode__"
+    },
+    SourceTableFeatureDetails: {
+      LocalSecondaryIndexes: [
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          }
+        }
+      ],
+      GlobalSecondaryIndexes: [
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          }
+        },
+        {
+          IndexName: "__IndexName__",
+          KeySchema: [
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              KeyType: "__KeyType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ProvisionedThroughput: {
+            ReadCapacityUnits: (number) 0,
+            WriteCapacityUnits: (number) 0
+          },
+          OnDemandThroughput: {
+            MaxReadRequestUnits: (number) 0,
+            MaxWriteRequestUnits: (number) 0
+          }
+        }
+      ],
+      StreamDescription: {
+        StreamEnabled: (boolean) false,
+        StreamViewType: "__StreamViewType__"
+      },
+      TimeToLiveDescription: {
+        TimeToLiveStatus: "__TimeToLiveStatus__",
+        AttributeName: "__AttributeName__"
+      },
+      SSEDescription: {
+        Status: "__Status__",
+        SSEType: "__SSEType__",
+        KMSMasterKeyArn: "__KMSMasterKeyArn__",
+        InaccessibleEncryptionDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

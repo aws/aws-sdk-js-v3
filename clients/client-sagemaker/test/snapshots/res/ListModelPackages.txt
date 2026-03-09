@@ -1,0 +1,250 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelPackageSummaryList": [
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    },
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    },
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ModelPackageSummaryList: [
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    },
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    },
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ModelPackageSummaryList": [
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    },
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    },
+    {
+      "ModelPackageArn": "__ModelPackageArn__",
+      "CreationTime": 946702799.999,
+      "ModelPackageStatus": "__ModelPackageStatus__",
+      "ModelPackageName": "__ModelPackageName__",
+      "ModelPackageGroupName": "__ModelPackageGroupName__",
+      "ModelPackageVersion": 0,
+      "ModelPackageDescription": "__ModelPackageDescription__",
+      "ModelApprovalStatus": "__ModelApprovalStatus__",
+      "ModelLifeCycle": {
+        "Stage": "__Stage__",
+        "StageStatus": "__StageStatus__",
+        "StageDescription": "__StageDescription__"
+      },
+      "ModelPackageRegistrationType": "__ModelPackageRegistrationType__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ModelPackageSummaryList: [
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    },
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    },
+    {
+      ModelPackageArn: "__ModelPackageArn__",
+      CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ModelPackageStatus: "__ModelPackageStatus__",
+      ModelPackageName: "__ModelPackageName__",
+      ModelPackageGroupName: "__ModelPackageGroupName__",
+      ModelPackageVersion: (number) 0,
+      ModelPackageDescription: "__ModelPackageDescription__",
+      ModelApprovalStatus: "__ModelApprovalStatus__",
+      ModelLifeCycle: {
+        Stage: "__Stage__",
+        StageStatus: "__StageStatus__",
+        StageDescription: "__StageDescription__"
+      },
+      ModelPackageRegistrationType: "__ModelPackageRegistrationType__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

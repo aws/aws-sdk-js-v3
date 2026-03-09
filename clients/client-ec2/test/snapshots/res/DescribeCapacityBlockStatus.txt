@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityBlockStatusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeCapacityBlockStatusResult xmlns="https://placeholder.amazonaws.com">
+    <capacityBlockStatusSet>
+        <item>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <interconnectStatus>
+                __InterconnectStatus__
+            </interconnectStatus>
+            <totalCapacity>
+                0
+            </totalCapacity>
+            <totalAvailableCapacity>
+                0
+            </totalAvailableCapacity>
+            <totalUnavailableCapacity>
+                0
+            </totalUnavailableCapacity>
+            <capacityReservationStatusSet>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+            </capacityReservationStatusSet>
+        </item>
+        <item>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <interconnectStatus>
+                __InterconnectStatus__
+            </interconnectStatus>
+            <totalCapacity>
+                0
+            </totalCapacity>
+            <totalAvailableCapacity>
+                0
+            </totalAvailableCapacity>
+            <totalUnavailableCapacity>
+                0
+            </totalUnavailableCapacity>
+            <capacityReservationStatusSet>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+            </capacityReservationStatusSet>
+        </item>
+        <item>
+            <capacityBlockId>
+                __CapacityBlockId__
+            </capacityBlockId>
+            <interconnectStatus>
+                __InterconnectStatus__
+            </interconnectStatus>
+            <totalCapacity>
+                0
+            </totalCapacity>
+            <totalAvailableCapacity>
+                0
+            </totalAvailableCapacity>
+            <totalUnavailableCapacity>
+                0
+            </totalUnavailableCapacity>
+            <capacityReservationStatusSet>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+                <item>
+                    <capacityReservationId>
+                        __CapacityReservationId__
+                    </capacityReservationId>
+                    <totalCapacity>
+                        0
+                    </totalCapacity>
+                    <totalAvailableCapacity>
+                        0
+                    </totalAvailableCapacity>
+                    <totalUnavailableCapacity>
+                        0
+                    </totalUnavailableCapacity>
+                </item>
+            </capacityReservationStatusSet>
+        </item>
+    </capacityBlockStatusSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeCapacityBlockStatusResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CapacityBlockStatuses: [
+    {
+      CapacityBlockId: "__CapacityBlockId__",
+      InterconnectStatus: "__InterconnectStatus__",
+      TotalCapacity: (number) 0,
+      TotalAvailableCapacity: (number) 0,
+      TotalUnavailableCapacity: (number) 0,
+      CapacityReservationStatuses: [
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        }
+      ]
+    },
+    {
+      CapacityBlockId: "__CapacityBlockId__",
+      InterconnectStatus: "__InterconnectStatus__",
+      TotalCapacity: (number) 0,
+      TotalAvailableCapacity: (number) 0,
+      TotalUnavailableCapacity: (number) 0,
+      CapacityReservationStatuses: [
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        }
+      ]
+    },
+    {
+      CapacityBlockId: "__CapacityBlockId__",
+      InterconnectStatus: "__InterconnectStatus__",
+      TotalCapacity: (number) 0,
+      TotalAvailableCapacity: (number) 0,
+      TotalUnavailableCapacity: (number) 0,
+      CapacityReservationStatuses: [
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        },
+        {
+          CapacityReservationId: "__CapacityReservationId__",
+          TotalCapacity: (number) 0,
+          TotalAvailableCapacity: (number) 0,
+          TotalUnavailableCapacity: (number) 0
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

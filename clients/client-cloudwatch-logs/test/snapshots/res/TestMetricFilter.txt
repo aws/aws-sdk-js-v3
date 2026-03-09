@@ -1,0 +1,97 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "matches": [
+    {
+      "eventNumber": 0,
+      "eventMessage": "__eventMessage__",
+      "extractedValues": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "eventNumber": 0,
+      "eventMessage": "__eventMessage__",
+      "extractedValues": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    {
+      "eventNumber": 0,
+      "eventMessage": "__eventMessage__",
+      "extractedValues": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  matches: [
+    {
+      eventNumber: (number) 0,
+      eventMessage: "__eventMessage__",
+      extractedValues: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    {
+      eventNumber: (number) 0,
+      eventMessage: "__eventMessage__",
+      extractedValues: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    {
+      eventNumber: (number) 0,
+      eventMessage: "__eventMessage__",
+      extractedValues: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

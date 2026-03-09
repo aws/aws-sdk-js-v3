@@ -1,0 +1,730 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListResourceRecordSetsResponse xmlns="https://placeholder.amazonaws.com">
+    <ResourceRecordSets>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation/>
+<Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation/>
+        </ResourceRecordSet>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation/>
+<Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation/>
+        </ResourceRecordSet>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation/>
+<Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation/>
+        </ResourceRecordSet>
+    </ResourceRecordSets>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextRecordName>
+        __NextRecordName__
+    </NextRecordName>
+    <NextRecordType>
+        __NextRecordType__
+    </NextRecordType>
+    <NextRecordIdentifier>
+        __NextRecordIdentifier__
+    </NextRecordIdentifier>
+</ListResourceRecordSetsResponse>
+
+
+--- [output object] ---
+{
+  ResourceRecordSets: [
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {},
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {}
+    },
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {},
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {}
+    },
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {},
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {}
+    }
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextRecordName: "__NextRecordName__",
+  NextRecordType: "__NextRecordType__",
+  NextRecordIdentifier: "__NextRecordIdentifier__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListResourceRecordSetsResponse xmlns="https://placeholder.amazonaws.com">
+    <ResourceRecordSets>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation>
+                <ContinentCode>
+                    __ContinentCode__
+                </ContinentCode>
+                <CountryCode>
+                    __CountryCode__
+                </CountryCode>
+                <SubdivisionCode>
+                    __SubdivisionCode__
+                </SubdivisionCode>
+            </GeoLocation>
+            <Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation>
+                <AWSRegion>
+                    __AWSRegion__
+                </AWSRegion>
+                <LocalZoneGroup>
+                    __LocalZoneGroup__
+                </LocalZoneGroup>
+                <Coordinates>
+                    <Latitude>
+                        __Latitude__
+                    </Latitude>
+                    <Longitude>
+                        __Longitude__
+                    </Longitude>
+                </Coordinates>
+                <Bias>
+                    0
+                </Bias>
+            </GeoProximityLocation>
+        </ResourceRecordSet>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation>
+                <ContinentCode>
+                    __ContinentCode__
+                </ContinentCode>
+                <CountryCode>
+                    __CountryCode__
+                </CountryCode>
+                <SubdivisionCode>
+                    __SubdivisionCode__
+                </SubdivisionCode>
+            </GeoLocation>
+            <Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation>
+                <AWSRegion>
+                    __AWSRegion__
+                </AWSRegion>
+                <LocalZoneGroup>
+                    __LocalZoneGroup__
+                </LocalZoneGroup>
+                <Coordinates>
+                    <Latitude>
+                        __Latitude__
+                    </Latitude>
+                    <Longitude>
+                        __Longitude__
+                    </Longitude>
+                </Coordinates>
+                <Bias>
+                    0
+                </Bias>
+            </GeoProximityLocation>
+        </ResourceRecordSet>
+        <ResourceRecordSet>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <SetIdentifier>
+                __SetIdentifier__
+            </SetIdentifier>
+            <Weight>
+                0
+            </Weight>
+            <Region>
+                __Region__
+            </Region>
+            <GeoLocation>
+                <ContinentCode>
+                    __ContinentCode__
+                </ContinentCode>
+                <CountryCode>
+                    __CountryCode__
+                </CountryCode>
+                <SubdivisionCode>
+                    __SubdivisionCode__
+                </SubdivisionCode>
+            </GeoLocation>
+            <Failover>
+                __Failover__
+            </Failover>
+            <MultiValueAnswer>
+                false
+            </MultiValueAnswer>
+            <TTL>
+                0
+            </TTL>
+            <ResourceRecords>
+                <ResourceRecord/>
+<ResourceRecord/>
+<ResourceRecord/>
+            </ResourceRecords>
+            <AliasTarget>
+                <HostedZoneId>
+                    __HostedZoneId__
+                </HostedZoneId>
+                <DNSName>
+                    __DNSName__
+                </DNSName>
+                <EvaluateTargetHealth>
+                    false
+                </EvaluateTargetHealth>
+            </AliasTarget>
+            <HealthCheckId>
+                __HealthCheckId__
+            </HealthCheckId>
+            <TrafficPolicyInstanceId>
+                __TrafficPolicyInstanceId__
+            </TrafficPolicyInstanceId>
+            <CidrRoutingConfig>
+                <CollectionId>
+                    __CollectionId__
+                </CollectionId>
+                <LocationName>
+                    __LocationName__
+                </LocationName>
+            </CidrRoutingConfig>
+            <GeoProximityLocation>
+                <AWSRegion>
+                    __AWSRegion__
+                </AWSRegion>
+                <LocalZoneGroup>
+                    __LocalZoneGroup__
+                </LocalZoneGroup>
+                <Coordinates>
+                    <Latitude>
+                        __Latitude__
+                    </Latitude>
+                    <Longitude>
+                        __Longitude__
+                    </Longitude>
+                </Coordinates>
+                <Bias>
+                    0
+                </Bias>
+            </GeoProximityLocation>
+        </ResourceRecordSet>
+    </ResourceRecordSets>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextRecordName>
+        __NextRecordName__
+    </NextRecordName>
+    <NextRecordType>
+        __NextRecordType__
+    </NextRecordType>
+    <NextRecordIdentifier>
+        __NextRecordIdentifier__
+    </NextRecordIdentifier>
+</ListResourceRecordSetsResponse>
+
+
+--- [output object] ---
+{
+  ResourceRecordSets: [
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {
+        ContinentCode: "__ContinentCode__",
+        CountryCode: "__CountryCode__",
+        SubdivisionCode: "__SubdivisionCode__"
+      },
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {
+        AWSRegion: "__AWSRegion__",
+        LocalZoneGroup: "__LocalZoneGroup__",
+        Coordinates: {
+          Latitude: "__Latitude__",
+          Longitude: "__Longitude__"
+        },
+        Bias: (number) 0
+      }
+    },
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {
+        ContinentCode: "__ContinentCode__",
+        CountryCode: "__CountryCode__",
+        SubdivisionCode: "__SubdivisionCode__"
+      },
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {
+        AWSRegion: "__AWSRegion__",
+        LocalZoneGroup: "__LocalZoneGroup__",
+        Coordinates: {
+          Latitude: "__Latitude__",
+          Longitude: "__Longitude__"
+        },
+        Bias: (number) 0
+      }
+    },
+    {
+      Name: "__Name__",
+      Type: "__Type__",
+      SetIdentifier: "__SetIdentifier__",
+      Weight: (number) 0,
+      Region: "__Region__",
+      GeoLocation: {
+        ContinentCode: "__ContinentCode__",
+        CountryCode: "__CountryCode__",
+        SubdivisionCode: "__SubdivisionCode__"
+      },
+      Failover: "__Failover__",
+      MultiValueAnswer: (boolean) false,
+      TTL: (number) 0,
+      ResourceRecords: [
+        {},
+        {},
+        {}
+      ],
+      AliasTarget: {
+        HostedZoneId: "__HostedZoneId__",
+        DNSName: "__DNSName__",
+        EvaluateTargetHealth: (boolean) false
+      },
+      HealthCheckId: "__HealthCheckId__",
+      TrafficPolicyInstanceId: "__TrafficPolicyInstanceId__",
+      CidrRoutingConfig: {
+        CollectionId: "__CollectionId__",
+        LocationName: "__LocationName__"
+      },
+      GeoProximityLocation: {
+        AWSRegion: "__AWSRegion__",
+        LocalZoneGroup: "__LocalZoneGroup__",
+        Coordinates: {
+          Latitude: "__Latitude__",
+          Longitude: "__Longitude__"
+        },
+        Bias: (number) 0
+      }
+    }
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  NextRecordName: "__NextRecordName__",
+  NextRecordType: "__NextRecordType__",
+  NextRecordIdentifier: "__NextRecordIdentifier__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

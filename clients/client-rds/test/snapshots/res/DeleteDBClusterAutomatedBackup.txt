@@ -1,0 +1,167 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBClusterAutomatedBackupResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteDBClusterAutomatedBackupResult xmlns="https://placeholder.amazonaws.com">
+    <DBClusterAutomatedBackup>
+        <Engine>
+            __Engine__
+        </Engine>
+        <VpcId>
+            __VpcId__
+        </VpcId>
+        <DBClusterAutomatedBackupsArn>
+            __DBClusterAutomatedBackupsArn__
+        </DBClusterAutomatedBackupsArn>
+        <DBClusterIdentifier>
+            __DBClusterIdentifier__
+        </DBClusterIdentifier>
+        <RestoreWindow>
+            <EarliestTime>
+                2000-01-01T04:59:59.999Z
+            </EarliestTime>
+            <LatestTime>
+                2000-01-01T04:59:59.999Z
+            </LatestTime>
+        </RestoreWindow>
+        <MasterUsername>
+            __MasterUsername__
+        </MasterUsername>
+        <DbClusterResourceId>
+            __DbClusterResourceId__
+        </DbClusterResourceId>
+        <Region>
+            __Region__
+        </Region>
+        <LicenseModel>
+            __LicenseModel__
+        </LicenseModel>
+        <Status>
+            __Status__
+        </Status>
+        <IAMDatabaseAuthenticationEnabled>
+            false
+        </IAMDatabaseAuthenticationEnabled>
+        <ClusterCreateTime>
+            2000-01-01T04:59:59.999Z
+        </ClusterCreateTime>
+        <StorageEncrypted>
+            false
+        </StorageEncrypted>
+        <StorageEncryptionType>
+            __StorageEncryptionType__
+        </StorageEncryptionType>
+        <AllocatedStorage>
+            0
+        </AllocatedStorage>
+        <EngineVersion>
+            __EngineVersion__
+        </EngineVersion>
+        <DBClusterArn>
+            __DBClusterArn__
+        </DBClusterArn>
+        <BackupRetentionPeriod>
+            0
+        </BackupRetentionPeriod>
+        <PreferredBackupWindow>
+            __PreferredBackupWindow__
+        </PreferredBackupWindow>
+        <EngineMode>
+            __EngineMode__
+        </EngineMode>
+        <AvailabilityZones>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+            <AvailabilityZone>
+                __member__
+            </AvailabilityZone>
+        </AvailabilityZones>
+        <Port>
+            0
+        </Port>
+        <KmsKeyId>
+            __KmsKeyId__
+        </KmsKeyId>
+        <StorageType>
+            __StorageType__
+        </StorageType>
+        <Iops>
+            0
+        </Iops>
+        <StorageThroughput>
+            0
+        </StorageThroughput>
+        <AwsBackupRecoveryPointArn>
+            __AwsBackupRecoveryPointArn__
+        </AwsBackupRecoveryPointArn>
+        <TagList>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </TagList>
+    </DBClusterAutomatedBackup>
+</DeleteDBClusterAutomatedBackupResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

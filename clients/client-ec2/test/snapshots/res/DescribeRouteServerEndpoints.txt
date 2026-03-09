@@ -1,0 +1,281 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRouteServerEndpointsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeRouteServerEndpointsResult xmlns="https://placeholder.amazonaws.com">
+    <routeServerEndpointSet>
+        <item>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <eniId>
+                __EniId__
+            </eniId>
+            <eniAddress>
+                __EniAddress__
+            </eniAddress>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <eniId>
+                __EniId__
+            </eniId>
+            <eniAddress>
+                __EniAddress__
+            </eniAddress>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <routeServerId>
+                __RouteServerId__
+            </routeServerId>
+            <routeServerEndpointId>
+                __RouteServerEndpointId__
+            </routeServerEndpointId>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <eniId>
+                __EniId__
+            </eniId>
+            <eniAddress>
+                __EniAddress__
+            </eniAddress>
+            <state>
+                __State__
+            </state>
+            <failureReason>
+                __FailureReason__
+            </failureReason>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </routeServerEndpointSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeRouteServerEndpointsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  RouteServerEndpoints: [
+    {
+      RouteServerId: "__RouteServerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      EniId: "__EniId__",
+      EniAddress: "__EniAddress__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      RouteServerId: "__RouteServerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      EniId: "__EniId__",
+      EniAddress: "__EniAddress__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      RouteServerId: "__RouteServerId__",
+      RouteServerEndpointId: "__RouteServerEndpointId__",
+      VpcId: "__VpcId__",
+      SubnetId: "__SubnetId__",
+      EniId: "__EniId__",
+      EniAddress: "__EniAddress__",
+      State: "__State__",
+      FailureReason: "__FailureReason__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

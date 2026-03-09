@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetVpcResourcesBlockingEncryptionEnforcementResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetVpcResourcesBlockingEncryptionEnforcementResult xmlns="https://placeholder.amazonaws.com">
+    <nonCompliantResourceSet>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <type>
+                __Type__
+            </type>
+            <description>
+                __Description__
+            </description>
+            <isExcludable>
+                false
+            </isExcludable>
+        </item>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <type>
+                __Type__
+            </type>
+            <description>
+                __Description__
+            </description>
+            <isExcludable>
+                false
+            </isExcludable>
+        </item>
+        <item>
+            <id>
+                __Id__
+            </id>
+            <type>
+                __Type__
+            </type>
+            <description>
+                __Description__
+            </description>
+            <isExcludable>
+                false
+            </isExcludable>
+        </item>
+    </nonCompliantResourceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetVpcResourcesBlockingEncryptionEnforcementResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NonCompliantResources: [
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      Description: "__Description__",
+      IsExcludable: (boolean) false
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      Description: "__Description__",
+      IsExcludable: (boolean) false
+    },
+    {
+      Id: "__Id__",
+      Type: "__Type__",
+      Description: "__Description__",
+      IsExcludable: (boolean) false
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

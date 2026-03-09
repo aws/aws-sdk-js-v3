@@ -1,0 +1,329 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInternetGatewaysResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInternetGatewaysResult xmlns="https://placeholder.amazonaws.com">
+    <internetGatewaySet>
+        <item>
+            <attachmentSet>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+            </attachmentSet>
+            <internetGatewayId>
+                __InternetGatewayId__
+            </internetGatewayId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <attachmentSet>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+            </attachmentSet>
+            <internetGatewayId>
+                __InternetGatewayId__
+            </internetGatewayId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <attachmentSet>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+                <item>
+                    <state>
+                        __State__
+                    </state>
+                    <vpcId>
+                        __VpcId__
+                    </vpcId>
+                </item>
+            </attachmentSet>
+            <internetGatewayId>
+                __InternetGatewayId__
+            </internetGatewayId>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </internetGatewaySet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInternetGatewaysResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InternetGateways: [
+    {
+      Attachments: [
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        }
+      ],
+      InternetGatewayId: "__InternetGatewayId__",
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Attachments: [
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        }
+      ],
+      InternetGatewayId: "__InternetGatewayId__",
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Attachments: [
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        },
+        {
+          State: "__State__",
+          VpcId: "__VpcId__"
+        }
+      ],
+      InternetGatewayId: "__InternetGatewayId__",
+      OwnerId: "__OwnerId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

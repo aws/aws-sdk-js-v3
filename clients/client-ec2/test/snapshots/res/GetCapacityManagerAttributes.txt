@@ -1,0 +1,73 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerAttributesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerAttributesResult xmlns="https://placeholder.amazonaws.com">
+    <capacityManagerStatus>
+        __CapacityManagerStatus__
+    </capacityManagerStatus>
+    <organizationsAccess>
+        false
+    </organizationsAccess>
+    <dataExportCount>
+        0
+    </dataExportCount>
+    <ingestionStatus>
+        __IngestionStatus__
+    </ingestionStatus>
+    <ingestionStatusMessage>
+        __IngestionStatusMessage__
+    </ingestionStatusMessage>
+    <earliestDatapointTimestamp>
+        2000-01-01T04:59:59.999Z
+    </earliestDatapointTimestamp>
+    <latestDatapointTimestamp>
+        2000-01-01T04:59:59.999Z
+    </latestDatapointTimestamp>
+</GetCapacityManagerAttributesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  CapacityManagerStatus: "__CapacityManagerStatus__",
+  OrganizationsAccess: (boolean) false,
+  DataExportCount: (number) 0,
+  IngestionStatus: "__IngestionStatus__",
+  IngestionStatusMessage: "__IngestionStatusMessage__",
+  EarliestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LatestDatapointTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+}
+

@@ -1,0 +1,339 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "metricFilters": [
+    {
+      "filterName": "__filterName__",
+      "filterPattern": "__filterPattern__",
+      "metricTransformations": [
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        }
+      ],
+      "creationTime": 0,
+      "logGroupName": "__logGroupName__",
+      "applyOnTransformedLogs": false,
+      "fieldSelectionCriteria": "__fieldSelectionCriteria__",
+      "emitSystemFieldDimensions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "filterName": "__filterName__",
+      "filterPattern": "__filterPattern__",
+      "metricTransformations": [
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        }
+      ],
+      "creationTime": 0,
+      "logGroupName": "__logGroupName__",
+      "applyOnTransformedLogs": false,
+      "fieldSelectionCriteria": "__fieldSelectionCriteria__",
+      "emitSystemFieldDimensions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      "filterName": "__filterName__",
+      "filterPattern": "__filterPattern__",
+      "metricTransformations": [
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        },
+        {
+          "metricName": "__metricName__",
+          "metricNamespace": "__metricNamespace__",
+          "metricValue": "__metricValue__",
+          "defaultValue": 0,
+          "dimensions": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "unit": "__unit__"
+        }
+      ],
+      "creationTime": 0,
+      "logGroupName": "__logGroupName__",
+      "applyOnTransformedLogs": false,
+      "fieldSelectionCriteria": "__fieldSelectionCriteria__",
+      "emitSystemFieldDimensions": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  "nextToken": "__nextToken__"
+}
+
+
+--- [output object] ---
+{
+  metricFilters: [
+    {
+      filterName: "__filterName__",
+      filterPattern: "__filterPattern__",
+      metricTransformations: [
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        }
+      ],
+      creationTime: (number) 0,
+      logGroupName: "__logGroupName__",
+      applyOnTransformedLogs: (boolean) false,
+      fieldSelectionCriteria: "__fieldSelectionCriteria__",
+      emitSystemFieldDimensions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      filterName: "__filterName__",
+      filterPattern: "__filterPattern__",
+      metricTransformations: [
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        }
+      ],
+      creationTime: (number) 0,
+      logGroupName: "__logGroupName__",
+      applyOnTransformedLogs: (boolean) false,
+      fieldSelectionCriteria: "__fieldSelectionCriteria__",
+      emitSystemFieldDimensions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    {
+      filterName: "__filterName__",
+      filterPattern: "__filterPattern__",
+      metricTransformations: [
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        },
+        {
+          metricName: "__metricName__",
+          metricNamespace: "__metricNamespace__",
+          metricValue: "__metricValue__",
+          defaultValue: (number) 0,
+          dimensions: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          unit: "__unit__"
+        }
+      ],
+      creationTime: (number) 0,
+      logGroupName: "__logGroupName__",
+      applyOnTransformedLogs: (boolean) false,
+      fieldSelectionCriteria: "__fieldSelectionCriteria__",
+      emitSystemFieldDimensions: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  ],
+  nextToken: "__nextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

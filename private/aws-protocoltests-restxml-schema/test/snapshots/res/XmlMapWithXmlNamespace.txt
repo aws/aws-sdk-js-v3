@@ -1,0 +1,67 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<XmlMapWithXmlNamespaceResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<XmlMapWithXmlNamespaceResponse xmlns="https://placeholder.amazonaws.com">
+    <KVP xmlns="https://the-member.example.com">
+        <entry>
+            <K xmlns="https://the-key.example.com">
+                key1
+            </K>
+            <V xmlns="https://the-value.example.com">
+                __value__
+            </V>
+        </entry>
+        <entry>
+            <K xmlns="https://the-key.example.com">
+                key2
+            </K>
+            <V xmlns="https://the-value.example.com">
+                __value__
+            </V>
+        </entry>
+    </KVP>
+</XmlMapWithXmlNamespaceResponse>
+
+
+--- [output object] ---
+{
+  myMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

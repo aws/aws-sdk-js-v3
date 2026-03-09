@@ -1,0 +1,269 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerMetricDimensionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetCapacityManagerMetricDimensionsResult xmlns="https://placeholder.amazonaws.com">
+    <metricDimensionResultSet>
+        <item>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <accountId>
+                123456789012
+            </accountId>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <reservationArn>
+                __ReservationArn__
+            </reservationArn>
+            <reservationId>
+                __ReservationId__
+            </reservationId>
+            <reservationType>
+                __ReservationType__
+            </reservationType>
+            <reservationCreateTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationCreateTimestamp>
+            <reservationStartTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationStartTimestamp>
+            <reservationEndTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationEndTimestamp>
+            <reservationEndDateType>
+                __ReservationEndDateType__
+            </reservationEndDateType>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <reservationState>
+                __ReservationState__
+            </reservationState>
+            <reservationInstanceMatchCriteria>
+                __ReservationInstanceMatchCriteria__
+            </reservationInstanceMatchCriteria>
+            <reservationUnusedFinancialOwner>
+                __ReservationUnusedFinancialOwner__
+            </reservationUnusedFinancialOwner>
+        </item>
+        <item>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <accountId>
+                123456789012
+            </accountId>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <reservationArn>
+                __ReservationArn__
+            </reservationArn>
+            <reservationId>
+                __ReservationId__
+            </reservationId>
+            <reservationType>
+                __ReservationType__
+            </reservationType>
+            <reservationCreateTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationCreateTimestamp>
+            <reservationStartTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationStartTimestamp>
+            <reservationEndTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationEndTimestamp>
+            <reservationEndDateType>
+                __ReservationEndDateType__
+            </reservationEndDateType>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <reservationState>
+                __ReservationState__
+            </reservationState>
+            <reservationInstanceMatchCriteria>
+                __ReservationInstanceMatchCriteria__
+            </reservationInstanceMatchCriteria>
+            <reservationUnusedFinancialOwner>
+                __ReservationUnusedFinancialOwner__
+            </reservationUnusedFinancialOwner>
+        </item>
+        <item>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <accountId>
+                123456789012
+            </accountId>
+            <instanceFamily>
+                __InstanceFamily__
+            </instanceFamily>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <instancePlatform>
+                __InstancePlatform__
+            </instancePlatform>
+            <reservationArn>
+                __ReservationArn__
+            </reservationArn>
+            <reservationId>
+                __ReservationId__
+            </reservationId>
+            <reservationType>
+                __ReservationType__
+            </reservationType>
+            <reservationCreateTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationCreateTimestamp>
+            <reservationStartTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationStartTimestamp>
+            <reservationEndTimestamp>
+                2000-01-01T04:59:59.999Z
+            </reservationEndTimestamp>
+            <reservationEndDateType>
+                __ReservationEndDateType__
+            </reservationEndDateType>
+            <tenancy>
+                __Tenancy__
+            </tenancy>
+            <reservationState>
+                __ReservationState__
+            </reservationState>
+            <reservationInstanceMatchCriteria>
+                __ReservationInstanceMatchCriteria__
+            </reservationInstanceMatchCriteria>
+            <reservationUnusedFinancialOwner>
+                __ReservationUnusedFinancialOwner__
+            </reservationUnusedFinancialOwner>
+        </item>
+    </metricDimensionResultSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetCapacityManagerMetricDimensionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  MetricDimensionResults: [
+    {
+      ResourceRegion: "__ResourceRegion__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AccountId: "123456789012",
+      InstanceFamily: "__InstanceFamily__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      ReservationArn: "__ReservationArn__",
+      ReservationId: "__ReservationId__",
+      ReservationType: "__ReservationType__",
+      ReservationCreateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationStartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndDateType: "__ReservationEndDateType__",
+      Tenancy: "__Tenancy__",
+      ReservationState: "__ReservationState__",
+      ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
+      ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+    },
+    {
+      ResourceRegion: "__ResourceRegion__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AccountId: "123456789012",
+      InstanceFamily: "__InstanceFamily__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      ReservationArn: "__ReservationArn__",
+      ReservationId: "__ReservationId__",
+      ReservationType: "__ReservationType__",
+      ReservationCreateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationStartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndDateType: "__ReservationEndDateType__",
+      Tenancy: "__Tenancy__",
+      ReservationState: "__ReservationState__",
+      ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
+      ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+    },
+    {
+      ResourceRegion: "__ResourceRegion__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AccountId: "123456789012",
+      InstanceFamily: "__InstanceFamily__",
+      InstanceType: "__InstanceType__",
+      InstancePlatform: "__InstancePlatform__",
+      ReservationArn: "__ReservationArn__",
+      ReservationId: "__ReservationId__",
+      ReservationType: "__ReservationType__",
+      ReservationCreateTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationStartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ReservationEndDateType: "__ReservationEndDateType__",
+      Tenancy: "__Tenancy__",
+      ReservationState: "__ReservationState__",
+      ReservationInstanceMatchCriteria: "__ReservationInstanceMatchCriteria__",
+      ReservationUnusedFinancialOwner: "__ReservationUnusedFinancialOwner__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

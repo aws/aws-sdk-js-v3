@@ -1,0 +1,148 @@
+======================== minimal response ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{}
+
+[actual bytes]
+160
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "defaultString": "__defaultString__",
+  "defaultBoolean": false,
+  "defaultList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "defaultTimestamp": {
+    "tag": 1,
+    "value": 946702799.999
+  },
+  "defaultBlob": {
+    "type": "Buffer",
+    "data": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  "defaultByte": 0,
+  "defaultShort": 0,
+  "defaultInteger": 0,
+  "defaultLong": 0,
+  "defaultFloat": 0,
+  "defaultDouble": 0,
+  "defaultMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "defaultEnum": "__defaultEnum__",
+  "defaultIntEnum": 0,
+  "emptyString": "__emptyString__",
+  "falseBoolean": false,
+  "emptyBlob": {
+    "type": "Buffer",
+    "data": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  "zeroByte": 0,
+  "zeroShort": 0,
+  "zeroInteger": 0,
+  "zeroLong": 0,
+  "zeroFloat": 0,
+  "zeroDouble": 0
+}
+
+[actual bytes]
+183, 109, 100, 101, 102, 97, 117, 108, 116, 83, 116, 114, 105, 110, 103, 113, 95, 95, 100, 101, 102, 97, 117, 108,
+116, 83, 116, 114, 105, 110, 103, 95, 95, 110, 100, 101, 102, 97, 117, 108, 116, 66, 111, 111, 108, 101, 97, 110,
+244, 107, 100, 101, 102, 97, 117, 108, 116, 76, 105, 115, 116, 131, 106, 95, 95, 109, 101, 109, 98, 101, 114, 95,
+95, 106, 95, 95, 109, 101, 109, 98, 101, 114, 95, 95, 106, 95, 95, 109, 101, 109, 98, 101, 114, 95, 95, 112,
+100, 101, 102, 97, 117, 108, 116, 84, 105, 109, 101, 115, 116, 97, 109, 112, 193, 251, 65, 204, 54, 196, 231, 255,
+223, 59, 107, 100, 101, 102, 97, 117, 108, 116, 66, 108, 111, 98, 68, 1, 0, 0, 1, 107, 100, 101, 102, 97,
+117, 108, 116, 66, 121, 116, 101, 0, 108, 100, 101, 102, 97, 117, 108, 116, 83, 104, 111, 114, 116, 0, 110, 100,
+101, 102, 97, 117, 108, 116, 73, 110, 116, 101, 103, 101, 114, 0, 107, 100, 101, 102, 97, 117, 108, 116, 76, 111,
+110, 103, 0, 108, 100, 101, 102, 97, 117, 108, 116, 70, 108, 111, 97, 116, 0, 109, 100, 101, 102, 97, 117, 108,
+116, 68, 111, 117, 98, 108, 101, 0, 106, 100, 101, 102, 97, 117, 108, 116, 77, 97, 112, 162, 100, 107, 101, 121,
+49, 105, 95, 95, 118, 97, 108, 117, 101, 95, 95, 100, 107, 101, 121, 50, 105, 95, 95, 118, 97, 108, 117, 101,
+95, 95, 107, 100, 101, 102, 97, 117, 108, 116, 69, 110, 117, 109, 111, 95, 95, 100, 101, 102, 97, 117, 108, 116,
+69, 110, 117, 109, 95, 95, 110, 100, 101, 102, 97, 117, 108, 116, 73, 110, 116, 69, 110, 117, 109, 0, 107, 101,
+109, 112, 116, 121, 83, 116, 114, 105, 110, 103, 111, 95, 95, 101, 109, 112, 116, 121, 83, 116, 114, 105, 110, 103,
+95, 95, 108, 102, 97, 108, 115, 101, 66, 111, 111, 108, 101, 97, 110, 244, 105, 101, 109, 112, 116, 121, 66, 108,
+111, 98, 68, 1, 0, 0, 1, 104, 122, 101, 114, 111, 66, 121, 116, 101, 0, 105, 122, 101, 114, 111, 83, 104,
+111, 114, 116, 0, 107, 122, 101, 114, 111, 73, 110, 116, 101, 103, 101, 114, 0, 104, 122, 101, 114, 111, 76, 111,
+110, 103, 0, 105, 122, 101, 114, 111, 70, 108, 111, 97, 116, 0, 106, 122, 101, 114, 111, 68, 111, 117, 98, 108,
+101, 0
+
+
+--- [output object] ---
+{
+  defaultString: "__defaultString__",
+  defaultBoolean: (boolean) false,
+  defaultList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  defaultTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  defaultBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  defaultByte: (number) 0,
+  defaultShort: (number) 0,
+  defaultInteger: (number) 0,
+  defaultLong: (number) 0,
+  defaultFloat: (number) 0,
+  defaultDouble: (number) 0,
+  defaultMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  defaultEnum: "__defaultEnum__",
+  defaultIntEnum: (number) 0,
+  emptyString: "__emptyString__",
+  falseBoolean: (boolean) false,
+  emptyBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  zeroByte: (number) 0,
+  zeroShort: (number) 0,
+  zeroInteger: (number) 0,
+  zeroLong: (number) 0,
+  zeroFloat: (number) 0,
+  zeroDouble: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

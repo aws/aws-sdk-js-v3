@@ -1,0 +1,257 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrunkInterfaceAssociationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeTrunkInterfaceAssociationsResult xmlns="https://placeholder.amazonaws.com">
+    <interfaceAssociationSet>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <branchInterfaceId>
+                __BranchInterfaceId__
+            </branchInterfaceId>
+            <trunkInterfaceId>
+                __TrunkInterfaceId__
+            </trunkInterfaceId>
+            <interfaceProtocol>
+                __InterfaceProtocol__
+            </interfaceProtocol>
+            <vlanId>
+                0
+            </vlanId>
+            <greKey>
+                0
+            </greKey>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <branchInterfaceId>
+                __BranchInterfaceId__
+            </branchInterfaceId>
+            <trunkInterfaceId>
+                __TrunkInterfaceId__
+            </trunkInterfaceId>
+            <interfaceProtocol>
+                __InterfaceProtocol__
+            </interfaceProtocol>
+            <vlanId>
+                0
+            </vlanId>
+            <greKey>
+                0
+            </greKey>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <associationId>
+                __AssociationId__
+            </associationId>
+            <branchInterfaceId>
+                __BranchInterfaceId__
+            </branchInterfaceId>
+            <trunkInterfaceId>
+                __TrunkInterfaceId__
+            </trunkInterfaceId>
+            <interfaceProtocol>
+                __InterfaceProtocol__
+            </interfaceProtocol>
+            <vlanId>
+                0
+            </vlanId>
+            <greKey>
+                0
+            </greKey>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </interfaceAssociationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeTrunkInterfaceAssociationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InterfaceAssociations: [
+    {
+      AssociationId: "__AssociationId__",
+      BranchInterfaceId: "__BranchInterfaceId__",
+      TrunkInterfaceId: "__TrunkInterfaceId__",
+      InterfaceProtocol: "__InterfaceProtocol__",
+      VlanId: (number) 0,
+      GreKey: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      AssociationId: "__AssociationId__",
+      BranchInterfaceId: "__BranchInterfaceId__",
+      TrunkInterfaceId: "__TrunkInterfaceId__",
+      InterfaceProtocol: "__InterfaceProtocol__",
+      VlanId: (number) 0,
+      GreKey: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      AssociationId: "__AssociationId__",
+      BranchInterfaceId: "__BranchInterfaceId__",
+      TrunkInterfaceId: "__TrunkInterfaceId__",
+      InterfaceProtocol: "__InterfaceProtocol__",
+      VlanId: (number) 0,
+      GreKey: (number) 0,
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

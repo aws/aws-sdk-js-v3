@@ -1,0 +1,103 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "EventDetails": {
+    "EventId": "__EventId__",
+    "ClusterArn": "__ClusterArn__",
+    "ClusterName": "__ClusterName__",
+    "ResourceType": "__ResourceType__",
+    "EventTime": 946702799.999,
+    "InstanceGroupName": "__InstanceGroupName__",
+    "InstanceId": "__InstanceId__",
+    "EventDetails": {
+      "EventMetadata": {
+        "InstanceGroup": {
+          "FailureMessage": "__FailureMessage__",
+          "AvailabilityZoneId": "__AvailabilityZoneId__",
+          "CapacityReservation": {
+            "Arn": "__Arn__",
+            "Type": "__Type__"
+          },
+          "SubnetId": "__SubnetId__",
+          "SecurityGroupIds": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "AmiOverride": "__AmiOverride__"
+        }
+      }
+    },
+    "Description": "__Description__"
+  }
+}
+
+
+--- [output object] ---
+{
+  EventDetails: {
+    EventId: "__EventId__",
+    ClusterArn: "__ClusterArn__",
+    ClusterName: "__ClusterName__",
+    ResourceType: "__ResourceType__",
+    EventTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    InstanceGroupName: "__InstanceGroupName__",
+    InstanceId: "__InstanceId__",
+    EventDetails: {
+      EventMetadata: {
+        InstanceGroup: {
+          FailureMessage: "__FailureMessage__",
+          AvailabilityZoneId: "__AvailabilityZoneId__",
+          CapacityReservation: {
+            Arn: "__Arn__",
+            Type: "__Type__"
+          },
+          SubnetId: "__SubnetId__",
+          SecurityGroupIds: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          AmiOverride: "__AmiOverride__"
+        }
+      }
+    },
+    Description: "__Description__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

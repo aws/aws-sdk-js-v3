@@ -1,0 +1,245 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpnConcentratorsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpnConcentratorsResult xmlns="https://placeholder.amazonaws.com">
+    <vpnConcentratorSet>
+        <item>
+            <vpnConcentratorId>
+                __VpnConcentratorId__
+            </vpnConcentratorId>
+            <state>
+                __State__
+            </state>
+            <transitGatewayId>
+                __TransitGatewayId__
+            </transitGatewayId>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <type>
+                __Type__
+            </type>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <vpnConcentratorId>
+                __VpnConcentratorId__
+            </vpnConcentratorId>
+            <state>
+                __State__
+            </state>
+            <transitGatewayId>
+                __TransitGatewayId__
+            </transitGatewayId>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <type>
+                __Type__
+            </type>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <vpnConcentratorId>
+                __VpnConcentratorId__
+            </vpnConcentratorId>
+            <state>
+                __State__
+            </state>
+            <transitGatewayId>
+                __TransitGatewayId__
+            </transitGatewayId>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <type>
+                __Type__
+            </type>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </vpnConcentratorSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVpnConcentratorsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpnConcentrators: [
+    {
+      VpnConcentratorId: "__VpnConcentratorId__",
+      State: "__State__",
+      TransitGatewayId: "__TransitGatewayId__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      Type: "__Type__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      VpnConcentratorId: "__VpnConcentratorId__",
+      State: "__State__",
+      TransitGatewayId: "__TransitGatewayId__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      Type: "__Type__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      VpnConcentratorId: "__VpnConcentratorId__",
+      State: "__State__",
+      TransitGatewayId: "__TransitGatewayId__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      Type: "__Type__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

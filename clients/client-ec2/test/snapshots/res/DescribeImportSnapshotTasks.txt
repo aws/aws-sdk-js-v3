@@ -1,0 +1,377 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImportSnapshotTasksResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImportSnapshotTasksResult xmlns="https://placeholder.amazonaws.com">
+    <importSnapshotTaskSet>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <importTaskId>
+                __ImportTaskId__
+            </importTaskId>
+            <snapshotTaskDetail>
+                <description>
+                    __Description__
+                </description>
+                <diskImageSize>
+                    0
+                </diskImageSize>
+                <encrypted>
+                    false
+                </encrypted>
+                <format>
+                    __Format__
+                </format>
+                <kmsKeyId>
+                    __KmsKeyId__
+                </kmsKeyId>
+                <progress>
+                    __Progress__
+                </progress>
+                <snapshotId>
+                    __SnapshotId__
+                </snapshotId>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <url>
+                    __Url__
+                </url>
+                <userBucket>
+                    <s3Bucket>
+                        __S3Bucket__
+                    </s3Bucket>
+                    <s3Key>
+                        __S3Key__
+                    </s3Key>
+                </userBucket>
+            </snapshotTaskDetail>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <importTaskId>
+                __ImportTaskId__
+            </importTaskId>
+            <snapshotTaskDetail>
+                <description>
+                    __Description__
+                </description>
+                <diskImageSize>
+                    0
+                </diskImageSize>
+                <encrypted>
+                    false
+                </encrypted>
+                <format>
+                    __Format__
+                </format>
+                <kmsKeyId>
+                    __KmsKeyId__
+                </kmsKeyId>
+                <progress>
+                    __Progress__
+                </progress>
+                <snapshotId>
+                    __SnapshotId__
+                </snapshotId>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <url>
+                    __Url__
+                </url>
+                <userBucket>
+                    <s3Bucket>
+                        __S3Bucket__
+                    </s3Bucket>
+                    <s3Key>
+                        __S3Key__
+                    </s3Key>
+                </userBucket>
+            </snapshotTaskDetail>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <description>
+                __Description__
+            </description>
+            <importTaskId>
+                __ImportTaskId__
+            </importTaskId>
+            <snapshotTaskDetail>
+                <description>
+                    __Description__
+                </description>
+                <diskImageSize>
+                    0
+                </diskImageSize>
+                <encrypted>
+                    false
+                </encrypted>
+                <format>
+                    __Format__
+                </format>
+                <kmsKeyId>
+                    __KmsKeyId__
+                </kmsKeyId>
+                <progress>
+                    __Progress__
+                </progress>
+                <snapshotId>
+                    __SnapshotId__
+                </snapshotId>
+                <status>
+                    __Status__
+                </status>
+                <statusMessage>
+                    __StatusMessage__
+                </statusMessage>
+                <url>
+                    __Url__
+                </url>
+                <userBucket>
+                    <s3Bucket>
+                        __S3Bucket__
+                    </s3Bucket>
+                    <s3Key>
+                        __S3Key__
+                    </s3Key>
+                </userBucket>
+            </snapshotTaskDetail>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </importSnapshotTaskSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeImportSnapshotTasksResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ImportSnapshotTasks: [
+    {
+      Description: "__Description__",
+      ImportTaskId: "__ImportTaskId__",
+      SnapshotTaskDetail: {
+        Description: "__Description__",
+        DiskImageSize: (number) 0,
+        Encrypted: (boolean) false,
+        Format: "__Format__",
+        KmsKeyId: "__KmsKeyId__",
+        Progress: "__Progress__",
+        SnapshotId: "__SnapshotId__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        Url: "__Url__",
+        UserBucket: {
+          S3Bucket: "__S3Bucket__",
+          S3Key: "__S3Key__"
+        }
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Description: "__Description__",
+      ImportTaskId: "__ImportTaskId__",
+      SnapshotTaskDetail: {
+        Description: "__Description__",
+        DiskImageSize: (number) 0,
+        Encrypted: (boolean) false,
+        Format: "__Format__",
+        KmsKeyId: "__KmsKeyId__",
+        Progress: "__Progress__",
+        SnapshotId: "__SnapshotId__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        Url: "__Url__",
+        UserBucket: {
+          S3Bucket: "__S3Bucket__",
+          S3Key: "__S3Key__"
+        }
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      Description: "__Description__",
+      ImportTaskId: "__ImportTaskId__",
+      SnapshotTaskDetail: {
+        Description: "__Description__",
+        DiskImageSize: (number) 0,
+        Encrypted: (boolean) false,
+        Format: "__Format__",
+        KmsKeyId: "__KmsKeyId__",
+        Progress: "__Progress__",
+        SnapshotId: "__SnapshotId__",
+        Status: "__Status__",
+        StatusMessage: "__StatusMessage__",
+        Url: "__Url__",
+        UserBucket: {
+          S3Bucket: "__S3Bucket__",
+          S3Key: "__S3Key__"
+        }
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

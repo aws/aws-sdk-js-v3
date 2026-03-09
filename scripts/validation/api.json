@@ -52,7 +52,8 @@
     "setFeature": "function, since <=3.930.0",
     "setTokenFeature": "function, since <=3.930.0",
     "state": "object, since <=3.930.0",
-    "validateSigningProperties": "function, since <=3.930.0"
+    "validateSigningProperties": "function, since <=3.930.0",
+    "QueryShapeSerializer": "function, since 3.973.15"
   },
   "@aws-sdk/crc64-nvme-crt": {
     "CrtCrc64Nvme": "function, since <=3.930.0"
@@ -594,5 +595,8 @@
     "crc64NvmeCrtContainer": "object, since <=3.956.0"
   },
   "@aws-sdk/config": {},
-  "@aws-sdk/util-endpoints-placeholder": {}
+  "@aws-sdk/util-endpoints-placeholder": {},
+  "@aws-sdk/snapshot-testing": {
+    "setup": "function, since 3.0.0"
+  }
 }

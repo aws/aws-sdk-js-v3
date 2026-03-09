@@ -1,0 +1,57 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "deviceCode": "__deviceCode__",
+  "userCode": "__userCode__",
+  "verificationUri": "__verificationUri__",
+  "verificationUriComplete": "__verificationUriComplete__",
+  "expiresIn": 0,
+  "interval": 0
+}
+
+
+--- [output object] ---
+{
+  deviceCode: "__deviceCode__",
+  userCode: "__userCode__",
+  verificationUri: "__verificationUri__",
+  verificationUriComplete: "__verificationUriComplete__",
+  expiresIn: (number) 0,
+  interval: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

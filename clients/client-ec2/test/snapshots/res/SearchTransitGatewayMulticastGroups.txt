@@ -1,0 +1,197 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<SearchTransitGatewayMulticastGroupsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<SearchTransitGatewayMulticastGroupsResult xmlns="https://placeholder.amazonaws.com">
+    <multicastGroups>
+        <item>
+            <groupIpAddress>
+                __GroupIpAddress__
+            </groupIpAddress>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <groupMember>
+                false
+            </groupMember>
+            <groupSource>
+                false
+            </groupSource>
+            <memberType>
+                __MemberType__
+            </memberType>
+            <sourceType>
+                __SourceType__
+            </sourceType>
+        </item>
+        <item>
+            <groupIpAddress>
+                __GroupIpAddress__
+            </groupIpAddress>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <groupMember>
+                false
+            </groupMember>
+            <groupSource>
+                false
+            </groupSource>
+            <memberType>
+                __MemberType__
+            </memberType>
+            <sourceType>
+                __SourceType__
+            </sourceType>
+        </item>
+        <item>
+            <groupIpAddress>
+                __GroupIpAddress__
+            </groupIpAddress>
+            <transitGatewayAttachmentId>
+                __TransitGatewayAttachmentId__
+            </transitGatewayAttachmentId>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
+            <resourceId>
+                __ResourceId__
+            </resourceId>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <networkInterfaceId>
+                __NetworkInterfaceId__
+            </networkInterfaceId>
+            <groupMember>
+                false
+            </groupMember>
+            <groupSource>
+                false
+            </groupSource>
+            <memberType>
+                __MemberType__
+            </memberType>
+            <sourceType>
+                __SourceType__
+            </sourceType>
+        </item>
+    </multicastGroups>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</SearchTransitGatewayMulticastGroupsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  MulticastGroups: [
+    {
+      GroupIpAddress: "__GroupIpAddress__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      SubnetId: "__SubnetId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      ResourceOwnerId: "__ResourceOwnerId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      GroupMember: (boolean) false,
+      GroupSource: (boolean) false,
+      MemberType: "__MemberType__",
+      SourceType: "__SourceType__"
+    },
+    {
+      GroupIpAddress: "__GroupIpAddress__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      SubnetId: "__SubnetId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      ResourceOwnerId: "__ResourceOwnerId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      GroupMember: (boolean) false,
+      GroupSource: (boolean) false,
+      MemberType: "__MemberType__",
+      SourceType: "__SourceType__"
+    },
+    {
+      GroupIpAddress: "__GroupIpAddress__",
+      TransitGatewayAttachmentId: "__TransitGatewayAttachmentId__",
+      SubnetId: "__SubnetId__",
+      ResourceId: "__ResourceId__",
+      ResourceType: "__ResourceType__",
+      ResourceOwnerId: "__ResourceOwnerId__",
+      NetworkInterfaceId: "__NetworkInterfaceId__",
+      GroupMember: (boolean) false,
+      GroupSource: (boolean) false,
+      MemberType: "__MemberType__",
+      SourceType: "__SourceType__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

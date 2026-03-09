@@ -1,0 +1,158 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "dialog": {},
+  "dialogList": [
+    {},
+    {},
+    {}
+  ],
+  "dialogMap": {
+    "key1": {},
+    "key2": {}
+  }
+}
+
+
+--- [output object] ---
+{
+  dialog: {},
+  dialogList: [
+    {},
+    {},
+    {}
+  ],
+  dialogMap: {
+    key1: {},
+    key2: {}
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "dialog": {
+    "language": "__language__",
+    "greeting": "__greeting__",
+    "farewell": {
+      "phrase": "__phrase__"
+    }
+  },
+  "dialogList": [
+    {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
+    },
+    {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
+    },
+    {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
+    }
+  ],
+  "dialogMap": {
+    "key1": {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
+    },
+    "key2": {
+      "language": "__language__",
+      "greeting": "__greeting__",
+      "farewell": {
+        "phrase": "__phrase__"
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  dialog: {
+    language: "__language__",
+    greeting: "__greeting__",
+    farewell: {
+      phrase: "__phrase__"
+    }
+  },
+  dialogList: [
+    {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    },
+    {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    },
+    {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    }
+  ],
+  dialogMap: {
+    key1: {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    },
+    key2: {
+      language: "__language__",
+      greeting: "__greeting__",
+      farewell: {
+        phrase: "__phrase__"
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

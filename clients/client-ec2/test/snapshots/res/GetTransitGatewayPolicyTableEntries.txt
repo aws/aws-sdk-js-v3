@@ -1,0 +1,193 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayPolicyTableEntriesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetTransitGatewayPolicyTableEntriesResult xmlns="https://placeholder.amazonaws.com">
+    <transitGatewayPolicyTableEntries>
+        <item>
+            <policyRuleNumber>
+                __PolicyRuleNumber__
+            </policyRuleNumber>
+            <policyRule>
+                <sourceCidrBlock>
+                    __SourceCidrBlock__
+                </sourceCidrBlock>
+                <sourcePortRange>
+                    __SourcePortRange__
+                </sourcePortRange>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <destinationPortRange>
+                    __DestinationPortRange__
+                </destinationPortRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <metaData>
+                    <metaDataKey>
+                        __MetaDataKey__
+                    </metaDataKey>
+                    <metaDataValue>
+                        __MetaDataValue__
+                    </metaDataValue>
+                </metaData>
+            </policyRule>
+            <targetRouteTableId>
+                __TargetRouteTableId__
+            </targetRouteTableId>
+        </item>
+        <item>
+            <policyRuleNumber>
+                __PolicyRuleNumber__
+            </policyRuleNumber>
+            <policyRule>
+                <sourceCidrBlock>
+                    __SourceCidrBlock__
+                </sourceCidrBlock>
+                <sourcePortRange>
+                    __SourcePortRange__
+                </sourcePortRange>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <destinationPortRange>
+                    __DestinationPortRange__
+                </destinationPortRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <metaData>
+                    <metaDataKey>
+                        __MetaDataKey__
+                    </metaDataKey>
+                    <metaDataValue>
+                        __MetaDataValue__
+                    </metaDataValue>
+                </metaData>
+            </policyRule>
+            <targetRouteTableId>
+                __TargetRouteTableId__
+            </targetRouteTableId>
+        </item>
+        <item>
+            <policyRuleNumber>
+                __PolicyRuleNumber__
+            </policyRuleNumber>
+            <policyRule>
+                <sourceCidrBlock>
+                    __SourceCidrBlock__
+                </sourceCidrBlock>
+                <sourcePortRange>
+                    __SourcePortRange__
+                </sourcePortRange>
+                <destinationCidrBlock>
+                    __DestinationCidrBlock__
+                </destinationCidrBlock>
+                <destinationPortRange>
+                    __DestinationPortRange__
+                </destinationPortRange>
+                <protocol>
+                    __Protocol__
+                </protocol>
+                <metaData>
+                    <metaDataKey>
+                        __MetaDataKey__
+                    </metaDataKey>
+                    <metaDataValue>
+                        __MetaDataValue__
+                    </metaDataValue>
+                </metaData>
+            </policyRule>
+            <targetRouteTableId>
+                __TargetRouteTableId__
+            </targetRouteTableId>
+        </item>
+    </transitGatewayPolicyTableEntries>
+</GetTransitGatewayPolicyTableEntriesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  TransitGatewayPolicyTableEntries: [
+    {
+      PolicyRuleNumber: "__PolicyRuleNumber__",
+      PolicyRule: {
+        SourceCidrBlock: "__SourceCidrBlock__",
+        SourcePortRange: "__SourcePortRange__",
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        DestinationPortRange: "__DestinationPortRange__",
+        Protocol: "__Protocol__",
+        MetaData: {
+          MetaDataKey: "__MetaDataKey__",
+          MetaDataValue: "__MetaDataValue__"
+        }
+      },
+      TargetRouteTableId: "__TargetRouteTableId__"
+    },
+    {
+      PolicyRuleNumber: "__PolicyRuleNumber__",
+      PolicyRule: {
+        SourceCidrBlock: "__SourceCidrBlock__",
+        SourcePortRange: "__SourcePortRange__",
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        DestinationPortRange: "__DestinationPortRange__",
+        Protocol: "__Protocol__",
+        MetaData: {
+          MetaDataKey: "__MetaDataKey__",
+          MetaDataValue: "__MetaDataValue__"
+        }
+      },
+      TargetRouteTableId: "__TargetRouteTableId__"
+    },
+    {
+      PolicyRuleNumber: "__PolicyRuleNumber__",
+      PolicyRule: {
+        SourceCidrBlock: "__SourceCidrBlock__",
+        SourcePortRange: "__SourcePortRange__",
+        DestinationCidrBlock: "__DestinationCidrBlock__",
+        DestinationPortRange: "__DestinationPortRange__",
+        Protocol: "__Protocol__",
+        MetaData: {
+          MetaDataKey: "__MetaDataKey__",
+          MetaDataValue: "__MetaDataValue__"
+        }
+      },
+      TargetRouteTableId: "__TargetRouteTableId__"
+    }
+  ]
+}
+

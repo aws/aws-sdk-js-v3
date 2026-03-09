@@ -1,0 +1,161 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnAuthorizationRulesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeClientVpnAuthorizationRulesResult xmlns="https://placeholder.amazonaws.com">
+    <authorizationRule>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <accessAll>
+                false
+            </accessAll>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <accessAll>
+                false
+            </accessAll>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+        </item>
+        <item>
+            <clientVpnEndpointId>
+                __ClientVpnEndpointId__
+            </clientVpnEndpointId>
+            <description>
+                __Description__
+            </description>
+            <groupId>
+                __GroupId__
+            </groupId>
+            <accessAll>
+                false
+            </accessAll>
+            <destinationCidr>
+                __DestinationCidr__
+            </destinationCidr>
+            <status>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </status>
+        </item>
+    </authorizationRule>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeClientVpnAuthorizationRulesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  AuthorizationRules: [
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      AccessAll: (boolean) false,
+      DestinationCidr: "__DestinationCidr__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      AccessAll: (boolean) false,
+      DestinationCidr: "__DestinationCidr__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      ClientVpnEndpointId: "__ClientVpnEndpointId__",
+      Description: "__Description__",
+      GroupId: "__GroupId__",
+      AccessAll: (boolean) false,
+      DestinationCidr: "__DestinationCidr__",
+      Status: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

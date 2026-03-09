@@ -1,0 +1,158 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<IntelligentTieringConfiguration xmlns="https://placeholder.amazonaws.com">
+    <Id>
+        __Id__
+    </Id>
+    <Status>
+        __Status__
+    </Status>
+    <Tiering>
+        <Days>
+            0
+        </Days>
+        <AccessTier>
+            __AccessTier__
+        </AccessTier>
+    </Tiering>
+    <Tiering>
+        <Days>
+            0
+        </Days>
+        <AccessTier>
+            __AccessTier__
+        </AccessTier>
+    </Tiering>
+    <Tiering>
+        <Days>
+            0
+        </Days>
+        <AccessTier>
+            __AccessTier__
+        </AccessTier>
+    </Tiering>
+    <Filter>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+        <Tag>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </Tag>
+        <And>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+        </And>
+    </Filter>
+</IntelligentTieringConfiguration>
+
+
+--- [output object] ---
+{
+  IntelligentTieringConfiguration: {
+    Id: "__Id__",
+    Status: "__Status__",
+    Tierings: [
+      {
+        Days: (number) 0,
+        AccessTier: "__AccessTier__"
+      },
+      {
+        Days: (number) 0,
+        AccessTier: "__AccessTier__"
+      },
+      {
+        Days: (number) 0,
+        AccessTier: "__AccessTier__"
+      }
+    ],
+    Filter: {
+      Prefix: "__Prefix__",
+      Tag: {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      And: {
+        Prefix: "__Prefix__",
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

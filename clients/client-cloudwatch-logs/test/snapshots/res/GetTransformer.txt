@@ -1,0 +1,1411 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "logGroupIdentifier": "__logGroupIdentifier__",
+  "creationTime": 0,
+  "lastModifiedTime": 0,
+  "transformerConfig": [
+    {
+      "addKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "copyValue": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "csv": {
+        "quoteCharacter": "__quoteCharacter__",
+        "delimiter": "__delimiter__",
+        "columns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "source": "__source__"
+      },
+      "dateTimeConverter": {
+        "source": "__source__",
+        "target": "__target__",
+        "matchPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "targetFormat": "__targetFormat__",
+        "sourceTimezone": "__sourceTimezone__",
+        "targetTimezone": "__targetTimezone__",
+        "locale": "__locale__"
+      },
+      "deleteKeys": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "grok": {
+        "match": "__match__",
+        "source": "__source__"
+      },
+      "listToMap": {
+        "source": "__source__",
+        "key": "__key__",
+        "valueKey": "__valueKey__",
+        "target": "__target__",
+        "flatten": false,
+        "flattenedElement": "__flattenedElement__"
+      },
+      "lowerCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "moveKeys": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "parseCloudfront": {
+        "source": "__source__"
+      },
+      "parseJSON": {
+        "source": "__source__",
+        "destination": "__destination__"
+      },
+      "parseKeyValue": {
+        "source": "__source__",
+        "destination": "__destination__",
+        "fieldDelimiter": "__fieldDelimiter__",
+        "keyValueDelimiter": "__keyValueDelimiter__",
+        "keyPrefix": "__keyPrefix__",
+        "nonMatchValue": "__nonMatchValue__",
+        "overwriteIfExists": false
+      },
+      "parseRoute53": {
+        "source": "__source__"
+      },
+      "parseToOCSF": {
+        "eventSource": "__eventSource__",
+        "ocsfVersion": "__ocsfVersion__",
+        "source": "__source__",
+        "mappingVersion": "__mappingVersion__"
+      },
+      "parsePostgres": {
+        "source": "__source__"
+      },
+      "parseVPC": {
+        "source": "__source__"
+      },
+      "parseWAF": {
+        "source": "__source__"
+      },
+      "renameKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "splitString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          }
+        ]
+      },
+      "substituteString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          }
+        ]
+      },
+      "trimString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "typeConverter": {
+        "entries": [
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          }
+        ]
+      },
+      "upperCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      "addKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "copyValue": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "csv": {
+        "quoteCharacter": "__quoteCharacter__",
+        "delimiter": "__delimiter__",
+        "columns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "source": "__source__"
+      },
+      "dateTimeConverter": {
+        "source": "__source__",
+        "target": "__target__",
+        "matchPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "targetFormat": "__targetFormat__",
+        "sourceTimezone": "__sourceTimezone__",
+        "targetTimezone": "__targetTimezone__",
+        "locale": "__locale__"
+      },
+      "deleteKeys": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "grok": {
+        "match": "__match__",
+        "source": "__source__"
+      },
+      "listToMap": {
+        "source": "__source__",
+        "key": "__key__",
+        "valueKey": "__valueKey__",
+        "target": "__target__",
+        "flatten": false,
+        "flattenedElement": "__flattenedElement__"
+      },
+      "lowerCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "moveKeys": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "parseCloudfront": {
+        "source": "__source__"
+      },
+      "parseJSON": {
+        "source": "__source__",
+        "destination": "__destination__"
+      },
+      "parseKeyValue": {
+        "source": "__source__",
+        "destination": "__destination__",
+        "fieldDelimiter": "__fieldDelimiter__",
+        "keyValueDelimiter": "__keyValueDelimiter__",
+        "keyPrefix": "__keyPrefix__",
+        "nonMatchValue": "__nonMatchValue__",
+        "overwriteIfExists": false
+      },
+      "parseRoute53": {
+        "source": "__source__"
+      },
+      "parseToOCSF": {
+        "eventSource": "__eventSource__",
+        "ocsfVersion": "__ocsfVersion__",
+        "source": "__source__",
+        "mappingVersion": "__mappingVersion__"
+      },
+      "parsePostgres": {
+        "source": "__source__"
+      },
+      "parseVPC": {
+        "source": "__source__"
+      },
+      "parseWAF": {
+        "source": "__source__"
+      },
+      "renameKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "splitString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          }
+        ]
+      },
+      "substituteString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          }
+        ]
+      },
+      "trimString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "typeConverter": {
+        "entries": [
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          }
+        ]
+      },
+      "upperCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      "addKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "value": "__value__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "copyValue": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "csv": {
+        "quoteCharacter": "__quoteCharacter__",
+        "delimiter": "__delimiter__",
+        "columns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "source": "__source__"
+      },
+      "dateTimeConverter": {
+        "source": "__source__",
+        "target": "__target__",
+        "matchPatterns": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "targetFormat": "__targetFormat__",
+        "sourceTimezone": "__sourceTimezone__",
+        "targetTimezone": "__targetTimezone__",
+        "locale": "__locale__"
+      },
+      "deleteKeys": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "grok": {
+        "match": "__match__",
+        "source": "__source__"
+      },
+      "listToMap": {
+        "source": "__source__",
+        "key": "__key__",
+        "valueKey": "__valueKey__",
+        "target": "__target__",
+        "flatten": false,
+        "flattenedElement": "__flattenedElement__"
+      },
+      "lowerCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "moveKeys": {
+        "entries": [
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          },
+          {
+            "source": "__source__",
+            "target": "__target__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "parseCloudfront": {
+        "source": "__source__"
+      },
+      "parseJSON": {
+        "source": "__source__",
+        "destination": "__destination__"
+      },
+      "parseKeyValue": {
+        "source": "__source__",
+        "destination": "__destination__",
+        "fieldDelimiter": "__fieldDelimiter__",
+        "keyValueDelimiter": "__keyValueDelimiter__",
+        "keyPrefix": "__keyPrefix__",
+        "nonMatchValue": "__nonMatchValue__",
+        "overwriteIfExists": false
+      },
+      "parseRoute53": {
+        "source": "__source__"
+      },
+      "parseToOCSF": {
+        "eventSource": "__eventSource__",
+        "ocsfVersion": "__ocsfVersion__",
+        "source": "__source__",
+        "mappingVersion": "__mappingVersion__"
+      },
+      "parsePostgres": {
+        "source": "__source__"
+      },
+      "parseVPC": {
+        "source": "__source__"
+      },
+      "parseWAF": {
+        "source": "__source__"
+      },
+      "renameKeys": {
+        "entries": [
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          },
+          {
+            "key": "__key__",
+            "renameTo": "__renameTo__",
+            "overwriteIfExists": false
+          }
+        ]
+      },
+      "splitString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          },
+          {
+            "source": "__source__",
+            "delimiter": "__delimiter__"
+          }
+        ]
+      },
+      "substituteString": {
+        "entries": [
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          },
+          {
+            "source": "__source__",
+            "from": "__from__",
+            "to": "__to__"
+          }
+        ]
+      },
+      "trimString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "typeConverter": {
+        "entries": [
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          },
+          {
+            "key": "__key__",
+            "type": "__type__"
+          }
+        ]
+      },
+      "upperCaseString": {
+        "withKeys": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  logGroupIdentifier: "__logGroupIdentifier__",
+  creationTime: (number) 0,
+  lastModifiedTime: (number) 0,
+  transformerConfig: [
+    {
+      addKeys: {
+        entries: [
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      copyValue: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      csv: {
+        quoteCharacter: "__quoteCharacter__",
+        delimiter: "__delimiter__",
+        columns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        source: "__source__"
+      },
+      dateTimeConverter: {
+        source: "__source__",
+        target: "__target__",
+        matchPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        targetFormat: "__targetFormat__",
+        sourceTimezone: "__sourceTimezone__",
+        targetTimezone: "__targetTimezone__",
+        locale: "__locale__"
+      },
+      deleteKeys: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      grok: {
+        match: "__match__",
+        source: "__source__"
+      },
+      listToMap: {
+        source: "__source__",
+        key: "__key__",
+        valueKey: "__valueKey__",
+        target: "__target__",
+        flatten: (boolean) false,
+        flattenedElement: "__flattenedElement__"
+      },
+      lowerCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      moveKeys: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      parseCloudfront: {
+        source: "__source__"
+      },
+      parseJSON: {
+        source: "__source__",
+        destination: "__destination__"
+      },
+      parseKeyValue: {
+        source: "__source__",
+        destination: "__destination__",
+        fieldDelimiter: "__fieldDelimiter__",
+        keyValueDelimiter: "__keyValueDelimiter__",
+        keyPrefix: "__keyPrefix__",
+        nonMatchValue: "__nonMatchValue__",
+        overwriteIfExists: (boolean) false
+      },
+      parseRoute53: {
+        source: "__source__"
+      },
+      parseToOCSF: {
+        eventSource: "__eventSource__",
+        ocsfVersion: "__ocsfVersion__",
+        source: "__source__",
+        mappingVersion: "__mappingVersion__"
+      },
+      parsePostgres: {
+        source: "__source__"
+      },
+      parseVPC: {
+        source: "__source__"
+      },
+      parseWAF: {
+        source: "__source__"
+      },
+      renameKeys: {
+        entries: [
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      splitString: {
+        entries: [
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          }
+        ]
+      },
+      substituteString: {
+        entries: [
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          }
+        ]
+      },
+      trimString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      typeConverter: {
+        entries: [
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          }
+        ]
+      },
+      upperCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      addKeys: {
+        entries: [
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      copyValue: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      csv: {
+        quoteCharacter: "__quoteCharacter__",
+        delimiter: "__delimiter__",
+        columns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        source: "__source__"
+      },
+      dateTimeConverter: {
+        source: "__source__",
+        target: "__target__",
+        matchPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        targetFormat: "__targetFormat__",
+        sourceTimezone: "__sourceTimezone__",
+        targetTimezone: "__targetTimezone__",
+        locale: "__locale__"
+      },
+      deleteKeys: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      grok: {
+        match: "__match__",
+        source: "__source__"
+      },
+      listToMap: {
+        source: "__source__",
+        key: "__key__",
+        valueKey: "__valueKey__",
+        target: "__target__",
+        flatten: (boolean) false,
+        flattenedElement: "__flattenedElement__"
+      },
+      lowerCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      moveKeys: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      parseCloudfront: {
+        source: "__source__"
+      },
+      parseJSON: {
+        source: "__source__",
+        destination: "__destination__"
+      },
+      parseKeyValue: {
+        source: "__source__",
+        destination: "__destination__",
+        fieldDelimiter: "__fieldDelimiter__",
+        keyValueDelimiter: "__keyValueDelimiter__",
+        keyPrefix: "__keyPrefix__",
+        nonMatchValue: "__nonMatchValue__",
+        overwriteIfExists: (boolean) false
+      },
+      parseRoute53: {
+        source: "__source__"
+      },
+      parseToOCSF: {
+        eventSource: "__eventSource__",
+        ocsfVersion: "__ocsfVersion__",
+        source: "__source__",
+        mappingVersion: "__mappingVersion__"
+      },
+      parsePostgres: {
+        source: "__source__"
+      },
+      parseVPC: {
+        source: "__source__"
+      },
+      parseWAF: {
+        source: "__source__"
+      },
+      renameKeys: {
+        entries: [
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      splitString: {
+        entries: [
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          }
+        ]
+      },
+      substituteString: {
+        entries: [
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          }
+        ]
+      },
+      trimString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      typeConverter: {
+        entries: [
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          }
+        ]
+      },
+      upperCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    },
+    {
+      addKeys: {
+        entries: [
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            value: "__value__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      copyValue: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      csv: {
+        quoteCharacter: "__quoteCharacter__",
+        delimiter: "__delimiter__",
+        columns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        source: "__source__"
+      },
+      dateTimeConverter: {
+        source: "__source__",
+        target: "__target__",
+        matchPatterns: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        targetFormat: "__targetFormat__",
+        sourceTimezone: "__sourceTimezone__",
+        targetTimezone: "__targetTimezone__",
+        locale: "__locale__"
+      },
+      deleteKeys: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      grok: {
+        match: "__match__",
+        source: "__source__"
+      },
+      listToMap: {
+        source: "__source__",
+        key: "__key__",
+        valueKey: "__valueKey__",
+        target: "__target__",
+        flatten: (boolean) false,
+        flattenedElement: "__flattenedElement__"
+      },
+      lowerCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      moveKeys: {
+        entries: [
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            source: "__source__",
+            target: "__target__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      parseCloudfront: {
+        source: "__source__"
+      },
+      parseJSON: {
+        source: "__source__",
+        destination: "__destination__"
+      },
+      parseKeyValue: {
+        source: "__source__",
+        destination: "__destination__",
+        fieldDelimiter: "__fieldDelimiter__",
+        keyValueDelimiter: "__keyValueDelimiter__",
+        keyPrefix: "__keyPrefix__",
+        nonMatchValue: "__nonMatchValue__",
+        overwriteIfExists: (boolean) false
+      },
+      parseRoute53: {
+        source: "__source__"
+      },
+      parseToOCSF: {
+        eventSource: "__eventSource__",
+        ocsfVersion: "__ocsfVersion__",
+        source: "__source__",
+        mappingVersion: "__mappingVersion__"
+      },
+      parsePostgres: {
+        source: "__source__"
+      },
+      parseVPC: {
+        source: "__source__"
+      },
+      parseWAF: {
+        source: "__source__"
+      },
+      renameKeys: {
+        entries: [
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          },
+          {
+            key: "__key__",
+            renameTo: "__renameTo__",
+            overwriteIfExists: (boolean) false
+          }
+        ]
+      },
+      splitString: {
+        entries: [
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          },
+          {
+            source: "__source__",
+            delimiter: "__delimiter__"
+          }
+        ]
+      },
+      substituteString: {
+        entries: [
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          },
+          {
+            source: "__source__",
+            from: "__from__",
+            to: "__to__"
+          }
+        ]
+      },
+      trimString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      typeConverter: {
+        entries: [
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          },
+          {
+            key: "__key__",
+            type: "__type__"
+          }
+        ]
+      },
+      upperCaseString: {
+        withKeys: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      }
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

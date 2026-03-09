@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImageUsageReportEntriesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeImageUsageReportEntriesResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <imageUsageReportEntrySet>
+        <item>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <usageCount>
+                0
+            </usageCount>
+            <accountId>
+                123456789012
+            </accountId>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <reportCreationTime>
+                2000-01-01T04:59:59.999Z
+            </reportCreationTime>
+        </item>
+        <item>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <usageCount>
+                0
+            </usageCount>
+            <accountId>
+                123456789012
+            </accountId>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <reportCreationTime>
+                2000-01-01T04:59:59.999Z
+            </reportCreationTime>
+        </item>
+        <item>
+            <resourceType>
+                __ResourceType__
+            </resourceType>
+            <reportId>
+                __ReportId__
+            </reportId>
+            <usageCount>
+                0
+            </usageCount>
+            <accountId>
+                123456789012
+            </accountId>
+            <imageId>
+                __ImageId__
+            </imageId>
+            <reportCreationTime>
+                2000-01-01T04:59:59.999Z
+            </reportCreationTime>
+        </item>
+    </imageUsageReportEntrySet>
+</DescribeImageUsageReportEntriesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  ImageUsageReportEntries: [
+    {
+      ResourceType: "__ResourceType__",
+      ReportId: "__ReportId__",
+      UsageCount: (number) 0,
+      AccountId: "123456789012",
+      ImageId: "__ImageId__",
+      ReportCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceType: "__ResourceType__",
+      ReportId: "__ReportId__",
+      UsageCount: (number) 0,
+      AccountId: "123456789012",
+      ImageId: "__ImageId__",
+      ReportCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceType: "__ResourceType__",
+      ReportId: "__ReportId__",
+      UsageCount: (number) 0,
+      AccountId: "123456789012",
+      ImageId: "__ImageId__",
+      ReportCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ]
+}
+

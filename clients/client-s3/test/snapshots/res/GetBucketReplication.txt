@@ -1,0 +1,610 @@
+======================== minimal response ========================
+[status] 200
+  
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (empty)]
+
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ReplicationConfiguration xmlns="https://placeholder.amazonaws.com">
+    <Role>
+        __Role__
+    </Role>
+    <Rule>
+        <Status>
+            __Status__
+        </Status>
+        <Destination>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Account>
+                __Account__
+            </Account>
+            <StorageClass>
+                __StorageClass__
+            </StorageClass>
+            <AccessControlTranslation>
+                <Owner>
+                    __Owner__
+                </Owner>
+            </AccessControlTranslation>
+            <EncryptionConfiguration>
+                <ReplicaKmsKeyID>
+                    __ReplicaKmsKeyID__
+                </ReplicaKmsKeyID>
+            </EncryptionConfiguration>
+            <ReplicationTime>
+                <Status>
+                    __Status__
+                </Status>
+                <Time>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </Time>
+            </ReplicationTime>
+            <Metrics>
+                <Status>
+                    __Status__
+                </Status>
+                <EventThreshold>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </EventThreshold>
+            </Metrics>
+        </Destination>
+        <ID>
+            __ID__
+        </ID>
+        <Priority>
+            0
+        </Priority>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <And>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </And>
+        </Filter>
+        <SourceSelectionCriteria>
+            <SseKmsEncryptedObjects>
+                <Status>
+                    __Status__
+                </Status>
+            </SseKmsEncryptedObjects>
+            <ReplicaModifications>
+                <Status>
+                    __Status__
+                </Status>
+            </ReplicaModifications>
+        </SourceSelectionCriteria>
+        <ExistingObjectReplication>
+            <Status>
+                __Status__
+            </Status>
+        </ExistingObjectReplication>
+        <DeleteMarkerReplication>
+            <Status>
+                __Status__
+            </Status>
+        </DeleteMarkerReplication>
+    </Rule>
+    <Rule>
+        <Status>
+            __Status__
+        </Status>
+        <Destination>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Account>
+                __Account__
+            </Account>
+            <StorageClass>
+                __StorageClass__
+            </StorageClass>
+            <AccessControlTranslation>
+                <Owner>
+                    __Owner__
+                </Owner>
+            </AccessControlTranslation>
+            <EncryptionConfiguration>
+                <ReplicaKmsKeyID>
+                    __ReplicaKmsKeyID__
+                </ReplicaKmsKeyID>
+            </EncryptionConfiguration>
+            <ReplicationTime>
+                <Status>
+                    __Status__
+                </Status>
+                <Time>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </Time>
+            </ReplicationTime>
+            <Metrics>
+                <Status>
+                    __Status__
+                </Status>
+                <EventThreshold>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </EventThreshold>
+            </Metrics>
+        </Destination>
+        <ID>
+            __ID__
+        </ID>
+        <Priority>
+            0
+        </Priority>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <And>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </And>
+        </Filter>
+        <SourceSelectionCriteria>
+            <SseKmsEncryptedObjects>
+                <Status>
+                    __Status__
+                </Status>
+            </SseKmsEncryptedObjects>
+            <ReplicaModifications>
+                <Status>
+                    __Status__
+                </Status>
+            </ReplicaModifications>
+        </SourceSelectionCriteria>
+        <ExistingObjectReplication>
+            <Status>
+                __Status__
+            </Status>
+        </ExistingObjectReplication>
+        <DeleteMarkerReplication>
+            <Status>
+                __Status__
+            </Status>
+        </DeleteMarkerReplication>
+    </Rule>
+    <Rule>
+        <Status>
+            __Status__
+        </Status>
+        <Destination>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Account>
+                __Account__
+            </Account>
+            <StorageClass>
+                __StorageClass__
+            </StorageClass>
+            <AccessControlTranslation>
+                <Owner>
+                    __Owner__
+                </Owner>
+            </AccessControlTranslation>
+            <EncryptionConfiguration>
+                <ReplicaKmsKeyID>
+                    __ReplicaKmsKeyID__
+                </ReplicaKmsKeyID>
+            </EncryptionConfiguration>
+            <ReplicationTime>
+                <Status>
+                    __Status__
+                </Status>
+                <Time>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </Time>
+            </ReplicationTime>
+            <Metrics>
+                <Status>
+                    __Status__
+                </Status>
+                <EventThreshold>
+                    <Minutes>
+                        0
+                    </Minutes>
+                </EventThreshold>
+            </Metrics>
+        </Destination>
+        <ID>
+            __ID__
+        </ID>
+        <Priority>
+            0
+        </Priority>
+        <Prefix>
+            __Prefix__
+        </Prefix>
+        <Filter>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <Tag>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </Tag>
+            <And>
+                <Prefix>
+                    __Prefix__
+                </Prefix>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+                <Tag>
+                    <Key>
+                        __Key__
+                    </Key>
+                    <Value>
+                        __Value__
+                    </Value>
+                </Tag>
+            </And>
+        </Filter>
+        <SourceSelectionCriteria>
+            <SseKmsEncryptedObjects>
+                <Status>
+                    __Status__
+                </Status>
+            </SseKmsEncryptedObjects>
+            <ReplicaModifications>
+                <Status>
+                    __Status__
+                </Status>
+            </ReplicaModifications>
+        </SourceSelectionCriteria>
+        <ExistingObjectReplication>
+            <Status>
+                __Status__
+            </Status>
+        </ExistingObjectReplication>
+        <DeleteMarkerReplication>
+            <Status>
+                __Status__
+            </Status>
+        </DeleteMarkerReplication>
+    </Rule>
+</ReplicationConfiguration>
+
+
+--- [output object] ---
+{
+  ReplicationConfiguration: {
+    Role: "__Role__",
+    Rules: [
+      {
+        Status: "__Status__",
+        Destination: {
+          Bucket: "__Bucket__",
+          Account: "__Account__",
+          StorageClass: "__StorageClass__",
+          AccessControlTranslation: {
+            Owner: "__Owner__"
+          },
+          EncryptionConfiguration: {
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+          },
+          ReplicationTime: {
+            Status: "__Status__",
+            Time: {
+              Minutes: (number) 0
+            }
+          },
+          Metrics: {
+            Status: "__Status__",
+            EventThreshold: {
+              Minutes: (number) 0
+            }
+          }
+        },
+        ID: "__ID__",
+        Priority: (number) 0,
+        Prefix: "__Prefix__",
+        Filter: {
+          Prefix: "__Prefix__",
+          Tag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          And: {
+            Prefix: "__Prefix__",
+            Tags: [
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              }
+            ]
+          }
+        },
+        SourceSelectionCriteria: {
+          SseKmsEncryptedObjects: {
+            Status: "__Status__"
+          },
+          ReplicaModifications: {
+            Status: "__Status__"
+          }
+        },
+        ExistingObjectReplication: {
+          Status: "__Status__"
+        },
+        DeleteMarkerReplication: {
+          Status: "__Status__"
+        }
+      },
+      {
+        Status: "__Status__",
+        Destination: {
+          Bucket: "__Bucket__",
+          Account: "__Account__",
+          StorageClass: "__StorageClass__",
+          AccessControlTranslation: {
+            Owner: "__Owner__"
+          },
+          EncryptionConfiguration: {
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+          },
+          ReplicationTime: {
+            Status: "__Status__",
+            Time: {
+              Minutes: (number) 0
+            }
+          },
+          Metrics: {
+            Status: "__Status__",
+            EventThreshold: {
+              Minutes: (number) 0
+            }
+          }
+        },
+        ID: "__ID__",
+        Priority: (number) 0,
+        Prefix: "__Prefix__",
+        Filter: {
+          Prefix: "__Prefix__",
+          Tag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          And: {
+            Prefix: "__Prefix__",
+            Tags: [
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              }
+            ]
+          }
+        },
+        SourceSelectionCriteria: {
+          SseKmsEncryptedObjects: {
+            Status: "__Status__"
+          },
+          ReplicaModifications: {
+            Status: "__Status__"
+          }
+        },
+        ExistingObjectReplication: {
+          Status: "__Status__"
+        },
+        DeleteMarkerReplication: {
+          Status: "__Status__"
+        }
+      },
+      {
+        Status: "__Status__",
+        Destination: {
+          Bucket: "__Bucket__",
+          Account: "__Account__",
+          StorageClass: "__StorageClass__",
+          AccessControlTranslation: {
+            Owner: "__Owner__"
+          },
+          EncryptionConfiguration: {
+            ReplicaKmsKeyID: "__ReplicaKmsKeyID__"
+          },
+          ReplicationTime: {
+            Status: "__Status__",
+            Time: {
+              Minutes: (number) 0
+            }
+          },
+          Metrics: {
+            Status: "__Status__",
+            EventThreshold: {
+              Minutes: (number) 0
+            }
+          }
+        },
+        ID: "__ID__",
+        Priority: (number) 0,
+        Prefix: "__Prefix__",
+        Filter: {
+          Prefix: "__Prefix__",
+          Tag: {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          And: {
+            Prefix: "__Prefix__",
+            Tags: [
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              },
+              {
+                Key: "__Key__",
+                Value: "__Value__"
+              }
+            ]
+          }
+        },
+        SourceSelectionCriteria: {
+          SseKmsEncryptedObjects: {
+            Status: "__Status__"
+          },
+          ReplicaModifications: {
+            Status: "__Status__"
+          }
+        },
+        ExistingObjectReplication: {
+          Status: "__Status__"
+        },
+        DeleteMarkerReplication: {
+          Status: "__Status__"
+        }
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

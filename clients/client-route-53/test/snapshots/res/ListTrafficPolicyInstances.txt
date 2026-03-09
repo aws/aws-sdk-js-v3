@@ -1,0 +1,334 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListTrafficPolicyInstancesResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicyInstances>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+    </TrafficPolicyInstances>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <HostedZoneIdMarker>
+        __HostedZoneIdMarker__
+    </HostedZoneIdMarker>
+    <TrafficPolicyInstanceNameMarker>
+        __TrafficPolicyInstanceNameMarker__
+    </TrafficPolicyInstanceNameMarker>
+    <TrafficPolicyInstanceTypeMarker>
+        __TrafficPolicyInstanceTypeMarker__
+    </TrafficPolicyInstanceTypeMarker>
+</ListTrafficPolicyInstancesResponse>
+
+
+--- [output object] ---
+{
+  TrafficPolicyInstances: [
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    },
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    },
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    }
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  HostedZoneIdMarker: "__HostedZoneIdMarker__",
+  TrafficPolicyInstanceNameMarker: "__TrafficPolicyInstanceNameMarker__",
+  TrafficPolicyInstanceTypeMarker: "__TrafficPolicyInstanceTypeMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListTrafficPolicyInstancesResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicyInstances>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+        <TrafficPolicyInstance>
+            <Id>
+                __Id__
+            </Id>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <TTL>
+                0
+            </TTL>
+            <State>
+                __State__
+            </State>
+            <Message>
+                __Message__
+            </Message>
+            <TrafficPolicyId>
+                __TrafficPolicyId__
+            </TrafficPolicyId>
+            <TrafficPolicyVersion>
+                0
+            </TrafficPolicyVersion>
+            <TrafficPolicyType>
+                __TrafficPolicyType__
+            </TrafficPolicyType>
+        </TrafficPolicyInstance>
+    </TrafficPolicyInstances>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <MaxItems>
+        0
+    </MaxItems>
+    <HostedZoneIdMarker>
+        __HostedZoneIdMarker__
+    </HostedZoneIdMarker>
+    <TrafficPolicyInstanceNameMarker>
+        __TrafficPolicyInstanceNameMarker__
+    </TrafficPolicyInstanceNameMarker>
+    <TrafficPolicyInstanceTypeMarker>
+        __TrafficPolicyInstanceTypeMarker__
+    </TrafficPolicyInstanceTypeMarker>
+</ListTrafficPolicyInstancesResponse>
+
+
+--- [output object] ---
+{
+  TrafficPolicyInstances: [
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    },
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    },
+    {
+      Id: "__Id__",
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      TTL: (number) 0,
+      State: "__State__",
+      Message: "__Message__",
+      TrafficPolicyId: "__TrafficPolicyId__",
+      TrafficPolicyVersion: (number) 0,
+      TrafficPolicyType: "__TrafficPolicyType__"
+    }
+  ],
+  IsTruncated: (boolean) false,
+  MaxItems: (number) 0,
+  HostedZoneIdMarker: "__HostedZoneIdMarker__",
+  TrafficPolicyInstanceNameMarker: "__TrafficPolicyInstanceNameMarker__",
+  TrafficPolicyInstanceTypeMarker: "__TrafficPolicyInstanceTypeMarker__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

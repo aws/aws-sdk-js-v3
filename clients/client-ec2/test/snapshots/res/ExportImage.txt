@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportImageResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ExportImageResult xmlns="https://placeholder.amazonaws.com">
+    <description>
+        __Description__
+    </description>
+    <diskImageFormat>
+        __DiskImageFormat__
+    </diskImageFormat>
+    <exportImageTaskId>
+        __ExportImageTaskId__
+    </exportImageTaskId>
+    <imageId>
+        __ImageId__
+    </imageId>
+    <roleName>
+        __RoleName__
+    </roleName>
+    <progress>
+        __Progress__
+    </progress>
+    <s3ExportLocation>
+        <s3Bucket>
+            __S3Bucket__
+        </s3Bucket>
+        <s3Prefix>
+            __S3Prefix__
+        </s3Prefix>
+    </s3ExportLocation>
+    <status>
+        __Status__
+    </status>
+    <statusMessage>
+        __StatusMessage__
+    </statusMessage>
+    <tagSet>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+        <item>
+            <key>
+                __Key__
+            </key>
+            <value>
+                __Value__
+            </value>
+        </item>
+    </tagSet>
+</ExportImageResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Description: "__Description__",
+  DiskImageFormat: "__DiskImageFormat__",
+  ExportImageTaskId: "__ExportImageTaskId__",
+  ImageId: "__ImageId__",
+  RoleName: "__RoleName__",
+  Progress: "__Progress__",
+  S3ExportLocation: {
+    S3Bucket: "__S3Bucket__",
+    S3Prefix: "__S3Prefix__"
+  },
+  Status: "__Status__",
+  StatusMessage: "__StatusMessage__",
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ]
+}
+

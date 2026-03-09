@@ -1,0 +1,113 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListCidrCollectionsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListCidrCollectionsResponse xmlns="https://placeholder.amazonaws.com">
+    <NextToken>
+        __NextToken__
+    </NextToken>
+    <CidrCollections>
+        <member>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Version>
+                0
+            </Version>
+        </member>
+        <member>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Version>
+                0
+            </Version>
+        </member>
+        <member>
+            <Arn>
+                __Arn__
+            </Arn>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Version>
+                0
+            </Version>
+        </member>
+    </CidrCollections>
+</ListCidrCollectionsResponse>
+
+
+--- [output object] ---
+{
+  NextToken: "__NextToken__",
+  CidrCollections: [
+    {
+      Arn: "__Arn__",
+      Id: "__Id__",
+      Name: "__Name__",
+      Version: (number) 0
+    },
+    {
+      Arn: "__Arn__",
+      Id: "__Id__",
+      Name: "__Name__",
+      Version: (number) 0
+    },
+    {
+      Arn: "__Arn__",
+      Id: "__Id__",
+      Name: "__Name__",
+      Version: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

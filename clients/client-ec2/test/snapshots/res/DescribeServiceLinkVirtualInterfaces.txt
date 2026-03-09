@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeServiceLinkVirtualInterfacesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeServiceLinkVirtualInterfacesResult xmlns="https://placeholder.amazonaws.com">
+    <serviceLinkVirtualInterfaceSet>
+        <item>
+            <serviceLinkVirtualInterfaceId>
+                __ServiceLinkVirtualInterfaceId__
+            </serviceLinkVirtualInterfaceId>
+            <serviceLinkVirtualInterfaceArn>
+                __ServiceLinkVirtualInterfaceArn__
+            </serviceLinkVirtualInterfaceArn>
+            <outpostId>
+                OutpostId
+            </outpostId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <vlan>
+                0
+            </vlan>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+        <item>
+            <serviceLinkVirtualInterfaceId>
+                __ServiceLinkVirtualInterfaceId__
+            </serviceLinkVirtualInterfaceId>
+            <serviceLinkVirtualInterfaceArn>
+                __ServiceLinkVirtualInterfaceArn__
+            </serviceLinkVirtualInterfaceArn>
+            <outpostId>
+                OutpostId
+            </outpostId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <vlan>
+                0
+            </vlan>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+        <item>
+            <serviceLinkVirtualInterfaceId>
+                __ServiceLinkVirtualInterfaceId__
+            </serviceLinkVirtualInterfaceId>
+            <serviceLinkVirtualInterfaceArn>
+                __ServiceLinkVirtualInterfaceArn__
+            </serviceLinkVirtualInterfaceArn>
+            <outpostId>
+                OutpostId
+            </outpostId>
+            <outpostArn>
+                __OutpostArn__
+            </outpostArn>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <localAddress>
+                __LocalAddress__
+            </localAddress>
+            <peerAddress>
+                __PeerAddress__
+            </peerAddress>
+            <peerBgpAsn>
+                0
+            </peerBgpAsn>
+            <vlan>
+                0
+            </vlan>
+            <outpostLagId>
+                __OutpostLagId__
+            </outpostLagId>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <configurationState>
+                __ConfigurationState__
+            </configurationState>
+        </item>
+    </serviceLinkVirtualInterfaceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeServiceLinkVirtualInterfacesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ServiceLinkVirtualInterfaces: [
+    {
+      ServiceLinkVirtualInterfaceId: "__ServiceLinkVirtualInterfaceId__",
+      ServiceLinkVirtualInterfaceArn: "__ServiceLinkVirtualInterfaceArn__",
+      OutpostId: "OutpostId",
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      PeerBgpAsn: (number) 0,
+      Vlan: (number) 0,
+      OutpostLagId: "__OutpostLagId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    },
+    {
+      ServiceLinkVirtualInterfaceId: "__ServiceLinkVirtualInterfaceId__",
+      ServiceLinkVirtualInterfaceArn: "__ServiceLinkVirtualInterfaceArn__",
+      OutpostId: "OutpostId",
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      PeerBgpAsn: (number) 0,
+      Vlan: (number) 0,
+      OutpostLagId: "__OutpostLagId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    },
+    {
+      ServiceLinkVirtualInterfaceId: "__ServiceLinkVirtualInterfaceId__",
+      ServiceLinkVirtualInterfaceArn: "__ServiceLinkVirtualInterfaceArn__",
+      OutpostId: "OutpostId",
+      OutpostArn: "__OutpostArn__",
+      OwnerId: "__OwnerId__",
+      LocalAddress: "__LocalAddress__",
+      PeerAddress: "__PeerAddress__",
+      PeerBgpAsn: (number) 0,
+      Vlan: (number) 0,
+      OutpostLagId: "__OutpostLagId__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      ConfigurationState: "__ConfigurationState__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

@@ -1,0 +1,157 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "IdentityPoolId": "__IdentityPoolId__",
+  "Roles": {},
+  "RoleMappings": {
+    "key1": {
+      "Type": "__Type__",
+      "AmbiguousRoleResolution": "__AmbiguousRoleResolution__",
+      "RulesConfiguration": {
+        "Rules": [
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          }
+        ]
+      }
+    },
+    "key2": {
+      "Type": "__Type__",
+      "AmbiguousRoleResolution": "__AmbiguousRoleResolution__",
+      "RulesConfiguration": {
+        "Rules": [
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          },
+          {
+            "Claim": "__Claim__",
+            "MatchType": "__MatchType__",
+            "Value": "__Value__",
+            "RoleARN": "__RoleARN__"
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  IdentityPoolId: "__IdentityPoolId__",
+  Roles: {},
+  RoleMappings: {
+    key1: {
+      Type: "__Type__",
+      AmbiguousRoleResolution: "__AmbiguousRoleResolution__",
+      RulesConfiguration: {
+        Rules: [
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          }
+        ]
+      }
+    },
+    key2: {
+      Type: "__Type__",
+      AmbiguousRoleResolution: "__AmbiguousRoleResolution__",
+      RulesConfiguration: {
+        Rules: [
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          },
+          {
+            Claim: "__Claim__",
+            MatchType: "__MatchType__",
+            Value: "__Value__",
+            RoleARN: "__RoleARN__"
+          }
+        ]
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

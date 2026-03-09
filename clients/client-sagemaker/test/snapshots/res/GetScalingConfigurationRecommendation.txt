@@ -1,0 +1,149 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "InferenceRecommendationsJobName": "__InferenceRecommendationsJobName__",
+  "RecommendationId": "__RecommendationId__",
+  "EndpointName": "__EndpointName__",
+  "TargetCpuUtilizationPerCore": 0,
+  "ScalingPolicyObjective": {
+    "MinInvocationsPerMinute": 0,
+    "MaxInvocationsPerMinute": 0
+  },
+  "Metric": {
+    "InvocationsPerInstance": 0,
+    "ModelLatency": 0
+  },
+  "DynamicScalingConfiguration": {
+    "MinCapacity": 0,
+    "MaxCapacity": 0,
+    "ScaleInCooldown": 0,
+    "ScaleOutCooldown": 0,
+    "ScalingPolicies": [
+      {
+        "TargetTracking": {
+          "MetricSpecification": {
+            "Predefined": {
+              "PredefinedMetricType": "__PredefinedMetricType__"
+            }
+          },
+          "TargetValue": 0
+        }
+      },
+      {
+        "TargetTracking": {
+          "MetricSpecification": {
+            "Customized": {
+              "MetricName": "__MetricName__",
+              "Namespace": "__Namespace__",
+              "Statistic": "__Statistic__"
+            }
+          },
+          "TargetValue": 0
+        }
+      },
+      {
+        "TargetTracking": {
+          "MetricSpecification": {
+            "Predefined": {
+              "PredefinedMetricType": "__PredefinedMetricType__"
+            }
+          },
+          "TargetValue": 0
+        }
+      }
+    ]
+  }
+}
+
+
+--- [output object] ---
+{
+  InferenceRecommendationsJobName: "__InferenceRecommendationsJobName__",
+  RecommendationId: "__RecommendationId__",
+  EndpointName: "__EndpointName__",
+  TargetCpuUtilizationPerCore: (number) 0,
+  ScalingPolicyObjective: {
+    MinInvocationsPerMinute: (number) 0,
+    MaxInvocationsPerMinute: (number) 0
+  },
+  Metric: {
+    InvocationsPerInstance: (number) 0,
+    ModelLatency: (number) 0
+  },
+  DynamicScalingConfiguration: {
+    MinCapacity: (number) 0,
+    MaxCapacity: (number) 0,
+    ScaleInCooldown: (number) 0,
+    ScaleOutCooldown: (number) 0,
+    ScalingPolicies: [
+      {
+        TargetTracking: {
+          MetricSpecification: {
+            Predefined: {
+              PredefinedMetricType: "__PredefinedMetricType__"
+            }
+          },
+          TargetValue: (number) 0
+        }
+      },
+      {
+        TargetTracking: {
+          MetricSpecification: {
+            Customized: {
+              MetricName: "__MetricName__",
+              Namespace: "__Namespace__",
+              Statistic: "__Statistic__"
+            }
+          },
+          TargetValue: (number) 0
+        }
+      },
+      {
+        TargetTracking: {
+          MetricSpecification: {
+            Predefined: {
+              PredefinedMetricType: "__PredefinedMetricType__"
+            }
+          },
+          TargetValue: (number) 0
+        }
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

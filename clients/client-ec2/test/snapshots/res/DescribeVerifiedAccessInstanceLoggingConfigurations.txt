@@ -1,0 +1,353 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVerifiedAccessInstanceLoggingConfigurationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVerifiedAccessInstanceLoggingConfigurationsResult xmlns="https://placeholder.amazonaws.com">
+    <loggingConfigurationSet>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <accessLogs>
+                <s3>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <bucketName>
+                        __BucketName__
+                    </bucketName>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <bucketOwner>
+                        __BucketOwner__
+                    </bucketOwner>
+                </s3>
+                <cloudWatchLogs>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <logGroup>
+                        __LogGroup__
+                    </logGroup>
+                </cloudWatchLogs>
+                <kinesisDataFirehose>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <deliveryStream>
+                        __DeliveryStream__
+                    </deliveryStream>
+                </kinesisDataFirehose>
+                <logVersion>
+                    __LogVersion__
+                </logVersion>
+                <includeTrustContext>
+                    false
+                </includeTrustContext>
+            </accessLogs>
+        </item>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <accessLogs>
+                <s3>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <bucketName>
+                        __BucketName__
+                    </bucketName>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <bucketOwner>
+                        __BucketOwner__
+                    </bucketOwner>
+                </s3>
+                <cloudWatchLogs>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <logGroup>
+                        __LogGroup__
+                    </logGroup>
+                </cloudWatchLogs>
+                <kinesisDataFirehose>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <deliveryStream>
+                        __DeliveryStream__
+                    </deliveryStream>
+                </kinesisDataFirehose>
+                <logVersion>
+                    __LogVersion__
+                </logVersion>
+                <includeTrustContext>
+                    false
+                </includeTrustContext>
+            </accessLogs>
+        </item>
+        <item>
+            <verifiedAccessInstanceId>
+                __VerifiedAccessInstanceId__
+            </verifiedAccessInstanceId>
+            <accessLogs>
+                <s3>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <bucketName>
+                        __BucketName__
+                    </bucketName>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <bucketOwner>
+                        __BucketOwner__
+                    </bucketOwner>
+                </s3>
+                <cloudWatchLogs>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <logGroup>
+                        __LogGroup__
+                    </logGroup>
+                </cloudWatchLogs>
+                <kinesisDataFirehose>
+                    <enabled>
+                        false
+                    </enabled>
+                    <deliveryStatus>
+                        <code>
+                            __Code__
+                        </code>
+                        <message>
+                            __Message__
+                        </message>
+                    </deliveryStatus>
+                    <deliveryStream>
+                        __DeliveryStream__
+                    </deliveryStream>
+                </kinesisDataFirehose>
+                <logVersion>
+                    __LogVersion__
+                </logVersion>
+                <includeTrustContext>
+                    false
+                </includeTrustContext>
+            </accessLogs>
+        </item>
+    </loggingConfigurationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeVerifiedAccessInstanceLoggingConfigurationsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  LoggingConfigurations: [
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      AccessLogs: {
+        S3: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          BucketName: "__BucketName__",
+          Prefix: "__Prefix__",
+          BucketOwner: "__BucketOwner__"
+        },
+        CloudWatchLogs: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          LogGroup: "__LogGroup__"
+        },
+        KinesisDataFirehose: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          DeliveryStream: "__DeliveryStream__"
+        },
+        LogVersion: "__LogVersion__",
+        IncludeTrustContext: (boolean) false
+      }
+    },
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      AccessLogs: {
+        S3: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          BucketName: "__BucketName__",
+          Prefix: "__Prefix__",
+          BucketOwner: "__BucketOwner__"
+        },
+        CloudWatchLogs: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          LogGroup: "__LogGroup__"
+        },
+        KinesisDataFirehose: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          DeliveryStream: "__DeliveryStream__"
+        },
+        LogVersion: "__LogVersion__",
+        IncludeTrustContext: (boolean) false
+      }
+    },
+    {
+      VerifiedAccessInstanceId: "__VerifiedAccessInstanceId__",
+      AccessLogs: {
+        S3: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          BucketName: "__BucketName__",
+          Prefix: "__Prefix__",
+          BucketOwner: "__BucketOwner__"
+        },
+        CloudWatchLogs: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          LogGroup: "__LogGroup__"
+        },
+        KinesisDataFirehose: {
+          Enabled: (boolean) false,
+          DeliveryStatus: {
+            Code: "__Code__",
+            Message: "__Message__"
+          },
+          DeliveryStream: "__DeliveryStream__"
+        },
+        LogVersion: "__LogVersion__",
+        IncludeTrustContext: (boolean) false
+      }
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

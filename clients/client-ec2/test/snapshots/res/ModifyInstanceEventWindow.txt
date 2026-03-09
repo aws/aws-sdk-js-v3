@@ -1,0 +1,245 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyInstanceEventWindowResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyInstanceEventWindowResult xmlns="https://placeholder.amazonaws.com">
+    <instanceEventWindow>
+        <instanceEventWindowId>
+            __InstanceEventWindowId__
+        </instanceEventWindowId>
+        <timeRangeSet>
+            <item>
+                <startWeekDay>
+                    __StartWeekDay__
+                </startWeekDay>
+                <startHour>
+                    0
+                </startHour>
+                <endWeekDay>
+                    __EndWeekDay__
+                </endWeekDay>
+                <endHour>
+                    0
+                </endHour>
+            </item>
+            <item>
+                <startWeekDay>
+                    __StartWeekDay__
+                </startWeekDay>
+                <startHour>
+                    0
+                </startHour>
+                <endWeekDay>
+                    __EndWeekDay__
+                </endWeekDay>
+                <endHour>
+                    0
+                </endHour>
+            </item>
+            <item>
+                <startWeekDay>
+                    __StartWeekDay__
+                </startWeekDay>
+                <startHour>
+                    0
+                </startHour>
+                <endWeekDay>
+                    __EndWeekDay__
+                </endWeekDay>
+                <endHour>
+                    0
+                </endHour>
+            </item>
+        </timeRangeSet>
+        <name>
+            __Name__
+        </name>
+        <cronExpression>
+            __CronExpression__
+        </cronExpression>
+        <associationTarget>
+            <instanceIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </instanceIdSet>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <dedicatedHostIdSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </dedicatedHostIdSet>
+        </associationTarget>
+        <state>
+            __State__
+        </state>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </instanceEventWindow>
+</ModifyInstanceEventWindowResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceEventWindow: {
+    InstanceEventWindowId: "__InstanceEventWindowId__",
+    TimeRanges: [
+      {
+        StartWeekDay: "__StartWeekDay__",
+        StartHour: (number) 0,
+        EndWeekDay: "__EndWeekDay__",
+        EndHour: (number) 0
+      },
+      {
+        StartWeekDay: "__StartWeekDay__",
+        StartHour: (number) 0,
+        EndWeekDay: "__EndWeekDay__",
+        EndHour: (number) 0
+      },
+      {
+        StartWeekDay: "__StartWeekDay__",
+        StartHour: (number) 0,
+        EndWeekDay: "__EndWeekDay__",
+        EndHour: (number) 0
+      }
+    ],
+    Name: "__Name__",
+    CronExpression: "__CronExpression__",
+    AssociationTarget: {
+      InstanceIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      DedicatedHostIds: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    State: "__State__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

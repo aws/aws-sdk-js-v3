@@ -1,0 +1,261 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "KeyLabels": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "AggregationStatistic": "__AggregationStatistic__",
+  "AggregateValue": 0,
+  "ApproximateUniqueCount": 0,
+  "Contributors": [
+    {
+      "Keys": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ApproximateAggregateValue": 0,
+      "Datapoints": [
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        }
+      ]
+    },
+    {
+      "Keys": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ApproximateAggregateValue": 0,
+      "Datapoints": [
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        }
+      ]
+    },
+    {
+      "Keys": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ApproximateAggregateValue": 0,
+      "Datapoints": [
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        },
+        {
+          "Timestamp": 946702799.999,
+          "ApproximateValue": 0
+        }
+      ]
+    }
+  ],
+  "MetricDatapoints": [
+    {
+      "Timestamp": 946702799.999,
+      "UniqueContributors": 0,
+      "MaxContributorValue": 0,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0
+    },
+    {
+      "Timestamp": 946702799.999,
+      "UniqueContributors": 0,
+      "MaxContributorValue": 0,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0
+    },
+    {
+      "Timestamp": 946702799.999,
+      "UniqueContributors": 0,
+      "MaxContributorValue": 0,
+      "SampleCount": 0,
+      "Average": 0,
+      "Sum": 0,
+      "Minimum": 0,
+      "Maximum": 0
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  KeyLabels: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  AggregationStatistic: "__AggregationStatistic__",
+  AggregateValue: (number) 0,
+  ApproximateUniqueCount: (number) 0,
+  Contributors: [
+    {
+      Keys: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ApproximateAggregateValue: (number) 0,
+      Datapoints: [
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        }
+      ]
+    },
+    {
+      Keys: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ApproximateAggregateValue: (number) 0,
+      Datapoints: [
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        }
+      ]
+    },
+    {
+      Keys: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ApproximateAggregateValue: (number) 0,
+      Datapoints: [
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        },
+        {
+          Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ApproximateValue: (number) 0
+        }
+      ]
+    }
+  ],
+  MetricDatapoints: [
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UniqueContributors: (number) 0,
+      MaxContributorValue: (number) 0,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0
+    },
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UniqueContributors: (number) 0,
+      MaxContributorValue: (number) 0,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0
+    },
+    {
+      Timestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      UniqueContributors: (number) 0,
+      MaxContributorValue: (number) 0,
+      SampleCount: (number) 0,
+      Average: (number) 0,
+      Sum: (number) 0,
+      Minimum: (number) 0,
+      Maximum: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

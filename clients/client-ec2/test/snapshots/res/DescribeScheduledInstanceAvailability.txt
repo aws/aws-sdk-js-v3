@@ -1,0 +1,317 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeScheduledInstanceAvailabilityResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeScheduledInstanceAvailabilityResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <scheduledInstanceAvailabilitySet>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableInstanceCount>
+                0
+            </availableInstanceCount>
+            <firstSlotStartTime>
+                2000-01-01T04:59:59.999Z
+            </firstSlotStartTime>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <maxTermDurationInDays>
+                0
+            </maxTermDurationInDays>
+            <minTermDurationInDays>
+                0
+            </minTermDurationInDays>
+            <networkPlatform>
+                __NetworkPlatform__
+            </networkPlatform>
+            <platform>
+                __Platform__
+            </platform>
+            <purchaseToken>
+                __PurchaseToken__
+            </purchaseToken>
+            <recurrence>
+                <frequency>
+                    __Frequency__
+                </frequency>
+                <interval>
+                    0
+                </interval>
+                <occurrenceDaySet>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </occurrenceDaySet>
+                <occurrenceRelativeToEnd>
+                    false
+                </occurrenceRelativeToEnd>
+                <occurrenceUnit>
+                    __OccurrenceUnit__
+                </occurrenceUnit>
+            </recurrence>
+            <slotDurationInHours>
+                0
+            </slotDurationInHours>
+            <totalScheduledInstanceHours>
+                0
+            </totalScheduledInstanceHours>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableInstanceCount>
+                0
+            </availableInstanceCount>
+            <firstSlotStartTime>
+                2000-01-01T04:59:59.999Z
+            </firstSlotStartTime>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <maxTermDurationInDays>
+                0
+            </maxTermDurationInDays>
+            <minTermDurationInDays>
+                0
+            </minTermDurationInDays>
+            <networkPlatform>
+                __NetworkPlatform__
+            </networkPlatform>
+            <platform>
+                __Platform__
+            </platform>
+            <purchaseToken>
+                __PurchaseToken__
+            </purchaseToken>
+            <recurrence>
+                <frequency>
+                    __Frequency__
+                </frequency>
+                <interval>
+                    0
+                </interval>
+                <occurrenceDaySet>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </occurrenceDaySet>
+                <occurrenceRelativeToEnd>
+                    false
+                </occurrenceRelativeToEnd>
+                <occurrenceUnit>
+                    __OccurrenceUnit__
+                </occurrenceUnit>
+            </recurrence>
+            <slotDurationInHours>
+                0
+            </slotDurationInHours>
+            <totalScheduledInstanceHours>
+                0
+            </totalScheduledInstanceHours>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availableInstanceCount>
+                0
+            </availableInstanceCount>
+            <firstSlotStartTime>
+                2000-01-01T04:59:59.999Z
+            </firstSlotStartTime>
+            <hourlyPrice>
+                __HourlyPrice__
+            </hourlyPrice>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <maxTermDurationInDays>
+                0
+            </maxTermDurationInDays>
+            <minTermDurationInDays>
+                0
+            </minTermDurationInDays>
+            <networkPlatform>
+                __NetworkPlatform__
+            </networkPlatform>
+            <platform>
+                __Platform__
+            </platform>
+            <purchaseToken>
+                __PurchaseToken__
+            </purchaseToken>
+            <recurrence>
+                <frequency>
+                    __Frequency__
+                </frequency>
+                <interval>
+                    0
+                </interval>
+                <occurrenceDaySet>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </occurrenceDaySet>
+                <occurrenceRelativeToEnd>
+                    false
+                </occurrenceRelativeToEnd>
+                <occurrenceUnit>
+                    __OccurrenceUnit__
+                </occurrenceUnit>
+            </recurrence>
+            <slotDurationInHours>
+                0
+            </slotDurationInHours>
+            <totalScheduledInstanceHours>
+                0
+            </totalScheduledInstanceHours>
+        </item>
+    </scheduledInstanceAvailabilitySet>
+</DescribeScheduledInstanceAvailabilityResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  ScheduledInstanceAvailabilitySet: [
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableInstanceCount: (number) 0,
+      FirstSlotStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HourlyPrice: "__HourlyPrice__",
+      InstanceType: "__InstanceType__",
+      MaxTermDurationInDays: (number) 0,
+      MinTermDurationInDays: (number) 0,
+      NetworkPlatform: "__NetworkPlatform__",
+      Platform: "__Platform__",
+      PurchaseToken: "__PurchaseToken__",
+      Recurrence: {
+        Frequency: "__Frequency__",
+        Interval: (number) 0,
+        OccurrenceDaySet: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        OccurrenceRelativeToEnd: (boolean) false,
+        OccurrenceUnit: "__OccurrenceUnit__"
+      },
+      SlotDurationInHours: (number) 0,
+      TotalScheduledInstanceHours: (number) 0
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableInstanceCount: (number) 0,
+      FirstSlotStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HourlyPrice: "__HourlyPrice__",
+      InstanceType: "__InstanceType__",
+      MaxTermDurationInDays: (number) 0,
+      MinTermDurationInDays: (number) 0,
+      NetworkPlatform: "__NetworkPlatform__",
+      Platform: "__Platform__",
+      PurchaseToken: "__PurchaseToken__",
+      Recurrence: {
+        Frequency: "__Frequency__",
+        Interval: (number) 0,
+        OccurrenceDaySet: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        OccurrenceRelativeToEnd: (boolean) false,
+        OccurrenceUnit: "__OccurrenceUnit__"
+      },
+      SlotDurationInHours: (number) 0,
+      TotalScheduledInstanceHours: (number) 0
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailableInstanceCount: (number) 0,
+      FirstSlotStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      HourlyPrice: "__HourlyPrice__",
+      InstanceType: "__InstanceType__",
+      MaxTermDurationInDays: (number) 0,
+      MinTermDurationInDays: (number) 0,
+      NetworkPlatform: "__NetworkPlatform__",
+      Platform: "__Platform__",
+      PurchaseToken: "__PurchaseToken__",
+      Recurrence: {
+        Frequency: "__Frequency__",
+        Interval: (number) 0,
+        OccurrenceDaySet: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        OccurrenceRelativeToEnd: (boolean) false,
+        OccurrenceUnit: "__OccurrenceUnit__"
+      },
+      SlotDurationInHours: (number) 0,
+      TotalScheduledInstanceHours: (number) 0
+    }
+  ]
+}
+

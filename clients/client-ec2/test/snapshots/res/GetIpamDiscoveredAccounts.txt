@@ -1,0 +1,161 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamDiscoveredAccountsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamDiscoveredAccountsResult xmlns="https://placeholder.amazonaws.com">
+    <ipamDiscoveredAccountSet>
+        <item>
+            <accountId>
+                123456789012
+            </accountId>
+            <discoveryRegion>
+                __DiscoveryRegion__
+            </discoveryRegion>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <lastAttemptedDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastAttemptedDiscoveryTime>
+            <lastSuccessfulDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastSuccessfulDiscoveryTime>
+            <organizationalUnitId>
+                __OrganizationalUnitId__
+            </organizationalUnitId>
+        </item>
+        <item>
+            <accountId>
+                123456789012
+            </accountId>
+            <discoveryRegion>
+                __DiscoveryRegion__
+            </discoveryRegion>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <lastAttemptedDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastAttemptedDiscoveryTime>
+            <lastSuccessfulDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastSuccessfulDiscoveryTime>
+            <organizationalUnitId>
+                __OrganizationalUnitId__
+            </organizationalUnitId>
+        </item>
+        <item>
+            <accountId>
+                123456789012
+            </accountId>
+            <discoveryRegion>
+                __DiscoveryRegion__
+            </discoveryRegion>
+            <failureReason>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </failureReason>
+            <lastAttemptedDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastAttemptedDiscoveryTime>
+            <lastSuccessfulDiscoveryTime>
+                2000-01-01T04:59:59.999Z
+            </lastSuccessfulDiscoveryTime>
+            <organizationalUnitId>
+                __OrganizationalUnitId__
+            </organizationalUnitId>
+        </item>
+    </ipamDiscoveredAccountSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamDiscoveredAccountsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  IpamDiscoveredAccounts: [
+    {
+      AccountId: "123456789012",
+      DiscoveryRegion: "__DiscoveryRegion__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      LastAttemptedDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastSuccessfulDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OrganizationalUnitId: "__OrganizationalUnitId__"
+    },
+    {
+      AccountId: "123456789012",
+      DiscoveryRegion: "__DiscoveryRegion__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      LastAttemptedDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastSuccessfulDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OrganizationalUnitId: "__OrganizationalUnitId__"
+    },
+    {
+      AccountId: "123456789012",
+      DiscoveryRegion: "__DiscoveryRegion__",
+      FailureReason: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      LastAttemptedDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      LastSuccessfulDiscoveryTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      OrganizationalUnitId: "__OrganizationalUnitId__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

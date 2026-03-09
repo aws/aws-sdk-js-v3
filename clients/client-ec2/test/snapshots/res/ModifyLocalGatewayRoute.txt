@@ -1,0 +1,93 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyLocalGatewayRouteResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyLocalGatewayRouteResult xmlns="https://placeholder.amazonaws.com">
+    <route>
+        <destinationCidrBlock>
+            __DestinationCidrBlock__
+        </destinationCidrBlock>
+        <localGatewayVirtualInterfaceGroupId>
+            __LocalGatewayVirtualInterfaceGroupId__
+        </localGatewayVirtualInterfaceGroupId>
+        <type>
+            __Type__
+        </type>
+        <state>
+            __State__
+        </state>
+        <localGatewayRouteTableId>
+            __LocalGatewayRouteTableId__
+        </localGatewayRouteTableId>
+        <localGatewayRouteTableArn>
+            __LocalGatewayRouteTableArn__
+        </localGatewayRouteTableArn>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <subnetId>
+            __SubnetId__
+        </subnetId>
+        <coipPoolId>
+            __CoipPoolId__
+        </coipPoolId>
+        <networkInterfaceId>
+            __NetworkInterfaceId__
+        </networkInterfaceId>
+        <destinationPrefixListId>
+            __DestinationPrefixListId__
+        </destinationPrefixListId>
+    </route>
+</ModifyLocalGatewayRouteResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  Route: {
+    DestinationCidrBlock: "__DestinationCidrBlock__",
+    LocalGatewayVirtualInterfaceGroupId: "__LocalGatewayVirtualInterfaceGroupId__",
+    Type: "__Type__",
+    State: "__State__",
+    LocalGatewayRouteTableId: "__LocalGatewayRouteTableId__",
+    LocalGatewayRouteTableArn: "__LocalGatewayRouteTableArn__",
+    OwnerId: "__OwnerId__",
+    SubnetId: "__SubnetId__",
+    CoipPoolId: "__CoipPoolId__",
+    NetworkInterfaceId: "__NetworkInterfaceId__",
+    DestinationPrefixListId: "__DestinationPrefixListId__"
+  }
+}
+

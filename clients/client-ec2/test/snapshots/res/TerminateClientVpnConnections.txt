@@ -1,0 +1,153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<TerminateClientVpnConnectionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<TerminateClientVpnConnectionsResult xmlns="https://placeholder.amazonaws.com">
+    <clientVpnEndpointId>
+        __ClientVpnEndpointId__
+    </clientVpnEndpointId>
+    <username>
+        __Username__
+    </username>
+    <connectionStatuses>
+        <item>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <previousStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </previousStatus>
+            <currentStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </currentStatus>
+        </item>
+        <item>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <previousStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </previousStatus>
+            <currentStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </currentStatus>
+        </item>
+        <item>
+            <connectionId>
+                __ConnectionId__
+            </connectionId>
+            <previousStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </previousStatus>
+            <currentStatus>
+                <code>
+                    __Code__
+                </code>
+                <message>
+                    __Message__
+                </message>
+            </currentStatus>
+        </item>
+    </connectionStatuses>
+</TerminateClientVpnConnectionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  ClientVpnEndpointId: "__ClientVpnEndpointId__",
+  Username: "__Username__",
+  ConnectionStatuses: [
+    {
+      ConnectionId: "__ConnectionId__",
+      PreviousStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CurrentStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      ConnectionId: "__ConnectionId__",
+      PreviousStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CurrentStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    },
+    {
+      ConnectionId: "__ConnectionId__",
+      PreviousStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      },
+      CurrentStatus: {
+        Code: "__Code__",
+        Message: "__Message__"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,137 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessGrantsInstancesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListAccessGrantsInstancesResult xmlns="https://placeholder.amazonaws.com">
+    <NextToken>
+        __NextToken__
+    </NextToken>
+    <AccessGrantsInstancesList>
+        <AccessGrantsInstance>
+            <AccessGrantsInstanceId>
+                __AccessGrantsInstanceId__
+            </AccessGrantsInstanceId>
+            <AccessGrantsInstanceArn>
+                __AccessGrantsInstanceArn__
+            </AccessGrantsInstanceArn>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <IdentityCenterArn>
+                __IdentityCenterArn__
+            </IdentityCenterArn>
+            <IdentityCenterInstanceArn>
+                __IdentityCenterInstanceArn__
+            </IdentityCenterInstanceArn>
+            <IdentityCenterApplicationArn>
+                __IdentityCenterApplicationArn__
+            </IdentityCenterApplicationArn>
+        </AccessGrantsInstance>
+        <AccessGrantsInstance>
+            <AccessGrantsInstanceId>
+                __AccessGrantsInstanceId__
+            </AccessGrantsInstanceId>
+            <AccessGrantsInstanceArn>
+                __AccessGrantsInstanceArn__
+            </AccessGrantsInstanceArn>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <IdentityCenterArn>
+                __IdentityCenterArn__
+            </IdentityCenterArn>
+            <IdentityCenterInstanceArn>
+                __IdentityCenterInstanceArn__
+            </IdentityCenterInstanceArn>
+            <IdentityCenterApplicationArn>
+                __IdentityCenterApplicationArn__
+            </IdentityCenterApplicationArn>
+        </AccessGrantsInstance>
+        <AccessGrantsInstance>
+            <AccessGrantsInstanceId>
+                __AccessGrantsInstanceId__
+            </AccessGrantsInstanceId>
+            <AccessGrantsInstanceArn>
+                __AccessGrantsInstanceArn__
+            </AccessGrantsInstanceArn>
+            <CreatedAt>
+                2000-01-01T04:59:59.999Z
+            </CreatedAt>
+            <IdentityCenterArn>
+                __IdentityCenterArn__
+            </IdentityCenterArn>
+            <IdentityCenterInstanceArn>
+                __IdentityCenterInstanceArn__
+            </IdentityCenterInstanceArn>
+            <IdentityCenterApplicationArn>
+                __IdentityCenterApplicationArn__
+            </IdentityCenterApplicationArn>
+        </AccessGrantsInstance>
+    </AccessGrantsInstancesList>
+</ListAccessGrantsInstancesResult>
+
+
+--- [output object] ---
+{
+  NextToken: "__NextToken__",
+  AccessGrantsInstancesList: [
+    {
+      AccessGrantsInstanceId: "__AccessGrantsInstanceId__",
+      AccessGrantsInstanceArn: "__AccessGrantsInstanceArn__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      IdentityCenterArn: "__IdentityCenterArn__",
+      IdentityCenterInstanceArn: "__IdentityCenterInstanceArn__",
+      IdentityCenterApplicationArn: "__IdentityCenterApplicationArn__"
+    },
+    {
+      AccessGrantsInstanceId: "__AccessGrantsInstanceId__",
+      AccessGrantsInstanceArn: "__AccessGrantsInstanceArn__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      IdentityCenterArn: "__IdentityCenterArn__",
+      IdentityCenterInstanceArn: "__IdentityCenterInstanceArn__",
+      IdentityCenterApplicationArn: "__IdentityCenterApplicationArn__"
+    },
+    {
+      AccessGrantsInstanceId: "__AccessGrantsInstanceId__",
+      AccessGrantsInstanceArn: "__AccessGrantsInstanceArn__",
+      CreatedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      IdentityCenterArn: "__IdentityCenterArn__",
+      IdentityCenterInstanceArn: "__IdentityCenterInstanceArn__",
+      IdentityCenterApplicationArn: "__IdentityCenterApplicationArn__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

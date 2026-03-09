@@ -1,0 +1,77 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateSpotDatafeedSubscriptionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateSpotDatafeedSubscriptionResult xmlns="https://placeholder.amazonaws.com">
+    <spotDatafeedSubscription>
+        <bucket>
+            __Bucket__
+        </bucket>
+        <fault>
+            <code>
+                __Code__
+            </code>
+            <message>
+                __Message__
+            </message>
+        </fault>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <prefix>
+            __Prefix__
+        </prefix>
+        <state>
+            __State__
+        </state>
+    </spotDatafeedSubscription>
+</CreateSpotDatafeedSubscriptionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SpotDatafeedSubscription: {
+    Bucket: "__Bucket__",
+    Fault: {
+      Code: "__Code__",
+      Message: "__Message__"
+    },
+    OwnerId: "__OwnerId__",
+    Prefix: "__Prefix__",
+    State: "__State__"
+  }
+}
+

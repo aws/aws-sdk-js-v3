@@ -23,6 +23,13 @@ export class AwsEc2QueryProtocol extends AwsQueryProtocol {
   }
 
   /**
+   * @override
+   */
+  public getShapeId(): string {
+    return "aws.protocols#ec2Query";
+  }
+
+  /**
    * EC2 Query reads XResponse.XResult instead of XResponse directly.
    */
   protected useNestedResult(): boolean {

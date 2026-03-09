@@ -1,0 +1,521 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecondaryInterfacesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeSecondaryInterfacesResult xmlns="https://placeholder.amazonaws.com">
+    <secondaryInterfaceSet>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <attachment>
+                <attachmentId>
+                    __AttachmentId__
+                </attachmentId>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <deviceIndex>
+                    0
+                </deviceIndex>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <instanceOwnerId>
+                    __InstanceOwnerId__
+                </instanceOwnerId>
+                <networkCardIndex>
+                    0
+                </networkCardIndex>
+                <status>
+                    __Status__
+                </status>
+            </attachment>
+            <macAddress>
+                __MacAddress__
+            </macAddress>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <privateIpv4AddressSet>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+            </privateIpv4AddressSet>
+            <secondaryInterfaceId>
+                __SecondaryInterfaceId__
+            </secondaryInterfaceId>
+            <secondaryInterfaceArn>
+                __SecondaryInterfaceArn__
+            </secondaryInterfaceArn>
+            <secondaryInterfaceType>
+                __SecondaryInterfaceType__
+            </secondaryInterfaceType>
+            <secondarySubnetId>
+                __SecondarySubnetId__
+            </secondarySubnetId>
+            <secondaryNetworkId>
+                __SecondaryNetworkId__
+            </secondaryNetworkId>
+            <secondaryNetworkType>
+                __SecondaryNetworkType__
+            </secondaryNetworkType>
+            <sourceDestCheck>
+                false
+            </sourceDestCheck>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <attachment>
+                <attachmentId>
+                    __AttachmentId__
+                </attachmentId>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <deviceIndex>
+                    0
+                </deviceIndex>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <instanceOwnerId>
+                    __InstanceOwnerId__
+                </instanceOwnerId>
+                <networkCardIndex>
+                    0
+                </networkCardIndex>
+                <status>
+                    __Status__
+                </status>
+            </attachment>
+            <macAddress>
+                __MacAddress__
+            </macAddress>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <privateIpv4AddressSet>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+            </privateIpv4AddressSet>
+            <secondaryInterfaceId>
+                __SecondaryInterfaceId__
+            </secondaryInterfaceId>
+            <secondaryInterfaceArn>
+                __SecondaryInterfaceArn__
+            </secondaryInterfaceArn>
+            <secondaryInterfaceType>
+                __SecondaryInterfaceType__
+            </secondaryInterfaceType>
+            <secondarySubnetId>
+                __SecondarySubnetId__
+            </secondarySubnetId>
+            <secondaryNetworkId>
+                __SecondaryNetworkId__
+            </secondaryNetworkId>
+            <secondaryNetworkType>
+                __SecondaryNetworkType__
+            </secondaryNetworkType>
+            <sourceDestCheck>
+                false
+            </sourceDestCheck>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+        <item>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <attachment>
+                <attachmentId>
+                    __AttachmentId__
+                </attachmentId>
+                <attachTime>
+                    2000-01-01T04:59:59.999Z
+                </attachTime>
+                <deleteOnTermination>
+                    false
+                </deleteOnTermination>
+                <deviceIndex>
+                    0
+                </deviceIndex>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <instanceOwnerId>
+                    __InstanceOwnerId__
+                </instanceOwnerId>
+                <networkCardIndex>
+                    0
+                </networkCardIndex>
+                <status>
+                    __Status__
+                </status>
+            </attachment>
+            <macAddress>
+                __MacAddress__
+            </macAddress>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <privateIpv4AddressSet>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+                <item>
+                    <privateIpAddress>
+                        __PrivateIpAddress__
+                    </privateIpAddress>
+                </item>
+            </privateIpv4AddressSet>
+            <secondaryInterfaceId>
+                __SecondaryInterfaceId__
+            </secondaryInterfaceId>
+            <secondaryInterfaceArn>
+                __SecondaryInterfaceArn__
+            </secondaryInterfaceArn>
+            <secondaryInterfaceType>
+                __SecondaryInterfaceType__
+            </secondaryInterfaceType>
+            <secondarySubnetId>
+                __SecondarySubnetId__
+            </secondarySubnetId>
+            <secondaryNetworkId>
+                __SecondaryNetworkId__
+            </secondaryNetworkId>
+            <secondaryNetworkType>
+                __SecondaryNetworkType__
+            </secondaryNetworkType>
+            <sourceDestCheck>
+                false
+            </sourceDestCheck>
+            <status>
+                __Status__
+            </status>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+        </item>
+    </secondaryInterfaceSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeSecondaryInterfacesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  SecondaryInterfaces: [
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Attachment: {
+        AttachmentId: "__AttachmentId__",
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        DeviceIndex: (number) 0,
+        InstanceId: "__InstanceId__",
+        InstanceOwnerId: "__InstanceOwnerId__",
+        NetworkCardIndex: (number) 0,
+        Status: "__Status__"
+      },
+      MacAddress: "__MacAddress__",
+      OwnerId: "__OwnerId__",
+      PrivateIpv4Addresses: [
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        }
+      ],
+      SecondaryInterfaceId: "__SecondaryInterfaceId__",
+      SecondaryInterfaceArn: "__SecondaryInterfaceArn__",
+      SecondaryInterfaceType: "__SecondaryInterfaceType__",
+      SecondarySubnetId: "__SecondarySubnetId__",
+      SecondaryNetworkId: "__SecondaryNetworkId__",
+      SecondaryNetworkType: "__SecondaryNetworkType__",
+      SourceDestCheck: (boolean) false,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Attachment: {
+        AttachmentId: "__AttachmentId__",
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        DeviceIndex: (number) 0,
+        InstanceId: "__InstanceId__",
+        InstanceOwnerId: "__InstanceOwnerId__",
+        NetworkCardIndex: (number) 0,
+        Status: "__Status__"
+      },
+      MacAddress: "__MacAddress__",
+      OwnerId: "__OwnerId__",
+      PrivateIpv4Addresses: [
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        }
+      ],
+      SecondaryInterfaceId: "__SecondaryInterfaceId__",
+      SecondaryInterfaceArn: "__SecondaryInterfaceArn__",
+      SecondaryInterfaceType: "__SecondaryInterfaceType__",
+      SecondarySubnetId: "__SecondarySubnetId__",
+      SecondaryNetworkId: "__SecondaryNetworkId__",
+      SecondaryNetworkType: "__SecondaryNetworkType__",
+      SourceDestCheck: (boolean) false,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    },
+    {
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      Attachment: {
+        AttachmentId: "__AttachmentId__",
+        AttachTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        DeleteOnTermination: (boolean) false,
+        DeviceIndex: (number) 0,
+        InstanceId: "__InstanceId__",
+        InstanceOwnerId: "__InstanceOwnerId__",
+        NetworkCardIndex: (number) 0,
+        Status: "__Status__"
+      },
+      MacAddress: "__MacAddress__",
+      OwnerId: "__OwnerId__",
+      PrivateIpv4Addresses: [
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        },
+        {
+          PrivateIpAddress: "__PrivateIpAddress__"
+        }
+      ],
+      SecondaryInterfaceId: "__SecondaryInterfaceId__",
+      SecondaryInterfaceArn: "__SecondaryInterfaceArn__",
+      SecondaryInterfaceType: "__SecondaryInterfaceType__",
+      SecondarySubnetId: "__SecondarySubnetId__",
+      SecondaryNetworkId: "__SecondaryNetworkId__",
+      SecondaryNetworkType: "__SecondaryNetworkType__",
+      SourceDestCheck: (boolean) false,
+      Status: "__Status__",
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ]
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

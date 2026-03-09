@@ -22,6 +22,12 @@ describe(AwsQueryProtocol.name, () => {
     GiraffeServiceException
   );
 
+  it("should have a shapeId of aws.protocols#awsQuery", () => {
+    expect(new AwsQueryProtocol({ version: "", defaultNamespace: "", xmlNamespace: "" }).getShapeId()).toEqual(
+      "aws.protocols#awsQuery"
+    );
+  });
+
   it("decorates service exceptions with unmodeled fields", async () => {
     const httpResponse = new HttpResponse({
       statusCode: 400,

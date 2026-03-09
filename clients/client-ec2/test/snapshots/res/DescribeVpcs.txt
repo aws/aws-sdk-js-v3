@@ -1,0 +1,1385 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeVpcsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <vpcSet>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <ipv6CidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+            </ipv6CidrBlockAssociationSet>
+            <cidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+            </cidrBlockAssociationSet>
+            <isDefault>
+                false
+            </isDefault>
+            <encryptionControl>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcEncryptionControlId>
+                    __VpcEncryptionControlId__
+                </vpcEncryptionControlId>
+                <mode>
+                    __Mode__
+                </mode>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+                <resourceExclusions>
+                    <internetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </internetGateway>
+                    <egressOnlyInternetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </egressOnlyInternetGateway>
+                    <natGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </natGateway>
+                    <virtualPrivateGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </virtualPrivateGateway>
+                    <vpcPeering>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcPeering>
+                    <lambda>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </lambda>
+                    <vpcLattice>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcLattice>
+                    <elasticFileSystem>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </elasticFileSystem>
+                </resourceExclusions>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </encryptionControl>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <blockPublicAccessStates>
+                <internetGatewayBlockMode>
+                    __InternetGatewayBlockMode__
+                </internetGatewayBlockMode>
+            </blockPublicAccessStates>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <state>
+                __State__
+            </state>
+            <cidrBlock>
+                __CidrBlock__
+            </cidrBlock>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <ipv6CidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+            </ipv6CidrBlockAssociationSet>
+            <cidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+            </cidrBlockAssociationSet>
+            <isDefault>
+                false
+            </isDefault>
+            <encryptionControl>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcEncryptionControlId>
+                    __VpcEncryptionControlId__
+                </vpcEncryptionControlId>
+                <mode>
+                    __Mode__
+                </mode>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+                <resourceExclusions>
+                    <internetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </internetGateway>
+                    <egressOnlyInternetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </egressOnlyInternetGateway>
+                    <natGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </natGateway>
+                    <virtualPrivateGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </virtualPrivateGateway>
+                    <vpcPeering>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcPeering>
+                    <lambda>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </lambda>
+                    <vpcLattice>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcLattice>
+                    <elasticFileSystem>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </elasticFileSystem>
+                </resourceExclusions>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </encryptionControl>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <blockPublicAccessStates>
+                <internetGatewayBlockMode>
+                    __InternetGatewayBlockMode__
+                </internetGatewayBlockMode>
+            </blockPublicAccessStates>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <state>
+                __State__
+            </state>
+            <cidrBlock>
+                __CidrBlock__
+            </cidrBlock>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+        </item>
+        <item>
+            <ownerId>
+                __OwnerId__
+            </ownerId>
+            <instanceTenancy>
+                __InstanceTenancy__
+            </instanceTenancy>
+            <ipv6CidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <ipv6CidrBlock>
+                        __Ipv6CidrBlock__
+                    </ipv6CidrBlock>
+                    <ipv6CidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </ipv6CidrBlockState>
+                    <networkBorderGroup>
+                        __NetworkBorderGroup__
+                    </networkBorderGroup>
+                    <ipv6Pool>
+                        __Ipv6Pool__
+                    </ipv6Pool>
+                    <ipv6AddressAttribute>
+                        __Ipv6AddressAttribute__
+                    </ipv6AddressAttribute>
+                    <ipSource>
+                        __IpSource__
+                    </ipSource>
+                </item>
+            </ipv6CidrBlockAssociationSet>
+            <cidrBlockAssociationSet>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+                <item>
+                    <associationId>
+                        __AssociationId__
+                    </associationId>
+                    <cidrBlock>
+                        __CidrBlock__
+                    </cidrBlock>
+                    <cidrBlockState>
+                        <state>
+                            __State__
+                        </state>
+                        <statusMessage>
+                            __StatusMessage__
+                        </statusMessage>
+                    </cidrBlockState>
+                </item>
+            </cidrBlockAssociationSet>
+            <isDefault>
+                false
+            </isDefault>
+            <encryptionControl>
+                <vpcId>
+                    __VpcId__
+                </vpcId>
+                <vpcEncryptionControlId>
+                    __VpcEncryptionControlId__
+                </vpcEncryptionControlId>
+                <mode>
+                    __Mode__
+                </mode>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+                <resourceExclusions>
+                    <internetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </internetGateway>
+                    <egressOnlyInternetGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </egressOnlyInternetGateway>
+                    <natGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </natGateway>
+                    <virtualPrivateGateway>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </virtualPrivateGateway>
+                    <vpcPeering>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcPeering>
+                    <lambda>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </lambda>
+                    <vpcLattice>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </vpcLattice>
+                    <elasticFileSystem>
+                        <state>
+                            __State__
+                        </state>
+                        <stateMessage>
+                            __StateMessage__
+                        </stateMessage>
+                    </elasticFileSystem>
+                </resourceExclusions>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </encryptionControl>
+            <tagSet>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+                <item>
+                    <key>
+                        __Key__
+                    </key>
+                    <value>
+                        __Value__
+                    </value>
+                </item>
+            </tagSet>
+            <blockPublicAccessStates>
+                <internetGatewayBlockMode>
+                    __InternetGatewayBlockMode__
+                </internetGatewayBlockMode>
+            </blockPublicAccessStates>
+            <vpcId>
+                __VpcId__
+            </vpcId>
+            <state>
+                __State__
+            </state>
+            <cidrBlock>
+                __CidrBlock__
+            </cidrBlock>
+            <dhcpOptionsId>
+                __DhcpOptionsId__
+            </dhcpOptionsId>
+        </item>
+    </vpcSet>
+</DescribeVpcsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Vpcs: [
+    {
+      OwnerId: "__OwnerId__",
+      InstanceTenancy: "__InstanceTenancy__",
+      Ipv6CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        }
+      ],
+      CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        }
+      ],
+      IsDefault: (boolean) false,
+      EncryptionControl: {
+        VpcId: "__VpcId__",
+        VpcEncryptionControlId: "__VpcEncryptionControlId__",
+        Mode: "__Mode__",
+        State: "__State__",
+        StateMessage: "__StateMessage__",
+        ResourceExclusions: {
+          InternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          EgressOnlyInternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          NatGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VirtualPrivateGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcPeering: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          Lambda: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcLattice: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ElasticFileSystem: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          }
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      BlockPublicAccessStates: {
+        InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
+      },
+      VpcId: "__VpcId__",
+      State: "__State__",
+      CidrBlock: "__CidrBlock__",
+      DhcpOptionsId: "__DhcpOptionsId__"
+    },
+    {
+      OwnerId: "__OwnerId__",
+      InstanceTenancy: "__InstanceTenancy__",
+      Ipv6CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        }
+      ],
+      CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        }
+      ],
+      IsDefault: (boolean) false,
+      EncryptionControl: {
+        VpcId: "__VpcId__",
+        VpcEncryptionControlId: "__VpcEncryptionControlId__",
+        Mode: "__Mode__",
+        State: "__State__",
+        StateMessage: "__StateMessage__",
+        ResourceExclusions: {
+          InternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          EgressOnlyInternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          NatGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VirtualPrivateGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcPeering: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          Lambda: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcLattice: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ElasticFileSystem: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          }
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      BlockPublicAccessStates: {
+        InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
+      },
+      VpcId: "__VpcId__",
+      State: "__State__",
+      CidrBlock: "__CidrBlock__",
+      DhcpOptionsId: "__DhcpOptionsId__"
+    },
+    {
+      OwnerId: "__OwnerId__",
+      InstanceTenancy: "__InstanceTenancy__",
+      Ipv6CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        },
+        {
+          AssociationId: "__AssociationId__",
+          Ipv6CidrBlock: "__Ipv6CidrBlock__",
+          Ipv6CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          },
+          NetworkBorderGroup: "__NetworkBorderGroup__",
+          Ipv6Pool: "__Ipv6Pool__",
+          Ipv6AddressAttribute: "__Ipv6AddressAttribute__",
+          IpSource: "__IpSource__"
+        }
+      ],
+      CidrBlockAssociationSet: [
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        },
+        {
+          AssociationId: "__AssociationId__",
+          CidrBlock: "__CidrBlock__",
+          CidrBlockState: {
+            State: "__State__",
+            StatusMessage: "__StatusMessage__"
+          }
+        }
+      ],
+      IsDefault: (boolean) false,
+      EncryptionControl: {
+        VpcId: "__VpcId__",
+        VpcEncryptionControlId: "__VpcEncryptionControlId__",
+        Mode: "__Mode__",
+        State: "__State__",
+        StateMessage: "__StateMessage__",
+        ResourceExclusions: {
+          InternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          EgressOnlyInternetGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          NatGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VirtualPrivateGateway: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcPeering: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          Lambda: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          VpcLattice: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          },
+          ElasticFileSystem: {
+            State: "__State__",
+            StateMessage: "__StateMessage__"
+          }
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      Tags: [
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        },
+        {
+          Key: "__Key__",
+          Value: "__Value__"
+        }
+      ],
+      BlockPublicAccessStates: {
+        InternetGatewayBlockMode: "__InternetGatewayBlockMode__"
+      },
+      VpcId: "__VpcId__",
+      State: "__State__",
+      CidrBlock: "__CidrBlock__",
+      DhcpOptionsId: "__DhcpOptionsId__"
+    }
+  ]
+}
+

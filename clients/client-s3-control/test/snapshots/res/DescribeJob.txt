@@ -1,0 +1,963 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeJobResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeJobResult xmlns="https://placeholder.amazonaws.com">
+    <Job>
+        <JobId>
+            __JobId__
+        </JobId>
+        <ConfirmationRequired>
+            false
+        </ConfirmationRequired>
+        <Description>
+            __Description__
+        </Description>
+        <JobArn>
+            __JobArn__
+        </JobArn>
+        <Status>
+            __Status__
+        </Status>
+        <Manifest>
+            <Spec>
+                <Format>
+                    __Format__
+                </Format>
+                <Fields>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                    <member>
+                        __member__
+                    </member>
+                </Fields>
+            </Spec>
+            <Location>
+                <ObjectArn>
+                    __ObjectArn__
+                </ObjectArn>
+                <ETag>
+                    __ETag__
+                </ETag>
+                <ObjectVersionId>
+                    __ObjectVersionId__
+                </ObjectVersionId>
+            </Location>
+        </Manifest>
+        <Operation>
+            <LambdaInvoke>
+                <FunctionArn>
+                    __FunctionArn__
+                </FunctionArn>
+                <InvocationSchemaVersion>
+                    __InvocationSchemaVersion__
+                </InvocationSchemaVersion>
+                <UserArguments>
+                    <entry>
+                        <key>
+                            key1
+                        </key>
+                        <value>
+                            __value__
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>
+                            key2
+                        </key>
+                        <value>
+                            __value__
+                        </value>
+                    </entry>
+                </UserArguments>
+            </LambdaInvoke>
+            <S3PutObjectCopy>
+                <TargetResource>
+                    __TargetResource__
+                </TargetResource>
+                <CannedAccessControlList>
+                    __CannedAccessControlList__
+                </CannedAccessControlList>
+                <AccessControlGrants>
+                    <member>
+                        <Grantee>
+                            <TypeIdentifier>
+                                __TypeIdentifier__
+                            </TypeIdentifier>
+                            <Identifier>
+                                __Identifier__
+                            </Identifier>
+                            <DisplayName>
+                                __DisplayName__
+                            </DisplayName>
+                        </Grantee>
+                        <Permission>
+                            __Permission__
+                        </Permission>
+                    </member>
+                    <member>
+                        <Grantee>
+                            <TypeIdentifier>
+                                __TypeIdentifier__
+                            </TypeIdentifier>
+                            <Identifier>
+                                __Identifier__
+                            </Identifier>
+                            <DisplayName>
+                                __DisplayName__
+                            </DisplayName>
+                        </Grantee>
+                        <Permission>
+                            __Permission__
+                        </Permission>
+                    </member>
+                    <member>
+                        <Grantee>
+                            <TypeIdentifier>
+                                __TypeIdentifier__
+                            </TypeIdentifier>
+                            <Identifier>
+                                __Identifier__
+                            </Identifier>
+                            <DisplayName>
+                                __DisplayName__
+                            </DisplayName>
+                        </Grantee>
+                        <Permission>
+                            __Permission__
+                        </Permission>
+                    </member>
+                </AccessControlGrants>
+                <MetadataDirective>
+                    __MetadataDirective__
+                </MetadataDirective>
+                <ModifiedSinceConstraint>
+                    2000-01-01T04:59:59.999Z
+                </ModifiedSinceConstraint>
+                <NewObjectMetadata>
+                    <CacheControl>
+                        __CacheControl__
+                    </CacheControl>
+                    <ContentDisposition>
+                        __ContentDisposition__
+                    </ContentDisposition>
+                    <ContentEncoding>
+                        __ContentEncoding__
+                    </ContentEncoding>
+                    <ContentLanguage>
+                        __ContentLanguage__
+                    </ContentLanguage>
+                    <UserMetadata>
+                        <entry>
+                            <key>
+                                key1
+                            </key>
+                            <value>
+                                __value__
+                            </value>
+                        </entry>
+                        <entry>
+                            <key>
+                                key2
+                            </key>
+                            <value>
+                                __value__
+                            </value>
+                        </entry>
+                    </UserMetadata>
+                    <ContentLength>
+                        0
+                    </ContentLength>
+                    <ContentMD5>
+                        __ContentMD5__
+                    </ContentMD5>
+                    <ContentType>
+                        __ContentType__
+                    </ContentType>
+                    <HttpExpiresDate>
+                        2000-01-01T04:59:59.999Z
+                    </HttpExpiresDate>
+                    <RequesterCharged>
+                        false
+                    </RequesterCharged>
+                    <SSEAlgorithm>
+                        __SSEAlgorithm__
+                    </SSEAlgorithm>
+                </NewObjectMetadata>
+                <NewObjectTagging>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                </NewObjectTagging>
+                <RedirectLocation>
+                    __RedirectLocation__
+                </RedirectLocation>
+                <RequesterPays>
+                    false
+                </RequesterPays>
+                <StorageClass>
+                    __StorageClass__
+                </StorageClass>
+                <UnModifiedSinceConstraint>
+                    2000-01-01T04:59:59.999Z
+                </UnModifiedSinceConstraint>
+                <SSEAwsKmsKeyId>
+                    __SSEAwsKmsKeyId__
+                </SSEAwsKmsKeyId>
+                <TargetKeyPrefix>
+                    __TargetKeyPrefix__
+                </TargetKeyPrefix>
+                <ObjectLockLegalHoldStatus>
+                    __ObjectLockLegalHoldStatus__
+                </ObjectLockLegalHoldStatus>
+                <ObjectLockMode>
+                    __ObjectLockMode__
+                </ObjectLockMode>
+                <ObjectLockRetainUntilDate>
+                    2000-01-01T04:59:59.999Z
+                </ObjectLockRetainUntilDate>
+                <BucketKeyEnabled>
+                    false
+                </BucketKeyEnabled>
+                <ChecksumAlgorithm>
+                    CRC64NVME
+                </ChecksumAlgorithm>
+            </S3PutObjectCopy>
+            <S3PutObjectAcl>
+                <AccessControlPolicy>
+                    <AccessControlList>
+                        <Owner>
+                            <ID>
+                                __ID__
+                            </ID>
+                            <DisplayName>
+                                __DisplayName__
+                            </DisplayName>
+                        </Owner>
+                        <Grants>
+                            <member>
+                                <Grantee>
+                                    <TypeIdentifier>
+                                        __TypeIdentifier__
+                                    </TypeIdentifier>
+                                    <Identifier>
+                                        __Identifier__
+                                    </Identifier>
+                                    <DisplayName>
+                                        __DisplayName__
+                                    </DisplayName>
+                                </Grantee>
+                                <Permission>
+                                    __Permission__
+                                </Permission>
+                            </member>
+                            <member>
+                                <Grantee>
+                                    <TypeIdentifier>
+                                        __TypeIdentifier__
+                                    </TypeIdentifier>
+                                    <Identifier>
+                                        __Identifier__
+                                    </Identifier>
+                                    <DisplayName>
+                                        __DisplayName__
+                                    </DisplayName>
+                                </Grantee>
+                                <Permission>
+                                    __Permission__
+                                </Permission>
+                            </member>
+                            <member>
+                                <Grantee>
+                                    <TypeIdentifier>
+                                        __TypeIdentifier__
+                                    </TypeIdentifier>
+                                    <Identifier>
+                                        __Identifier__
+                                    </Identifier>
+                                    <DisplayName>
+                                        __DisplayName__
+                                    </DisplayName>
+                                </Grantee>
+                                <Permission>
+                                    __Permission__
+                                </Permission>
+                            </member>
+                        </Grants>
+                    </AccessControlList>
+                    <CannedAccessControlList>
+                        __CannedAccessControlList__
+                    </CannedAccessControlList>
+                </AccessControlPolicy>
+            </S3PutObjectAcl>
+            <S3PutObjectTagging>
+                <TagSet>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                    <member>
+                        <Key>
+                            __Key__
+                        </Key>
+                        <Value>
+                            __Value__
+                        </Value>
+                    </member>
+                </TagSet>
+            </S3PutObjectTagging>
+            <S3DeleteObjectTagging/>
+<S3InitiateRestoreObject>
+                <ExpirationInDays>
+                    0
+                </ExpirationInDays>
+                <GlacierJobTier>
+                    __GlacierJobTier__
+                </GlacierJobTier>
+            </S3InitiateRestoreObject>
+            <S3PutObjectLegalHold>
+                <LegalHold>
+                    <Status>
+                        __Status__
+                    </Status>
+                </LegalHold>
+            </S3PutObjectLegalHold>
+            <S3PutObjectRetention>
+                <Retention>
+                    <RetainUntilDate>
+                        2000-01-01T04:59:59.999Z
+                    </RetainUntilDate>
+                    <Mode>
+                        __Mode__
+                    </Mode>
+                </Retention>
+                <BypassGovernanceRetention>
+                    false
+                </BypassGovernanceRetention>
+            </S3PutObjectRetention>
+            <S3ReplicateObject/>
+<S3ComputeObjectChecksum>
+                <ChecksumAlgorithm>
+                    CRC64NVME
+                </ChecksumAlgorithm>
+                <ChecksumType>
+                    __ChecksumType__
+                </ChecksumType>
+            </S3ComputeObjectChecksum>
+            <S3UpdateObjectEncryption>
+                <ObjectEncryption>
+                    <SSE-KMS>
+                        <KMSKeyArn>
+                            __KMSKeyArn__
+                        </KMSKeyArn>
+                        <BucketKeyEnabled>
+                            false
+                        </BucketKeyEnabled>
+                    </SSE-KMS>
+                </ObjectEncryption>
+            </S3UpdateObjectEncryption>
+        </Operation>
+        <Priority>
+            0
+        </Priority>
+        <ProgressSummary>
+            <TotalNumberOfTasks>
+                0
+            </TotalNumberOfTasks>
+            <NumberOfTasksSucceeded>
+                0
+            </NumberOfTasksSucceeded>
+            <NumberOfTasksFailed>
+                0
+            </NumberOfTasksFailed>
+            <Timers>
+                <ElapsedTimeInActiveSeconds>
+                    0
+                </ElapsedTimeInActiveSeconds>
+            </Timers>
+        </ProgressSummary>
+        <StatusUpdateReason>
+            __StatusUpdateReason__
+        </StatusUpdateReason>
+        <FailureReasons>
+            <member>
+                <FailureCode>
+                    __FailureCode__
+                </FailureCode>
+                <FailureReason>
+                    __FailureReason__
+                </FailureReason>
+            </member>
+            <member>
+                <FailureCode>
+                    __FailureCode__
+                </FailureCode>
+                <FailureReason>
+                    __FailureReason__
+                </FailureReason>
+            </member>
+            <member>
+                <FailureCode>
+                    __FailureCode__
+                </FailureCode>
+                <FailureReason>
+                    __FailureReason__
+                </FailureReason>
+            </member>
+        </FailureReasons>
+        <Report>
+            <Enabled>
+                false
+            </Enabled>
+            <Bucket>
+                __Bucket__
+            </Bucket>
+            <Format>
+                __Format__
+            </Format>
+            <Prefix>
+                __Prefix__
+            </Prefix>
+            <ReportScope>
+                __ReportScope__
+            </ReportScope>
+            <ExpectedBucketOwner>
+                __ExpectedBucketOwner__
+            </ExpectedBucketOwner>
+        </Report>
+        <CreationTime>
+            2000-01-01T04:59:59.999Z
+        </CreationTime>
+        <TerminationDate>
+            2000-01-01T04:59:59.999Z
+        </TerminationDate>
+        <RoleArn>
+            __RoleArn__
+        </RoleArn>
+        <SuspendedDate>
+            2000-01-01T04:59:59.999Z
+        </SuspendedDate>
+        <SuspendedCause>
+            __SuspendedCause__
+        </SuspendedCause>
+        <ManifestGenerator>
+            <S3JobManifestGenerator>
+                <SourceBucket>
+                    __SourceBucket__
+                </SourceBucket>
+                <EnableManifestOutput>
+                    false
+                </EnableManifestOutput>
+                <ExpectedBucketOwner>
+                    __ExpectedBucketOwner__
+                </ExpectedBucketOwner>
+                <ManifestOutputLocation>
+                    <Bucket>
+                        __Bucket__
+                    </Bucket>
+                    <ManifestFormat>
+                        __ManifestFormat__
+                    </ManifestFormat>
+                    <ExpectedManifestBucketOwner>
+                        __ExpectedManifestBucketOwner__
+                    </ExpectedManifestBucketOwner>
+                    <ManifestPrefix>
+                        __ManifestPrefix__
+                    </ManifestPrefix>
+                    <ManifestEncryption>
+                        <SSE-S3/>
+<SSE-KMS>
+                            <KeyId>
+                                __KeyId__
+                            </KeyId>
+                        </SSE-KMS>
+                    </ManifestEncryption>
+                </ManifestOutputLocation>
+                <Filter>
+                    <EligibleForReplication>
+                        false
+                    </EligibleForReplication>
+                    <CreatedAfter>
+                        2000-01-01T04:59:59.999Z
+                    </CreatedAfter>
+                    <CreatedBefore>
+                        2000-01-01T04:59:59.999Z
+                    </CreatedBefore>
+                    <ObjectReplicationStatuses>
+                        <member>
+                            __member__
+                        </member>
+                        <member>
+                            __member__
+                        </member>
+                        <member>
+                            __member__
+                        </member>
+                    </ObjectReplicationStatuses>
+                    <KeyNameConstraint>
+                        <MatchAnyPrefix>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                        </MatchAnyPrefix>
+                        <MatchAnySuffix>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                        </MatchAnySuffix>
+                        <MatchAnySubstring>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                            <member>
+                                __member__
+                            </member>
+                        </MatchAnySubstring>
+                    </KeyNameConstraint>
+                    <ObjectSizeGreaterThanBytes>
+                        0
+                    </ObjectSizeGreaterThanBytes>
+                    <ObjectSizeLessThanBytes>
+                        0
+                    </ObjectSizeLessThanBytes>
+                    <MatchAnyStorageClass>
+                        <member>
+                            __member__
+                        </member>
+                        <member>
+                            __member__
+                        </member>
+                        <member>
+                            __member__
+                        </member>
+                    </MatchAnyStorageClass>
+                    <MatchAnyObjectEncryption>
+                        <ObjectEncryption>
+                            <NOT-SSE/>
+                        </ObjectEncryption>
+                        <ObjectEncryption>
+                            <SSE-S3/>
+                        </ObjectEncryption>
+                        <ObjectEncryption>
+                            <SSE-KMS>
+                                <KmsKeyArn>
+                                    __KmsKeyArn__
+                                </KmsKeyArn>
+                                <BucketKeyEnabled>
+                                    false
+                                </BucketKeyEnabled>
+                            </SSE-KMS>
+                        </ObjectEncryption>
+                    </MatchAnyObjectEncryption>
+                </Filter>
+            </S3JobManifestGenerator>
+        </ManifestGenerator>
+        <GeneratedManifestDescriptor>
+            <Format>
+                __Format__
+            </Format>
+            <Location>
+                <ObjectArn>
+                    __ObjectArn__
+                </ObjectArn>
+                <ETag>
+                    __ETag__
+                </ETag>
+                <ObjectVersionId>
+                    __ObjectVersionId__
+                </ObjectVersionId>
+            </Location>
+        </GeneratedManifestDescriptor>
+    </Job>
+</DescribeJobResult>
+
+
+--- [output object] ---
+{
+  Job: {
+    JobId: "__JobId__",
+    ConfirmationRequired: (boolean) false,
+    Description: "__Description__",
+    JobArn: "__JobArn__",
+    Status: "__Status__",
+    Manifest: {
+      Spec: {
+        Format: "__Format__",
+        Fields: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      Location: {
+        ObjectArn: "__ObjectArn__",
+        ETag: "__ETag__",
+        ObjectVersionId: "__ObjectVersionId__"
+      }
+    },
+    Operation: {
+      LambdaInvoke: {
+        FunctionArn: "__FunctionArn__",
+        InvocationSchemaVersion: "__InvocationSchemaVersion__",
+        UserArguments: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      S3PutObjectCopy: {
+        TargetResource: "__TargetResource__",
+        CannedAccessControlList: "__CannedAccessControlList__",
+        AccessControlGrants: [
+          {
+            Grantee: {
+              TypeIdentifier: "__TypeIdentifier__",
+              Identifier: "__Identifier__",
+              DisplayName: "__DisplayName__"
+            },
+            Permission: "__Permission__"
+          },
+          {
+            Grantee: {
+              TypeIdentifier: "__TypeIdentifier__",
+              Identifier: "__Identifier__",
+              DisplayName: "__DisplayName__"
+            },
+            Permission: "__Permission__"
+          },
+          {
+            Grantee: {
+              TypeIdentifier: "__TypeIdentifier__",
+              Identifier: "__Identifier__",
+              DisplayName: "__DisplayName__"
+            },
+            Permission: "__Permission__"
+          }
+        ],
+        MetadataDirective: "__MetadataDirective__",
+        ModifiedSinceConstraint: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        NewObjectMetadata: {
+          CacheControl: "__CacheControl__",
+          ContentDisposition: "__ContentDisposition__",
+          ContentEncoding: "__ContentEncoding__",
+          ContentLanguage: "__ContentLanguage__",
+          UserMetadata: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          ContentLength: (number) 0,
+          ContentMD5: "__ContentMD5__",
+          ContentType: "__ContentType__",
+          HttpExpiresDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          RequesterCharged: (boolean) false,
+          SSEAlgorithm: "__SSEAlgorithm__"
+        },
+        NewObjectTagging: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ],
+        RedirectLocation: "__RedirectLocation__",
+        RequesterPays: (boolean) false,
+        StorageClass: "__StorageClass__",
+        UnModifiedSinceConstraint: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        SSEAwsKmsKeyId: "__SSEAwsKmsKeyId__",
+        TargetKeyPrefix: "__TargetKeyPrefix__",
+        ObjectLockLegalHoldStatus: "__ObjectLockLegalHoldStatus__",
+        ObjectLockMode: "__ObjectLockMode__",
+        ObjectLockRetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        BucketKeyEnabled: (boolean) false,
+        ChecksumAlgorithm: "CRC64NVME"
+      },
+      S3PutObjectAcl: {
+        AccessControlPolicy: {
+          AccessControlList: {
+            Owner: {
+              ID: "__ID__",
+              DisplayName: "__DisplayName__"
+            },
+            Grants: [
+              {
+                Grantee: {
+                  TypeIdentifier: "__TypeIdentifier__",
+                  Identifier: "__Identifier__",
+                  DisplayName: "__DisplayName__"
+                },
+                Permission: "__Permission__"
+              },
+              {
+                Grantee: {
+                  TypeIdentifier: "__TypeIdentifier__",
+                  Identifier: "__Identifier__",
+                  DisplayName: "__DisplayName__"
+                },
+                Permission: "__Permission__"
+              },
+              {
+                Grantee: {
+                  TypeIdentifier: "__TypeIdentifier__",
+                  Identifier: "__Identifier__",
+                  DisplayName: "__DisplayName__"
+                },
+                Permission: "__Permission__"
+              }
+            ]
+          },
+          CannedAccessControlList: "__CannedAccessControlList__"
+        }
+      },
+      S3PutObjectTagging: {
+        TagSet: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      S3DeleteObjectTagging: {},
+      S3InitiateRestoreObject: {
+        ExpirationInDays: (number) 0,
+        GlacierJobTier: "__GlacierJobTier__"
+      },
+      S3PutObjectLegalHold: {
+        LegalHold: {
+          Status: "__Status__"
+        }
+      },
+      S3PutObjectRetention: {
+        Retention: {
+          RetainUntilDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Mode: "__Mode__"
+        },
+        BypassGovernanceRetention: (boolean) false
+      },
+      S3ReplicateObject: {},
+      S3ComputeObjectChecksum: {
+        ChecksumAlgorithm: "CRC64NVME",
+        ChecksumType: "__ChecksumType__"
+      },
+      S3UpdateObjectEncryption: {
+        ObjectEncryption: {
+          SSEKMS: {
+            KMSKeyArn: "__KMSKeyArn__",
+            BucketKeyEnabled: (boolean) false
+          }
+        }
+      }
+    },
+    Priority: (number) 0,
+    ProgressSummary: {
+      TotalNumberOfTasks: (number) 0,
+      NumberOfTasksSucceeded: (number) 0,
+      NumberOfTasksFailed: (number) 0,
+      Timers: {
+        ElapsedTimeInActiveSeconds: (number) 0
+      }
+    },
+    StatusUpdateReason: "__StatusUpdateReason__",
+    FailureReasons: [
+      {
+        FailureCode: "__FailureCode__",
+        FailureReason: "__FailureReason__"
+      },
+      {
+        FailureCode: "__FailureCode__",
+        FailureReason: "__FailureReason__"
+      },
+      {
+        FailureCode: "__FailureCode__",
+        FailureReason: "__FailureReason__"
+      }
+    ],
+    Report: {
+      Enabled: (boolean) false,
+      Bucket: "__Bucket__",
+      Format: "__Format__",
+      Prefix: "__Prefix__",
+      ReportScope: "__ReportScope__",
+      ExpectedBucketOwner: "__ExpectedBucketOwner__"
+    },
+    CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    TerminationDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    RoleArn: "__RoleArn__",
+    SuspendedDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    SuspendedCause: "__SuspendedCause__",
+    ManifestGenerator: {
+      S3JobManifestGenerator: {
+        SourceBucket: "__SourceBucket__",
+        EnableManifestOutput: (boolean) false,
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        ManifestOutputLocation: {
+          Bucket: "__Bucket__",
+          ManifestFormat: "__ManifestFormat__",
+          ExpectedManifestBucketOwner: "__ExpectedManifestBucketOwner__",
+          ManifestPrefix: "__ManifestPrefix__",
+          ManifestEncryption: {
+            SSES3: {},
+            SSEKMS: {
+              KeyId: "__KeyId__"
+            }
+          }
+        },
+        Filter: {
+          EligibleForReplication: (boolean) false,
+          CreatedAfter: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          CreatedBefore: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ObjectReplicationStatuses: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          KeyNameConstraint: {
+            MatchAnyPrefix: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MatchAnySuffix: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MatchAnySubstring: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          ObjectSizeGreaterThanBytes: (number) 0,
+          ObjectSizeLessThanBytes: (number) 0,
+          MatchAnyStorageClass: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          MatchAnyObjectEncryption: [
+            {
+              NOTSSE: {}
+            },
+            {
+              SSES3: {}
+            },
+            {
+              SSEKMS: {
+                KmsKeyArn: "__KmsKeyArn__",
+                BucketKeyEnabled: (boolean) false
+              }
+            }
+          ]
+        }
+      }
+    },
+    GeneratedManifestDescriptor: {
+      Format: "__Format__",
+      Location: {
+        ObjectArn: "__ObjectArn__",
+        ETag: "__ETag__",
+        ObjectVersionId: "__ObjectVersionId__"
+      }
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

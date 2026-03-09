@@ -1,0 +1,209 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEncryptionControlResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyVpcEncryptionControlResult xmlns="https://placeholder.amazonaws.com">
+    <vpcEncryptionControl>
+        <vpcId>
+            __VpcId__
+        </vpcId>
+        <vpcEncryptionControlId>
+            __VpcEncryptionControlId__
+        </vpcEncryptionControlId>
+        <mode>
+            __Mode__
+        </mode>
+        <state>
+            __State__
+        </state>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
+        <resourceExclusions>
+            <internetGateway>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </internetGateway>
+            <egressOnlyInternetGateway>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </egressOnlyInternetGateway>
+            <natGateway>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </natGateway>
+            <virtualPrivateGateway>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </virtualPrivateGateway>
+            <vpcPeering>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </vpcPeering>
+            <lambda>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </lambda>
+            <vpcLattice>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </vpcLattice>
+            <elasticFileSystem>
+                <state>
+                    __State__
+                </state>
+                <stateMessage>
+                    __StateMessage__
+                </stateMessage>
+            </elasticFileSystem>
+        </resourceExclusions>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </vpcEncryptionControl>
+</ModifyVpcEncryptionControlResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  VpcEncryptionControl: {
+    VpcId: "__VpcId__",
+    VpcEncryptionControlId: "__VpcEncryptionControlId__",
+    Mode: "__Mode__",
+    State: "__State__",
+    StateMessage: "__StateMessage__",
+    ResourceExclusions: {
+      InternetGateway: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      EgressOnlyInternetGateway: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      NatGateway: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      VirtualPrivateGateway: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      VpcPeering: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      Lambda: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      VpcLattice: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      },
+      ElasticFileSystem: {
+        State: "__State__",
+        StateMessage: "__StateMessage__"
+      }
+    },
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  }
+}
+

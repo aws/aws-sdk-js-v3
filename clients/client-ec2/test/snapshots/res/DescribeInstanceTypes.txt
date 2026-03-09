@@ -1,0 +1,3701 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceTypesResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeInstanceTypesResult xmlns="https://placeholder.amazonaws.com">
+    <instanceTypeSet>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <currentGeneration>
+                false
+            </currentGeneration>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <supportedUsageClasses>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedUsageClasses>
+            <supportedRootDeviceTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedRootDeviceTypes>
+            <supportedVirtualizationTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedVirtualizationTypes>
+            <bareMetal>
+                false
+            </bareMetal>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <processorInfo>
+                <supportedArchitectures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedArchitectures>
+                <sustainedClockSpeedInGhz>
+                    0
+                </sustainedClockSpeedInGhz>
+                <supportedFeatures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedFeatures>
+                <manufacturer>
+                    __Manufacturer__
+                </manufacturer>
+            </processorInfo>
+            <vCpuInfo>
+                <defaultVCpus>
+                    0
+                </defaultVCpus>
+                <defaultCores>
+                    0
+                </defaultCores>
+                <defaultThreadsPerCore>
+                    0
+                </defaultThreadsPerCore>
+                <validCores>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validCores>
+                <validThreadsPerCore>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validThreadsPerCore>
+            </vCpuInfo>
+            <memoryInfo>
+                <sizeInMiB>
+                    0
+                </sizeInMiB>
+            </memoryInfo>
+            <instanceStorageSupported>
+                false
+            </instanceStorageSupported>
+            <instanceStorageInfo>
+                <totalSizeInGB>
+                    0
+                </totalSizeInGB>
+                <disks>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                </disks>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+            </instanceStorageInfo>
+            <ebsInfo>
+                <ebsOptimizedSupport>
+                    __EbsOptimizedSupport__
+                </ebsOptimizedSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+                <ebsOptimizedInfo>
+                    <baselineBandwidthInMbps>
+                        0
+                    </baselineBandwidthInMbps>
+                    <baselineThroughputInMBps>
+                        0
+                    </baselineThroughputInMBps>
+                    <baselineIops>
+                        0
+                    </baselineIops>
+                    <maximumBandwidthInMbps>
+                        0
+                    </maximumBandwidthInMbps>
+                    <maximumThroughputInMBps>
+                        0
+                    </maximumThroughputInMBps>
+                    <maximumIops>
+                        0
+                    </maximumIops>
+                </ebsOptimizedInfo>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <maximumEbsAttachments>
+                    0
+                </maximumEbsAttachments>
+                <attachmentLimitType>
+                    __AttachmentLimitType__
+                </attachmentLimitType>
+                <maximumEbsCards>
+                    0
+                </maximumEbsCards>
+                <ebsCardSet>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                </ebsCardSet>
+            </ebsInfo>
+            <networkInfo>
+                <networkPerformance>
+                    __NetworkPerformance__
+                </networkPerformance>
+                <maximumNetworkInterfaces>
+                    0
+                </maximumNetworkInterfaces>
+                <maximumNetworkCards>
+                    0
+                </maximumNetworkCards>
+                <defaultNetworkCardIndex>
+                    0
+                </defaultNetworkCardIndex>
+                <networkCards>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                </networkCards>
+                <ipv4AddressesPerInterface>
+                    0
+                </ipv4AddressesPerInterface>
+                <ipv6AddressesPerInterface>
+                    0
+                </ipv6AddressesPerInterface>
+                <ipv6Supported>
+                    false
+                </ipv6Supported>
+                <enaSupport>
+                    __EnaSupport__
+                </enaSupport>
+                <efaSupported>
+                    false
+                </efaSupported>
+                <efaInfo>
+                    <maximumEfaInterfaces>
+                        0
+                    </maximumEfaInterfaces>
+                </efaInfo>
+                <encryptionInTransitSupported>
+                    false
+                </encryptionInTransitSupported>
+                <enaSrdSupported>
+                    false
+                </enaSrdSupported>
+                <bandwidthWeightings>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </bandwidthWeightings>
+                <flexibleEnaQueuesSupport>
+                    __FlexibleEnaQueuesSupport__
+                </flexibleEnaQueuesSupport>
+                <secondaryNetworkSupported>
+                    false
+                </secondaryNetworkSupported>
+                <maximumSecondaryNetworkInterfaces>
+                    0
+                </maximumSecondaryNetworkInterfaces>
+                <ipv4AddressesPerSecondaryInterface>
+                    0
+                </ipv4AddressesPerSecondaryInterface>
+            </networkInfo>
+            <gpuInfo>
+                <gpus>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </gpus>
+                <totalGpuMemoryInMiB>
+                    0
+                </totalGpuMemoryInMiB>
+            </gpuInfo>
+            <fpgaInfo>
+                <fpgas>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </fpgas>
+                <totalFpgaMemoryInMiB>
+                    0
+                </totalFpgaMemoryInMiB>
+            </fpgaInfo>
+            <placementGroupInfo>
+                <supportedStrategies>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedStrategies>
+            </placementGroupInfo>
+            <inferenceAcceleratorInfo>
+                <accelerators>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                </accelerators>
+                <totalInferenceMemoryInMiB>
+                    0
+                </totalInferenceMemoryInMiB>
+            </inferenceAcceleratorInfo>
+            <hibernationSupported>
+                false
+            </hibernationSupported>
+            <burstablePerformanceSupported>
+                false
+            </burstablePerformanceSupported>
+            <dedicatedHostsSupported>
+                false
+            </dedicatedHostsSupported>
+            <autoRecoverySupported>
+                false
+            </autoRecoverySupported>
+            <supportedBootModes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedBootModes>
+            <nitroEnclavesSupport>
+                __NitroEnclavesSupport__
+            </nitroEnclavesSupport>
+            <nitroTpmSupport>
+                __NitroTpmSupport__
+            </nitroTpmSupport>
+            <nitroTpmInfo>
+                <supportedVersions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedVersions>
+            </nitroTpmInfo>
+            <mediaAcceleratorInfo>
+                <accelerators>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </accelerators>
+                <totalMediaMemoryInMiB>
+                    0
+                </totalMediaMemoryInMiB>
+            </mediaAcceleratorInfo>
+            <neuronInfo>
+                <neuronDevices>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </neuronDevices>
+                <totalNeuronDeviceMemoryInMiB>
+                    0
+                </totalNeuronDeviceMemoryInMiB>
+            </neuronInfo>
+            <phcSupport>
+                __PhcSupport__
+            </phcSupport>
+            <rebootMigrationSupport>
+                __RebootMigrationSupport__
+            </rebootMigrationSupport>
+        </item>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <currentGeneration>
+                false
+            </currentGeneration>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <supportedUsageClasses>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedUsageClasses>
+            <supportedRootDeviceTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedRootDeviceTypes>
+            <supportedVirtualizationTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedVirtualizationTypes>
+            <bareMetal>
+                false
+            </bareMetal>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <processorInfo>
+                <supportedArchitectures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedArchitectures>
+                <sustainedClockSpeedInGhz>
+                    0
+                </sustainedClockSpeedInGhz>
+                <supportedFeatures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedFeatures>
+                <manufacturer>
+                    __Manufacturer__
+                </manufacturer>
+            </processorInfo>
+            <vCpuInfo>
+                <defaultVCpus>
+                    0
+                </defaultVCpus>
+                <defaultCores>
+                    0
+                </defaultCores>
+                <defaultThreadsPerCore>
+                    0
+                </defaultThreadsPerCore>
+                <validCores>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validCores>
+                <validThreadsPerCore>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validThreadsPerCore>
+            </vCpuInfo>
+            <memoryInfo>
+                <sizeInMiB>
+                    0
+                </sizeInMiB>
+            </memoryInfo>
+            <instanceStorageSupported>
+                false
+            </instanceStorageSupported>
+            <instanceStorageInfo>
+                <totalSizeInGB>
+                    0
+                </totalSizeInGB>
+                <disks>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                </disks>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+            </instanceStorageInfo>
+            <ebsInfo>
+                <ebsOptimizedSupport>
+                    __EbsOptimizedSupport__
+                </ebsOptimizedSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+                <ebsOptimizedInfo>
+                    <baselineBandwidthInMbps>
+                        0
+                    </baselineBandwidthInMbps>
+                    <baselineThroughputInMBps>
+                        0
+                    </baselineThroughputInMBps>
+                    <baselineIops>
+                        0
+                    </baselineIops>
+                    <maximumBandwidthInMbps>
+                        0
+                    </maximumBandwidthInMbps>
+                    <maximumThroughputInMBps>
+                        0
+                    </maximumThroughputInMBps>
+                    <maximumIops>
+                        0
+                    </maximumIops>
+                </ebsOptimizedInfo>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <maximumEbsAttachments>
+                    0
+                </maximumEbsAttachments>
+                <attachmentLimitType>
+                    __AttachmentLimitType__
+                </attachmentLimitType>
+                <maximumEbsCards>
+                    0
+                </maximumEbsCards>
+                <ebsCardSet>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                </ebsCardSet>
+            </ebsInfo>
+            <networkInfo>
+                <networkPerformance>
+                    __NetworkPerformance__
+                </networkPerformance>
+                <maximumNetworkInterfaces>
+                    0
+                </maximumNetworkInterfaces>
+                <maximumNetworkCards>
+                    0
+                </maximumNetworkCards>
+                <defaultNetworkCardIndex>
+                    0
+                </defaultNetworkCardIndex>
+                <networkCards>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                </networkCards>
+                <ipv4AddressesPerInterface>
+                    0
+                </ipv4AddressesPerInterface>
+                <ipv6AddressesPerInterface>
+                    0
+                </ipv6AddressesPerInterface>
+                <ipv6Supported>
+                    false
+                </ipv6Supported>
+                <enaSupport>
+                    __EnaSupport__
+                </enaSupport>
+                <efaSupported>
+                    false
+                </efaSupported>
+                <efaInfo>
+                    <maximumEfaInterfaces>
+                        0
+                    </maximumEfaInterfaces>
+                </efaInfo>
+                <encryptionInTransitSupported>
+                    false
+                </encryptionInTransitSupported>
+                <enaSrdSupported>
+                    false
+                </enaSrdSupported>
+                <bandwidthWeightings>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </bandwidthWeightings>
+                <flexibleEnaQueuesSupport>
+                    __FlexibleEnaQueuesSupport__
+                </flexibleEnaQueuesSupport>
+                <secondaryNetworkSupported>
+                    false
+                </secondaryNetworkSupported>
+                <maximumSecondaryNetworkInterfaces>
+                    0
+                </maximumSecondaryNetworkInterfaces>
+                <ipv4AddressesPerSecondaryInterface>
+                    0
+                </ipv4AddressesPerSecondaryInterface>
+            </networkInfo>
+            <gpuInfo>
+                <gpus>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </gpus>
+                <totalGpuMemoryInMiB>
+                    0
+                </totalGpuMemoryInMiB>
+            </gpuInfo>
+            <fpgaInfo>
+                <fpgas>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </fpgas>
+                <totalFpgaMemoryInMiB>
+                    0
+                </totalFpgaMemoryInMiB>
+            </fpgaInfo>
+            <placementGroupInfo>
+                <supportedStrategies>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedStrategies>
+            </placementGroupInfo>
+            <inferenceAcceleratorInfo>
+                <accelerators>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                </accelerators>
+                <totalInferenceMemoryInMiB>
+                    0
+                </totalInferenceMemoryInMiB>
+            </inferenceAcceleratorInfo>
+            <hibernationSupported>
+                false
+            </hibernationSupported>
+            <burstablePerformanceSupported>
+                false
+            </burstablePerformanceSupported>
+            <dedicatedHostsSupported>
+                false
+            </dedicatedHostsSupported>
+            <autoRecoverySupported>
+                false
+            </autoRecoverySupported>
+            <supportedBootModes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedBootModes>
+            <nitroEnclavesSupport>
+                __NitroEnclavesSupport__
+            </nitroEnclavesSupport>
+            <nitroTpmSupport>
+                __NitroTpmSupport__
+            </nitroTpmSupport>
+            <nitroTpmInfo>
+                <supportedVersions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedVersions>
+            </nitroTpmInfo>
+            <mediaAcceleratorInfo>
+                <accelerators>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </accelerators>
+                <totalMediaMemoryInMiB>
+                    0
+                </totalMediaMemoryInMiB>
+            </mediaAcceleratorInfo>
+            <neuronInfo>
+                <neuronDevices>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </neuronDevices>
+                <totalNeuronDeviceMemoryInMiB>
+                    0
+                </totalNeuronDeviceMemoryInMiB>
+            </neuronInfo>
+            <phcSupport>
+                __PhcSupport__
+            </phcSupport>
+            <rebootMigrationSupport>
+                __RebootMigrationSupport__
+            </rebootMigrationSupport>
+        </item>
+        <item>
+            <instanceType>
+                __InstanceType__
+            </instanceType>
+            <currentGeneration>
+                false
+            </currentGeneration>
+            <freeTierEligible>
+                false
+            </freeTierEligible>
+            <supportedUsageClasses>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedUsageClasses>
+            <supportedRootDeviceTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedRootDeviceTypes>
+            <supportedVirtualizationTypes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedVirtualizationTypes>
+            <bareMetal>
+                false
+            </bareMetal>
+            <hypervisor>
+                __Hypervisor__
+            </hypervisor>
+            <processorInfo>
+                <supportedArchitectures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedArchitectures>
+                <sustainedClockSpeedInGhz>
+                    0
+                </sustainedClockSpeedInGhz>
+                <supportedFeatures>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedFeatures>
+                <manufacturer>
+                    __Manufacturer__
+                </manufacturer>
+            </processorInfo>
+            <vCpuInfo>
+                <defaultVCpus>
+                    0
+                </defaultVCpus>
+                <defaultCores>
+                    0
+                </defaultCores>
+                <defaultThreadsPerCore>
+                    0
+                </defaultThreadsPerCore>
+                <validCores>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validCores>
+                <validThreadsPerCore>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                    <item>
+                        0
+                    </item>
+                </validThreadsPerCore>
+            </vCpuInfo>
+            <memoryInfo>
+                <sizeInMiB>
+                    0
+                </sizeInMiB>
+            </memoryInfo>
+            <instanceStorageSupported>
+                false
+            </instanceStorageSupported>
+            <instanceStorageInfo>
+                <totalSizeInGB>
+                    0
+                </totalSizeInGB>
+                <disks>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                    <item>
+                        <sizeInGB>
+                            0
+                        </sizeInGB>
+                        <count>
+                            0
+                        </count>
+                        <type>
+                            __Type__
+                        </type>
+                    </item>
+                </disks>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+            </instanceStorageInfo>
+            <ebsInfo>
+                <ebsOptimizedSupport>
+                    __EbsOptimizedSupport__
+                </ebsOptimizedSupport>
+                <encryptionSupport>
+                    __EncryptionSupport__
+                </encryptionSupport>
+                <ebsOptimizedInfo>
+                    <baselineBandwidthInMbps>
+                        0
+                    </baselineBandwidthInMbps>
+                    <baselineThroughputInMBps>
+                        0
+                    </baselineThroughputInMBps>
+                    <baselineIops>
+                        0
+                    </baselineIops>
+                    <maximumBandwidthInMbps>
+                        0
+                    </maximumBandwidthInMbps>
+                    <maximumThroughputInMBps>
+                        0
+                    </maximumThroughputInMBps>
+                    <maximumIops>
+                        0
+                    </maximumIops>
+                </ebsOptimizedInfo>
+                <nvmeSupport>
+                    __NvmeSupport__
+                </nvmeSupport>
+                <maximumEbsAttachments>
+                    0
+                </maximumEbsAttachments>
+                <attachmentLimitType>
+                    __AttachmentLimitType__
+                </attachmentLimitType>
+                <maximumEbsCards>
+                    0
+                </maximumEbsCards>
+                <ebsCardSet>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                    <item>
+                        <ebsCardIndex>
+                            0
+                        </ebsCardIndex>
+                        <baselineBandwidthInMbps>
+                            0
+                        </baselineBandwidthInMbps>
+                        <baselineThroughputInMBps>
+                            0
+                        </baselineThroughputInMBps>
+                        <baselineIops>
+                            0
+                        </baselineIops>
+                        <maximumBandwidthInMbps>
+                            0
+                        </maximumBandwidthInMbps>
+                        <maximumThroughputInMBps>
+                            0
+                        </maximumThroughputInMBps>
+                        <maximumIops>
+                            0
+                        </maximumIops>
+                    </item>
+                </ebsCardSet>
+            </ebsInfo>
+            <networkInfo>
+                <networkPerformance>
+                    __NetworkPerformance__
+                </networkPerformance>
+                <maximumNetworkInterfaces>
+                    0
+                </maximumNetworkInterfaces>
+                <maximumNetworkCards>
+                    0
+                </maximumNetworkCards>
+                <defaultNetworkCardIndex>
+                    0
+                </defaultNetworkCardIndex>
+                <networkCards>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                    <item>
+                        <networkCardIndex>
+                            0
+                        </networkCardIndex>
+                        <networkPerformance>
+                            __NetworkPerformance__
+                        </networkPerformance>
+                        <maximumNetworkInterfaces>
+                            0
+                        </maximumNetworkInterfaces>
+                        <additionalFlexibleNetworkInterfaces>
+                            0
+                        </additionalFlexibleNetworkInterfaces>
+                        <baselineBandwidthInGbps>
+                            0
+                        </baselineBandwidthInGbps>
+                        <peakBandwidthInGbps>
+                            0
+                        </peakBandwidthInGbps>
+                        <defaultEnaQueueCountPerInterface>
+                            0
+                        </defaultEnaQueueCountPerInterface>
+                        <maximumEnaQueueCount>
+                            0
+                        </maximumEnaQueueCount>
+                        <maximumEnaQueueCountPerInterface>
+                            0
+                        </maximumEnaQueueCountPerInterface>
+                    </item>
+                </networkCards>
+                <ipv4AddressesPerInterface>
+                    0
+                </ipv4AddressesPerInterface>
+                <ipv6AddressesPerInterface>
+                    0
+                </ipv6AddressesPerInterface>
+                <ipv6Supported>
+                    false
+                </ipv6Supported>
+                <enaSupport>
+                    __EnaSupport__
+                </enaSupport>
+                <efaSupported>
+                    false
+                </efaSupported>
+                <efaInfo>
+                    <maximumEfaInterfaces>
+                        0
+                    </maximumEfaInterfaces>
+                </efaInfo>
+                <encryptionInTransitSupported>
+                    false
+                </encryptionInTransitSupported>
+                <enaSrdSupported>
+                    false
+                </enaSrdSupported>
+                <bandwidthWeightings>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </bandwidthWeightings>
+                <flexibleEnaQueuesSupport>
+                    __FlexibleEnaQueuesSupport__
+                </flexibleEnaQueuesSupport>
+                <secondaryNetworkSupported>
+                    false
+                </secondaryNetworkSupported>
+                <maximumSecondaryNetworkInterfaces>
+                    0
+                </maximumSecondaryNetworkInterfaces>
+                <ipv4AddressesPerSecondaryInterface>
+                    0
+                </ipv4AddressesPerSecondaryInterface>
+            </networkInfo>
+            <gpuInfo>
+                <gpus>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <logicalGpuCount>
+                            0
+                        </logicalGpuCount>
+                        <gpuPartitionSize>
+                            0
+                        </gpuPartitionSize>
+                        <workloadSet>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                            <item>
+                                __member__
+                            </item>
+                        </workloadSet>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </gpus>
+                <totalGpuMemoryInMiB>
+                    0
+                </totalGpuMemoryInMiB>
+            </gpuInfo>
+            <fpgaInfo>
+                <fpgas>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <count>
+                            0
+                        </count>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </fpgas>
+                <totalFpgaMemoryInMiB>
+                    0
+                </totalFpgaMemoryInMiB>
+            </fpgaInfo>
+            <placementGroupInfo>
+                <supportedStrategies>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedStrategies>
+            </placementGroupInfo>
+            <inferenceAcceleratorInfo>
+                <accelerators>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                    <member>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </member>
+                </accelerators>
+                <totalInferenceMemoryInMiB>
+                    0
+                </totalInferenceMemoryInMiB>
+            </inferenceAcceleratorInfo>
+            <hibernationSupported>
+                false
+            </hibernationSupported>
+            <burstablePerformanceSupported>
+                false
+            </burstablePerformanceSupported>
+            <dedicatedHostsSupported>
+                false
+            </dedicatedHostsSupported>
+            <autoRecoverySupported>
+                false
+            </autoRecoverySupported>
+            <supportedBootModes>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </supportedBootModes>
+            <nitroEnclavesSupport>
+                __NitroEnclavesSupport__
+            </nitroEnclavesSupport>
+            <nitroTpmSupport>
+                __NitroTpmSupport__
+            </nitroTpmSupport>
+            <nitroTpmInfo>
+                <supportedVersions>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                    <item>
+                        __member__
+                    </item>
+                </supportedVersions>
+            </nitroTpmInfo>
+            <mediaAcceleratorInfo>
+                <accelerators>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <manufacturer>
+                            __Manufacturer__
+                        </manufacturer>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </accelerators>
+                <totalMediaMemoryInMiB>
+                    0
+                </totalMediaMemoryInMiB>
+            </mediaAcceleratorInfo>
+            <neuronInfo>
+                <neuronDevices>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                    <item>
+                        <count>
+                            0
+                        </count>
+                        <name>
+                            __Name__
+                        </name>
+                        <coreInfo>
+                            <count>
+                                0
+                            </count>
+                            <version>
+                                0
+                            </version>
+                        </coreInfo>
+                        <memoryInfo>
+                            <sizeInMiB>
+                                0
+                            </sizeInMiB>
+                        </memoryInfo>
+                    </item>
+                </neuronDevices>
+                <totalNeuronDeviceMemoryInMiB>
+                    0
+                </totalNeuronDeviceMemoryInMiB>
+            </neuronInfo>
+            <phcSupport>
+                __PhcSupport__
+            </phcSupport>
+            <rebootMigrationSupport>
+                __RebootMigrationSupport__
+            </rebootMigrationSupport>
+        </item>
+    </instanceTypeSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeInstanceTypesResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InstanceTypes: [
+    {
+      InstanceType: "__InstanceType__",
+      CurrentGeneration: (boolean) false,
+      FreeTierEligible: (boolean) false,
+      SupportedUsageClasses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedRootDeviceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedVirtualizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      BareMetal: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ProcessorInfo: {
+        SupportedArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SustainedClockSpeedInGhz: (number) 0,
+        SupportedFeatures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Manufacturer: "__Manufacturer__"
+      },
+      VCpuInfo: {
+        DefaultVCpus: (number) 0,
+        DefaultCores: (number) 0,
+        DefaultThreadsPerCore: (number) 0,
+        ValidCores: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        ValidThreadsPerCore: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ]
+      },
+      MemoryInfo: {
+        SizeInMiB: (number) 0
+      },
+      InstanceStorageSupported: (boolean) false,
+      InstanceStorageInfo: {
+        TotalSizeInGB: (number) 0,
+        Disks: [
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          }
+        ],
+        NvmeSupport: "__NvmeSupport__",
+        EncryptionSupport: "__EncryptionSupport__"
+      },
+      EbsInfo: {
+        EbsOptimizedSupport: "__EbsOptimizedSupport__",
+        EncryptionSupport: "__EncryptionSupport__",
+        EbsOptimizedInfo: {
+          BaselineBandwidthInMbps: (number) 0,
+          BaselineThroughputInMBps: (number) 0,
+          BaselineIops: (number) 0,
+          MaximumBandwidthInMbps: (number) 0,
+          MaximumThroughputInMBps: (number) 0,
+          MaximumIops: (number) 0
+        },
+        NvmeSupport: "__NvmeSupport__",
+        MaximumEbsAttachments: (number) 0,
+        AttachmentLimitType: "__AttachmentLimitType__",
+        MaximumEbsCards: (number) 0,
+        EbsCards: [
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          }
+        ]
+      },
+      NetworkInfo: {
+        NetworkPerformance: "__NetworkPerformance__",
+        MaximumNetworkInterfaces: (number) 0,
+        MaximumNetworkCards: (number) 0,
+        DefaultNetworkCardIndex: (number) 0,
+        NetworkCards: [
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          }
+        ],
+        Ipv4AddressesPerInterface: (number) 0,
+        Ipv6AddressesPerInterface: (number) 0,
+        Ipv6Supported: (boolean) false,
+        EnaSupport: "__EnaSupport__",
+        EfaSupported: (boolean) false,
+        EfaInfo: {
+          MaximumEfaInterfaces: (number) 0
+        },
+        EncryptionInTransitSupported: (boolean) false,
+        EnaSrdSupported: (boolean) false,
+        BandwidthWeightings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        SecondaryNetworkSupported: (boolean) false,
+        MaximumSecondaryNetworkInterfaces: (number) 0,
+        Ipv4AddressesPerSecondaryInterface: (number) 0
+      },
+      GpuInfo: {
+        Gpus: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalGpuMemoryInMiB: (number) 0
+      },
+      FpgaInfo: {
+        Fpgas: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalFpgaMemoryInMiB: (number) 0
+      },
+      PlacementGroupInfo: {
+        SupportedStrategies: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InferenceAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalInferenceMemoryInMiB: (number) 0
+      },
+      HibernationSupported: (boolean) false,
+      BurstablePerformanceSupported: (boolean) false,
+      DedicatedHostsSupported: (boolean) false,
+      AutoRecoverySupported: (boolean) false,
+      SupportedBootModes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      NitroEnclavesSupport: "__NitroEnclavesSupport__",
+      NitroTpmSupport: "__NitroTpmSupport__",
+      NitroTpmInfo: {
+        SupportedVersions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      MediaAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalMediaMemoryInMiB: (number) 0
+      },
+      NeuronInfo: {
+        NeuronDevices: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalNeuronDeviceMemoryInMiB: (number) 0
+      },
+      PhcSupport: "__PhcSupport__",
+      RebootMigrationSupport: "__RebootMigrationSupport__"
+    },
+    {
+      InstanceType: "__InstanceType__",
+      CurrentGeneration: (boolean) false,
+      FreeTierEligible: (boolean) false,
+      SupportedUsageClasses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedRootDeviceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedVirtualizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      BareMetal: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ProcessorInfo: {
+        SupportedArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SustainedClockSpeedInGhz: (number) 0,
+        SupportedFeatures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Manufacturer: "__Manufacturer__"
+      },
+      VCpuInfo: {
+        DefaultVCpus: (number) 0,
+        DefaultCores: (number) 0,
+        DefaultThreadsPerCore: (number) 0,
+        ValidCores: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        ValidThreadsPerCore: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ]
+      },
+      MemoryInfo: {
+        SizeInMiB: (number) 0
+      },
+      InstanceStorageSupported: (boolean) false,
+      InstanceStorageInfo: {
+        TotalSizeInGB: (number) 0,
+        Disks: [
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          }
+        ],
+        NvmeSupport: "__NvmeSupport__",
+        EncryptionSupport: "__EncryptionSupport__"
+      },
+      EbsInfo: {
+        EbsOptimizedSupport: "__EbsOptimizedSupport__",
+        EncryptionSupport: "__EncryptionSupport__",
+        EbsOptimizedInfo: {
+          BaselineBandwidthInMbps: (number) 0,
+          BaselineThroughputInMBps: (number) 0,
+          BaselineIops: (number) 0,
+          MaximumBandwidthInMbps: (number) 0,
+          MaximumThroughputInMBps: (number) 0,
+          MaximumIops: (number) 0
+        },
+        NvmeSupport: "__NvmeSupport__",
+        MaximumEbsAttachments: (number) 0,
+        AttachmentLimitType: "__AttachmentLimitType__",
+        MaximumEbsCards: (number) 0,
+        EbsCards: [
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          }
+        ]
+      },
+      NetworkInfo: {
+        NetworkPerformance: "__NetworkPerformance__",
+        MaximumNetworkInterfaces: (number) 0,
+        MaximumNetworkCards: (number) 0,
+        DefaultNetworkCardIndex: (number) 0,
+        NetworkCards: [
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          }
+        ],
+        Ipv4AddressesPerInterface: (number) 0,
+        Ipv6AddressesPerInterface: (number) 0,
+        Ipv6Supported: (boolean) false,
+        EnaSupport: "__EnaSupport__",
+        EfaSupported: (boolean) false,
+        EfaInfo: {
+          MaximumEfaInterfaces: (number) 0
+        },
+        EncryptionInTransitSupported: (boolean) false,
+        EnaSrdSupported: (boolean) false,
+        BandwidthWeightings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        SecondaryNetworkSupported: (boolean) false,
+        MaximumSecondaryNetworkInterfaces: (number) 0,
+        Ipv4AddressesPerSecondaryInterface: (number) 0
+      },
+      GpuInfo: {
+        Gpus: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalGpuMemoryInMiB: (number) 0
+      },
+      FpgaInfo: {
+        Fpgas: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalFpgaMemoryInMiB: (number) 0
+      },
+      PlacementGroupInfo: {
+        SupportedStrategies: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InferenceAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalInferenceMemoryInMiB: (number) 0
+      },
+      HibernationSupported: (boolean) false,
+      BurstablePerformanceSupported: (boolean) false,
+      DedicatedHostsSupported: (boolean) false,
+      AutoRecoverySupported: (boolean) false,
+      SupportedBootModes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      NitroEnclavesSupport: "__NitroEnclavesSupport__",
+      NitroTpmSupport: "__NitroTpmSupport__",
+      NitroTpmInfo: {
+        SupportedVersions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      MediaAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalMediaMemoryInMiB: (number) 0
+      },
+      NeuronInfo: {
+        NeuronDevices: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalNeuronDeviceMemoryInMiB: (number) 0
+      },
+      PhcSupport: "__PhcSupport__",
+      RebootMigrationSupport: "__RebootMigrationSupport__"
+    },
+    {
+      InstanceType: "__InstanceType__",
+      CurrentGeneration: (boolean) false,
+      FreeTierEligible: (boolean) false,
+      SupportedUsageClasses: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedRootDeviceTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      SupportedVirtualizationTypes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      BareMetal: (boolean) false,
+      Hypervisor: "__Hypervisor__",
+      ProcessorInfo: {
+        SupportedArchitectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SustainedClockSpeedInGhz: (number) 0,
+        SupportedFeatures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        Manufacturer: "__Manufacturer__"
+      },
+      VCpuInfo: {
+        DefaultVCpus: (number) 0,
+        DefaultCores: (number) 0,
+        DefaultThreadsPerCore: (number) 0,
+        ValidCores: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ],
+        ValidThreadsPerCore: [
+          (number) 0,
+          (number) 0,
+          (number) 0
+        ]
+      },
+      MemoryInfo: {
+        SizeInMiB: (number) 0
+      },
+      InstanceStorageSupported: (boolean) false,
+      InstanceStorageInfo: {
+        TotalSizeInGB: (number) 0,
+        Disks: [
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          },
+          {
+            SizeInGB: (number) 0,
+            Count: (number) 0,
+            Type: "__Type__"
+          }
+        ],
+        NvmeSupport: "__NvmeSupport__",
+        EncryptionSupport: "__EncryptionSupport__"
+      },
+      EbsInfo: {
+        EbsOptimizedSupport: "__EbsOptimizedSupport__",
+        EncryptionSupport: "__EncryptionSupport__",
+        EbsOptimizedInfo: {
+          BaselineBandwidthInMbps: (number) 0,
+          BaselineThroughputInMBps: (number) 0,
+          BaselineIops: (number) 0,
+          MaximumBandwidthInMbps: (number) 0,
+          MaximumThroughputInMBps: (number) 0,
+          MaximumIops: (number) 0
+        },
+        NvmeSupport: "__NvmeSupport__",
+        MaximumEbsAttachments: (number) 0,
+        AttachmentLimitType: "__AttachmentLimitType__",
+        MaximumEbsCards: (number) 0,
+        EbsCards: [
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          },
+          {
+            EbsCardIndex: (number) 0,
+            BaselineBandwidthInMbps: (number) 0,
+            BaselineThroughputInMBps: (number) 0,
+            BaselineIops: (number) 0,
+            MaximumBandwidthInMbps: (number) 0,
+            MaximumThroughputInMBps: (number) 0,
+            MaximumIops: (number) 0
+          }
+        ]
+      },
+      NetworkInfo: {
+        NetworkPerformance: "__NetworkPerformance__",
+        MaximumNetworkInterfaces: (number) 0,
+        MaximumNetworkCards: (number) 0,
+        DefaultNetworkCardIndex: (number) 0,
+        NetworkCards: [
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          },
+          {
+            NetworkCardIndex: (number) 0,
+            NetworkPerformance: "__NetworkPerformance__",
+            MaximumNetworkInterfaces: (number) 0,
+            AdditionalFlexibleNetworkInterfaces: (number) 0,
+            BaselineBandwidthInGbps: (number) 0,
+            PeakBandwidthInGbps: (number) 0,
+            DefaultEnaQueueCountPerInterface: (number) 0,
+            MaximumEnaQueueCount: (number) 0,
+            MaximumEnaQueueCountPerInterface: (number) 0
+          }
+        ],
+        Ipv4AddressesPerInterface: (number) 0,
+        Ipv6AddressesPerInterface: (number) 0,
+        Ipv6Supported: (boolean) false,
+        EnaSupport: "__EnaSupport__",
+        EfaSupported: (boolean) false,
+        EfaInfo: {
+          MaximumEfaInterfaces: (number) 0
+        },
+        EncryptionInTransitSupported: (boolean) false,
+        EnaSrdSupported: (boolean) false,
+        BandwidthWeightings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        SecondaryNetworkSupported: (boolean) false,
+        MaximumSecondaryNetworkInterfaces: (number) 0,
+        Ipv4AddressesPerSecondaryInterface: (number) 0
+      },
+      GpuInfo: {
+        Gpus: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            LogicalGpuCount: (number) 0,
+            GpuPartitionSize: (number) 0,
+            Workloads: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ],
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalGpuMemoryInMiB: (number) 0
+      },
+      FpgaInfo: {
+        Fpgas: [
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            Count: (number) 0,
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalFpgaMemoryInMiB: (number) 0
+      },
+      PlacementGroupInfo: {
+        SupportedStrategies: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      InferenceAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalInferenceMemoryInMiB: (number) 0
+      },
+      HibernationSupported: (boolean) false,
+      BurstablePerformanceSupported: (boolean) false,
+      DedicatedHostsSupported: (boolean) false,
+      AutoRecoverySupported: (boolean) false,
+      SupportedBootModes: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      NitroEnclavesSupport: "__NitroEnclavesSupport__",
+      NitroTpmSupport: "__NitroTpmSupport__",
+      NitroTpmInfo: {
+        SupportedVersions: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      MediaAcceleratorInfo: {
+        Accelerators: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            Manufacturer: "__Manufacturer__",
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalMediaMemoryInMiB: (number) 0
+      },
+      NeuronInfo: {
+        NeuronDevices: [
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          },
+          {
+            Count: (number) 0,
+            Name: "__Name__",
+            CoreInfo: {
+              Count: (number) 0,
+              Version: (number) 0
+            },
+            MemoryInfo: {
+              SizeInMiB: (number) 0
+            }
+          }
+        ],
+        TotalNeuronDeviceMemoryInMiB: (number) 0
+      },
+      PhcSupport: "__PhcSupport__",
+      RebootMigrationSupport: "__RebootMigrationSupport__"
+    }
+  ],
+  NextToken: "__NextToken__"
+}
+

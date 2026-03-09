@@ -1,0 +1,179 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDBMajorEngineVersionsResponse xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeDBMajorEngineVersionsResponse xmlns="https://placeholder.amazonaws.com">
+    <DBMajorEngineVersions>
+        <DBMajorEngineVersion>
+            <Engine>
+                __Engine__
+            </Engine>
+            <MajorEngineVersion>
+                __MajorEngineVersion__
+            </MajorEngineVersion>
+            <SupportedEngineLifecycles>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+            </SupportedEngineLifecycles>
+        </DBMajorEngineVersion>
+        <DBMajorEngineVersion>
+            <Engine>
+                __Engine__
+            </Engine>
+            <MajorEngineVersion>
+                __MajorEngineVersion__
+            </MajorEngineVersion>
+            <SupportedEngineLifecycles>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+            </SupportedEngineLifecycles>
+        </DBMajorEngineVersion>
+        <DBMajorEngineVersion>
+            <Engine>
+                __Engine__
+            </Engine>
+            <MajorEngineVersion>
+                __MajorEngineVersion__
+            </MajorEngineVersion>
+            <SupportedEngineLifecycles>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+                <SupportedEngineLifecycle>
+                    <LifecycleSupportName>
+                        __LifecycleSupportName__
+                    </LifecycleSupportName>
+                    <LifecycleSupportStartDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportStartDate>
+                    <LifecycleSupportEndDate>
+                        2000-01-01T04:59:59.999Z
+                    </LifecycleSupportEndDate>
+                </SupportedEngineLifecycle>
+            </SupportedEngineLifecycles>
+        </DBMajorEngineVersion>
+    </DBMajorEngineVersions>
+    <Marker>
+        __Marker__
+    </Marker>
+</DescribeDBMajorEngineVersionsResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

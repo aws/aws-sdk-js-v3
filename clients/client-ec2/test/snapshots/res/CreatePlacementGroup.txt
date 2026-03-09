@@ -1,0 +1,133 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreatePlacementGroupResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreatePlacementGroupResult xmlns="https://placeholder.amazonaws.com">
+    <placementGroup>
+        <groupName>
+            __GroupName__
+        </groupName>
+        <state>
+            __State__
+        </state>
+        <strategy>
+            __Strategy__
+        </strategy>
+        <partitionCount>
+            0
+        </partitionCount>
+        <groupId>
+            __GroupId__
+        </groupId>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+        <groupArn>
+            __GroupArn__
+        </groupArn>
+        <spreadLevel>
+            __SpreadLevel__
+        </spreadLevel>
+        <linkedGroupId>
+            __LinkedGroupId__
+        </linkedGroupId>
+        <operator>
+            <managed>
+                false
+            </managed>
+            <principal>
+                __Principal__
+            </principal>
+        </operator>
+    </placementGroup>
+</CreatePlacementGroupResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  PlacementGroup: {
+    GroupName: "__GroupName__",
+    State: "__State__",
+    Strategy: "__Strategy__",
+    PartitionCount: (number) 0,
+    GroupId: "__GroupId__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ],
+    GroupArn: "__GroupArn__",
+    SpreadLevel: "__SpreadLevel__",
+    LinkedGroupId: "__LinkedGroupId__",
+    Operator: {
+      Managed: (boolean) false,
+      Principal: "__Principal__"
+    }
+  }
+}
+

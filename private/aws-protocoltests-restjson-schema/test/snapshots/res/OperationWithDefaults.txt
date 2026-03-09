@@ -1,0 +1,225 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "defaultString": "__defaultString__",
+  "defaultBoolean": false,
+  "defaultList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "defaultDocumentMap": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "defaultDocumentString": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "defaultDocumentBoolean": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "defaultDocumentList": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "defaultNullDocument": {
+    "doc_note": "this is a document",
+    "doc_date": 946702799.999,
+    "doc_blob": "AQAAAQ==",
+    "doc_list": [
+      -7,
+      -3,
+      0,
+      1,
+      5
+    ]
+  },
+  "defaultTimestamp": 946702799.999,
+  "defaultBlob": "AQAAAQ==",
+  "defaultByte": 0,
+  "defaultShort": 0,
+  "defaultInteger": 0,
+  "defaultLong": 0,
+  "defaultFloat": 0,
+  "defaultDouble": 0,
+  "defaultMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "defaultEnum": "__defaultEnum__",
+  "defaultIntEnum": 0,
+  "emptyString": "__emptyString__",
+  "falseBoolean": false,
+  "emptyBlob": "AQAAAQ==",
+  "zeroByte": 0,
+  "zeroShort": 0,
+  "zeroInteger": 0,
+  "zeroLong": 0,
+  "zeroFloat": 0,
+  "zeroDouble": 0
+}
+
+
+--- [output object] ---
+{
+  defaultString: "__defaultString__",
+  defaultBoolean: (boolean) false,
+  defaultList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  defaultDocumentMap: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  defaultDocumentString: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  defaultDocumentBoolean: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  defaultDocumentList: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  defaultNullDocument: {
+    doc_note: "this is a document",
+    doc_date: (number) 946702799.999,
+    doc_blob: "AQAAAQ==",
+    doc_list: [
+      (number) -7,
+      (number) -3,
+      (number) 0,
+      (number) 1,
+      (number) 5
+    ]
+  },
+  defaultTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  defaultBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  defaultByte: (number) 0,
+  defaultShort: (number) 0,
+  defaultInteger: (number) 0,
+  defaultLong: (number) 0,
+  defaultFloat: (number) 0,
+  defaultDouble: (number) 0,
+  defaultMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  defaultEnum: "__defaultEnum__",
+  defaultIntEnum: (number) 0,
+  emptyString: "__emptyString__",
+  falseBoolean: (boolean) false,
+  emptyBlob: (Uint8Array) bytes[1, 0, 0, 1],
+  zeroByte: (number) 0,
+  zeroShort: (number) 0,
+  zeroInteger: (number) 0,
+  zeroLong: (number) 0,
+  zeroFloat: (number) 0,
+  zeroDouble: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,79 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "fooEnum1": "__fooEnum1__",
+  "fooEnum2": "__fooEnum2__",
+  "fooEnum3": "__fooEnum3__",
+  "fooEnumList": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "fooEnumSet": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "fooEnumMap": {
+    "key1": "__value__",
+    "key2": "__value__"
+  }
+}
+
+
+--- [output object] ---
+{
+  fooEnum1: "__fooEnum1__",
+  fooEnum2: "__fooEnum2__",
+  fooEnum3: "__fooEnum3__",
+  fooEnumList: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  fooEnumSet: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  fooEnumMap: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

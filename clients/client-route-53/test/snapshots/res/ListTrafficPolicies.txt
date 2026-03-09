@@ -1,0 +1,222 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListTrafficPoliciesResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicySummaries>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+    </TrafficPolicySummaries>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <TrafficPolicyIdMarker>
+        __TrafficPolicyIdMarker__
+    </TrafficPolicyIdMarker>
+    <MaxItems>
+        0
+    </MaxItems>
+</ListTrafficPoliciesResponse>
+
+
+--- [output object] ---
+{
+  TrafficPolicySummaries: [
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    }
+  ],
+  IsTruncated: (boolean) false,
+  TrafficPolicyIdMarker: "__TrafficPolicyIdMarker__",
+  MaxItems: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListTrafficPoliciesResponse xmlns="https://placeholder.amazonaws.com">
+    <TrafficPolicySummaries>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+        <TrafficPolicySummary>
+            <Id>
+                __Id__
+            </Id>
+            <Name>
+                __Name__
+            </Name>
+            <Type>
+                __Type__
+            </Type>
+            <LatestVersion>
+                0
+            </LatestVersion>
+            <TrafficPolicyCount>
+                0
+            </TrafficPolicyCount>
+        </TrafficPolicySummary>
+    </TrafficPolicySummaries>
+    <IsTruncated>
+        false
+    </IsTruncated>
+    <TrafficPolicyIdMarker>
+        __TrafficPolicyIdMarker__
+    </TrafficPolicyIdMarker>
+    <MaxItems>
+        0
+    </MaxItems>
+</ListTrafficPoliciesResponse>
+
+
+--- [output object] ---
+{
+  TrafficPolicySummaries: [
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    },
+    {
+      Id: "__Id__",
+      Name: "__Name__",
+      Type: "__Type__",
+      LatestVersion: (number) 0,
+      TrafficPolicyCount: (number) 0
+    }
+  ],
+  IsTruncated: (boolean) false,
+  TrafficPolicyIdMarker: "__TrafficPolicyIdMarker__",
+  MaxItems: (number) 0,
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

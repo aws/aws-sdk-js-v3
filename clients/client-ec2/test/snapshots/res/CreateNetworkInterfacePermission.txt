@@ -1,0 +1,81 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkInterfacePermissionResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<CreateNetworkInterfacePermissionResult xmlns="https://placeholder.amazonaws.com">
+    <interfacePermission>
+        <networkInterfacePermissionId>
+            __NetworkInterfacePermissionId__
+        </networkInterfacePermissionId>
+        <networkInterfaceId>
+            __NetworkInterfaceId__
+        </networkInterfaceId>
+        <awsAccountId>
+            __AwsAccountId__
+        </awsAccountId>
+        <awsService>
+            __AwsService__
+        </awsService>
+        <permission>
+            __Permission__
+        </permission>
+        <permissionState>
+            <state>
+                __State__
+            </state>
+            <statusMessage>
+                __StatusMessage__
+            </statusMessage>
+        </permissionState>
+    </interfacePermission>
+</CreateNetworkInterfacePermissionResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  InterfacePermission: {
+    NetworkInterfacePermissionId: "__NetworkInterfacePermissionId__",
+    NetworkInterfaceId: "__NetworkInterfaceId__",
+    AwsAccountId: "__AwsAccountId__",
+    AwsService: "__AwsService__",
+    Permission: "__Permission__",
+    PermissionState: {
+      State: "__State__",
+      StatusMessage: "__StatusMessage__"
+    }
+  }
+}
+

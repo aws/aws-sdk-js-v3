@@ -1,0 +1,85 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetJobTaggingResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetJobTaggingResult xmlns="https://placeholder.amazonaws.com">
+    <Tags>
+        <member>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </member>
+        <member>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </member>
+        <member>
+            <Key>
+                __Key__
+            </Key>
+            <Value>
+                __Value__
+            </Value>
+        </member>
+    </Tags>
+</GetJobTaggingResult>
+
+
+--- [output object] ---
+{
+  Tags: [
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    },
+    {
+      Key: "__Key__",
+      Value: "__Value__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

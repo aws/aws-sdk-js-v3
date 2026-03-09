@@ -1,0 +1,125 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAwsNetworkPerformanceMetricSubscriptionsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeAwsNetworkPerformanceMetricSubscriptionsResult xmlns="https://placeholder.amazonaws.com">
+    <nextToken>
+        __NextToken__
+    </nextToken>
+    <subscriptionSet>
+        <item>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <metric>
+                __Metric__
+            </metric>
+            <statistic>
+                __Statistic__
+            </statistic>
+            <period>
+                __Period__
+            </period>
+        </item>
+        <item>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <metric>
+                __Metric__
+            </metric>
+            <statistic>
+                __Statistic__
+            </statistic>
+            <period>
+                __Period__
+            </period>
+        </item>
+        <item>
+            <source>
+                __Source__
+            </source>
+            <destination>
+                __Destination__
+            </destination>
+            <metric>
+                __Metric__
+            </metric>
+            <statistic>
+                __Statistic__
+            </statistic>
+            <period>
+                __Period__
+            </period>
+        </item>
+    </subscriptionSet>
+</DescribeAwsNetworkPerformanceMetricSubscriptionsResult>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  NextToken: "__NextToken__",
+  Subscriptions: [
+    {
+      Source: "__Source__",
+      Destination: "__Destination__",
+      Metric: "__Metric__",
+      Statistic: "__Statistic__",
+      Period: "__Period__"
+    },
+    {
+      Source: "__Source__",
+      Destination: "__Destination__",
+      Metric: "__Metric__",
+      Statistic: "__Statistic__",
+      Period: "__Period__"
+    },
+    {
+      Source: "__Source__",
+      Destination: "__Destination__",
+      Metric: "__Metric__",
+      Statistic: "__Statistic__",
+      Period: "__Period__"
+    }
+  ]
+}
+

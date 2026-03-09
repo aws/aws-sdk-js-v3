@@ -1,0 +1,184 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHostedZonesByVPCResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneSummaries>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner/>
+        </HostedZoneSummary>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner/>
+        </HostedZoneSummary>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner/>
+        </HostedZoneSummary>
+    </HostedZoneSummaries>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListHostedZonesByVPCResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneSummaries: [
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {}
+    },
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {}
+    },
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {}
+    }
+  ],
+  MaxItems: (number) 0,
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ListHostedZonesByVPCResponse xmlns="https://placeholder.amazonaws.com">
+    <HostedZoneSummaries>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner>
+                <OwningAccount>
+                    __OwningAccount__
+                </OwningAccount>
+                <OwningService>
+                    __OwningService__
+                </OwningService>
+            </Owner>
+        </HostedZoneSummary>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner>
+                <OwningAccount>
+                    __OwningAccount__
+                </OwningAccount>
+                <OwningService>
+                    __OwningService__
+                </OwningService>
+            </Owner>
+        </HostedZoneSummary>
+        <HostedZoneSummary>
+            <HostedZoneId>
+                __HostedZoneId__
+            </HostedZoneId>
+            <Name>
+                __Name__
+            </Name>
+            <Owner>
+                <OwningAccount>
+                    __OwningAccount__
+                </OwningAccount>
+                <OwningService>
+                    __OwningService__
+                </OwningService>
+            </Owner>
+        </HostedZoneSummary>
+    </HostedZoneSummaries>
+    <MaxItems>
+        0
+    </MaxItems>
+    <NextToken>
+        __NextToken__
+    </NextToken>
+</ListHostedZonesByVPCResponse>
+
+
+--- [output object] ---
+{
+  HostedZoneSummaries: [
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {
+        OwningAccount: "__OwningAccount__",
+        OwningService: "__OwningService__"
+      }
+    },
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {
+        OwningAccount: "__OwningAccount__",
+        OwningService: "__OwningService__"
+      }
+    },
+    {
+      HostedZoneId: "__HostedZoneId__",
+      Name: "__Name__",
+      Owner: {
+        OwningAccount: "__OwningAccount__",
+        OwningService: "__OwningService__"
+      }
+    }
+  ],
+  MaxItems: (number) 0,
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

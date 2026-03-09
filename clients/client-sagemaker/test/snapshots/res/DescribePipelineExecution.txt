@@ -1,0 +1,153 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "PipelineArn": "__PipelineArn__",
+  "PipelineExecutionArn": "__PipelineExecutionArn__",
+  "PipelineExecutionDisplayName": "__PipelineExecutionDisplayName__",
+  "PipelineExecutionStatus": "__PipelineExecutionStatus__",
+  "PipelineExecutionDescription": "__PipelineExecutionDescription__",
+  "PipelineExperimentConfig": {
+    "ExperimentName": "__ExperimentName__",
+    "TrialName": "__TrialName__"
+  },
+  "FailureReason": "__FailureReason__",
+  "CreationTime": 946702799.999,
+  "LastModifiedTime": 946702799.999,
+  "CreatedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  },
+  "LastModifiedBy": {
+    "UserProfileArn": "__UserProfileArn__",
+    "UserProfileName": "__UserProfileName__",
+    "DomainId": "__DomainId__",
+    "IamIdentity": {
+      "Arn": "__Arn__",
+      "PrincipalId": "__PrincipalId__",
+      "SourceIdentity": "__SourceIdentity__"
+    }
+  },
+  "ParallelismConfiguration": {
+    "MaxParallelExecutionSteps": 0
+  },
+  "SelectiveExecutionConfig": {
+    "SelectedSteps": [
+      {
+        "StepName": "__StepName__"
+      },
+      {
+        "StepName": "__StepName__"
+      },
+      {
+        "StepName": "__StepName__"
+      }
+    ],
+    "SourcePipelineExecutionArn": "__SourcePipelineExecutionArn__"
+  },
+  "PipelineVersionId": 0,
+  "MLflowConfig": {
+    "MlflowResourceArn": "__MlflowResourceArn__",
+    "MlflowExperimentName": "__MlflowExperimentName__"
+  }
+}
+
+
+--- [output object] ---
+{
+  PipelineArn: "__PipelineArn__",
+  PipelineExecutionArn: "__PipelineExecutionArn__",
+  PipelineExecutionDisplayName: "__PipelineExecutionDisplayName__",
+  PipelineExecutionStatus: "__PipelineExecutionStatus__",
+  PipelineExecutionDescription: "__PipelineExecutionDescription__",
+  PipelineExperimentConfig: {
+    ExperimentName: "__ExperimentName__",
+    TrialName: "__TrialName__"
+  },
+  FailureReason: "__FailureReason__",
+  CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  LastModifiedTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+  CreatedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
+  LastModifiedBy: {
+    UserProfileArn: "__UserProfileArn__",
+    UserProfileName: "__UserProfileName__",
+    DomainId: "__DomainId__",
+    IamIdentity: {
+      Arn: "__Arn__",
+      PrincipalId: "__PrincipalId__",
+      SourceIdentity: "__SourceIdentity__"
+    }
+  },
+  ParallelismConfiguration: {
+    MaxParallelExecutionSteps: (number) 0
+  },
+  SelectiveExecutionConfig: {
+    SelectedSteps: [
+      {
+        StepName: "__StepName__"
+      },
+      {
+        StepName: "__StepName__"
+      },
+      {
+        StepName: "__StepName__"
+      }
+    ],
+    SourcePipelineExecutionArn: "__SourcePipelineExecutionArn__"
+  },
+  PipelineVersionId: (number) 0,
+  MLflowConfig: {
+    MlflowResourceArn: "__MlflowResourceArn__",
+    MlflowExperimentName: "__MlflowExperimentName__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
