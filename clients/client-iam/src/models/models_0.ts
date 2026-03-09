@@ -1740,7 +1740,7 @@ export interface CreateServiceSpecificCredentialRequest {
 
   /**
    * <p>The number of days until the service specific credential expires. This field is only
-   *             valid for Bedrock API keys and must be a positive integer. When not specified, the
+   *             valid for Bedrock and CloudWatch Logs API keys and must be a positive integer. When not specified, the
    *             credential will not expire.</p>
    * @public
    */
@@ -1761,7 +1761,7 @@ export interface ServiceSpecificCredential {
 
   /**
    * <p>The date and time when the service specific credential expires. This field is only
-   *          present for Bedrock API keys that were created with an expiration period.</p>
+   *          present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
    * @public
    */
   ExpirationDate?: Date | undefined;
@@ -1788,14 +1788,14 @@ export interface ServiceSpecificCredential {
   ServicePassword?: string | undefined;
 
   /**
-   * <p>For Bedrock API keys, this is the public portion of the credential that includes the IAM
+   * <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM
    *          user name and a suffix containing version and creation information.</p>
    * @public
    */
   ServiceCredentialAlias?: string | undefined;
 
   /**
-   * <p>For Bedrock API keys, this is the secret portion of the credential that should be used
+   * <p>For Bedrock API keys and CloudWatch Logs API keys, this is the secret portion of the credential that should be used
    *          to authenticate API calls. This value is returned only when the credential is
    *          created.</p>
    * @public
@@ -3558,7 +3558,7 @@ export interface DelegationRequest {
   /**
    * <p>If the <code>PermissionPolicy</code> includes role creation permissions, this element will
    *       include the list of permissions boundary policies associated with the role creation.
-   *       See <a href="IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a>
+   *       See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM entities</a>
    *          for more details about IAM permission boundaries.
    *       </p>
    * @public
@@ -3581,15 +3581,15 @@ export interface DelegationRequest {
 
   /**
    * <p>The state of this delegation request.</p>
-   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for an explanation of how these
-   *       states are transitioned.</p>
+   *          <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for an explanation of how these
+   *       states are transitioned. </p>
    * @public
    */
   State?: StateType | undefined;
 
   /**
    * <p>The expiry time of this delegation request</p>
-   *          <p>See the <a href="IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for
+   *          <p>See the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/temporary-delegation-building-integration.html#temporary-delegation-request-lifecycle">Understanding the Request Lifecycle</a> for
    *                details on the life time of a delegation request at each state.</p>
    * @public
    */
@@ -7350,7 +7350,7 @@ export interface ServiceSpecificCredentialMetadata {
   ServiceUserName?: string | undefined;
 
   /**
-   * <p>For Bedrock API keys, this is the public portion of the credential that includes the IAM
+   * <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM
    *          user name and a suffix containing version and creation information.</p>
    * @public
    */
@@ -7365,7 +7365,7 @@ export interface ServiceSpecificCredentialMetadata {
 
   /**
    * <p>The date and time when the service specific credential expires. This field is only
-   *          present for Bedrock API keys that were created with an expiration period.</p>
+   *          present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
    * @public
    */
   ExpirationDate?: Date | undefined;
