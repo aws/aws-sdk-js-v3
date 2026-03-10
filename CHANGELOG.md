@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adding first class support for AG-UI protocol in AgentCore Runtime. ([c092730](https://github.com/aws/aws-sdk-js-v3/commit/c092730e0cac85beff2d47c36bebb2cabac83dbc))
+* **client-connectcases:** Added functionality for the Required and Hidden case rule types to be conditionally evaluated on up to 5 conditions. ([40ed59f](https://github.com/aws/aws-sdk-js-v3/commit/40ed59fc97a17ab7edd0d177592a68fe36cd9fcb))
+* **client-kafka:** Add dual stack endpoint to SDK ([574d2c5](https://github.com/aws/aws-sdk-js-v3/commit/574d2c5bc6df3aab480ae753f4f61900d81754e6))
+* **client-lex-models-v2:** This release introduces a new generative AI feature called Lex Bot Analyzer. This feature leverage AI to analyze the bot configuration against AWS Lex best practices to identify configuration issues and provides recommendations. ([d670f6b](https://github.com/aws/aws-sdk-js-v3/commit/d670f6b3be1ae3b6da9276da288f5aafb978c521))
+
+
+
+
+
 # [3.1005.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1004.0...v3.1005.0) (2026-03-09)
 
 

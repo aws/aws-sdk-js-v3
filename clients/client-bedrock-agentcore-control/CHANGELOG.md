@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adding first class support for AG-UI protocol in AgentCore Runtime. ([c092730](https://github.com/aws/aws-sdk-js-v3/commit/c092730e0cac85beff2d47c36bebb2cabac83dbc))
+
+
+
+
+
 # [3.1005.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1004.0...v3.1005.0) (2026-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

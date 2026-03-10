@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-bedrock",
   "description": "AWS SDK for JavaScript Bedrock Client for Node.js, Browser and React Native",
-  "version": "3.1005.0",
+  "version": "3.1006.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline client-bedrock",
@@ -28,7 +28,7 @@
     "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.7",
     "@aws-sdk/middleware-user-agent": "workspace:^3.972.20",
     "@aws-sdk/region-config-resolver": "workspace:^3.972.7",
-    "@aws-sdk/token-providers": "workspace:3.1005.0",
+    "@aws-sdk/token-providers": "workspace:3.1006.0",
     "@aws-sdk/types": "workspace:^3.973.5",
     "@aws-sdk/util-endpoints": "workspace:^3.996.4",
     "@aws-sdk/util-user-agent-browser": "workspace:^3.972.7",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
+
+
+### Features
+
+* **client-lex-models-v2:** This release introduces a new generative AI feature called Lex Bot Analyzer. This feature leverage AI to analyze the bot configuration against AWS Lex best practices to identify configuration issues and provides recommendations. ([d670f6b](https://github.com/aws/aws-sdk-js-v3/commit/d670f6b3be1ae3b6da9276da288f5aafb978c521))
+
+
+
+
+
 # [3.1005.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1004.0...v3.1005.0) (2026-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-lex-models-v2

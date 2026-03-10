@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
+
+
+### Features
+
+* **client-kafka:** Add dual stack endpoint to SDK ([574d2c5](https://github.com/aws/aws-sdk-js-v3/commit/574d2c5bc6df3aab480ae753f4f61900d81754e6))
+
+
+
+
+
 # [3.1005.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1004.0...v3.1005.0) (2026-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
+
+
+### Features
+
+* **client-connectcases:** Added functionality for the Required and Hidden case rule types to be conditionally evaluated on up to 5 conditions. ([40ed59f](https://github.com/aws/aws-sdk-js-v3/commit/40ed59fc97a17ab7edd0d177592a68fe36cd9fcb))
+
+
+
+
+
 # [3.1005.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1004.0...v3.1005.0) (2026-03-09)
 
 **Note:** Version bump only for package @aws-sdk/client-connectcases
