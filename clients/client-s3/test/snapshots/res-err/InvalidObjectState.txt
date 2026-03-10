@@ -14,14 +14,11 @@ content-type: application/xml
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
-    <Message>
-        unmodeled message.
-    </Message>
 </InvalidObjectState>
 
 
 --- [error name & message] ---
-InvalidObjectState: unmodeled message.
+InvalidObjectState: UnknownError
 
 --- [error object] ---
 {
@@ -38,7 +35,7 @@ InvalidObjectState: unmodeled message.
   name: "InvalidObjectState",
   StorageClass: (undefined),
   AccessTier: (undefined),
-  message: "unmodeled message.",
+  message: "UnknownError",
   Type: "Sender",
   Code: "InvalidObjectState",
   RequestId: "00000000-0000-4000-8000-000000000000",

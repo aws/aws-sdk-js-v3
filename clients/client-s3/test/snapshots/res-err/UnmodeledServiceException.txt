@@ -11,9 +11,6 @@ content-type: application/xml
     <Code>
         UnmodeledServiceException
     </Code>
-    <Message>
-        unmodeled message.
-    </Message>
     <RequestId>
         00000000-0000-4000-8000-000000000000
     </RequestId>
@@ -21,7 +18,7 @@ content-type: application/xml
 
 
 --- [error name & message] ---
-UnmodeledServiceException: unmodeled message.
+UnmodeledServiceException: UnknownError
 
 --- [error object] ---
 {
@@ -40,7 +37,7 @@ UnmodeledServiceException: unmodeled message.
   Code: "UnmodeledServiceException",
   RequestId: "00000000-0000-4000-8000-000000000000",
   xmlns: "https://placeholder.amazonaws.com",
-  message: "unmodeled message."
+  message: "UnknownError"
 }
 
 ======================== w/ optional fields ========================
