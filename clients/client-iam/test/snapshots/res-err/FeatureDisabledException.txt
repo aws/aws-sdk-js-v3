@@ -9,7 +9,7 @@ x-amzn-query-error: undefined;Sender
 
 
 --- [error name & message] ---
-NotFound: Unknown
+NotFound: UnknownError
 
 --- [error object] ---
 {
@@ -24,11 +24,11 @@ NotFound: Unknown
     totalRetryDelay: (number) 0
   },
   name: "NotFound",
-  message: "Unknown",
+  message: "UnknownError",
   Error: {
     Type: (undefined),
     Code: (undefined),
-    Message: "Unknown"
+    Message: "UnknownError"
   }
 }
 
@@ -43,7 +43,7 @@ x-amzn-query-error: undefined;Sender
 
 
 --- [error name & message] ---
-NotFound: Unknown
+NotFound: UnknownError
 
 --- [error object] ---
 {
@@ -58,11 +58,11 @@ NotFound: Unknown
     totalRetryDelay: (number) 0
   },
   name: "NotFound",
-  message: "Unknown",
+  message: "UnknownError",
   Error: {
     Type: (undefined),
     Code: (undefined),
-    Message: "Unknown"
+    Message: "UnknownError"
   }
 }
 
