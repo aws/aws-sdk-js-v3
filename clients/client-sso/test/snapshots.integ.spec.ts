@@ -6,13 +6,17 @@ import { describe, expect, test as it, vi } from "vitest";
 import {
   GetRoleCredentials$,
   GetRoleCredentialsCommand,
+  InvalidRequestException$,
   ListAccountRoles$,
   ListAccountRolesCommand,
   ListAccounts$,
   ListAccountsCommand,
   Logout$,
   LogoutCommand,
+  ResourceNotFoundException$,
   SSOClient,
+  TooManyRequestsException$,
+  UnauthorizedException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -32,15 +36,18 @@ describe("SSOClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [GetRoleCredentials$, GetRoleCredentialsCommand],
-        [ListAccountRoles$, ListAccountRolesCommand],
-        [ListAccounts$, ListAccountsCommand],
-        [Logout$, LogoutCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [GetRoleCredentials$, GetRoleCredentialsCommand],
+      [ListAccountRoles$, ListAccountRolesCommand],
+      [ListAccounts$, ListAccountsCommand],
+      [Logout$, LogoutCommand],
+    ]),
+    errors: [
+      InvalidRequestException$,
+      ResourceNotFoundException$,
+      TooManyRequestsException$,
+      UnauthorizedException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

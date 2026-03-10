@@ -4,15 +4,29 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  AccessDeniedException$,
+  AuthorizationPendingException$,
   CreateToken$,
   CreateTokenCommand,
   CreateTokenWithIAM$,
   CreateTokenWithIAMCommand,
+  ExpiredTokenException$,
+  InternalServerException$,
+  InvalidClientException$,
+  InvalidClientMetadataException$,
+  InvalidGrantException$,
+  InvalidRedirectUriException$,
+  InvalidRequestException$,
+  InvalidRequestRegionException$,
+  InvalidScopeException$,
   RegisterClient$,
   RegisterClientCommand,
+  SlowDownException$,
   SSOOIDCClient,
   StartDeviceAuthorization$,
   StartDeviceAuthorizationCommand,
+  UnauthorizedClientException$,
+  UnsupportedGrantTypeException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -32,15 +46,28 @@ describe("SSOOIDCClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [CreateToken$, CreateTokenCommand],
-        [CreateTokenWithIAM$, CreateTokenWithIAMCommand],
-        [RegisterClient$, RegisterClientCommand],
-        [StartDeviceAuthorization$, StartDeviceAuthorizationCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [CreateToken$, CreateTokenCommand],
+      [CreateTokenWithIAM$, CreateTokenWithIAMCommand],
+      [RegisterClient$, RegisterClientCommand],
+      [StartDeviceAuthorization$, StartDeviceAuthorizationCommand],
+    ]),
+    errors: [
+      AccessDeniedException$,
+      AuthorizationPendingException$,
+      ExpiredTokenException$,
+      InternalServerException$,
+      InvalidClientException$,
+      InvalidClientMetadataException$,
+      InvalidGrantException$,
+      InvalidRedirectUriException$,
+      InvalidRequestException$,
+      InvalidRequestRegionException$,
+      InvalidScopeException$,
+      SlowDownException$,
+      UnauthorizedClientException$,
+      UnsupportedGrantTypeException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

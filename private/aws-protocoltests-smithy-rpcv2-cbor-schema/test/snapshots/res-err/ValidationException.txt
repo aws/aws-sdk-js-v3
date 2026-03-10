@@ -1,0 +1,171 @@
+======================== minimal response ========================
+[status] 400
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "message": "__message__",
+  "fieldList": [
+    {
+      "path": "__path__",
+      "message": "__message__"
+    },
+    {
+      "path": "__path__",
+      "message": "__message__"
+    },
+    {
+      "path": "__path__",
+      "message": "__message__"
+    }
+  ],
+  "__type": "smithy.framework#ValidationException"
+}
+
+[actual bytes]
+163, 103, 109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 105, 102, 105,
+101, 108, 100, 76, 105, 115, 116, 131, 162, 100, 112, 97, 116, 104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103,
+109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 162, 100, 112, 97, 116,
+104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103, 109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115,
+115, 97, 103, 101, 95, 95, 162, 100, 112, 97, 116, 104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103, 109, 101,
+115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 102, 95, 95, 116, 121, 112, 101,
+120, 36, 115, 109, 105, 116, 104, 121, 46, 102, 114, 97, 109, 101, 119, 111, 114, 107, 35, 86, 97, 108, 105, 100,
+97, 116, 105, 111, 110, 69, 120, 99, 101, 112, 116, 105, 111, 110
+
+
+--- [error name & message] ---
+ValidationException: __message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "ValidationException",
+  message: "__message__",
+  fieldList: [
+    {
+      path: "__path__",
+      message: "__message__"
+    },
+    {
+      path: "__path__",
+      message: "__message__"
+    },
+    {
+      path: "__path__",
+      message: "__message__"
+    }
+  ],
+  __type: "smithy.framework#ValidationException"
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
+
+[Uint8Array (cbor object view)]
+{
+  "message": "__message__",
+  "fieldList": [
+    {
+      "path": "__path__",
+      "message": "__message__"
+    },
+    {
+      "path": "__path__",
+      "message": "__message__"
+    },
+    {
+      "path": "__path__",
+      "message": "__message__"
+    }
+  ],
+  "__type": "smithy.framework#ValidationException"
+}
+
+[actual bytes]
+163, 103, 109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 105, 102, 105,
+101, 108, 100, 76, 105, 115, 116, 131, 162, 100, 112, 97, 116, 104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103,
+109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 162, 100, 112, 97, 116,
+104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103, 109, 101, 115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115,
+115, 97, 103, 101, 95, 95, 162, 100, 112, 97, 116, 104, 104, 95, 95, 112, 97, 116, 104, 95, 95, 103, 109, 101,
+115, 115, 97, 103, 101, 107, 95, 95, 109, 101, 115, 115, 97, 103, 101, 95, 95, 102, 95, 95, 116, 121, 112, 101,
+120, 36, 115, 109, 105, 116, 104, 121, 46, 102, 114, 97, 109, 101, 119, 111, 114, 107, 35, 86, 97, 108, 105, 100,
+97, 116, 105, 111, 110, 69, 120, 99, 101, 112, 116, 105, 111, 110
+
+
+--- [error name & message] ---
+ValidationException: __message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "ValidationException",
+  message: "__message__",
+  fieldList: [
+    {
+      path: "__path__",
+      message: "__message__"
+    },
+    {
+      path: "__path__",
+      message: "__message__"
+    },
+    {
+      path: "__path__",
+      message: "__message__"
+    }
+  ],
+  __type: "smithy.framework#ValidationException"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+Unknown: UnknownError
+
+--- [error object] ---
+{
+  0: (number) 110,
+  $fault: "server",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "Unknown",
+  message: "UnknownError"
+}
+

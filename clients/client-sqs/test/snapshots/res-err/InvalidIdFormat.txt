@@ -1,0 +1,97 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.0
+
+[Uint8Array (json)]
+{
+  "__type": "com.amazonaws.sqs#InvalidIdFormat"
+}
+
+
+--- [error name & message] ---
+InvalidIdFormat: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "InvalidIdFormat",
+  message: "Unknown",
+  __type: "com.amazonaws.sqs#InvalidIdFormat",
+  Error: {
+    Type: (undefined),
+    Code: (undefined),
+    Message: (undefined)
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.0
+
+[Uint8Array (json)]
+{
+  "__type": "com.amazonaws.sqs#InvalidIdFormat"
+}
+
+
+--- [error name & message] ---
+InvalidIdFormat: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "InvalidIdFormat",
+  message: "Unknown",
+  __type: "com.amazonaws.sqs#InvalidIdFormat",
+  Error: {
+    Type: (undefined),
+    Code: (undefined),
+    Message: (undefined)
+  }
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+SyntaxError: Unexpected token 'A', "An unmodel"... is not valid JSON
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

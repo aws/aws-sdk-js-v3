@@ -3,7 +3,15 @@ import { SnapshotRunner } from "@smithy/snapshot-testing";
 import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { CreateOAuth2Token$, CreateOAuth2TokenCommand, SigninClient } from "../src";
+import {
+  AccessDeniedException$,
+  CreateOAuth2Token$,
+  CreateOAuth2TokenCommand,
+  InternalServerException$,
+  SigninClient,
+  TooManyRequestsError$,
+  ValidationException$,
+} from "../src";
 
 vi.setSystemTime(new Date(946702799999));
 const Client = SigninClient;
@@ -22,12 +30,15 @@ describe("SigninClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [CreateOAuth2Token$, CreateOAuth2TokenCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [CreateOAuth2Token$, CreateOAuth2TokenCommand],
+    ]),
+    errors: [
+      AccessDeniedException$,
+      InternalServerException$,
+      TooManyRequestsError$,
+      ValidationException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  ComplexError$,
   DatetimeOffsets$,
   DatetimeOffsetsCommand,
   EC2ProtocolClient,
@@ -21,6 +22,7 @@ import {
   HostWithPathOperationCommand,
   IgnoresWrappingXmlName$,
   IgnoresWrappingXmlNameCommand,
+  InvalidGreeting$,
   NestedStructures$,
   NestedStructuresCommand,
   NoInputAndOutput$,
@@ -74,36 +76,37 @@ describe("EC2ProtocolClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [DatetimeOffsets$, DatetimeOffsetsCommand],
-        [EmptyInputAndEmptyOutput$, EmptyInputAndEmptyOutputCommand],
-        [EndpointOperation$, EndpointOperationCommand],
-        [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
-        [FractionalSeconds$, FractionalSecondsCommand],
-        [GreetingWithErrors$, GreetingWithErrorsCommand],
-        [HostWithPathOperation$, HostWithPathOperationCommand],
-        [IgnoresWrappingXmlName$, IgnoresWrappingXmlNameCommand],
-        [NestedStructures$, NestedStructuresCommand],
-        [NoInputAndOutput$, NoInputAndOutputCommand],
-        [PutWithContentEncoding$, PutWithContentEncodingCommand],
-        [QueryIdempotencyTokenAutoFill$, QueryIdempotencyTokenAutoFillCommand],
-        [QueryLists$, QueryListsCommand],
-        [QueryTimestamps$, QueryTimestampsCommand],
-        [RecursiveXmlShapes$, RecursiveXmlShapesCommand],
-        [SimpleInputParams$, SimpleInputParamsCommand],
-        [SimpleScalarXmlProperties$, SimpleScalarXmlPropertiesCommand],
-        [XmlBlobs$, XmlBlobsCommand],
-        [XmlEmptyBlobs$, XmlEmptyBlobsCommand],
-        [XmlEmptyLists$, XmlEmptyListsCommand],
-        [XmlEnums$, XmlEnumsCommand],
-        [XmlIntEnums$, XmlIntEnumsCommand],
-        [XmlLists$, XmlListsCommand],
-        [XmlNamespaces$, XmlNamespacesCommand],
-        [XmlTimestamps$, XmlTimestampsCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [DatetimeOffsets$, DatetimeOffsetsCommand],
+      [EmptyInputAndEmptyOutput$, EmptyInputAndEmptyOutputCommand],
+      [EndpointOperation$, EndpointOperationCommand],
+      [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
+      [FractionalSeconds$, FractionalSecondsCommand],
+      [GreetingWithErrors$, GreetingWithErrorsCommand],
+      [HostWithPathOperation$, HostWithPathOperationCommand],
+      [IgnoresWrappingXmlName$, IgnoresWrappingXmlNameCommand],
+      [NestedStructures$, NestedStructuresCommand],
+      [NoInputAndOutput$, NoInputAndOutputCommand],
+      [PutWithContentEncoding$, PutWithContentEncodingCommand],
+      [QueryIdempotencyTokenAutoFill$, QueryIdempotencyTokenAutoFillCommand],
+      [QueryLists$, QueryListsCommand],
+      [QueryTimestamps$, QueryTimestampsCommand],
+      [RecursiveXmlShapes$, RecursiveXmlShapesCommand],
+      [SimpleInputParams$, SimpleInputParamsCommand],
+      [SimpleScalarXmlProperties$, SimpleScalarXmlPropertiesCommand],
+      [XmlBlobs$, XmlBlobsCommand],
+      [XmlEmptyBlobs$, XmlEmptyBlobsCommand],
+      [XmlEmptyLists$, XmlEmptyListsCommand],
+      [XmlEnums$, XmlEnumsCommand],
+      [XmlIntEnums$, XmlIntEnumsCommand],
+      [XmlLists$, XmlListsCommand],
+      [XmlNamespaces$, XmlNamespacesCommand],
+      [XmlTimestamps$, XmlTimestampsCommand],
+    ]),
+    errors: [
+      ComplexError$,
+      InvalidGreeting$,
+    ],
   });
-
   runner.run();
 }, 30_000);

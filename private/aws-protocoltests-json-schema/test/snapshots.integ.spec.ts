@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  ComplexError$,
   ContentTypeParameters$,
   ContentTypeParametersCommand,
   DatetimeOffsets$,
@@ -14,12 +15,16 @@ import {
   EndpointOperationCommand,
   EndpointWithHostLabelOperation$,
   EndpointWithHostLabelOperationCommand,
+  ErrorWithMembers$,
+  ErrorWithoutMembers$,
+  FooError$,
   FractionalSeconds$,
   FractionalSecondsCommand,
   GreetingWithErrors$,
   GreetingWithErrorsCommand,
   HostWithPathOperation$,
   HostWithPathOperationCommand,
+  InvalidGreeting$,
   JsonEnums$,
   JsonEnumsCommand,
   JsonIntEnums$,
@@ -60,29 +65,33 @@ describe("JsonProtocolClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [ContentTypeParameters$, ContentTypeParametersCommand],
-        [DatetimeOffsets$, DatetimeOffsetsCommand],
-        [EmptyOperation$, EmptyOperationCommand],
-        [EndpointOperation$, EndpointOperationCommand],
-        [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
-        [FractionalSeconds$, FractionalSecondsCommand],
-        [GreetingWithErrors$, GreetingWithErrorsCommand],
-        [HostWithPathOperation$, HostWithPathOperationCommand],
-        [JsonEnums$, JsonEnumsCommand],
-        [JsonIntEnums$, JsonIntEnumsCommand],
-        [JsonUnions$, JsonUnionsCommand],
-        [KitchenSinkOperation$, KitchenSinkOperationCommand],
-        [NullOperation$, NullOperationCommand],
-        [OperationWithOptionalInputOutput$, OperationWithOptionalInputOutputCommand],
-        [PutAndGetInlineDocuments$, PutAndGetInlineDocumentsCommand],
-        [PutWithContentEncoding$, PutWithContentEncodingCommand],
-        [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
-        [SparseNullsOperation$, SparseNullsOperationCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [ContentTypeParameters$, ContentTypeParametersCommand],
+      [DatetimeOffsets$, DatetimeOffsetsCommand],
+      [EmptyOperation$, EmptyOperationCommand],
+      [EndpointOperation$, EndpointOperationCommand],
+      [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
+      [FractionalSeconds$, FractionalSecondsCommand],
+      [GreetingWithErrors$, GreetingWithErrorsCommand],
+      [HostWithPathOperation$, HostWithPathOperationCommand],
+      [JsonEnums$, JsonEnumsCommand],
+      [JsonIntEnums$, JsonIntEnumsCommand],
+      [JsonUnions$, JsonUnionsCommand],
+      [KitchenSinkOperation$, KitchenSinkOperationCommand],
+      [NullOperation$, NullOperationCommand],
+      [OperationWithOptionalInputOutput$, OperationWithOptionalInputOutputCommand],
+      [PutAndGetInlineDocuments$, PutAndGetInlineDocumentsCommand],
+      [PutWithContentEncoding$, PutWithContentEncodingCommand],
+      [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
+      [SparseNullsOperation$, SparseNullsOperationCommand],
+    ]),
+    errors: [
+      ComplexError$,
+      ErrorWithMembers$,
+      ErrorWithoutMembers$,
+      FooError$,
+      InvalidGreeting$,
+    ],
   });
-
   runner.run();
 }, 30_000);

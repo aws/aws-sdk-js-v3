@@ -1,0 +1,91 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.1
+
+[Uint8Array (json)]
+{
+  "__type": "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException"
+}
+
+
+--- [error name & message] ---
+DataAlreadyAcceptedException: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "DataAlreadyAcceptedException",
+  expectedSequenceToken: (undefined),
+  message: "Unknown",
+  __type: "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException"
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.1
+
+[Uint8Array (json)]
+{
+  "__type": "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException",
+  "expectedSequenceToken": "__expectedSequenceToken__",
+  "message": "__message__"
+}
+
+
+--- [error name & message] ---
+DataAlreadyAcceptedException: __message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "DataAlreadyAcceptedException",
+  expectedSequenceToken: "__expectedSequenceToken__",
+  message: "__message__",
+  __type: "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+SyntaxError: Unexpected token 'A', "An unmodel"... is not valid JSON
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

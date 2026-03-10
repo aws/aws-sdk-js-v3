@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { describe, expect, test as it, vi } from "vitest";
 
 import {
+  ComplexError$,
   ContentTypeParameters$,
   ContentTypeParametersCommand,
   EmptyInputAndEmptyOutput$,
@@ -12,10 +13,12 @@ import {
   EndpointOperationCommand,
   EndpointWithHostLabelOperation$,
   EndpointWithHostLabelOperationCommand,
+  FooError$,
   GreetingWithErrors$,
   GreetingWithErrorsCommand,
   HostWithPathOperation$,
   HostWithPathOperationCommand,
+  InvalidGreeting$,
   JSONRPC10Client,
   JsonUnions$,
   JsonUnionsCommand,
@@ -56,27 +59,29 @@ describe("JSONRPC10Client" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [ContentTypeParameters$, ContentTypeParametersCommand],
-        [EmptyInputAndEmptyOutput$, EmptyInputAndEmptyOutputCommand],
-        [EndpointOperation$, EndpointOperationCommand],
-        [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
-        [GreetingWithErrors$, GreetingWithErrorsCommand],
-        [HostWithPathOperation$, HostWithPathOperationCommand],
-        [JsonUnions$, JsonUnionsCommand],
-        [NoInputAndNoOutput$, NoInputAndNoOutputCommand],
-        [NoInputAndOutput$, NoInputAndOutputCommand],
-        [OperationWithDefaults$, OperationWithDefaultsCommand],
-        [OperationWithNestedStructure$, OperationWithNestedStructureCommand],
-        [OperationWithRequiredMembers$, OperationWithRequiredMembersCommand],
-        [OperationWithRequiredMembersWithDefaults$, OperationWithRequiredMembersWithDefaultsCommand],
-        [PutWithContentEncoding$, PutWithContentEncodingCommand],
-        [QueryIncompatibleOperation$, QueryIncompatibleOperationCommand],
-        [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [ContentTypeParameters$, ContentTypeParametersCommand],
+      [EmptyInputAndEmptyOutput$, EmptyInputAndEmptyOutputCommand],
+      [EndpointOperation$, EndpointOperationCommand],
+      [EndpointWithHostLabelOperation$, EndpointWithHostLabelOperationCommand],
+      [GreetingWithErrors$, GreetingWithErrorsCommand],
+      [HostWithPathOperation$, HostWithPathOperationCommand],
+      [JsonUnions$, JsonUnionsCommand],
+      [NoInputAndNoOutput$, NoInputAndNoOutputCommand],
+      [NoInputAndOutput$, NoInputAndOutputCommand],
+      [OperationWithDefaults$, OperationWithDefaultsCommand],
+      [OperationWithNestedStructure$, OperationWithNestedStructureCommand],
+      [OperationWithRequiredMembers$, OperationWithRequiredMembersCommand],
+      [OperationWithRequiredMembersWithDefaults$, OperationWithRequiredMembersWithDefaultsCommand],
+      [PutWithContentEncoding$, PutWithContentEncodingCommand],
+      [QueryIncompatibleOperation$, QueryIncompatibleOperationCommand],
+      [SimpleScalarProperties$, SimpleScalarPropertiesCommand],
+    ]),
+    errors: [
+      ComplexError$,
+      FooError$,
+      InvalidGreeting$,
+    ],
   });
-
   runner.run();
 }, 30_000);

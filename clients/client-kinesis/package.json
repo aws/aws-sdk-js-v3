@@ -62,7 +62,7 @@
     "@smithy/util-middleware": "^4.2.11",
     "@smithy/util-retry": "^4.2.11",
     "@smithy/util-utf8": "^4.2.2",
-    "@smithy/util-waiter": "^4.2.11",
+    "@smithy/util-waiter": "^4.2.12",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

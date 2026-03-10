@@ -1,0 +1,1492 @@
+======================== minimal response ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.1
+
+[Uint8Array (json)]
+{
+  "__type": "aws.protocoltests.json#ErrorWithMembers"
+}
+
+
+--- [error name & message] ---
+ErrorWithMembers: Unknown
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "ErrorWithMembers",
+  Code: (undefined),
+  ComplexData: (undefined),
+  IntegerField: (undefined),
+  ListField: (undefined),
+  MapField: (undefined),
+  StringField: (undefined),
+  message: "Unknown",
+  __type: "aws.protocoltests.json#ErrorWithMembers"
+}
+
+======================== w/ optional fields ========================
+[status] 400
+  
+content-type: application/x-amz-json-1.1
+
+[Uint8Array (json)]
+{
+  "__type": "aws.protocoltests.json#ErrorWithMembers",
+  "Code": "__Code__",
+  "ComplexData": {
+    "Blob": "AQAAAQ==",
+    "Boolean": false,
+    "Double": 0,
+    "EmptyStruct": {},
+    "Float": 0,
+    "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+    "Integer": 0,
+    "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+    "JsonValue": "__JsonValue__",
+    "ListOfLists": [
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    ],
+    "ListOfMapsOfStrings": [
+      {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    ],
+    "ListOfStrings": [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    "ListOfStructs": [
+      {
+        "Value": "__Value__"
+      },
+      {
+        "Value": "__Value__"
+      },
+      {
+        "Value": "__Value__"
+      }
+    ],
+    "Long": 0,
+    "MapOfListsOfStrings": {
+      "key1": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "key2": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    "MapOfMaps": {
+      "key1": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "key2": {
+        "key1": "__value__",
+        "key2": "__value__"
+      }
+    },
+    "MapOfStrings": {
+      "key1": "__value__",
+      "key2": "__value__"
+    },
+    "MapOfStructs": {
+      "key1": {
+        "Value": "__Value__"
+      },
+      "key2": {
+        "Value": "__Value__"
+      }
+    },
+    "RecursiveList": [
+      {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [],
+          [],
+          []
+        ],
+        "ListOfMapsOfStrings": [
+          {},
+          {},
+          {}
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "key2": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "MapOfMaps": {
+          "key1": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "key2": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      },
+      {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [],
+          [],
+          []
+        ],
+        "ListOfMapsOfStrings": [
+          {},
+          {},
+          {}
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "key2": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "MapOfMaps": {
+          "key1": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "key2": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      },
+      {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [],
+          [],
+          []
+        ],
+        "ListOfMapsOfStrings": [
+          {},
+          {},
+          {}
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          "key2": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "MapOfMaps": {
+          "key1": {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          "key2": {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      }
+    ],
+    "RecursiveMap": {
+      "key1": {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        "ListOfMapsOfStrings": [
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [],
+          "key2": []
+        },
+        "MapOfMaps": {
+          "key1": {},
+          "key2": {}
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      },
+      "key2": {
+        "Blob": "AQAAAQ==",
+        "Boolean": false,
+        "Double": 0,
+        "EmptyStruct": {},
+        "Float": 0,
+        "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+        "Integer": 0,
+        "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+        "JsonValue": "__JsonValue__",
+        "ListOfLists": [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        "ListOfMapsOfStrings": [
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          },
+          {
+            "key1": "__value__",
+            "key2": "__value__"
+          }
+        ],
+        "ListOfStrings": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ListOfStructs": [
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          },
+          {
+            "Value": "__Value__"
+          }
+        ],
+        "Long": 0,
+        "MapOfListsOfStrings": {
+          "key1": [],
+          "key2": []
+        },
+        "MapOfMaps": {
+          "key1": {},
+          "key2": {}
+        },
+        "MapOfStrings": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "MapOfStructs": {
+          "key1": {
+            "Value": "__Value__"
+          },
+          "key2": {
+            "Value": "__Value__"
+          }
+        },
+        "RecursiveList": [
+          {},
+          {},
+          {}
+        ],
+        "RecursiveMap": {
+          "key1": {},
+          "key2": {}
+        },
+        "RecursiveStruct": {},
+        "SimpleStruct": {
+          "Value": "__Value__"
+        },
+        "String": "__String__",
+        "StructWithJsonName": {
+          "Value": "__Value__"
+        },
+        "Timestamp": 946702799.999,
+        "UnixTimestamp": 946702799.999
+      }
+    },
+    "RecursiveStruct": {
+      "Blob": "AQAAAQ==",
+      "Boolean": false,
+      "Double": 0,
+      "EmptyStruct": {},
+      "Float": 0,
+      "HttpdateTimestamp": "Sat, 01 Jan 2000 04:59:59 GMT",
+      "Integer": 0,
+      "Iso8601Timestamp": "2000-01-01T04:59:59.999Z",
+      "JsonValue": "__JsonValue__",
+      "ListOfLists": [
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      ],
+      "ListOfMapsOfStrings": [
+        {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      ],
+      "ListOfStrings": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      "ListOfStructs": [
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        },
+        {
+          "Value": "__Value__"
+        }
+      ],
+      "Long": 0,
+      "MapOfListsOfStrings": {
+        "key1": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "key2": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "MapOfMaps": {
+        "key1": {
+          "key1": "__value__",
+          "key2": "__value__"
+        },
+        "key2": {
+          "key1": "__value__",
+          "key2": "__value__"
+        }
+      },
+      "MapOfStrings": {
+        "key1": "__value__",
+        "key2": "__value__"
+      },
+      "MapOfStructs": {
+        "key1": {
+          "Value": "__Value__"
+        },
+        "key2": {
+          "Value": "__Value__"
+        }
+      },
+      "RecursiveList": [
+        {},
+        {},
+        {}
+      ],
+      "RecursiveMap": {
+        "key1": {},
+        "key2": {}
+      },
+      "RecursiveStruct": {},
+      "SimpleStruct": {
+        "Value": "__Value__"
+      },
+      "String": "__String__",
+      "StructWithJsonName": {
+        "Value": "__Value__"
+      },
+      "Timestamp": 946702799.999,
+      "UnixTimestamp": 946702799.999
+    },
+    "SimpleStruct": {
+      "Value": "__Value__"
+    },
+    "String": "__String__",
+    "StructWithJsonName": {
+      "Value": "__Value__"
+    },
+    "Timestamp": 946702799.999,
+    "UnixTimestamp": 946702799.999
+  },
+  "IntegerField": 0,
+  "ListField": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  "MapField": {
+    "key1": "__value__",
+    "key2": "__value__"
+  },
+  "Message": "__Message__",
+  "StringField": "__StringField__"
+}
+
+
+--- [error name & message] ---
+__Code__: __Message__
+
+--- [error object] ---
+{
+  $fault: "client",
+  $retryable: (undefined),
+  $metadata: {
+    httpStatusCode: (number) 400,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  },
+  name: "__Code__",
+  __type: "aws.protocoltests.json#ErrorWithMembers",
+  Code: "__Code__",
+  ComplexData: {
+    Blob: "AQAAAQ==",
+    Boolean: (boolean) false,
+    Double: (number) 0,
+    EmptyStruct: {},
+    Float: (number) 0,
+    HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+    Integer: (number) 0,
+    Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+    JsonValue: "__JsonValue__",
+    ListOfLists: [
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    ],
+    ListOfMapsOfStrings: [
+      {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    ],
+    ListOfStrings: [
+      "__member__",
+      "__member__",
+      "__member__"
+    ],
+    ListOfStructs: [
+      {
+        Value: "__Value__"
+      },
+      {
+        Value: "__Value__"
+      },
+      {
+        Value: "__Value__"
+      }
+    ],
+    Long: (number) 0,
+    MapOfListsOfStrings: {
+      key1: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      key2: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    },
+    MapOfMaps: {
+      key1: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      key2: {
+        key1: "__value__",
+        key2: "__value__"
+      }
+    },
+    MapOfStrings: {
+      key1: "__value__",
+      key2: "__value__"
+    },
+    MapOfStructs: {
+      key1: {
+        Value: "__Value__"
+      },
+      key2: {
+        Value: "__Value__"
+      }
+    },
+    RecursiveList: [
+      {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [],
+          [],
+          []
+        ],
+        ListOfMapsOfStrings: [
+          {},
+          {},
+          {}
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          key2: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        MapOfMaps: {
+          key1: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          key2: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      },
+      {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [],
+          [],
+          []
+        ],
+        ListOfMapsOfStrings: [
+          {},
+          {},
+          {}
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          key2: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        MapOfMaps: {
+          key1: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          key2: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      },
+      {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [],
+          [],
+          []
+        ],
+        ListOfMapsOfStrings: [
+          {},
+          {},
+          {}
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          key2: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        MapOfMaps: {
+          key1: {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          key2: {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      }
+    ],
+    RecursiveMap: {
+      key1: {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        ListOfMapsOfStrings: [
+          {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [],
+          key2: []
+        },
+        MapOfMaps: {
+          key1: {},
+          key2: {}
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      },
+      key2: {
+        Blob: "AQAAAQ==",
+        Boolean: (boolean) false,
+        Double: (number) 0,
+        EmptyStruct: {},
+        Float: (number) 0,
+        HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+        Integer: (number) 0,
+        Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+        JsonValue: "__JsonValue__",
+        ListOfLists: [
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ],
+          [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        ],
+        ListOfMapsOfStrings: [
+          {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__"
+          },
+          {
+            key1: "__value__",
+            key2: "__value__"
+          }
+        ],
+        ListOfStrings: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ListOfStructs: [
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          },
+          {
+            Value: "__Value__"
+          }
+        ],
+        Long: (number) 0,
+        MapOfListsOfStrings: {
+          key1: [],
+          key2: []
+        },
+        MapOfMaps: {
+          key1: {},
+          key2: {}
+        },
+        MapOfStrings: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        MapOfStructs: {
+          key1: {
+            Value: "__Value__"
+          },
+          key2: {
+            Value: "__Value__"
+          }
+        },
+        RecursiveList: [
+          {},
+          {},
+          {}
+        ],
+        RecursiveMap: {
+          key1: {},
+          key2: {}
+        },
+        RecursiveStruct: {},
+        SimpleStruct: {
+          Value: "__Value__"
+        },
+        String: "__String__",
+        StructWithJsonName: {
+          Value: "__Value__"
+        },
+        Timestamp: (number) 946702799.999,
+        UnixTimestamp: (number) 946702799.999
+      }
+    },
+    RecursiveStruct: {
+      Blob: "AQAAAQ==",
+      Boolean: (boolean) false,
+      Double: (number) 0,
+      EmptyStruct: {},
+      Float: (number) 0,
+      HttpdateTimestamp: "Sat, 01 Jan 2000 04:59:59 GMT",
+      Integer: (number) 0,
+      Iso8601Timestamp: "2000-01-01T04:59:59.999Z",
+      JsonValue: "__JsonValue__",
+      ListOfLists: [
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      ],
+      ListOfMapsOfStrings: [
+        {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      ],
+      ListOfStrings: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      ListOfStructs: [
+        {
+          Value: "__Value__"
+        },
+        {
+          Value: "__Value__"
+        },
+        {
+          Value: "__Value__"
+        }
+      ],
+      Long: (number) 0,
+      MapOfListsOfStrings: {
+        key1: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        key2: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      MapOfMaps: {
+        key1: {
+          key1: "__value__",
+          key2: "__value__"
+        },
+        key2: {
+          key1: "__value__",
+          key2: "__value__"
+        }
+      },
+      MapOfStrings: {
+        key1: "__value__",
+        key2: "__value__"
+      },
+      MapOfStructs: {
+        key1: {
+          Value: "__Value__"
+        },
+        key2: {
+          Value: "__Value__"
+        }
+      },
+      RecursiveList: [
+        {},
+        {},
+        {}
+      ],
+      RecursiveMap: {
+        key1: {},
+        key2: {}
+      },
+      RecursiveStruct: {},
+      SimpleStruct: {
+        Value: "__Value__"
+      },
+      String: "__String__",
+      StructWithJsonName: {
+        Value: "__Value__"
+      },
+      Timestamp: (number) 946702799.999,
+      UnixTimestamp: (number) 946702799.999
+    },
+    SimpleStruct: {
+      Value: "__Value__"
+    },
+    String: "__String__",
+    StructWithJsonName: {
+      Value: "__Value__"
+    },
+    Timestamp: (number) 946702799.999,
+    UnixTimestamp: (number) 946702799.999
+  },
+  IntegerField: (number) 0,
+  ListField: [
+    "__member__",
+    "__member__",
+    "__member__"
+  ],
+  MapField: {
+    key1: "__value__",
+    key2: "__value__"
+  },
+  StringField: "__StringField__",
+  message: "__Message__"
+}
+
+======================== frontend error ========================
+[status] 500
+  
+content-type: text/html
+
+[Uint8Array (text)]
+An unmodeled error occurred in a front end layer.
+
+
+--- [error name & message] ---
+SyntaxError: Unexpected token 'A', "An unmodel"... is not valid JSON
+  Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.
+
+--- [error object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 500,
+    requestId: (undefined),
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

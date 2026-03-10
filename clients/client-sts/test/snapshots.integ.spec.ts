@@ -14,6 +14,8 @@ import {
   AssumeRootCommand,
   DecodeAuthorizationMessage$,
   DecodeAuthorizationMessageCommand,
+  ExpiredTokenException$,
+  ExpiredTradeInTokenException$,
   GetAccessKeyInfo$,
   GetAccessKeyInfoCommand,
   GetCallerIdentity$,
@@ -26,6 +28,16 @@ import {
   GetSessionTokenCommand,
   GetWebIdentityToken$,
   GetWebIdentityTokenCommand,
+  IDPCommunicationErrorException$,
+  IDPRejectedClaimException$,
+  InvalidAuthorizationMessageException$,
+  InvalidIdentityTokenException$,
+  JWTPayloadSizeExceededException$,
+  MalformedPolicyDocumentException$,
+  OutboundWebIdentityFederationDisabledException$,
+  PackedPolicyTooLargeException$,
+  RegionDisabledException$,
+  SessionDurationEscalationException$,
   STSClient,
 } from "../src";
 
@@ -46,22 +58,33 @@ describe("STSClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [AssumeRole$, AssumeRoleCommand],
-        [AssumeRoleWithSAML$, AssumeRoleWithSAMLCommand],
-        [AssumeRoleWithWebIdentity$, AssumeRoleWithWebIdentityCommand],
-        [AssumeRoot$, AssumeRootCommand],
-        [DecodeAuthorizationMessage$, DecodeAuthorizationMessageCommand],
-        [GetAccessKeyInfo$, GetAccessKeyInfoCommand],
-        [GetCallerIdentity$, GetCallerIdentityCommand],
-        [GetDelegatedAccessToken$, GetDelegatedAccessTokenCommand],
-        [GetFederationToken$, GetFederationTokenCommand],
-        [GetSessionToken$, GetSessionTokenCommand],
-        [GetWebIdentityToken$, GetWebIdentityTokenCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [AssumeRole$, AssumeRoleCommand],
+      [AssumeRoleWithSAML$, AssumeRoleWithSAMLCommand],
+      [AssumeRoleWithWebIdentity$, AssumeRoleWithWebIdentityCommand],
+      [AssumeRoot$, AssumeRootCommand],
+      [DecodeAuthorizationMessage$, DecodeAuthorizationMessageCommand],
+      [GetAccessKeyInfo$, GetAccessKeyInfoCommand],
+      [GetCallerIdentity$, GetCallerIdentityCommand],
+      [GetDelegatedAccessToken$, GetDelegatedAccessTokenCommand],
+      [GetFederationToken$, GetFederationTokenCommand],
+      [GetSessionToken$, GetSessionTokenCommand],
+      [GetWebIdentityToken$, GetWebIdentityTokenCommand],
+    ]),
+    errors: [
+      ExpiredTokenException$,
+      ExpiredTradeInTokenException$,
+      IDPCommunicationErrorException$,
+      IDPRejectedClaimException$,
+      InvalidAuthorizationMessageException$,
+      InvalidIdentityTokenException$,
+      JWTPayloadSizeExceededException$,
+      MalformedPolicyDocumentException$,
+      OutboundWebIdentityFederationDisabledException$,
+      PackedPolicyTooLargeException$,
+      RegionDisabledException$,
+      SessionDurationEscalationException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

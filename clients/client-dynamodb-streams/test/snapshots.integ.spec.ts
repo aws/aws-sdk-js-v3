@@ -7,12 +7,17 @@ import {
   DescribeStream$,
   DescribeStreamCommand,
   DynamoDBStreamsClient,
+  ExpiredIteratorException$,
   GetRecords$,
   GetRecordsCommand,
   GetShardIterator$,
   GetShardIteratorCommand,
+  InternalServerError$,
+  LimitExceededException$,
   ListStreams$,
   ListStreamsCommand,
+  ResourceNotFoundException$,
+  TrimmedDataAccessException$,
 } from "../src";
 
 vi.setSystemTime(new Date(946702799999));
@@ -32,15 +37,19 @@ describe("DynamoDBStreamsClient" + ` (${mode})`, () => {
       expect(actual).toEqual(expected);
       return Promise.resolve();
     },
-    schemas:
-      new Map<any, any>([
-        [DescribeStream$, DescribeStreamCommand],
-        [GetRecords$, GetRecordsCommand],
-        [GetShardIterator$, GetShardIteratorCommand],
-        [ListStreams$, ListStreamsCommand],
-      ]),
-
+    schemas: new Map<any, any>([
+      [DescribeStream$, DescribeStreamCommand],
+      [GetRecords$, GetRecordsCommand],
+      [GetShardIterator$, GetShardIteratorCommand],
+      [ListStreams$, ListStreamsCommand],
+    ]),
+    errors: [
+      ExpiredIteratorException$,
+      InternalServerError$,
+      LimitExceededException$,
+      ResourceNotFoundException$,
+      TrimmedDataAccessException$,
+    ],
   });
-
   runner.run();
 }, 30_000);

@@ -1,8 +1,17 @@
 import { NormalizedSchema } from "@smithy/core/schema";
 import { SnapshotProtocol } from "@smithy/snapshot-testing";
-import type { $Codec, $ShapeDeserializer, $ShapeSerializer, HttpResponse, StaticOperationSchema } from "@smithy/types";
+import type {
+  $Codec,
+  $ShapeDeserializer,
+  $ShapeSerializer,
+  HttpResponse,
+  StaticErrorSchema,
+  StaticOperationSchema,
+} from "@smithy/types";
 import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable } from "node:stream";
+
+import { setResponseBody } from "./setResponseBody";
 
 /**
  * @internal
@@ -44,13 +53,7 @@ export abstract class RpcSnapshotResponseSerializer extends SnapshotProtocol {
     } else if (!$output.isUnitSchema()) {
       const { serializer } = this;
       serializer.write($output, output);
-      const flushed = serializer.flush();
-
-      if (flushed instanceof Uint8Array) {
-        response.body = Readable.from([flushed]);
-      } else if (typeof flushed === "string") {
-        response.body = Readable.from([fromUtf8(flushed)]);
-      }
+      setResponseBody(serializer, response);
     }
 
     if (!response.body) {
@@ -59,5 +62,45 @@ export abstract class RpcSnapshotResponseSerializer extends SnapshotProtocol {
     }
 
     return response;
+  }
+
+  public async serializeErrorResponse(errorSchema: StaticErrorSchema, output: any): Promise<HttpResponse> {
+    const $error = NormalizedSchema.of(errorSchema);
+    const httpError = $error.getMergedTraits().httpError;
+    const status = Number(typeof httpError === "number" ? httpError : 400);
+
+    const response: HttpResponse = {
+      statusCode: status,
+      headers: {
+        "content-type": this.getDefaultContentType(),
+      },
+    };
+
+    const awsQueryError = $error.getMergedTraits().awsQueryError as
+      | { code: string; httpResponseCode?: number }
+      | undefined;
+
+    if (awsQueryError) {
+      const { code, httpResponseCode } = awsQueryError;
+      response.statusCode = httpResponseCode ?? response.statusCode;
+      response.headers["x-amzn-query-error"] = `${code};Sender`;
+    }
+
+    const { serializer } = this;
+
+    if (this.getDefaultContentType().match(/json|cbor/)) {
+      Object.assign(output, {
+        __type: $error.getName(true),
+      });
+    }
+    const [$, o] = this.errorTransform($error, output);
+    serializer.write($, o);
+    setResponseBody(serializer, response);
+
+    return response;
+  }
+
+  protected errorTransform($error: NormalizedSchema, output: any): [NormalizedSchema, any] {
+    return [$error, output];
   }
 }
