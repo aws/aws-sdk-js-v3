@@ -31,6 +31,7 @@ import {
   CommentBodyTextType,
   CommentContent$,
   CommentFilter$,
+  CompoundCondition$,
   ConflictException,
   ConflictException$,
   ConnectCaseContent$,
@@ -399,6 +400,7 @@ assert(typeof CaseRuleSummary$ === "object");
 assert(typeof CaseSummary$ === "object");
 assert(typeof CommentContent$ === "object");
 assert(typeof CommentFilter$ === "object");
+assert(typeof CompoundCondition$ === "object");
 assert(typeof ConnectCaseContent$ === "object");
 assert(typeof ConnectCaseFilter$ === "object");
 assert(typeof ConnectCaseInputContent$ === "object");

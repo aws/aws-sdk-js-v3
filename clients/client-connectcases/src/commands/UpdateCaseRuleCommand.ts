@@ -70,6 +70,45 @@ export interface UpdateCaseRuleCommandOutput extends UpdateCaseRuleResponse, __M
  *             },
  *             result: true || false, // required
  *           },
+ *           andAll: { // CompoundCondition
+ *             conditions: [ // required
+ *               {//  Union: only one key present
+ *                 equalTo: {
+ *                   operandOne: {//  Union: only one key present
+ *                     fieldId: "STRING_VALUE",
+ *                   },
+ *                   operandTwo: {//  Union: only one key present
+ *                     stringValue: "STRING_VALUE",
+ *                     booleanValue: true || false,
+ *                     doubleValue: Number("double"),
+ *                     emptyValue: {},
+ *                   },
+ *                   result: true || false, // required
+ *                 },
+ *                 notEqualTo: {
+ *                   operandOne: {//  Union: only one key present
+ *                     fieldId: "STRING_VALUE",
+ *                   },
+ *                   operandTwo: {//  Union: only one key present
+ *                     stringValue: "STRING_VALUE",
+ *                     booleanValue: true || false,
+ *                     doubleValue: Number("double"),
+ *                     emptyValue: {},
+ *                   },
+ *                   result: true || false, // required
+ *                 },
+ *                 andAll: {
+ *                   conditions: "<BooleanConditionList>", // required
+ *                 },
+ *                 orAll: {
+ *                   conditions: "<BooleanConditionList>", // required
+ *                 },
+ *               },
+ *             ],
+ *           },
+ *           orAll: {
+ *             conditions: "<BooleanConditionList>", // required
+ *           },
  *         },
  *       ],
  *     },
@@ -87,34 +126,7 @@ export interface UpdateCaseRuleCommandOutput extends UpdateCaseRuleResponse, __M
  *     },
  *     hidden: { // HiddenCaseRule
  *       defaultValue: true || false, // required
- *       conditions: [ // required
- *         {//  Union: only one key present
- *           equalTo: {
- *             operandOne: {//  Union: only one key present
- *               fieldId: "STRING_VALUE",
- *             },
- *             operandTwo: {//  Union: only one key present
- *               stringValue: "STRING_VALUE",
- *               booleanValue: true || false,
- *               doubleValue: Number("double"),
- *               emptyValue: {},
- *             },
- *             result: true || false, // required
- *           },
- *           notEqualTo: {
- *             operandOne: {//  Union: only one key present
- *               fieldId: "STRING_VALUE",
- *             },
- *             operandTwo: {//  Union: only one key present
- *               stringValue: "STRING_VALUE",
- *               booleanValue: true || false,
- *               doubleValue: Number("double"),
- *               emptyValue: {},
- *             },
- *             result: true || false, // required
- *           },
- *         },
- *       ],
+ *       conditions: "<BooleanConditionList>", // required
  *     },
  *   },
  * };

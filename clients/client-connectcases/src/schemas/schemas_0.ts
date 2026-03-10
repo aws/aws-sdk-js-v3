@@ -33,7 +33,8 @@ const _CCRR = "CreateCaseRuleRequest";
 const _CCRRr = "CreateCaseRuleResponse";
 const _CCRr = "CreateCaseResponse";
 const _CCRre = "CreateCaseRule";
-const _CCo = "ContactContent";
+const _CCo = "CompoundCondition";
+const _CCon = "ContactContent";
 const _CCr = "CreateCase";
 const _CCu = "CustomContent";
 const _CD = "CreateDomain";
@@ -274,9 +275,9 @@ const _cTo = "completionTime";
 const _cTr = "createdTime";
 const _ca = "cases";
 const _ch = "channel";
-const _co = "content";
+const _co = "conditions";
 const _com = "comment";
-const _con = "conditions";
+const _con = "content";
 const _cont = "contains";
 const _conta = "contact";
 const _cu = "custom";
@@ -568,6 +569,11 @@ export var CommentFilter$: StaticStructureSchema = [3, n0, _CF,
   [],
   []
 ];
+export var CompoundCondition$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_co],
+  [() => BooleanConditionList], 1
+];
 export var ConnectCaseContent$: StaticStructureSchema = [3, n0, _CCC,
   0,
   [_cI],
@@ -588,7 +594,7 @@ export var Contact$: StaticStructureSchema = [3, n0, _C,
   [_cA],
   [0], 1
 ];
-export var ContactContent$: StaticStructureSchema = [3, n0, _CCo,
+export var ContactContent$: StaticStructureSchema = [3, n0, _CCon,
   0,
   [_cA, _ch, _cTST],
   [0, 0, 5], 3
@@ -640,7 +646,7 @@ export var CreateFieldResponse$: StaticStructureSchema = [3, n0, _CFRr,
 ];
 export var CreateLayoutRequest$: StaticStructureSchema = [3, n0, _CLR,
   0,
-  [_dI, _n, _co],
+  [_dI, _n, _con],
   [[0, 1], 0, () => LayoutContent$], 3
 ];
 export var CreateLayoutResponse$: StaticStructureSchema = [3, n0, _CLRr,
@@ -650,7 +656,7 @@ export var CreateLayoutResponse$: StaticStructureSchema = [3, n0, _CLRr,
 ];
 export var CreateRelatedItemRequest$: StaticStructureSchema = [3, n0, _CRIR,
   0,
-  [_dI, _cI, _t, _co, _pB],
+  [_dI, _cI, _t, _con, _pB],
   [[0, 1], [0, 1], 0, [() => RelatedItemInputContent$, 0], [() => UserUnion$, 0]], 4
 ];
 export var CreateRelatedItemResponse$: StaticStructureSchema = [3, n0, _CRIRr,
@@ -890,7 +896,7 @@ export var GetLayoutRequest$: StaticStructureSchema = [3, n0, _GLR,
 ];
 export var GetLayoutResponse$: StaticStructureSchema = [3, n0, _GLRe,
   0,
-  [_lI, _lA, _n, _co, _ta, _de, _cTr, _lMT],
+  [_lI, _lA, _n, _con, _ta, _de, _cTr, _lMT],
   [0, 0, 0, () => LayoutContent$, [() => Tags, 0], 2, 5, 5], 4
 ];
 export var GetTemplateRequest$: StaticStructureSchema = [3, n0, _GTR,
@@ -905,7 +911,7 @@ export var GetTemplateResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var HiddenCaseRule$: StaticStructureSchema = [3, n0, _HCR,
   0,
-  [_dV, _con],
+  [_dV, _co],
   [2, () => BooleanConditionList], 2
 ];
 export var LayoutConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -1025,7 +1031,7 @@ export var RelatedItemEventIncludedData$: StaticStructureSchema = [3, n0, _RIEID
 ];
 export var RequiredCaseRule$: StaticStructureSchema = [3, n0, _RCR,
   0,
-  [_dV, _con],
+  [_dV, _co],
   [2, () => BooleanConditionList], 2
 ];
 export var RequiredField$: StaticStructureSchema = [3, n0, _RF,
@@ -1045,7 +1051,7 @@ export var SearchAllRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SARI
 ];
 export var SearchAllRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SARIRI,
   0,
-  [_rII, _cI, _t, _aT, _co, _pB, _ta],
+  [_rII, _cI, _t, _aT, _con, _pB, _ta],
   [0, 0, 0, 5, [() => RelatedItemContent$, 0], [() => UserUnion$, 0], [() => Tags, 0]], 5
 ];
 export var SearchAllRelatedItemsSort$: StaticStructureSchema = [3, n0, _SARIS,
@@ -1080,7 +1086,7 @@ export var SearchRelatedItemsResponse$: StaticStructureSchema = [3, n0, _SRIRe,
 ];
 export var SearchRelatedItemsResponseItem$: StaticStructureSchema = [3, n0, _SRIRI,
   0,
-  [_rII, _t, _aT, _co, _ta, _pB],
+  [_rII, _t, _aT, _con, _ta, _pB],
   [0, 0, 5, [() => RelatedItemContent$, 0], [() => Tags, 0], [() => UserUnion$, 0]], 4
 ];
 export var SlaConfiguration$: StaticStructureSchema = [3, n0, _SC,
@@ -1175,7 +1181,7 @@ export var UpdateFieldResponse$: StaticStructureSchema = [3, n0, _UFRp,
 ];
 export var UpdateLayoutRequest$: StaticStructureSchema = [3, n0, _ULR,
   0,
-  [_dI, _lI, _n, _co],
+  [_dI, _lI, _n, _con],
   [[0, 1], [0, 1], 0, () => LayoutContent$], 2
 ];
 export var UpdateLayoutResponse$: StaticStructureSchema = [3, n0, _ULRp,
@@ -1320,8 +1326,8 @@ export var AuditEventFieldValueUnion$: StaticUnionSchema = [4, n0, _AEFVU,
 ];
 export var BooleanCondition$: StaticUnionSchema = [4, n0, _BC,
   0,
-  [_eT, _nET],
-  [() => BooleanOperands$, () => BooleanOperands$]
+  [_eT, _nET, _aA, _oA],
+  [() => BooleanOperands$, () => BooleanOperands$, () => CompoundCondition$, () => CompoundCondition$]
 ];
 export var CaseFilter$: StaticUnionSchema = [4, n0, _CFa,
   0,

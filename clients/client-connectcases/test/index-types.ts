@@ -163,6 +163,7 @@ export type {
   CaseSummary,
   CommentContent,
   CommentFilter,
+  CompoundCondition,
   ConnectCaseContent,
   ConnectCaseFilter,
   ConnectCaseInputContent,
