@@ -16041,6 +16041,12 @@
           "traits": {
             "smithy.api#enumValue": "A2A"
           }
+        },
+        "AGUI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AGUI"
+          }
         }
       }
     },

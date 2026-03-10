@@ -94,6 +94,7 @@ export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
  */
 export const ServerProtocol = {
   A2A: "A2A",
+  AGUI: "AGUI",
   HTTP: "HTTP",
   MCP: "MCP",
 } as const;

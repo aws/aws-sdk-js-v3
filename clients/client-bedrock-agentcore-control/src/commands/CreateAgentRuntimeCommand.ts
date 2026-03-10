@@ -109,7 +109,7 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *     ],
  *   },
  *   protocolConfiguration: { // ProtocolConfiguration
- *     serverProtocol: "MCP" || "HTTP" || "A2A", // required
+ *     serverProtocol: "MCP" || "HTTP" || "A2A" || "AGUI", // required
  *   },
  *   lifecycleConfiguration: { // LifecycleConfiguration
  *     idleRuntimeSessionTimeout: Number("int"),
