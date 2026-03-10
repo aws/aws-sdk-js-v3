@@ -16,7 +16,7 @@ content-type: application/cbor
 
 
 --- [error name & message] ---
-InvalidGreeting: Unknown
+InvalidGreeting: UnknownError
 
 --- [error object] ---
 {
@@ -31,7 +31,7 @@ InvalidGreeting: Unknown
     totalRetryDelay: (number) 0
   },
   name: "InvalidGreeting",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "smithy.protocoltests.rpcv2Cbor#InvalidGreeting"
 }
 

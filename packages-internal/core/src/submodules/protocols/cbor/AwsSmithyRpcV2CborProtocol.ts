@@ -79,7 +79,7 @@ export class AwsSmithyRpcV2CborProtocol extends SmithyRpcV2CborProtocol {
     );
 
     const ns = NormalizedSchema.of(errorSchema);
-    const message = dataObject.message ?? dataObject.Message ?? "Unknown";
+    const message = dataObject.message ?? dataObject.Message ?? "UnknownError";
     const ErrorCtor = TypeRegistry.for(errorSchema[1]).getErrorCtor(errorSchema) ?? Error;
     const exception = new ErrorCtor(message);
 
