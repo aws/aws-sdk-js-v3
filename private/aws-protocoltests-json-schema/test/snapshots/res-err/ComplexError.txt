@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ComplexError: Unknown
+ComplexError: UnknownError
 
 --- [error object] ---
 {
@@ -27,7 +27,7 @@ ComplexError: Unknown
   name: "ComplexError",
   TopLevel: (undefined),
   Nested: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#ComplexError"
 }
 
@@ -47,7 +47,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ComplexError: Unknown
+ComplexError: UnknownError
 
 --- [error object] ---
 {
@@ -66,7 +66,7 @@ ComplexError: Unknown
   Nested: {
     Foo: "__Foo__"
   },
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#ComplexError"
 }
 

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ThrottlingException: Unknown
+ThrottlingException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ThrottlingException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ThrottlingException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#ThrottlingException"
 }
 

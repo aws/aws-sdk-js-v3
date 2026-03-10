@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ErrorWithoutMembers: Unknown
+ErrorWithoutMembers: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ErrorWithoutMembers: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ErrorWithoutMembers",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#ErrorWithoutMembers"
 }
 
@@ -41,7 +41,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ErrorWithoutMembers: Unknown
+ErrorWithoutMembers: UnknownError
 
 --- [error object] ---
 {
@@ -56,7 +56,7 @@ ErrorWithoutMembers: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ErrorWithoutMembers",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "aws.protocoltests.json#ErrorWithoutMembers"
 }
 

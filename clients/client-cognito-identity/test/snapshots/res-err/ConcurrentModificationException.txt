@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-ConcurrentModificationException: Unknown
+ConcurrentModificationException: UnknownError
 
 --- [error object] ---
 {
@@ -25,7 +25,7 @@ ConcurrentModificationException: Unknown
     totalRetryDelay: (number) 0
   },
   name: "ConcurrentModificationException",
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cognitoidentity#ConcurrentModificationException"
 }
 

@@ -10,7 +10,7 @@ content-type: application/x-amz-json-1.1
 
 
 --- [error name & message] ---
-DataAlreadyAcceptedException: Unknown
+DataAlreadyAcceptedException: UnknownError
 
 --- [error object] ---
 {
@@ -26,7 +26,7 @@ DataAlreadyAcceptedException: Unknown
   },
   name: "DataAlreadyAcceptedException",
   expectedSequenceToken: (undefined),
-  message: "Unknown",
+  message: "UnknownError",
   __type: "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException"
 }
 
