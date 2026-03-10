@@ -169,10 +169,10 @@ it("should not crash when error response body is empty", async () => {
   expect(actual).toBeDefined();
   expect(actual).not.toBeInstanceOf(TypeError);
   expect(actual.$metadata.httpStatusCode).toBe(500);
-  expect(actual.message).toBe("Unknown");
+  expect(actual.message).toBe("UnknownError");
   expect(actual.Error).toEqual({
     Type: undefined,
     Code: undefined,
-    Message: "Unknown",
+    Message: "UnknownError",
   });
 });
