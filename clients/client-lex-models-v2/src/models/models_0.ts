@@ -29,6 +29,7 @@ import {
   BedrockTraceStatus,
   BotAliasReplicationStatus,
   BotAliasStatus,
+  BotAnalyzerStatus,
   BotFilterName,
   BotFilterOperator,
   BotLocaleFilterName,
@@ -59,14 +60,12 @@ import {
   ImportExportFileFormat,
   ImportFilterName,
   ImportFilterOperator,
-  ImportResourceType,
   ImportSortAttribute,
   ImportStatus,
-  IntentFilterName,
-  IntentFilterOperator,
   MergeStrategy,
   MessageSelectionStrategy,
   ObfuscationSettingType,
+  Priority,
   PromptAttempt,
   SlotResolutionStrategy,
   SlotValueResolutionStrategy,
@@ -2709,6 +2708,88 @@ export interface BotAliasTestExecutionTarget {
    * @public
    */
   localeId: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a historical bot analysis execution.</p>
+ * @public
+ */
+export interface BotAnalyzerHistorySummary {
+  /**
+   * <p>The status of the historical analysis execution.</p>
+   *          <p>Valid Values: <code>Processing | Available | Failed | Stopping | Stopped</code>
+   *          </p>
+   * @public
+   */
+  botAnalyzerStatus: BotAnalyzerStatus | undefined;
+
+  /**
+   * <p>The date and time when the analysis was initiated.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>The unique identifier for the analysis request.</p>
+   * @public
+   */
+  botAnalyzerRequestId: string | undefined;
+}
+
+/**
+ * <p>Specifies the location of an identified issue within the bot configuration.</p>
+ * @public
+ */
+export interface IssueLocation {
+  /**
+   * <p>The locale identifier where the issue was found.</p>
+   * @public
+   */
+  botLocale?: string | undefined;
+
+  /**
+   * <p>The intent identifier where the issue was found, if applicable.</p>
+   * @public
+   */
+  intentId?: string | undefined;
+
+  /**
+   * <p>The slot identifier where the issue was found, if applicable.</p>
+   * @public
+   */
+  slotId?: string | undefined;
+}
+
+/**
+ * <p>Contains a recommendation for bot optimization identified by the Bot Analyzer.</p>
+ * @public
+ */
+export interface BotAnalyzerRecommendation {
+  /**
+   * <p>The location information for the identified issue within the bot configuration.</p>
+   * @public
+   */
+  issueLocation: IssueLocation | undefined;
+
+  /**
+   * <p>The priority level of the recommendation.</p>
+   *          <p>Valid Values: <code>High | Medium | Low</code>
+   *          </p>
+   * @public
+   */
+  priority: Priority | undefined;
+
+  /**
+   * <p>A detailed description of the identified configuration issue.</p>
+   * @public
+   */
+  issueDescription: string | undefined;
+
+  /**
+   * <p>The recommended solution to address the identified issue.</p>
+   * @public
+   */
+  proposedFix: string | undefined;
 }
 
 /**
@@ -6630,6 +6711,28 @@ export interface DeleteBotAliasResponse {
 /**
  * @public
  */
+export interface DeleteBotAnalyzerRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis request whose recommendations should be deleted.</p>
+   * @public
+   */
+  botAnalyzerRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBotAnalyzerRecommendationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteBotLocaleRequest {
   /**
    * <p>The unique identifier of the bot that contains the locale.</p>
@@ -7361,6 +7464,84 @@ export interface DescribeBotAliasResponse {
    * @public
    */
   parentBotNetworks?: ParentBotNetwork[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotAnalyzerRecommendationRequest {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis request.</p>
+   * @public
+   */
+  botAnalyzerRequestId: string | undefined;
+
+  /**
+   * <p>If the response from a previous request was truncated, the <code>nextToken</code> value is used to retrieve the next page of recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of recommendations to return in the response. The default is 5.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBotAnalyzerRecommendationResponse {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>The version of the bot that was analyzed.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>The locale identifier of the bot locale that was analyzed.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The current status of the analysis.</p>
+   *          <p>Valid Values: <code>Processing | Available | Failed | Stopping | Stopped</code>
+   *          </p>
+   * @public
+   */
+  botAnalyzerStatus?: BotAnalyzerStatus | undefined;
+
+  /**
+   * <p>The date and time when the analysis was initiated.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>A list of recommendations for optimizing your bot configuration. Each recommendation includes the issue location, priority, description, and proposed fix.</p>
+   * @public
+   */
+  botAnalyzerRecommendationList?: BotAnalyzerRecommendation[] | undefined;
+
+  /**
+   * <p>If the response is truncated, this token can be used in a subsequent request to retrieve the next page of recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -9306,189 +9487,4 @@ export interface ImportSortBy {
    * @public
    */
   order: SortOrder | undefined;
-}
-
-/**
- * <p>Provides summary information about an import in an import
- *          list.</p>
- * @public
- */
-export interface ImportSummary {
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
-   * @public
-   */
-  importId?: string | undefined;
-
-  /**
-   * <p>The unique identifier that Amazon Lex assigned to the imported
-   *          resource.</p>
-   * @public
-   */
-  importedResourceId?: string | undefined;
-
-  /**
-   * <p>The name that you gave the imported resource.</p>
-   * @public
-   */
-  importedResourceName?: string | undefined;
-
-  /**
-   * <p>The status of the resource. When the status is
-   *          <code>Completed</code> the resource is ready to build.</p>
-   * @public
-   */
-  importStatus?: ImportStatus | undefined;
-
-  /**
-   * <p>The strategy used to merge existing bot or bot locale definitions
-   *          with the imported definition.</p>
-   * @public
-   */
-  mergeStrategy?: MergeStrategy | undefined;
-
-  /**
-   * <p>The date and time that the import was created.</p>
-   * @public
-   */
-  creationDateTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the import was last updated.</p>
-   * @public
-   */
-  lastUpdatedDateTime?: Date | undefined;
-
-  /**
-   * <p>The type of resource that was imported.</p>
-   * @public
-   */
-  importedResourceType?: ImportResourceType | undefined;
-}
-
-/**
- * <p>Provides the phrase that Amazon Lex should look for in the user's input
- *  to the bot.</p>
- * @public
- */
-export interface RuntimeHintValue {
-  /**
-   * <p>The phrase that Amazon Lex should look for in the user's input to the
-   *  bot.</p>
-   * @public
-   */
-  phrase: string | undefined;
-}
-
-/**
- * <p>The number of items in the intent classification test.</p>
- * @public
- */
-export interface IntentClassificationTestResultItemCounts {
-  /**
-   * <p>The total number of results in the intent classification test.</p>
-   * @public
-   */
-  totalResultCount: number | undefined;
-
-  /**
-   * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
-   * @public
-   */
-  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>> | undefined;
-
-  /**
-   * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
-   * @public
-   */
-  intentMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
-}
-
-/**
- * <p>Information for an intent that is classified by the test workbench.</p>
- * @public
- */
-export interface IntentClassificationTestResultItem {
-  /**
-   * <p>The name of the intent.</p>
-   * @public
-   */
-  intentName: string | undefined;
-
-  /**
-   * <p>Indicates whether the conversation involves multiple turns or not.</p>
-   * @public
-   */
-  multiTurnConversation: boolean | undefined;
-
-  /**
-   * <p>The result of the intent classification test.</p>
-   * @public
-   */
-  resultCounts: IntentClassificationTestResultItemCounts | undefined;
-}
-
-/**
- * <p>Information for the results of the intent classification test. </p>
- * @public
- */
-export interface IntentClassificationTestResults {
-  /**
-   * <p>A list of the results for the intent classification test.</p>
-   * @public
-   */
-  items: IntentClassificationTestResultItem[] | undefined;
-}
-
-/**
- * <p>Filters the response from the <code>ListIntents</code>
- *          operation.</p>
- * @public
- */
-export interface IntentFilter {
-  /**
-   * <p>The name of the field to use for the filter.</p>
-   * @public
-   */
-  name: IntentFilterName | undefined;
-
-  /**
-   * <p>The value to use for the filter.</p>
-   * @public
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
-   *          <code>ListIntents</code> operation should return only aliases that
-   *          equal the specified value. Specify <code>CO</code> when the
-   *          <code>ListIntents</code> operation should return aliases that
-   *          contain the specified value.</p>
-   * @public
-   */
-  operator: IntentFilterOperator | undefined;
-}
-
-/**
- * <p>Information about the counts for a slot resolution in the results of a test execution.</p>
- * @public
- */
-export interface SlotResolutionTestResultItemCounts {
-  /**
-   * <p>The total number of results.</p>
-   * @public
-   */
-  totalResultCount: number | undefined;
-
-  /**
-   * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
-   * @public
-   */
-  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>> | undefined;
-
-  /**
-   * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
-   * @public
-   */
-  slotMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
 }

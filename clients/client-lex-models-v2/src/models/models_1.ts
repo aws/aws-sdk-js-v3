@@ -1,10 +1,12 @@
 // smithy-typescript generated code
 import {
+  AnalysisScope,
   AnalyticsModality,
   AnalyticsSessionSortByName,
   AnalyticsSortOrder,
   AnalyticsUtteranceSortByName,
   BotAliasStatus,
+  BotAnalyzerStatus,
   BotLocaleStatus,
   BotRecommendationStatus,
   BotStatus,
@@ -13,7 +15,10 @@ import {
   ExportStatus,
   GenerationStatus,
   ImportExportFileFormat,
+  ImportResourceType,
   ImportStatus,
+  IntentFilterName,
+  IntentFilterOperator,
   IntentSortAttribute,
   IntentState,
   MergeStrategy,
@@ -74,7 +79,6 @@ import {
   type ImageResponseCard,
   type ImportResourceSpecification,
   type ImportSortBy,
-  type IntentClassificationTestResults,
   type KendraConfiguration,
   type MultipleValuesSetting,
   type ObfuscationSetting,
@@ -85,7 +89,6 @@ import {
   type SentimentAnalysisSettings,
   type SlotDefaultValueSpecification,
   type SlotResolutionSetting,
-  type SlotResolutionTestResultItemCounts,
   type SlotValue,
   type SlotValueSelectionSetting,
   type SpeechRecognitionSettings,
@@ -125,6 +128,7 @@ import {
   BotAliasLocaleSettings,
   BotAliasReplicaSummary,
   BotAliasSummary,
+  BotAnalyzerHistorySummary,
   BotFilter,
   BotLocaleFilter,
   BotLocaleSummary,
@@ -141,15 +145,197 @@ import {
   ExportSummary,
   GenerationSummary,
   ImportFilter,
-  ImportSummary,
   InputContext,
-  IntentFilter,
   OutputContext,
-  RuntimeHintValue,
   SampleUtterance,
   SlotPriority,
   SlotTypeValue,
 } from "./models_0";
+
+/**
+ * <p>Provides summary information about an import in an import
+ *          list.</p>
+ * @public
+ */
+export interface ImportSummary {
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the import.</p>
+   * @public
+   */
+  importId?: string | undefined;
+
+  /**
+   * <p>The unique identifier that Amazon Lex assigned to the imported
+   *          resource.</p>
+   * @public
+   */
+  importedResourceId?: string | undefined;
+
+  /**
+   * <p>The name that you gave the imported resource.</p>
+   * @public
+   */
+  importedResourceName?: string | undefined;
+
+  /**
+   * <p>The status of the resource. When the status is
+   *          <code>Completed</code> the resource is ready to build.</p>
+   * @public
+   */
+  importStatus?: ImportStatus | undefined;
+
+  /**
+   * <p>The strategy used to merge existing bot or bot locale definitions
+   *          with the imported definition.</p>
+   * @public
+   */
+  mergeStrategy?: MergeStrategy | undefined;
+
+  /**
+   * <p>The date and time that the import was created.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the import was last updated.</p>
+   * @public
+   */
+  lastUpdatedDateTime?: Date | undefined;
+
+  /**
+   * <p>The type of resource that was imported.</p>
+   * @public
+   */
+  importedResourceType?: ImportResourceType | undefined;
+}
+
+/**
+ * <p>Provides the phrase that Amazon Lex should look for in the user's input
+ *  to the bot.</p>
+ * @public
+ */
+export interface RuntimeHintValue {
+  /**
+   * <p>The phrase that Amazon Lex should look for in the user's input to the
+   *  bot.</p>
+   * @public
+   */
+  phrase: string | undefined;
+}
+
+/**
+ * <p>The number of items in the intent classification test.</p>
+ * @public
+ */
+export interface IntentClassificationTestResultItemCounts {
+  /**
+   * <p>The total number of results in the intent classification test.</p>
+   * @public
+   */
+  totalResultCount: number | undefined;
+
+  /**
+   * <p>The number of matched, mismatched, and execution error results for speech transcription for the intent.</p>
+   * @public
+   */
+  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>> | undefined;
+
+  /**
+   * <p>The number of matched and mismatched results for intent recognition for the intent.</p>
+   * @public
+   */
+  intentMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
+}
+
+/**
+ * <p>Information for an intent that is classified by the test workbench.</p>
+ * @public
+ */
+export interface IntentClassificationTestResultItem {
+  /**
+   * <p>The name of the intent.</p>
+   * @public
+   */
+  intentName: string | undefined;
+
+  /**
+   * <p>Indicates whether the conversation involves multiple turns or not.</p>
+   * @public
+   */
+  multiTurnConversation: boolean | undefined;
+
+  /**
+   * <p>The result of the intent classification test.</p>
+   * @public
+   */
+  resultCounts: IntentClassificationTestResultItemCounts | undefined;
+}
+
+/**
+ * <p>Information for the results of the intent classification test. </p>
+ * @public
+ */
+export interface IntentClassificationTestResults {
+  /**
+   * <p>A list of the results for the intent classification test.</p>
+   * @public
+   */
+  items: IntentClassificationTestResultItem[] | undefined;
+}
+
+/**
+ * <p>Filters the response from the <code>ListIntents</code>
+ *          operation.</p>
+ * @public
+ */
+export interface IntentFilter {
+  /**
+   * <p>The name of the field to use for the filter.</p>
+   * @public
+   */
+  name: IntentFilterName | undefined;
+
+  /**
+   * <p>The value to use for the filter.</p>
+   * @public
+   */
+  values: string[] | undefined;
+
+  /**
+   * <p>The operator to use for the filter. Specify <code>EQ</code> when the
+   *          <code>ListIntents</code> operation should return only aliases that
+   *          equal the specified value. Specify <code>CO</code> when the
+   *          <code>ListIntents</code> operation should return aliases that
+   *          contain the specified value.</p>
+   * @public
+   */
+  operator: IntentFilterOperator | undefined;
+}
+
+/**
+ * <p>Information about the counts for a slot resolution in the results of a test execution.</p>
+ * @public
+ */
+export interface SlotResolutionTestResultItemCounts {
+  /**
+   * <p>The total number of results.</p>
+   * @public
+   */
+  totalResultCount: number | undefined;
+
+  /**
+   * <p>The number of matched, mismatched and execution error results for speech transcription for the slot.</p>
+   * @public
+   */
+  speechTranscriptionResultCounts?: Partial<Record<TestResultMatchStatus, number>> | undefined;
+
+  /**
+   * <p>The number of matched and mismatched results for slot resolution for the slot.</p>
+   * @public
+   */
+  slotMatchResultCounts: Partial<Record<TestResultMatchStatus, number>> | undefined;
+}
 
 /**
  * <p>Information about the success and failure rate of slot resolution
@@ -667,6 +853,76 @@ export interface ListBotAliasReplicasResponse {
 
   /**
    * <p>The next token for the replicated bots created from the source bot alias.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBotAnalyzerHistoryRequest {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The locale identifier to filter the history. If not specified, returns history for all locales.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The bot version to filter the history. If not specified, defaults to <code>DRAFT</code>.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>If the response from a previous request was truncated, the <code>nextToken</code> value is used to retrieve the next page of history entries.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of history entries to return in the response. The default is 10.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBotAnalyzerHistoryResponse {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>The locale identifier used to filter the history.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The bot version used to filter the history.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>A list of historical analysis executions, ordered by creation date with the most recent first.</p>
+   * @public
+   */
+  botAnalyzerHistoryList?: BotAnalyzerHistorySummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, this token can be used in a subsequent request to retrieve the next page of history entries.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3855,6 +4111,80 @@ export interface SearchAssociatedTranscriptsResponse {
 /**
  * @public
  */
+export interface StartBotAnalyzerRequest {
+  /**
+   * <p>The unique identifier of the bot to analyze.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The scope of analysis to perform. Currently only <code>BotLocale</code> scope is supported.</p>
+   *          <p>Valid Values: <code>BotLocale</code>
+   *          </p>
+   * @public
+   */
+  analysisScope: AnalysisScope | undefined;
+
+  /**
+   * <p>The locale identifier for the bot locale to analyze. Required when <code>analysisScope</code> is <code>BotLocale</code>.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The version of the bot to analyze. Defaults to <code>DRAFT</code> if not specified.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBotAnalyzerResponse {
+  /**
+   * <p>The unique identifier of the bot being analyzed.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>The version of the bot being analyzed.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>The locale identifier of the bot locale being analyzed.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The current status of the analysis. The initial status is <code>Processing</code>.</p>
+   *          <p>Valid Values: <code>Processing | Available | Failed | Stopping | Stopped</code>
+   *          </p>
+   * @public
+   */
+  botAnalyzerStatus?: BotAnalyzerStatus | undefined;
+
+  /**
+   * <p>A unique identifier for this analysis request. Use this identifier to check the status and retrieve results.</p>
+   * @public
+   */
+  botAnalyzerRequestId?: string | undefined;
+
+  /**
+   * <p>The date and time when the analysis was initiated.</p>
+   * @public
+   */
+  creationDateTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartBotRecommendationRequest {
   /**
    * <p>The unique identifier of the bot containing the bot
@@ -4285,6 +4615,60 @@ export interface StartTestSetGenerationResponse {
    * @public
    */
   testSetTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopBotAnalyzerRequest {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis request to stop.</p>
+   * @public
+   */
+  botAnalyzerRequestId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopBotAnalyzerResponse {
+  /**
+   * <p>The unique identifier of the bot.</p>
+   * @public
+   */
+  botId?: string | undefined;
+
+  /**
+   * <p>The version of the bot.</p>
+   * @public
+   */
+  botVersion?: string | undefined;
+
+  /**
+   * <p>The locale identifier of the bot locale.</p>
+   * @public
+   */
+  localeId?: string | undefined;
+
+  /**
+   * <p>The updated status of the analysis. The status will be <code>Stopping</code> and will eventually transition to <code>Stopped</code>.</p>
+   *          <p>Valid Values: <code>Processing | Available | Failed | Stopping | Stopped</code>
+   *          </p>
+   * @public
+   */
+  botAnalyzerStatus?: BotAnalyzerStatus | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis request.</p>
+   * @public
+   */
+  botAnalyzerRequestId?: string | undefined;
 }
 
 /**

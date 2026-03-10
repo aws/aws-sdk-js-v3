@@ -10,6 +10,7 @@ import {
   AggregatedUtterancesSortBy$,
   AggregatedUtterancesSummary$,
   AllowedInputTypes$,
+  AnalysisScope,
   AnalyticsBinByName,
   AnalyticsBinBySpecification$,
   AnalyticsBinKey$,
@@ -96,6 +97,9 @@ import {
   BotAliasStatus,
   BotAliasSummary$,
   BotAliasTestExecutionTarget$,
+  BotAnalyzerHistorySummary$,
+  BotAnalyzerRecommendation$,
+  BotAnalyzerStatus,
   BotExportSpecification$,
   BotFilter$,
   BotFilterName,
@@ -230,6 +234,10 @@ import {
   DeleteBotAliasCommand,
   DeleteBotAliasRequest$,
   DeleteBotAliasResponse$,
+  DeleteBotAnalyzerRecommendation$,
+  DeleteBotAnalyzerRecommendationCommand,
+  DeleteBotAnalyzerRecommendationRequest$,
+  DeleteBotAnalyzerRecommendationResponse$,
   DeleteBotCommand,
   DeleteBotLocale$,
   DeleteBotLocaleCommand,
@@ -286,6 +294,10 @@ import {
   DescribeBotAliasCommand,
   DescribeBotAliasRequest$,
   DescribeBotAliasResponse$,
+  DescribeBotAnalyzerRecommendation$,
+  DescribeBotAnalyzerRecommendationCommand,
+  DescribeBotAnalyzerRecommendationRequest$,
+  DescribeBotAnalyzerRecommendationResponse$,
   DescribeBotCommand,
   DescribeBotLocale$,
   DescribeBotLocaleCommand,
@@ -430,6 +442,7 @@ import {
   InternalServerException,
   InternalServerException$,
   InvokedIntentSample$,
+  IssueLocation$,
   KendraConfiguration$,
   LambdaCodeHook$,
   LexModelsV2,
@@ -448,6 +461,10 @@ import {
   ListBotAliasReplicasCommand,
   ListBotAliasReplicasRequest$,
   ListBotAliasReplicasResponse$,
+  ListBotAnalyzerHistory$,
+  ListBotAnalyzerHistoryCommand,
+  ListBotAnalyzerHistoryRequest$,
+  ListBotAnalyzerHistoryResponse$,
   ListBotLocales$,
   ListBotLocalesCommand,
   ListBotLocalesRequest$,
@@ -573,9 +590,11 @@ import {
   OutputContext$,
   OverallTestResultItem$,
   OverallTestResults$,
+  paginateDescribeBotAnalyzerRecommendation,
   paginateListAggregatedUtterances,
   paginateListBotAliases,
   paginateListBotAliasReplicas,
+  paginateListBotAnalyzerHistory,
   paginateListBotLocales,
   paginateListBotRecommendations,
   paginateListBotResourceGenerations,
@@ -609,6 +628,7 @@ import {
   PreconditionFailedException,
   PreconditionFailedException$,
   Principal$,
+  Priority,
   PromptAttempt,
   PromptAttemptSpecification$,
   PromptSpecification$,
@@ -680,6 +700,10 @@ import {
   SpeechModelPreference,
   SpeechRecognitionSettings$,
   SSMLMessage$,
+  StartBotAnalyzer$,
+  StartBotAnalyzerCommand,
+  StartBotAnalyzerRequest$,
+  StartBotAnalyzerResponse$,
   StartBotRecommendation$,
   StartBotRecommendationCommand,
   StartBotRecommendationRequest$,
@@ -701,6 +725,10 @@ import {
   StartTestSetGenerationRequest$,
   StartTestSetGenerationResponse$,
   StillWaitingResponseSpecification$,
+  StopBotAnalyzer$,
+  StopBotAnalyzerCommand,
+  StopBotAnalyzerRequest$,
+  StopBotAnalyzerResponse$,
   StopBotRecommendation$,
   StopBotRecommendationCommand,
   StopBotRecommendationRequest$,
@@ -877,6 +905,8 @@ assert(typeof DeleteBotCommand === "function");
 assert(typeof DeleteBot$ === "object");
 assert(typeof DeleteBotAliasCommand === "function");
 assert(typeof DeleteBotAlias$ === "object");
+assert(typeof DeleteBotAnalyzerRecommendationCommand === "function");
+assert(typeof DeleteBotAnalyzerRecommendation$ === "object");
 assert(typeof DeleteBotLocaleCommand === "function");
 assert(typeof DeleteBotLocale$ === "object");
 assert(typeof DeleteBotReplicaCommand === "function");
@@ -907,6 +937,8 @@ assert(typeof DescribeBotCommand === "function");
 assert(typeof DescribeBot$ === "object");
 assert(typeof DescribeBotAliasCommand === "function");
 assert(typeof DescribeBotAlias$ === "object");
+assert(typeof DescribeBotAnalyzerRecommendationCommand === "function");
+assert(typeof DescribeBotAnalyzerRecommendation$ === "object");
 assert(typeof DescribeBotLocaleCommand === "function");
 assert(typeof DescribeBotLocale$ === "object");
 assert(typeof DescribeBotRecommendationCommand === "function");
@@ -949,6 +981,8 @@ assert(typeof ListBotAliasesCommand === "function");
 assert(typeof ListBotAliases$ === "object");
 assert(typeof ListBotAliasReplicasCommand === "function");
 assert(typeof ListBotAliasReplicas$ === "object");
+assert(typeof ListBotAnalyzerHistoryCommand === "function");
+assert(typeof ListBotAnalyzerHistory$ === "object");
 assert(typeof ListBotLocalesCommand === "function");
 assert(typeof ListBotLocales$ === "object");
 assert(typeof ListBotRecommendationsCommand === "function");
@@ -1007,6 +1041,8 @@ assert(typeof ListUtteranceMetricsCommand === "function");
 assert(typeof ListUtteranceMetrics$ === "object");
 assert(typeof SearchAssociatedTranscriptsCommand === "function");
 assert(typeof SearchAssociatedTranscripts$ === "object");
+assert(typeof StartBotAnalyzerCommand === "function");
+assert(typeof StartBotAnalyzer$ === "object");
 assert(typeof StartBotRecommendationCommand === "function");
 assert(typeof StartBotRecommendation$ === "object");
 assert(typeof StartBotResourceGenerationCommand === "function");
@@ -1017,6 +1053,8 @@ assert(typeof StartTestExecutionCommand === "function");
 assert(typeof StartTestExecution$ === "object");
 assert(typeof StartTestSetGenerationCommand === "function");
 assert(typeof StartTestSetGeneration$ === "object");
+assert(typeof StopBotAnalyzerCommand === "function");
+assert(typeof StopBotAnalyzer$ === "object");
 assert(typeof StopBotRecommendationCommand === "function");
 assert(typeof StopBotRecommendation$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -1103,6 +1141,8 @@ assert(typeof BotAliasLocaleSettings$ === "object");
 assert(typeof BotAliasReplicaSummary$ === "object");
 assert(typeof BotAliasSummary$ === "object");
 assert(typeof BotAliasTestExecutionTarget$ === "object");
+assert(typeof BotAnalyzerHistorySummary$ === "object");
+assert(typeof BotAnalyzerRecommendation$ === "object");
 assert(typeof BotExportSpecification$ === "object");
 assert(typeof BotFilter$ === "object");
 assert(typeof BotImportSpecification$ === "object");
@@ -1185,6 +1225,8 @@ assert(typeof DeepgramSpeechModelConfig$ === "object");
 assert(typeof DefaultConditionalBranch$ === "object");
 assert(typeof DeleteBotAliasRequest$ === "object");
 assert(typeof DeleteBotAliasResponse$ === "object");
+assert(typeof DeleteBotAnalyzerRecommendationRequest$ === "object");
+assert(typeof DeleteBotAnalyzerRecommendationResponse$ === "object");
 assert(typeof DeleteBotLocaleRequest$ === "object");
 assert(typeof DeleteBotLocaleResponse$ === "object");
 assert(typeof DeleteBotReplicaRequest$ === "object");
@@ -1211,6 +1253,8 @@ assert(typeof DeleteUtterancesRequest$ === "object");
 assert(typeof DeleteUtterancesResponse$ === "object");
 assert(typeof DescribeBotAliasRequest$ === "object");
 assert(typeof DescribeBotAliasResponse$ === "object");
+assert(typeof DescribeBotAnalyzerRecommendationRequest$ === "object");
+assert(typeof DescribeBotAnalyzerRecommendationResponse$ === "object");
 assert(typeof DescribeBotLocaleRequest$ === "object");
 assert(typeof DescribeBotLocaleResponse$ === "object");
 assert(typeof DescribeBotRecommendationRequest$ === "object");
@@ -1297,6 +1341,7 @@ assert(typeof IntentSortBy$ === "object");
 assert(typeof IntentStatistics$ === "object");
 assert(typeof IntentSummary$ === "object");
 assert(typeof InvokedIntentSample$ === "object");
+assert(typeof IssueLocation$ === "object");
 assert(typeof KendraConfiguration$ === "object");
 assert(typeof LambdaCodeHook$ === "object");
 assert(typeof LexTranscriptFilter$ === "object");
@@ -1306,6 +1351,8 @@ assert(typeof ListBotAliasesRequest$ === "object");
 assert(typeof ListBotAliasesResponse$ === "object");
 assert(typeof ListBotAliasReplicasRequest$ === "object");
 assert(typeof ListBotAliasReplicasResponse$ === "object");
+assert(typeof ListBotAnalyzerHistoryRequest$ === "object");
+assert(typeof ListBotAnalyzerHistoryResponse$ === "object");
 assert(typeof ListBotLocalesRequest$ === "object");
 assert(typeof ListBotLocalesResponse$ === "object");
 assert(typeof ListBotRecommendationsRequest$ === "object");
@@ -1427,6 +1474,8 @@ assert(typeof SpeechFoundationModel$ === "object");
 assert(typeof SpeechModelConfig$ === "object");
 assert(typeof SpeechRecognitionSettings$ === "object");
 assert(typeof SSMLMessage$ === "object");
+assert(typeof StartBotAnalyzerRequest$ === "object");
+assert(typeof StartBotAnalyzerResponse$ === "object");
 assert(typeof StartBotRecommendationRequest$ === "object");
 assert(typeof StartBotRecommendationResponse$ === "object");
 assert(typeof StartBotResourceGenerationRequest$ === "object");
@@ -1438,6 +1487,8 @@ assert(typeof StartTestExecutionResponse$ === "object");
 assert(typeof StartTestSetGenerationRequest$ === "object");
 assert(typeof StartTestSetGenerationResponse$ === "object");
 assert(typeof StillWaitingResponseSpecification$ === "object");
+assert(typeof StopBotAnalyzerRequest$ === "object");
+assert(typeof StopBotAnalyzerResponse$ === "object");
 assert(typeof StopBotRecommendationRequest$ === "object");
 assert(typeof StopBotRecommendationResponse$ === "object");
 assert(typeof SubSlotSetting$ === "object");
@@ -1513,6 +1564,7 @@ assert(typeof WaitAndContinueSpecification$ === "object");
 assert(typeof AggregatedUtterancesFilterName === "object");
 assert(typeof AggregatedUtterancesFilterOperator === "object");
 assert(typeof AggregatedUtterancesSortAttribute === "object");
+assert(typeof AnalysisScope === "object");
 assert(typeof AnalyticsBinByName === "object");
 assert(typeof AnalyticsCommonFilterName === "object");
 assert(typeof AnalyticsFilterOperator === "object");
@@ -1542,6 +1594,7 @@ assert(typeof AudioRecognitionStrategy === "object");
 assert(typeof BedrockTraceStatus === "object");
 assert(typeof BotAliasReplicationStatus === "object");
 assert(typeof BotAliasStatus === "object");
+assert(typeof BotAnalyzerStatus === "object");
 assert(typeof BotFilterName === "object");
 assert(typeof BotFilterOperator === "object");
 assert(typeof BotLocaleFilterName === "object");
@@ -1583,6 +1636,7 @@ assert(typeof IntentState === "object");
 assert(typeof MergeStrategy === "object");
 assert(typeof MessageSelectionStrategy === "object");
 assert(typeof ObfuscationSettingType === "object");
+assert(typeof Priority === "object");
 assert(typeof PromptAttempt === "object");
 assert(typeof SearchOrder === "object");
 assert(typeof SlotConstraint === "object");
@@ -1648,9 +1702,11 @@ assert(typeof waitUntilBotLocaleCreated === "function");
 assert(typeof waitUntilBotLocaleExpressTestingAvailable === "function");
 assert(typeof waitUntilBotVersionAvailable === "function");
 // paginators
+assert(typeof paginateDescribeBotAnalyzerRecommendation === "function");
 assert(typeof paginateListAggregatedUtterances === "function");
 assert(typeof paginateListBotAliasReplicas === "function");
 assert(typeof paginateListBotAliases === "function");
+assert(typeof paginateListBotAnalyzerHistory === "function");
 assert(typeof paginateListBotLocales === "function");
 assert(typeof paginateListBotRecommendations === "function");
 assert(typeof paginateListBotResourceGenerations === "function");

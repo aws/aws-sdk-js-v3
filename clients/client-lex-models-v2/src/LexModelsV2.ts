@@ -90,6 +90,11 @@ import {
   DeleteBotAliasCommandInput,
   DeleteBotAliasCommandOutput,
 } from "./commands/DeleteBotAliasCommand";
+import {
+  DeleteBotAnalyzerRecommendationCommand,
+  DeleteBotAnalyzerRecommendationCommandInput,
+  DeleteBotAnalyzerRecommendationCommandOutput,
+} from "./commands/DeleteBotAnalyzerRecommendationCommand";
 import { DeleteBotCommand, DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import {
   DeleteBotLocaleCommand,
@@ -157,6 +162,11 @@ import {
   DescribeBotAliasCommandInput,
   DescribeBotAliasCommandOutput,
 } from "./commands/DescribeBotAliasCommand";
+import {
+  DescribeBotAnalyzerRecommendationCommand,
+  DescribeBotAnalyzerRecommendationCommandInput,
+  DescribeBotAnalyzerRecommendationCommandOutput,
+} from "./commands/DescribeBotAnalyzerRecommendationCommand";
 import { DescribeBotCommand, DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
 import {
   DescribeBotLocaleCommand,
@@ -263,6 +273,11 @@ import {
   ListBotAliasReplicasCommandInput,
   ListBotAliasReplicasCommandOutput,
 } from "./commands/ListBotAliasReplicasCommand";
+import {
+  ListBotAnalyzerHistoryCommand,
+  ListBotAnalyzerHistoryCommandInput,
+  ListBotAnalyzerHistoryCommandOutput,
+} from "./commands/ListBotAnalyzerHistoryCommand";
 import {
   ListBotLocalesCommand,
   ListBotLocalesCommandInput,
@@ -389,6 +404,11 @@ import {
   SearchAssociatedTranscriptsCommandOutput,
 } from "./commands/SearchAssociatedTranscriptsCommand";
 import {
+  StartBotAnalyzerCommand,
+  StartBotAnalyzerCommandInput,
+  StartBotAnalyzerCommandOutput,
+} from "./commands/StartBotAnalyzerCommand";
+import {
   StartBotRecommendationCommand,
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
@@ -409,6 +429,11 @@ import {
   StartTestSetGenerationCommandInput,
   StartTestSetGenerationCommandOutput,
 } from "./commands/StartTestSetGenerationCommand";
+import {
+  StopBotAnalyzerCommand,
+  StopBotAnalyzerCommandInput,
+  StopBotAnalyzerCommandOutput,
+} from "./commands/StopBotAnalyzerCommand";
 import {
   StopBotRecommendationCommand,
   StopBotRecommendationCommandInput,
@@ -463,9 +488,11 @@ import {
   UpdateTestSetCommandOutput,
 } from "./commands/UpdateTestSetCommand";
 import { LexModelsV2Client } from "./LexModelsV2Client";
+import { paginateDescribeBotAnalyzerRecommendation } from "./pagination/DescribeBotAnalyzerRecommendationPaginator";
 import { paginateListAggregatedUtterances } from "./pagination/ListAggregatedUtterancesPaginator";
 import { paginateListBotAliases } from "./pagination/ListBotAliasesPaginator";
 import { paginateListBotAliasReplicas } from "./pagination/ListBotAliasReplicasPaginator";
+import { paginateListBotAnalyzerHistory } from "./pagination/ListBotAnalyzerHistoryPaginator";
 import { paginateListBotLocales } from "./pagination/ListBotLocalesPaginator";
 import { paginateListBotRecommendations } from "./pagination/ListBotRecommendationsPaginator";
 import { paginateListBotResourceGenerations } from "./pagination/ListBotResourceGenerationsPaginator";
@@ -520,6 +547,7 @@ const commands = {
   CreateUploadUrlCommand,
   DeleteBotCommand,
   DeleteBotAliasCommand,
+  DeleteBotAnalyzerRecommendationCommand,
   DeleteBotLocaleCommand,
   DeleteBotReplicaCommand,
   DeleteBotVersionCommand,
@@ -535,6 +563,7 @@ const commands = {
   DeleteUtterancesCommand,
   DescribeBotCommand,
   DescribeBotAliasCommand,
+  DescribeBotAnalyzerRecommendationCommand,
   DescribeBotLocaleCommand,
   DescribeBotRecommendationCommand,
   DescribeBotReplicaCommand,
@@ -556,6 +585,7 @@ const commands = {
   ListAggregatedUtterancesCommand,
   ListBotAliasesCommand,
   ListBotAliasReplicasCommand,
+  ListBotAnalyzerHistoryCommand,
   ListBotLocalesCommand,
   ListBotRecommendationsCommand,
   ListBotReplicasCommand,
@@ -585,11 +615,13 @@ const commands = {
   ListUtteranceAnalyticsDataCommand,
   ListUtteranceMetricsCommand,
   SearchAssociatedTranscriptsCommand,
+  StartBotAnalyzerCommand,
   StartBotRecommendationCommand,
   StartBotResourceGenerationCommand,
   StartImportCommand,
   StartTestExecutionCommand,
   StartTestSetGenerationCommand,
+  StopBotAnalyzerCommand,
   StopBotRecommendationCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -605,9 +637,11 @@ const commands = {
   UpdateTestSetCommand,
 };
 const paginators = {
+  paginateDescribeBotAnalyzerRecommendation,
   paginateListAggregatedUtterances,
   paginateListBotAliases,
   paginateListBotAliasReplicas,
+  paginateListBotAnalyzerHistory,
   paginateListBotLocales,
   paginateListBotRecommendations,
   paginateListBotResourceGenerations,
@@ -971,6 +1005,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link DeleteBotAnalyzerRecommendationCommand}
+   */
+  deleteBotAnalyzerRecommendation(
+    args: DeleteBotAnalyzerRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBotAnalyzerRecommendationCommandOutput>;
+  deleteBotAnalyzerRecommendation(
+    args: DeleteBotAnalyzerRecommendationCommandInput,
+    cb: (err: any, data?: DeleteBotAnalyzerRecommendationCommandOutput) => void
+  ): void;
+  deleteBotAnalyzerRecommendation(
+    args: DeleteBotAnalyzerRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBotAnalyzerRecommendationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBotLocaleCommand}
    */
   deleteBotLocale(
@@ -1223,6 +1274,23 @@ export interface LexModelsV2 {
     args: DescribeBotAliasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeBotAliasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBotAnalyzerRecommendationCommand}
+   */
+  describeBotAnalyzerRecommendation(
+    args: DescribeBotAnalyzerRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBotAnalyzerRecommendationCommandOutput>;
+  describeBotAnalyzerRecommendation(
+    args: DescribeBotAnalyzerRecommendationCommandInput,
+    cb: (err: any, data?: DescribeBotAnalyzerRecommendationCommandOutput) => void
+  ): void;
+  describeBotAnalyzerRecommendation(
+    args: DescribeBotAnalyzerRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBotAnalyzerRecommendationCommandOutput) => void
   ): void;
 
   /**
@@ -1580,6 +1648,23 @@ export interface LexModelsV2 {
     args: ListBotAliasReplicasCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBotAliasReplicasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBotAnalyzerHistoryCommand}
+   */
+  listBotAnalyzerHistory(
+    args: ListBotAnalyzerHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotAnalyzerHistoryCommandOutput>;
+  listBotAnalyzerHistory(
+    args: ListBotAnalyzerHistoryCommandInput,
+    cb: (err: any, data?: ListBotAnalyzerHistoryCommandOutput) => void
+  ): void;
+  listBotAnalyzerHistory(
+    args: ListBotAnalyzerHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotAnalyzerHistoryCommandOutput) => void
   ): void;
 
   /**
@@ -2081,6 +2166,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link StartBotAnalyzerCommand}
+   */
+  startBotAnalyzer(
+    args: StartBotAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBotAnalyzerCommandOutput>;
+  startBotAnalyzer(
+    args: StartBotAnalyzerCommandInput,
+    cb: (err: any, data?: StartBotAnalyzerCommandOutput) => void
+  ): void;
+  startBotAnalyzer(
+    args: StartBotAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBotAnalyzerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartBotRecommendationCommand}
    */
   startBotRecommendation(
@@ -2163,6 +2265,23 @@ export interface LexModelsV2 {
     args: StartTestSetGenerationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTestSetGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopBotAnalyzerCommand}
+   */
+  stopBotAnalyzer(
+    args: StopBotAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopBotAnalyzerCommandOutput>;
+  stopBotAnalyzer(
+    args: StopBotAnalyzerCommandInput,
+    cb: (err: any, data?: StopBotAnalyzerCommandOutput) => void
+  ): void;
+  stopBotAnalyzer(
+    args: StopBotAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopBotAnalyzerCommandOutput) => void
   ): void;
 
   /**
@@ -2387,6 +2506,17 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link DescribeBotAnalyzerRecommendationCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeBotAnalyzerRecommendationCommandOutput}.
+   */
+  paginateDescribeBotAnalyzerRecommendation(
+    args: DescribeBotAnalyzerRecommendationCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeBotAnalyzerRecommendationCommandOutput>;
+
+  /**
    * @see {@link ListAggregatedUtterancesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2418,6 +2548,17 @@ export interface LexModelsV2 {
     args: ListBotAliasReplicasCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBotAliasReplicasCommandOutput>;
+
+  /**
+   * @see {@link ListBotAnalyzerHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBotAnalyzerHistoryCommandOutput}.
+   */
+  paginateListBotAnalyzerHistory(
+    args: ListBotAnalyzerHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBotAnalyzerHistoryCommandOutput>;
 
   /**
    * @see {@link ListBotLocalesCommand}

@@ -99,6 +99,10 @@ import {
 } from "./commands/CreateTestSetDiscrepancyReportCommand";
 import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./commands/CreateUploadUrlCommand";
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
+import {
+  DeleteBotAnalyzerRecommendationCommandInput,
+  DeleteBotAnalyzerRecommendationCommandOutput,
+} from "./commands/DeleteBotAnalyzerRecommendationCommand";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand";
 import { DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput } from "./commands/DeleteBotReplicaCommand";
@@ -123,6 +127,10 @@ import { DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput } from "./comma
 import { DeleteTestSetCommandInput, DeleteTestSetCommandOutput } from "./commands/DeleteTestSetCommand";
 import { DeleteUtterancesCommandInput, DeleteUtterancesCommandOutput } from "./commands/DeleteUtterancesCommand";
 import { DescribeBotAliasCommandInput, DescribeBotAliasCommandOutput } from "./commands/DescribeBotAliasCommand";
+import {
+  DescribeBotAnalyzerRecommendationCommandInput,
+  DescribeBotAnalyzerRecommendationCommandOutput,
+} from "./commands/DescribeBotAnalyzerRecommendationCommand";
 import { DescribeBotCommandInput, DescribeBotCommandOutput } from "./commands/DescribeBotCommand";
 import { DescribeBotLocaleCommandInput, DescribeBotLocaleCommandOutput } from "./commands/DescribeBotLocaleCommand";
 import {
@@ -175,6 +183,10 @@ import {
   ListBotAliasReplicasCommandInput,
   ListBotAliasReplicasCommandOutput,
 } from "./commands/ListBotAliasReplicasCommand";
+import {
+  ListBotAnalyzerHistoryCommandInput,
+  ListBotAnalyzerHistoryCommandOutput,
+} from "./commands/ListBotAnalyzerHistoryCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
 import {
   ListBotRecommendationsCommandInput,
@@ -243,6 +255,7 @@ import {
   SearchAssociatedTranscriptsCommandInput,
   SearchAssociatedTranscriptsCommandOutput,
 } from "./commands/SearchAssociatedTranscriptsCommand";
+import { StartBotAnalyzerCommandInput, StartBotAnalyzerCommandOutput } from "./commands/StartBotAnalyzerCommand";
 import {
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
@@ -257,6 +270,7 @@ import {
   StartTestSetGenerationCommandInput,
   StartTestSetGenerationCommandOutput,
 } from "./commands/StartTestSetGenerationCommand";
+import { StopBotAnalyzerCommandInput, StopBotAnalyzerCommandOutput } from "./commands/StopBotAnalyzerCommand";
 import {
   StopBotRecommendationCommandInput,
   StopBotRecommendationCommandOutput,
@@ -312,6 +326,7 @@ export type ServiceInputTypes =
   | CreateTestSetDiscrepancyReportCommandInput
   | CreateUploadUrlCommandInput
   | DeleteBotAliasCommandInput
+  | DeleteBotAnalyzerRecommendationCommandInput
   | DeleteBotCommandInput
   | DeleteBotLocaleCommandInput
   | DeleteBotReplicaCommandInput
@@ -327,6 +342,7 @@ export type ServiceInputTypes =
   | DeleteTestSetCommandInput
   | DeleteUtterancesCommandInput
   | DescribeBotAliasCommandInput
+  | DescribeBotAnalyzerRecommendationCommandInput
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
   | DescribeBotRecommendationCommandInput
@@ -349,6 +365,7 @@ export type ServiceInputTypes =
   | ListAggregatedUtterancesCommandInput
   | ListBotAliasReplicasCommandInput
   | ListBotAliasesCommandInput
+  | ListBotAnalyzerHistoryCommandInput
   | ListBotLocalesCommandInput
   | ListBotRecommendationsCommandInput
   | ListBotReplicasCommandInput
@@ -378,11 +395,13 @@ export type ServiceInputTypes =
   | ListUtteranceAnalyticsDataCommandInput
   | ListUtteranceMetricsCommandInput
   | SearchAssociatedTranscriptsCommandInput
+  | StartBotAnalyzerCommandInput
   | StartBotRecommendationCommandInput
   | StartBotResourceGenerationCommandInput
   | StartImportCommandInput
   | StartTestExecutionCommandInput
   | StartTestSetGenerationCommandInput
+  | StopBotAnalyzerCommandInput
   | StopBotRecommendationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -419,6 +438,7 @@ export type ServiceOutputTypes =
   | CreateTestSetDiscrepancyReportCommandOutput
   | CreateUploadUrlCommandOutput
   | DeleteBotAliasCommandOutput
+  | DeleteBotAnalyzerRecommendationCommandOutput
   | DeleteBotCommandOutput
   | DeleteBotLocaleCommandOutput
   | DeleteBotReplicaCommandOutput
@@ -434,6 +454,7 @@ export type ServiceOutputTypes =
   | DeleteTestSetCommandOutput
   | DeleteUtterancesCommandOutput
   | DescribeBotAliasCommandOutput
+  | DescribeBotAnalyzerRecommendationCommandOutput
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
   | DescribeBotRecommendationCommandOutput
@@ -456,6 +477,7 @@ export type ServiceOutputTypes =
   | ListAggregatedUtterancesCommandOutput
   | ListBotAliasReplicasCommandOutput
   | ListBotAliasesCommandOutput
+  | ListBotAnalyzerHistoryCommandOutput
   | ListBotLocalesCommandOutput
   | ListBotRecommendationsCommandOutput
   | ListBotReplicasCommandOutput
@@ -485,11 +507,13 @@ export type ServiceOutputTypes =
   | ListUtteranceAnalyticsDataCommandOutput
   | ListUtteranceMetricsCommandOutput
   | SearchAssociatedTranscriptsCommandOutput
+  | StartBotAnalyzerCommandOutput
   | StartBotRecommendationCommandOutput
   | StartBotResourceGenerationCommandOutput
   | StartImportCommandOutput
   | StartTestExecutionCommandOutput
   | StartTestSetGenerationCommandOutput
+  | StopBotAnalyzerCommandOutput
   | StopBotRecommendationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

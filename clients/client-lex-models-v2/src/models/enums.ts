@@ -69,6 +69,18 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  * @public
  * @enum
  */
+export const AnalysisScope = {
+  BotLocale: "BotLocale",
+} as const;
+/**
+ * @public
+ */
+export type AnalysisScope = (typeof AnalysisScope)[keyof typeof AnalysisScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalyticsInterval = {
   OneDay: "OneDay",
   OneHour: "OneHour",
@@ -504,6 +516,36 @@ export const BotAliasStatus = {
  * @public
  */
 export type BotAliasStatus = (typeof BotAliasStatus)[keyof typeof BotAliasStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const BotAnalyzerStatus = {
+  Available: "Available",
+  Failed: "Failed",
+  Processing: "Processing",
+  Stopped: "Stopped",
+  Stopping: "Stopping",
+} as const;
+/**
+ * @public
+ */
+export type BotAnalyzerStatus = (typeof BotAnalyzerStatus)[keyof typeof BotAnalyzerStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const Priority = {
+  High: "High",
+  Low: "Low",
+  Medium: "Medium",
+} as const;
+/**
+ * @public
+ */
+export type Priority = (typeof Priority)[keyof typeof Priority];
 
 /**
  * @public

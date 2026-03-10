@@ -334,6 +334,13 @@ DeleteBotAlias
 </details>
 <details>
 <summary>
+DeleteBotAnalyzerRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DeleteBotAnalyzerRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotAnalyzerRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotAnalyzerRecommendationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteBotLocale
 </summary>
 
@@ -436,6 +443,13 @@ DescribeBotAlias
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DescribeBotAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotAliasCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeBotAnalyzerRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DescribeBotAnalyzerRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotAnalyzerRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotAnalyzerRecommendationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -583,6 +597,13 @@ ListBotAliasReplicas
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotAliasReplicasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAliasReplicasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAliasReplicasCommandOutput/)
+</details>
+<details>
+<summary>
+ListBotAnalyzerHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotAnalyzerHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAnalyzerHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAnalyzerHistoryCommandOutput/)
 </details>
 <details>
 <summary>
@@ -789,6 +810,13 @@ SearchAssociatedTranscripts
 </details>
 <details>
 <summary>
+StartBotAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/StartBotAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartBotAnalyzerCommandOutput/)
+</details>
+<details>
+<summary>
 StartBotRecommendation
 </summary>
 
@@ -821,6 +849,13 @@ StartTestSetGeneration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/StartTestSetGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartTestSetGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StartTestSetGenerationCommandOutput/)
+</details>
+<details>
+<summary>
+StopBotAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/StopBotAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StopBotAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/StopBotAnalyzerCommandOutput/)
 </details>
 <details>
 <summary>

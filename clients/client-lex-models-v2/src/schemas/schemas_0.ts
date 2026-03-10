@@ -81,8 +81,12 @@ const _AUSL = "AggregatedUtterancesSummaryList";
 const _B = "Button";
 const _BAHE = "BotAliasHistoryEvent";
 const _BAHEL = "BotAliasHistoryEventsList";
+const _BAHL = "BotAnalyzerHistoryList";
+const _BAHS = "BotAnalyzerHistorySummary";
 const _BALS = "BotAliasLocaleSettings";
 const _BALSM = "BotAliasLocaleSettingsMap";
+const _BAR = "BotAnalyzerRecommendation";
+const _BARL = "BotAnalyzerRecommendationList";
 const _BARS = "BotAliasReplicaSummary";
 const _BARSL = "BotAliasReplicaSummaryList";
 const _BAS = "BotAliasSummary";
@@ -215,9 +219,15 @@ const _DA = "DialogAction";
 const _DB = "DeleteBot";
 const _DBA = "DeleteBotAlias";
 const _DBAR = "DeleteBotAliasRequest";
+const _DBARR = "DeleteBotAnalyzerRecommendationRequest";
+const _DBARRe = "DeleteBotAnalyzerRecommendationResponse";
+const _DBARRes = "DescribeBotAnalyzerRecommendationRequest";
+const _DBARResc = "DescribeBotAnalyzerRecommendationResponse";
 const _DBARe = "DeleteBotAliasResponse";
+const _DBARel = "DeleteBotAnalyzerRecommendation";
 const _DBARes = "DescribeBotAliasRequest";
 const _DBAResc = "DescribeBotAliasResponse";
+const _DBARescr = "DescribeBotAnalyzerRecommendation";
 const _DBAe = "DescribeBotAlias";
 const _DBBS = "DescriptiveBotBuilderSpecification";
 const _DBL = "DeleteBotLocale";
@@ -365,6 +375,7 @@ const _IFn = "IntentFilter";
 const _IFnt = "IntentFilters";
 const _IIS = "InvokedIntentSample";
 const _IISn = "InvokedIntentSamples";
+const _IL = "IssueLocation";
 const _ILSRTR = "IntentLevelSlotResolutionTestResults";
 const _ILSRTRI = "IntentLevelSlotResolutionTestResultItem";
 const _ILSRTRIL = "IntentLevelSlotResolutionTestResultItemList";
@@ -387,6 +398,9 @@ const _LAUR = "ListAggregatedUtterancesRequest";
 const _LAURi = "ListAggregatedUtterancesResponse";
 const _LB = "ListBots";
 const _LBA = "ListBotAliases";
+const _LBAH = "ListBotAnalyzerHistory";
+const _LBAHR = "ListBotAnalyzerHistoryRequest";
+const _LBAHRi = "ListBotAnalyzerHistoryResponse";
 const _LBAR = "ListBotAliasesRequest";
 const _LBARR = "ListBotAliasReplicasRequest";
 const _LBARRi = "ListBotAliasReplicasResponse";
@@ -523,6 +537,12 @@ const _SAS = "SentimentAnalysisSettings";
 const _SAT = "SearchAssociatedTranscripts";
 const _SATR = "SearchAssociatedTranscriptsRequest";
 const _SATRe = "SearchAssociatedTranscriptsResponse";
+const _SBA = "StartBotAnalyzer";
+const _SBAR = "StartBotAnalyzerRequest";
+const _SBARt = "StartBotAnalyzerResponse";
+const _SBARto = "StopBotAnalyzerRequest";
+const _SBARtop = "StopBotAnalyzerResponse";
+const _SBAt = "StopBotAnalyzer";
 const _SBLD = "S3BucketLogDestination";
 const _SBR = "StartBotRecommendation";
 const _SBRG = "StartBotResourceGeneration";
@@ -715,6 +735,7 @@ const _aRS = "audioRecognitionStrategy";
 const _aRSd = "advancedRecognitionSetting";
 const _aS = "audioSpecification";
 const _aSN = "associatedSlotName";
+const _aSn = "analysisScope";
 const _aT = "associatedTranscripts";
 const _aTP = "associatedTranscriptsPassword";
 const _aTSA = "apiTokenSecretArn";
@@ -731,13 +752,17 @@ const _ar = "arn";
 const _at = "attributes";
 const _b = "buttons";
 const _bAHE = "botAliasHistoryEvents";
+const _bAHL = "botAnalyzerHistoryList";
 const _bAI = "botAliasId";
 const _bALS = "botAliasLocaleSettings";
 const _bAN = "botAliasName";
+const _bARI = "botAnalyzerRequestId";
+const _bARL = "botAnalyzerRecommendationList";
 const _bARS = "botAliasReplicationStatus";
 const _bARSo = "botAliasReplicaSummaries";
 const _bAS = "botAliasStatus";
-const _bASo = "botAliasSummaries";
+const _bASo = "botAnalyzerStatus";
+const _bASot = "botAliasSummaries";
 const _bAT = "botAliasTarget";
 const _bB = "binBy";
 const _bES = "botExportSpecification";
@@ -748,6 +773,7 @@ const _bISTS = "builtInSlotTypeSummaries";
 const _bK = "binKeys";
 const _bKBA = "bedrockKnowledgeBaseArn";
 const _bKSC = "bedrockKnowledgeStoreConfiguration";
+const _bL = "botLocale";
 const _bLEP = "botLocaleExportPassword";
 const _bLES = "botLocaleExportSpecification";
 const _bLEU = "botLocaleExportUrl";
@@ -919,9 +945,10 @@ const _iCSn = "intentClosingSetting";
 const _iCTR = "intentClassificationTestResults";
 const _iCn = "inputContexts";
 const _iCnt = "intentsCount";
-const _iD = "intentDiscrepancies";
+const _iD = "issueDescription";
 const _iDN = "intentDisplayName";
 const _iDS = "intentDisambiguationSettings";
+const _iDn = "intentDiscrepancies";
 const _iF = "includeFields";
 const _iI = "intentId";
 const _iIL = "importInputLocation";
@@ -931,6 +958,7 @@ const _iIt = "itemId";
 const _iL = "intentLevel";
 const _iLSRTR = "intentLevelSlotResolutionTestResults";
 const _iLn = "invocationLabel";
+const _iLs = "issueLocation";
 const _iM = "inputMode";
 const _iMR = "intentMatchResult";
 const _iMRC = "intentMatchResultCounts";
@@ -1010,20 +1038,21 @@ const _oST = "obfuscationSettingType";
 const _oT = "outputType";
 const _oTR = "overallTestResults";
 const _or = "order";
-const _p = "policy";
+const _p = "priority";
 const _pAS = "promptAttemptsSpecification";
 const _pBN = "parentBotNetworks";
 const _pCHS = "postCodeHookSpecification";
-const _pF = "pathFormat";
+const _pF = "proposedFix";
 const _pFSS = "postFulfillmentStatusSpecification";
+const _pFa = "pathFormat";
 const _pIS = "parentIntentSignature";
 const _pS = "promptSpecification";
 const _pSTS = "parentSlotTypeSignature";
 const _pTM = "plainTextMessage";
 const _pa = "pattern";
 const _ph = "phrase";
+const _po = "policy";
 const _pr = "principal";
-const _pri = "priority";
 const _qAIC = "qnAIntentConfiguration";
 const _qF = "questionField";
 const _qFS = "queryFilterString";
@@ -1582,6 +1611,16 @@ export var BotAliasTestExecutionTarget$: StaticStructureSchema = [3, n0, _BATET,
   [_bI, _bAI, _lI],
   [0, 0, 0], 3
 ];
+export var BotAnalyzerHistorySummary$: StaticStructureSchema = [3, n0, _BAHS,
+  0,
+  [_bASo, _bARI, _cDT],
+  [0, 0, 4], 2
+];
+export var BotAnalyzerRecommendation$: StaticStructureSchema = [3, n0, _BAR,
+  0,
+  [_iLs, _p, _iD, _pF],
+  [() => IssueLocation$, 0, 0, 0], 4
+];
 export var BotExportSpecification$: StaticStructureSchema = [3, n0, _BES,
   0,
   [_bI, _bV],
@@ -1874,7 +1913,7 @@ export var CreateIntentResponse$: StaticStructureSchema = [3, n0, _CIRr,
 ];
 export var CreateResourcePolicyRequest$: StaticStructureSchema = [3, n0, _CRPR,
   0,
-  [_rAe, _p],
+  [_rAe, _po],
   [[0, 1], 0], 2
 ];
 export var CreateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _CRPRr,
@@ -1991,6 +2030,16 @@ export var DeleteBotAliasResponse$: StaticStructureSchema = [3, n0, _DBARe,
   0,
   [_bAI, _bI, _bAS],
   [0, 0, 0]
+];
+export var DeleteBotAnalyzerRecommendationRequest$: StaticStructureSchema = [3, n0, _DBARR,
+  0,
+  [_bI, _bARI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteBotAnalyzerRecommendationResponse$: StaticStructureSchema = [3, n0, _DBARRe,
+  0,
+  [],
+  []
 ];
 export var DeleteBotLocaleRequest$: StaticStructureSchema = [3, n0, _DBLR,
   0,
@@ -2122,6 +2171,16 @@ export var DescribeBotAliasResponse$: StaticStructureSchema = [3, n0, _DBAResc,
   [_bAI, _bAN, _de, _bV, _bALS, _cLS, _sAS, _bAHE, _bAS, _bI, _cDT, _lUDT, _pBN],
   [0, 0, 0, 0, () => BotAliasLocaleSettingsMap, () => ConversationLogSettings$, () => SentimentAnalysisSettings$, () => BotAliasHistoryEventsList, 0, 0, 4, 4, () => ParentBotNetworks]
 ];
+export var DescribeBotAnalyzerRecommendationRequest$: StaticStructureSchema = [3, n0, _DBARRes,
+  0,
+  [_bI, _bARI, _nTe, _mRax],
+  [[0, 1], [0, 1], 0, 1], 2
+];
+export var DescribeBotAnalyzerRecommendationResponse$: StaticStructureSchema = [3, n0, _DBARResc,
+  0,
+  [_bI, _bV, _lI, _bASo, _cDT, _bARL, _nTe],
+  [0, 0, 0, 0, 4, () => BotAnalyzerRecommendationList, 0]
+];
 export var DescribeBotLocaleRequest$: StaticStructureSchema = [3, n0, _DBLRes,
   0,
   [_bI, _bV, _lI],
@@ -2229,7 +2288,7 @@ export var DescribeResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR
 ];
 export var DescribeResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPResc,
   0,
-  [_rAe, _p, _rI],
+  [_rAe, _po, _rI],
   [0, 0, 0]
 ];
 export var DescribeSlotRequest$: StaticStructureSchema = [3, n0, _DSRe,
@@ -2552,6 +2611,11 @@ export var InvokedIntentSample$: StaticStructureSchema = [3, n0, _IIS,
   [_iN],
   [0]
 ];
+export var IssueLocation$: StaticStructureSchema = [3, n0, _IL,
+  0,
+  [_bL, _iI, _sIl],
+  [0, 0, 0]
+];
 export var KendraConfiguration$: StaticStructureSchema = [3, n0, _KC,
   0,
   [_kI, _qFSE, _qFS],
@@ -2584,7 +2648,7 @@ export var ListBotAliasesRequest$: StaticStructureSchema = [3, n0, _LBAR,
 ];
 export var ListBotAliasesResponse$: StaticStructureSchema = [3, n0, _LBARi,
   0,
-  [_bASo, _nTe, _bI],
+  [_bASot, _nTe, _bI],
   [() => BotAliasSummaryList, 0, 0]
 ];
 export var ListBotAliasReplicasRequest$: StaticStructureSchema = [3, n0, _LBARR,
@@ -2596,6 +2660,16 @@ export var ListBotAliasReplicasResponse$: StaticStructureSchema = [3, n0, _LBARR
   0,
   [_bI, _sR, _rR, _bARSo, _nTe],
   [0, 0, 0, () => BotAliasReplicaSummaryList, 0]
+];
+export var ListBotAnalyzerHistoryRequest$: StaticStructureSchema = [3, n0, _LBAHR,
+  0,
+  [_bI, _lI, _bV, _nTe, _mRax],
+  [[0, 1], 0, 0, 0, 1], 1
+];
+export var ListBotAnalyzerHistoryResponse$: StaticStructureSchema = [3, n0, _LBAHRi,
+  0,
+  [_bI, _lI, _bV, _bAHL, _nTe],
+  [0, 0, 0, () => BotAnalyzerHistoryList, 0]
 ];
 export var ListBotLocalesRequest$: StaticStructureSchema = [3, n0, _LBLR,
   0,
@@ -3029,7 +3103,7 @@ export var S3BucketLogDestination$: StaticStructureSchema = [3, n0, _SBLD,
 ];
 export var S3BucketTranscriptSource$: StaticStructureSchema = [3, n0, _SBTS,
   0,
-  [_sBN, _tF, _pF, _tFr, _kKA],
+  [_sBN, _tF, _pFa, _tFr, _kKA],
   [0, 0, () => PathFormat$, () => TranscriptFilter$, 0], 2
 ];
 export var SampleUtterance$: StaticStructureSchema = [3, n0, _SU,
@@ -3094,7 +3168,7 @@ export var SlotFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SlotPriority$: StaticStructureSchema = [3, n0, _SP,
   0,
-  [_pri, _sIl],
+  [_p, _sIl],
   [1, 0], 2
 ];
 export var SlotResolutionImprovementSpecification$: StaticStructureSchema = [3, n0, _SRIS,
@@ -3202,6 +3276,16 @@ export var SSMLMessage$: StaticStructureSchema = [3, n0, _SSMLM,
   [_va],
   [0], 1
 ];
+export var StartBotAnalyzerRequest$: StaticStructureSchema = [3, n0, _SBAR,
+  0,
+  [_bI, _aSn, _lI, _bV],
+  [[0, 1], 0, 0, 0], 2
+];
+export var StartBotAnalyzerResponse$: StaticStructureSchema = [3, n0, _SBARt,
+  0,
+  [_bI, _bV, _lI, _bASo, _bARI, _cDT],
+  [0, 0, 0, 0, 0, 4]
+];
 export var StartBotRecommendationRequest$: StaticStructureSchema = [3, n0, _SBRR,
   0,
   [_bI, _bV, _lI, _tSS, _eSn],
@@ -3256,6 +3340,16 @@ export var StillWaitingResponseSpecification$: StaticStructureSchema = [3, n0, _
   0,
   [_mG, _fIS, _tIS, _aIl],
   [() => MessageGroupsList, 1, 1, 2], 3
+];
+export var StopBotAnalyzerRequest$: StaticStructureSchema = [3, n0, _SBARto,
+  0,
+  [_bI, _bARI],
+  [[0, 1], [0, 1]], 2
+];
+export var StopBotAnalyzerResponse$: StaticStructureSchema = [3, n0, _SBARtop,
+  0,
+  [_bI, _bV, _lI, _bASo, _bARI],
+  [0, 0, 0, 0, 0]
 ];
 export var StopBotRecommendationRequest$: StaticStructureSchema = [3, n0, _SBRRto,
   0,
@@ -3319,7 +3413,7 @@ export var TestExecutionTarget$: StaticStructureSchema = [3, n0, _TET,
 ];
 export var TestSetDiscrepancyErrors$: StaticStructureSchema = [3, n0, _TSDE,
   0,
-  [_iD, _sDl],
+  [_iDn, _sDl],
   [() => TestSetIntentDiscrepancyList, () => TestSetSlotDiscrepancyList], 2
 ];
 export var TestSetDiscrepancyReportBotAliasTarget$: StaticStructureSchema = [3, n0, _TSDRBAT,
@@ -3494,7 +3588,7 @@ export var UpdateIntentResponse$: StaticStructureSchema = [3, n0, _UIRp,
 ];
 export var UpdateResourcePolicyRequest$: StaticStructureSchema = [3, n0, _URPR,
   0,
-  [_rAe, _p, _eRI],
+  [_rAe, _po, _eRI],
   [[0, 1], 0, [0, { [_hQ]: _eRI }]], 2
 ];
 export var UpdateResourcePolicyResponse$: StaticStructureSchema = [3, n0, _URPRp,
@@ -3730,6 +3824,12 @@ var BotAliasReplicaSummaryList: StaticListSchema = [1, n0, _BARSL,
 ];
 var BotAliasSummaryList: StaticListSchema = [1, n0, _BASL,
   0, () => BotAliasSummary$
+];
+var BotAnalyzerHistoryList: StaticListSchema = [1, n0, _BAHL,
+  0, () => BotAnalyzerHistorySummary$
+];
+var BotAnalyzerRecommendationList: StaticListSchema = [1, n0, _BARL,
+  0, () => BotAnalyzerRecommendation$
 ];
 var BotFilters: StaticListSchema = [1, n0, _BFo,
   0, () => BotFilter$
@@ -4018,6 +4118,9 @@ export var DeleteBot$: StaticOperationSchema = [9, n0, _DB,
 export var DeleteBotAlias$: StaticOperationSchema = [9, n0, _DBA,
   { [_h]: ["DELETE", "/bots/{botId}/botaliases/{botAliasId}", 202] }, () => DeleteBotAliasRequest$, () => DeleteBotAliasResponse$
 ];
+export var DeleteBotAnalyzerRecommendation$: StaticOperationSchema = [9, n0, _DBARel,
+  { [_h]: ["DELETE", "/bots/{botId}/botanalyzer/{botAnalyzerRequestId}", 204] }, () => DeleteBotAnalyzerRecommendationRequest$, () => DeleteBotAnalyzerRecommendationResponse$
+];
 export var DeleteBotLocale$: StaticOperationSchema = [9, n0, _DBL,
   { [_h]: ["DELETE", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 202] }, () => DeleteBotLocaleRequest$, () => DeleteBotLocaleResponse$
 ];
@@ -4062,6 +4165,9 @@ export var DescribeBot$: StaticOperationSchema = [9, n0, _DBe,
 ];
 export var DescribeBotAlias$: StaticOperationSchema = [9, n0, _DBAe,
   { [_h]: ["GET", "/bots/{botId}/botaliases/{botAliasId}", 200] }, () => DescribeBotAliasRequest$, () => DescribeBotAliasResponse$
+];
+export var DescribeBotAnalyzerRecommendation$: StaticOperationSchema = [9, n0, _DBARescr,
+  { [_h]: ["POST", "/bots/{botId}/botanalyzer/describe/{botAnalyzerRequestId}", 200] }, () => DescribeBotAnalyzerRecommendationRequest$, () => DescribeBotAnalyzerRecommendationResponse$
 ];
 export var DescribeBotLocale$: StaticOperationSchema = [9, n0, _DBLe,
   { [_h]: ["GET", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}", 200] }, () => DescribeBotLocaleRequest$, () => DescribeBotLocaleResponse$
@@ -4125,6 +4231,9 @@ export var ListBotAliases$: StaticOperationSchema = [9, n0, _LBA,
 ];
 export var ListBotAliasReplicas$: StaticOperationSchema = [9, n0, _LBARis,
   { [_h]: ["POST", "/bots/{botId}/replicas/{replicaRegion}/botaliases", 200] }, () => ListBotAliasReplicasRequest$, () => ListBotAliasReplicasResponse$
+];
+export var ListBotAnalyzerHistory$: StaticOperationSchema = [9, n0, _LBAH,
+  { [_h]: ["POST", "/bots/{botId}/botanalyzer/history", 200] }, () => ListBotAnalyzerHistoryRequest$, () => ListBotAnalyzerHistoryResponse$
 ];
 export var ListBotLocales$: StaticOperationSchema = [9, n0, _LBL,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales", 200] }, () => ListBotLocalesRequest$, () => ListBotLocalesResponse$
@@ -4213,6 +4322,9 @@ export var ListUtteranceMetrics$: StaticOperationSchema = [9, n0, _LUM,
 export var SearchAssociatedTranscripts$: StaticOperationSchema = [9, n0, _SAT,
   { [_h]: ["POST", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/associatedtranscripts", 200] }, () => SearchAssociatedTranscriptsRequest$, () => SearchAssociatedTranscriptsResponse$
 ];
+export var StartBotAnalyzer$: StaticOperationSchema = [9, n0, _SBA,
+  { [_h]: ["POST", "/bots/{botId}/botanalyzer", 202] }, () => StartBotAnalyzerRequest$, () => StartBotAnalyzerResponse$
+];
 export var StartBotRecommendation$: StaticOperationSchema = [9, n0, _SBR,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations", 202] }, () => StartBotRecommendationRequest$, () => StartBotRecommendationResponse$
 ];
@@ -4227,6 +4339,9 @@ export var StartTestExecution$: StaticOperationSchema = [9, n0, _STE,
 ];
 export var StartTestSetGeneration$: StaticOperationSchema = [9, n0, _STSG,
   { [_h]: ["PUT", "/testsetgenerations", 202] }, () => StartTestSetGenerationRequest$, () => StartTestSetGenerationResponse$
+];
+export var StopBotAnalyzer$: StaticOperationSchema = [9, n0, _SBAt,
+  { [_h]: ["PUT", "/bots/{botId}/botanalyzer/{botAnalyzerRequestId}/stop", 200] }, () => StopBotAnalyzerRequest$, () => StopBotAnalyzerResponse$
 ];
 export var StopBotRecommendation$: StaticOperationSchema = [9, n0, _SBRt,
   { [_h]: ["PUT", "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/botrecommendations/{botRecommendationId}/stopbotrecommendation", 202] }, () => StopBotRecommendationRequest$, () => StopBotRecommendationResponse$
