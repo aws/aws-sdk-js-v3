@@ -47,7 +47,33 @@ export interface GetProfileRecommendationsCommandOutput extends GetProfileRecomm
  *   Context: { // RecommenderContext
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RecommenderFilters: [ // RecommenderFilters
+ *     { // RecommenderFilter
+ *       Name: "STRING_VALUE",
+ *       Values: { // RecommenderFilterValues
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
+ *   ],
+ *   RecommenderPromotionalFilters: [ // RecommenderPromotionalFilters
+ *     { // RecommenderPromotionalFilter
+ *       Name: "STRING_VALUE",
+ *       Values: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       PromotionName: "STRING_VALUE",
+ *       PercentPromotedItems: Number("int"),
+ *     },
+ *   ],
+ *   CandidateIds: [ // CandidateIdList
+ *     "STRING_VALUE",
+ *   ],
  *   MaxResults: Number("int"),
+ *   MetadataConfig: { // MetadataConfig
+ *     MetadataColumns: [ // MetadataColumnsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new GetProfileRecommendationsCommand(input);
  * const response = await client.send(command);

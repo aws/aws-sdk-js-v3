@@ -49,17 +49,21 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * const response = await client.send(command);
  * // { // GetRecommenderResponse
  * //   RecommenderName: "STRING_VALUE", // required
- * //   RecommenderRecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now", // required
+ * //   RecommenderRecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now" || "personalized-ranking", // required
  * //   RecommenderConfig: { // RecommenderConfig
  * //     EventsConfig: { // EventsConfig
  * //       EventParametersList: [ // EventParametersList // required
  * //         { // EventParameters
  * //           EventType: "STRING_VALUE", // required
  * //           EventValueThreshold: Number("double"),
+ * //           EventWeight: Number("double"),
  * //         },
  * //       ],
  * //     },
  * //     TrainingFrequency: Number("int"),
+ * //     InferenceConfig: { // InferenceConfig
+ * //       MinProvisionedTPS: Number("int"),
+ * //     },
  * //   },
  * //   Description: "STRING_VALUE",
  * //   Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
@@ -73,10 +77,14 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * //           {
  * //             EventType: "STRING_VALUE", // required
  * //             EventValueThreshold: Number("double"),
+ * //             EventWeight: Number("double"),
  * //           },
  * //         ],
  * //       },
  * //       TrainingFrequency: Number("int"),
+ * //       InferenceConfig: {
+ * //         MinProvisionedTPS: Number("int"),
+ * //       },
  * //     },
  * //     Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
  * //     CreatedAt: new Date("TIMESTAMP"),

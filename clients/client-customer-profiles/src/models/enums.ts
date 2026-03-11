@@ -657,6 +657,7 @@ export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
  */
 export const RecommenderRecipeName = {
   FREQUENTLY_PAIRED_ITEMS: "frequently-paired-items",
+  PERSONALIZED_RANKING: "personalized-ranking",
   POPULAR_ITEMS: "popular-items",
   RECOMMENDED_FOR_YOU: "recommended-for-you",
   SIMILAR_ITEMS: "similar-items",
@@ -878,6 +879,22 @@ export const TrainingMetricName = {
  * @public
  */
 export type TrainingMetricName = (typeof TrainingMetricName)[keyof typeof TrainingMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommenderFilterStatus = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type RecommenderFilterStatus = (typeof RecommenderFilterStatus)[keyof typeof RecommenderFilterStatus];
 
 /**
  * @public

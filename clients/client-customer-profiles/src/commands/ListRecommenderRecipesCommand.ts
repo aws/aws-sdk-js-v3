@@ -50,7 +50,7 @@ export interface ListRecommenderRecipesCommandOutput extends ListRecommenderReci
  * //   NextToken: "STRING_VALUE",
  * //   RecommenderRecipes: [ // RecommenderRecipesList
  * //     { // RecommenderRecipe
- * //       name: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now",
+ * //       name: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now" || "personalized-ranking",
  * //       description: "STRING_VALUE",
  * //     },
  * //   ],

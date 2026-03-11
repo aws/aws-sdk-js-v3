@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_0";
+import type { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_1";
 import { StartRecommender$ } from "../schemas/schemas_0";
 
 /**

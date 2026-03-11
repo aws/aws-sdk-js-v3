@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_1";
-import { StopRecommender$ } from "../schemas/schemas_0";
+import type { GetRecommenderFilterRequest, GetRecommenderFilterResponse } from "../models/models_0";
+import { GetRecommenderFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,40 +20,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopRecommenderCommand}.
+ * The input for {@link GetRecommenderFilterCommand}.
  */
-export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
+export interface GetRecommenderFilterCommandInput extends GetRecommenderFilterRequest {}
 /**
  * @public
  *
- * The output of {@link StopRecommenderCommand}.
+ * The output of {@link GetRecommenderFilterCommand}.
  */
-export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
+export interface GetRecommenderFilterCommandOutput extends GetRecommenderFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a recommender, suspending its ability to generate recommendations. The recommender can be restarted later using StartRecommender.</p>
+ * <p>Retrieves information about a specific recommender filter in a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, StopRecommenderCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, StopRecommenderCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, GetRecommenderFilterCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, GetRecommenderFilterCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // StopRecommenderRequest
+ * const input = { // GetRecommenderFilterRequest
  *   DomainName: "STRING_VALUE", // required
- *   RecommenderName: "STRING_VALUE", // required
+ *   RecommenderFilterName: "STRING_VALUE", // required
  * };
- * const command = new StopRecommenderCommand(input);
+ * const command = new GetRecommenderFilterCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetRecommenderFilterResponse
+ * //   RecommenderFilterName: "STRING_VALUE", // required
+ * //   RecommenderFilterExpression: "STRING_VALUE", // required
+ * //   CreatedAt: new Date("TIMESTAMP"), // required
+ * //   Status: "ACTIVE" || "PENDING" || "IN_PROGRESS" || "FAILED" || "DELETING", // required
+ * //   Description: "STRING_VALUE",
+ * //   FailureReason: "STRING_VALUE",
+ * //   Tags: { // TagMap // required
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * // };
  *
  * ```
  *
- * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
- * @returns {@link StopRecommenderCommandOutput}
- * @see {@link StopRecommenderCommandInput} for command's `input` shape.
- * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
+ * @param GetRecommenderFilterCommandInput - {@link GetRecommenderFilterCommandInput}
+ * @returns {@link GetRecommenderFilterCommandOutput}
+ * @see {@link GetRecommenderFilterCommandInput} for command's `input` shape.
+ * @see {@link GetRecommenderFilterCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,10 +87,10 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  *
  * @public
  */
-export class StopRecommenderCommand extends $Command
+export class GetRecommenderFilterCommand extends $Command
   .classBuilder<
-    StopRecommenderCommandInput,
-    StopRecommenderCommandOutput,
+    GetRecommenderFilterCommandInput,
+    GetRecommenderFilterCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,19 +99,19 @@ export class StopRecommenderCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "StopRecommender", {})
-  .n("CustomerProfilesClient", "StopRecommenderCommand")
-  .sc(StopRecommender$)
+  .s("CustomerProfiles_20200815", "GetRecommenderFilter", {})
+  .n("CustomerProfilesClient", "GetRecommenderFilterCommand")
+  .sc(GetRecommenderFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopRecommenderRequest;
-      output: {};
+      input: GetRecommenderFilterRequest;
+      output: GetRecommenderFilterResponse;
     };
     sdk: {
-      input: StopRecommenderCommandInput;
-      output: StopRecommenderCommandOutput;
+      input: GetRecommenderFilterCommandInput;
+      output: GetRecommenderFilterCommandOutput;
     };
   };
 }

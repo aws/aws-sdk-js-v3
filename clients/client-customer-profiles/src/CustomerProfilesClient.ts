@@ -84,6 +84,10 @@ import {
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
 import {
+  CreateRecommenderFilterCommandInput,
+  CreateRecommenderFilterCommandOutput,
+} from "./commands/CreateRecommenderFilterCommand";
+import {
   CreateSegmentDefinitionCommandInput,
   CreateSegmentDefinitionCommandOutput,
 } from "./commands/CreateSegmentDefinitionCommand";
@@ -120,6 +124,10 @@ import {
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
 import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
+import {
+  DeleteRecommenderFilterCommandInput,
+  DeleteRecommenderFilterCommandOutput,
+} from "./commands/DeleteRecommenderFilterCommand";
 import {
   DeleteSegmentDefinitionCommandInput,
   DeleteSegmentDefinitionCommandOutput,
@@ -176,6 +184,10 @@ import {
   GetProfileRecommendationsCommandOutput,
 } from "./commands/GetProfileRecommendationsCommand";
 import { GetRecommenderCommandInput, GetRecommenderCommandOutput } from "./commands/GetRecommenderCommand";
+import {
+  GetRecommenderFilterCommandInput,
+  GetRecommenderFilterCommandOutput,
+} from "./commands/GetRecommenderFilterCommand";
 import {
   GetSegmentDefinitionCommandInput,
   GetSegmentDefinitionCommandOutput,
@@ -241,6 +253,10 @@ import {
   ListProfileObjectTypeTemplatesCommandInput,
   ListProfileObjectTypeTemplatesCommandOutput,
 } from "./commands/ListProfileObjectTypeTemplatesCommand";
+import {
+  ListRecommenderFiltersCommandInput,
+  ListRecommenderFiltersCommandOutput,
+} from "./commands/ListRecommenderFiltersCommand";
 import {
   ListRecommenderRecipesCommandInput,
   ListRecommenderRecipesCommandOutput,
@@ -313,6 +329,7 @@ export type ServiceInputTypes =
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
   | CreateRecommenderCommandInput
+  | CreateRecommenderFilterCommandInput
   | CreateSegmentDefinitionCommandInput
   | CreateSegmentEstimateCommandInput
   | CreateSegmentSnapshotCommandInput
@@ -329,6 +346,7 @@ export type ServiceInputTypes =
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
   | DeleteRecommenderCommandInput
+  | DeleteRecommenderFilterCommandInput
   | DeleteSegmentDefinitionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
@@ -349,6 +367,7 @@ export type ServiceInputTypes =
   | GetProfileObjectTypeTemplateCommandInput
   | GetProfileRecommendationsCommandInput
   | GetRecommenderCommandInput
+  | GetRecommenderFilterCommandInput
   | GetSegmentDefinitionCommandInput
   | GetSegmentEstimateCommandInput
   | GetSegmentMembershipCommandInput
@@ -375,6 +394,7 @@ export type ServiceInputTypes =
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
+  | ListRecommenderFiltersCommandInput
   | ListRecommenderRecipesCommandInput
   | ListRecommendersCommandInput
   | ListRuleBasedMatchesCommandInput
@@ -416,6 +436,7 @@ export type ServiceOutputTypes =
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
   | CreateRecommenderCommandOutput
+  | CreateRecommenderFilterCommandOutput
   | CreateSegmentDefinitionCommandOutput
   | CreateSegmentEstimateCommandOutput
   | CreateSegmentSnapshotCommandOutput
@@ -432,6 +453,7 @@ export type ServiceOutputTypes =
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
   | DeleteRecommenderCommandOutput
+  | DeleteRecommenderFilterCommandOutput
   | DeleteSegmentDefinitionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
@@ -452,6 +474,7 @@ export type ServiceOutputTypes =
   | GetProfileObjectTypeTemplateCommandOutput
   | GetProfileRecommendationsCommandOutput
   | GetRecommenderCommandOutput
+  | GetRecommenderFilterCommandOutput
   | GetSegmentDefinitionCommandOutput
   | GetSegmentEstimateCommandOutput
   | GetSegmentMembershipCommandOutput
@@ -478,6 +501,7 @@ export type ServiceOutputTypes =
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
+  | ListRecommenderFiltersCommandOutput
   | ListRecommenderRecipesCommandOutput
   | ListRecommendersCommandOutput
   | ListRuleBasedMatchesCommandOutput

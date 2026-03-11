@@ -52,17 +52,21 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //   Recommenders: [ // RecommenderSummaryList
  * //     { // RecommenderSummary
  * //       RecommenderName: "STRING_VALUE",
- * //       RecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now",
+ * //       RecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now" || "personalized-ranking",
  * //       RecommenderConfig: { // RecommenderConfig
  * //         EventsConfig: { // EventsConfig
  * //           EventParametersList: [ // EventParametersList // required
  * //             { // EventParameters
  * //               EventType: "STRING_VALUE", // required
  * //               EventValueThreshold: Number("double"),
+ * //               EventWeight: Number("double"),
  * //             },
  * //           ],
  * //         },
  * //         TrainingFrequency: Number("int"),
+ * //         InferenceConfig: { // InferenceConfig
+ * //           MinProvisionedTPS: Number("int"),
+ * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
@@ -79,10 +83,14 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //               {
  * //                 EventType: "STRING_VALUE", // required
  * //                 EventValueThreshold: Number("double"),
+ * //                 EventWeight: Number("double"),
  * //               },
  * //             ],
  * //           },
  * //           TrainingFrequency: Number("int"),
+ * //           InferenceConfig: {
+ * //             MinProvisionedTPS: Number("int"),
+ * //           },
  * //         },
  * //         Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
  * //         CreatedAt: new Date("TIMESTAMP"),

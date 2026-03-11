@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { UpdateRecommenderRequest, UpdateRecommenderResponse } from "../models/models_1";
-import { UpdateRecommender$ } from "../schemas/schemas_0";
+import type { CreateRecommenderFilterRequest, CreateRecommenderFilterResponse } from "../models/models_0";
+import { CreateRecommenderFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,58 +20,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateRecommenderCommand}.
+ * The input for {@link CreateRecommenderFilterCommand}.
  */
-export interface UpdateRecommenderCommandInput extends UpdateRecommenderRequest {}
+export interface CreateRecommenderFilterCommandInput extends CreateRecommenderFilterRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateRecommenderCommand}.
+ * The output of {@link CreateRecommenderFilterCommand}.
  */
-export interface UpdateRecommenderCommandOutput extends UpdateRecommenderResponse, __MetadataBearer {}
+export interface CreateRecommenderFilterCommandOutput extends CreateRecommenderFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of an existing recommender, allowing you to modify its configuration and description.</p>
+ * <p>Creates a recommender filter. A recommender filter specifies which items to include or exclude from recommendations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, UpdateRecommenderCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, UpdateRecommenderCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, CreateRecommenderFilterCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, CreateRecommenderFilterCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // UpdateRecommenderRequest
+ * const input = { // CreateRecommenderFilterRequest
  *   DomainName: "STRING_VALUE", // required
- *   RecommenderName: "STRING_VALUE", // required
+ *   RecommenderFilterName: "STRING_VALUE", // required
+ *   RecommenderFilterExpression: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   RecommenderConfig: { // RecommenderConfig
- *     EventsConfig: { // EventsConfig
- *       EventParametersList: [ // EventParametersList // required
- *         { // EventParameters
- *           EventType: "STRING_VALUE", // required
- *           EventValueThreshold: Number("double"),
- *           EventWeight: Number("double"),
- *         },
- *       ],
- *     },
- *     TrainingFrequency: Number("int"),
- *     InferenceConfig: { // InferenceConfig
- *       MinProvisionedTPS: Number("int"),
- *     },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
- * const command = new UpdateRecommenderCommand(input);
+ * const command = new CreateRecommenderFilterCommand(input);
  * const response = await client.send(command);
- * // { // UpdateRecommenderResponse
- * //   RecommenderName: "STRING_VALUE", // required
+ * // { // CreateRecommenderFilterResponse
+ * //   RecommenderFilterArn: "STRING_VALUE", // required
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param UpdateRecommenderCommandInput - {@link UpdateRecommenderCommandInput}
- * @returns {@link UpdateRecommenderCommandOutput}
- * @see {@link UpdateRecommenderCommandInput} for command's `input` shape.
- * @see {@link UpdateRecommenderCommandOutput} for command's `response` shape.
+ * @param CreateRecommenderFilterCommandInput - {@link CreateRecommenderFilterCommandInput}
+ * @returns {@link CreateRecommenderFilterCommandOutput}
+ * @see {@link CreateRecommenderFilterCommandInput} for command's `input` shape.
+ * @see {@link CreateRecommenderFilterCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -95,10 +87,10 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *
  * @public
  */
-export class UpdateRecommenderCommand extends $Command
+export class CreateRecommenderFilterCommand extends $Command
   .classBuilder<
-    UpdateRecommenderCommandInput,
-    UpdateRecommenderCommandOutput,
+    CreateRecommenderFilterCommandInput,
+    CreateRecommenderFilterCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -107,19 +99,19 @@ export class UpdateRecommenderCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "UpdateRecommender", {})
-  .n("CustomerProfilesClient", "UpdateRecommenderCommand")
-  .sc(UpdateRecommender$)
+  .s("CustomerProfiles_20200815", "CreateRecommenderFilter", {})
+  .n("CustomerProfilesClient", "CreateRecommenderFilterCommand")
+  .sc(CreateRecommenderFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateRecommenderRequest;
-      output: UpdateRecommenderResponse;
+      input: CreateRecommenderFilterRequest;
+      output: CreateRecommenderFilterResponse;
     };
     sdk: {
-      input: UpdateRecommenderCommandInput;
-      output: UpdateRecommenderCommandOutput;
+      input: CreateRecommenderFilterCommandInput;
+      output: CreateRecommenderFilterCommandOutput;
     };
   };
 }

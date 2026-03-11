@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StartUploadJobRequest, StartUploadJobResponse } from "../models/models_0";
+import type { StartUploadJobRequest, StartUploadJobResponse } from "../models/models_1";
 import { StartUploadJob$ } from "../schemas/schemas_0";
 
 /**

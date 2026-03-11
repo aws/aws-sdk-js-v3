@@ -9,8 +9,8 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_1";
-import { StopRecommender$ } from "../schemas/schemas_0";
+import type { DeleteRecommenderFilterRequest, DeleteRecommenderFilterResponse } from "../models/models_0";
+import { DeleteRecommenderFilter$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -20,40 +20,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StopRecommenderCommand}.
+ * The input for {@link DeleteRecommenderFilterCommand}.
  */
-export interface StopRecommenderCommandInput extends StopRecommenderRequest {}
+export interface DeleteRecommenderFilterCommandInput extends DeleteRecommenderFilterRequest {}
 /**
  * @public
  *
- * The output of {@link StopRecommenderCommand}.
+ * The output of {@link DeleteRecommenderFilterCommand}.
  */
-export interface StopRecommenderCommandOutput extends StopRecommenderResponse, __MetadataBearer {}
+export interface DeleteRecommenderFilterCommandOutput extends DeleteRecommenderFilterResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a recommender, suspending its ability to generate recommendations. The recommender can be restarted later using StartRecommender.</p>
+ * <p>Deletes a recommender filter from a domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CustomerProfilesClient, StopRecommenderCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
- * // const { CustomerProfilesClient, StopRecommenderCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
+ * import { CustomerProfilesClient, DeleteRecommenderFilterCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteRecommenderFilterCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * // import type { CustomerProfilesClientConfig } from "@aws-sdk/client-customer-profiles";
  * const config = {}; // type is CustomerProfilesClientConfig
  * const client = new CustomerProfilesClient(config);
- * const input = { // StopRecommenderRequest
+ * const input = { // DeleteRecommenderFilterRequest
  *   DomainName: "STRING_VALUE", // required
- *   RecommenderName: "STRING_VALUE", // required
+ *   RecommenderFilterName: "STRING_VALUE", // required
  * };
- * const command = new StopRecommenderCommand(input);
+ * const command = new DeleteRecommenderFilterCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteRecommenderFilterResponse
+ * //   Message: "STRING_VALUE", // required
+ * // };
  *
  * ```
  *
- * @param StopRecommenderCommandInput - {@link StopRecommenderCommandInput}
- * @returns {@link StopRecommenderCommandOutput}
- * @see {@link StopRecommenderCommandInput} for command's `input` shape.
- * @see {@link StopRecommenderCommandOutput} for command's `response` shape.
+ * @param DeleteRecommenderFilterCommandInput - {@link DeleteRecommenderFilterCommandInput}
+ * @returns {@link DeleteRecommenderFilterCommandOutput}
+ * @see {@link DeleteRecommenderFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteRecommenderFilterCommandOutput} for command's `response` shape.
  * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,10 +79,10 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  *
  * @public
  */
-export class StopRecommenderCommand extends $Command
+export class DeleteRecommenderFilterCommand extends $Command
   .classBuilder<
-    StopRecommenderCommandInput,
-    StopRecommenderCommandOutput,
+    DeleteRecommenderFilterCommandInput,
+    DeleteRecommenderFilterCommandOutput,
     CustomerProfilesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -89,19 +91,19 @@ export class StopRecommenderCommand extends $Command
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
   })
-  .s("CustomerProfiles_20200815", "StopRecommender", {})
-  .n("CustomerProfilesClient", "StopRecommenderCommand")
-  .sc(StopRecommender$)
+  .s("CustomerProfiles_20200815", "DeleteRecommenderFilter", {})
+  .n("CustomerProfilesClient", "DeleteRecommenderFilterCommand")
+  .sc(DeleteRecommenderFilter$)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StopRecommenderRequest;
-      output: {};
+      input: DeleteRecommenderFilterRequest;
+      output: DeleteRecommenderFilterResponse;
     };
     sdk: {
-      input: StopRecommenderCommandInput;
-      output: StopRecommenderCommandOutput;
+      input: DeleteRecommenderFilterCommandInput;
+      output: DeleteRecommenderFilterCommandOutput;
     };
   };
 }

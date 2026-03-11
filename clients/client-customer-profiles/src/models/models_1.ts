@@ -1,5 +1,14 @@
 // smithy-typescript generated code
-import { Gender, LayoutType, PartyType, ProfileType, ReadinessStatus, Statistic } from "./enums";
+import {
+  Gender,
+  LayoutType,
+  LogicalOperator,
+  PartyType,
+  ProfileType,
+  ReadinessStatus,
+  Scope,
+  Statistic,
+} from "./enums";
 import {
   type AttributeDetails,
   type Conditions,
@@ -7,14 +16,550 @@ import {
   type DataStoreResponse,
   type EngagementPreferences,
   type EventTriggerLimits,
+  type FlowDefinition,
   type MatchingRequest,
   type MatchingResponse,
   type Readiness,
   type RecommenderConfig,
   type RuleBasedMatchingRequest,
   type RuleBasedMatchingResponse,
+  AdditionalSearchKey,
   EventTriggerCondition,
+  ObjectTypeField,
+  ObjectTypeKey,
+  Profile,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PutIntegrationRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri?: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration that controls how Customer Profiles retrieves data from the
+   *          source.</p>
+   * @public
+   */
+  FlowDefinition?: FlowDefinition | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutIntegrationResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The URI of the S3 bucket or any other type of data source.</p>
+   * @public
+   */
+  Uri: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map in which each key is an event type from an external application such as Segment or Shopify, and each value is an <code>ObjectTypeName</code> (template) used to ingest the event.
+   * It supports the following event types: <code>SegmentIdentify</code>, <code>ShopifyCreateCustomers</code>, <code>ShopifyUpdateCustomers</code>, <code>ShopifyCreateDraftOrders</code>,
+   * <code>ShopifyUpdateDraftOrders</code>, <code>ShopifyCreateOrders</code>, and <code>ShopifyUpdatedOrders</code>.</p>
+   * @public
+   */
+  ObjectTypeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>Unique identifier for the workflow.</p>
+   * @public
+   */
+  WorkflowId?: string | undefined;
+
+  /**
+   * <p>Boolean that shows if the Flow that's associated with the Integration is created in
+   *          Amazon Appflow, or with ObjectTypeName equals _unstructured via API/CLI in
+   *          flowDefinition.</p>
+   * @public
+   */
+  IsUnstructured?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to make
+   *          Customer Profiles requests on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>A list of unique names for active event triggers associated with the integration. This
+   *          list would be empty if no Event Trigger is associated with the integration.</p>
+   * @public
+   */
+  EventTriggerNames?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the integration applies to profile level data (associated with profiles) or domain level data (not associated with any specific profile). The default value is PROFILE.</p>
+   * @public
+   */
+  Scope?: Scope | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectRequest {
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>A string that is serialized from a JSON object.</p>
+   * @public
+   */
+  Object: string | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectResponse {
+  /**
+   * <p>The unique identifier of the profile object generated by the service.</p>
+   * @public
+   */
+  ProfileObjectUniqueKey?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectTypeRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>Description of the profile object type.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A unique identifier for the object template. For some attributes in the request, the
+   *          service will use the default value from the object template when TemplateId is present. If
+   *          these attributes are present in the request, the service may return a
+   *             <code>BadRequestException</code>. These attributes include: AllowProfileCreation,
+   *          SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if AllowProfileCreation is
+   *          set to true when TemplateId is set, the service may return a
+   *             <code>BadRequestException</code>.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The number of days until the data in the object expires.</p>
+   * @public
+   */
+  ExpirationDays?: number | undefined;
+
+  /**
+   * <p>The customer-provided key to encrypt the profile object that will be created in this
+   *          profile object type.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
+   * @public
+   */
+  AllowProfileCreation?: boolean | undefined;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up.
+   *       </p>
+   * @public
+   */
+  SourceLastUpdatedTimestampFormat?: string | undefined;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
+
+  /**
+   * <p>A map of the name and ObjectType field.</p>
+   * @public
+   */
+  Fields?: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * @public
+   */
+  Keys?: Record<string, ObjectTypeKey[]> | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProfileObjectTypeResponse {
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+
+  /**
+   * <p>Description of the profile object type.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A unique identifier for the object template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The number of days until the data in the object expires.</p>
+   * @public
+   */
+  ExpirationDays?: number | undefined;
+
+  /**
+   * <p>The customer-provided key to encrypt the profile object that will be created in this
+   *          profile object type.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>Indicates whether a profile should be created when data is received if one doesn’t exist
+   *          for an object of this type. The default is <code>FALSE</code>. If the AllowProfileCreation
+   *          flag is set to <code>FALSE</code>, then the service tries to fetch a standard profile and
+   *          associate this object with the profile. If it is set to <code>TRUE</code>, and if no match
+   *          is found, then the service creates a new standard profile.</p>
+   * @public
+   */
+  AllowProfileCreation?: boolean | undefined;
+
+  /**
+   * <p>The format of your <code>sourceLastUpdatedTimestamp</code> that was previously set up in
+   *          fields that were parsed using <a href="https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>. If you have <code>sourceLastUpdatedTimestamp</code> in your
+   *          field, you must set up <code>sourceLastUpdatedTimestampFormat</code>.</p>
+   * @public
+   */
+  SourceLastUpdatedTimestampFormat?: string | undefined;
+
+  /**
+   * <p>The amount of profile object max count assigned to the object type.</p>
+   * @public
+   */
+  MaxProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>The amount of provisioned profile object max count available.</p>
+   * @public
+   */
+  MaxAvailableProfileObjectCount?: number | undefined;
+
+  /**
+   * <p>An integer that determines the priority of this object type when data from multiple sources is ingested. Lower values take priority. Object types without a specified source priority default to the lowest priority.</p>
+   * @public
+   */
+  SourcePriority?: number | undefined;
+
+  /**
+   * <p>A map of the name and ObjectType field.</p>
+   * @public
+   */
+  Fields?: Record<string, ObjectTypeField> | undefined;
+
+  /**
+   * <p>A list of unique keys that can be used to map data to the profile.</p>
+   * @public
+   */
+  Keys?: Record<string, ObjectTypeKey[]> | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp of when the domain was most recently edited.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchProfilesRequest {
+  /**
+   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   *          <p>The default is 20 if this parameter is not included in the request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A searchable identifier of a customer profile. The predefined keys you can use to search include: _account, _profileId,
+   *          _assetId, _caseId, _orderId, _fullName, _phone, _email, _ctrContactId, _marketoLeadId,
+   *          _salesforceAccountId, _salesforceContactId, _salesforceAssetId, _zendeskUserId,
+   *          _zendeskExternalId, _zendeskTicketId, _serviceNowSystemId, _serviceNowIncidentId,
+   *          _segmentUserId, _shopifyCustomerId, _shopifyOrderId.</p>
+   * @public
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>A list of key values.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers
+   *          of a profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code>
+   *          and a list of <code>Values</code> associated with that specific key (i.e., a key-value(s)
+   *          pair). These additional search keys will be used in conjunction with the
+   *             <code>LogicalOperator</code> and the required <code>KeyName</code> and
+   *             <code>Values</code> parameters to search for profiles that satisfy the search criteria.
+   *       </p>
+   * @public
+   */
+  AdditionalSearchKeys?: AdditionalSearchKey[] | undefined;
+
+  /**
+   * <p>Relationship between all specified search keys that will be used to search for profiles.
+   *          This includes the required <code>KeyName</code> and <code>Values</code> parameters as well
+   *          as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
+   *          <p>This parameter influences which profiles will be returned in the response in the
+   *          following manner:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code> - The response only includes profiles that match all of the
+   *                search keys.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> - The response includes profiles that match at least one of the
+   *                search keys.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not
+   *          included in the request.</p>
+   * @public
+   */
+  LogicalOperator?: LogicalOperator | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchProfilesResponse {
+  /**
+   * <p>The list of Profiles matching the search criteria.</p>
+   * @public
+   */
+  Items?: Profile[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous SearchProfiles API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender to start.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecommenderResponse {}
+
+/**
+ * @public
+ */
+export interface StartUploadJobRequest {
+  /**
+   * <p>The unique name of the domain containing the upload job to start. </p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the upload job to start. </p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartUploadJobResponse {}
+
+/**
+ * @public
+ */
+export interface StopRecommenderRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender to stop.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+}
 
 /**
  * @public

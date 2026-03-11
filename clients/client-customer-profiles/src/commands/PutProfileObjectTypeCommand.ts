@@ -9,7 +9,7 @@ import type {
   ServiceOutputTypes,
 } from "../CustomerProfilesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_0";
+import type { PutProfileObjectTypeRequest, PutProfileObjectTypeResponse } from "../models/models_1";
 import { PutProfileObjectType$ } from "../schemas/schemas_0";
 
 /**

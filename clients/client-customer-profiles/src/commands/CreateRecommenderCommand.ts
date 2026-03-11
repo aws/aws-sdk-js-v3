@@ -43,17 +43,21 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  * const input = { // CreateRecommenderRequest
  *   DomainName: "STRING_VALUE", // required
  *   RecommenderName: "STRING_VALUE", // required
- *   RecommenderRecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now", // required
+ *   RecommenderRecipeName: "recommended-for-you" || "similar-items" || "frequently-paired-items" || "popular-items" || "trending-now" || "personalized-ranking", // required
  *   RecommenderConfig: { // RecommenderConfig
  *     EventsConfig: { // EventsConfig
  *       EventParametersList: [ // EventParametersList // required
  *         { // EventParameters
  *           EventType: "STRING_VALUE", // required
  *           EventValueThreshold: Number("double"),
+ *           EventWeight: Number("double"),
  *         },
  *       ],
  *     },
  *     TrainingFrequency: Number("int"),
+ *     InferenceConfig: { // InferenceConfig
+ *       MinProvisionedTPS: Number("int"),
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   Tags: { // TagMap

@@ -6,6 +6,7 @@ export * from "./ListDomainObjectTypesPaginator";
 export * from "./ListEventStreamsPaginator";
 export * from "./ListEventTriggersPaginator";
 export * from "./ListObjectTypeAttributesPaginator";
+export * from "./ListRecommenderFiltersPaginator";
 export * from "./ListRecommenderRecipesPaginator";
 export * from "./ListRecommendersPaginator";
 export * from "./ListRuleBasedMatchesPaginator";
