@@ -38,25 +38,9 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
   const nodeModulesParentDirs = getNodeModulesParentDirs(dirname);
 
-  // We attempt to read typescript version from node_modules/typescript/package.json
-  for (const nodeModulesParentDir of nodeModulesParentDirs) {
-    try {
-      const tsPackageJsonPath = join(nodeModulesParentDir, TS_PACKAGE_JSON);
-      const packageJson = await readFile(tsPackageJsonPath, "utf-8");
-      const { version } = JSON.parse(packageJson);
-      const sanitizedVersion = getSanitizedTypeScriptVersion(version);
-      if (typeof sanitizedVersion !== "string") {
-        continue;
-      }
-      tscVersion = sanitizedVersion;
-      return ["md/tsc", tscVersion];
-    } catch {
-      // Ignore error in case of failure in file read or JSON parsing.
-    }
-  }
+  let versionFromApp: string | undefined;
 
-  // If we reach here, typescript/package.json is not available in node_modules.
-  // We attempt to read typescript version from application package.json
+  // We log typescript version only if it's in application package.json
   for (const nodeModulesParentDir of nodeModulesParentDirs) {
     try {
       const appPackageJsonPath = join(nodeModulesParentDir, "package.json");
@@ -67,14 +51,43 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
       if (typeof sanitizedVersion !== "string") {
         continue;
       }
-      tscVersion = `dev_${sanitizedVersion}`;
-      return ["md/tsc", tscVersion];
+      versionFromApp = `dev_${sanitizedVersion}`;
     } catch {
       // Ignore error in case of failure in file read or JSON parsing.
     }
   }
 
-  // If we reach here, we couldn't find the TypeScript version, so we set tscVersion to null
-  tscVersion = null;
-  return undefined;
+  if (!versionFromApp) {
+    // The TypeScript version is not defined in application package.json.
+    tscVersion = null;
+    return undefined;
+  }
+
+  let versionFromNodeModules: string | undefined;
+
+  // We attempt to read typescript version from node_modules/typescript/package.json
+  for (const nodeModulesParentDir of nodeModulesParentDirs) {
+    try {
+      const tsPackageJsonPath = join(nodeModulesParentDir, TS_PACKAGE_JSON);
+      const packageJson = await readFile(tsPackageJsonPath, "utf-8");
+      const { version } = JSON.parse(packageJson);
+      const sanitizedVersion = getSanitizedTypeScriptVersion(version);
+      if (typeof sanitizedVersion !== "string") {
+        continue;
+      }
+      versionFromNodeModules = sanitizedVersion;
+    } catch {
+      // Ignore error in case of failure in file read or JSON parsing.
+    }
+  }
+
+  if (versionFromNodeModules) {
+    tscVersion = versionFromNodeModules;
+    return ["md/tsc", tscVersion];
+  }
+
+  // If we reach here, we found version in application package.json and not in node_modules.
+  // This happens when typescript is not installed in production.
+  tscVersion = versionFromApp;
+  return ["md/tsc", tscVersion];
 };

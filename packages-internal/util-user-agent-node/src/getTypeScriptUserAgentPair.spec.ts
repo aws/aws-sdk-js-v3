@@ -18,10 +18,10 @@ describe("getTypeScriptUserAgentPair", () => {
   const mockSanitizedVersion = "5.9.3";
   const mockParentDir1 = "/mock/cwd";
   const mockParentDir2 = "/mock/dirname";
-  const mockTsPackageJson1 = join(mockParentDir1, "node_modules", "typescript", "package.json");
-  const mockTsPackageJson2 = join(mockParentDir2, "node_modules", "typescript", "package.json");
   const mockAppPackageJson1 = join(mockParentDir1, "package.json");
   const mockAppPackageJson2 = join(mockParentDir2, "package.json");
+  const mockTsPackageJson1 = join(mockParentDir1, "node_modules", "typescript", "package.json");
+  const mockTsPackageJson2 = join(mockParentDir2, "node_modules", "typescript", "package.json");
 
   beforeEach(() => {
     vi.mocked(getNodeModulesParentDirs).mockReturnValue([mockParentDir1, mockParentDir2]);
@@ -34,17 +34,29 @@ describe("getTypeScriptUserAgentPair", () => {
     vi.resetModules();
   });
 
-  describe("when typescript/package.json is available", () => {
+  describe("when app package.json has devDependencies.typescript and node_modules has typescript", () => {
     beforeEach(() => {
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(1);
-      expect(readFile).toHaveBeenCalledWith(mockTsPackageJson1, "utf-8");
+      // Both loops iterate all dirs without breaking
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
     });
 
-    it("returns version from first path", async () => {
+    it("returns version from node_modules", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
     });
@@ -56,20 +68,28 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when first ts path fails but second succeeds", () => {
+  describe("when app package.json has dependencies.typescript and node_modules has typescript", () => {
     beforeEach(() => {
-      vi.mocked(readFile)
-        .mockRejectedValueOnce(new Error("File not found"))
-        .mockResolvedValueOnce(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ dependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
     });
 
-    it("returns version from second path", async () => {
+    it("returns version from node_modules", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
     });
@@ -81,78 +101,171 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when getSanitizedTypeScriptVersion returns undefined for first ts path", () => {
+  describe("when first app path fails but second succeeds", () => {
     beforeEach(() => {
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson2) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
+    });
+
+    afterEach(() => {
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+    });
+
+    it("returns version from node_modules", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+  });
+
+  describe("when getSanitizedDevTypeScriptVersion returns undefined for first app path", () => {
+    beforeEach(() => {
+      vi.mocked(getSanitizedDevTypeScriptVersion)
+        .mockReturnValueOnce(undefined)
+        .mockReturnValueOnce(mockSanitizedVersion);
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1 || path === mockAppPackageJson2) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
+    });
+
+    afterEach(() => {
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+    });
+
+    it("continues to next app path and returns version", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+  });
+
+  describe("when app package.json has typescript but node_modules does not", () => {
+    beforeEach(() => {
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        throw new Error("File not found");
+      });
+      vi.mocked(getSanitizedTypeScriptVersion).mockReturnValue(undefined);
+    });
+
+    afterEach(() => {
+      // Both loops iterate all dirs
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+    });
+
+    it("returns version with dev_ prefix", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+    });
+  });
+
+  describe("when getSanitizedTypeScriptVersion returns undefined for first node_modules path", () => {
+    beforeEach(() => {
       vi.mocked(getSanitizedTypeScriptVersion).mockReturnValueOnce(undefined).mockReturnValueOnce(mockSanitizedVersion);
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1 || path === mockTsPackageJson2) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
     });
 
     afterEach(() => {
+      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+    });
+
+    it("continues to next node_modules path and returns version", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+
+    it("returns cached version on subsequent calls", async () => {
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+    });
+  });
+
+  describe("when no app package.json has typescript", () => {
+    beforeEach(() => {
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ dependencies: { lodash: "4.0.0" } });
+        }
+        if (path === mockAppPackageJson2) {
+          return JSON.stringify({ devDependencies: { jest: "29.0.0" } });
+        }
+        throw new Error("File not found");
+      });
+      vi.mocked(getSanitizedDevTypeScriptVersion).mockReturnValue(undefined);
+    });
+
+    afterEach(() => {
+      // Only app package.jsons are read; early return before node_modules loop
       expect(readFile).toHaveBeenCalledTimes(2);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
     });
 
-    it("continues to next path and returns version", async () => {
+    it("returns undefined", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
     });
 
-    it("returns cached version on subsequent calls", async () => {
+    it("returns cached undefined on subsequent calls", async () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-    });
-  });
-
-  describe("when ts paths fail but app package.json has devDependencies.typescript", () => {
-    beforeEach(() => {
-      vi.mocked(readFile)
-        .mockRejectedValueOnce(new Error("File not found"))
-        .mockRejectedValueOnce(new Error("File not found"))
-        .mockResolvedValueOnce(JSON.stringify({ devDependencies: { typescript: mockTscVersion } }));
-    });
-
-    afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(3);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockAppPackageJson1, "utf-8");
-    });
-
-    it("returns version with dev_ prefix", async () => {
-      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
-    });
-
-    it("returns cached version on subsequent calls", async () => {
-      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
-    });
-  });
-
-  describe("when ts paths fail but app package.json has dependencies.typescript", () => {
-    beforeEach(() => {
-      vi.mocked(readFile)
-        .mockRejectedValueOnce(new Error("File not found"))
-        .mockRejectedValueOnce(new Error("File not found"))
-        .mockResolvedValueOnce(JSON.stringify({ dependencies: { typescript: mockTscVersion } }));
-    });
-
-    afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(3);
-    });
-
-    it("returns version with dev_ prefix", async () => {
-      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
-    });
-
-    it("returns cached version on subsequent calls", async () => {
-      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
-      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", `dev_${mockSanitizedVersion}`]);
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
     });
   });
 
@@ -162,11 +275,10 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(4);
-      expect(readFile).toHaveBeenNthCalledWith(1, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockAppPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockAppPackageJson2, "utf-8");
+      // Only app package.jsons are tried; early return before node_modules loop
+      expect(readFile).toHaveBeenCalledTimes(2);
+      expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
     });
 
     it("returns undefined", async () => {
@@ -187,7 +299,8 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // JSON.parse throws for both app package.jsons; early return before node_modules loop
+      expect(readFile).toHaveBeenCalledTimes(2);
     });
 
     it("returns undefined when all paths have invalid JSON", async () => {
@@ -212,24 +325,38 @@ describe("getTypeScriptUserAgentPair", () => {
 
     it("proceeds with TypeScript detection when booleanSelector returns undefined", async () => {
       vi.mocked(booleanSelector).mockReturnValue(undefined);
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
 
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
-      expect(readFile).toHaveBeenCalledOnce();
+      expect(readFile).toHaveBeenCalledTimes(4);
     });
 
     it("proceeds with TypeScript detection when booleanSelector throws error", async () => {
       vi.mocked(booleanSelector).mockImplementation(() => {
         throw new Error("Invalid value");
       });
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      vi.mocked(readFile).mockImplementation(async (path: any) => {
+        if (path === mockAppPackageJson1) {
+          return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
+        }
+        if (path === mockTsPackageJson1) {
+          return JSON.stringify({ version: mockTscVersion });
+        }
+        throw new Error("File not found");
+      });
 
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
-      expect(readFile).toHaveBeenCalledOnce();
+      expect(readFile).toHaveBeenCalledTimes(4);
     });
   });
 });
