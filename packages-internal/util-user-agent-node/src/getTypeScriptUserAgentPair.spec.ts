@@ -140,4 +140,20 @@ describe("getTypeScriptUserAgentPair", () => {
       await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
     });
   });
+
+  describe("returns undefined without reading files", () => {
+    afterEach(() => {
+      delete process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED;
+      expect(readFile).not.toHaveBeenCalled();
+    });
+
+    it.each(["true", "false", "1", "0"])(
+      "when AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED is set to '%s'",
+      async (value) => {
+        process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED = value;
+        const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+        await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+      }
+    );
+  });
 });

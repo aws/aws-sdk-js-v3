@@ -18,6 +18,12 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
     return ["md/tsc", tscVersion];
   }
 
+  // Disable TypeScript detection if environment variable is set.
+  if (process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED) {
+    tscVersion = null;
+    return undefined;
+  }
+
   // typeof check is required as some ESM bundles throw ReferenceError error '__dirname is not defined'
   const dirname = typeof __dirname !== "undefined" ? __dirname : undefined;
   for (const typescriptPackageJsonPath of getTypeScriptPackageJsonPaths(dirname)) {
