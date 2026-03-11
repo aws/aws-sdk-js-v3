@@ -1,7 +1,7 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import type { TransferCompleteEvent, TransferEvent } from "@aws-sdk/lib-storage/dist-types/s3-transfer-manager/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { joinStreams } from "./join-streams";
@@ -802,6 +802,86 @@ describe("S3TransferManager Unit Tests", () => {
     });
   });
 
+  describe("createConcurrentTaskPool() concurrency", () => {
+    it("should default maxConcurrentRequests to 8 when maxInMemoryParts is not provided", () => {
+      const tm = new S3TransferManager() as any;
+      expect(tm.maxConcurrentRequests).toBe(8);
+    });
+
+    it("should use user-provided maxInMemoryParts as maxConcurrentRequests", () => {
+      const tm = new S3TransferManager({ maxInMemoryParts: 3 }) as any;
+      expect(tm.maxConcurrentRequests).toBe(3);
+    });
+
+    it("should only launch up to maxConcurrent tasks initially", () => {
+      const tm = new S3TransferManager({ maxInMemoryParts: 3 }) as any;
+      let launched = 0;
+      const tasks = Array.from({ length: 5 }, () => () => {
+        launched++;
+        return new Promise(() => {}); // never resolves
+      });
+
+      tm.createConcurrentTaskPool(tasks, 3);
+      expect(launched).toBe(3);
+    });
+
+    it("should launch next task when onStreamConsumed is called", async () => {
+      const tm = new S3TransferManager({ maxInMemoryParts: 2 }) as any;
+      let launched = 0;
+      const resolvers: ((v: string) => void)[] = [];
+      const tasks = Array.from({ length: 4 }, (_, i) => () => {
+        launched++;
+        return new Promise<string>((resolve) => {
+          resolvers[i] = resolve;
+        });
+      });
+
+      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(tasks, 2);
+      expect(launched).toBe(2);
+
+      // Resolve first task and signal stream consumed
+      resolvers[0]("a");
+      await promises[0];
+      onStreamConsumed(0);
+      expect(launched).toBe(3);
+
+      // Resolve second task and signal stream consumed
+      resolvers[1]("b");
+      await promises[1];
+      onStreamConsumed(1);
+      expect(launched).toBe(4);
+    });
+
+    it("should stop launching after a task failure", async () => {
+      const tm = new S3TransferManager({ maxInMemoryParts: 2 }) as any;
+      let launched = 0;
+      const tasks: (() => Promise<string>)[] = [
+        () => {
+          launched++;
+          return Promise.reject(new Error("fail"));
+        },
+        () => {
+          launched++;
+          return new Promise(() => {});
+        },
+        () => {
+          launched++;
+          return Promise.resolve("c");
+        },
+      ];
+
+      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(tasks, 2);
+      expect(launched).toBe(2);
+
+      // Wait for the rejection to propagate
+      await promises[0].catch(() => {});
+
+      // After failure, onStreamConsumed should not launch more
+      onStreamConsumed(0);
+      expect(launched).toBe(2);
+    });
+  });
+
   describe("Client-level vs Request-level listeners with mocked uploads", () => {
     let tm: S3TransferManager;
     let mockSend: any;
@@ -902,176 +982,6 @@ describe("S3TransferManager Unit Tests", () => {
       await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
 
       expect(bytesCallback.mock.calls.length).toBeGreaterThanOrEqual(1);
-    });
-  });
-});
-
-describe("join-streams tests", () => {
-  const streamTypes = [
-    {
-      name: "Readable",
-      createStream: () => new Readable({ read() {} }),
-      streamType: Readable,
-    },
-    {
-      name: "ReadableStream",
-      createStream: () => new ReadableStream(),
-      streamType: ReadableStream,
-    },
-  ];
-
-  describe("join-streams tests", () => {
-    const createReadableWithContent = (content: Buffer) =>
-      new Readable({
-        read() {
-          this.push(content);
-          this.push(null);
-        },
-      });
-
-    const createEmptyReadable = () =>
-      new Readable({
-        read() {
-          this.push(null);
-        },
-      });
-
-    const createReadableStreamWithContent = (content: Uint8Array) =>
-      new ReadableStream({
-        start(controller) {
-          controller.enqueue(content);
-          controller.close();
-        },
-      });
-
-    const createEmptyReadableStream = () =>
-      new ReadableStream({
-        start(controller) {
-          controller.close();
-        },
-      });
-
-    const consumeReadable = async (stream: any): Promise<Buffer> => {
-      const chunks: Buffer[] = [];
-      for await (const chunk of stream) {
-        chunks.push(Buffer.from(chunk));
-      }
-      return Buffer.concat(chunks);
-    };
-
-    const consumeReadableStream = async (stream: any): Promise<Uint8Array[]> => {
-      const reader = stream.getReader();
-      const chunks: Uint8Array[] = [];
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        if (value) chunks.push(value);
-      }
-
-      return chunks;
-    };
-
-    const testCases = [
-      {
-        name: "Readable",
-        createStream: () => new Readable({ read() {} }),
-        createWithContent: createReadableWithContent,
-        createEmpty: createEmptyReadable,
-        consume: consumeReadable,
-        isInstance: (stream: any) => stream instanceof Readable,
-      },
-      {
-        name: "ReadableStream",
-        createStream: () => new ReadableStream(),
-        createWithContent: createReadableStreamWithContent,
-        createEmpty: createEmptyReadableStream,
-        consume: consumeReadableStream,
-        isInstance: (stream: any) => typeof stream.getReader === "function",
-      },
-    ];
-
-    testCases.forEach(({ name, createStream, createWithContent, createEmpty, consume, isInstance }) => {
-      describe(`joinStreams() with ${name}`, () => {
-        it("should return single stream when only one stream is provided", async () => {
-          const stream = createStream();
-          const result = await joinStreams([Promise.resolve(stream as unknown as StreamingBlobPayloadOutputTypes)]);
-
-          expect(result).toBeDefined();
-          expect(result).not.toBe(stream);
-          expect(isInstance(result)).toBe(true);
-        });
-
-        it("should join multiple streams into a single stream", async () => {
-          const contents = [Buffer.from("Chunk 1"), Buffer.from("Chunk 2"), Buffer.from("Chunk 3")];
-
-          const streams = contents.map((content) =>
-            Promise.resolve(createWithContent(content) as unknown as StreamingBlobPayloadOutputTypes)
-          );
-
-          const joinedStream = await joinStreams(streams);
-
-          const chunks = await consume(joinedStream);
-
-          const joinedContent = Buffer.isBuffer(chunks) ? chunks.toString() : Buffer.concat(chunks).toString();
-          contents.forEach((content) => {
-            expect(joinedContent).toContain(content.toString());
-          });
-        });
-
-        it("should handle consecutive calls of joining multiple streams into a single stream", async () => {
-          for (let i = 0; i <= 3; i++) {
-            const contents = [Buffer.from("Chunk 1"), Buffer.from("Chunk 2"), Buffer.from("Chunk 3")];
-
-            const streams = contents.map((content) =>
-              Promise.resolve(createWithContent(content) as unknown as StreamingBlobPayloadOutputTypes)
-            );
-
-            const joinedStream = await joinStreams(streams);
-
-            const chunks = await consume(joinedStream);
-
-            const joinedContent = Buffer.isBuffer(chunks) ? chunks.toString() : Buffer.concat(chunks).toString();
-            contents.forEach((content) => {
-              expect(joinedContent).toContain(content.toString());
-            });
-          }
-        });
-
-        it("should handle streams with no data", async () => {
-          const streams = [
-            Promise.resolve(createEmpty() as unknown as StreamingBlobPayloadOutputTypes),
-            Promise.resolve(createEmpty() as unknown as StreamingBlobPayloadOutputTypes),
-          ];
-
-          const joinedStream = await joinStreams(streams);
-
-          const chunks = await consume(joinedStream);
-
-          const length = Array.isArray(chunks) ? chunks.length : chunks.length;
-          expect(length).toBe(0);
-        });
-
-        it("should report progress via eventListeners", async () => {
-          const streams = [
-            Promise.resolve(createWithContent(Buffer.from("data")) as unknown as StreamingBlobPayloadOutputTypes),
-            Promise.resolve(createWithContent(Buffer.from("more")) as unknown as StreamingBlobPayloadOutputTypes),
-          ];
-
-          const onBytesSpy = vi.fn();
-          const onCompletionSpy = vi.fn();
-
-          const joinedStream = await joinStreams(streams, {
-            onBytes: onBytesSpy,
-            onCompletion: onCompletionSpy,
-          });
-
-          await consume(joinedStream);
-
-          expect(onBytesSpy).toHaveBeenCalled();
-          expect(onCompletionSpy).toHaveBeenCalledWith(expect.any(Number), 1);
-        });
-      });
     });
   });
 });

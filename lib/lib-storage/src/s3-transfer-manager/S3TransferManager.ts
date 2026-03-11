@@ -62,7 +62,7 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
   private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
-  private readonly maxInMemoryParts?: number;
+  private readonly maxConcurrentRequests: number;
 
   public constructor(config: S3TransferManagerConfig = {}) {
     this.checksumValidationEnabled = config.checksumValidationEnabled ?? true;
@@ -81,7 +81,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     this.checksumAlgorithm = config.checksumAlgorithm ?? "CRC32";
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
-    this.maxInMemoryParts = config.maxInMemoryParts ?? 10;
+    this.maxConcurrentRequests = config.maxInMemoryParts ?? 8;
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],
       bytesTransferred: config.eventListeners?.bytesTransferred ?? [],
@@ -337,10 +337,11 @@ export class S3TransferManager implements IS3TransferManager {
     this.checkAborted(transferOptions);
     this.addEventListeners(transferOptions?.eventListeners);
 
-    const transferAbortController = new AbortController();
     const responseChecksumValidation = await this.s3ClientInstance.config.responseChecksumValidation?.();
     const checksumValidationEnabled =
       request.ChecksumMode === "ENABLED" || responseChecksumValidation === "WHEN_SUPPORTED";
+
+    let onStreamConsumed: ((index: number) => void) | undefined;
 
     if (this.multipartDownloadType === "PART") {
       const responseMetadata = await this.downloadByPart(
@@ -352,6 +353,7 @@ export class S3TransferManager implements IS3TransferManager {
         checksumValidationEnabled
       );
       totalSize = responseMetadata.totalSize;
+      onStreamConsumed = responseMetadata.onStreamConsumed;
     } else if (this.multipartDownloadType === "RANGE") {
       const responseMetadata = await this.downloadByRange(
         request,
@@ -362,6 +364,7 @@ export class S3TransferManager implements IS3TransferManager {
         checksumValidationEnabled
       );
       totalSize = responseMetadata.totalSize;
+      onStreamConsumed = responseMetadata.onStreamConsumed;
     }
 
     const removeLocalEventListeners = () => {
@@ -411,6 +414,7 @@ export class S3TransferManager implements IS3TransferManager {
           );
           removeLocalEventListeners();
         },
+        onStreamConsumed,
       }),
     };
 
@@ -468,6 +472,8 @@ export class S3TransferManager implements IS3TransferManager {
 
   /**
    * Downloads object using part-based strategy with concurrent part requests.
+   * Only initiates up to maxConcurrentRequests in-flight at a time, with new
+   * requests triggered as previous ones complete.
    *
    * @internal
    */
@@ -478,8 +484,9 @@ export class S3TransferManager implements IS3TransferManager {
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
     checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined }> {
+  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
     let totalSize: number | undefined;
+    let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
 
     if (request.Range == null) {
@@ -490,9 +497,9 @@ export class S3TransferManager implements IS3TransferManager {
       };
       try {
         const initialPart = await this.s3ClientInstance.send(new GetObjectCommand(initialPartRequest), transferOptions);
-        const initialETag = initialPart.ETag ?? undefined;
         await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
+        const initialETag = initialPart.ETag ?? undefined;
         totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : 0;
         this.dispatchTransferInitiatedEvent(request, totalSize);
         if (initialPart.Body) {
@@ -510,35 +517,50 @@ export class S3TransferManager implements IS3TransferManager {
 
         let partCount = 1;
         if (initialPart.PartsCount! > 1) {
+          const partTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] = [];
+          const partRequests: GetObjectCommandInput[] = [];
+
           for (let part = 2; part <= initialPart.PartsCount!; part++) {
-            this.checkAborted(transferOptions);
             const getObjectRequest = {
               ...request,
               PartNumber: part,
               IfMatch: initialETag,
               ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
             };
+            partRequests.push(getObjectRequest);
 
-            const getObject = this.s3ClientInstance
-              .send(new GetObjectCommand(getObjectRequest), transferOptions)
-              .then((response) => {
-                this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
-                if (response.Body && typeof (response.Body as any).getReader === "function") {
-                  const reader = (response.Body as any).getReader();
-                  (response.Body as any).getReader = function () {
-                    return reader;
-                  };
-                }
-                return response.Body!;
-              })
-              .catch((error) => {
-                this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error as Error);
-                throw error;
-              });
-            streams.push(getObject);
-            requests.push(getObjectRequest);
-            partCount++;
+            partTasks.push(() => {
+              this.checkAborted(transferOptions);
+              return this.s3ClientInstance
+                .send(new GetObjectCommand(getObjectRequest), transferOptions)
+                .then((response) => {
+                  this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
+                  if (response.Body && typeof (response.Body as any).getReader === "function") {
+                    const reader = (response.Body as any).getReader();
+                    (response.Body as any).getReader = function () {
+                      return reader;
+                    };
+                  }
+                  return response.Body!;
+                })
+                .catch((error) => {
+                  this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error as Error);
+                  throw error;
+                });
+            });
           }
+
+          // Lazily prefetch streams — only maxConcurrentRequests in-flight at a time.
+          // New requests fire as previous ones complete, and joinStreams can start
+          // consuming immediately without waiting for all parts to be fetched.
+          const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
+            partTasks,
+            this.maxConcurrentRequests
+          );
+          streams.push(...pendingStreams);
+          requests.push(...partRequests);
+          streamConsumedCallback = onStreamConsumed;
+          partCount += partTasks.length;
 
           if (partCount !== initialPart.PartsCount) {
             throw new Error(
@@ -576,11 +598,14 @@ export class S3TransferManager implements IS3TransferManager {
 
     return {
       totalSize,
+      onStreamConsumed: streamConsumedCallback,
     };
   }
 
   /**
-   * Downloads object using range-based strategy with concurrent range requests.
+   * Downloads object using range-based strategy with lazy concurrent range requests.
+   * Only initiates up to maxConcurrentRequests in-flight at a time, with new
+   * requests triggered as previous ones complete — preventing idle connection timeouts.
    *
    * @internal
    */
@@ -591,7 +616,8 @@ export class S3TransferManager implements IS3TransferManager {
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
     checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined }> {
+  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
 
     const headResponse = await this.s3ClientInstance.send(
@@ -669,11 +695,10 @@ export class S3TransferManager implements IS3TransferManager {
     left = right + 1;
     right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
     remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
-    let actualRequestCount = 1;
+    const rangeTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] = [];
+    const rangeRequests: GetObjectCommandInput[] = [];
 
     while (remainingLength > 0) {
-      this.checkAborted(transferOptions);
-
       const range = `bytes=${left}-${right}`;
       const getObjectRequest: GetObjectCommandInput = {
         ...request,
@@ -681,33 +706,47 @@ export class S3TransferManager implements IS3TransferManager {
         IfMatch: initialETag,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
+      rangeRequests.push(getObjectRequest);
 
-      const getObject = this.s3ClientInstance
-        .send(new GetObjectCommand(getObjectRequest), transferOptions)
-        .then((response) => {
-          this.validateRangeDownload(range, response.ContentRange);
-          if (response.Body && typeof (response.Body as any).getReader === "function") {
-            const reader = (response.Body as any).getReader();
-            (response.Body as any).getReader = function () {
-              return reader;
-            };
-          }
-          return response.Body!;
-        })
-        .catch((error) => {
-          this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error);
-          throw error;
-        });
-
-      streams.push(getObject);
-      requests.push(getObjectRequest);
-      actualRequestCount++;
+      rangeTasks.push(() => {
+        this.checkAborted(transferOptions);
+        return this.s3ClientInstance
+          .send(new GetObjectCommand(getObjectRequest), transferOptions)
+          .then((response) => {
+            this.validateRangeDownload(range, response.ContentRange);
+            if (response.Body && typeof (response.Body as any).getReader === "function") {
+              const reader = (response.Body as any).getReader();
+              (response.Body as any).getReader = function () {
+                return reader;
+              };
+            }
+            return response.Body!;
+          })
+          .catch((error) => {
+            this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error);
+            throw error;
+          });
+      });
 
       left = right + 1;
       right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
       remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
     }
 
+    if (rangeTasks.length > 0) {
+      // Lazily prefetch streams — only maxConcurrentRequests in-flight at a time.
+      // New requests fire as previous ones complete, and joinStreams can start
+      // consuming immediately without waiting for all ranges to be fetched.
+      const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
+        rangeTasks,
+        this.maxConcurrentRequests
+      );
+      streams.push(...pendingStreams);
+      requests.push(...rangeRequests);
+      streamConsumedCallback = onStreamConsumed;
+    }
+
+    const actualRequestCount = 1 + rangeTasks.length;
     if (expectedRequestCount !== actualRequestCount) {
       throw new Error(
         `The number of ranged GET requests sent (${actualRequestCount}) does not match the expected number (${expectedRequestCount})`
@@ -716,6 +755,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     return {
       totalSize,
+      onStreamConsumed: streamConsumedCallback,
     };
   }
 
@@ -883,6 +923,70 @@ export class S3TransferManager implements IS3TransferManager {
         }
       }
     }
+  }
+
+  /**
+   * Creates a concurrent task pool using a sliding window concurrency model.
+   * Each task is a deferred S3 request (e.g., GetObject for part/range downloads) that returns a promise.
+   * It seeds up to `maxConcurrent` tasks initially. When a stream is fully consumed by the caller,
+   * the `onStreamConsumed` callback launches the next pending task, keeping at most `maxConcurrent`
+   * requests in-flight at any time.
+   *
+   * @param tasks - Array of deferred task functions, each returning a promises.
+   * @param maxConcurrent - Maximum number of tasks to run concurrently.
+   * @returns An object containing the array of promises (one per task) and an `onStreamConsumed` callback
+   *          to signal that a stream has been consumed and the next task can be launched.
+   *
+   * @internal
+   */
+  private createConcurrentTaskPool<T>(
+    tasks: (() => Promise<T>)[],
+    maxConcurrent: number
+  ): {
+    promises: Promise<T>[];
+    onStreamConsumed: (index: number) => void;
+  } {
+    if (tasks.length === 0) return { promises: [], onStreamConsumed: () => {} };
+
+    const resolvers: Array<{ resolve: (value: T) => void; reject: (error: unknown) => void }> = [];
+    const promises: Promise<T>[] = tasks.map(() => {
+      let resolve!: (value: T) => void;
+      let reject!: (error: unknown) => void;
+      const promise = new Promise<T>((res, rej) => {
+        resolve = res;
+        reject = rej;
+      });
+      resolvers.push({ resolve, reject });
+      return promise;
+    });
+
+    let nextToLaunch = 0;
+    let failed = false;
+
+    const launchTask = (index: number): void => {
+      tasks[index]().then(
+        (result) => {
+          resolvers[index].resolve(result);
+        },
+        (error) => {
+          failed = true;
+          resolvers[index].reject(error);
+        }
+      );
+    };
+
+    // Seed initial batch
+    const initialBatch = Math.min(maxConcurrent, tasks.length);
+    for (let i = 0; i < initialBatch; i++) {
+      launchTask(nextToLaunch++);
+    }
+
+    const onStreamConsumed = (_index: number): void => {
+      if (failed || nextToLaunch >= tasks.length) return;
+      launchTask(nextToLaunch++);
+    };
+
+    return { promises, onStreamConsumed };
   }
 
   /**
