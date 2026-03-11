@@ -5007,6 +5007,12 @@
         "smithy.api#pattern": "^[a-z]+\\-[0-9a-z\\-]+$"
       }
     },
+    "com.amazonaws.sagemaker#AvailabilityZoneId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-z]{3}\\d-az\\d$"
+      }
+    },
     "com.amazonaws.sagemaker#AvailableInstanceCount": {
       "type": "integer",
       "traits": {
@@ -30849,6 +30855,79 @@
         "smithy.api#documentation": "<p>Retrieves detailed information about a specific training plan.</p>"
       }
     },
+    "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistory": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistoryRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistoryResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the extension history for a specified training plan. The response includes details about each extension, such as the offering ID, start and end dates, status, payment status, and cost information.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults",
+          "items": "TrainingPlanExtensions"
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistoryRequest": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanArn": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN); of the training plan to retrieve extension history for.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to continue pagination if more results are available.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.sagemaker#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of extensions to return in the response.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistoryResponse": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanExtensions": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensions",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>A list of extensions for the specified training plan.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.sagemaker#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A token to continue pagination if more results are available.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.sagemaker#DescribeTrainingPlanRequest": {
       "type": "structure",
       "members": {
@@ -35027,6 +35106,55 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A parameter to activate explainers.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ExtendTrainingPlan": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemaker#ExtendTrainingPlanRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemaker#ExtendTrainingPlanResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.sagemaker#ResourceNotFound"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Extends an existing training plan by purchasing an extension offering. This allows you to add additional compute capacity time to your training plan without creating a new plan or reconfiguring your workloads.</p> <p>To find available extension offerings, use the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html\">SearchTrainingPlanOfferings</a> </code> API with the <code>TrainingPlanArn</code> parameter.</p> <p>To view the history of extensions for a training plan, use the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlanExtensionHistory.html\">DescribeTrainingPlanExtensionHistory</a> </code> API.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#ExtendTrainingPlanRequest": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanExtensionOfferingId": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionOfferingId",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The unique identifier of the extension offering to purchase. You can retrieve this ID from the <code>TrainingPlanExtensionOfferings</code> in the response of the <code>SearchTrainingPlanOfferings</code> API.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemaker#ExtendTrainingPlanResponse": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanExtensions": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensions",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The list of extensions for the training plan, including the newly created extension.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemaker#FSxLustreConfig": {
@@ -67248,6 +67376,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The end time of the reserved capacity offering.</p>"
           }
+        },
+        "ExtensionStartTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of the extension for the reserved capacity offering.</p>"
+          }
+        },
+        "ExtensionEndTime": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of the extension for the reserved capacity offering.</p>"
+          }
         }
       },
       "traits": {
@@ -69170,6 +69310,9 @@
           "target": "com.amazonaws.sagemaker#DescribeTrainingPlan"
         },
         {
+          "target": "com.amazonaws.sagemaker#DescribeTrainingPlanExtensionHistory"
+        },
+        {
           "target": "com.amazonaws.sagemaker#DescribeTransformJob"
         },
         {
@@ -69198,6 +69341,9 @@
         },
         {
           "target": "com.amazonaws.sagemaker#EnableSagemakerServicecatalogPortfolio"
+        },
+        {
+          "target": "com.amazonaws.sagemaker#ExtendTrainingPlan"
         },
         {
           "target": "com.amazonaws.sagemaker#GetDeviceFleetReport"
@@ -71408,6 +71554,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The target resources (e.g., SageMaker Training Jobs, SageMaker HyperPod, SageMaker Endpoints) to search for in the offerings.</p> <p>Training plans are specific to their target resource.</p> <ul> <li> <p>A training plan designed for SageMaker training jobs can only be used to schedule and run training jobs.</p> </li> <li> <p>A training plan for HyperPod clusters can be used exclusively to provide compute resources to a cluster's instance group.</p> </li> <li> <p>A training plan for SageMaker endpoints can be used exclusively to provide compute resources to SageMaker endpoints for model deployment.</p> </li> </ul>"
           }
+        },
+        "TrainingPlanArn": {
+          "target": "com.amazonaws.sagemaker#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN); of an existing training plan to search for extension offerings. When specified, the API returns extension offerings that can be used to extend the specified training plan.</p>"
+          }
         }
       },
       "traits": {
@@ -71423,6 +71575,12 @@
             "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of training plan offerings that match the search criteria.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "TrainingPlanExtensionOfferings": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionOfferings",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of extension offerings available for the specified training plan. These offerings can be used with the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html\">ExtendTrainingPlan</a> </code> API to extend an existing training plan.</p>"
           }
         }
       },
@@ -77796,6 +77954,168 @@
         "smithy.api#range": {
           "min": 0,
           "max": 59
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtension": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanExtensionOfferingId": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionOfferingId",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The unique identifier of the extension offering that was used to create this extension.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExtendedAt": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp when the extension was created.</p>"
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start date of the extension period.</p>"
+          }
+        },
+        "EndDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end date of the extension period.</p>"
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the extension (e.g., Pending, Active, Scheduled, Failed, Expired).</p>"
+          }
+        },
+        "PaymentStatus": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The payment processing status of the extension.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone of the extension.</p>"
+          }
+        },
+        "AvailabilityZoneId": {
+          "target": "com.amazonaws.sagemaker#AvailabilityZoneId",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone ID of the extension.</p>"
+          }
+        },
+        "DurationHours": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionDurationHours",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration of the extension in hours.</p>"
+          }
+        },
+        "UpfrontFee": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The upfront fee for the extension.</p>"
+          }
+        },
+        "CurrencyCode": {
+          "target": "com.amazonaws.sagemaker#CurrencyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The currency code for the upfront fee (e.g., USD).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an extension to a training plan, including the offering ID, dates, status, and cost information.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtensionDurationHours": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 4368
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtensionOffering": {
+      "type": "structure",
+      "members": {
+        "TrainingPlanExtensionOfferingId": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionOfferingId",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The unique identifier for this extension offering.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The Availability Zone for this extension offering.</p>"
+          }
+        },
+        "StartDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The start date of this extension offering.</p>"
+          }
+        },
+        "EndDate": {
+          "target": "com.amazonaws.sagemaker#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The end date of this extension offering.</p>"
+          }
+        },
+        "DurationHours": {
+          "target": "com.amazonaws.sagemaker#TrainingPlanExtensionDurationHours",
+          "traits": {
+            "smithy.api#documentation": "<p>The duration of this extension offering in hours.</p>"
+          }
+        },
+        "UpfrontFee": {
+          "target": "com.amazonaws.sagemaker#String256",
+          "traits": {
+            "smithy.api#documentation": "<p>The upfront fee for this extension offering.</p>"
+          }
+        },
+        "CurrencyCode": {
+          "target": "com.amazonaws.sagemaker#CurrencyCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The currency code for the upfront fee (e.g., USD).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about an available extension offering for a training plan. Use the offering ID with the <code> <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html\">ExtendTrainingPlan</a> </code> API to extend a training plan.</p>"
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtensionOfferingId": {
+      "type": "string"
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtensionOfferings": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#TrainingPlanExtensionOffering"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.sagemaker#TrainingPlanExtensions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemaker#TrainingPlanExtension"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0
         }
       }
     },

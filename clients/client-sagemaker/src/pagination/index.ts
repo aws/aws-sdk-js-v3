@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./CreateHubContentPresignedUrlsPaginator";
+export * from "./DescribeTrainingPlanExtensionHistoryPaginator";
 export * from "./ListActionsPaginator";
 export * from "./ListAlgorithmsPaginator";
 export * from "./ListAliasesPaginator";

@@ -1662,6 +1662,118 @@ export interface DescribeTrainingPlanResponse {
 /**
  * @public
  */
+export interface DescribeTrainingPlanExtensionHistoryRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN); of the training plan to retrieve extension history for.</p>
+   * @public
+   */
+  TrainingPlanArn: string | undefined;
+
+  /**
+   * <p>A token to continue pagination if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of extensions to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Details about an extension to a training plan, including the offering ID, dates, status, and cost information.</p>
+ * @public
+ */
+export interface TrainingPlanExtension {
+  /**
+   * <p>The unique identifier of the extension offering that was used to create this extension.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferingId: string | undefined;
+
+  /**
+   * <p>The timestamp when the extension was created.</p>
+   * @public
+   */
+  ExtendedAt?: Date | undefined;
+
+  /**
+   * <p>The start date of the extension period.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the extension period.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The current status of the extension (e.g., Pending, Active, Scheduled, Failed, Expired).</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The payment processing status of the extension.</p>
+   * @public
+   */
+  PaymentStatus?: string | undefined;
+
+  /**
+   * <p>The Availability Zone of the extension.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the extension.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The duration of the extension in hours.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The upfront fee for the extension.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrainingPlanExtensionHistoryResponse {
+  /**
+   * <p>A list of extensions for the specified training plan.</p>
+   * @public
+   */
+  TrainingPlanExtensions: TrainingPlanExtension[] | undefined;
+
+  /**
+   * <p>A token to continue pagination if more results are available.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTransformJobRequest {
   /**
    * <p>The name of the transform job that you want to view details of.</p>
@@ -3691,6 +3803,28 @@ export interface ExperimentSummary {
    * @public
    */
   LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExtendTrainingPlanRequest {
+  /**
+   * <p>The unique identifier of the extension offering to purchase. You can retrieve this ID from the <code>TrainingPlanExtensionOfferings</code> in the response of the <code>SearchTrainingPlanOfferings</code> API.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExtendTrainingPlanResponse {
+  /**
+   * <p>The list of extensions for the training plan, including the newly created extension.</p>
+   * @public
+   */
+  TrainingPlanExtensions: TrainingPlanExtension[] | undefined;
 }
 
 /**
@@ -11310,186 +11444,4 @@ export interface PipelineSummary {
    * @public
    */
   LastExecutionTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelinesResponse {
-  /**
-   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName, ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and RoleArn. This list can be empty. </p>
-   * @public
-   */
-  PipelineSummaries?: PipelineSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelines</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelineVersionsRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineName: string | undefined;
-
-  /**
-   * <p>A filter that returns the pipeline versions that were created after a specified time.</p>
-   * @public
-   */
-  CreatedAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns the pipeline versions that were created before a specified time.</p>
-   * @public
-   */
-  CreatedBefore?: Date | undefined;
-
-  /**
-   * <p>The sort order for the results.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of pipeline versions to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The summary of the pipeline version.</p>
- * @public
- */
-export interface PipelineVersionSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
-   * @public
-   */
-  PipelineArn?: string | undefined;
-
-  /**
-   * <p>The ID of the pipeline version.</p>
-   * @public
-   */
-  PipelineVersionId?: number | undefined;
-
-  /**
-   * <p>The creation time of the pipeline version.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The description of the pipeline version.</p>
-   * @public
-   */
-  PipelineVersionDescription?: string | undefined;
-
-  /**
-   * <p>The display name of the pipeline version.</p>
-   * @public
-   */
-  PipelineVersionDisplayName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the most recent pipeline execution created from this pipeline version.</p>
-   * @public
-   */
-  LastExecutionPipelineExecutionArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPipelineVersionsResponse {
-  /**
-   * <p>Contains a sorted list of pipeline version summary objects matching the specified filters. Each version summary includes the pipeline version ID, the creation date, and the last pipeline execution created from that version. This list can be empty.</p>
-   * @public
-   */
-  PipelineVersionSummaries?: PipelineVersionSummary[] | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListProcessingJobsRequest {
-  /**
-   * <p>A filter that returns only processing jobs created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only processing jobs created after the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only processing jobs modified after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only processing jobs modified before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that retrieves only processing jobs with a specific status.</p>
-   * @public
-   */
-  StatusEquals?: ProcessingJobStatus | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
-   * @public
-   */
-  SortBy?: SortBy | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of processing jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of processing jobs to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }

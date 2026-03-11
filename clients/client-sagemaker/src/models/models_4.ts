@@ -204,6 +204,7 @@ import {
   MetricData,
   MonitoringAlertSummary,
   Parameter,
+  PipelineSummary,
   ReservedCapacitySummary,
   SecondaryStatusTransition,
   SubscribedWorkteam,
@@ -212,6 +213,188 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListPipelinesResponse {
+  /**
+   * <p>Contains a sorted list of <code>PipelineSummary</code> objects matching the specified filters. Each <code>PipelineSummary</code> consists of PipelineArn, PipelineName, ExperimentName, PipelineDescription, CreationTime, LastModifiedTime, LastRunTime, and RoleArn. This list can be empty. </p>
+   * @public
+   */
+  PipelineSummaries?: PipelineSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelines</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineVersionsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineName: string | undefined;
+
+  /**
+   * <p>A filter that returns the pipeline versions that were created after a specified time.</p>
+   * @public
+   */
+  CreatedAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns the pipeline versions that were created before a specified time.</p>
+   * @public
+   */
+  CreatedBefore?: Date | undefined;
+
+  /**
+   * <p>The sort order for the results.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of pipeline versions to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the pipeline version.</p>
+ * @public
+ */
+export interface PipelineVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
+   * @public
+   */
+  PipelineArn?: string | undefined;
+
+  /**
+   * <p>The ID of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionId?: number | undefined;
+
+  /**
+   * <p>The creation time of the pipeline version.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The description of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDescription?: string | undefined;
+
+  /**
+   * <p>The display name of the pipeline version.</p>
+   * @public
+   */
+  PipelineVersionDisplayName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the most recent pipeline execution created from this pipeline version.</p>
+   * @public
+   */
+  LastExecutionPipelineExecutionArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPipelineVersionsResponse {
+  /**
+   * <p>Contains a sorted list of pipeline version summary objects matching the specified filters. Each version summary includes the pipeline version ID, the creation date, and the last pipeline execution created from that version. This list can be empty.</p>
+   * @public
+   */
+  PipelineVersionSummaries?: PipelineVersionSummary[] | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListPipelineVersions</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of pipeline versions, use this token in your next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProcessingJobsRequest {
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only processing jobs created after the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only processing jobs modified after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only processing jobs modified before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that retrieves only processing jobs with a specific status.</p>
+   * @public
+   */
+  StatusEquals?: ProcessingJobStatus | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
+   * @public
+   */
+  SortBy?: SortBy | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of processing jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of processing jobs to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * <p>Summary of information about a processing job.</p>
@@ -3673,6 +3856,18 @@ export interface ReservedCapacityOffering {
    * @public
    */
   EndTime?: Date | undefined;
+
+  /**
+   * <p>The start time of the extension for the reserved capacity offering.</p>
+   * @public
+   */
+  ExtensionStartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of the extension for the reserved capacity offering.</p>
+   * @public
+   */
+  ExtensionEndTime?: Date | undefined;
 }
 
 /**
@@ -4455,6 +4650,60 @@ export interface SearchTrainingPlanOfferingsRequest {
    * @public
    */
   TargetResources?: SageMakerResourceName[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN); of an existing training plan to search for extension offerings. When specified, the API returns extension offerings that can be used to extend the specified training plan.</p>
+   * @public
+   */
+  TrainingPlanArn?: string | undefined;
+}
+
+/**
+ * <p>Details about an available extension offering for a training plan. Use the offering ID with the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html">ExtendTrainingPlan</a> </code> API to extend a training plan.</p>
+ * @public
+ */
+export interface TrainingPlanExtensionOffering {
+  /**
+   * <p>The unique identifier for this extension offering.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferingId: string | undefined;
+
+  /**
+   * <p>The Availability Zone for this extension offering.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The start date of this extension offering.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of this extension offering.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>The duration of this extension offering in hours.</p>
+   * @public
+   */
+  DurationHours?: number | undefined;
+
+  /**
+   * <p>The upfront fee for this extension offering.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency code for the upfront fee (e.g., USD).</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
 }
 
 /**
@@ -4526,6 +4775,12 @@ export interface SearchTrainingPlanOfferingsResponse {
    * @public
    */
   TrainingPlanOfferings: TrainingPlanOffering[] | undefined;
+
+  /**
+   * <p>A list of extension offerings available for the specified training plan. These offerings can be used with the <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html">ExtendTrainingPlan</a> </code> API to extend an existing training plan.</p>
+   * @public
+   */
+  TrainingPlanExtensionOfferings?: TrainingPlanExtensionOffering[] | undefined;
 }
 
 /**

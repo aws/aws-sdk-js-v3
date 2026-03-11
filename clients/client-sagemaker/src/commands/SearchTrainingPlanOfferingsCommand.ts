@@ -47,6 +47,7 @@ export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTraining
  *   TargetResources: [ // SageMakerResourceNames
  *     "training-job" || "hyperpod-cluster" || "endpoint",
  *   ],
+ *   TrainingPlanArn: "STRING_VALUE",
  * };
  * const command = new SearchTrainingPlanOfferingsCommand(input);
  * const response = await client.send(command);
@@ -75,8 +76,21 @@ export interface SearchTrainingPlanOfferingsCommandOutput extends SearchTraining
  * //           DurationMinutes: Number("long"),
  * //           StartTime: new Date("TIMESTAMP"),
  * //           EndTime: new Date("TIMESTAMP"),
+ * //           ExtensionStartTime: new Date("TIMESTAMP"),
+ * //           ExtensionEndTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //     },
+ * //   ],
+ * //   TrainingPlanExtensionOfferings: [ // TrainingPlanExtensionOfferings
+ * //     { // TrainingPlanExtensionOffering
+ * //       TrainingPlanExtensionOfferingId: "STRING_VALUE", // required
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       StartDate: new Date("TIMESTAMP"),
+ * //       EndDate: new Date("TIMESTAMP"),
+ * //       DurationHours: Number("int"),
+ * //       UpfrontFee: "STRING_VALUE",
+ * //       CurrencyCode: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

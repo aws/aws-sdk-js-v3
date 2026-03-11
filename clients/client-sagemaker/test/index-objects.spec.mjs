@@ -1035,6 +1035,10 @@ import {
   DescribeTrainingJobResponse$,
   DescribeTrainingPlan$,
   DescribeTrainingPlanCommand,
+  DescribeTrainingPlanExtensionHistory$,
+  DescribeTrainingPlanExtensionHistoryCommand,
+  DescribeTrainingPlanExtensionHistoryRequest$,
+  DescribeTrainingPlanExtensionHistoryResponse$,
   DescribeTrainingPlanRequest$,
   DescribeTrainingPlanResponse$,
   DescribeTransformJob$,
@@ -1156,6 +1160,10 @@ import {
   ExperimentSummary$,
   Explainability$,
   ExplainerConfig$,
+  ExtendTrainingPlan$,
+  ExtendTrainingPlanCommand,
+  ExtendTrainingPlanRequest$,
+  ExtendTrainingPlanResponse$,
   FailStepMetadata$,
   FailureHandlingPolicy,
   FairShare,
@@ -1887,6 +1895,7 @@ import {
   OwnershipSettings$,
   OwnershipSettingsSummary$,
   paginateCreateHubContentPresignedUrls,
+  paginateDescribeTrainingPlanExtensionHistory,
   paginateListActions,
   paginateListAlgorithms,
   paginateListAliases,
@@ -2368,6 +2377,8 @@ import {
   TrainingJobStatusCounters$,
   TrainingJobStepMetadata$,
   TrainingJobSummary$,
+  TrainingPlanExtension$,
+  TrainingPlanExtensionOffering$,
   TrainingPlanFilter$,
   TrainingPlanFilterName,
   TrainingPlanOffering$,
@@ -3052,6 +3063,8 @@ assert(typeof DescribeTrainingJobCommand === "function");
 assert(typeof DescribeTrainingJob$ === "object");
 assert(typeof DescribeTrainingPlanCommand === "function");
 assert(typeof DescribeTrainingPlan$ === "object");
+assert(typeof DescribeTrainingPlanExtensionHistoryCommand === "function");
+assert(typeof DescribeTrainingPlanExtensionHistory$ === "object");
 assert(typeof DescribeTransformJobCommand === "function");
 assert(typeof DescribeTransformJob$ === "object");
 assert(typeof DescribeTrialCommand === "function");
@@ -3072,6 +3085,8 @@ assert(typeof DisassociateTrialComponentCommand === "function");
 assert(typeof DisassociateTrialComponent$ === "object");
 assert(typeof EnableSagemakerServicecatalogPortfolioCommand === "function");
 assert(typeof EnableSagemakerServicecatalogPortfolio$ === "object");
+assert(typeof ExtendTrainingPlanCommand === "function");
+assert(typeof ExtendTrainingPlan$ === "object");
 assert(typeof GetDeviceFleetReportCommand === "function");
 assert(typeof GetDeviceFleetReport$ === "object");
 assert(typeof GetLineageGroupPolicyCommand === "function");
@@ -3960,6 +3975,8 @@ assert(typeof DescribeSubscribedWorkteamRequest$ === "object");
 assert(typeof DescribeSubscribedWorkteamResponse$ === "object");
 assert(typeof DescribeTrainingJobRequest$ === "object");
 assert(typeof DescribeTrainingJobResponse$ === "object");
+assert(typeof DescribeTrainingPlanExtensionHistoryRequest$ === "object");
+assert(typeof DescribeTrainingPlanExtensionHistoryResponse$ === "object");
 assert(typeof DescribeTrainingPlanRequest$ === "object");
 assert(typeof DescribeTrainingPlanResponse$ === "object");
 assert(typeof DescribeTransformJobRequest$ === "object");
@@ -4043,6 +4060,8 @@ assert(typeof ExperimentSource$ === "object");
 assert(typeof ExperimentSummary$ === "object");
 assert(typeof Explainability$ === "object");
 assert(typeof ExplainerConfig$ === "object");
+assert(typeof ExtendTrainingPlanRequest$ === "object");
+assert(typeof ExtendTrainingPlanResponse$ === "object");
 assert(typeof FailStepMetadata$ === "object");
 assert(typeof FeatureDefinition$ === "object");
 assert(typeof FeatureGroup$ === "object");
@@ -4693,6 +4712,8 @@ assert(typeof TrainingJobDefinition$ === "object");
 assert(typeof TrainingJobStatusCounters$ === "object");
 assert(typeof TrainingJobStepMetadata$ === "object");
 assert(typeof TrainingJobSummary$ === "object");
+assert(typeof TrainingPlanExtension$ === "object");
+assert(typeof TrainingPlanExtensionOffering$ === "object");
 assert(typeof TrainingPlanFilter$ === "object");
 assert(typeof TrainingPlanOffering$ === "object");
 assert(typeof TrainingPlanSummary$ === "object");
@@ -5218,6 +5239,7 @@ assert(typeof waitUntilTrainingJobCompletedOrStopped === "function");
 assert(typeof waitUntilTransformJobCompletedOrStopped === "function");
 // paginators
 assert(typeof paginateCreateHubContentPresignedUrls === "function");
+assert(typeof paginateDescribeTrainingPlanExtensionHistory === "function");
 assert(typeof paginateListActions === "function");
 assert(typeof paginateListAlgorithms === "function");
 assert(typeof paginateListAliases === "function");

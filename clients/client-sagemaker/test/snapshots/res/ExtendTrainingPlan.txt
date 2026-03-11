@@ -1,0 +1,210 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TrainingPlanExtensions": [
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  TrainingPlanExtensions: [
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "TrainingPlanExtensions": [
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "ExtendedAt": 946702799.999,
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "Status": "__Status__",
+      "PaymentStatus": "__PaymentStatus__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "AvailabilityZoneId": "__AvailabilityZoneId__",
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  TrainingPlanExtensions: [
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      ExtendedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      Status: "__Status__",
+      PaymentStatus: "__PaymentStatus__",
+      AvailabilityZone: "__AvailabilityZone__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

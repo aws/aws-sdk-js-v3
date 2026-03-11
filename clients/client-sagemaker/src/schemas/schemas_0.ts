@@ -1184,6 +1184,9 @@ const _DTJe = "DescribeTrainingJob";
 const _DTJes = "DescribeTransformJob";
 const _DTO = "DeleteTagsOutput";
 const _DTP = "DescribeTrainingPlan";
+const _DTPEH = "DescribeTrainingPlanExtensionHistory";
+const _DTPEHR = "DescribeTrainingPlanExtensionHistoryRequest";
+const _DTPEHRe = "DescribeTrainingPlanExtensionHistoryResponse";
 const _DTPR = "DescribeTrainingPlanRequest";
 const _DTPRe = "DescribeTrainingPlanResponse";
 const _DTR = "DeleteTrialRequest";
@@ -1234,6 +1237,7 @@ const _EAMVU = "EnableAutoMinorVersionUpgrade";
 const _EAv = "EvaluatorArn";
 const _EAx = "ExperimentArn";
 const _EAxp = "ExportArtifacts";
+const _EAxt = "ExtendedAt";
 const _EC = "ErrorCode";
 const _ECA = "EndpointConfigArn";
 const _ECD = "EnvironmentConfigDetails";
@@ -1273,8 +1277,10 @@ const _EDSIS = "EdgeDeploymentSuccessInStage";
 const _EDSM = "EdgeDeploymentStatusMessage";
 const _EDSST = "EdgeDeploymentStageStartTime";
 const _EDSd = "EdgeDeploymentStatus";
+const _EDn = "EndDate";
 const _EE = "EfaEnis";
 const _EEM = "EnableEnhancedMetrics";
+const _EET = "ExtensionEndTime";
 const _EEn = "EnableExplanations";
 const _EFA = "ExcludeFeaturesAttribute";
 const _EFSFS = "EFSFileSystem";
@@ -1346,6 +1352,7 @@ const _ESSP = "EnableSagemakerServicecatalogPortfolio";
 const _ESSPI = "EnableSagemakerServicecatalogPortfolioInput";
 const _ESSPO = "EnableSagemakerServicecatalogPortfolioOutput";
 const _ESSb = "EbsStorageSettings";
+const _EST = "ExtensionStartTime";
 const _ESTC = "EnableSessionTagChaining";
 const _ESU = "ExpectedS3Url";
 const _ESm = "EmrSettings";
@@ -1360,6 +1367,9 @@ const _ETBn = "EndTimeBefore";
 const _ETFN = "EventTimeFeatureName";
 const _ETIPS = "EffectiveTrustedIdentityPropagationStatus";
 const _ETO = "EndTimeOffset";
+const _ETP = "ExtendTrainingPlan";
+const _ETPR = "ExtendTrainingPlanRequest";
+const _ETPRx = "ExtendTrainingPlanResponse";
 const _ETn = "EndTime";
 const _ETr = "ErrorTopic";
 const _ETv = "EventTime";
@@ -2560,6 +2570,7 @@ const _PSLi = "PipelineSummaryList";
 const _PSO = "ProcessingS3Output";
 const _PSP = "ProjectS3Path";
 const _PST = "ProcessingStartTime";
+const _PSa = "PaymentStatus";
 const _PSi = "PipelineSummaries";
 const _PSip = "PipelineSummary";
 const _PSl = "PlacementSpecifications";
@@ -2807,6 +2818,7 @@ const _SDo = "SourceDetail";
 const _SDp = "SpaceDetails";
 const _SDt = "StatusDetails";
 const _SDta = "StageDescription";
+const _SDtar = "StartDate";
 const _SDtd = "StdDev";
 const _SDte = "StepDescription";
 const _SDu = "SubDomain";
@@ -3154,6 +3166,11 @@ const _TPC = "ThreadsPerCore";
 const _TPD = "TemplateProviderDetails";
 const _TPDL = "TemplateProviderDetailList";
 const _TPDe = "TemplateProviderDetail";
+const _TPE = "TrainingPlanExtensions";
+const _TPEO = "TrainingPlanExtensionOfferings";
+const _TPEOI = "TrainingPlanExtensionOfferingId";
+const _TPEOr = "TrainingPlanExtensionOffering";
+const _TPEr = "TrainingPlanExtension";
 const _TPF = "TrainingPlanFilter";
 const _TPFr = "TrainingPlanFilters";
 const _TPI = "TrainingProgressInfo";
@@ -6228,6 +6245,16 @@ export var DescribeTrainingJobResponse$: StaticStructureSchema = [3, n0, _DTJRes
   [_TJN, _TJA, _MAo, _TJS, _SSe, _SCt, _CT, _TJAu, _LJA, _AMLJAu, _FR, _HP, _ASl, _RAo, _IDC, _ODC, _RCe, _WPS, _VC, _TST, _TET, _LMT, _SST, _FMDL, _ENI, _EICTE, _EMST, _CCh, _TTIS, _BTIS, _BTC, _DHC, _ECxp, _DRC, _TBOC, _DRESe, _PCr, _PRC, _PRES, _PSro, _E, _RSe, _RDC, _ICC, _SJC, _MCl, _MPC, _MDl, _PIrog, _OMPA],
   [0, 0, () => ModelArtifacts$, 0, 0, () => StoppingCondition$, 4, 0, 0, 0, 0, 128 | 0, () => AlgorithmSpecification$, 0, () => InputDataConfig, () => OutputDataConfig$, () => ResourceConfig$, () => WarmPoolStatus$, () => VpcConfig$, 4, 4, 4, () => SecondaryStatusTransitions, () => FinalMetricDataList, 2, 2, 2, () => CheckpointConfig$, 1, 1, 1, () => DebugHookConfig$, () => ExperimentConfig$, () => DebugRuleConfigurations, () => TensorBoardOutputConfig$, () => DebugRuleEvaluationStatuses, () => ProfilerConfig$, () => ProfilerRuleConfigurations, () => ProfilerRuleEvaluationStatuses, 0, 128 | 0, () => RetryStrategy$, () => RemoteDebugConfig$, () => InfraCheckConfig$, () => ServerlessJobConfig$, () => MlflowConfig$, () => ModelPackageConfig$, () => MlflowDetails$, () => TrainingProgressInfo$, 0], 7
 ];
+export var DescribeTrainingPlanExtensionHistoryRequest$: StaticStructureSchema = [3, n0, _DTPEHR,
+  0,
+  [_TPA, _NTe, _MR],
+  [0, 0, 1], 1
+];
+export var DescribeTrainingPlanExtensionHistoryResponse$: StaticStructureSchema = [3, n0, _DTPEHRe,
+  0,
+  [_TPE, _NTe],
+  [() => TrainingPlanExtensions, 0], 1
+];
 export var DescribeTrainingPlanRequest$: StaticStructureSchema = [3, n0, _DTPR,
   0,
   [_TPN],
@@ -6637,6 +6664,16 @@ export var ExplainerConfig$: StaticStructureSchema = [3, n0, _ECx,
   0,
   [_CEC],
   [() => ClarifyExplainerConfig$]
+];
+export var ExtendTrainingPlanRequest$: StaticStructureSchema = [3, n0, _ETPR,
+  0,
+  [_TPEOI],
+  [0], 1
+];
+export var ExtendTrainingPlanResponse$: StaticStructureSchema = [3, n0, _ETPRx,
+  0,
+  [_TPE],
+  [() => TrainingPlanExtensions], 1
 ];
 export var FailStepMetadata$: StaticStructureSchema = [3, n0, _FSM,
   0,
@@ -9220,8 +9257,8 @@ export var RepositoryAuthConfig$: StaticStructureSchema = [3, n0, _RAC,
 ];
 export var ReservedCapacityOffering$: StaticStructureSchema = [3, n0, _RCO,
   0,
-  [_IT, _ICns, _RCT, _UST, _USC, _AZ, _DH, _DM, _STt, _ETn],
-  [0, 1, 0, 0, 1, 0, 1, 1, 4, 4], 2
+  [_IT, _ICns, _RCT, _UST, _USC, _AZ, _DH, _DM, _STt, _ETn, _EST, _EET],
+  [0, 1, 0, 0, 1, 0, 1, 1, 4, 4, 4, 4], 2
 ];
 export var ReservedCapacitySummary$: StaticStructureSchema = [3, n0, _RCSe,
   0,
@@ -9395,13 +9432,13 @@ export var SearchResponse$: StaticStructureSchema = [3, n0, _SRear,
 ];
 export var SearchTrainingPlanOfferingsRequest$: StaticStructureSchema = [3, n0, _STPOR,
   0,
-  [_IT, _ICns, _UST, _USC, _STAt, _ETBn, _DH, _TRa],
-  [0, 1, 0, 1, 4, 4, 1, 64 | 0]
+  [_IT, _ICns, _UST, _USC, _STAt, _ETBn, _DH, _TRa, _TPA],
+  [0, 1, 0, 1, 4, 4, 1, 64 | 0, 0]
 ];
 export var SearchTrainingPlanOfferingsResponse$: StaticStructureSchema = [3, n0, _STPORe,
   0,
-  [_TPO],
-  [() => TrainingPlanOfferings], 1
+  [_TPO, _TPEO],
+  [() => TrainingPlanOfferings, () => TrainingPlanExtensionOfferings], 1
 ];
 export var SecondaryStatusTransition$: StaticStructureSchema = [3, n0, _SSTe,
   0,
@@ -9872,6 +9909,16 @@ export var TrainingJobSummary$: StaticStructureSchema = [3, n0, _TJSrai,
   0,
   [_TJN, _TJA, _CT, _TJS, _TET, _LMT, _SSe, _WPS, _TPA],
   [0, 0, 4, 0, 4, 4, 0, () => WarmPoolStatus$, 0], 4
+];
+export var TrainingPlanExtension$: StaticStructureSchema = [3, n0, _TPEr,
+  0,
+  [_TPEOI, _EAxt, _SDtar, _EDn, _St, _PSa, _AZ, _AZI, _DH, _UF, _CCur],
+  [0, 4, 4, 4, 0, 0, 0, 0, 1, 0, 0], 1
+];
+export var TrainingPlanExtensionOffering$: StaticStructureSchema = [3, n0, _TPEOr,
+  0,
+  [_TPEOI, _AZ, _SDtar, _EDn, _DH, _UF, _CCur],
+  [0, 0, 4, 4, 1, 0, 0], 1
 ];
 export var TrainingPlanFilter$: StaticStructureSchema = [3, n0, _TPF,
   0,
@@ -11278,6 +11325,12 @@ var TrainingJobSummaries: StaticListSchema = [1, n0, _TJSra,
   0, () => TrainingJobSummary$
 ];
 var TrainingPlanArns = 64 | 0;
+var TrainingPlanExtensionOfferings: StaticListSchema = [1, n0, _TPEO,
+  0, () => TrainingPlanExtensionOffering$
+];
+var TrainingPlanExtensions: StaticListSchema = [1, n0, _TPE,
+  0, () => TrainingPlanExtension$
+];
 var TrainingPlanFilters: StaticListSchema = [1, n0, _TPFr,
   0, () => TrainingPlanFilter$
 ];
@@ -12038,6 +12091,9 @@ export var DescribeTrainingJob$: StaticOperationSchema = [9, n0, _DTJe,
 export var DescribeTrainingPlan$: StaticOperationSchema = [9, n0, _DTP,
   0, () => DescribeTrainingPlanRequest$, () => DescribeTrainingPlanResponse$
 ];
+export var DescribeTrainingPlanExtensionHistory$: StaticOperationSchema = [9, n0, _DTPEH,
+  0, () => DescribeTrainingPlanExtensionHistoryRequest$, () => DescribeTrainingPlanExtensionHistoryResponse$
+];
 export var DescribeTransformJob$: StaticOperationSchema = [9, n0, _DTJes,
   0, () => DescribeTransformJobRequest$, () => DescribeTransformJobResponse$
 ];
@@ -12067,6 +12123,9 @@ export var DisassociateTrialComponent$: StaticOperationSchema = [9, n0, _DTCi,
 ];
 export var EnableSagemakerServicecatalogPortfolio$: StaticOperationSchema = [9, n0, _ESSP,
   0, () => EnableSagemakerServicecatalogPortfolioInput$, () => EnableSagemakerServicecatalogPortfolioOutput$
+];
+export var ExtendTrainingPlan$: StaticOperationSchema = [9, n0, _ETP,
+  0, () => ExtendTrainingPlanRequest$, () => ExtendTrainingPlanResponse$
 ];
 export var GetDeviceFleetReport$: StaticOperationSchema = [9, n0, _GDFR,
   0, () => GetDeviceFleetReportRequest$, () => GetDeviceFleetReportResponse$

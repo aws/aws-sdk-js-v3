@@ -4,7 +4,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import type { ListPipelineVersionsRequest, ListPipelineVersionsResponse } from "../models/models_3";
+import type { ListPipelineVersionsRequest, ListPipelineVersionsResponse } from "../models/models_4";
 import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListPipelineVersions$ } from "../schemas/schemas_0";
 

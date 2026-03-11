@@ -594,6 +594,10 @@ import {
   DescribeTrainingPlanCommandOutput,
 } from "./commands/DescribeTrainingPlanCommand";
 import {
+  DescribeTrainingPlanExtensionHistoryCommandInput,
+  DescribeTrainingPlanExtensionHistoryCommandOutput,
+} from "./commands/DescribeTrainingPlanExtensionHistoryCommand";
+import {
   DescribeTransformJobCommandInput,
   DescribeTransformJobCommandOutput,
 } from "./commands/DescribeTransformJobCommand";
@@ -624,6 +628,7 @@ import {
   EnableSagemakerServicecatalogPortfolioCommandInput,
   EnableSagemakerServicecatalogPortfolioCommandOutput,
 } from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
+import { ExtendTrainingPlanCommandInput, ExtendTrainingPlanCommandOutput } from "./commands/ExtendTrainingPlanCommand";
 import {
   GetDeviceFleetReportCommandInput,
   GetDeviceFleetReportCommandOutput,
@@ -1266,6 +1271,7 @@ export type ServiceInputTypes =
   | DescribeSubscribedWorkteamCommandInput
   | DescribeTrainingJobCommandInput
   | DescribeTrainingPlanCommandInput
+  | DescribeTrainingPlanExtensionHistoryCommandInput
   | DescribeTransformJobCommandInput
   | DescribeTrialCommandInput
   | DescribeTrialComponentCommandInput
@@ -1276,6 +1282,7 @@ export type ServiceInputTypes =
   | DisableSagemakerServicecatalogPortfolioCommandInput
   | DisassociateTrialComponentCommandInput
   | EnableSagemakerServicecatalogPortfolioCommandInput
+  | ExtendTrainingPlanCommandInput
   | GetDeviceFleetReportCommandInput
   | GetLineageGroupPolicyCommandInput
   | GetModelPackageGroupPolicyCommandInput
@@ -1650,6 +1657,7 @@ export type ServiceOutputTypes =
   | DescribeSubscribedWorkteamCommandOutput
   | DescribeTrainingJobCommandOutput
   | DescribeTrainingPlanCommandOutput
+  | DescribeTrainingPlanExtensionHistoryCommandOutput
   | DescribeTransformJobCommandOutput
   | DescribeTrialCommandOutput
   | DescribeTrialComponentCommandOutput
@@ -1660,6 +1668,7 @@ export type ServiceOutputTypes =
   | DisableSagemakerServicecatalogPortfolioCommandOutput
   | DisassociateTrialComponentCommandOutput
   | EnableSagemakerServicecatalogPortfolioCommandOutput
+  | ExtendTrainingPlanCommandOutput
   | GetDeviceFleetReportCommandOutput
   | GetLineageGroupPolicyCommandOutput
   | GetModelPackageGroupPolicyCommandOutput

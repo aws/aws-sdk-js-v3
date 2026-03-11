@@ -31,7 +31,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -43,7 +45,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -55,7 +59,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
     },
@@ -83,7 +89,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -95,7 +103,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -107,7 +117,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
     },
@@ -135,7 +147,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -147,7 +161,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -159,9 +175,40 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
+    }
+  ],
+  "TrainingPlanExtensionOfferings": [
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
     }
   ]
 }
@@ -194,7 +241,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -206,7 +255,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -218,7 +269,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
     },
@@ -246,7 +299,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -258,7 +313,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -270,7 +327,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
     },
@@ -298,7 +357,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -310,7 +371,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -322,9 +385,40 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
+    }
+  ],
+  TrainingPlanExtensionOfferings: [
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
     }
   ],
   $metadata: {
@@ -370,7 +464,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -382,7 +478,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -394,7 +492,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
     },
@@ -422,7 +522,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -434,7 +536,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -446,7 +550,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
     },
@@ -474,7 +580,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -486,7 +594,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         },
         {
           "InstanceType": "__InstanceType__",
@@ -498,9 +608,40 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "DurationHours": 0,
           "DurationMinutes": 0,
           "StartTime": 946702799.999,
-          "EndTime": 946702799.999
+          "EndTime": 946702799.999,
+          "ExtensionStartTime": 946702799.999,
+          "ExtensionEndTime": 946702799.999
         }
       ]
+    }
+  ],
+  "TrainingPlanExtensionOfferings": [
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
+    },
+    {
+      "TrainingPlanExtensionOfferingId": "__TrainingPlanExtensionOfferingId__",
+      "AvailabilityZone": "__AvailabilityZone__",
+      "StartDate": 946702799.999,
+      "EndDate": 946702799.999,
+      "DurationHours": 0,
+      "UpfrontFee": "__UpfrontFee__",
+      "CurrencyCode": "__CurrencyCode__"
     }
   ]
 }
@@ -533,7 +674,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -545,7 +688,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -557,7 +702,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
     },
@@ -585,7 +732,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -597,7 +746,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -609,7 +760,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
     },
@@ -637,7 +790,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -649,7 +804,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         },
         {
           InstanceType: "__InstanceType__",
@@ -661,9 +818,40 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           DurationHours: (number) 0,
           DurationMinutes: (number) 0,
           StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+          EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionStartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ExtensionEndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ]
+    }
+  ],
+  TrainingPlanExtensionOfferings: [
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
+    },
+    {
+      TrainingPlanExtensionOfferingId: "__TrainingPlanExtensionOfferingId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      StartDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      EndDate: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      DurationHours: (number) 0,
+      UpfrontFee: "__UpfrontFee__",
+      CurrencyCode: "__CurrencyCode__"
     }
   ],
   $metadata: {

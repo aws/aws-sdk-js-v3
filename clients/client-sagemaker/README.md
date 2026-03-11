@@ -1601,6 +1601,13 @@ DescribeTrainingPlan
 </details>
 <details>
 <summary>
+DescribeTrainingPlanExtensionHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/DescribeTrainingPlanExtensionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeTrainingPlanExtensionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/DescribeTrainingPlanExtensionHistoryCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeTransformJob
 </summary>
 
@@ -1668,6 +1675,13 @@ EnableSagemakerServicecatalogPortfolio
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/EnableSagemakerServicecatalogPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/EnableSagemakerServicecatalogPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/EnableSagemakerServicecatalogPortfolioCommandOutput/)
+</details>
+<details>
+<summary>
+ExtendTrainingPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/ExtendTrainingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ExtendTrainingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/ExtendTrainingPlanCommandOutput/)
 </details>
 <details>
 <summary>

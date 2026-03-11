@@ -945,6 +945,11 @@ import {
   DescribeTrainingPlanCommandOutput,
 } from "./commands/DescribeTrainingPlanCommand";
 import {
+  DescribeTrainingPlanExtensionHistoryCommand,
+  DescribeTrainingPlanExtensionHistoryCommandInput,
+  DescribeTrainingPlanExtensionHistoryCommandOutput,
+} from "./commands/DescribeTrainingPlanExtensionHistoryCommand";
+import {
   DescribeTransformJobCommand,
   DescribeTransformJobCommandInput,
   DescribeTransformJobCommandOutput,
@@ -994,6 +999,11 @@ import {
   EnableSagemakerServicecatalogPortfolioCommandInput,
   EnableSagemakerServicecatalogPortfolioCommandOutput,
 } from "./commands/EnableSagemakerServicecatalogPortfolioCommand";
+import {
+  ExtendTrainingPlanCommand,
+  ExtendTrainingPlanCommandInput,
+  ExtendTrainingPlanCommandOutput,
+} from "./commands/ExtendTrainingPlanCommand";
 import {
   GetDeviceFleetReportCommand,
   GetDeviceFleetReportCommandInput,
@@ -1776,6 +1786,9 @@ import {
   UpdateWorkteamCommandOutput,
 } from "./commands/UpdateWorkteamCommand";
 import { paginateCreateHubContentPresignedUrls } from "./pagination/CreateHubContentPresignedUrlsPaginator";
+import {
+  paginateDescribeTrainingPlanExtensionHistory,
+} from "./pagination/DescribeTrainingPlanExtensionHistoryPaginator";
 import { paginateListActions } from "./pagination/ListActionsPaginator";
 import { paginateListAlgorithms } from "./pagination/ListAlgorithmsPaginator";
 import { paginateListAliases } from "./pagination/ListAliasesPaginator";
@@ -2084,6 +2097,7 @@ const commands = {
   DescribeSubscribedWorkteamCommand,
   DescribeTrainingJobCommand,
   DescribeTrainingPlanCommand,
+  DescribeTrainingPlanExtensionHistoryCommand,
   DescribeTransformJobCommand,
   DescribeTrialCommand,
   DescribeTrialComponentCommand,
@@ -2094,6 +2108,7 @@ const commands = {
   DisableSagemakerServicecatalogPortfolioCommand,
   DisassociateTrialComponentCommand,
   EnableSagemakerServicecatalogPortfolioCommand,
+  ExtendTrainingPlanCommand,
   GetDeviceFleetReportCommand,
   GetLineageGroupPolicyCommand,
   GetModelPackageGroupPolicyCommand,
@@ -2266,6 +2281,7 @@ const commands = {
 };
 const paginators = {
   paginateCreateHubContentPresignedUrls,
+  paginateDescribeTrainingPlanExtensionHistory,
   paginateListActions,
   paginateListAlgorithms,
   paginateListAliases,
@@ -5771,6 +5787,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeTrainingPlanExtensionHistoryCommand}
+   */
+  describeTrainingPlanExtensionHistory(
+    args: DescribeTrainingPlanExtensionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrainingPlanExtensionHistoryCommandOutput>;
+  describeTrainingPlanExtensionHistory(
+    args: DescribeTrainingPlanExtensionHistoryCommandInput,
+    cb: (err: any, data?: DescribeTrainingPlanExtensionHistoryCommandOutput) => void
+  ): void;
+  describeTrainingPlanExtensionHistory(
+    args: DescribeTrainingPlanExtensionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrainingPlanExtensionHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTransformJobCommand}
    */
   describeTransformJob(
@@ -5940,6 +5973,23 @@ export interface SageMaker {
     args: EnableSagemakerServicecatalogPortfolioCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableSagemakerServicecatalogPortfolioCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExtendTrainingPlanCommand}
+   */
+  extendTrainingPlan(
+    args: ExtendTrainingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExtendTrainingPlanCommandOutput>;
+  extendTrainingPlan(
+    args: ExtendTrainingPlanCommandInput,
+    cb: (err: any, data?: ExtendTrainingPlanCommandOutput) => void
+  ): void;
+  extendTrainingPlan(
+    args: ExtendTrainingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExtendTrainingPlanCommandOutput) => void
   ): void;
 
   /**
@@ -8894,6 +8944,17 @@ export interface SageMaker {
     args: CreateHubContentPresignedUrlsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<CreateHubContentPresignedUrlsCommandOutput>;
+
+  /**
+   * @see {@link DescribeTrainingPlanExtensionHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeTrainingPlanExtensionHistoryCommandOutput}.
+   */
+  paginateDescribeTrainingPlanExtensionHistory(
+    args: DescribeTrainingPlanExtensionHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeTrainingPlanExtensionHistoryCommandOutput>;
 
   /**
    * @see {@link ListActionsCommand}
