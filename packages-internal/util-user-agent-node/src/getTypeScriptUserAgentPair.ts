@@ -47,11 +47,10 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
       const packageJson = await readFile(appPackageJsonPath, "utf-8");
       const { dependencies, devDependencies } = JSON.parse(packageJson);
       const version = devDependencies?.typescript ?? dependencies?.typescript;
-      const sanitizedVersion = getSanitizedDevTypeScriptVersion(version);
-      if (typeof sanitizedVersion !== "string") {
+      if (typeof version !== "string") {
         continue;
       }
-      versionFromApp = `dev_${sanitizedVersion}`;
+      versionFromApp = version;
     } catch {
       // Ignore error in case of failure in file read or JSON parsing.
     }
@@ -87,7 +86,14 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   }
 
   // If we reach here, we found version in application package.json and not in node_modules.
-  // This happens when typescript is not installed in production.
-  tscVersion = versionFromApp;
+  // This can happen when typescript is not installed in production. We attempt to store sanitized version.
+  const sanitizedVersion = getSanitizedDevTypeScriptVersion(versionFromApp);
+
+  if (typeof sanitizedVersion !== "string") {
+    tscVersion = null;
+    return undefined;
+  }
+
+  tscVersion = `dev_${sanitizedVersion}`;
   return ["md/tsc", tscVersion];
 };
