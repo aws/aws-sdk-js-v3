@@ -20812,6 +20812,59 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-simpledbv2@workspace:clients/client-simpledbv2":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-simpledbv2@workspace:clients/client-simpledbv2"
+  dependencies:
+    "@aws-crypto/sha256-browser": "npm:5.2.0"
+    "@aws-crypto/sha256-js": "npm:5.2.0"
+    "@aws-sdk/core": "workspace:^3.973.19"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.19"
+    "@aws-sdk/middleware-host-header": "workspace:^3.972.7"
+    "@aws-sdk/middleware-logger": "workspace:^3.972.7"
+    "@aws-sdk/middleware-recursion-detection": "workspace:^3.972.7"
+    "@aws-sdk/middleware-user-agent": "workspace:^3.972.20"
+    "@aws-sdk/region-config-resolver": "workspace:^3.972.7"
+    "@aws-sdk/types": "workspace:^3.973.5"
+    "@aws-sdk/util-endpoints": "workspace:^3.996.4"
+    "@aws-sdk/util-user-agent-browser": "workspace:^3.972.7"
+    "@aws-sdk/util-user-agent-node": "workspace:^3.973.5"
+    "@smithy/config-resolver": "npm:^4.4.10"
+    "@smithy/core": "npm:^3.23.9"
+    "@smithy/fetch-http-handler": "npm:^5.3.13"
+    "@smithy/hash-node": "npm:^4.2.11"
+    "@smithy/invalid-dependency": "npm:^4.2.11"
+    "@smithy/middleware-content-length": "npm:^4.2.11"
+    "@smithy/middleware-endpoint": "npm:^4.4.23"
+    "@smithy/middleware-retry": "npm:^4.4.40"
+    "@smithy/middleware-serde": "npm:^4.2.12"
+    "@smithy/middleware-stack": "npm:^4.2.11"
+    "@smithy/node-config-provider": "npm:^4.3.11"
+    "@smithy/node-http-handler": "npm:^4.4.14"
+    "@smithy/protocol-http": "npm:^5.3.11"
+    "@smithy/smithy-client": "npm:^4.12.3"
+    "@smithy/types": "npm:^4.13.0"
+    "@smithy/url-parser": "npm:^4.2.11"
+    "@smithy/util-base64": "npm:^4.3.2"
+    "@smithy/util-body-length-browser": "npm:^4.2.2"
+    "@smithy/util-body-length-node": "npm:^4.2.3"
+    "@smithy/util-defaults-mode-browser": "npm:^4.3.39"
+    "@smithy/util-defaults-mode-node": "npm:^4.2.42"
+    "@smithy/util-endpoints": "npm:^3.3.2"
+    "@smithy/util-middleware": "npm:^4.2.11"
+    "@smithy/util-retry": "npm:^4.2.11"
+    "@smithy/util-utf8": "npm:^4.2.2"
+    "@smithy/util-waiter": "npm:^4.2.12"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-simspaceweaver@workspace:clients/client-simspaceweaver":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-simspaceweaver@workspace:clients/client-simspaceweaver"
