@@ -24884,6 +24884,7 @@ __metadata:
     "@aws-sdk/types": "workspace:^3.973.5"
     "@smithy/node-config-provider": "npm:^4.3.11"
     "@smithy/types": "npm:^4.13.0"
+    "@smithy/util-config-provider": "npm:^4.2.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"

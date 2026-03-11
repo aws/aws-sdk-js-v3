@@ -1,9 +1,11 @@
+import { booleanSelector } from "@smithy/util-config-provider";
 import { readFile } from "node:fs/promises";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 import { getTypeScriptPackageJsonPaths } from "./getTypeScriptPackageJsonPaths";
 
+vi.mock("@smithy/util-config-provider");
 vi.mock("node:fs/promises");
 vi.mock("./getSanitizedTypeScriptVersion");
 vi.mock("./getTypeScriptPackageJsonPaths");
@@ -141,19 +143,34 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("returns undefined without reading files", () => {
-    afterEach(() => {
-      delete process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED;
+  describe("when booleanSelector is used to read env var", () => {
+    it("returns undefined without reading files when booleanSelector returns true", async () => {
+      vi.mocked(booleanSelector).mockReturnValue(true);
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
       expect(readFile).not.toHaveBeenCalled();
     });
 
-    it.each(["true", "false", "1", "0"])(
-      "when AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED is set to '%s'",
-      async (value) => {
-        process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED = value;
-        const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
-        await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
-      }
-    );
+    it("proceeds with TypeScript detection when booleanSelector returns undefined", async () => {
+      vi.mocked(booleanSelector).mockReturnValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      expect(readFile).toHaveBeenCalledOnce();
+    });
+
+    it("proceeds with TypeScript detection when booleanSelector throws error", async () => {
+      vi.mocked(booleanSelector).mockImplementation(() => {
+        throw new Error("Invalid value");
+      });
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      expect(readFile).toHaveBeenCalledOnce();
+    });
   });
 });

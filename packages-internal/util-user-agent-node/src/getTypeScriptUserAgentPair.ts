@@ -1,4 +1,5 @@
 import type { UserAgentPair } from "@smithy/types";
+import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
 import { readFile } from "node:fs/promises";
 
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
@@ -19,7 +20,12 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   }
 
   // Disable TypeScript detection if environment variable is set.
-  if (process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED) {
+  let isTypeScriptDetectionDisabled = false;
+  try {
+    isTypeScriptDetectionDisabled =
+      booleanSelector(process.env, "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED", SelectorType.ENV) || false;
+  } catch {}
+  if (isTypeScriptDetectionDisabled) {
     tscVersion = null;
     return undefined;
   }
