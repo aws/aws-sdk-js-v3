@@ -329,6 +329,7 @@ export const ProvisionedControlPlaneTier = {
   STANDARD: "standard",
   TIER_2XL: "tier-2xl",
   TIER_4XL: "tier-4xl",
+  TIER_8XL: "tier-8xl",
   TIER_XL: "tier-xl",
 } as const;
 /**

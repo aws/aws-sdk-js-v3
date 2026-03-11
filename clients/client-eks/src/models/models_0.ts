@@ -1763,7 +1763,7 @@ export interface ComputeConfigRequest {
  */
 export interface ControlPlaneScalingConfig {
   /**
-   * <p>The control plane scaling tier configuration. Available options are <code>standard</code>, <code>tier-xl</code>, <code>tier-2xl</code>, or <code>tier-4xl</code>. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
+   * <p>The control plane scaling tier configuration. Available options are <code>standard</code>, <code>tier-xl</code>, <code>tier-2xl</code>, <code>tier-4xl, or tier-8xl</code>. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.</p>
    * @public
    */
   tier?: ProvisionedControlPlaneTier | undefined;
