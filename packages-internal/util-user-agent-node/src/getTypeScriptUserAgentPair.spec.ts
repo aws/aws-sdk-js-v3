@@ -1,9 +1,11 @@
+import { booleanSelector } from "@smithy/util-config-provider";
 import { readFile } from "node:fs/promises";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 import { getTypeScriptPackageJsonPaths } from "./getTypeScriptPackageJsonPaths";
 
+vi.mock("@smithy/util-config-provider");
 vi.mock("node:fs/promises");
 vi.mock("./getSanitizedTypeScriptVersion");
 vi.mock("./getTypeScriptPackageJsonPaths");
@@ -138,6 +140,37 @@ describe("getTypeScriptUserAgentPair", () => {
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
       await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+    });
+  });
+
+  describe("when booleanSelector is used to read env var", () => {
+    it("returns undefined without reading files when booleanSelector returns true", async () => {
+      vi.mocked(booleanSelector).mockReturnValue(true);
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+      expect(readFile).not.toHaveBeenCalled();
+    });
+
+    it("proceeds with TypeScript detection when booleanSelector returns undefined", async () => {
+      vi.mocked(booleanSelector).mockReturnValue(undefined);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      expect(readFile).toHaveBeenCalledOnce();
+    });
+
+    it("proceeds with TypeScript detection when booleanSelector throws error", async () => {
+      vi.mocked(booleanSelector).mockImplementation(() => {
+        throw new Error("Invalid value");
+      });
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({ version: mockTscVersion }));
+      expect(readFile).toHaveBeenCalledOnce();
     });
   });
 });
