@@ -4,7 +4,17 @@
  */
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.ArrayList;
 import java.util.List;
+import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
+import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -15,6 +25,27 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddProtocols implements TypeScriptIntegration {
+
+    public static List<ShapeId> getSupportedProtocols(ServiceShape service) {
+        List<ShapeId> supported = new ArrayList<>();
+        List<ShapeId> protocols = List.of(
+            AwsJson1_0Trait.ID,
+            AwsJson1_1Trait.ID,
+            RestJson1Trait.ID,
+            Rpcv2CborTrait.ID,
+            RestXmlTrait.ID,
+            AwsQueryTrait.ID,
+            Ec2QueryTrait.ID
+        );
+
+        for (ShapeId protocol : protocols) {
+            if (service.hasTrait(protocol)) {
+                supported.add(protocol);
+            }
+        }
+
+        return supported;
+    }
 
     @Override
     public List<String> runAfter() {

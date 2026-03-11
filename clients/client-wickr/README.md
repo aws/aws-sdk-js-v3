@@ -9,8 +9,9 @@ AWS SDK for JavaScript Wickr Client for Node.js, Browser and React Native.
 <p>Welcome to the <i>Amazon Web Services Wickr API Reference</i>.</p> <p>The Amazon Web Services Wickr application programming interface (API) is designed for administrators to perform key tasks, such as creating and managing Amazon Web Services Wickr, networks, users, security groups, bots and more. This guide provides detailed information about the Amazon Web Services Wickr API, including operations, types, inputs and outputs, and error codes. You can use an Amazon Web Services SDK, the Amazon Web Services Command Line Interface (Amazon Web Services CLI, or the REST API to make API calls for Amazon Web Services Wickr. </p> <p> <i>Using Amazon Web Services SDK</i> </p> <p>The SDK clients authenticate your requests by using access keys that you provide. For more information, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/access.html">Authentication and access using Amazon Web Services SDKs and tools</a> in the <i>Amazon Web Services SDKs and Tools Reference Guide</i>. </p> <p> <i>Using Amazon Web Services CLI</i> </p> <p>Use your access keys with the Amazon Web Services CLI to make API calls. For more information about setting up the Amazon Web Services CLI, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Getting started with the Amazon Web Services CLI</a> in the <i>Amazon Web Services Command Line Interface User Guide for Version 2</i>. </p> <p> <i>Using REST APIs</i> </p> <p>If you use REST to make API calls, you must authenticate your request by providing a signature. Amazon Web Services Wickr supports Signature Version 4. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html">Amazon Web Services Signature Version 4 for API requests</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>. </p> <p>Access and permissions to the APIs can be controlled by Amazon Web Services Identity and Access Management. The managed policy <a href="https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AWSWickrFullAccess">Amazon Web ServicesWickrFullAccess</a> grants full administrative permission to the Amazon Web Services Wickr service APIs. For more information on restricting access to specific operations, see <a href="https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html">Identity and access management for Amazon Web Services Wickr </a> in the <i>Amazon Web Services Wickr Administration Guide</i>. </p> <p> <i>Types of Errors</i>:</p> <p>The Amazon Web Services Wickr APIs provide an HTTP interface. HTTP defines ranges of HTTP Status Codes for different types of error responses.</p> <ol> <li> <p>Client errors are indicated by HTTP Status Code class of 4xx</p> </li> <li> <p>Service errors are indicated by HTTP Status Code class of 5xx</p> </li> </ol> <p>In this reference guide, the documentation for each API has an Errors section that includes a brief discussion about HTTP status codes. We recommend looking there as part of your investigation when you get an error.</p>
 
 ## Installing
-To install this package, simply type add or install @aws-sdk/client-wickr
-using your favorite package manager:
+
+To install this package, use the CLI of your favorite package manager:
+
 - `npm install @aws-sdk/client-wickr`
 - `yarn add @aws-sdk/client-wickr`
 - `pnpm add @aws-sdk/client-wickr`
@@ -35,15 +36,15 @@ import { WickrClient, ListBotsCommand } from "@aws-sdk/client-wickr";
 
 ### Usage
 
-To send a request, you:
+To send a request:
 
-- Initiate client with configuration (e.g. credentials, region).
-- Initiate command with input parameters.
-- Call `send` operation on client with command object as input.
-- If you are using a custom http handler, you may call `destroy()` to close open connections.
+- Instantiate a client with configuration (e.g. credentials, region).
+  - See [docs/CLIENTS](https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md) for configuration details.
+  - See [@aws-sdk/config](https://github.com/aws/aws-sdk-js-v3/blob/main/packages/config/README.md) for additional options.
+- Instantiate a command with input parameters.
+- Call the `send` operation on the client, providing the command object as input.
 
 ```js
-// a client can be shared by different commands.
 const client = new WickrClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
@@ -52,7 +53,7 @@ const command = new ListBotsCommand(params);
 
 #### Async/await
 
-We recommend using [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+We recommend using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 operator to wait for the promise returned by send operation as follows:
 
 ```js
@@ -67,26 +68,9 @@ try {
 }
 ```
 
-Async-await is clean, concise, intuitive, easy to debug and has better error handling
-as compared to using Promise chains or callbacks.
-
 #### Promises
 
-You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining)
-to execute send operation.
-
-```js
-client.send(command).then(
-  (data) => {
-    // process data.
-  },
-  (error) => {
-    // error handling.
-  }
-);
-```
-
-Promises can also be called using `.catch()` and `.finally()` as follows:
+You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
 
 ```js
 client
@@ -102,27 +86,21 @@ client
   });
 ```
 
-#### Callbacks
+#### Aggregated client
 
-We do not recommend using callbacks because of [callback hell](http://callbackhell.com/),
-but they are supported by the send operation.
+The aggregated client class is exported from the same package, but without the "Client" suffix.
 
-```js
-// callbacks.
-client.send(command, (err, data) => {
-  // process err and data.
-});
-```
+`Wickr` extends `WickrClient` and additionally supports all operations, waiters, and paginators as methods.
+This style may be familiar to you from the AWS SDK for JavaScript v2.
 
-#### v2 compatible style
-
-The client can also send requests using v2 compatible style.
-However, it results in a bigger bundle size and may be dropped in next major version. More details in the blog post
-on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
+If you are bundling the AWS SDK, we recommend using only the bare-bones client (`WickrClient`).
+More details are in the blog post on
+[modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/).
 
 ```ts
-import * as AWS from "@aws-sdk/client-wickr";
-const client = new AWS.Wickr({ region: "REGION" });
+import { Wickr } from "@aws-sdk/client-wickr";
+
+const client = new Wickr({ region: "REGION" });
 
 // async/await.
 try {
@@ -142,7 +120,7 @@ client
     // error handling.
   });
 
-// callbacks.
+// callbacks (not recommended).
 client.listBots(params, (err, data) => {
   // process err and data.
 });
@@ -170,12 +148,14 @@ try {
 }
 ```
 
+See also [docs/ERROR_HANDLING](https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/ERROR_HANDLING.md).
+
 ## Getting Help
 
 Please use these community resources for getting help.
-We use the GitHub issues for tracking bugs and feature requests, but have limited bandwidth to address them.
+We use GitHub issues for tracking bugs and feature requests, but have limited bandwidth to address them.
 
-- Visit [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+- Visit the [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
   or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html).
 - Check out the blog posts tagged with [`aws-sdk-js`](https://aws.amazon.com/blogs/developer/tag/aws-sdk-js/)
   on AWS Developer Blog.

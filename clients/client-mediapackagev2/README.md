@@ -9,8 +9,9 @@ AWS SDK for JavaScript MediaPackageV2 Client for Node.js, Browser and React Nati
 <note> <p>This guide is intended for creating AWS Elemental MediaPackage resources in MediaPackage Version 2 (v2) starting from May 2023. To get started with MediaPackage v2, create your MediaPackage resources. There isn't an automated process to migrate your resources from MediaPackage v1 to MediaPackage v2. </p> <p>The names of the entities that you use to access this API, like URLs and ARNs, all have the versioning information added, like "v2", to distinguish from the prior version. If you used MediaPackage prior to this release, you can't use the MediaPackage v2 CLI or the MediaPackage v2 API to access any MediaPackage v1 resources.</p> <p>If you created resources in MediaPackage v1, use video on demand (VOD) workflows, and aren't looking to migrate to MediaPackage v2 yet, see the <a href="https://docs.aws.amazon.com/mediapackage/latest/apireference/what-is.html">MediaPackage v1 Live API Reference</a>.</p> </note> <p>This is the AWS Elemental MediaPackage v2 Live REST API Reference. It describes all the MediaPackage API operations for live content in detail, and provides sample requests, responses, and errors for the supported web services protocols.</p> <p>We assume that you have the IAM permissions that you need to use MediaPackage via the REST API. We also assume that you are familiar with the features and operations of MediaPackage, as described in the AWS Elemental MediaPackage User Guide.</p>
 
 ## Installing
-To install this package, simply type add or install @aws-sdk/client-mediapackagev2
-using your favorite package manager:
+
+To install this package, use the CLI of your favorite package manager:
+
 - `npm install @aws-sdk/client-mediapackagev2`
 - `yarn add @aws-sdk/client-mediapackagev2`
 - `pnpm add @aws-sdk/client-mediapackagev2`
@@ -35,15 +36,15 @@ import { MediaPackageV2Client, ListChannelGroupsCommand } from "@aws-sdk/client-
 
 ### Usage
 
-To send a request, you:
+To send a request:
 
-- Initiate client with configuration (e.g. credentials, region).
-- Initiate command with input parameters.
-- Call `send` operation on client with command object as input.
-- If you are using a custom http handler, you may call `destroy()` to close open connections.
+- Instantiate a client with configuration (e.g. credentials, region).
+  - See [docs/CLIENTS](https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md) for configuration details.
+  - See [@aws-sdk/config](https://github.com/aws/aws-sdk-js-v3/blob/main/packages/config/README.md) for additional options.
+- Instantiate a command with input parameters.
+- Call the `send` operation on the client, providing the command object as input.
 
 ```js
-// a client can be shared by different commands.
 const client = new MediaPackageV2Client({ region: "REGION" });
 
 const params = { /** input parameters */ };
@@ -52,7 +53,7 @@ const command = new ListChannelGroupsCommand(params);
 
 #### Async/await
 
-We recommend using [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+We recommend using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 operator to wait for the promise returned by send operation as follows:
 
 ```js
@@ -67,26 +68,9 @@ try {
 }
 ```
 
-Async-await is clean, concise, intuitive, easy to debug and has better error handling
-as compared to using Promise chains or callbacks.
-
 #### Promises
 
-You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining)
-to execute send operation.
-
-```js
-client.send(command).then(
-  (data) => {
-    // process data.
-  },
-  (error) => {
-    // error handling.
-  }
-);
-```
-
-Promises can also be called using `.catch()` and `.finally()` as follows:
+You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
 
 ```js
 client
@@ -102,27 +86,21 @@ client
   });
 ```
 
-#### Callbacks
+#### Aggregated client
 
-We do not recommend using callbacks because of [callback hell](http://callbackhell.com/),
-but they are supported by the send operation.
+The aggregated client class is exported from the same package, but without the "Client" suffix.
 
-```js
-// callbacks.
-client.send(command, (err, data) => {
-  // process err and data.
-});
-```
+`MediaPackageV2` extends `MediaPackageV2Client` and additionally supports all operations, waiters, and paginators as methods.
+This style may be familiar to you from the AWS SDK for JavaScript v2.
 
-#### v2 compatible style
-
-The client can also send requests using v2 compatible style.
-However, it results in a bigger bundle size and may be dropped in next major version. More details in the blog post
-on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
+If you are bundling the AWS SDK, we recommend using only the bare-bones client (`MediaPackageV2Client`).
+More details are in the blog post on
+[modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/).
 
 ```ts
-import * as AWS from "@aws-sdk/client-mediapackagev2";
-const client = new AWS.MediaPackageV2({ region: "REGION" });
+import { MediaPackageV2 } from "@aws-sdk/client-mediapackagev2";
+
+const client = new MediaPackageV2({ region: "REGION" });
 
 // async/await.
 try {
@@ -142,7 +120,7 @@ client
     // error handling.
   });
 
-// callbacks.
+// callbacks (not recommended).
 client.listChannelGroups(params, (err, data) => {
   // process err and data.
 });
@@ -170,12 +148,14 @@ try {
 }
 ```
 
+See also [docs/ERROR_HANDLING](https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/ERROR_HANDLING.md).
+
 ## Getting Help
 
 Please use these community resources for getting help.
-We use the GitHub issues for tracking bugs and feature requests, but have limited bandwidth to address them.
+We use GitHub issues for tracking bugs and feature requests, but have limited bandwidth to address them.
 
-- Visit [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
+- Visit the [Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/welcome.html)
   or [API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/index.html).
 - Check out the blog posts tagged with [`aws-sdk-js`](https://aws.amazon.com/blogs/developer/tag/aws-sdk-js/)
   on AWS Developer Blog.
