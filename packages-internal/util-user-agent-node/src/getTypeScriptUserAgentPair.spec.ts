@@ -48,12 +48,10 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      // Both loops iterate all dirs without breaking
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // Both loops break after finding values in first dir
+      expect(readFile).toHaveBeenCalledTimes(2);
       expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson1, "utf-8");
     });
 
     it("returns version from node_modules", async () => {
@@ -82,11 +80,10 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // Both loops break after finding values in first dir
+      expect(readFile).toHaveBeenCalledTimes(2);
       expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson1, "utf-8");
     });
 
     it("returns version from node_modules", async () => {
@@ -115,11 +112,11 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // First loop: fails on dir1, finds in dir2, breaks. Second loop: finds in dir1, breaks.
+      expect(readFile).toHaveBeenCalledTimes(3);
       expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
       expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
       expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
     });
 
     it("returns version from node_modules", async () => {
@@ -146,12 +143,11 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      // Both loops iterate all dirs
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // First loop breaks after dir1. Second loop iterates all dirs (no valid version found).
+      expect(readFile).toHaveBeenCalledTimes(3);
       expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson2, "utf-8");
     });
 
     it("returns version with dev_ prefix", async () => {
@@ -181,11 +177,11 @@ describe("getTypeScriptUserAgentPair", () => {
     });
 
     afterEach(() => {
-      expect(readFile).toHaveBeenCalledTimes(4);
+      // First loop breaks after dir1. Second loop: dir1 returns undefined, dir2 succeeds, breaks.
+      expect(readFile).toHaveBeenCalledTimes(3);
       expect(readFile).toHaveBeenNthCalledWith(1, mockAppPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(2, mockAppPackageJson2, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson1, "utf-8");
-      expect(readFile).toHaveBeenNthCalledWith(4, mockTsPackageJson2, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(2, mockTsPackageJson1, "utf-8");
+      expect(readFile).toHaveBeenNthCalledWith(3, mockTsPackageJson2, "utf-8");
     });
 
     it("continues to next node_modules path and returns version", async () => {
@@ -301,7 +297,7 @@ describe("getTypeScriptUserAgentPair", () => {
 
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenCalledTimes(2);
     });
 
     it("proceeds with TypeScript detection when booleanSelector throws error", async () => {
@@ -320,7 +316,7 @@ describe("getTypeScriptUserAgentPair", () => {
 
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toEqual(["md/tsc", mockSanitizedVersion]);
-      expect(readFile).toHaveBeenCalledTimes(4);
+      expect(readFile).toHaveBeenCalledTimes(2);
     });
   });
 });

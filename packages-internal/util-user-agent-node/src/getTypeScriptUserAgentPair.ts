@@ -51,6 +51,7 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
         continue;
       }
       versionFromApp = version;
+      break;
     } catch {
       // Ignore error in case of failure in file read or JSON parsing.
     }
@@ -75,6 +76,7 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
         continue;
       }
       versionFromNodeModules = sanitizedVersion;
+      break;
     } catch {
       // Ignore error in case of failure in file read or JSON parsing.
     }
