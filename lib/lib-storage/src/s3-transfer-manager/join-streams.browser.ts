@@ -96,6 +96,8 @@ export async function* iterateStreams(
       eventListeners?.onFailure?.(failure, index);
       throw failure;
     }
+    // Signal that this stream has been fully consumed, triggering next prefetch
+    eventListeners?.onStreamConsumed?.(index);
     index++;
   }
   eventListeners?.onCompletion?.(bytesTransferred, index - 1);

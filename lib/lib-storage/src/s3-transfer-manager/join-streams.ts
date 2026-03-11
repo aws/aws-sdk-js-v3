@@ -25,7 +25,7 @@ export async function joinStreams(
     });
     return sdkStreamMixin(newReadableStream);
   } else {
-    streams.forEach((stream) => stream.catch(() => {}));
+    streams.forEach((stream) => stream?.catch(() => {}));
 
     return sdkStreamMixin(Readable.from(iterateStreams(streams, eventListeners)));
   }
@@ -41,11 +41,14 @@ export async function* iterateStreams(
   eventListeners?: JoinStreamIterationEvents
 ): AsyncIterable<StreamingBlobPayloadOutputTypes, void, void> {
   for (const p of promises) {
-    p.catch(() => {});
+    p?.catch(() => {});
   }
   let bytesTransferred = 0;
   let index = 0;
   for (const streamPromise of promises) {
+    if (!streamPromise) {
+      throw new Error("Stream promise is undefined - lazy prefetch may not have completed");
+    }
     let stream: Awaited<(typeof promises)[0]>;
     try {
       stream = await streamPromise;
@@ -93,6 +96,8 @@ export async function* iterateStreams(
       eventListeners?.onFailure?.(failure, index);
       throw failure;
     }
+    // Signal that this stream has been fully consumed, triggering next prefetch
+    eventListeners?.onStreamConsumed?.(index);
     index++;
   }
   eventListeners?.onCompletion?.(bytesTransferred, index - 1);
@@ -104,6 +109,7 @@ export async function* iterateStreams(
 async function destroy(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
   await Promise.all(
     promises.map(async (streamPromise) => {
+      if (!streamPromise) return;
       return streamPromise
         .then((stream) => {
           if (stream instanceof Readable) {
