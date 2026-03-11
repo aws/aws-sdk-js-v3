@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
+
+
+### Features
+
+* **client-workspaces:** Added WINDOWS SERVER 2025 OperatingSystemName. ([bf045be](https://github.com/aws/aws-sdk-js-v3/commit/bf045be8f6ee366cdf00e636fa37ce18ec031682))
+
+
+
+
+
 # [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

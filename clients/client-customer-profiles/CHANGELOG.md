@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
+
+
+### Features
+
+* **client-customer-profiles:** Today, Amazon Connect is announcing the ability to filter (include or exclude) recommendations based on properties of items and interactions. ([810cc7b](https://github.com/aws/aws-sdk-js-v3/commit/810cc7be006e03a1e9d504eb6ba5846ddb9b502e))
+
+
+
+
+
 # [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-customer-profiles

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/polly-request-presigner",
-  "version": "3.1006.0",
+  "version": "3.1007.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline polly-request-presigner",
@@ -25,7 +25,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-polly": "workspace:3.1006.0",
+    "@aws-sdk/client-polly": "workspace:3.1007.0",
     "@aws-sdk/types": "workspace:^3.973.5",
     "@aws-sdk/util-format-url": "workspace:^3.972.7",
     "@smithy/protocol-http": "^5.3.11",

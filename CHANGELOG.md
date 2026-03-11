@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
+
+
+### Features
+
+* **client-customer-profiles:** Today, Amazon Connect is announcing the ability to filter (include or exclude) recommendations based on properties of items and interactions. ([810cc7b](https://github.com/aws/aws-sdk-js-v3/commit/810cc7be006e03a1e9d504eb6ba5846ddb9b502e))
+* **client-eks:** Adds support for a new tier in controlPlaneScalingConfig on EKS Clusters. ([289c5b7](https://github.com/aws/aws-sdk-js-v3/commit/289c5b711cb9d02f85fe08cb429406f71575bdd4))
+* **client-polly:** Added support for the new voices - Ambre (fr-FR), Beatrice (it-IT), Florian (fr-FR), Lennart (de-DE), Lorenzo (it-IT) and Tiffany (en-US). They are available as a Generative voices only. ([44817c3](https://github.com/aws/aws-sdk-js-v3/commit/44817c34a191b0c4b0e2b4edf8ede18001ca374a))
+* **client-sagemaker:** SageMaker training plans allow you to extend your existing training plans to avoid workload interruptions without workload reconfiguration. When a training plan is approaching expiration, you can extend it directly through the SageMaker AI console or programmatically using the API or AWS CLI. ([85b667e](https://github.com/aws/aws-sdk-js-v3/commit/85b667e0f5c7974e109f2d38827a658c87521de4))
+* **client-simpledbv2:** Introduced Amazon SimpleDB export functionality enabling domain data export to S3 in JSON format. Added three new APIs StartDomainExport, GetExport, and ListExports via SimpleDBv2 service. Supports cross-region exports and KMS encryption. ([0de020c](https://github.com/aws/aws-sdk-js-v3/commit/0de020c7f4cb0659534697c8909a386c31545c34))
+* **client-workspaces:** Added WINDOWS SERVER 2025 OperatingSystemName. ([bf045be](https://github.com/aws/aws-sdk-js-v3/commit/bf045be8f6ee366cdf00e636fa37ce18ec031682))
+* **clients:** update client endpoints as of 2026-03-11 ([b7f094d](https://github.com/aws/aws-sdk-js-v3/commit/b7f094d39abcfa2e0fd9ad50a816f2c8e3ea1315))
+
+
+
+
+
 # [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
 
 

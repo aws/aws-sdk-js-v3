@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
+
+
+### Features
+
+* **client-sagemaker:** SageMaker training plans allow you to extend your existing training plans to avoid workload interruptions without workload reconfiguration. When a training plan is approaching expiration, you can extend it directly through the SageMaker AI console or programmatically using the API or AWS CLI. ([85b667e](https://github.com/aws/aws-sdk-js-v3/commit/85b667e0f5c7974e109f2d38827a658c87521de4))
+
+
+
+
+
 # [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

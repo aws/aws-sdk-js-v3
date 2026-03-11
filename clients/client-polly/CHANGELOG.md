@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
+
+
+### Features
+
+* **client-polly:** Added support for the new voices - Ambre (fr-FR), Beatrice (it-IT), Florian (fr-FR), Lennart (de-DE), Lorenzo (it-IT) and Tiffany (en-US). They are available as a Generative voices only. ([44817c3](https://github.com/aws/aws-sdk-js-v3/commit/44817c34a191b0c4b0e2b4edf8ede18001ca374a))
+
+
+
+
+
 # [3.1006.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1005.0...v3.1006.0) (2026-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-polly
