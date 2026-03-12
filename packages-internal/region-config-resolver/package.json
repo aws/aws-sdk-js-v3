@@ -24,9 +24,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/config-resolver": "^4.4.10",
-    "@smithy/node-config-provider": "^4.3.11",
-    "@smithy/types": "^4.13.0",
+    "@smithy/config-resolver": "^4.4.11",
+    "@smithy/node-config-provider": "^4.3.12",
+    "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

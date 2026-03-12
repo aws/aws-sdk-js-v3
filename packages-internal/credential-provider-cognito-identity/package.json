@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/nested-clients": "workspace:^3.996.9",
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/property-provider": "^4.2.11",
-    "@smithy/types": "^4.13.0",
+    "@smithy/property-provider": "^4.2.12",
+    "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },
   "engines": {

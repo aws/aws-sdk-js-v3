@@ -44,12 +44,12 @@
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.19",
     "@aws-sdk/nested-clients": "workspace:^3.996.9",
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/config-resolver": "^4.4.10",
-    "@smithy/core": "^3.23.9",
-    "@smithy/credential-provider-imds": "^4.2.11",
-    "@smithy/node-config-provider": "^4.3.11",
-    "@smithy/property-provider": "^4.2.11",
-    "@smithy/types": "^4.13.0",
+    "@smithy/config-resolver": "^4.4.11",
+    "@smithy/core": "^3.23.11",
+    "@smithy/credential-provider-imds": "^4.2.12",
+    "@smithy/node-config-provider": "^4.3.12",
+    "@smithy/property-provider": "^4.2.12",
+    "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
