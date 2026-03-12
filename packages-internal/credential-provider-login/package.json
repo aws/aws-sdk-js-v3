@@ -31,10 +31,10 @@
     "@aws-sdk/core": "workspace:^3.973.19",
     "@aws-sdk/nested-clients": "workspace:^3.996.9",
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/property-provider": "^4.2.11",
-    "@smithy/protocol-http": "^5.3.11",
-    "@smithy/shared-ini-file-loader": "^4.4.6",
-    "@smithy/types": "^4.13.0",
+    "@smithy/property-provider": "^4.2.12",
+    "@smithy/protocol-http": "^5.3.12",
+    "@smithy/shared-ini-file-loader": "^4.4.7",
+    "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

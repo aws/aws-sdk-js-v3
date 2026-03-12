@@ -26,9 +26,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/types": "^4.13.0",
-    "@smithy/url-parser": "^4.2.11",
-    "@smithy/util-endpoints": "^3.3.2",
+    "@smithy/types": "^4.13.1",
+    "@smithy/url-parser": "^4.2.12",
+    "@smithy/util-endpoints": "^3.3.3",
     "tslib": "^2.6.2"
   },
   "engines": {

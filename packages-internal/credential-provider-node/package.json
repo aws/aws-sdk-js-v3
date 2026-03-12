@@ -38,10 +38,10 @@
     "@aws-sdk/credential-provider-sso": "workspace:^3.972.19",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.19",
     "@aws-sdk/types": "workspace:^3.973.5",
-    "@smithy/credential-provider-imds": "^4.2.11",
-    "@smithy/property-provider": "^4.2.11",
-    "@smithy/shared-ini-file-loader": "^4.4.6",
-    "@smithy/types": "^4.13.0",
+    "@smithy/credential-provider-imds": "^4.2.12",
+    "@smithy/property-provider": "^4.2.12",
+    "@smithy/shared-ini-file-loader": "^4.4.7",
+    "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

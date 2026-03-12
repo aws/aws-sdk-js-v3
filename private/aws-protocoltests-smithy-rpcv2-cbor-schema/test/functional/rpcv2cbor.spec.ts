@@ -167,13 +167,11 @@ const clientParams = {
   region: "us-west-2",
   credentials: { accessKeyId: "key", secretAccessKey: "secret" },
   apiKey: { apiKey: "apiKey" },
-  endpoint: () => {
-    const url = new URL("https://localhost/");
-    return Promise.resolve({
-      hostname: url.hostname,
-      protocol: url.protocol,
-      path: url.pathname,
-    }) as Promise<Endpoint>;
+  endpoint: {
+    url: new URL("https://localhost/"),
+    headers: {
+      "x-default-header": ["default-header-value"],
+    },
   },
 };
 
