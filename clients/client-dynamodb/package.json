@@ -12,7 +12,7 @@
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo dynamodb",
-    "test": "yarn test:all:local",
+    "test": "yarn test:all",
     "test:watch": "yarn g:vitest watch --passWithNoTests",
     "test:unit": "yarn g:vitest run --passWithNoTests -c vitest.config.unit.ts",
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts",
