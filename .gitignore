@@ -86,6 +86,7 @@ temp-lib/
 # Gradle composite build properties
 codegen/local.properties
 
-# Cursor
+# VSCode/Cursor
 .cursor/
 .cursorrules
+.vscode/
