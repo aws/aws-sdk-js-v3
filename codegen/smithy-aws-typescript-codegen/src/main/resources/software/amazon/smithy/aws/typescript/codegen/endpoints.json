@@ -46689,6 +46689,11 @@
             "eusc-de-east-1": {}
           }
         },
+        "rum": {
+          "endpoints": {
+            "eusc-de-east-1": {}
+          }
+        },
         "runtime.sagemaker": {
           "endpoints": {
             "eusc-de-east-1": {}
