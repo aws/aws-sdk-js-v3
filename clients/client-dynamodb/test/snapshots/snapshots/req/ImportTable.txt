@@ -1,0 +1,194 @@
+POST https://dynamodb.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.0
+x-amz-target: DynamoDB_20120810.ImportTable
+content-length: 2822
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/dynamodb#_.__ m/E,P,e
+host: dynamodb.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: 19ce17b523c866bf52766026a00a34786b9e9e38291a808eda5f76309f776a4d
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[string (json)]
+{
+  "S3BucketSource": {
+    "S3Bucket": "__S3Bucket__",
+    "S3BucketOwner": "__S3BucketOwner__",
+    "S3KeyPrefix": "__S3KeyPrefix__"
+  },
+  "InputFormat": "__InputFormat__",
+  "TableCreationParameters": {
+    "TableName": "__TableName__",
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "AttributeType": "__AttributeType__"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      },
+      {
+        "AttributeName": "__AttributeName__",
+        "KeyType": "__KeyType__"
+      }
+    ],
+    "BillingMode": "__BillingMode__",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 0,
+      "WriteCapacityUnits": 0
+    },
+    "OnDemandThroughput": {
+      "MaxReadRequestUnits": 0,
+      "MaxWriteRequestUnits": 0
+    },
+    "SSESpecification": {
+      "Enabled": false,
+      "SSEType": "__SSEType__",
+      "KMSMasterKeyId": "__KMSMasterKeyId__"
+    },
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0
+        }
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0
+        }
+      },
+      {
+        "IndexName": "__IndexName__",
+        "KeySchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "KeyType": "__KeyType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 0,
+          "WriteCapacityUnits": 0
+        },
+        "OnDemandThroughput": {
+          "MaxReadRequestUnits": 0,
+          "MaxWriteRequestUnits": 0
+        },
+        "WarmThroughput": {
+          "ReadUnitsPerSecond": 0,
+          "WriteUnitsPerSecond": 0
+        }
+      }
+    ]
+  },
+  "ClientToken": "1111abcd-uuid-uuid-uuid-000000001111",
+  "InputFormatOptions": {
+    "Csv": {
+      "Delimiter": "__Delimiter__",
+      "HeaderList": [
+        "__member__",
+        "__member__",
+        "__member__"
+      ]
+    }
+  },
+  "InputCompressionType": "__InputCompressionType__"
+}
