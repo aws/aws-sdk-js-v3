@@ -18,13 +18,7 @@ describe(DynamoDB.name, () => {
   let sharedTableName: string;
 
   beforeAll(async () => {
-    const endpoint = process.env.AWS_ENDPOINT_URL_DYNAMODB ?? process.env.AWS_ENDPOINT_URL;
-    client = new DynamoDB({
-      region: "us-west-2",
-      maxAttempts: 10,
-      ...(endpoint ? { endpoint } : {}),
-      ...(testCredentials ? { credentials: testCredentials } : {}),
-    });
+    client = new DynamoDB({ region: "us-west-2", maxAttempts: 10, credentials: testCredentials });
 
     // Create shared table for tests
     sharedTableName = `aws-sdk-js-integration-${Date.now()}`;
@@ -98,14 +92,14 @@ describe(DynamoDB.name, () => {
 
   describe("Improper table deletion", () => {
     it("should return ValidationException for empty table parameter", async () => {
-      const error = await client.deleteTable({ TableName: "" }).catch((e) => e);
-
-      expect(error).toMatchObject({
-        $metadata: expect.objectContaining({
-          httpStatusCode: 400,
-        }),
-      });
-      expect(["ValidationException", "ResourceNotFoundException"]).toContain(error.name);
+      await expect(client.deleteTable({ TableName: "" })).rejects.toThrow(
+        expect.objectContaining({
+          name: "ValidationException",
+          $metadata: expect.objectContaining({
+            httpStatusCode: 400,
+          }),
+        })
+      );
     });
   });
 

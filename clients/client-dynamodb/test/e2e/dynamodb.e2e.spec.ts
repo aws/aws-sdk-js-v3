@@ -13,11 +13,9 @@ const testCredentials = (
 ).aws?.testCredentials;
 
 describe(DynamoDB.name, () => {
-  // const endpoint = process.env.AWS_ENDPOINT_URL_DYNAMODB ?? process.env.AWS_ENDPOINT_URL;
   const ddb = new DynamoDB({
     region: "us-west-2",
     maxAttempts: 2,
-    // ...(endpoint ? { endpoint } : {}),
     ...(testCredentials ? { credentials: testCredentials } : {}),
   });
 
@@ -39,7 +37,7 @@ describe(DynamoDB.name, () => {
     expect(error.message).toMatch(/non-existent table|not found/i);
     expect(error).toBeInstanceOf(ResourceNotFoundException);
     const registry = TypeRegistry.for("com.amazonaws.dynamodb");
-    const errorSchema = registry.getSchema("ResourceNotFoundException");
+    const errorSchema = registry.getSchema("ResourceNotFoundException") as StaticErrorSchema;
     expect(errorSchema).toBeDefined();
     if (!errorSchema) {
       throw new Error("Expected ResourceNotFoundException schema to be registered.");
