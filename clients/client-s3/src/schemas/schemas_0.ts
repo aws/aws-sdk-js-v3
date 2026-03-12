@@ -47,7 +47,8 @@ const _BLC = "BucketLifecycleConfiguration";
 const _BLN = "BucketLocationName";
 const _BLS = "BucketLoggingStatus";
 const _BLT = "BucketLocationType";
-const _BN = "BucketName";
+const _BN = "BucketNamespace";
+const _BNu = "BucketName";
 const _BP = "BytesProcessed";
 const _BPA = "BlockPublicAcls";
 const _BPP = "BlockPublicPolicy";
@@ -894,6 +895,7 @@ const _xaba = "x-amz-bucket-arn";
 const _xabgr = "x-amz-bypass-governance-retention";
 const _xabln = "x-amz-bucket-location-name";
 const _xablt = "x-amz-bucket-location-type";
+const _xabn = "x-amz-bucket-namespace";
 const _xabole = "x-amz-bucket-object-lock-enabled";
 const _xabolt = "x-amz-bucket-object-lock-token";
 const _xabr = "x-amz-bucket-region";
@@ -1327,8 +1329,8 @@ export var CreateBucketOutput$: StaticStructureSchema = [3, n0, _CBO,
 ];
 export var CreateBucketRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_B, _ACL_, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OO],
-  [[0, 1], [0, { [_hH]: _xaa }], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoo }]], 1
+  [_B, _ACL_, _CBC, _GFC, _GR, _GRACP, _GW, _GWACP, _OLEFB, _OO, _BN],
+  [[0, 1], [0, { [_hH]: _xaa }], [() => CreateBucketConfiguration$, { [_hP]: 1, [_xN]: _CBC }], [0, { [_hH]: _xagfc }], [0, { [_hH]: _xagr }], [0, { [_hH]: _xagra }], [0, { [_hH]: _xagw }], [0, { [_hH]: _xagwa }], [2, { [_hH]: _xabole }], [0, { [_hH]: _xaoo }], [0, { [_hH]: _xabn }]], 1
 ];
 export var CreateMultipartUploadOutput$: StaticStructureSchema = [3, n0, _CMUOr,
   { [_xN]: _IMUR },
@@ -2607,7 +2609,7 @@ export var S3KeyFilter$: StaticStructureSchema = [3, n0, _SKF,
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
-  [_BN, _P, _En, _CACL, _ACL, _Tag, _UM, _SC],
+  [_BNu, _P, _En, _CACL, _ACL, _Tag, _UM, _SC],
   [0, 0, [() => Encryption$, 0], 0, [() => Grants, 0], [() => Tagging$, 0], [() => UserMetadata, 0], 0], 2
 ];
 export var S3TablesDestination$: StaticStructureSchema = [3, n0, _STD,

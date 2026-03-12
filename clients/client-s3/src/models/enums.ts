@@ -248,6 +248,19 @@ export type BucketCannedACL = (typeof BucketCannedACL)[keyof typeof BucketCanned
  * @public
  * @enum
  */
+export const BucketNamespace = {
+  ACCOUNT_REGIONAL: "account-regional",
+  GLOBAL: "global",
+} as const;
+/**
+ * @public
+ */
+export type BucketNamespace = (typeof BucketNamespace)[keyof typeof BucketNamespace];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataRedundancy = {
   SingleAvailabilityZone: "SingleAvailabilityZone",
   SingleLocalZone: "SingleLocalZone",

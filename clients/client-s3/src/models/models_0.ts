@@ -9,6 +9,7 @@ import {
   BucketCannedACL,
   BucketLocationConstraint,
   BucketLogsPermission,
+  BucketNamespace,
   BucketType,
   BucketVersioningStatus,
   ChecksumAlgorithm,
@@ -1937,6 +1938,26 @@ export interface CreateBucketRequest {
    * @public
    */
   ObjectOwnership?: ObjectOwnership | undefined;
+
+  /**
+   * <p>Specifies the namespace where you want to create your general purpose bucket. When you create a
+   *     general purpose bucket, you can choose to create a bucket in the shared global namespace or you can choose to
+   *     create a bucket in your account regional namespace. Your account regional namespace is a subdivision of
+   *     the global namespace that only your account can create buckets in. For more information on bucket
+   *     namespaces, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html">Namespaces for general purpose buckets</a>.</p>
+   *          <p>General purpose buckets in your account regional namespace must follow a specific naming convention. These
+   *     buckets consist of a bucket name prefix that you create, and a suffix that contains your 12-digit Amazon Web Services
+   *     Account ID, the Amazon Web Services Region code, and ends with <code>-an</code>. Bucket names must follow the format
+   *     <code>bucket-name-prefix-accountId-region-an</code> (for example,
+   *     <code>amzn-s3-demo-bucket-111122223333-us-west-2-an</code>). For information about bucket naming
+   *     restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html#account-regional-naming-rules">Account regional namespace naming rules</a>
+   *     in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported for directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  BucketNamespace?: BucketNamespace | undefined;
 }
 
 /**
@@ -3039,7 +3060,10 @@ export interface CreateSessionOutput {
 export interface CreateSessionRequest {
   /**
    * <p>Specifies the mode of the session that will be created, either <code>ReadWrite</code> or
-   *         <code>ReadOnly</code>. By default, a <code>ReadWrite</code> session is created. A
+   *         <code>ReadOnly</code>. If no session mode is specified, the default behavior attempts to create
+   *         a session with the maximum allowable privilege. It will first attempt to create a
+   *         <code>ReadWrite</code> session, and if that is not allowed by permissions, it will attempt to create a
+   *         <code>ReadOnly</code> session. If neither session type is allowed, the request will return an Access Denied error. A
    *         <code>ReadWrite</code> session is capable of executing all the Zonal endpoint API operations on a directory bucket. A
    *         <code>ReadOnly</code> session is constrained to execute the following Zonal endpoint API operations:
    *         <code>GetObject</code>, <code>HeadObject</code>, <code>ListObjectsV2</code>,

@@ -33,6 +33,7 @@ import {
   BucketLocationConstraint,
   BucketLoggingStatus$,
   BucketLogsPermission,
+  BucketNamespace,
   BucketType,
   BucketVersioningStatus,
   Checksum$,
@@ -1225,6 +1226,7 @@ assert(typeof BucketAccelerateStatus === "object");
 assert(typeof BucketCannedACL === "object");
 assert(typeof BucketLocationConstraint === "object");
 assert(typeof BucketLogsPermission === "object");
+assert(typeof BucketNamespace === "object");
 assert(typeof BucketType === "object");
 assert(typeof BucketVersioningStatus === "object");
 assert(typeof ChecksumAlgorithm === "object");

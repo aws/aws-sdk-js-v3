@@ -330,6 +330,7 @@ export type {
   BucketCannedACL,
   BucketLocationConstraint,
   BucketLogsPermission,
+  BucketNamespace,
   BucketType,
   BucketVersioningStatus,
   ChecksumAlgorithm,

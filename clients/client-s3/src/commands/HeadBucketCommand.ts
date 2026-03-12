@@ -75,10 +75,11 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  *                   <b>
  *                            <code>s3express:CreateSession</code>
  *                         </b> permission in the
- *                   <code>Action</code> element of a policy. By default, the session is in the
- *                   <code>ReadWrite</code> mode. If you want to restrict the access, you can explicitly set the
- *                   <code>s3express:SessionMode</code> condition key to <code>ReadOnly</code> on the
- *                 bucket.</p>
+ *                   <code>Action</code> element of a policy. If no session mode is specified, the session will be
+ *                   created with the maximum allowable privilege, attempting <code>ReadWrite</code> first,
+ *                   then <code>ReadOnly</code> if <code>ReadWrite</code> is not permitted. If you want to explicitly
+ *                   restrict the access to be read-only, you can set the <code>s3express:SessionMode</code> condition key to
+ *                   <code>ReadOnly</code> on the bucket.</p>
  *                      <p>For more information about example bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example
  *                   bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services
  *                   Identity and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the

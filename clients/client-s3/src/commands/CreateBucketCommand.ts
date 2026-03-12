@@ -40,6 +40,14 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *          <p>There are two types of buckets: general purpose buckets and directory buckets. For more information about
  *       these bucket types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and working with Amazon S3
  *         buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>General purpose buckets exist in a global namespace, which means that each bucket name must be unique
+ *       across all Amazon Web Services accounts in all the Amazon Web Services Regions within a partition. A partition is a grouping of
+ *       Regions. Amazon Web Services currently has four partitions: <code>aws</code> (Standard Regions), <code>aws-cn</code>
+ *       (China Regions), <code>aws-us-gov</code> (Amazon Web Services GovCloud (US)), and <code>aws-eusc</code>
+ *       (European  Sovereign Cloud). When you create a general purpose bucket, you can choose to create a bucket in
+ *       the shared global namespace or you can choose to create a bucket in your account regional namespace.
+ *       Your account regional namespace is a subdivision of the global namespace that only your account can
+ *       create buckets in. For more information on account regional namespaces, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/gpbucketnamespaces.html">Namespaces for general purpose buckets</a>.</p>
  *          <note>
  *             <ul>
  *                <li>
@@ -204,6 +212,7 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *   GrantWriteACP: "STRING_VALUE",
  *   ObjectLockEnabledForBucket: true || false,
  *   ObjectOwnership: "BucketOwnerPreferred" || "ObjectWriter" || "BucketOwnerEnforced",
+ *   BucketNamespace: "account-regional" || "global",
  * };
  * const command = new CreateBucketCommand(input);
  * const response = await client.send(command);
