@@ -43,7 +43,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
  *   upstreamRegistryUrl: "STRING_VALUE", // required
  *   registryId: "STRING_VALUE",
- *   upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
+ *   upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry" || "chainguard",
  *   credentialArn: "STRING_VALUE",
  *   customRoleArn: "STRING_VALUE",
  *   upstreamRepositoryPrefix: "STRING_VALUE",
@@ -55,7 +55,7 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   registryId: "STRING_VALUE",
- * //   upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
+ * //   upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry" || "chainguard",
  * //   credentialArn: "STRING_VALUE",
  * //   customRoleArn: "STRING_VALUE",
  * //   upstreamRepositoryPrefix: "STRING_VALUE",

@@ -56,7 +56,7 @@ export interface DescribePullThroughCacheRulesCommandOutput extends DescribePull
  * //       credentialArn: "STRING_VALUE",
  * //       customRoleArn: "STRING_VALUE",
  * //       upstreamRepositoryPrefix: "STRING_VALUE",
- * //       upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry",
+ * //       upstreamRegistry: "ecr" || "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry" || "gitlab-container-registry" || "chainguard",
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],

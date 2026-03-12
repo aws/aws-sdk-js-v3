@@ -94,6 +94,7 @@ export type ScanFrequency = (typeof ScanFrequency)[keyof typeof ScanFrequency];
  */
 export const UpstreamRegistry = {
   AzureContainerRegistry: "azure-container-registry",
+  Chainguard: "chainguard",
   DockerHub: "docker-hub",
   Ecr: "ecr",
   EcrPublic: "ecr-public",
