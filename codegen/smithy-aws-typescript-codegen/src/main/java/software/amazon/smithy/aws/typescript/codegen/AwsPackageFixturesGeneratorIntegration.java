@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -19,13 +20,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
+import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
+import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.DocumentationTrait;
+import software.amazon.smithy.protocol.traits.Rpcv2CborTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -36,6 +45,89 @@ import software.amazon.smithy.utils.StringUtils;
 
 @SmithyInternalApi
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
+    public static final Map<ShapeId, String> PROTOCOL_DOC_DESCRIPTIONS = Map.of(
+        AwsJson1_0Trait.ID, """
+            This protocol uses JSON payloads.
+            ```js
+            import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsJson1_0Protocol
+            });
+            ```
+            """,
+        AwsJson1_1Trait.ID,"""
+            This protocol uses JSON payloads.
+            ```js
+            import { AwsJson1_1Protocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsJson1_1Protocol
+            });
+            ```
+            """,
+        RestJson1Trait.ID,"""
+            This protocol uses JSON for structured payloads in the REST pattern.
+            ```js
+            import { AwsRestJsonProtocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsRestJsonProtocol
+            });
+            ```
+            """,
+        Rpcv2CborTrait.ID,"""
+            This protocol uses CBOR payloads.
+            ```js
+            import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsJson1_0Protocol
+            });
+            ```
+            """,
+        RestXmlTrait.ID,"""
+            This protocol uses XML for structured payloads in the REST pattern.
+            ```js
+            import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsSmithyRpcV2CborProtocol
+            });
+            ```
+            """,
+        AwsQueryTrait.ID,"""
+            This protocol uses query format requests and XML responses.
+            ```js
+            import { AwsQueryProtocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsQueryProtocol
+            });
+            ```
+            """,
+        Ec2QueryTrait.ID, """
+            This protocol uses query format requests and XML responses, with some special handling for Amazon EC2.
+            ```js
+            import { AwsEc2QueryProtocol } from "@aws-sdk/config/protocol";
+            
+            const client = new \\${serviceId}Client({
+              protocol: AwsEc2QueryProtocol
+            });
+            ```
+            """
+    );
+
+    public static final Map<ShapeId, String> PROTOCOL_DOC_NAMES = Map.of(
+        AwsJson1_0Trait.ID, "AWS JSON (RPC) 1.0",
+        AwsJson1_1Trait.ID,"AWS JSON (RPC) 1.1",
+        RestJson1Trait.ID,"AWS REST JSON",
+        Rpcv2CborTrait.ID,"Smithy RPC v2 CBOR",
+        RestXmlTrait.ID,"AWS REST XML",
+        AwsQueryTrait.ID,"AWS Query",
+        Ec2QueryTrait.ID, "AWS EC2 Query"
+    );
+
     @Override
     public void customize(TypeScriptCodegenContext codegenContext) {
         TypeScriptSettings settings = codegenContext.settings();
@@ -73,8 +165,53 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
 
         writerFactory.accept("README.md", writer -> {
             ServiceShape service = settings.getService(model);
-            String resource = IoUtils.readUtf8Resource(getClass(), "README.md.template");
+            String resource = IoUtils.readUtf8Resource(getClass(), "README.template.md");
             resource = resource.replaceAll(Pattern.quote("${packageName}"), settings.getPackageName());
+
+            ShapeId defaultProtocol = settings.getProtocol();
+            List<ShapeId> supportedProtocols = AddProtocols.getSupportedProtocols(settings.getService(model))
+                .stream()
+                .sorted((a, b) -> {
+                    if (defaultProtocol.equals(a)) {
+                        return -1;
+                    } else if (defaultProtocol.equals(b)) {
+                        return 1;
+                    }
+                    return a.compareTo(b);
+                })
+                .toList();
+            if (supportedProtocols.size() >= 2) {
+                StringBuilder buffer = new StringBuilder();
+                buffer.append("""
+                    #### Supported Message Protocols
+                    
+                    This client supports multiple protocols.
+                    
+                    The default for this client is **%s**.
+                    
+                    We have selected this default based on our evaluation of the
+                    performance characteristics of this protocol format in JavaScript. You don't need to change it,
+                    but you have the option to do so, for example to support existing integrations or tests.
+                    Selecting a non-default protocol changes the format
+                    of the data sent over the network, but does not affect how you interact with the
+                    client using JavaScript objects.
+                    
+                    Install the `@aws-sdk/config` package to access alternate protocols.
+                    
+                    See [AWS Protocols](https://smithy.io/2.0/aws/protocols/index.html) for more information.
+                    
+                    """.formatted(PROTOCOL_DOC_NAMES.get(defaultProtocol)));
+                for (ShapeId supportedProtocol : supportedProtocols) {
+                    buffer.append("##### ")
+                        .append(PROTOCOL_DOC_NAMES.get(supportedProtocol))
+                        .append("\n\n")
+                        .append(PROTOCOL_DOC_DESCRIPTIONS.get(supportedProtocol))
+                        .append("\n");
+                }
+                resource = resource.replaceAll(Pattern.quote("${supportedProtocols}"), buffer.toString());
+            } else {
+                resource = resource.replaceAll(Pattern.quote("${supportedProtocols}"), "");
+            }
 
             String sdkId = service.getTrait(ServiceTrait.class).map(ServiceTrait::getSdkId).orElse(null);
             String clientName = Arrays.asList(sdkId.split(" "))
