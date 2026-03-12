@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
+
+
+### Bug Fixes
+
+* **util-user-agent-node:** read typescript version from app package.json ([#7840](https://github.com/aws/aws-sdk-js-v3/issues/7840)) ([5253141](https://github.com/aws/aws-sdk-js-v3/commit/5253141cd68e5be1bf6d3b5cd282bd5747450af2))
+
+
+### Features
+
+* **client-datasync:** DataSync's 3 location types, Hadoop Distributed File System (HDFS), FSx for Windows File Server (FSx Windows), and FSx for NetApp ONTAP (FSx ONTAP) now have credentials managed via Secrets Manager, which may be encrypted with service keys or be configured to use customer-managed keys or secret. ([dee9cb3](https://github.com/aws/aws-sdk-js-v3/commit/dee9cb3e5c46b80d97229b7dfe2b1a99e87bc679))
+* **client-ecr:** Add Chainguard to PTC upstreamRegistry enum ([4f3727d](https://github.com/aws/aws-sdk-js-v3/commit/4f3727d384f02366e61a24cfd5a208fe393ae926))
+* **client-s3:** Adds support for account regional namespaces for general purpose buckets. The account regional namespace is a reserved subdivision of the global bucket namespace where only your account can create general purpose buckets. ([1791028](https://github.com/aws/aws-sdk-js-v3/commit/179102877b8b119d9662e3bcb791ebafca57de2d))
+* **clients:** update client endpoints as of 2026-03-12 ([c33f9da](https://github.com/aws/aws-sdk-js-v3/commit/c33f9da7edefde96685fa9d7398757d533134da9))
+
+
+
+
+
 # [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
 
 

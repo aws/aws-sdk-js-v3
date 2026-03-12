@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
+
+
+### Features
+
+* **client-s3:** Adds support for account regional namespaces for general purpose buckets. The account regional namespace is a reserved subdivision of the global bucket namespace where only your account can create general purpose buckets. ([1791028](https://github.com/aws/aws-sdk-js-v3/commit/179102877b8b119d9662e3bcb791ebafca57de2d))
+
+
+
+
+
 # [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

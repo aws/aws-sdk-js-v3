@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
+
+
+### Features
+
+* **client-ecr:** Add Chainguard to PTC upstreamRegistry enum ([4f3727d](https://github.com/aws/aws-sdk-js-v3/commit/4f3727d384f02366e61a24cfd5a208fe393ae926))
+
+
+
+
+
 # [3.1007.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1006.0...v3.1007.0) (2026-03-11)
 
 **Note:** Version bump only for package @aws-sdk/client-ecr

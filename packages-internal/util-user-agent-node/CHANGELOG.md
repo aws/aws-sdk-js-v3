@@ -22,6 +22,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.6 (2026-03-12)
+### Bug Fixes
+* **util-user-agent-node:** read typescript version from app package.json ([#7840](https://github.com/aws/aws-sdk-js-v3/issues/7840)) ([5253141](https://github.com/aws/aws-sdk-js-v3/commit/5253141cd68e5be1bf6d3b5cd282bd5747450af2))
+### Chores
+* disable TypeScript detection when env var is 'true' ([#7838](https://github.com/aws/aws-sdk-js-v3/issues/7838)) ([b21a782](https://github.com/aws/aws-sdk-js-v3/commit/b21a7826e3db031017219d7b9515ed4efa2f2a79))
+
+
+
 # 3.973.5 (2026-03-09)
 ### Chores
 * **util-user-agent-node:** update dependencies.
