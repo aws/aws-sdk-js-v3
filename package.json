@@ -29,6 +29,7 @@
     "g:jest": "cd $INIT_CWD && jest",
     "generate-clients": "node ./scripts/generate-clients",
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
+    "generate:client:tarball": "node ./scripts/generate-client-tarball/index.mjs",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "yarn update:versions:current && node ./scripts/update-versions/bumpReleaseCandidates.mjs && yarn update:versions:default",
     "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
