@@ -65,6 +65,17 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * //     "STRING_VALUE",
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

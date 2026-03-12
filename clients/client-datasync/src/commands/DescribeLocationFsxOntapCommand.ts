@@ -60,8 +60,19 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * //       MountOptions: { // SmbMountOptions
  * //         Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  * //       },
- * //       Password: "STRING_VALUE", // required
+ * //       Password: "STRING_VALUE",
  * //       User: "STRING_VALUE", // required
+ * //       ManagedSecretConfig: { // ManagedSecretConfig
+ * //         SecretArn: "STRING_VALUE",
+ * //       },
+ * //       CmkSecretConfig: { // CmkSecretConfig
+ * //         SecretArn: "STRING_VALUE",
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
+ * //       CustomSecretConfig: { // CustomSecretConfig
+ * //         SecretArn: "STRING_VALUE",
+ * //         SecretAccessRoleArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   SecurityGroupArns: [ // Ec2SecurityGroupArnList

@@ -70,6 +70,14 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLocationHdfsCommand(input);
  * const response = await client.send(command);

@@ -55,7 +55,15 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  *   ],
  *   User: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE",
- *   Password: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLocationFsxWindowsCommand(input);
  * const response = await client.send(command);

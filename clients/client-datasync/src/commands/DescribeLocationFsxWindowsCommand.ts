@@ -50,6 +50,17 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   User: "STRING_VALUE",
  * //   Domain: "STRING_VALUE",
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

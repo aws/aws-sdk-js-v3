@@ -54,6 +54,14 @@ export interface UpdateLocationFsxOntapCommandOutput extends UpdateLocationFsxOn
  *       },
  *       Password: "STRING_VALUE",
  *       User: "STRING_VALUE",
+ *       CmkSecretConfig: { // CmkSecretConfig
+ *         SecretArn: "STRING_VALUE",
+ *         KmsKeyArn: "STRING_VALUE",
+ *       },
+ *       CustomSecretConfig: { // CustomSecretConfig
+ *         SecretArn: "STRING_VALUE",
+ *         SecretAccessRoleArn: "STRING_VALUE",
+ *       },
  *     },
  *   },
  *   Subdirectory: "STRING_VALUE",

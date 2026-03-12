@@ -521,8 +521,8 @@ export var CreateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _CLFWR,
   0,
-  [_FFA, _SGA, _U, _Pa, _Su, _Ta, _D],
-  [0, 64 | 0, 0, [() => SmbPassword, 0], 0, () => InputTagList, 0], 4
+  [_FFA, _SGA, _U, _Su, _Ta, _D, _Pa, _CSC, _CSCu],
+  [0, 64 | 0, 0, 0, () => InputTagList, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$], 3
 ];
 export var CreateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _CLFWRr,
   0,
@@ -531,8 +531,8 @@ export var CreateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateLocationHdfsRequest$: StaticStructureSchema = [3, n0, _CLHR,
   0,
-  [_NN, _AT, _AAg, _Su, _BS, _RF, _KKPU, _QC, _SU, _KP, _KK, _KKC, _Ta],
-  [() => HdfsNameNodeList, 0, 64 | 0, 0, 1, 1, 0, () => QopConfiguration$, 0, 0, 21, 21, () => InputTagList], 3
+  [_NN, _AT, _AAg, _Su, _BS, _RF, _KKPU, _QC, _SU, _KP, _KK, _KKC, _Ta, _CSC, _CSCu],
+  [() => HdfsNameNodeList, 0, 64 | 0, 0, 1, 1, 0, () => QopConfiguration$, 0, 0, 21, 21, () => InputTagList, () => CmkSecretConfig$, () => CustomSecretConfig$], 3
 ];
 export var CreateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _CLHRr,
   0,
@@ -691,8 +691,8 @@ export var DescribeLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _DLFWRe,
   0,
-  [_LA, _LU, _SGA, _CT, _U, _D],
-  [0, 0, 64 | 0, 4, 0, 0]
+  [_LA, _LU, _SGA, _CT, _U, _D, _MSC, _CSC, _CSCu],
+  [0, 0, 64 | 0, 4, 0, 0, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
 ];
 export var DescribeLocationHdfsRequest$: StaticStructureSchema = [3, n0, _DLHR,
   0,
@@ -701,8 +701,8 @@ export var DescribeLocationHdfsRequest$: StaticStructureSchema = [3, n0, _DLHR,
 ];
 export var DescribeLocationHdfsResponse$: StaticStructureSchema = [3, n0, _DLHRe,
   0,
-  [_LA, _LU, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _AAg, _CT],
-  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 64 | 0, 4]
+  [_LA, _LU, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _AAg, _CT, _MSC, _CSC, _CSCu],
+  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 64 | 0, 4, () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$]
 ];
 export var DescribeLocationNfsRequest$: StaticStructureSchema = [3, n0, _DLNR,
   0,
@@ -786,8 +786,8 @@ export var FsxProtocolNfs$: StaticStructureSchema = [3, n0, _FPN,
 ];
 export var FsxProtocolSmb$: StaticStructureSchema = [3, n0, _FPS,
   0,
-  [_Pa, _U, _D, _MO],
-  [[() => SmbPassword, 0], 0, 0, () => SmbMountOptions$], 2
+  [_U, _D, _MO, _Pa, _MSC, _CSC, _CSCu],
+  [0, 0, () => SmbMountOptions$, [() => SmbPassword, 0], () => ManagedSecretConfig$, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var FsxUpdateProtocol$: StaticStructureSchema = [3, n0, _FUP,
   0,
@@ -796,8 +796,8 @@ export var FsxUpdateProtocol$: StaticStructureSchema = [3, n0, _FUP,
 ];
 export var FsxUpdateProtocolSmb$: StaticStructureSchema = [3, n0, _FUPS,
   0,
-  [_D, _MO, _Pa, _U],
-  [0, () => SmbMountOptions$, [() => SmbPassword, 0], 0]
+  [_D, _MO, _Pa, _U, _CSC, _CSCu],
+  [0, () => SmbMountOptions$, [() => SmbPassword, 0], 0, () => CmkSecretConfig$, () => CustomSecretConfig$]
 ];
 export var HdfsNameNode$: StaticStructureSchema = [3, n0, _HNN,
   0,
@@ -1101,8 +1101,8 @@ export var UpdateLocationFsxOpenZfsResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateLocationFsxWindowsRequest$: StaticStructureSchema = [3, n0, _ULFWR,
   0,
-  [_LA, _Su, _D, _U, _Pa],
-  [0, 0, 0, 0, [() => SmbPassword, 0]], 1
+  [_LA, _Su, _D, _U, _Pa, _CSC, _CSCu],
+  [0, 0, 0, 0, [() => SmbPassword, 0], () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _ULFWRp,
   0,
@@ -1111,8 +1111,8 @@ export var UpdateLocationFsxWindowsResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateLocationHdfsRequest$: StaticStructureSchema = [3, n0, _ULHR,
   0,
-  [_LA, _Su, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _KK, _KKC, _AAg],
-  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 21, 21, 64 | 0], 1
+  [_LA, _Su, _NN, _BS, _RF, _KKPU, _QC, _AT, _SU, _KP, _KK, _KKC, _AAg, _CSC, _CSCu],
+  [0, 0, () => HdfsNameNodeList, 1, 1, 0, () => QopConfiguration$, 0, 0, 0, 21, 21, 64 | 0, () => CmkSecretConfig$, () => CustomSecretConfig$], 1
 ];
 export var UpdateLocationHdfsResponse$: StaticStructureSchema = [3, n0, _ULHRp,
   0,

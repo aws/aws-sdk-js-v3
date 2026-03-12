@@ -360,7 +360,8 @@ export interface CreateLocationAzureBlobRequest {
    *         <code>SasConfiguration</code> to create a DataSync-managed secret to store the
    *       location access credentials.</p>
    *          <p>Make sure that DataSync has permission to access the KMS key that
-   *       you specify.</p>
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with <code>SasConfiguration</code>) or
    *           <code>CustomSecretConfig</code> (without <code>SasConfiguration</code>) to provide
@@ -375,7 +376,8 @@ export interface CreateLocationAzureBlobRequest {
    * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
    *       the authentication token for an AzureBlob storage location is stored in plain text, in Secrets
    *       Manager. This configuration includes the secret ARN, and the ARN for an IAM role
-   *       that provides access to the secret.</p>
+   *       that provides access to the secret. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with <code>SasConfiguration</code>) or
    *           <code>CustomSecretConfig</code> (without <code>SasConfiguration</code>) to provide
@@ -616,6 +618,20 @@ export interface FsxProtocolNfs {
 }
 
 /**
+ * <p>Specifies configuration information for a DataSync-managed secret, such as an
+ *       authentication token or set of credentials that DataSync uses to access a specific
+ *       transfer location. DataSync uses the default Amazon Web Services-managed KMS key to encrypt this secret in Secrets Manager.</p>
+ * @public
+ */
+export interface ManagedSecretConfig {
+  /**
+   * <p>Specifies the ARN for an Secrets Manager secret.</p>
+   * @public
+   */
+  SecretArn?: string | undefined;
+}
+
+/**
  * <p>Specifies the version of the Server Message Block (SMB) protocol that DataSync uses to access an SMB file server.</p>
  * @public
  */
@@ -689,7 +705,7 @@ export interface FsxProtocolSmb {
    * <p>Specifies the password of a user who has permission to access your SVM.</p>
    * @public
    */
-  Password: string | undefined;
+  Password?: string | undefined;
 
   /**
    * <p>Specifies a user that can mount and access the files, folders, and metadata in your
@@ -700,6 +716,56 @@ export interface FsxProtocolSmb {
    * @public
    */
   User: string | undefined;
+
+  /**
+   * <p>Describes configuration information for a DataSync-managed secret, such as a
+   *       <code>Password</code> that DataSync uses to access
+   *       a specific storage location. DataSync uses the default Amazon Web Services-managed
+   *       KMS key to encrypt this secret in Secrets Manager.</p>
+   *          <note>
+   *             <p>Do not provide this for a <code>CreateLocation</code> request. <code>ManagedSecretConfig</code>
+   *         is a ReadOnly property and is only be populated in the <code>DescribeLocation</code>
+   *         response.</p>
+   *          </note>
+   * @public
+   */
+  ManagedSecretConfig?: ManagedSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, which
+   *       includes the password that DataSync uses to access a specific FSx for ONTAP
+   *       storage location (using SMB), with a customer-managed KMS key.</p>
+   *          <p>When you include this parameter as part of a <code>CreateLocationFsxOntap</code> request,
+   *       you provide only the KMS key ARN. DataSync uses this KMS key together with the <code>Password</code> you specify for
+   *       to create a DataSync-managed secret to store the location access credentials.</p>
+   *          <p>Make sure that DataSync has permission to access the KMS key that
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>Password</code>) to provide
+   *         credentials for a <code>CreateLocationFsxOntap</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
+   *       the password for an FSx for ONTAP storage location (using SMB) is stored in plain text,
+   *       in Secrets Manager. This configuration includes the secret ARN, and the ARN for
+   *       an IAM role that provides access to the secret. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>Password</code>) to provide
+   *         credentials for a <code>CreateLocationFsxOntap</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -920,7 +986,43 @@ export interface CreateLocationFsxWindowsRequest {
    *       folders, and file metadata in your FSx for Windows File Server file system.</p>
    * @public
    */
-  Password: string | undefined;
+  Password?: string | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, which
+   *       includes the password that DataSync uses to access a specific FSx Windows
+   *       storage location, with a customer-managed KMS key.</p>
+   *          <p>When you include this parameter as part of a <code>CreateLocationFsxWindows</code> request,
+   *       you provide only the KMS key ARN. DataSync uses this KMS key together with the <code>Password</code> you specify for
+   *       to create a DataSync-managed secret to store the location access credentials.</p>
+   *          <p>Make sure that DataSync has permission to access the KMS key that
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>Password</code>) to provide
+   *         credentials for a <code>CreateLocationFsxWindows</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
+   *       the password for an FSx for Windows File Server storage location is stored in plain text, in Secrets
+   *       Manager. This configuration includes the secret ARN, and the ARN for an IAM role
+   *       that provides access to the secret. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>Password</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>Password</code>) to provide
+   *         credentials for a <code>CreateLocationFsxWindows</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -1096,6 +1198,43 @@ export interface CreateLocationHdfsRequest {
    * @public
    */
   Tags?: TagListEntry[] | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, which
+   *       includes the Kerberos keytab that DataSync uses to access a specific Hadoop
+   *       Distributed File System (HDFS) storage location, with a
+   *       customer-managed KMS key.</p>
+   *          <p>When you include this parameter as part of a <code>CreateLocationHdfs</code> request,
+   *       you provide only the KMS key ARN. DataSync uses this KMS key together with the <code>KerberosKeytab</code> you specify for
+   *       to create a DataSync-managed secret to store the location access credentials.</p>
+   *          <p>Make sure that DataSync has permission to access the KMS key that
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>KerberosKeytab</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>KerberosKeytab</code>) to provide
+   *         credentials for a <code>CreateLocationHdfs</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
+   *       the Kerberos keytab for the HDFS storage location is stored in binary, in Secrets
+   *       Manager. This configuration includes the secret ARN, and the ARN for an IAM role
+   *       that provides access to the secret. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
+   *          <note>
+   *             <p>You can use either <code>CmkSecretConfig</code> (with <code>KerberosKeytab</code>) or
+   *         <code>CustomSecretConfig</code> (without <code>KerberosKeytab</code>) to provide
+   *         credentials for a <code>CreateLocationHdfs</code> request. Do not provide both
+   *         parameters for the same request.</p>
+   *          </note>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -1295,7 +1434,8 @@ export interface CreateLocationObjectStorageRequest {
    *       request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the <code>SecretKey</code> parameter
    *       to create a DataSync-managed secret to store the location access credentials.</p>
    *          <p>Make sure that DataSync has permission to access the KMS key that
-   *       you specify.</p>
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with <code>SecretKey</code>) or
    *           <code>CustomSecretConfig</code> (without <code>SecretKey</code>) to provide credentials
@@ -1310,7 +1450,8 @@ export interface CreateLocationObjectStorageRequest {
    * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
    *       the secret key for a specific object storage location is stored in plain text, in Secrets Manager.
    *       This configuration includes the secret ARN, and the ARN for an IAM role that
-   *       provides access to the secret.</p>
+   *       provides access to the secret. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with <code>SecretKey</code>) or
    *           <code>CustomSecretConfig</code> (without <code>SecretKey</code>) to provide credentials
@@ -1509,7 +1650,8 @@ export interface CreateLocationSmbRequest {
    *       you specify to create a DataSync-managed secret to store the location access
    *       credentials.</p>
    *          <p>Make sure that DataSync has permission to access the KMS key that
-   *       you specify.</p>
+   *       you specify. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#service-secret-custom-key">
+   *         Using a service-managed secret encrypted with a custom KMS key</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with either <code>Password</code> or
    *         <code>KerberosKeytab</code>) or <code>CustomSecretConfig</code> (without any <code>Password</code>
@@ -1525,7 +1667,9 @@ export interface CreateLocationSmbRequest {
    * <p>Specifies configuration information for a customer-managed Secrets Manager secret where
    *       the SMB storage location credentials is stored in Secrets Manager as plain text (for
    *       <code>Password</code>) or binary (for <code>KerberosKeytab</code>). This configuration includes
-   *       the secret ARN, and the ARN for an IAM role that provides access to the secret.</p>
+   *       the secret ARN, and the ARN for an IAM role that provides access to the secret. For
+   *       more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/location-credentials.html#custom-secret-custom-key">
+   *         Using a secret that you manage</a>.</p>
    *          <note>
    *             <p>You can use either <code>CmkSecretConfig</code> (with <code>SasConfiguration</code>) or
    *         <code>CustomSecretConfig</code> (without <code>SasConfiguration</code>) to provide
@@ -2604,20 +2748,6 @@ export interface DescribeLocationAzureBlobRequest {
 }
 
 /**
- * <p>Specifies configuration information for a DataSync-managed secret, such as an
- *       authentication token or set of credentials that DataSync uses to access a specific
- *       transfer location. DataSync uses the default Amazon Web Services-managed KMS key to encrypt this secret in Secrets Manager.</p>
- * @public
- */
-export interface ManagedSecretConfig {
-  /**
-   * <p>Specifies the ARN for an Secrets Manager secret.</p>
-   * @public
-   */
-  SecretArn?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface DescribeLocationAzureBlobResponse {
@@ -2688,7 +2818,8 @@ export interface DescribeLocationAzureBlobResponse {
   /**
    * <p>Describes configuration information for a customer-managed secret, such as an
    *       authentication token that DataSync uses to access a specific storage location, with
-   *       a customer-managed KMS key.</p>
+   *       a customer-managed Identity and Access Management (IAM) role that provides access to
+   *       the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
@@ -2975,6 +3106,32 @@ export interface DescribeLocationFsxWindowsResponse {
    * @public
    */
   Domain?: string | undefined;
+
+  /**
+   * <p>Describes configuration information for a DataSync-managed secret, such as a
+   *       <code>Password</code> that DataSync uses to access
+   *       a specific storage location. DataSync uses the default Amazon Web Services-managed
+   *       KMS key to encrypt this secret in Secrets Manager.</p>
+   * @public
+   */
+  ManagedSecretConfig?: ManagedSecretConfig | undefined;
+
+  /**
+   * <p>Describes configuration information for a DataSync-managed secret, such as a
+   *       <code>Password</code> that DataSync uses to access
+   *       a specific storage location, with a customer-managed KMS key.</p>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Describes configuration information for a customer-managed secret, such as a
+   *       <code>Password</code> that DataSync uses to access
+   *       a specific storage location, with a customer-managed Identity and Access Management
+   *       (IAM) role that provides access to the secret.</p>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -3067,6 +3224,32 @@ export interface DescribeLocationHdfsResponse {
    * @public
    */
   CreationTime?: Date | undefined;
+
+  /**
+   * <p>Describes configuration information for a DataSync-managed secret, such as a
+   *       <code>KerberosKeytab</code> that DataSync uses to access
+   *       a specific storage location. DataSync uses the default Amazon Web Services-managed
+   *       KMS key to encrypt this secret in Secrets Manager.</p>
+   * @public
+   */
+  ManagedSecretConfig?: ManagedSecretConfig | undefined;
+
+  /**
+   * <p>Describes configuration information for a DataSync-managed secret, such as a
+   *       <code>KerberosKeytab</code> that DataSync uses to access
+   *       a specific storage location, with a customer-managed KMS key.</p>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Describes configuration information for a customer-managed secret, such as a
+   *       <code>KerberosKeytab</code> that DataSync uses to access
+   *       a specific storage location, with a customer-managed Identity and Access Management
+   *       (IAM) role that provides access to the secret.</p>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -3207,7 +3390,8 @@ export interface DescribeLocationObjectStorageResponse {
   /**
    * <p>Describes configuration information for a customer-managed secret, such as an
    *       authentication token or set of credentials that DataSync uses to access a specific
-   *       transfer location, and a customer-managed KMS key.</p>
+   *       transfer location, and a customer-managed Identity and Access Management (IAM) role
+   *       that provides access to the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
@@ -3382,7 +3566,8 @@ export interface DescribeLocationSmbResponse {
   /**
    * <p>Describes configuration information for a customer-managed secret, such as a
    *       <code>Password</code> or <code>KerberosKeytab</code> that DataSync uses to access
-   *       a specific storage location, with a customer-managed KMS key.</p>
+   *       a specific storage location, with a customer-managed Identity and Access Management (IAM)
+   *       role that provides access to the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
@@ -4898,7 +5083,8 @@ export interface UpdateLocationAzureBlobRequest {
   /**
    * <p>Specifies configuration information for a customer-managed secret, such as an
    *       authentication token or set of credentials that DataSync uses to access a specific
-   *       transfer location, and a customer-managed KMS key.</p>
+   *       transfer location, and a customer-managed Identity and Access Management (IAM) role that
+   *       provides access to the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
@@ -5027,6 +5213,23 @@ export interface FsxUpdateProtocolSmb {
    * @public
    */
   User?: string | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, such as a
+   *       <code>Password</code> or set of credentials that DataSync uses to access a
+   *       specific transfer location, and a customer-managed KMS key.</p>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed secret, such as a
+   *       <code>Password</code> or set of credentials that DataSync uses to access a
+   *       specific transfer location. This configuration includes the secret ARN, and the ARN
+   *       for an IAM role that provides access to the secret.</p>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -5167,6 +5370,23 @@ export interface UpdateLocationFsxWindowsRequest {
    * @public
    */
   Password?: string | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, such as a
+   *       <code>Password</code> or set of credentials that DataSync uses to access a specific
+   *       transfer location, and a customer-managed KMS key.</p>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed secret, such as a
+   *       <code>Password</code> or set of credentials that DataSync uses to access a specific
+   *       transfer location, and a customer-managed Identity and Access Management (IAM) role
+   *       that provides access to the secret.</p>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -5266,6 +5486,23 @@ export interface UpdateLocationHdfsRequest {
    * @public
    */
   AgentArns?: string[] | undefined;
+
+  /**
+   * <p>Specifies configuration information for a DataSync-managed secret, such as a
+   *       <code>KerberosKeytab</code> or set of credentials that DataSync uses to access a
+   *       specific transfer location, and a customer-managed KMS key.</p>
+   * @public
+   */
+  CmkSecretConfig?: CmkSecretConfig | undefined;
+
+  /**
+   * <p>Specifies configuration information for a customer-managed secret, such as a
+   *       <code>KerberosKeytab</code> or set of credentials that DataSync uses to
+   *       access a specific transfer location, and a customer-managed
+   *       Identity and Access Management (IAM) role that provides access to the secret.</p>
+   * @public
+   */
+  CustomSecretConfig?: CustomSecretConfig | undefined;
 }
 
 /**
@@ -5429,7 +5666,8 @@ export interface UpdateLocationObjectStorageRequest {
   /**
    * <p>Specifies configuration information for a customer-managed secret, such as an
    *       authentication token or set of credentials that DataSync uses to access a specific
-   *       transfer location, and a customer-managed KMS key.</p>
+   *       transfer location, and a customer-managed Identity and Access Management (IAM) role
+   *       that provides access to the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
@@ -5579,7 +5817,8 @@ export interface UpdateLocationSmbRequest {
   /**
    * <p>Specifies configuration information for a customer-managed secret, such as a
    *       <code>Password</code> or <code>KerberosKeytab</code> or set of credentials that DataSync uses to access a specific transfer location, and a
-   *       customer-managed KMS key.</p>
+   *       customer-managed Identity and Access Management (IAM) role that provides access to
+   *       the secret.</p>
    * @public
    */
   CustomSecretConfig?: CustomSecretConfig | undefined;
