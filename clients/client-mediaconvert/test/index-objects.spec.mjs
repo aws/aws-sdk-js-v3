@@ -16,6 +16,11 @@ import {
   Ac3LfeFilter,
   Ac3MetadataControl,
   Ac3Settings$,
+  Ac4BitstreamMode,
+  Ac4CodingMode,
+  Ac4DynamicRangeCompressionDrcProfile,
+  Ac4Settings$,
+  Ac4StereoDownmix,
   AccelerationMode,
   AccelerationSettings$,
   AccelerationStatus,
@@ -410,6 +415,7 @@ import {
   HlsCaptionLanguageMapping$,
   HlsCaptionLanguageSetting,
   HlsCaptionSegmentLengthControl,
+  HlsClearLead,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDescriptiveVideoServiceFlag,
@@ -902,6 +908,7 @@ assert(typeof UpdateQueue$ === "object");
 // structural schemas
 assert(typeof AacSettings$ === "object");
 assert(typeof Ac3Settings$ === "object");
+assert(typeof Ac4Settings$ === "object");
 assert(typeof AccelerationSettings$ === "object");
 assert(typeof AdvancedInputFilterSettings$ === "object");
 assert(typeof AiffSettings$ === "object");
@@ -1188,6 +1195,10 @@ assert(typeof Ac3DynamicRangeCompressionProfile === "object");
 assert(typeof Ac3DynamicRangeCompressionRf === "object");
 assert(typeof Ac3LfeFilter === "object");
 assert(typeof Ac3MetadataControl === "object");
+assert(typeof Ac4BitstreamMode === "object");
+assert(typeof Ac4CodingMode === "object");
+assert(typeof Ac4DynamicRangeCompressionDrcProfile === "object");
+assert(typeof Ac4StereoDownmix === "object");
 assert(typeof AccelerationMode === "object");
 assert(typeof AccelerationStatus === "object");
 assert(typeof AdvancedInputFilter === "object");
@@ -1418,6 +1429,7 @@ assert(typeof HlsAudioOnlyHeader === "object");
 assert(typeof HlsAudioTrackType === "object");
 assert(typeof HlsCaptionLanguageSetting === "object");
 assert(typeof HlsCaptionSegmentLengthControl === "object");
+assert(typeof HlsClearLead === "object");
 assert(typeof HlsClientCache === "object");
 assert(typeof HlsCodecSpecification === "object");
 assert(typeof HlsDescriptiveVideoServiceFlag === "object");

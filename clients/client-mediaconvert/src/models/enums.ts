@@ -363,9 +363,70 @@ export type Ac3MetadataControl = (typeof Ac3MetadataControl)[keyof typeof Ac3Met
  * @public
  * @enum
  */
+export const Ac4BitstreamMode = {
+  COMPLETE_MAIN: "COMPLETE_MAIN",
+  EMERGENCY: "EMERGENCY",
+} as const;
+/**
+ * @public
+ */
+export type Ac4BitstreamMode = (typeof Ac4BitstreamMode)[keyof typeof Ac4BitstreamMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac4CodingMode = {
+  CODING_MODE_2_0: "CODING_MODE_2_0",
+  CODING_MODE_3_2_LFE: "CODING_MODE_3_2_LFE",
+  CODING_MODE_5_1_4: "CODING_MODE_5_1_4",
+} as const;
+/**
+ * @public
+ */
+export type Ac4CodingMode = (typeof Ac4CodingMode)[keyof typeof Ac4CodingMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac4DynamicRangeCompressionDrcProfile = {
+  FILM_LIGHT: "FILM_LIGHT",
+  FILM_STANDARD: "FILM_STANDARD",
+  MUSIC_LIGHT: "MUSIC_LIGHT",
+  MUSIC_STANDARD: "MUSIC_STANDARD",
+  NONE: "NONE",
+  SPEECH: "SPEECH",
+} as const;
+/**
+ * @public
+ */
+export type Ac4DynamicRangeCompressionDrcProfile =
+  (typeof Ac4DynamicRangeCompressionDrcProfile)[keyof typeof Ac4DynamicRangeCompressionDrcProfile];
+
+/**
+ * @public
+ * @enum
+ */
+export const Ac4StereoDownmix = {
+  DPL2: "DPL2",
+  LO_RO: "LO_RO",
+  LT_RT: "LT_RT",
+  NOT_INDICATED: "NOT_INDICATED",
+} as const;
+/**
+ * @public
+ */
+export type Ac4StereoDownmix = (typeof Ac4StereoDownmix)[keyof typeof Ac4StereoDownmix];
+
+/**
+ * @public
+ * @enum
+ */
 export const AudioCodec = {
   AAC: "AAC",
   AC3: "AC3",
+  AC4: "AC4",
   AIFF: "AIFF",
   EAC3: "EAC3",
   EAC3_ATMOS: "EAC3_ATMOS",
@@ -2241,6 +2302,19 @@ export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass
  * @public
  * @enum
  */
+export const HlsClearLead = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type HlsClearLead = (typeof HlsClearLead)[keyof typeof HlsClearLead];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmafEncryptionType = {
   AES_CTR: "AES_CTR",
   SAMPLE_AES: "SAMPLE_AES",
@@ -2336,6 +2410,7 @@ export type CmafImageBasedTrickPlay = (typeof CmafImageBasedTrickPlay)[keyof typ
 export const CmafIntervalCadence = {
   FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
   FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
 } as const;
 /**
  * @public
@@ -2580,6 +2655,7 @@ export type DashIsoImageBasedTrickPlay = (typeof DashIsoImageBasedTrickPlay)[key
 export const DashIsoIntervalCadence = {
   FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
   FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
 } as const;
 /**
  * @public
@@ -2838,6 +2914,7 @@ export type HlsImageBasedTrickPlay = (typeof HlsImageBasedTrickPlay)[keyof typeo
 export const HlsIntervalCadence = {
   FOLLOW_CUSTOM: "FOLLOW_CUSTOM",
   FOLLOW_IFRAME: "FOLLOW_IFRAME",
+  FOLLOW_SEGMENTATION: "FOLLOW_SEGMENTATION",
 } as const;
 /**
  * @public
@@ -6534,6 +6611,7 @@ export type Type = (typeof Type)[keyof typeof Type];
  * @enum
  */
 export const Format = {
+  avi: "avi",
   matroska: "matroska",
   mp4: "mp4",
   mxf: "mxf",
@@ -6571,6 +6649,7 @@ export const Codec = {
   PRORES: "PRORES",
   QTRLE: "QTRLE",
   THEORA: "THEORA",
+  UNCOMPRESSED: "UNCOMPRESSED",
   UNKNOWN: "UNKNOWN",
   VFW: "VFW",
   VORBIS: "VORBIS",

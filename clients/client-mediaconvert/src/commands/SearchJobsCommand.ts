@@ -553,6 +553,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                   },
  * //                 },
  * //                 Encryption: { // CmafEncryptionSettings
+ * //                   ClearLead: "ENABLED" || "DISABLED",
  * //                   ConstantInitializationVector: "STRING_VALUE",
  * //                   EncryptionMethod: "SAMPLE_AES" || "AES_CTR",
  * //                   InitializationVectorInManifest: "INCLUDE" || "EXCLUDE",
@@ -582,7 +583,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 FragmentLength: Number("int"),
  * //                 ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
  * //                 ImageBasedTrickPlaySettings: { // CmafImageBasedTrickPlaySettings
- * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                   ThumbnailHeight: Number("int"),
  * //                   ThumbnailInterval: Number("double"),
  * //                   ThumbnailWidth: Number("int"),
@@ -652,7 +653,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 HbbtvCompliance: "HBBTV_1_5" || "NONE",
  * //                 ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
  * //                 ImageBasedTrickPlaySettings: { // DashIsoImageBasedTrickPlaySettings
- * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                   ThumbnailHeight: Number("int"),
  * //                   ThumbnailInterval: Number("double"),
  * //                   ThumbnailWidth: Number("int"),
@@ -754,7 +755,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                 },
  * //                 ImageBasedTrickPlay: "NONE" || "THUMBNAIL" || "THUMBNAIL_AND_FULLFRAME" || "ADVANCED",
  * //                 ImageBasedTrickPlaySettings: { // HlsImageBasedTrickPlaySettings
- * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM",
+ * //                   IntervalCadence: "FOLLOW_IFRAME" || "FOLLOW_CUSTOM" || "FOLLOW_SEGMENTATION",
  * //                   ThumbnailHeight: Number("int"),
  * //                   ThumbnailInterval: Number("double"),
  * //                   ThumbnailWidth: Number("int"),
@@ -878,12 +879,27 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //                         MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
  * //                         SampleRate: Number("int"),
  * //                       },
+ * //                       Ac4Settings: { // Ac4Settings
+ * //                         Bitrate: Number("int"),
+ * //                         BitstreamMode: "COMPLETE_MAIN" || "EMERGENCY",
+ * //                         CodingMode: "CODING_MODE_2_0" || "CODING_MODE_3_2_LFE" || "CODING_MODE_5_1_4",
+ * //                         DynamicRangeCompressionFlatPanelTv: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
+ * //                         DynamicRangeCompressionHomeTheater: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
+ * //                         DynamicRangeCompressionPortableHeadphones: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
+ * //                         DynamicRangeCompressionPortableSpeakers: "NONE" || "FILM_STANDARD" || "FILM_LIGHT" || "MUSIC_STANDARD" || "MUSIC_LIGHT" || "SPEECH",
+ * //                         LoRoCenterMixLevel: Number("double"),
+ * //                         LoRoSurroundMixLevel: Number("double"),
+ * //                         LtRtCenterMixLevel: Number("double"),
+ * //                         LtRtSurroundMixLevel: Number("double"),
+ * //                         SampleRate: Number("int"),
+ * //                         StereoDownmix: "NOT_INDICATED" || "LO_RO" || "LT_RT" || "DPL2",
+ * //                       },
  * //                       AiffSettings: { // AiffSettings
  * //                         BitDepth: Number("int"),
  * //                         Channels: Number("int"),
  * //                         SampleRate: Number("int"),
  * //                       },
- * //                       Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
+ * //                       Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "AC4" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
  * //                       Eac3AtmosSettings: { // Eac3AtmosSettings
  * //                         Bitrate: Number("int"),
  * //                         BitstreamMode: "COMPLETE_MAIN",

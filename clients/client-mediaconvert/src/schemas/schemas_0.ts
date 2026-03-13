@@ -64,6 +64,7 @@ const _ASb = "AbrSettings";
 const _ASc = "Ac3Settings";
 const _AScc = "AccelerationSettings";
 const _AScce = "AccelerationStatus";
+const _ASce = "Ac4Settings";
 const _ASf = "AfdSignaling";
 const _ASi = "AiffSettings";
 const _ASu = "AudioSelector";
@@ -137,6 +138,7 @@ const _CL = "ClipLimits";
 const _CLC = "CustomLanguageCode";
 const _CLM = "CaptionLanguageMappings";
 const _CLS = "CaptionLanguageSetting";
+const _CLl = "ClearLead";
 const _CLo = "CodecLevel";
 const _CM = "CodingMode";
 const _CMh = "ChannelMapping";
@@ -239,8 +241,12 @@ const _DQR = "DeleteQueueRequest";
 const _DQRe = "DeleteQueueResponse";
 const _DQe = "DeleteQueue";
 const _DRC = "DynamicRangeControl";
+const _DRCFPT = "DynamicRangeCompressionFlatPanelTv";
+const _DRCHT = "DynamicRangeCompressionHomeTheater";
 const _DRCL = "DynamicRangeCompressionLine";
 const _DRCP = "DynamicRangeCompressionProfile";
+const _DRCPH = "DynamicRangeCompressionPortableHeadphones";
+const _DRCPS = "DynamicRangeCompressionPortableSpeakers";
 const _DRCR = "DynamicRangeCompressionRf";
 const _DS = "DefaultSelection";
 const _DSDS = "DvbSubDestinationSettings";
@@ -1023,6 +1029,7 @@ const _aSb = "abrSettings";
 const _aSc = "ac3Settings";
 const _aScc = "accelerationSettings";
 const _aScce = "accelerationStatus";
+const _aSce = "ac4Settings";
 const _aSf = "afdSignaling";
 const _aSi = "aiffSettings";
 const _aSu = "audioSelectors";
@@ -1073,10 +1080,11 @@ const _cGS = "cmafGroupSettings";
 const _cI = "channelsIn";
 const _cIV = "constantInitializationVector";
 const _cJ = "concurrentJobs";
-const _cL = "clipLimits";
+const _cL = "clearLead";
 const _cLC = "customLanguageCode";
 const _cLM = "captionLanguageMappings";
 const _cLS = "captionLanguageSetting";
+const _cLl = "clipLimits";
 const _cLo = "codecLevel";
 const _cM = "codingMode";
 const _cMh = "channelMapping";
@@ -1146,8 +1154,12 @@ const _dP = "dataProperties";
 const _dPTSC = "dataPTSControl";
 const _dQ = "destinationQueue";
 const _dRC = "dynamicRangeControl";
+const _dRCFPT = "dynamicRangeCompressionFlatPanelTv";
+const _dRCHT = "dynamicRangeCompressionHomeTheater";
 const _dRCL = "dynamicRangeCompressionLine";
 const _dRCP = "dynamicRangeCompressionProfile";
+const _dRCPH = "dynamicRangeCompressionPortableHeadphones";
+const _dRCPS = "dynamicRangeCompressionPortableSpeakers";
 const _dRCR = "dynamicRangeCompressionRf";
 const _dS = "defaultSelection";
 const _dSDS = "dvbSubDestinationSettings";
@@ -1884,6 +1896,11 @@ export var Ac3Settings$: StaticStructureSchema = [3, n0, _ASc,
   [_B, _BM, _CM, _D, _DRCL, _DRCP, _DRCR, _LF, _MC, _SR],
   [[1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [1, { [_jN]: _d }], [0, { [_jN]: _dRCL }], [0, { [_jN]: _dRCP }], [0, { [_jN]: _dRCR }], [0, { [_jN]: _lF }], [0, { [_jN]: _mC }], [1, { [_jN]: _sR }]]
 ];
+export var Ac4Settings$: StaticStructureSchema = [3, n0, _ASce,
+  0,
+  [_B, _BM, _CM, _DRCFPT, _DRCHT, _DRCPH, _DRCPS, _LRCML, _LRSML, _LRCMLt, _LRSMLt, _SR, _SD],
+  [[1, { [_jN]: _b }], [0, { [_jN]: _bM }], [0, { [_jN]: _cM }], [0, { [_jN]: _dRCFPT }], [0, { [_jN]: _dRCHT }], [0, { [_jN]: _dRCPH }], [0, { [_jN]: _dRCPS }], [1, { [_jN]: _lRCML }], [1, { [_jN]: _lRSML }], [1, { [_jN]: _lRCMLt }], [1, { [_jN]: _lRSMLt }], [1, { [_jN]: _sR }], [0, { [_jN]: _sD }]]
+];
 export var AccelerationSettings$: StaticStructureSchema = [3, n0, _AScc,
   0,
   [_Mo],
@@ -1926,8 +1943,8 @@ export var AudioChannelTaggingSettings$: StaticStructureSchema = [3, n0, _ACTS,
 ];
 export var AudioCodecSettings$: StaticStructureSchema = [3, n0, _ACS,
   0,
-  [_AS, _ASc, _ASi, _Co, _EAS, _ES, _FS, _MS, _MSp, _OS, _VS, _WS],
-  [[() => AacSettings$, { [_jN]: _aS }], [() => Ac3Settings$, { [_jN]: _aSc }], [() => AiffSettings$, { [_jN]: _aSi }], [0, { [_jN]: _co }], [() => Eac3AtmosSettings$, { [_jN]: _eAS }], [() => Eac3Settings$, { [_jN]: _eS }], [() => FlacSettings$, { [_jN]: _fS }], [() => Mp2Settings$, { [_jN]: _mS }], [() => Mp3Settings$, { [_jN]: _mSp }], [() => OpusSettings$, { [_jN]: _oS }], [() => VorbisSettings$, { [_jN]: _vS }], [() => WavSettings$, { [_jN]: _wS }]]
+  [_AS, _ASc, _ASce, _ASi, _Co, _EAS, _ES, _FS, _MS, _MSp, _OS, _VS, _WS],
+  [[() => AacSettings$, { [_jN]: _aS }], [() => Ac3Settings$, { [_jN]: _aSc }], [() => Ac4Settings$, { [_jN]: _aSce }], [() => AiffSettings$, { [_jN]: _aSi }], [0, { [_jN]: _co }], [() => Eac3AtmosSettings$, { [_jN]: _eAS }], [() => Eac3Settings$, { [_jN]: _eS }], [() => FlacSettings$, { [_jN]: _fS }], [() => Mp2Settings$, { [_jN]: _mS }], [() => Mp3Settings$, { [_jN]: _mSp }], [() => OpusSettings$, { [_jN]: _oS }], [() => VorbisSettings$, { [_jN]: _vS }], [() => WavSettings$, { [_jN]: _wS }]]
 ];
 export var AudioDescription$: StaticStructureSchema = [3, n0, _AD,
   0,
@@ -2066,8 +2083,8 @@ export var CmafAdditionalManifest$: StaticStructureSchema = [3, n0, _CAM,
 ];
 export var CmafEncryptionSettings$: StaticStructureSchema = [3, n0, _CES,
   0,
-  [_CIV, _EM, _IVIM, _SKP, _SKPt, _Ty],
-  [[0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [0, { [_jN]: _iVIM }], [() => SpekeKeyProviderCmaf$, { [_jN]: _sKP }], [() => StaticKeyProvider$, { [_jN]: _sKPt }], [0, { [_jN]: _ty }]]
+  [_CLl, _CIV, _EM, _IVIM, _SKP, _SKPt, _Ty],
+  [[0, { [_jN]: _cL }], [0, { [_jN]: _cIV }], [0, { [_jN]: _eM }], [0, { [_jN]: _iVIM }], [() => SpekeKeyProviderCmaf$, { [_jN]: _sKP }], [() => StaticKeyProvider$, { [_jN]: _sKPt }], [0, { [_jN]: _ty }]]
 ];
 export var CmafGroupSettings$: StaticStructureSchema = [3, n0, _CGS,
   0,
@@ -2097,7 +2114,7 @@ export var ColorConversion3DLUTSetting$: StaticStructureSchema = [3, n0, _CCDLUT
 export var ColorCorrector$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_Br, _CL, _CSC, _Con, _HM, _HTSTM, _Hu, _ML, _SRC, _Sa, _SRWL],
-  [[1, { [_jN]: _br }], [() => ClipLimits$, { [_jN]: _cL }], [0, { [_jN]: _cSC }], [1, { [_jN]: _con }], [() => Hdr10Metadata$, { [_jN]: _hM }], [0, { [_jN]: _hTSTM }], [1, { [_jN]: _hu }], [1, { [_jN]: _mL }], [0, { [_jN]: _sRC }], [1, { [_jN]: _sa }], [1, { [_jN]: _sRWL }]]
+  [[1, { [_jN]: _br }], [() => ClipLimits$, { [_jN]: _cLl }], [0, { [_jN]: _cSC }], [1, { [_jN]: _con }], [() => Hdr10Metadata$, { [_jN]: _hM }], [0, { [_jN]: _hTSTM }], [1, { [_jN]: _hu }], [1, { [_jN]: _mL }], [0, { [_jN]: _sRC }], [1, { [_jN]: _sa }], [1, { [_jN]: _sRWL }]]
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Cont,
   0,

@@ -15,6 +15,10 @@ import {
   Ac3DynamicRangeCompressionRf,
   Ac3LfeFilter,
   Ac3MetadataControl,
+  Ac4BitstreamMode,
+  Ac4CodingMode,
+  Ac4DynamicRangeCompressionDrcProfile,
+  Ac4StereoDownmix,
   AccelerationMode,
   AccelerationStatus,
   AdvancedInputFilter,
@@ -245,6 +249,7 @@ import {
   HlsAudioTrackType,
   HlsCaptionLanguageSetting,
   HlsCaptionSegmentLengthControl,
+  HlsClearLead,
   HlsClientCache,
   HlsCodecSpecification,
   HlsDescriptiveVideoServiceFlag,
@@ -711,6 +716,90 @@ export interface Ac3Settings {
 }
 
 /**
+ * Required when you set Codec to the value AC4.
+ * @public
+ */
+export interface Ac4Settings {
+  /**
+   * Specify the average bitrate in bits per second. Leave blank to use the default bitrate for the coding mode you select according to ETSI TS 103 190. Valid bitrates for coding mode 2.0 (stereo): 192000, 256000, or 320000. Valid bitrates for coding mode 5.1 (3/2 with LFE): 512000. Valid bitrates for coding mode 5.1.4 (immersive): 512000, 768000, or 1024000.
+   * @public
+   */
+  Bitrate?: number | undefined;
+
+  /**
+   * Specify the bitstream mode for the AC-4 stream that the encoder emits. For more information about the AC-4 bitstream mode, see ETSI TS 103 190. Maps to dlb_paec_ac4_bed_classifier in the encoder implementation. - COMPLETE_MAIN: Complete Main (standard mix) - EMERGENCY: Stereo Emergency content
+   * @public
+   */
+  BitstreamMode?: Ac4BitstreamMode | undefined;
+
+  /**
+   * Dolby AC-4 coding mode. Determines number of channels. Maps to dlb_paec_ac4_bed_channel_config in the encoder implementation. - CODING_MODE_2_0: 2.0 (stereo) - maps to DLB_PAEC_AC4_BED_CHANNEL_CONFIG_20   - CODING_MODE_3_2_LFE: 5.1 surround - maps to DLB_PAEC_AC4_BED_CHANNEL_CONFIG_51 - CODING_MODE_5_1_4: 5.1.4 immersive - maps to DLB_PAEC_AC4_BED_CHANNEL_CONFIG_514
+   * @public
+   */
+  CodingMode?: Ac4CodingMode | undefined;
+
+  /**
+   * Choose the Dolby AC-4 dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby AC-4 stream for the specified decoder mode. For information about the Dolby AC-4 DRC profiles, see the Dolby AC-4 specification.
+   * @public
+   */
+  DynamicRangeCompressionFlatPanelTv?: Ac4DynamicRangeCompressionDrcProfile | undefined;
+
+  /**
+   * Choose the Dolby AC-4 dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby AC-4 stream for the specified decoder mode. For information about the Dolby AC-4 DRC profiles, see the Dolby AC-4 specification.
+   * @public
+   */
+  DynamicRangeCompressionHomeTheater?: Ac4DynamicRangeCompressionDrcProfile | undefined;
+
+  /**
+   * Choose the Dolby AC-4 dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby AC-4 stream for the specified decoder mode. For information about the Dolby AC-4 DRC profiles, see the Dolby AC-4 specification.
+   * @public
+   */
+  DynamicRangeCompressionPortableHeadphones?: Ac4DynamicRangeCompressionDrcProfile | undefined;
+
+  /**
+   * Choose the Dolby AC-4 dynamic range control (DRC) profile that MediaConvert uses when encoding the metadata in the Dolby AC-4 stream for the specified decoder mode. For information about the Dolby AC-4 DRC profiles, see the Dolby AC-4 specification.
+   * @public
+   */
+  DynamicRangeCompressionPortableSpeakers?: Ac4DynamicRangeCompressionDrcProfile | undefined;
+
+  /**
+   * Specify a value for the following Dolby AC-4 setting: Left only/Right only center mix. MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix. Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -infinity. The value -infinity mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs for the setting Coding mode. If you choose a different value for Coding mode, the service ignores Left only/Right only center.
+   * @public
+   */
+  LoRoCenterMixLevel?: number | undefined;
+
+  /**
+   * Specify a value for the following Dolby AC-4 setting: Left only/Right only surround mix. MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix. Valid values: -1.5, -3.0, -4.5, -6.0, and -infinity. The value -infinity mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs for the setting Coding mode. If you choose a different value for Coding mode, the service ignores Left only/Right only surround.
+   * @public
+   */
+  LoRoSurroundMixLevel?: number | undefined;
+
+  /**
+   * Specify a value for the following Dolby AC-4 setting: Left total/Right total center mix. MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix. Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -infinity. The value -infinity mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs for the setting Coding mode. If you choose a different value for Coding mode, the service ignores Left total/Right total center.
+   * @public
+   */
+  LtRtCenterMixLevel?: number | undefined;
+
+  /**
+   * Specify a value for the following Dolby AC-4 setting: Left total/Right total surround mix. MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix. Valid values: -1.5, -3.0, -4.5, -6.0, and -infinity. The value -infinity mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs for the setting Coding mode. If you choose a different value for Coding mode, the service ignores Left total/Right total surround.
+   * @public
+   */
+  LtRtSurroundMixLevel?: number | undefined;
+
+  /**
+   * This value is always 48000. It represents the sample rate in Hz.
+   * @public
+   */
+  SampleRate?: number | undefined;
+
+  /**
+   * Choose the preferred stereo downmix method. This setting tells the decoder how to downmix multi-channel audio to stereo during playback.
+   * @public
+   */
+  StereoDownmix?: Ac4StereoDownmix | undefined;
+}
+
+/**
  * Required when you set Codec to the value AIFF.
  * @public
  */
@@ -1158,6 +1247,12 @@ export interface AudioCodecSettings {
    * @public
    */
   Ac3Settings?: Ac3Settings | undefined;
+
+  /**
+   * Required when you set Codec to the value AC4.
+   * @public
+   */
+  Ac4Settings?: Ac4Settings | undefined;
 
   /**
    * Required when you set Codec to the value AIFF.
@@ -4260,6 +4355,12 @@ export interface StaticKeyProvider {
  */
 export interface CmafEncryptionSettings {
   /**
+   * Enable Clear Lead DRM to reduce video startup latency by leaving the first segment unencrypted while DRM license retrieval occurs in parallel. This optimization allows immediate playback startup while maintaining content protection for the remainder of the stream. When enabled, the first output segment remains fully unencrypted, and encryption begins at the start of the second segment. The HLS manifest will omit #EXT-X-KEY tags during the clear segment and insert the first #EXT-X-KEY immediately before the first encrypted fragment. This feature is supported exclusively for CMAF HLS (fMP4) outputs and is compatible with all existing key provider integrations (SPEKE v1, SPEKE v2, and Static Key encryption). Supported codecs: H.264 and H.265 video codecs, and AAC audio codec. Choose Enabled to activate Clear Lead DRM optimization. Choose Disabled to use standard encryption where all segments are encrypted from the beginning.
+   * @public
+   */
+  ClearLead?: HlsClearLead | undefined;
+
+  /**
    * This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
    * @public
    */
@@ -4302,7 +4403,7 @@ export interface CmafEncryptionSettings {
  */
 export interface CmafImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval. If set to FOLLOW_SEGMENTATION, MediaConvert generates thumbnail playlist entries that align exactly with video segment boundaries. FOLLOW_SEGMENTATION requires 1x1 tiling.
    * @public
    */
   IntervalCadence?: CmafIntervalCadence | undefined;
@@ -4572,7 +4673,7 @@ export interface DashIsoEncryptionSettings {
  */
 export interface DashIsoImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval. If set to FOLLOW_SEGMENTATION, MediaConvert generates thumbnail playlist entries that align exactly with video segment boundaries. FOLLOW_SEGMENTATION requires 1x1 tiling.
    * @public
    */
   IntervalCadence?: DashIsoIntervalCadence | undefined;
@@ -4818,7 +4919,7 @@ export interface HlsEncryptionSettings {
  */
 export interface HlsImageBasedTrickPlaySettings {
   /**
-   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval.
+   * The cadence MediaConvert follows for generating thumbnails. If set to FOLLOW_IFRAME, MediaConvert generates thumbnails for each IDR frame in the output (matching the GOP cadence). If set to FOLLOW_CUSTOM, MediaConvert generates thumbnails according to the interval you specify in thumbnailInterval. If set to FOLLOW_SEGMENTATION, MediaConvert generates thumbnail playlist entries that align exactly with video segment boundaries. FOLLOW_SEGMENTATION requires 1x1 tiling.
    * @public
    */
   IntervalCadence?: HlsIntervalCadence | undefined;
@@ -8726,7 +8827,7 @@ export interface JobSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9086,7 +9187,7 @@ export interface JobTemplateSettings {
   ExtendedDataServices?: ExtendedDataServices | undefined;
 
   /**
-   * Specify the input that MediaConvert references for your default output settings.  MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all  outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
+   * Specify the input that MediaConvert references for your default output settings. MediaConvert uses this input's Resolution, Frame rate, and Pixel aspect ratio for all outputs that you don't manually specify different output settings for. Enabling this setting will disable "Follow source" for all other inputs.  If MediaConvert cannot follow your source, for example if you specify an audio-only input,  MediaConvert uses the first followable input instead. In your JSON job specification, enter an integer from 1 to 150 corresponding  to the order of your inputs.
    * @public
    */
   FollowSource?: number | undefined;
@@ -9584,7 +9685,7 @@ export interface Container {
   Duration?: number | undefined;
 
   /**
-   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF or Wave. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
+   * The format of your media file. For example: MP4, QuickTime (MOV), Matroska (MKV), WebM, MXF, Wave, or AVI. Note that this will be blank if your media file has a format that the MediaConvert Probe operation does not recognize.
    * @public
    */
   Format?: Format | undefined;
