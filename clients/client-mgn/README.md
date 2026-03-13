@@ -237,6 +237,13 @@ CreateLaunchConfigurationTemplate
 </details>
 <details>
 <summary>
+CreateNetworkMigrationDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/CreateNetworkMigrationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/CreateNetworkMigrationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/CreateNetworkMigrationDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
 CreateReplicationConfigurationTemplate
 </summary>
 
@@ -276,6 +283,13 @@ DeleteLaunchConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/DeleteLaunchConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteLaunchConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteLaunchConfigurationTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteNetworkMigrationDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/DeleteNetworkMigrationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteNetworkMigrationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/DeleteNetworkMigrationDefinitionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -384,6 +398,20 @@ GetLaunchConfiguration
 </details>
 <details>
 <summary>
+GetNetworkMigrationDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/GetNetworkMigrationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetNetworkMigrationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetNetworkMigrationDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
+GetNetworkMigrationMapperSegmentConstruct
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/GetNetworkMigrationMapperSegmentConstructCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetNetworkMigrationMapperSegmentConstructCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/GetNetworkMigrationMapperSegmentConstructCommandOutput/)
+</details>
+<details>
+<summary>
 GetReplicationConfiguration
 </summary>
 
@@ -433,6 +461,13 @@ ListImportErrors
 </details>
 <details>
 <summary>
+ListImportFileEnrichments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListImportFileEnrichmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListImportFileEnrichmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListImportFileEnrichmentsCommandOutput/)
+</details>
+<details>
+<summary>
 ListImports
 </summary>
 
@@ -444,6 +479,90 @@ ListManagedAccounts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListManagedAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListManagedAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListManagedAccountsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationAnalyses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationAnalysesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationAnalysesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationAnalysesCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationAnalysisResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationAnalysisResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationAnalysisResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationAnalysisResultsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationCodeGenerations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationCodeGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationCodeGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationCodeGenerationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationCodeGenerationSegments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationCodeGenerationSegmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationCodeGenerationSegmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationCodeGenerationSegmentsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDefinitionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationDeployedStacks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationDeployedStacksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDeployedStacksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDeployedStacksCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationDeploymentsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationExecutionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationMapperSegmentConstructs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationMapperSegmentConstructsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMapperSegmentConstructsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMapperSegmentConstructsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationMapperSegments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationMapperSegmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMapperSegmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMapperSegmentsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationMappings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingsCommandOutput/)
+</details>
+<details>
+<summary>
+ListNetworkMigrationMappingUpdates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/ListNetworkMigrationMappingUpdatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingUpdatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/ListNetworkMigrationMappingUpdatesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -552,6 +671,48 @@ StartImport
 </details>
 <details>
 <summary>
+StartImportFileEnrichment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartImportFileEnrichmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartImportFileEnrichmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartImportFileEnrichmentCommandOutput/)
+</details>
+<details>
+<summary>
+StartNetworkMigrationAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartNetworkMigrationAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationAnalysisCommandOutput/)
+</details>
+<details>
+<summary>
+StartNetworkMigrationCodeGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartNetworkMigrationCodeGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationCodeGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationCodeGenerationCommandOutput/)
+</details>
+<details>
+<summary>
+StartNetworkMigrationDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartNetworkMigrationDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationDeploymentCommandOutput/)
+</details>
+<details>
+<summary>
+StartNetworkMigrationMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartNetworkMigrationMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationMappingCommandOutput/)
+</details>
+<details>
+<summary>
+StartNetworkMigrationMappingUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/StartNetworkMigrationMappingUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationMappingUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/StartNetworkMigrationMappingUpdateCommandOutput/)
+</details>
+<details>
+<summary>
 StartReplication
 </summary>
 
@@ -633,6 +794,20 @@ UpdateLaunchConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateLaunchConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateLaunchConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateLaunchConfigurationTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateNetworkMigrationDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateNetworkMigrationDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationDefinitionCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateNetworkMigrationMapperSegment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mgn/command/UpdateNetworkMigrationMapperSegmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationMapperSegmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mgn/Interface/UpdateNetworkMigrationMapperSegmentCommandOutput/)
 </details>
 <details>
 <summary>

@@ -25,6 +25,18 @@ export type ActionCategory = (typeof ActionCategory)[keyof typeof ActionCategory
  * @public
  * @enum
  */
+export const AnalyzerType = {
+  REACHABILITY_ANALYZER: "REACHABILITY_ANALYZER",
+} as const;
+/**
+ * @public
+ */
+export type AnalyzerType = (typeof AnalyzerType)[keyof typeof AnalyzerType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApplicationHealthStatus = {
   ERROR: "ERROR",
   HEALTHY: "HEALTHY",
@@ -312,6 +324,294 @@ export type TargetInstanceTypeRightSizingMethod =
  * @public
  * @enum
  */
+export const EncryptionAlgorithm = {
+  SHA256: "SHA256",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImportFileEnrichmentStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+  SUCCEEDED_WITH_WARNINGS: "SUCCEEDED_WITH_WARNINGS",
+} as const;
+/**
+ * @public
+ */
+export type ImportFileEnrichmentStatus = (typeof ImportFileEnrichmentStatus)[keyof typeof ImportFileEnrichmentStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceEnvironment = {
+  CISCO_ACI: "CISCO_ACI",
+  FORTIGATE_FIREWALL: "FORTIGATE_FIREWALL",
+  LOGICAL_MODEL: "LOGICAL_MODEL",
+  MODELIZE_IT: "MODELIZE_IT",
+  NSX: "NSX",
+  PALO_ALTO_FIREWALL: "PALO_ALTO_FIREWALL",
+  VSPHERE: "VSPHERE",
+} as const;
+/**
+ * @public
+ */
+export type SourceEnvironment = (typeof SourceEnvironment)[keyof typeof SourceEnvironment];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetDeployment = {
+  MULTI_ACCOUNT: "MULTI_ACCOUNT",
+  SINGLE_ACCOUNT: "SINGLE_ACCOUNT",
+} as const;
+/**
+ * @public
+ */
+export type TargetDeployment = (typeof TargetDeployment)[keyof typeof TargetDeployment];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetNetworkTopology = {
+  HUB_AND_SPOKE: "HUB_AND_SPOKE",
+  ISOLATED_VPC: "ISOLATED_VPC",
+} as const;
+/**
+ * @public
+ */
+export type TargetNetworkTopology = (typeof TargetNetworkTopology)[keyof typeof TargetNetworkTopology];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationJobStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationJobStatus = (typeof NetworkMigrationJobStatus)[keyof typeof NetworkMigrationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationAnalysisResultStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationAnalysisResultStatus =
+  (typeof NetworkMigrationAnalysisResultStatus)[keyof typeof NetworkMigrationAnalysisResultStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeGenerationOutputFormatType = {
+  CDK_L1: "CDK_L1",
+  CDK_L2: "CDK_L2",
+  LZA: "LZA",
+  TERRAFORM: "TERRAFORM",
+} as const;
+/**
+ * @public
+ */
+export type CodeGenerationOutputFormatType =
+  (typeof CodeGenerationOutputFormatType)[keyof typeof CodeGenerationOutputFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CodeGenerationOutputFormatStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type CodeGenerationOutputFormatStatus =
+  (typeof CodeGenerationOutputFormatStatus)[keyof typeof CodeGenerationOutputFormatStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationCodeGenerationArtifactSubType = {
+  APPLICATION: "APPLICATION",
+  NESTED_STACK: "NESTED_STACK",
+  STACK: "STACK",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationCodeGenerationArtifactSubType =
+  (typeof NetworkMigrationCodeGenerationArtifactSubType)[keyof typeof NetworkMigrationCodeGenerationArtifactSubType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationCodeGenerationArtifactType = {
+  CDKTF_TYPESCRIPT: "CDKTF_TYPESCRIPT",
+  CDK_L2_TYPESCRIPT: "CDK_L2_TYPESCRIPT",
+  CDK_TYPESCRIPT: "CDK_TYPESCRIPT",
+  CLOUDFORMATION_TEMPLATE: "CLOUDFORMATION_TEMPLATE",
+  TERRAFORM_CONFIGURATION: "TERRAFORM_CONFIGURATION",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationCodeGenerationArtifactType =
+  (typeof NetworkMigrationCodeGenerationArtifactType)[keyof typeof NetworkMigrationCodeGenerationArtifactType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationCodeGenerationSegmentType = {
+  APPLIANCE: "APPLIANCE",
+  NETWORK: "NETWORK",
+  WORKLOAD: "WORKLOAD",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationCodeGenerationSegmentType =
+  (typeof NetworkMigrationCodeGenerationSegmentType)[keyof typeof NetworkMigrationCodeGenerationSegmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationFailedResourceStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  DELETE_FAILED: "DELETE_FAILED",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationFailedResourceStatus =
+  (typeof NetworkMigrationFailedResourceStatus)[keyof typeof NetworkMigrationFailedResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationDeployedStackStatus = {
+  CREATE_COMPLETE: "CREATE_COMPLETE",
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_STARTED: "CREATE_STARTED",
+  DELETE_COMPLETE: "DELETE_COMPLETE",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_STARTED: "DELETE_STARTED",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationDeployedStackStatus =
+  (typeof NetworkMigrationDeployedStackStatus)[keyof typeof NetworkMigrationDeployedStackStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  STARTED: "STARTED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStageActivity = {
+  ANALYZE: "ANALYZE",
+  CODE_GENERATION: "CODE_GENERATION",
+  DEPLOY: "DEPLOY",
+  DEPLOYED_STACKS_DELETION: "DEPLOYED_STACKS_DELETION",
+  MAPPING: "MAPPING",
+  MAPPING_UPDATE: "MAPPING_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStageActivity = (typeof ExecutionStageActivity)[keyof typeof ExecutionStageActivity];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionStage = {
+  ANALYZE: "ANALYZE",
+  CODE_GENERATION: "CODE_GENERATION",
+  DEPLOY: "DEPLOY",
+  DEPLOYED_STACKS_DELETION: "DEPLOYED_STACKS_DELETION",
+  MAPPING: "MAPPING",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionStage = (typeof ExecutionStage)[keyof typeof ExecutionStage];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkMigrationMapperSegmentType = {
+  APPLIANCE: "APPLIANCE",
+  WORKLOAD: "WORKLOAD",
+} as const;
+/**
+ * @public
+ */
+export type NetworkMigrationMapperSegmentType =
+  (typeof NetworkMigrationMapperSegmentType)[keyof typeof NetworkMigrationMapperSegmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityGroupMappingStrategy = {
+  MAP: "MAP",
+  SKIP: "SKIP",
+} as const;
+/**
+ * @public
+ */
+export type SecurityGroupMappingStrategy =
+  (typeof SecurityGroupMappingStrategy)[keyof typeof SecurityGroupMappingStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReplicationConfigurationDataPlaneRouting = {
   PRIVATE_IP: "PRIVATE_IP",
   PUBLIC_IP: "PUBLIC_IP",
@@ -537,6 +837,19 @@ export const ReplicationConfigurationReplicatedDiskStagingDiskType = {
  */
 export type ReplicationConfigurationReplicatedDiskStagingDiskType =
   (typeof ReplicationConfigurationReplicatedDiskStagingDiskType)[keyof typeof ReplicationConfigurationReplicatedDiskStagingDiskType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAssignmentStrategy = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
+/**
+ * @public
+ */
+export type IpAssignmentStrategy = (typeof IpAssignmentStrategy)[keyof typeof IpAssignmentStrategy];
 
 /**
  * @public

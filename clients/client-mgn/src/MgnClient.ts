@@ -84,6 +84,10 @@ import {
   CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
 import {
+  CreateNetworkMigrationDefinitionCommandInput,
+  CreateNetworkMigrationDefinitionCommandOutput,
+} from "./commands/CreateNetworkMigrationDefinitionCommand";
+import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
@@ -95,6 +99,10 @@ import {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
 } from "./commands/DeleteLaunchConfigurationTemplateCommand";
+import {
+  DeleteNetworkMigrationDefinitionCommandInput,
+  DeleteNetworkMigrationDefinitionCommandOutput,
+} from "./commands/DeleteNetworkMigrationDefinitionCommand";
 import {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
@@ -144,6 +152,14 @@ import {
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
 import {
+  GetNetworkMigrationDefinitionCommandInput,
+  GetNetworkMigrationDefinitionCommandOutput,
+} from "./commands/GetNetworkMigrationDefinitionCommand";
+import {
+  GetNetworkMigrationMapperSegmentConstructCommandInput,
+  GetNetworkMigrationMapperSegmentConstructCommandOutput,
+} from "./commands/GetNetworkMigrationMapperSegmentConstructCommand";
+import {
   GetReplicationConfigurationCommandInput,
   GetReplicationConfigurationCommandOutput,
 } from "./commands/GetReplicationConfigurationCommand";
@@ -153,11 +169,63 @@ import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./comma
 import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "./commands/ListExportErrorsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
+import {
+  ListImportFileEnrichmentsCommandInput,
+  ListImportFileEnrichmentsCommandOutput,
+} from "./commands/ListImportFileEnrichmentsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListManagedAccountsCommandInput,
   ListManagedAccountsCommandOutput,
 } from "./commands/ListManagedAccountsCommand";
+import {
+  ListNetworkMigrationAnalysesCommandInput,
+  ListNetworkMigrationAnalysesCommandOutput,
+} from "./commands/ListNetworkMigrationAnalysesCommand";
+import {
+  ListNetworkMigrationAnalysisResultsCommandInput,
+  ListNetworkMigrationAnalysisResultsCommandOutput,
+} from "./commands/ListNetworkMigrationAnalysisResultsCommand";
+import {
+  ListNetworkMigrationCodeGenerationsCommandInput,
+  ListNetworkMigrationCodeGenerationsCommandOutput,
+} from "./commands/ListNetworkMigrationCodeGenerationsCommand";
+import {
+  ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+  ListNetworkMigrationCodeGenerationSegmentsCommandOutput,
+} from "./commands/ListNetworkMigrationCodeGenerationSegmentsCommand";
+import {
+  ListNetworkMigrationDefinitionsCommandInput,
+  ListNetworkMigrationDefinitionsCommandOutput,
+} from "./commands/ListNetworkMigrationDefinitionsCommand";
+import {
+  ListNetworkMigrationDeployedStacksCommandInput,
+  ListNetworkMigrationDeployedStacksCommandOutput,
+} from "./commands/ListNetworkMigrationDeployedStacksCommand";
+import {
+  ListNetworkMigrationDeploymentsCommandInput,
+  ListNetworkMigrationDeploymentsCommandOutput,
+} from "./commands/ListNetworkMigrationDeploymentsCommand";
+import {
+  ListNetworkMigrationExecutionsCommandInput,
+  ListNetworkMigrationExecutionsCommandOutput,
+} from "./commands/ListNetworkMigrationExecutionsCommand";
+import {
+  ListNetworkMigrationMapperSegmentConstructsCommandInput,
+  ListNetworkMigrationMapperSegmentConstructsCommandOutput,
+} from "./commands/ListNetworkMigrationMapperSegmentConstructsCommand";
+import {
+  ListNetworkMigrationMapperSegmentsCommandInput,
+  ListNetworkMigrationMapperSegmentsCommandOutput,
+} from "./commands/ListNetworkMigrationMapperSegmentsCommand";
+import {
+  ListNetworkMigrationMappingsCommandInput,
+  ListNetworkMigrationMappingsCommandOutput,
+} from "./commands/ListNetworkMigrationMappingsCommand";
+import {
+  ListNetworkMigrationMappingUpdatesCommandInput,
+  ListNetworkMigrationMappingUpdatesCommandOutput,
+} from "./commands/ListNetworkMigrationMappingUpdatesCommand";
 import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -194,6 +262,30 @@ import {
 import { StartCutoverCommandInput, StartCutoverCommandOutput } from "./commands/StartCutoverCommand";
 import { StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
+import {
+  StartImportFileEnrichmentCommandInput,
+  StartImportFileEnrichmentCommandOutput,
+} from "./commands/StartImportFileEnrichmentCommand";
+import {
+  StartNetworkMigrationAnalysisCommandInput,
+  StartNetworkMigrationAnalysisCommandOutput,
+} from "./commands/StartNetworkMigrationAnalysisCommand";
+import {
+  StartNetworkMigrationCodeGenerationCommandInput,
+  StartNetworkMigrationCodeGenerationCommandOutput,
+} from "./commands/StartNetworkMigrationCodeGenerationCommand";
+import {
+  StartNetworkMigrationDeploymentCommandInput,
+  StartNetworkMigrationDeploymentCommandOutput,
+} from "./commands/StartNetworkMigrationDeploymentCommand";
+import {
+  StartNetworkMigrationMappingCommandInput,
+  StartNetworkMigrationMappingCommandOutput,
+} from "./commands/StartNetworkMigrationMappingCommand";
+import {
+  StartNetworkMigrationMappingUpdateCommandInput,
+  StartNetworkMigrationMappingUpdateCommandOutput,
+} from "./commands/StartNetworkMigrationMappingUpdateCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
 import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
@@ -218,6 +310,14 @@ import {
   UpdateLaunchConfigurationTemplateCommandInput,
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
+import {
+  UpdateNetworkMigrationDefinitionCommandInput,
+  UpdateNetworkMigrationDefinitionCommandOutput,
+} from "./commands/UpdateNetworkMigrationDefinitionCommand";
+import {
+  UpdateNetworkMigrationMapperSegmentCommandInput,
+  UpdateNetworkMigrationMapperSegmentCommandOutput,
+} from "./commands/UpdateNetworkMigrationMapperSegmentCommand";
 import {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -255,12 +355,14 @@ export type ServiceInputTypes =
   | CreateApplicationCommandInput
   | CreateConnectorCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
+  | CreateNetworkMigrationDefinitionCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | CreateWaveCommandInput
   | DeleteApplicationCommandInput
   | DeleteConnectorCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
+  | DeleteNetworkMigrationDefinitionCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceServerCommandInput
   | DeleteVcenterClientCommandInput
@@ -276,6 +378,8 @@ export type ServiceInputTypes =
   | DisconnectFromServiceCommandInput
   | FinalizeCutoverCommandInput
   | GetLaunchConfigurationCommandInput
+  | GetNetworkMigrationDefinitionCommandInput
+  | GetNetworkMigrationMapperSegmentConstructCommandInput
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
   | ListApplicationsCommandInput
@@ -283,8 +387,21 @@ export type ServiceInputTypes =
   | ListExportErrorsCommandInput
   | ListExportsCommandInput
   | ListImportErrorsCommandInput
+  | ListImportFileEnrichmentsCommandInput
   | ListImportsCommandInput
   | ListManagedAccountsCommandInput
+  | ListNetworkMigrationAnalysesCommandInput
+  | ListNetworkMigrationAnalysisResultsCommandInput
+  | ListNetworkMigrationCodeGenerationSegmentsCommandInput
+  | ListNetworkMigrationCodeGenerationsCommandInput
+  | ListNetworkMigrationDefinitionsCommandInput
+  | ListNetworkMigrationDeployedStacksCommandInput
+  | ListNetworkMigrationDeploymentsCommandInput
+  | ListNetworkMigrationExecutionsCommandInput
+  | ListNetworkMigrationMapperSegmentConstructsCommandInput
+  | ListNetworkMigrationMapperSegmentsCommandInput
+  | ListNetworkMigrationMappingUpdatesCommandInput
+  | ListNetworkMigrationMappingsCommandInput
   | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateActionsCommandInput
@@ -300,6 +417,12 @@ export type ServiceInputTypes =
   | StartCutoverCommandInput
   | StartExportCommandInput
   | StartImportCommandInput
+  | StartImportFileEnrichmentCommandInput
+  | StartNetworkMigrationAnalysisCommandInput
+  | StartNetworkMigrationCodeGenerationCommandInput
+  | StartNetworkMigrationDeploymentCommandInput
+  | StartNetworkMigrationMappingCommandInput
+  | StartNetworkMigrationMappingUpdateCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
   | StopReplicationCommandInput
@@ -312,6 +435,8 @@ export type ServiceInputTypes =
   | UpdateConnectorCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
+  | UpdateNetworkMigrationDefinitionCommandInput
+  | UpdateNetworkMigrationMapperSegmentCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput
   | UpdateSourceServerCommandInput
@@ -330,12 +455,14 @@ export type ServiceOutputTypes =
   | CreateApplicationCommandOutput
   | CreateConnectorCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
+  | CreateNetworkMigrationDefinitionCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | CreateWaveCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteConnectorCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
+  | DeleteNetworkMigrationDefinitionCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceServerCommandOutput
   | DeleteVcenterClientCommandOutput
@@ -351,6 +478,8 @@ export type ServiceOutputTypes =
   | DisconnectFromServiceCommandOutput
   | FinalizeCutoverCommandOutput
   | GetLaunchConfigurationCommandOutput
+  | GetNetworkMigrationDefinitionCommandOutput
+  | GetNetworkMigrationMapperSegmentConstructCommandOutput
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
   | ListApplicationsCommandOutput
@@ -358,8 +487,21 @@ export type ServiceOutputTypes =
   | ListExportErrorsCommandOutput
   | ListExportsCommandOutput
   | ListImportErrorsCommandOutput
+  | ListImportFileEnrichmentsCommandOutput
   | ListImportsCommandOutput
   | ListManagedAccountsCommandOutput
+  | ListNetworkMigrationAnalysesCommandOutput
+  | ListNetworkMigrationAnalysisResultsCommandOutput
+  | ListNetworkMigrationCodeGenerationSegmentsCommandOutput
+  | ListNetworkMigrationCodeGenerationsCommandOutput
+  | ListNetworkMigrationDefinitionsCommandOutput
+  | ListNetworkMigrationDeployedStacksCommandOutput
+  | ListNetworkMigrationDeploymentsCommandOutput
+  | ListNetworkMigrationExecutionsCommandOutput
+  | ListNetworkMigrationMapperSegmentConstructsCommandOutput
+  | ListNetworkMigrationMapperSegmentsCommandOutput
+  | ListNetworkMigrationMappingUpdatesCommandOutput
+  | ListNetworkMigrationMappingsCommandOutput
   | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateActionsCommandOutput
@@ -375,6 +517,12 @@ export type ServiceOutputTypes =
   | StartCutoverCommandOutput
   | StartExportCommandOutput
   | StartImportCommandOutput
+  | StartImportFileEnrichmentCommandOutput
+  | StartNetworkMigrationAnalysisCommandOutput
+  | StartNetworkMigrationCodeGenerationCommandOutput
+  | StartNetworkMigrationDeploymentCommandOutput
+  | StartNetworkMigrationMappingCommandOutput
+  | StartNetworkMigrationMappingUpdateCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
   | StopReplicationCommandOutput
@@ -387,6 +535,8 @@ export type ServiceOutputTypes =
   | UpdateConnectorCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
+  | UpdateNetworkMigrationDefinitionCommandOutput
+  | UpdateNetworkMigrationMapperSegmentCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput
   | UpdateSourceServerCommandOutput

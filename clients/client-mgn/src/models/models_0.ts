@@ -1,26 +1,43 @@
 // smithy-typescript generated code
 import {
   ActionCategory,
+  AnalyzerType,
   ApplicationHealthStatus,
   ApplicationProgressStatus,
   BootMode,
   ChangeServerLifeCycleStateSourceServerLifecycleState,
+  CodeGenerationOutputFormatStatus,
+  CodeGenerationOutputFormatType,
   DataReplicationErrorString,
   DataReplicationInitiationStepName,
   DataReplicationInitiationStepStatus,
   DataReplicationState,
+  EncryptionAlgorithm,
+  ExecutionStage,
+  ExecutionStageActivity,
+  ExecutionStatus,
   ExportStatus,
   FirstBoot,
   ImportErrorType,
+  ImportFileEnrichmentStatus,
   ImportStatus,
   InitiatedBy,
   InternetProtocol,
+  IpAssignmentStrategy,
   JobLogEvent,
   JobStatus,
   JobType,
   LaunchDisposition,
   LaunchStatus,
   LifeCycleState,
+  NetworkMigrationAnalysisResultStatus,
+  NetworkMigrationCodeGenerationArtifactSubType,
+  NetworkMigrationCodeGenerationArtifactType,
+  NetworkMigrationCodeGenerationSegmentType,
+  NetworkMigrationDeployedStackStatus,
+  NetworkMigrationFailedResourceStatus,
+  NetworkMigrationJobStatus,
+  NetworkMigrationMapperSegmentType,
   PostLaunchActionExecutionStatus,
   PostLaunchActionsDeploymentType,
   ReplicationConfigurationDataPlaneRouting,
@@ -28,9 +45,13 @@ import {
   ReplicationConfigurationEbsEncryption,
   ReplicationConfigurationReplicatedDiskStagingDiskType,
   ReplicationType,
+  SecurityGroupMappingStrategy,
+  SourceEnvironment,
   SsmDocumentType,
   SsmParameterStoreParameterType,
+  TargetDeployment,
   TargetInstanceTypeRightSizingMethod,
+  TargetNetworkTopology,
   VolumeType,
   WaveHealthStatus,
   WaveProgressStatus,
@@ -2394,6 +2415,148 @@ export interface UpdateLaunchConfigurationTemplateRequest {
 }
 
 /**
+ * <p>Filters for listing import file enrichment jobs.</p>
+ * @public
+ */
+export interface ListImportFileEnrichmentsFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportFileEnrichmentsRequest {
+  /**
+   * <p>Filters to apply when listing import file enrichment jobs.</p>
+   * @public
+   */
+  filters?: ListImportFileEnrichmentsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A checksum structure used to verify data integrity.</p>
+ * @public
+ */
+export interface Checksum {
+  /**
+   * <p>The encryption algorithm used to generate the checksum.</p>
+   * @public
+   */
+  encryptionAlgorithm?: EncryptionAlgorithm | undefined;
+
+  /**
+   * <p>The hash value of the checksum.</p>
+   * @public
+   */
+  hash?: string | undefined;
+}
+
+/**
+ * <p>S3 configuration for storing the enriched import file.</p>
+ * @public
+ */
+export interface EnrichmentTargetS3Configuration {
+  /**
+   * <p>The name of the S3 bucket where the enriched import file will be stored.</p>
+   * @public
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the target S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner: string | undefined;
+
+  /**
+   * <p>The S3 key (path) where the enriched import file will be stored.</p>
+   * @public
+   */
+  s3Key: string | undefined;
+}
+
+/**
+ * <p>Details about an import file enrichment job.</p>
+ * @public
+ */
+export interface ImportFileEnrichment {
+  /**
+   * <p>The unique identifier of the import file enrichment job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the enrichment job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the enrichment job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the import file enrichment job.</p>
+   * @public
+   */
+  status?: ImportFileEnrichmentStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the enrichment job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+
+  /**
+   * <p>The checksum of the enriched file for integrity verification.</p>
+   * @public
+   */
+  checksum?: Checksum | undefined;
+
+  /**
+   * <p>The target S3 configuration for the enriched import file.</p>
+   * @public
+   */
+  s3BucketTarget?: EnrichmentTargetS3Configuration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImportFileEnrichmentsResponse {
+  /**
+   * <p>A list of import file enrichment jobs.</p>
+   * @public
+   */
+  items?: ImportFileEnrichment[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>List managed accounts request.</p>
  * @public
  */
@@ -2461,6 +2624,2239 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>S3 configuration for source network data.</p>
+ * @public
+ */
+export interface SourceS3Configuration {
+  /**
+   * <p>The name of the S3 bucket containing source data.</p>
+   * @public
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner: string | undefined;
+
+  /**
+   * <p>The S3 key (path) for the source data.</p>
+   * @public
+   */
+  s3Key: string | undefined;
+}
+
+/**
+ * <p>Configuration for a migration source environment.</p>
+ * @public
+ */
+export interface SourceConfiguration {
+  /**
+   * <p>The source environment type.</p>
+   * @public
+   */
+  sourceEnvironment: SourceEnvironment | undefined;
+
+  /**
+   * <p>The S3 configuration for the source data.</p>
+   * @public
+   */
+  sourceS3Configuration: SourceS3Configuration | undefined;
+}
+
+/**
+ * <p>Configuration for the target network topology and addressing.</p>
+ * @public
+ */
+export interface TargetNetwork {
+  /**
+   * <p>The network topology type for the target environment.</p>
+   * @public
+   */
+  topology: TargetNetworkTopology | undefined;
+
+  /**
+   * <p>The CIDR block for inbound traffic in the target network.</p>
+   * @public
+   */
+  inboundCidr?: string | undefined;
+
+  /**
+   * <p>The CIDR block for outbound traffic in the target network.</p>
+   * @public
+   */
+  outboundCidr?: string | undefined;
+
+  /**
+   * <p>The CIDR block for inspection traffic in the target network.</p>
+   * @public
+   */
+  inspectionCidr?: string | undefined;
+}
+
+/**
+ * <p>S3 configuration for storing target network artifacts.</p>
+ * @public
+ */
+export interface TargetS3Configuration {
+  /**
+   * <p>The name of the S3 bucket for target artifacts.</p>
+   * @public
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkMigrationDefinitionRequest {
+  /**
+   * <p>The name of the network migration definition.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the network migration definition.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of source configurations for the network migration.</p>
+   * @public
+   */
+  sourceConfigurations?: SourceConfiguration[] | undefined;
+
+  /**
+   * <p>The S3 configuration for storing the target network artifacts.</p>
+   * @public
+   */
+  targetS3Configuration: TargetS3Configuration | undefined;
+
+  /**
+   * <p>The target network configuration including topology and CIDR ranges.</p>
+   * @public
+   */
+  targetNetwork: TargetNetwork | undefined;
+
+  /**
+   * <p>The target deployment configuration for the migrated network.</p>
+   * @public
+   */
+  targetDeployment?: TargetDeployment | undefined;
+
+  /**
+   * <p>Tags to assign to the network migration definition.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Scope tags for the network migration definition to control access and organization.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface NetworkMigrationDefinition {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network migration definition.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The name of the network migration definition.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the network migration definition.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of source configurations for the network migration.</p>
+   * @public
+   */
+  sourceConfigurations?: SourceConfiguration[] | undefined;
+
+  /**
+   * <p>The S3 configuration for storing the target network artifacts.</p>
+   * @public
+   */
+  targetS3Configuration?: TargetS3Configuration | undefined;
+
+  /**
+   * <p>The target network configuration including topology and CIDR ranges.</p>
+   * @public
+   */
+  targetNetwork?: TargetNetwork | undefined;
+
+  /**
+   * <p>The target deployment configuration for the migrated network.</p>
+   * @public
+   */
+  targetDeployment?: TargetDeployment | undefined;
+
+  /**
+   * <p>The timestamp when the network migration definition was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the network migration definition was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>Tags assigned to the network migration definition.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Scope tags for the network migration definition.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkMigrationDefinitionRequest {
+  /**
+   * <p>The unique identifier of the network migration definition to delete.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkMigrationDefinitionResponse {}
+
+/**
+ * @public
+ */
+export interface GetNetworkMigrationDefinitionRequest {
+  /**
+   * <p>The unique identifier of the network migration definition to retrieve.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNetworkMigrationMapperSegmentConstructRequest {
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the mapper segment.</p>
+   * @public
+   */
+  segmentID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the construct within the segment.</p>
+   * @public
+   */
+  constructID: string | undefined;
+}
+
+/**
+ * <p>Represents a construct within a mapper segment. A construct is an individual infrastructure component such as a VPC, subnet, security group, route table, or other network resource that is part of the network migration.</p>
+ * @public
+ */
+export interface NetworkMigrationMapperSegmentConstruct {
+  /**
+   * <p>The unique identifier of the construct.</p>
+   * @public
+   */
+  constructID?: string | undefined;
+
+  /**
+   * <p>The type of the construct, such as VPC, subnet, security group, or route table.</p>
+   * @public
+   */
+  constructType?: string | undefined;
+
+  /**
+   * <p>The name of the construct.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the construct.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The logical identifier for the construct in the infrastructure code.</p>
+   * @public
+   */
+  logicalID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the construct was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the construct was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>The properties and configuration of the construct.</p>
+   * @public
+   */
+  properties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetNetworkMigrationMapperSegmentConstructResponse {
+  /**
+   * <p>The construct metadata including type, name, and configuration.</p>
+   * @public
+   */
+  construct?: NetworkMigrationMapperSegmentConstruct | undefined;
+}
+
+/**
+ * <p>Filters for listing network migration analysis jobs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationAnalysesFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationAnalysesRequest {
+  /**
+   * <p>The unique identifier of the network migration execution to list analyses for.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing analysis jobs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationAnalysesFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a network migration analysis job.</p>
+ * @public
+ */
+export interface NetworkMigrationAnalysisJobDetails {
+  /**
+   * <p>The unique identifier of the analysis job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the analysis job.</p>
+   * @public
+   */
+  status?: NetworkMigrationJobStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationAnalysesResponse {
+  /**
+   * <p>A list of network migration analysis job details.</p>
+   * @public
+   */
+  items?: NetworkMigrationAnalysisJobDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing network migration analysis results.</p>
+ * @public
+ */
+export interface ListNetworkMigrationAnalysisResultsFilters {
+  /**
+   * <p>A list of VPC IDs to filter results by.</p>
+   * @public
+   */
+  vpcIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationAnalysisResultsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing analysis results, such as VPC IDs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationAnalysisResultsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The source resource information for an analysis result.</p>
+ * @public
+ */
+export interface NetworkMigrationAnalysisResultSource {
+  /**
+   * <p>The VPC ID of the source resource.</p>
+   * @public
+   */
+  vpcID?: string | undefined;
+
+  /**
+   * <p>The subnet ID of the source resource.</p>
+   * @public
+   */
+  subnetID?: string | undefined;
+}
+
+/**
+ * <p>The target resource information for an analysis result.</p>
+ * @public
+ */
+export interface NetworkMigrationAnalysisResultTarget {
+  /**
+   * <p>The VPC ID of the target resource.</p>
+   * @public
+   */
+  vpcID?: string | undefined;
+
+  /**
+   * <p>The subnet ID of the target resource.</p>
+   * @public
+   */
+  subnetID?: string | undefined;
+}
+
+/**
+ * <p>The result of a network migration analysis operation.</p>
+ * @public
+ */
+export interface NetworkMigrationAnalysisResult {
+  /**
+   * <p>The unique identifier of the analysis job that generated this result.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The type of analyzer that generated this result.</p>
+   * @public
+   */
+  analyzerType?: AnalyzerType | undefined;
+
+  /**
+   * <p>The source resource that was analyzed.</p>
+   * @public
+   */
+  source?: NetworkMigrationAnalysisResultSource | undefined;
+
+  /**
+   * <p>The target resource in the analysis.</p>
+   * @public
+   */
+  target?: NetworkMigrationAnalysisResultTarget | undefined;
+
+  /**
+   * <p>The status of the analysis result.</p>
+   * @public
+   */
+  status?: NetworkMigrationAnalysisResultStatus | undefined;
+
+  /**
+   * <p>The detailed analysis findings and recommendations.</p>
+   * @public
+   */
+  analysisResult?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationAnalysisResultsResponse {
+  /**
+   * <p>A list of network migration analysis results.</p>
+   * @public
+   */
+  items?: NetworkMigrationAnalysisResult[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing code generation jobs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationsFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing code generation jobs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationCodeGenerationsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Status details for a specific code generation output format.</p>
+ * @public
+ */
+export interface CodeGenerationOutputFormatStatusDetails {
+  /**
+   * <p>The status of the code generation for this output format.</p>
+   * @public
+   */
+  status?: CodeGenerationOutputFormatStatus | undefined;
+
+  /**
+   * <p>A list of detailed status information for the code generation.</p>
+   * @public
+   */
+  statusDetailList?: string | undefined;
+}
+
+/**
+ * <p>Details about a network migration code generation job.</p>
+ * @public
+ */
+export interface NetworkMigrationCodeGenerationJobDetails {
+  /**
+   * <p>The unique identifier of the code generation job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the code generation job.</p>
+   * @public
+   */
+  status?: NetworkMigrationJobStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+
+  /**
+   * <p>A map of output format types to their status details.</p>
+   * @public
+   */
+  codeGenerationOutputFormatStatusDetailsMap?: Partial<Record<CodeGenerationOutputFormatType, CodeGenerationOutputFormatStatusDetails>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationsResponse {
+  /**
+   * <p>A list of network migration code generation job details.</p>
+   * @public
+   */
+  items?: NetworkMigrationCodeGenerationJobDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing code generation segments.</p>
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationSegmentsFilters {
+  /**
+   * <p>A list of segment IDs to filter by.</p>
+   * @public
+   */
+  segmentIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationSegmentsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing code generation segments.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationCodeGenerationSegmentsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Configuration for an S3 location.</p>
+ * @public
+ */
+export interface S3Configuration {
+  /**
+   * <p>The name of the S3 bucket.</p>
+   * @public
+   */
+  s3Bucket?: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner?: string | undefined;
+
+  /**
+   * <p>The S3 key (path) for the object.</p>
+   * @public
+   */
+  s3Key?: string | undefined;
+}
+
+/**
+ * <p>An artifact generated during code generation, such as a CloudFormation template or Terraform file.</p>
+ * @public
+ */
+export interface NetworkMigrationCodeGenerationArtifact {
+  /**
+   * <p>The unique identifier of the artifact.</p>
+   * @public
+   */
+  artifactID?: string | undefined;
+
+  /**
+   * <p>The type of the artifact, such as CLOUDFORMATION_TEMPLATE or TERRAFORM_MODULE.</p>
+   * @public
+   */
+  artifactType?: NetworkMigrationCodeGenerationArtifactType | undefined;
+
+  /**
+   * <p>The sub-type of the artifact for further classification.</p>
+   * @public
+   */
+  artifactSubType?: NetworkMigrationCodeGenerationArtifactSubType | undefined;
+
+  /**
+   * <p>The logical identifier for the artifact.</p>
+   * @public
+   */
+  logicalID?: string | undefined;
+
+  /**
+   * <p>The S3 location where the artifact is stored.</p>
+   * @public
+   */
+  outputS3Configuration?: S3Configuration | undefined;
+
+  /**
+   * <p>The checksum of the artifact for integrity verification.</p>
+   * @public
+   */
+  checksum?: Checksum | undefined;
+
+  /**
+   * <p>The timestamp when the artifact was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * <p>A segment of generated code representing a logical grouping of infrastructure resources.</p>
+ * @public
+ */
+export interface NetworkMigrationCodeGenerationSegment {
+  /**
+   * <p>The unique identifier of the code generation job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The type of the segment.</p>
+   * @public
+   */
+  segmentType?: NetworkMigrationCodeGenerationSegmentType | undefined;
+
+  /**
+   * <p>The logical identifier for the segment.</p>
+   * @public
+   */
+  logicalID?: string | undefined;
+
+  /**
+   * <p>The ID of the mapper segment that this code generation segment was created from.</p>
+   * @public
+   */
+  mapperSegmentID?: string | undefined;
+
+  /**
+   * <p>A list of artifacts generated for this segment.</p>
+   * @public
+   */
+  artifacts?: NetworkMigrationCodeGenerationArtifact[] | undefined;
+
+  /**
+   * <p>The timestamp when the segment was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationCodeGenerationSegmentsResponse {
+  /**
+   * <p>A list of network migration code generation segments.</p>
+   * @public
+   */
+  items?: NetworkMigrationCodeGenerationSegment[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing network migration definitions.</p>
+ * @public
+ */
+export interface ListNetworkMigrationDefinitionsRequestFilters {
+  /**
+   * <p>A list of definition IDs to filter by.</p>
+   * @public
+   */
+  networkMigrationDefinitionIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDefinitionsRequest {
+  /**
+   * <p>Filters to apply when listing network migration definitions.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationDefinitionsRequestFilters | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of a network migration definition.</p>
+ * @public
+ */
+export interface NetworkMigrationDefinitionSummary {
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The name of the network migration definition.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The source environment configuration.</p>
+   * @public
+   */
+  sourceEnvironment?: SourceEnvironment | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the network migration definition.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Tags assigned to the network migration definition.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Scope tags for the network migration definition.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDefinitionsResponse {
+  /**
+   * <p>A list of network migration definition summaries.</p>
+   * @public
+   */
+  items?: NetworkMigrationDefinitionSummary[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDeployedStacksRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a resource that failed to deploy.</p>
+ * @public
+ */
+export interface NetworkMigrationFailedResourceDetails {
+  /**
+   * <p>The logical ID of the failed resource.</p>
+   * @public
+   */
+  logicalID?: string | undefined;
+
+  /**
+   * <p>The status of the failed resource.</p>
+   * @public
+   */
+  status?: NetworkMigrationFailedResourceStatus | undefined;
+
+  /**
+   * <p>The reason why the resource failed.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * <p>Details about a CloudFormation stack that has been deployed as part of the network migration.</p>
+ * @public
+ */
+export interface NetworkMigrationDeployedStackDetails {
+  /**
+   * <p>The current status of the deployed stack.</p>
+   * @public
+   */
+  status?: NetworkMigrationDeployedStackStatus | undefined;
+
+  /**
+   * <p>The physical ID of the CloudFormation stack.</p>
+   * @public
+   */
+  stackPhysicalID?: string | undefined;
+
+  /**
+   * <p>The logical ID of the stack.</p>
+   * @public
+   */
+  stackLogicalID?: string | undefined;
+
+  /**
+   * <p>The ID of the segment that this stack was deployed for.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The target AWS account where the stack was deployed.</p>
+   * @public
+   */
+  targetAccount?: string | undefined;
+
+  /**
+   * <p>A list of resources that failed to deploy.</p>
+   * @public
+   */
+  failedResources?: NetworkMigrationFailedResourceDetails[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDeployedStacksResponse {
+  /**
+   * <p>A list of deployed stack details including status and resources.</p>
+   * @public
+   */
+  items?: NetworkMigrationDeployedStackDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a network migration deployer job.</p>
+ * @public
+ */
+export interface NetworkMigrationDeployerJobDetails {
+  /**
+   * <p>The unique identifier of the deployer job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the deployer job.</p>
+   * @public
+   */
+  status?: NetworkMigrationJobStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDeployerJobResponse {
+  /**
+   * <p>A list of deployer job details.</p>
+   * @public
+   */
+  items?: NetworkMigrationDeployerJobDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing deployer jobs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationDeployerJobFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationDeploymentsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing deployment jobs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationDeployerJobFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing network migration executions.</p>
+ * @public
+ */
+export interface ListNetworkMigrationExecutionRequestFilters {
+  /**
+   * <p>A list of execution IDs to filter by.</p>
+   * @public
+   */
+  networkMigrationExecutionIDs?: string[] | undefined;
+
+  /**
+   * <p>A list of execution statuses to filter by.</p>
+   * @public
+   */
+  networkMigrationExecutionStatuses?: ExecutionStatus[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationExecutionsRequest {
+  /**
+   * <p>The unique identifier of the network migration definition to list executions for.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing executions, such as status or execution ID.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationExecutionRequestFilters | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Details about a network migration execution instance.</p>
+ * @public
+ */
+export interface NetworkMigrationExecution {
+  /**
+   * <p>The unique identifier of the network migration definition used by this execution.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The current status of the execution.</p>
+   * @public
+   */
+  status?: ExecutionStatus | undefined;
+
+  /**
+   * <p>The current stage of the execution in the migration workflow.</p>
+   * @public
+   */
+  stage?: ExecutionStage | undefined;
+
+  /**
+   * <p>The current activity being performed in the execution.</p>
+   * @public
+   */
+  activity?: ExecutionStageActivity | undefined;
+
+  /**
+   * <p>The timestamp when the execution was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the execution was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>Tags assigned to the execution.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationExecutionsResponse {
+  /**
+   * <p>A list of network migration execution details.</p>
+   * @public
+   */
+  items?: NetworkMigrationExecution[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing mapper segment constructs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentConstructsFilters {
+  /**
+   * <p>A list of construct IDs to filter by.</p>
+   * @public
+   */
+  constructIDs?: string[] | undefined;
+
+  /**
+   * <p>A list of construct types to filter by.</p>
+   * @public
+   */
+  constructTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentConstructsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment to list constructs for.</p>
+   * @public
+   */
+  segmentID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing constructs, such as construct type or ID.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationMapperSegmentConstructsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentConstructsResponse {
+  /**
+   * <p>A list of mapper segment constructs.</p>
+   * @public
+   */
+  items?: NetworkMigrationMapperSegmentConstruct[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing mapper segments.</p>
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentsFilters {
+  /**
+   * <p>A list of segment IDs to filter by.</p>
+   * @public
+   */
+  segmentIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing segments.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationMapperSegmentsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface NetworkMigrationMapperSegment {
+  /**
+   * <p>The unique identifier of the job that created this segment.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment.</p>
+   * @public
+   */
+  segmentID?: string | undefined;
+
+  /**
+   * <p>The type of the segment, such as VPC, subnet, or security group.</p>
+   * @public
+   */
+  segmentType?: NetworkMigrationMapperSegmentType | undefined;
+
+  /**
+   * <p>The name of the segment.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the segment.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The logical identifier for the segment in the infrastructure code.</p>
+   * @public
+   */
+  logicalID?: string | undefined;
+
+  /**
+   * <p>The checksum of the segment data for integrity verification.</p>
+   * @public
+   */
+  checksum?: Checksum | undefined;
+
+  /**
+   * <p>The S3 location where segment artifacts are stored.</p>
+   * @public
+   */
+  outputS3Configuration?: S3Configuration | undefined;
+
+  /**
+   * <p>The timestamp when the segment was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the segment was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>Scope tags for the segment.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The target AWS account where this segment will be deployed.</p>
+   * @public
+   */
+  targetAccount?: string | undefined;
+
+  /**
+   * <p>A list of other segments that this segment depends on or references.</p>
+   * @public
+   */
+  referencedSegments?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMapperSegmentsResponse {
+  /**
+   * <p>A list of mapper segments.</p>
+   * @public
+   */
+  items?: NetworkMigrationMapperSegment[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing network migration mapping jobs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationMappingsFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMappingsRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing mapping jobs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationMappingsFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a network migration mapping job.</p>
+ * @public
+ */
+export interface NetworkMigrationMappingJobDetails {
+  /**
+   * <p>The unique identifier of the mapping job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the mapping job.</p>
+   * @public
+   */
+  status?: NetworkMigrationJobStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMappingsResponse {
+  /**
+   * <p>A list of network migration mapping job details.</p>
+   * @public
+   */
+  items?: NetworkMigrationMappingJobDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing mapping update jobs.</p>
+ * @public
+ */
+export interface ListNetworkMigrationMappingUpdatesFilters {
+  /**
+   * <p>A list of job IDs to filter by.</p>
+   * @public
+   */
+  jobIDs?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMappingUpdatesRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing mapping update jobs.</p>
+   * @public
+   */
+  filters?: ListNetworkMigrationMappingUpdatesFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about a network migration mapping update job.</p>
+ * @public
+ */
+export interface NetworkMigrationMappingUpdateJobDetails {
+  /**
+   * <p>The unique identifier of the mapping update job.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID?: string | undefined;
+
+  /**
+   * <p>The timestamp when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed or failed.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the mapping update job.</p>
+   * @public
+   */
+  status?: NetworkMigrationJobStatus | undefined;
+
+  /**
+   * <p>Detailed status information about the job.</p>
+   * @public
+   */
+  statusDetails?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkMigrationMappingUpdatesResponse {
+  /**
+   * <p>A list of mapping update job details.</p>
+   * @public
+   */
+  items?: NetworkMigrationMappingUpdateJobDetails[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationAnalysisRequest {
+  /**
+   * <p>The unique identifier of the network migration execution to analyze.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationAnalysisResponse {
+  /**
+   * <p>The unique identifier of the analysis job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationCodeGenerationRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The output format types for code generation, such as CloudFormation or Terraform.</p>
+   * @public
+   */
+  codeGenerationOutputFormatTypes?: CodeGenerationOutputFormatType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationCodeGenerationResponse {
+  /**
+   * <p>The unique identifier of the code generation job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationDeployerJobResponse {
+  /**
+   * <p>The unique identifier of the deployer job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationDeploymentRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationMappingRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The security group mapping strategy to use.</p>
+   * @public
+   */
+  securityGroupMappingStrategy?: SecurityGroupMappingStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationMappingResponse {
+  /**
+   * <p>The unique identifier of the mapping job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * <p>An operation that updates the properties of a construct.</p>
+ * @public
+ */
+export interface UpdateOperation {
+  /**
+   * <p>The properties to update on the construct.</p>
+   * @public
+   */
+  properties?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A union type representing the operation to perform on a construct during a mapping update.</p>
+ * @public
+ */
+export type OperationUnion =
+  | OperationUnion.UpdateMember
+  | OperationUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperationUnion {
+  /**
+   * <p>An update operation to modify construct properties.</p>
+   * @public
+   */
+  export interface UpdateMember {
+    update: UpdateOperation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    update?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    update: (value: UpdateOperation) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A construct update to apply during a mapping update operation.</p>
+ * @public
+ */
+export interface StartNetworkMigrationMappingUpdateConstruct {
+  /**
+   * <p>The ID of the segment containing the construct.</p>
+   * @public
+   */
+  segmentID: string | undefined;
+
+  /**
+   * <p>The ID of the construct to update.</p>
+   * @public
+   */
+  constructID: string | undefined;
+
+  /**
+   * <p>The type of the construct.</p>
+   * @public
+   */
+  constructType: string | undefined;
+
+  /**
+   * <p>The operation to perform on the construct.</p>
+   * @public
+   */
+  operation?: OperationUnion | undefined;
+}
+
+/**
+ * <p>A segment update to apply during a mapping update operation.</p>
+ * @public
+ */
+export interface StartNetworkMigrationMappingUpdateSegment {
+  /**
+   * <p>The ID of the segment to update.</p>
+   * @public
+   */
+  segmentID: string | undefined;
+
+  /**
+   * <p>The updated target AWS account for the segment.</p>
+   * @public
+   */
+  targetAccount?: string | undefined;
+
+  /**
+   * <p>The updated scope tags for the segment.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationMappingUpdateRequest {
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>A list of construct updates to apply.</p>
+   * @public
+   */
+  constructs?: StartNetworkMigrationMappingUpdateConstruct[] | undefined;
+
+  /**
+   * <p>A list of segment updates to apply.</p>
+   * @public
+   */
+  segments?: StartNetworkMigrationMappingUpdateSegment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNetworkMigrationMappingUpdateResponse {
+  /**
+   * <p>The unique identifier of the mapping update job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * <p>Updated configuration for the target network topology and addressing.</p>
+ * @public
+ */
+export interface TargetNetworkUpdate {
+  /**
+   * <p>The updated network topology type.</p>
+   * @public
+   */
+  topology?: TargetNetworkTopology | undefined;
+
+  /**
+   * <p>The updated CIDR block for inbound traffic.</p>
+   * @public
+   */
+  inboundCidr?: string | undefined;
+
+  /**
+   * <p>The updated CIDR block for outbound traffic.</p>
+   * @public
+   */
+  outboundCidr?: string | undefined;
+
+  /**
+   * <p>The updated CIDR block for inspection traffic.</p>
+   * @public
+   */
+  inspectionCidr?: string | undefined;
+}
+
+/**
+ * <p>Updated S3 configuration for storing target network artifacts.</p>
+ * @public
+ */
+export interface TargetS3ConfigurationUpdate {
+  /**
+   * <p>The updated name of the S3 bucket.</p>
+   * @public
+   */
+  s3Bucket?: string | undefined;
+
+  /**
+   * <p>The updated AWS account ID of the S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateNetworkMigrationDefinitionRequest {
+  /**
+   * <p>The unique identifier of the network migration definition to update.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The updated name of the network migration definition.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The updated description of the network migration definition.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated list of source configurations.</p>
+   * @public
+   */
+  sourceConfigurations?: SourceConfiguration[] | undefined;
+
+  /**
+   * <p>The updated S3 configuration for storing the target network artifacts.</p>
+   * @public
+   */
+  targetS3Configuration?: TargetS3ConfigurationUpdate | undefined;
+
+  /**
+   * <p>The updated target network configuration.</p>
+   * @public
+   */
+  targetNetwork?: TargetNetworkUpdate | undefined;
+
+  /**
+   * <p>The updated target deployment configuration.</p>
+   * @public
+   */
+  targetDeployment?: TargetDeployment | undefined;
+
+  /**
+   * <p>The updated scope tags for the network migration definition.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateNetworkMigrationMapperSegmentRequest {
+  /**
+   * <p>The unique identifier of the network migration definition.</p>
+   * @public
+   */
+  networkMigrationDefinitionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the network migration execution.</p>
+   * @public
+   */
+  networkMigrationExecutionID: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment to update.</p>
+   * @public
+   */
+  segmentID: string | undefined;
+
+  /**
+   * <p>The updated scope tags for the segment.</p>
+   * @public
+   */
+  scopeTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4598,6 +6994,70 @@ export interface UpdateSourceServerReplicationTypeRequest {
    * @public
    */
   accountID?: string | undefined;
+}
+
+/**
+ * <p>S3 configuration for the source import file to be enriched.</p>
+ * @public
+ */
+export interface EnrichmentSourceS3Configuration {
+  /**
+   * <p>The name of the S3 bucket containing the source import file.</p>
+   * @public
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the S3 bucket owner.</p>
+   * @public
+   */
+  s3BucketOwner: string | undefined;
+
+  /**
+   * <p>The S3 key (path) for the source import file.</p>
+   * @public
+   */
+  s3Key: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartImportFileEnrichmentRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The S3 configuration specifying the source location of the import file to be enriched.</p>
+   * @public
+   */
+  s3BucketSource: EnrichmentSourceS3Configuration | undefined;
+
+  /**
+   * <p>The S3 configuration specifying the target location where the enriched import file will be stored.</p>
+   * @public
+   */
+  s3BucketTarget: EnrichmentTargetS3Configuration | undefined;
+
+  /**
+   * <p>The IP assignment strategy to use when enriching the import file. Can be STATIC or DYNAMIC.</p>
+   * @public
+   */
+  ipAssignmentStrategy?: IpAssignmentStrategy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartImportFileEnrichmentResponse {
+  /**
+   * <p>The unique identifier of the import file enrichment job that was started.</p>
+   * @public
+   */
+  jobID?: string | undefined;
 }
 
 /**

@@ -12,16 +12,20 @@ const _ASSR = "AssociateSourceServersRequest";
 const _ASSRs = "AssociateSourceServersResponse";
 const _AW = "ArchiveWave";
 const _AWR = "ArchiveWaveRequest";
-const _C = "Connector";
+const _C = "Checksum";
 const _CA = "CreateApplication";
 const _CAR = "CreateApplicationRequest";
 const _CC = "CreateConnector";
 const _CCR = "CreateConnectorRequest";
 const _CE = "ConflictException";
 const _CEE = "ConflictExceptionErrors";
+const _CGOFSD = "CodeGenerationOutputFormatStatusDetails";
+const _CGOFSDM = "CodeGenerationOutputFormatStatusDetailsMap";
 const _CL = "ConnectorsList";
 const _CLCT = "CreateLaunchConfigurationTemplate";
 const _CLCTR = "CreateLaunchConfigurationTemplateRequest";
+const _CNMD = "CreateNetworkMigrationDefinition";
+const _CNMDR = "CreateNetworkMigrationDefinitionRequest";
 const _CPU = "CPU";
 const _CRCT = "CreateReplicationConfigurationTemplate";
 const _CRCTR = "CreateReplicationConfigurationTemplateRequest";
@@ -31,6 +35,7 @@ const _CSLCSR = "ChangeServerLifeCycleStateRequest";
 const _CSLCSSSL = "ChangeServerLifeCycleStateSourceServerLifecycle";
 const _CW = "CreateWave";
 const _CWR = "CreateWaveRequest";
+const _Co = "Connector";
 const _Cp = "Cpus";
 const _D = "Disk";
 const _DA = "DeleteApplication";
@@ -59,6 +64,9 @@ const _DLCTRe = "DeleteLaunchConfigurationTemplateResponse";
 const _DLCTRes = "DescribeLaunchConfigurationTemplatesRequest";
 const _DLCTResc = "DescribeLaunchConfigurationTemplatesResponse";
 const _DLCTe = "DescribeLaunchConfigurationTemplates";
+const _DNMD = "DeleteNetworkMigrationDefinition";
+const _DNMDR = "DeleteNetworkMigrationDefinitionRequest";
+const _DNMDRe = "DeleteNetworkMigrationDefinitionResponse";
 const _DRCT = "DeleteReplicationConfigurationTemplate";
 const _DRCTR = "DeleteReplicationConfigurationTemplateRequest";
 const _DRCTRe = "DeleteReplicationConfigurationTemplateResponse";
@@ -95,17 +103,26 @@ const _ED = "ErrorDetails";
 const _EE = "ExportErrors";
 const _EED = "ExportErrorData";
 const _EL = "ExportsList";
+const _ESSC = "EnrichmentSourceS3Configuration";
 const _ET = "ExportTask";
 const _ETE = "ExportTaskError";
 const _ETS = "ExportTaskSummary";
+const _ETSC = "EnrichmentTargetS3Configuration";
 const _FC = "FinalizeCutover";
 const _FCR = "FinalizeCutoverRequest";
 const _GLC = "GetLaunchConfiguration";
 const _GLCR = "GetLaunchConfigurationRequest";
+const _GNMD = "GetNetworkMigrationDefinition";
+const _GNMDR = "GetNetworkMigrationDefinitionRequest";
+const _GNMMSC = "GetNetworkMigrationMapperSegmentConstruct";
+const _GNMMSCR = "GetNetworkMigrationMapperSegmentConstructRequest";
+const _GNMMSCRe = "GetNetworkMigrationMapperSegmentConstructResponse";
 const _GRC = "GetReplicationConfiguration";
 const _GRCR = "GetReplicationConfigurationRequest";
 const _IE = "ImportErrors";
 const _IED = "ImportErrorData";
+const _IFE = "ImportFileEnrichment";
+const _IFEL = "ImportFileEnrichmentsList";
 const _IH = "IdentificationHints";
 const _IL = "ImportList";
 const _IS = "InitializeService";
@@ -156,6 +173,10 @@ const _LI = "LaunchedInstance";
 const _LIE = "ListImportErrors";
 const _LIER = "ListImportErrorsRequest";
 const _LIERi = "ListImportErrorsResponse";
+const _LIFE = "ListImportFileEnrichments";
+const _LIFEF = "ListImportFileEnrichmentsFilters";
+const _LIFER = "ListImportFileEnrichmentsRequest";
+const _LIFERi = "ListImportFileEnrichmentsResponse";
 const _LIR = "ListImportsRequest";
 const _LIRF = "ListImportsRequestFilters";
 const _LIRi = "ListImportsResponse";
@@ -163,6 +184,53 @@ const _LIi = "ListImports";
 const _LMA = "ListManagedAccounts";
 const _LMAR = "ListManagedAccountsRequest";
 const _LMARi = "ListManagedAccountsResponse";
+const _LNMA = "ListNetworkMigrationAnalyses";
+const _LNMAF = "ListNetworkMigrationAnalysesFilters";
+const _LNMAR = "ListNetworkMigrationAnalysesRequest";
+const _LNMARF = "ListNetworkMigrationAnalysisResultsFilters";
+const _LNMARR = "ListNetworkMigrationAnalysisResultsRequest";
+const _LNMARRi = "ListNetworkMigrationAnalysisResultsResponse";
+const _LNMARi = "ListNetworkMigrationAnalysesResponse";
+const _LNMARis = "ListNetworkMigrationAnalysisResults";
+const _LNMCG = "ListNetworkMigrationCodeGenerations";
+const _LNMCGF = "ListNetworkMigrationCodeGenerationsFilters";
+const _LNMCGR = "ListNetworkMigrationCodeGenerationsRequest";
+const _LNMCGRi = "ListNetworkMigrationCodeGenerationsResponse";
+const _LNMCGS = "ListNetworkMigrationCodeGenerationSegments";
+const _LNMCGSF = "ListNetworkMigrationCodeGenerationSegmentsFilters";
+const _LNMCGSR = "ListNetworkMigrationCodeGenerationSegmentsRequest";
+const _LNMCGSRi = "ListNetworkMigrationCodeGenerationSegmentsResponse";
+const _LNMD = "ListNetworkMigrationDefinitions";
+const _LNMDJF = "ListNetworkMigrationDeployerJobFilters";
+const _LNMDJR = "ListNetworkMigrationDeployerJobResponse";
+const _LNMDR = "ListNetworkMigrationDefinitionsRequest";
+const _LNMDRF = "ListNetworkMigrationDefinitionsRequestFilters";
+const _LNMDRi = "ListNetworkMigrationDefinitionsResponse";
+const _LNMDRis = "ListNetworkMigrationDeploymentsRequest";
+const _LNMDS = "ListNetworkMigrationDeployedStacks";
+const _LNMDSR = "ListNetworkMigrationDeployedStacksRequest";
+const _LNMDSRi = "ListNetworkMigrationDeployedStacksResponse";
+const _LNMDi = "ListNetworkMigrationDeployments";
+const _LNME = "ListNetworkMigrationExecutions";
+const _LNMER = "ListNetworkMigrationExecutionsRequest";
+const _LNMERF = "ListNetworkMigrationExecutionRequestFilters";
+const _LNMERi = "ListNetworkMigrationExecutionsResponse";
+const _LNMM = "ListNetworkMigrationMappings";
+const _LNMMF = "ListNetworkMigrationMappingsFilters";
+const _LNMMR = "ListNetworkMigrationMappingsRequest";
+const _LNMMRi = "ListNetworkMigrationMappingsResponse";
+const _LNMMS = "ListNetworkMigrationMapperSegments";
+const _LNMMSC = "ListNetworkMigrationMapperSegmentConstructs";
+const _LNMMSCF = "ListNetworkMigrationMapperSegmentConstructsFilters";
+const _LNMMSCR = "ListNetworkMigrationMapperSegmentConstructsRequest";
+const _LNMMSCRi = "ListNetworkMigrationMapperSegmentConstructsResponse";
+const _LNMMSF = "ListNetworkMigrationMapperSegmentsFilters";
+const _LNMMSR = "ListNetworkMigrationMapperSegmentsRequest";
+const _LNMMSRi = "ListNetworkMigrationMapperSegmentsResponse";
+const _LNMMU = "ListNetworkMigrationMappingUpdates";
+const _LNMMUF = "ListNetworkMigrationMappingUpdatesFilters";
+const _LNMMUR = "ListNetworkMigrationMappingUpdatesRequest";
+const _LNMMURi = "ListNetworkMigrationMappingUpdatesResponse";
 const _LSSA = "ListSourceServerActions";
 const _LSSAR = "ListSourceServerActionsRequest";
 const _LSSARi = "ListSourceServerActionsResponse";
@@ -183,7 +251,39 @@ const _MAAR = "MarkAsArchivedRequest";
 const _MAa = "ManagedAccounts";
 const _NI = "NetworkInterface";
 const _NIe = "NetworkInterfaces";
+const _NMAJD = "NetworkMigrationAnalysisJobDetails";
+const _NMAL = "NetworkMigrationAnalysesList";
+const _NMAR = "NetworkMigrationAnalysisResult";
+const _NMARL = "NetworkMigrationAnalysisResultsList";
+const _NMARS = "NetworkMigrationAnalysisResultSource";
+const _NMART = "NetworkMigrationAnalysisResultTarget";
+const _NMCGA = "NetworkMigrationCodeGenerationArtifact";
+const _NMCGAe = "NetworkMigrationCodeGenerationArtifacts";
+const _NMCGJD = "NetworkMigrationCodeGenerationJobDetails";
+const _NMCGL = "NetworkMigrationCodeGenerationsList";
+const _NMCGS = "NetworkMigrationCodeGenerationSegment";
+const _NMCGSL = "NetworkMigrationCodeGenerationSegmentsList";
+const _NMD = "NetworkMigrationDefinition";
+const _NMDJD = "NetworkMigrationDeployerJobDetails";
+const _NMDJL = "NetworkMigrationDeployerJobList";
+const _NMDS = "NetworkMigrationDefinitionSummary";
+const _NMDSD = "NetworkMigrationDeployedStackDetails";
+const _NMDSL = "NetworkMigrationDefinitionSummariesList";
+const _NMDSLe = "NetworkMigrationDeployedStacksList";
+const _NME = "NetworkMigrationExecution";
+const _NMEL = "NetworkMigrationExecutionsList";
+const _NMFRD = "NetworkMigrationFailedResourceDetails";
+const _NMFRL = "NetworkMigrationFailedResourcesList";
+const _NMMJD = "NetworkMigrationMappingJobDetails";
+const _NMML = "NetworkMigrationMappingsList";
+const _NMMS = "NetworkMigrationMapperSegment";
+const _NMMSC = "NetworkMigrationMapperSegmentConstruct";
+const _NMMSCe = "NetworkMigrationMapperSegmentConstructs";
+const _NMMSL = "NetworkMigrationMapperSegmentsList";
+const _NMMUJD = "NetworkMigrationMappingUpdateJobDetails";
+const _NMMUL = "NetworkMigrationMappingUpdatesList";
 const _OS = "OS";
+const _OU = "OperationUnion";
 const _PLA = "PostLaunchActions";
 const _PLALSL = "PostLaunchActionsLaunchStatusList";
 const _PLAS = "PostLaunchActionsStatus";
@@ -213,9 +313,12 @@ const _RTA = "RemoveTemplateAction";
 const _RTAR = "RemoveTemplateActionRequest";
 const _RTARe = "RemoveTemplateActionResponse";
 const _SBS = "S3BucketSource";
-const _SC = "StartCutover";
+const _SC = "S3Configuration";
+const _SCL = "SourceConfigurationList";
 const _SCR = "StartCutoverRequest";
 const _SCRt = "StartCutoverResponse";
+const _SCo = "SourceConfiguration";
+const _SCt = "StartCutover";
 const _SD = "SsmDocument";
 const _SDEP = "SsmDocumentExternalParameters";
 const _SDP = "SsmDocumentParameters";
@@ -225,8 +328,30 @@ const _SEP = "SsmExternalParameter";
 const _SER = "StartExportRequest";
 const _SERt = "StartExportResponse";
 const _SI = "StartImport";
+const _SIFE = "StartImportFileEnrichment";
+const _SIFER = "StartImportFileEnrichmentRequest";
+const _SIFERt = "StartImportFileEnrichmentResponse";
 const _SIR = "StartImportRequest";
 const _SIRt = "StartImportResponse";
+const _SNMA = "StartNetworkMigrationAnalysis";
+const _SNMAR = "StartNetworkMigrationAnalysisRequest";
+const _SNMARt = "StartNetworkMigrationAnalysisResponse";
+const _SNMCG = "StartNetworkMigrationCodeGeneration";
+const _SNMCGR = "StartNetworkMigrationCodeGenerationRequest";
+const _SNMCGRt = "StartNetworkMigrationCodeGenerationResponse";
+const _SNMD = "StartNetworkMigrationDeployment";
+const _SNMDJR = "StartNetworkMigrationDeployerJobResponse";
+const _SNMDR = "StartNetworkMigrationDeploymentRequest";
+const _SNMM = "StartNetworkMigrationMapping";
+const _SNMMR = "StartNetworkMigrationMappingRequest";
+const _SNMMRt = "StartNetworkMigrationMappingResponse";
+const _SNMMU = "StartNetworkMigrationMappingUpdate";
+const _SNMMUC = "StartNetworkMigrationMappingUpdateConstruct";
+const _SNMMUCt = "StartNetworkMigrationMappingUpdateConstructs";
+const _SNMMUR = "StartNetworkMigrationMappingUpdateRequest";
+const _SNMMURt = "StartNetworkMigrationMappingUpdateResponse";
+const _SNMMUS = "StartNetworkMigrationMappingUpdateSegment";
+const _SNMMUSt = "StartNetworkMigrationMappingUpdateSegments";
 const _SP = "SourceProperties";
 const _SPSP = "SsmParameterStoreParameter";
 const _SPSPs = "SsmParameterStoreParameters";
@@ -239,9 +364,11 @@ const _SS = "SourceServer";
 const _SSAD = "SourceServerActionDocument";
 const _SSADo = "SourceServerActionDocuments";
 const _SSARF = "SourceServerActionsRequestFilters";
+const _SSC = "SourceS3Configuration";
 const _SSCA = "SourceServerConnectorAction";
 const _SSL = "SourceServersList";
 const _ST = "StartTest";
+const _STM = "ScopeTagsMap";
 const _STR = "StartTestRequest";
 const _STRt = "StartTestResponse";
 const _TAD = "TemplateActionDocument";
@@ -250,8 +377,12 @@ const _TARF = "TemplateActionsRequestFilters";
 const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TM = "TagsMap";
+const _TN = "TargetNetwork";
+const _TNU = "TargetNetworkUpdate";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
+const _TSC = "TargetS3Configuration";
+const _TSCU = "TargetS3ConfigurationUpdate";
 const _TTI = "TerminateTargetInstances";
 const _TTIR = "TerminateTargetInstancesRequest";
 const _TTIRe = "TerminateTargetInstancesResponse";
@@ -266,6 +397,11 @@ const _ULC = "UpdateLaunchConfiguration";
 const _ULCR = "UpdateLaunchConfigurationRequest";
 const _ULCT = "UpdateLaunchConfigurationTemplate";
 const _ULCTR = "UpdateLaunchConfigurationTemplateRequest";
+const _UNMD = "UpdateNetworkMigrationDefinition";
+const _UNMDR = "UpdateNetworkMigrationDefinitionRequest";
+const _UNMMS = "UpdateNetworkMigrationMapperSegment";
+const _UNMMSR = "UpdateNetworkMigrationMapperSegmentRequest";
+const _UO = "UpdateOperation";
 const _UR = "UntagResource";
 const _URC = "UpdateReplicationConfiguration";
 const _URCR = "UpdateReplicationConfigurationRequest";
@@ -300,33 +436,50 @@ const _aIDc = "accountID";
 const _aIDct = "actionID";
 const _aIDcti = "actionIDs";
 const _aIDp = "applicationIDs";
+const _aIDr = "artifactID";
 const _aIID = "awsInstanceID";
 const _aN = "actionName";
 const _aPIA = "associatePublicIpAddress";
+const _aR = "analysisResult";
+const _aST = "artifactSubType";
+const _aT = "analyzerType";
 const _aTSDT = "addedToServiceDateTime";
-const _ac = "active";
+const _aTr = "artifactType";
+const _ac = "activity";
+const _act = "active";
 const _ap = "applications";
+const _ar = "artifacts";
 const _b = "bytes";
 const _bM = "bootMode";
 const _bSB = "backloggedStorageBytes";
 const _bT = "bandwidthThrottling";
 const _c = "client";
-const _cA = "connectorAction";
-const _cAo = "connectorArn";
+const _cA = "createdAt";
+const _cAo = "connectorAction";
+const _cAon = "connectorArn";
 const _cC = "createdCount";
 const _cDT = "creationDateTime";
+const _cGOFSDM = "codeGenerationOutputFormatStatusDetailsMap";
+const _cGOFT = "codeGenerationOutputFormatTypes";
 const _cID = "connectorID";
-const _cIDo = "connectorIDs";
+const _cIDo = "constructID";
+const _cIDon = "connectorIDs";
+const _cIDons = "constructIDs";
 const _cPI = "copyPrivateIp";
 const _cPIP = "createPublicIP";
 const _cSA = "credentialsSecretArn";
 const _cSID = "conversionServerID";
 const _cT = "copyTags";
 const _cTl = "clientToken";
+const _cTo = "constructTypes";
+const _cTon = "constructType";
 const _cWLGN = "cloudWatchLogGroupName";
 const _cWOE = "cloudWatchOutputEnabled";
 const _ca = "category";
+const _ch = "checksum";
 const _co = "code";
+const _con = "construct";
+const _cons = "constructs";
 const _cor = "cores";
 const _cp = "cpus";
 const _d = "description";
@@ -344,6 +497,8 @@ const _dV = "documentVersion";
 const _de = "deployment";
 const _di = "disks";
 const _e = "error";
+const _eA = "encryptionAlgorithm";
+const _eAn = "endedAt";
 const _eD = "errorData";
 const _eDT = "etaDateTime";
 const _eDTn = "endDateTime";
@@ -372,19 +527,24 @@ const _fD = "fromDate";
 const _fFAF = "fqdnForActionFramework";
 const _fL = "fieldList";
 const _fR = "failureReason";
+const _fRa = "failedResources";
 const _fS = "fullString";
 const _fi = "finalized";
 const _fq = "fqdn";
-const _h = "hostname";
+const _h = "hash";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
 const _hS = "healthStatus";
+const _ho = "hostname";
 const _ht = "http";
 const _i = "items";
 const _iA = "isArchived";
+const _iAS = "ipAssignmentStrategy";
 const _iB = "initiatedBy";
 const _iBD = "isBootDisk";
+const _iC = "inboundCidr";
+const _iCn = "inspectionCidr";
 const _iH = "identificationHints";
 const _iID = "importID";
 const _iIDm = "importIDs";
@@ -408,6 +568,7 @@ const _lDT = "logDateTime";
 const _lDa = "lagDuration";
 const _lEIID = "launchedEc2InstanceID";
 const _lI = "launchedInstance";
+const _lID = "logicalID";
 const _lMDT = "lastModifiedDateTime";
 const _lS = "launchStatus";
 const _lSBSDT = "lastSeenByServiceDateTime";
@@ -425,16 +586,25 @@ const _mC = "modifiedCount";
 const _mN = "modelName";
 const _mR = "maxResults";
 const _mSFC = "mustSucceedForCutover";
+const _mSID = "mapperSegmentID";
 const _n = "name";
 const _nADT = "nextAttemptDateTime";
 const _nI = "networkInterfaces";
+const _nMDID = "networkMigrationDefinitionID";
+const _nMDIDe = "networkMigrationDefinitionIDs";
+const _nMEID = "networkMigrationExecutionID";
+const _nMEIDe = "networkMigrationExecutionIDs";
+const _nMES = "networkMigrationExecutionStatuses";
 const _nT = "nextToken";
 const _o = "order";
 const _oB = "osByol";
+const _oC = "outboundCidr";
 const _oS = "operatingSystem";
 const _oSBN = "outputS3BucketName";
+const _oSC = "outputS3Configuration";
+const _op = "operation";
 const _os = "os";
-const _p = "parameters";
+const _p = "properties";
 const _pEK = "parametersEncryptionKey";
 const _pLA = "postLaunchActions";
 const _pLALSL = "postLaunchActionsLaunchStatusList";
@@ -444,6 +614,7 @@ const _pP = "progressPercentage";
 const _pS = "progressStatus";
 const _pSa = "participatingServers";
 const _pT = "parameterType";
+const _pa = "parameters";
 const _qC = "quotaCode";
 const _qV = "quotaValue";
 const _r = "reason";
@@ -458,6 +629,7 @@ const _rI = "resourceId";
 const _rIT = "recommendedInstanceType";
 const _rIe = "replicatorId";
 const _rN = "rowNumber";
+const _rS = "referencedSegments";
 const _rSB = "replicatedStorageBytes";
 const _rSBe = "rescannedStorageBytes";
 const _rSDT = "replicationStartedDateTime";
@@ -474,48 +646,76 @@ const _sAT = "stagingAreaTags";
 const _sB = "s3Bucket";
 const _sBO = "s3BucketOwner";
 const _sBS = "s3BucketSource";
+const _sBT = "s3BucketTarget";
 const _sC = "serviceCode";
 const _sCC = "ssmCommandConfig";
 const _sCe = "serversCount";
-const _sD = "ssmDocument";
+const _sCo = "sourceConfigurations";
+const _sD = "statusDetails";
+const _sDL = "statusDetailList";
 const _sDN = "ssmDocumentName";
 const _sDT = "startDateTime";
 const _sDTs = "ssmDocumentType";
 const _sDTt = "stagingDiskType";
-const _sDs = "ssmDocuments";
+const _sDs = "ssmDocument";
+const _sDsm = "ssmDocuments";
+const _sE = "sourceEnvironment";
+const _sGMS = "securityGroupMappingStrategy";
+const _sID = "segmentID";
+const _sIDe = "segmentIDs";
+const _sIDu = "subnetID";
 const _sIID = "ssmInstanceID";
 const _sK = "s3Key";
 const _sLB = "s3LogBucket";
+const _sLID = "stackLogicalID";
 const _sOE = "s3OutputEnabled";
 const _sOKP = "s3OutputKeyPrefix";
 const _sP = "sourceProperties";
+const _sPID = "stackPhysicalID";
+const _sR = "statusReason";
+const _sSC = "sourceS3Configuration";
 const _sSID = "sourceServerIDs";
 const _sSIDo = "sourceServerID";
 const _sSOLZ = "storeSnapshotOnLocalZone";
 const _sST = "sourceServerTags";
+const _sT = "scopeTags";
+const _sTe = "segmentType";
 const _sVC = "smallVolumeConf";
 const _sVMS = "smallVolumeMaxSize";
 const _se = "server";
+const _seg = "segments";
 const _ser = "servers";
+const _so = "source";
 const _st = "state";
 const _sta = "status";
+const _stag = "stage";
 const _ste = "steps";
 const _su = "summary";
 const _t = "tags";
-const _tA = "totalApplications";
-const _tD = "toDate";
+const _tA = "targetAccount";
+const _tAo = "totalApplications";
+const _tD = "targetDeployment";
+const _tDo = "toDate";
 const _tIID = "targetInstanceID";
 const _tITRSM = "targetInstanceTypeRightSizingMethod";
 const _tK = "tagKeys";
+const _tN = "targetNetwork";
 const _tS = "timeoutSeconds";
 const _tSB = "totalStorageBytes";
+const _tSC = "targetS3Configuration";
 const _tSS = "totalSourceServers";
+const _ta = "target";
 const _th = "throughput";
+const _to = "topology";
 const _ty = "type";
+const _u = "update";
+const _uA = "updatedAt";
 const _uDRS = "useDedicatedReplicationServer";
 const _uFE = "useFipsEndpoint";
 const _uPID = "userProvidedID";
 const _vCID = "vcenterClientID";
+const _vID = "vpcIDs";
+const _vIDp = "vpcID";
 const _vP = "vmPath";
 const _vT = "volumeType";
 const _vUUID = "vcenterUUID";
@@ -662,7 +862,17 @@ export var ChangeServerLifeCycleStateSourceServerLifecycle$: StaticStructureSche
   [_st],
   [0], 1
 ];
-export var Connector$: StaticStructureSchema = [3, n0, _C,
+export var Checksum$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_eA, _h],
+  [0, 0]
+];
+export var CodeGenerationOutputFormatStatusDetails$: StaticStructureSchema = [3, n0, _CGOFSD,
+  0,
+  [_sta, _sDL],
+  [0, 0]
+];
+export var Connector$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_cID, _n, _sIID, _a, _t, _sCC],
   [0, 0, 0, 0, [() => TagsMap, 0], () => ConnectorSsmCommandConfig$]
@@ -691,6 +901,11 @@ export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
   0,
   [_pLA, _eMAT, _mATMID, _t, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
   [() => PostLaunchActions$, 2, 0, [() => TagsMap, 0], 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0]
+];
+export var CreateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _CNMDR,
+  0,
+  [_n, _tSC, _tN, _d, _sCo, _tD, _t, _sT],
+  [0, () => TargetS3Configuration$, () => TargetNetwork$, 0, () => SourceConfigurationList, 0, [() => TagsMap, 0], [() => ScopeTagsMap, 0]], 3
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
@@ -762,6 +977,16 @@ export var DeleteLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
   [],
   []
 ];
+export var DeleteNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _DNMDR,
+  0,
+  [_nMDID],
+  [0], 1
+];
+export var DeleteNetworkMigrationDefinitionResponse$: StaticStructureSchema = [3, n0, _DNMDRe,
+  0,
+  [],
+  []
+];
 export var DeleteReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
   0,
   [_rCTID],
@@ -814,7 +1039,7 @@ export var DescribeJobsRequest$: StaticStructureSchema = [3, n0, _DJRes,
 ];
 export var DescribeJobsRequestFilters$: StaticStructureSchema = [3, n0, _DJRF,
   0,
-  [_jIDo, _fD, _tD],
+  [_jIDo, _fD, _tDo],
   [64 | 0, 0, 0]
 ];
 export var DescribeJobsResponse$: StaticStructureSchema = [3, n0, _DJResc,
@@ -897,6 +1122,16 @@ export var Disk$: StaticStructureSchema = [3, n0, _D,
   [_dN, _b],
   [0, 1]
 ];
+export var EnrichmentSourceS3Configuration$: StaticStructureSchema = [3, n0, _ESSC,
+  0,
+  [_sB, _sBO, _sK],
+  [0, 0, 0], 3
+];
+export var EnrichmentTargetS3Configuration$: StaticStructureSchema = [3, n0, _ETSC,
+  0,
+  [_sB, _sBO, _sK],
+  [0, 0, 0], 3
+];
 export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   0,
   [_m, _co, _rI, _rT],
@@ -932,6 +1167,21 @@ export var GetLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR
   [_sSIDo, _aIDc],
   [0, 0], 1
 ];
+export var GetNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _GNMDR,
+  0,
+  [_nMDID],
+  [0], 1
+];
+export var GetNetworkMigrationMapperSegmentConstructRequest$: StaticStructureSchema = [3, n0, _GNMMSCR,
+  0,
+  [_nMDID, _nMEID, _sID, _cIDo],
+  [0, 0, 0, 0], 4
+];
+export var GetNetworkMigrationMapperSegmentConstructResponse$: StaticStructureSchema = [3, n0, _GNMMSCRe,
+  0,
+  [_con],
+  [() => NetworkMigrationMapperSegmentConstruct$]
+];
 export var GetReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
   [_sSIDo, _aIDc],
@@ -939,13 +1189,18 @@ export var GetReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var IdentificationHints$: StaticStructureSchema = [3, n0, _IH,
   0,
-  [_fq, _h, _vWU, _aIID, _vP],
+  [_fq, _ho, _vWU, _aIID, _vP],
   [0, 0, 0, 0, 0]
 ];
 export var ImportErrorData$: StaticStructureSchema = [3, n0, _IED,
   0,
   [_sSIDo, _aID, _wID, _eLTID, _rN, _rE, _aIDc],
   [0, 0, 0, 0, 1, 0, 0]
+];
+export var ImportFileEnrichment$: StaticStructureSchema = [3, n0, _IFE,
+  0,
+  [_jID, _cA, _eAn, _sta, _sD, _ch, _sBT],
+  [0, 4, 4, 0, 0, () => Checksum$, () => EnrichmentTargetS3Configuration$]
 ];
 export var ImportTask$: StaticStructureSchema = [3, n0, _IT,
   0,
@@ -1004,7 +1259,7 @@ export var JobLogEventData$: StaticStructureSchema = [3, n0, _JLED,
 ];
 export var JobPostLaunchActionsLaunchStatus$: StaticStructureSchema = [3, n0, _JPLALS,
   0,
-  [_sD, _sDTs, _eIDx, _eS, _fR],
+  [_sDs, _sDTs, _eIDx, _eS, _fR],
   [() => SsmDocument$, 0, 0, 0, 0]
 ];
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
@@ -1099,7 +1354,7 @@ export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCR,
 ];
 export var ListConnectorsRequestFilters$: StaticStructureSchema = [3, n0, _LCRF,
   0,
-  [_cIDo],
+  [_cIDon],
   [64 | 0]
 ];
 export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
@@ -1142,6 +1397,21 @@ export var ListImportErrorsResponse$: StaticStructureSchema = [3, n0, _LIERi,
   [_i, _nT],
   [() => ImportErrors, 0]
 ];
+export var ListImportFileEnrichmentsFilters$: StaticStructureSchema = [3, n0, _LIFEF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListImportFileEnrichmentsRequest$: StaticStructureSchema = [3, n0, _LIFER,
+  0,
+  [_f, _mR, _nT],
+  [() => ListImportFileEnrichmentsFilters$, 1, 0]
+];
+export var ListImportFileEnrichmentsResponse$: StaticStructureSchema = [3, n0, _LIFERi,
+  0,
+  [_i, _nT],
+  [() => ImportFileEnrichmentsList, 0]
+];
 export var ListImportsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_f, _mR, _nT],
@@ -1166,6 +1436,181 @@ export var ListManagedAccountsResponse$: StaticStructureSchema = [3, n0, _LMARi,
   0,
   [_i, _nT],
   [() => ManagedAccounts, 0], 1
+];
+export var ListNetworkMigrationAnalysesFilters$: StaticStructureSchema = [3, n0, _LNMAF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListNetworkMigrationAnalysesRequest$: StaticStructureSchema = [3, n0, _LNMAR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationAnalysesFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationAnalysesResponse$: StaticStructureSchema = [3, n0, _LNMARi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationAnalysesList, 0]
+];
+export var ListNetworkMigrationAnalysisResultsFilters$: StaticStructureSchema = [3, n0, _LNMARF,
+  0,
+  [_vID],
+  [64 | 0]
+];
+export var ListNetworkMigrationAnalysisResultsRequest$: StaticStructureSchema = [3, n0, _LNMARR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationAnalysisResultsFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationAnalysisResultsResponse$: StaticStructureSchema = [3, n0, _LNMARRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationAnalysisResultsList, 0]
+];
+export var ListNetworkMigrationCodeGenerationSegmentsFilters$: StaticStructureSchema = [3, n0, _LNMCGSF,
+  0,
+  [_sIDe],
+  [64 | 0]
+];
+export var ListNetworkMigrationCodeGenerationSegmentsRequest$: StaticStructureSchema = [3, n0, _LNMCGSR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationCodeGenerationSegmentsFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationCodeGenerationSegmentsResponse$: StaticStructureSchema = [3, n0, _LNMCGSRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationCodeGenerationSegmentsList, 0]
+];
+export var ListNetworkMigrationCodeGenerationsFilters$: StaticStructureSchema = [3, n0, _LNMCGF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListNetworkMigrationCodeGenerationsRequest$: StaticStructureSchema = [3, n0, _LNMCGR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationCodeGenerationsFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationCodeGenerationsResponse$: StaticStructureSchema = [3, n0, _LNMCGRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationCodeGenerationsList, 0]
+];
+export var ListNetworkMigrationDefinitionsRequest$: StaticStructureSchema = [3, n0, _LNMDR,
+  0,
+  [_f, _nT, _mR],
+  [() => ListNetworkMigrationDefinitionsRequestFilters$, 0, 1]
+];
+export var ListNetworkMigrationDefinitionsRequestFilters$: StaticStructureSchema = [3, n0, _LNMDRF,
+  0,
+  [_nMDIDe],
+  [64 | 0]
+];
+export var ListNetworkMigrationDefinitionsResponse$: StaticStructureSchema = [3, n0, _LNMDRi,
+  0,
+  [_i, _nT],
+  [[() => NetworkMigrationDefinitionSummariesList, 0], 0]
+];
+export var ListNetworkMigrationDeployedStacksRequest$: StaticStructureSchema = [3, n0, _LNMDSR,
+  0,
+  [_nMEID, _nMDID, _mR, _nT],
+  [0, 0, 1, 0], 2
+];
+export var ListNetworkMigrationDeployedStacksResponse$: StaticStructureSchema = [3, n0, _LNMDSRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationDeployedStacksList, 0]
+];
+export var ListNetworkMigrationDeployerJobFilters$: StaticStructureSchema = [3, n0, _LNMDJF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListNetworkMigrationDeployerJobResponse$: StaticStructureSchema = [3, n0, _LNMDJR,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationDeployerJobList, 0]
+];
+export var ListNetworkMigrationDeploymentsRequest$: StaticStructureSchema = [3, n0, _LNMDRis,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationDeployerJobFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationExecutionRequestFilters$: StaticStructureSchema = [3, n0, _LNMERF,
+  0,
+  [_nMEIDe, _nMES],
+  [64 | 0, 64 | 0]
+];
+export var ListNetworkMigrationExecutionsRequest$: StaticStructureSchema = [3, n0, _LNMER,
+  0,
+  [_nMDID, _f, _nT, _mR],
+  [0, () => ListNetworkMigrationExecutionRequestFilters$, 0, 1], 1
+];
+export var ListNetworkMigrationExecutionsResponse$: StaticStructureSchema = [3, n0, _LNMERi,
+  0,
+  [_i, _nT],
+  [[() => NetworkMigrationExecutionsList, 0], 0]
+];
+export var ListNetworkMigrationMapperSegmentConstructsFilters$: StaticStructureSchema = [3, n0, _LNMMSCF,
+  0,
+  [_cIDons, _cTo],
+  [64 | 0, 64 | 0]
+];
+export var ListNetworkMigrationMapperSegmentConstructsRequest$: StaticStructureSchema = [3, n0, _LNMMSCR,
+  0,
+  [_nMEID, _nMDID, _sID, _f, _mR, _nT],
+  [0, 0, 0, () => ListNetworkMigrationMapperSegmentConstructsFilters$, 1, 0], 3
+];
+export var ListNetworkMigrationMapperSegmentConstructsResponse$: StaticStructureSchema = [3, n0, _LNMMSCRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationMapperSegmentConstructs, 0]
+];
+export var ListNetworkMigrationMapperSegmentsFilters$: StaticStructureSchema = [3, n0, _LNMMSF,
+  0,
+  [_sIDe],
+  [64 | 0]
+];
+export var ListNetworkMigrationMapperSegmentsRequest$: StaticStructureSchema = [3, n0, _LNMMSR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationMapperSegmentsFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationMapperSegmentsResponse$: StaticStructureSchema = [3, n0, _LNMMSRi,
+  0,
+  [_i, _nT],
+  [[() => NetworkMigrationMapperSegmentsList, 0], 0]
+];
+export var ListNetworkMigrationMappingsFilters$: StaticStructureSchema = [3, n0, _LNMMF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListNetworkMigrationMappingsRequest$: StaticStructureSchema = [3, n0, _LNMMR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationMappingsFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationMappingsResponse$: StaticStructureSchema = [3, n0, _LNMMRi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationMappingsList, 0]
+];
+export var ListNetworkMigrationMappingUpdatesFilters$: StaticStructureSchema = [3, n0, _LNMMUF,
+  0,
+  [_jIDo],
+  [64 | 0]
+];
+export var ListNetworkMigrationMappingUpdatesRequest$: StaticStructureSchema = [3, n0, _LNMMUR,
+  0,
+  [_nMEID, _nMDID, _f, _mR, _nT],
+  [0, 0, () => ListNetworkMigrationMappingUpdatesFilters$, 1, 0], 2
+];
+export var ListNetworkMigrationMappingUpdatesResponse$: StaticStructureSchema = [3, n0, _LNMMURi,
+  0,
+  [_i, _nT],
+  [() => NetworkMigrationMappingUpdatesList, 0]
 ];
 export var ListSourceServerActionsRequest$: StaticStructureSchema = [3, n0, _LSSAR,
   0,
@@ -1227,6 +1672,91 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   [_mA, _ip, _iPs],
   [0, 64 | 0, 2]
 ];
+export var NetworkMigrationAnalysisJobDetails$: StaticStructureSchema = [3, n0, _NMAJD,
+  0,
+  [_jID, _nMEID, _nMDID, _cA, _eAn, _sta, _sD],
+  [0, 0, 0, 4, 4, 0, 0]
+];
+export var NetworkMigrationAnalysisResult$: StaticStructureSchema = [3, n0, _NMAR,
+  0,
+  [_jID, _nMEID, _nMDID, _aT, _so, _ta, _sta, _aR],
+  [0, 0, 0, 0, () => NetworkMigrationAnalysisResultSource$, () => NetworkMigrationAnalysisResultTarget$, 0, 0]
+];
+export var NetworkMigrationAnalysisResultSource$: StaticStructureSchema = [3, n0, _NMARS,
+  0,
+  [_vIDp, _sIDu],
+  [0, 0]
+];
+export var NetworkMigrationAnalysisResultTarget$: StaticStructureSchema = [3, n0, _NMART,
+  0,
+  [_vIDp, _sIDu],
+  [0, 0]
+];
+export var NetworkMigrationCodeGenerationArtifact$: StaticStructureSchema = [3, n0, _NMCGA,
+  0,
+  [_aIDr, _aTr, _aST, _lID, _oSC, _ch, _cA],
+  [0, 0, 0, 0, () => S3Configuration$, () => Checksum$, 4]
+];
+export var NetworkMigrationCodeGenerationJobDetails$: StaticStructureSchema = [3, n0, _NMCGJD,
+  0,
+  [_jID, _nMEID, _nMDID, _cA, _eAn, _sta, _sD, _cGOFSDM],
+  [0, 0, 0, 4, 4, 0, 0, () => CodeGenerationOutputFormatStatusDetailsMap]
+];
+export var NetworkMigrationCodeGenerationSegment$: StaticStructureSchema = [3, n0, _NMCGS,
+  0,
+  [_jID, _nMEID, _nMDID, _sID, _sTe, _lID, _mSID, _ar, _cA],
+  [0, 0, 0, 0, 0, 0, 0, () => NetworkMigrationCodeGenerationArtifacts, 4]
+];
+export var NetworkMigrationDefinition$: StaticStructureSchema = [3, n0, _NMD,
+  0,
+  [_a, _nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _cA, _uA, _t, _sT],
+  [0, 0, 0, 0, () => SourceConfigurationList, () => TargetS3Configuration$, () => TargetNetwork$, 0, 4, 4, [() => TagsMap, 0], [() => ScopeTagsMap, 0]]
+];
+export var NetworkMigrationDefinitionSummary$: StaticStructureSchema = [3, n0, _NMDS,
+  0,
+  [_nMDID, _n, _sE, _a, _t, _sT],
+  [0, 0, 0, 0, [() => TagsMap, 0], [() => ScopeTagsMap, 0]]
+];
+export var NetworkMigrationDeployedStackDetails$: StaticStructureSchema = [3, n0, _NMDSD,
+  0,
+  [_sta, _sPID, _sLID, _sID, _tA, _fRa],
+  [0, 0, 0, 0, 0, () => NetworkMigrationFailedResourcesList]
+];
+export var NetworkMigrationDeployerJobDetails$: StaticStructureSchema = [3, n0, _NMDJD,
+  0,
+  [_jID, _nMEID, _nMDID, _cA, _eAn, _sta, _sD],
+  [0, 0, 0, 4, 4, 0, 0]
+];
+export var NetworkMigrationExecution$: StaticStructureSchema = [3, n0, _NME,
+  0,
+  [_nMDID, _nMEID, _sta, _stag, _ac, _cA, _uA, _t],
+  [0, 0, 0, 0, 0, 4, 4, [() => TagsMap, 0]]
+];
+export var NetworkMigrationFailedResourceDetails$: StaticStructureSchema = [3, n0, _NMFRD,
+  0,
+  [_lID, _sta, _sR],
+  [0, 0, 0]
+];
+export var NetworkMigrationMapperSegment$: StaticStructureSchema = [3, n0, _NMMS,
+  0,
+  [_jID, _nMEID, _nMDID, _sID, _sTe, _n, _d, _lID, _ch, _oSC, _cA, _uA, _sT, _tA, _rS],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => Checksum$, () => S3Configuration$, 4, 4, [() => ScopeTagsMap, 0], 0, 64 | 0]
+];
+export var NetworkMigrationMapperSegmentConstruct$: StaticStructureSchema = [3, n0, _NMMSC,
+  0,
+  [_cIDo, _cTon, _n, _d, _lID, _cA, _uA, _p],
+  [0, 0, 0, 0, 0, 4, 4, 128 | 0]
+];
+export var NetworkMigrationMappingJobDetails$: StaticStructureSchema = [3, n0, _NMMJD,
+  0,
+  [_jID, _nMEID, _nMDID, _cA, _eAn, _sta, _sD],
+  [0, 0, 0, 4, 4, 0, 0]
+];
+export var NetworkMigrationMappingUpdateJobDetails$: StaticStructureSchema = [3, n0, _NMMUJD,
+  0,
+  [_jID, _nMEID, _nMDID, _cA, _eAn, _sta, _sD],
+  [0, 0, 0, 4, 4, 0, 0]
+];
 export var OS$: StaticStructureSchema = [3, n0, _OS,
   0,
   [_fS],
@@ -1244,7 +1774,7 @@ export var PauseReplicationRequest$: StaticStructureSchema = [3, n0, _PRR,
 ];
 export var PostLaunchActions$: StaticStructureSchema = [3, n0, _PLA,
   0,
-  [_de, _sLB, _sOKP, _cWLGN, _sDs],
+  [_de, _sLB, _sOKP, _cWLGN, _sDsm],
   [0, 0, 0, 0, () => SsmDocuments]
 ];
 export var PostLaunchActionsStatus$: StaticStructureSchema = [3, n0, _PLAS,
@@ -1254,12 +1784,12 @@ export var PostLaunchActionsStatus$: StaticStructureSchema = [3, n0, _PLAS,
 ];
 export var PutSourceServerActionRequest$: StaticStructureSchema = [3, n0, _PSSAR,
   0,
-  [_sSIDo, _aN, _dI, _o, _aIDct, _dV, _ac, _tS, _mSFC, _p, _eP, _d, _ca, _aIDc],
+  [_sSIDo, _aN, _dI, _o, _aIDct, _dV, _act, _tS, _mSFC, _pa, _eP, _d, _ca, _aIDc],
   [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters, 0, 0, 0], 5
 ];
 export var PutTemplateActionRequest$: StaticStructureSchema = [3, n0, _PTAR,
   0,
-  [_lCTID, _aN, _dI, _o, _aIDct, _dV, _ac, _tS, _mSFC, _p, _oS, _eP, _d, _ca],
+  [_lCTID, _aN, _dI, _o, _aIDct, _dV, _act, _tS, _mSFC, _pa, _oS, _eP, _d, _ca],
   [0, 0, 0, 1, 0, 0, 2, 1, 2, () => SsmDocumentParameters, 0, () => SsmDocumentExternalParameters, 0, 0], 5
 ];
 export var RemoveSourceServerActionRequest$: StaticStructureSchema = [3, n0, _RSSAR,
@@ -1312,19 +1842,34 @@ export var S3BucketSource$: StaticStructureSchema = [3, n0, _SBS,
   [_sB, _sK, _sBO],
   [0, 0, 0], 2
 ];
+export var S3Configuration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_sB, _sBO, _sK],
+  [0, 0, 0]
+];
+export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
+  0,
+  [_sE, _sSC],
+  [0, () => SourceS3Configuration$], 2
+];
 export var SourceProperties$: StaticStructureSchema = [3, n0, _SP,
   0,
   [_lUDTa, _rIT, _iH, _nI, _di, _cp, _rB, _os],
   [0, 0, () => IdentificationHints$, () => NetworkInterfaces, () => Disks, () => Cpus, 1, () => OS$]
 ];
+export var SourceS3Configuration$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_sB, _sBO, _sK],
+  [0, 0, 0], 3
+];
 export var SourceServer$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sSIDo, _a, _iA, _t, _lI, _dRIa, _lC, _sP, _rTep, _vCID, _aID, _uPID, _fFAF, _cA],
+  [_sSIDo, _a, _iA, _t, _lI, _dRIa, _lC, _sP, _rTep, _vCID, _aID, _uPID, _fFAF, _cAo],
   [0, 0, 2, [() => TagsMap, 0], () => LaunchedInstance$, () => DataReplicationInfo$, () => LifeCycle$, () => SourceProperties$, 0, 0, 0, 0, 0, () => SourceServerConnectorAction$]
 ];
 export var SourceServerActionDocument$: StaticStructureSchema = [3, n0, _SSAD,
   0,
-  [_aIDct, _aN, _dI, _o, _dV, _ac, _tS, _mSFC, _p, _eP, _d, _ca],
+  [_aIDct, _aN, _dI, _o, _dV, _act, _tS, _mSFC, _pa, _eP, _d, _ca],
   [0, 0, 0, 1, 0, 2, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters, 0, 0]
 ];
 export var SourceServerActionsRequestFilters$: StaticStructureSchema = [3, n0, _SSARF,
@@ -1334,12 +1879,12 @@ export var SourceServerActionsRequestFilters$: StaticStructureSchema = [3, n0, _
 ];
 export var SourceServerConnectorAction$: StaticStructureSchema = [3, n0, _SSCA,
   0,
-  [_cSA, _cAo],
+  [_cSA, _cAon],
   [0, 0]
 ];
 export var SsmDocument$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_aN, _sDN, _tS, _mSFC, _p, _eP],
+  [_aN, _sDN, _tS, _mSFC, _pa, _eP],
   [0, 0, 1, 2, () => SsmDocumentParameters, () => SsmDocumentExternalParameters], 2
 ];
 export var SsmParameterStoreParameter$: StaticStructureSchema = [3, n0, _SPSP,
@@ -1367,6 +1912,16 @@ export var StartExportResponse$: StaticStructureSchema = [3, n0, _SERt,
   [_eTx],
   [[() => ExportTask$, 0]]
 ];
+export var StartImportFileEnrichmentRequest$: StaticStructureSchema = [3, n0, _SIFER,
+  0,
+  [_sBS, _sBT, _cTl, _iAS],
+  [() => EnrichmentSourceS3Configuration$, () => EnrichmentTargetS3Configuration$, [0, 4], 0], 2
+];
+export var StartImportFileEnrichmentResponse$: StaticStructureSchema = [3, n0, _SIFERt,
+  0,
+  [_jID],
+  [0]
+];
 export var StartImportRequest$: StaticStructureSchema = [3, n0, _SIR,
   0,
   [_sBS, _cTl, _t],
@@ -1376,6 +1931,66 @@ export var StartImportResponse$: StaticStructureSchema = [3, n0, _SIRt,
   0,
   [_iT],
   [[() => ImportTask$, 0]]
+];
+export var StartNetworkMigrationAnalysisRequest$: StaticStructureSchema = [3, n0, _SNMAR,
+  0,
+  [_nMEID, _nMDID],
+  [0, 0], 2
+];
+export var StartNetworkMigrationAnalysisResponse$: StaticStructureSchema = [3, n0, _SNMARt,
+  0,
+  [_jID],
+  [0]
+];
+export var StartNetworkMigrationCodeGenerationRequest$: StaticStructureSchema = [3, n0, _SNMCGR,
+  0,
+  [_nMEID, _nMDID, _cGOFT],
+  [0, 0, 64 | 0], 2
+];
+export var StartNetworkMigrationCodeGenerationResponse$: StaticStructureSchema = [3, n0, _SNMCGRt,
+  0,
+  [_jID],
+  [0]
+];
+export var StartNetworkMigrationDeployerJobResponse$: StaticStructureSchema = [3, n0, _SNMDJR,
+  0,
+  [_jID],
+  [0]
+];
+export var StartNetworkMigrationDeploymentRequest$: StaticStructureSchema = [3, n0, _SNMDR,
+  0,
+  [_nMEID, _nMDID],
+  [0, 0], 2
+];
+export var StartNetworkMigrationMappingRequest$: StaticStructureSchema = [3, n0, _SNMMR,
+  0,
+  [_nMEID, _nMDID, _sGMS],
+  [0, 0, 0], 2
+];
+export var StartNetworkMigrationMappingResponse$: StaticStructureSchema = [3, n0, _SNMMRt,
+  0,
+  [_jID],
+  [0]
+];
+export var StartNetworkMigrationMappingUpdateConstruct$: StaticStructureSchema = [3, n0, _SNMMUC,
+  0,
+  [_sID, _cIDo, _cTon, _op],
+  [0, 0, 0, () => OperationUnion$], 3
+];
+export var StartNetworkMigrationMappingUpdateRequest$: StaticStructureSchema = [3, n0, _SNMMUR,
+  0,
+  [_nMEID, _nMDID, _cons, _seg],
+  [0, 0, () => StartNetworkMigrationMappingUpdateConstructs, [() => StartNetworkMigrationMappingUpdateSegments, 0]], 2
+];
+export var StartNetworkMigrationMappingUpdateResponse$: StaticStructureSchema = [3, n0, _SNMMURt,
+  0,
+  [_jID],
+  [0]
+];
+export var StartNetworkMigrationMappingUpdateSegment$: StaticStructureSchema = [3, n0, _SNMMUS,
+  0,
+  [_sID, _tA, _sT],
+  [0, 0, [() => ScopeTagsMap, 0]], 1
 ];
 export var StartReplicationRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
@@ -1402,9 +2017,29 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_rA, _t],
   [[0, 1], [() => TagsMap, 0]], 2
 ];
+export var TargetNetwork$: StaticStructureSchema = [3, n0, _TN,
+  0,
+  [_to, _iC, _oC, _iCn],
+  [0, 0, 0, 0], 1
+];
+export var TargetNetworkUpdate$: StaticStructureSchema = [3, n0, _TNU,
+  0,
+  [_to, _iC, _oC, _iCn],
+  [0, 0, 0, 0]
+];
+export var TargetS3Configuration$: StaticStructureSchema = [3, n0, _TSC,
+  0,
+  [_sB, _sBO],
+  [0, 0], 2
+];
+export var TargetS3ConfigurationUpdate$: StaticStructureSchema = [3, n0, _TSCU,
+  0,
+  [_sB, _sBO],
+  [0, 0]
+];
 export var TemplateActionDocument$: StaticStructureSchema = [3, n0, _TAD,
   0,
-  [_aIDct, _aN, _dI, _o, _dV, _ac, _tS, _mSFC, _p, _oS, _eP, _d, _ca],
+  [_aIDct, _aN, _dI, _o, _dV, _act, _tS, _mSFC, _pa, _oS, _eP, _d, _ca],
   [0, 0, 0, 1, 0, 2, 1, 2, () => SsmDocumentParameters, 0, () => SsmDocumentExternalParameters, 0, 0]
 ];
 export var TemplateActionsRequestFilters$: StaticStructureSchema = [3, n0, _TARF,
@@ -1457,6 +2092,21 @@ export var UpdateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3
   [_lCTID, _pLA, _eMAT, _mATMID, _lD, _tITRSM, _cPI, _aPIA, _cT, _l, _bM, _sVMS, _sVC, _lVC, _ePE, _pEK],
   [0, () => PostLaunchActions$, 2, 0, 0, 0, 2, 2, 2, () => Licensing$, 0, 1, () => LaunchTemplateDiskConf$, () => LaunchTemplateDiskConf$, 2, 0], 1
 ];
+export var UpdateNetworkMigrationDefinitionRequest$: StaticStructureSchema = [3, n0, _UNMDR,
+  0,
+  [_nMDID, _n, _d, _sCo, _tSC, _tN, _tD, _sT],
+  [0, 0, 0, () => SourceConfigurationList, () => TargetS3ConfigurationUpdate$, () => TargetNetworkUpdate$, 0, [() => ScopeTagsMap, 0]], 1
+];
+export var UpdateNetworkMigrationMapperSegmentRequest$: StaticStructureSchema = [3, n0, _UNMMSR,
+  0,
+  [_nMDID, _nMEID, _sID, _sT],
+  [0, 0, 0, [() => ScopeTagsMap, 0]], 3
+];
+export var UpdateOperation$: StaticStructureSchema = [3, n0, _UO,
+  0,
+  [_p],
+  [128 | 0]
+];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_sSIDo, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _uFE, _aIDc, _iP, _sSOLZ],
@@ -1474,7 +2124,7 @@ export var UpdateSourceServerReplicationTypeRequest$: StaticStructureSchema = [3
 ];
 export var UpdateSourceServerRequest$: StaticStructureSchema = [3, n0, _USSR,
   0,
-  [_sSIDo, _aIDc, _cA],
+  [_sSIDo, _aIDc, _cAo],
   [0, 0, () => SourceServerConnectorAction$], 1
 ];
 export var UpdateWaveRequest$: StaticStructureSchema = [3, n0, _UWRp,
@@ -1489,7 +2139,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
 ];
 export var VcenterClient$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_vCID, _a, _h, _vUUID, _dNa, _lSD, _sST, _t],
+  [_vCID, _a, _ho, _vUUID, _dNa, _lSD, _sST, _t],
   [0, 0, 0, 0, 0, 0, [() => TagsMap, 0], [() => TagsMap, 0]]
 ];
 export var Wave$: StaticStructureSchema = [3, n0, _W,
@@ -1499,7 +2149,7 @@ export var Wave$: StaticStructureSchema = [3, n0, _W,
 ];
 export var WaveAggregatedStatus$: StaticStructureSchema = [3, n0, _WAS,
   0,
-  [_lUDT, _rSDT, _hS, _pS, _tA],
+  [_lUDT, _rSDT, _hS, _pS, _tAo],
   [0, 0, 0, 0, 1]
 ];
 var __Unit = "unit" as const;
@@ -1511,6 +2161,7 @@ var ApplicationsList: StaticListSchema = [1, n0, _AL,
     0]
 ];
 var AssociateSourceServersRequestSourceServerIDs = 64 | 0;
+var CodeGenerationOutputFormatTypes = 64 | 0;
 var ConflictExceptionErrors: StaticListSchema = [1, n0, _CEE,
   0, () => ErrorDetails$
 ];
@@ -1545,6 +2196,10 @@ var ExportsList: StaticListSchema = [1, n0, _EL,
 var ImportErrors: StaticListSchema = [1, n0, _IE,
   0, () => ImportTaskError$
 ];
+var ImportFileEnrichmentsIDsFilter = 64 | 0;
+var ImportFileEnrichmentsList: StaticListSchema = [1, n0, _IFEL,
+  0, () => ImportFileEnrichment$
+];
 var ImportIDsFilter = 64 | 0;
 var ImportList: StaticListSchema = [1, n0, _IL,
   0, [() => ImportTask$,
@@ -1565,11 +2220,68 @@ var LaunchConfigurationTemplates: StaticListSchema = [1, n0, _LCTa,
 ];
 var LifeCycleStates = 64 | 0;
 var ListExportsRequestFiltersExportIDs = 64 | 0;
+var ListNetworkMigrationAnalysesIDsFilter = 64 | 0;
+var ListNetworkMigrationCodeGenerationSegmentsIDsFilter = 64 | 0;
+var ListNetworkMigrationCodeGenerationsIDsFilter = 64 | 0;
+var ListNetworkMigrationDeployerJobIDsFilters = 64 | 0;
+var ListNetworkMigrationMapperSegmentConstructsIDsFilter = 64 | 0;
+var ListNetworkMigrationMapperSegmentConstructTypesFilter = 64 | 0;
+var ListNetworkMigrationMapperSegmentsIDsFilter = 64 | 0;
+var ListNetworkMigrationMappingsIDsFilter = 64 | 0;
+var ListNetworkMigrationMappingUpdatesIDsFilter = 64 | 0;
 var ManagedAccounts: StaticListSchema = [1, n0, _MAa,
   0, () => ManagedAccount$
 ];
 var NetworkInterfaces: StaticListSchema = [1, n0, _NIe,
   0, () => NetworkInterface$
+];
+var NetworkMigrationAnalysesList: StaticListSchema = [1, n0, _NMAL,
+  0, () => NetworkMigrationAnalysisJobDetails$
+];
+var NetworkMigrationAnalysisResultsList: StaticListSchema = [1, n0, _NMARL,
+  0, () => NetworkMigrationAnalysisResult$
+];
+var NetworkMigrationCodeGenerationArtifacts: StaticListSchema = [1, n0, _NMCGAe,
+  0, () => NetworkMigrationCodeGenerationArtifact$
+];
+var NetworkMigrationCodeGenerationSegmentsList: StaticListSchema = [1, n0, _NMCGSL,
+  0, () => NetworkMigrationCodeGenerationSegment$
+];
+var NetworkMigrationCodeGenerationsList: StaticListSchema = [1, n0, _NMCGL,
+  0, () => NetworkMigrationCodeGenerationJobDetails$
+];
+var NetworkMigrationDefinitionSummariesList: StaticListSchema = [1, n0, _NMDSL,
+  0, [() => NetworkMigrationDefinitionSummary$,
+    0]
+];
+var NetworkMigrationDefintionsIDsFilter = 64 | 0;
+var NetworkMigrationDeployedStacksList: StaticListSchema = [1, n0, _NMDSLe,
+  0, () => NetworkMigrationDeployedStackDetails$
+];
+var NetworkMigrationDeployerJobList: StaticListSchema = [1, n0, _NMDJL,
+  0, () => NetworkMigrationDeployerJobDetails$
+];
+var NetworkMigrationExecutionIDsFilter = 64 | 0;
+var NetworkMigrationExecutionsList: StaticListSchema = [1, n0, _NMEL,
+  0, [() => NetworkMigrationExecution$,
+    0]
+];
+var NetworkMigrationExecutionStatusesFilter = 64 | 0;
+var NetworkMigrationFailedResourcesList: StaticListSchema = [1, n0, _NMFRL,
+  0, () => NetworkMigrationFailedResourceDetails$
+];
+var NetworkMigrationMapperSegmentConstructs: StaticListSchema = [1, n0, _NMMSCe,
+  0, () => NetworkMigrationMapperSegmentConstruct$
+];
+var NetworkMigrationMapperSegmentsList: StaticListSchema = [1, n0, _NMMSL,
+  0, [() => NetworkMigrationMapperSegment$,
+    0]
+];
+var NetworkMigrationMappingsList: StaticListSchema = [1, n0, _NMML,
+  0, () => NetworkMigrationMappingJobDetails$
+];
+var NetworkMigrationMappingUpdatesList: StaticListSchema = [1, n0, _NMMUL,
+  0, () => NetworkMigrationMappingUpdateJobDetails$
 ];
 var ParticipatingServers: StaticListSchema = [1, n0, _PSa,
   0, () => ParticipatingServer$
@@ -1577,6 +2289,7 @@ var ParticipatingServers: StaticListSchema = [1, n0, _PSa,
 var PostLaunchActionsLaunchStatusList: StaticListSchema = [1, n0, _PLALSL,
   0, () => JobPostLaunchActionsLaunchStatus$
 ];
+var referencedSegmentsList = 64 | 0;
 var ReplicationConfigurationReplicatedDisks: StaticListSchema = [1, n0, _RCRDe,
   0, () => ReplicationConfigurationReplicatedDisk$
 ];
@@ -1587,6 +2300,9 @@ var ReplicationConfigurationTemplates: StaticListSchema = [1, n0, _RCTe,
 ];
 var ReplicationServersSecurityGroupsIDs = 64 | 0;
 var ReplicationTypes = 64 | 0;
+var SourceConfigurationList: StaticListSchema = [1, n0, _SCL,
+  0, () => SourceConfiguration$
+];
 var SourceServerActionDocuments: StaticListSchema = [1, n0, _SSADo,
   0, () => SourceServerActionDocument$
 ];
@@ -1601,6 +2317,13 @@ var SsmParameterStoreParameters: StaticListSchema = [1, n0, _SPSPs,
   0, () => SsmParameterStoreParameter$
 ];
 var StartCutoverRequestSourceServerIDs = 64 | 0;
+var StartNetworkMigrationMappingUpdateConstructs: StaticListSchema = [1, n0, _SNMMUCt,
+  0, () => StartNetworkMigrationMappingUpdateConstruct$
+];
+var StartNetworkMigrationMappingUpdateSegments: StaticListSchema = [1, n0, _SNMMUSt,
+  0, [() => StartNetworkMigrationMappingUpdateSegment$,
+    0]
+];
 var StartTestRequestSourceServerIDs = 64 | 0;
 var TagKeys: StaticListSchema = [1, n0, _TK,
   8, 0
@@ -1616,10 +2339,18 @@ var VcenterClientList: StaticListSchema = [1, n0, _VCL,
   0, [() => VcenterClient$,
     0]
 ];
+var VpcIDsFilter = 64 | 0;
 var WaveIDsFilter = 64 | 0;
 var WavesList: StaticListSchema = [1, n0, _WL,
   0, [() => Wave$,
     0]
+];
+var CodeGenerationOutputFormatStatusDetailsMap: StaticMapSchema = [2, n0, _CGOFSDM,
+  0, 0, () => CodeGenerationOutputFormatStatusDetails$
+];
+var ConstructProperties = 128 | 0;
+var ScopeTagsMap: StaticMapSchema = [2, n0, _STM,
+  8, 0, 0
 ];
 var SsmDocumentExternalParameters: StaticMapSchema = [2, n0, _SDEP,
   0, 0, () => SsmExternalParameter$
@@ -1629,6 +2360,11 @@ var SsmDocumentParameters: StaticMapSchema = [2, n0, _SDP,
 ];
 var TagsMap: StaticMapSchema = [2, n0, _TM,
   8, 0, 0
+];
+export var OperationUnion$: StaticUnionSchema = [4, n0, _OU,
+  0,
+  [_u],
+  [() => UpdateOperation$]
 ];
 export var SsmExternalParameter$: StaticUnionSchema = [4, n0, _SEP,
   0,
@@ -1659,6 +2395,9 @@ export var CreateConnector$: StaticOperationSchema = [9, n0, _CC,
 export var CreateLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _CLCT,
   { [_ht]: ["POST", "/CreateLaunchConfigurationTemplate", 201] }, () => CreateLaunchConfigurationTemplateRequest$, () => LaunchConfigurationTemplate$
 ];
+export var CreateNetworkMigrationDefinition$: StaticOperationSchema = [9, n0, _CNMD,
+  { [_ht]: ["POST", "/network-migration/CreateNetworkMigrationDefinition", 201] }, () => CreateNetworkMigrationDefinitionRequest$, () => NetworkMigrationDefinition$
+];
 export var CreateReplicationConfigurationTemplate$: StaticOperationSchema = [9, n0, _CRCT,
   { [_ht]: ["POST", "/CreateReplicationConfigurationTemplate", 201] }, () => CreateReplicationConfigurationTemplateRequest$, () => ReplicationConfigurationTemplate$
 ];
@@ -1676,6 +2415,9 @@ export var DeleteJob$: StaticOperationSchema = [9, n0, _DJ,
 ];
 export var DeleteLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _DLCT,
   { [_ht]: ["POST", "/DeleteLaunchConfigurationTemplate", 204] }, () => DeleteLaunchConfigurationTemplateRequest$, () => DeleteLaunchConfigurationTemplateResponse$
+];
+export var DeleteNetworkMigrationDefinition$: StaticOperationSchema = [9, n0, _DNMD,
+  { [_ht]: ["POST", "/network-migration/DeleteNetworkMigrationDefinition", 204] }, () => DeleteNetworkMigrationDefinitionRequest$, () => DeleteNetworkMigrationDefinitionResponse$
 ];
 export var DeleteReplicationConfigurationTemplate$: StaticOperationSchema = [9, n0, _DRCT,
   { [_ht]: ["POST", "/DeleteReplicationConfigurationTemplate", 204] }, () => DeleteReplicationConfigurationTemplateRequest$, () => DeleteReplicationConfigurationTemplateResponse$
@@ -1722,6 +2464,12 @@ export var FinalizeCutover$: StaticOperationSchema = [9, n0, _FC,
 export var GetLaunchConfiguration$: StaticOperationSchema = [9, n0, _GLC,
   { [_ht]: ["POST", "/GetLaunchConfiguration", 200] }, () => GetLaunchConfigurationRequest$, () => LaunchConfiguration$
 ];
+export var GetNetworkMigrationDefinition$: StaticOperationSchema = [9, n0, _GNMD,
+  { [_ht]: ["POST", "/network-migration/GetNetworkMigrationDefinition", 200] }, () => GetNetworkMigrationDefinitionRequest$, () => NetworkMigrationDefinition$
+];
+export var GetNetworkMigrationMapperSegmentConstruct$: StaticOperationSchema = [9, n0, _GNMMSC,
+  { [_ht]: ["POST", "/network-migration/GetNetworkMigrationMapperSegmentConstruct", 200] }, () => GetNetworkMigrationMapperSegmentConstructRequest$, () => GetNetworkMigrationMapperSegmentConstructResponse$
+];
 export var GetReplicationConfiguration$: StaticOperationSchema = [9, n0, _GRC,
   { [_ht]: ["POST", "/GetReplicationConfiguration", 200] }, () => GetReplicationConfigurationRequest$, () => ReplicationConfiguration$
 ];
@@ -1743,11 +2491,50 @@ export var ListExports$: StaticOperationSchema = [9, n0, _LE,
 export var ListImportErrors$: StaticOperationSchema = [9, n0, _LIE,
   { [_ht]: ["POST", "/ListImportErrors", 200] }, () => ListImportErrorsRequest$, () => ListImportErrorsResponse$
 ];
+export var ListImportFileEnrichments$: StaticOperationSchema = [9, n0, _LIFE,
+  { [_ht]: ["POST", "/network-migration/ListImportFileEnrichments", 200] }, () => ListImportFileEnrichmentsRequest$, () => ListImportFileEnrichmentsResponse$
+];
 export var ListImports$: StaticOperationSchema = [9, n0, _LIi,
   { [_ht]: ["POST", "/ListImports", 200] }, () => ListImportsRequest$, () => ListImportsResponse$
 ];
 export var ListManagedAccounts$: StaticOperationSchema = [9, n0, _LMA,
   { [_ht]: ["POST", "/ListManagedAccounts", 200] }, () => ListManagedAccountsRequest$, () => ListManagedAccountsResponse$
+];
+export var ListNetworkMigrationAnalyses$: StaticOperationSchema = [9, n0, _LNMA,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationAnalyses", 200] }, () => ListNetworkMigrationAnalysesRequest$, () => ListNetworkMigrationAnalysesResponse$
+];
+export var ListNetworkMigrationAnalysisResults$: StaticOperationSchema = [9, n0, _LNMARis,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationAnalysisResults", 200] }, () => ListNetworkMigrationAnalysisResultsRequest$, () => ListNetworkMigrationAnalysisResultsResponse$
+];
+export var ListNetworkMigrationCodeGenerations$: StaticOperationSchema = [9, n0, _LNMCG,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationCodeGenerations", 200] }, () => ListNetworkMigrationCodeGenerationsRequest$, () => ListNetworkMigrationCodeGenerationsResponse$
+];
+export var ListNetworkMigrationCodeGenerationSegments$: StaticOperationSchema = [9, n0, _LNMCGS,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationCodeGenerationSegments", 200] }, () => ListNetworkMigrationCodeGenerationSegmentsRequest$, () => ListNetworkMigrationCodeGenerationSegmentsResponse$
+];
+export var ListNetworkMigrationDefinitions$: StaticOperationSchema = [9, n0, _LNMD,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationDefinitions", 200] }, () => ListNetworkMigrationDefinitionsRequest$, () => ListNetworkMigrationDefinitionsResponse$
+];
+export var ListNetworkMigrationDeployedStacks$: StaticOperationSchema = [9, n0, _LNMDS,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationDeployedStacks", 200] }, () => ListNetworkMigrationDeployedStacksRequest$, () => ListNetworkMigrationDeployedStacksResponse$
+];
+export var ListNetworkMigrationDeployments$: StaticOperationSchema = [9, n0, _LNMDi,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationDeployments", 200] }, () => ListNetworkMigrationDeploymentsRequest$, () => ListNetworkMigrationDeployerJobResponse$
+];
+export var ListNetworkMigrationExecutions$: StaticOperationSchema = [9, n0, _LNME,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationExecutions", 200] }, () => ListNetworkMigrationExecutionsRequest$, () => ListNetworkMigrationExecutionsResponse$
+];
+export var ListNetworkMigrationMapperSegmentConstructs$: StaticOperationSchema = [9, n0, _LNMMSC,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationMapperSegmentConstructs", 200] }, () => ListNetworkMigrationMapperSegmentConstructsRequest$, () => ListNetworkMigrationMapperSegmentConstructsResponse$
+];
+export var ListNetworkMigrationMapperSegments$: StaticOperationSchema = [9, n0, _LNMMS,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationMapperSegments", 200] }, () => ListNetworkMigrationMapperSegmentsRequest$, () => ListNetworkMigrationMapperSegmentsResponse$
+];
+export var ListNetworkMigrationMappings$: StaticOperationSchema = [9, n0, _LNMM,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationMappings", 200] }, () => ListNetworkMigrationMappingsRequest$, () => ListNetworkMigrationMappingsResponse$
+];
+export var ListNetworkMigrationMappingUpdates$: StaticOperationSchema = [9, n0, _LNMMU,
+  { [_ht]: ["POST", "/network-migration/ListNetworkMigrationMappingUpdates", 200] }, () => ListNetworkMigrationMappingUpdatesRequest$, () => ListNetworkMigrationMappingUpdatesResponse$
 ];
 export var ListSourceServerActions$: StaticOperationSchema = [9, n0, _LSSA,
   { [_ht]: ["POST", "/ListSourceServerActions", 200] }, () => ListSourceServerActionsRequest$, () => ListSourceServerActionsResponse$
@@ -1785,7 +2572,7 @@ export var ResumeReplication$: StaticOperationSchema = [9, n0, _RR,
 export var RetryDataReplication$: StaticOperationSchema = [9, n0, _RDR,
   { [_ht]: ["POST", "/RetryDataReplication", 200] }, () => RetryDataReplicationRequest$, () => SourceServer$
 ];
-export var StartCutover$: StaticOperationSchema = [9, n0, _SC,
+export var StartCutover$: StaticOperationSchema = [9, n0, _SCt,
   { [_ht]: ["POST", "/StartCutover", 202] }, () => StartCutoverRequest$, () => StartCutoverResponse$
 ];
 export var StartExport$: StaticOperationSchema = [9, n0, _SE,
@@ -1793,6 +2580,24 @@ export var StartExport$: StaticOperationSchema = [9, n0, _SE,
 ];
 export var StartImport$: StaticOperationSchema = [9, n0, _SI,
   { [_ht]: ["POST", "/StartImport", 202] }, () => StartImportRequest$, () => StartImportResponse$
+];
+export var StartImportFileEnrichment$: StaticOperationSchema = [9, n0, _SIFE,
+  { [_ht]: ["POST", "/network-migration/StartImportFileEnrichment", 202] }, () => StartImportFileEnrichmentRequest$, () => StartImportFileEnrichmentResponse$
+];
+export var StartNetworkMigrationAnalysis$: StaticOperationSchema = [9, n0, _SNMA,
+  { [_ht]: ["POST", "/network-migration/StartNetworkMigrationAnalysis", 202] }, () => StartNetworkMigrationAnalysisRequest$, () => StartNetworkMigrationAnalysisResponse$
+];
+export var StartNetworkMigrationCodeGeneration$: StaticOperationSchema = [9, n0, _SNMCG,
+  { [_ht]: ["POST", "/network-migration/StartNetworkMigrationCodeGeneration", 202] }, () => StartNetworkMigrationCodeGenerationRequest$, () => StartNetworkMigrationCodeGenerationResponse$
+];
+export var StartNetworkMigrationDeployment$: StaticOperationSchema = [9, n0, _SNMD,
+  { [_ht]: ["POST", "/network-migration/StartNetworkMigrationDeployment", 202] }, () => StartNetworkMigrationDeploymentRequest$, () => StartNetworkMigrationDeployerJobResponse$
+];
+export var StartNetworkMigrationMapping$: StaticOperationSchema = [9, n0, _SNMM,
+  { [_ht]: ["POST", "/network-migration/StartNetworkMigrationMapping", 202] }, () => StartNetworkMigrationMappingRequest$, () => StartNetworkMigrationMappingResponse$
+];
+export var StartNetworkMigrationMappingUpdate$: StaticOperationSchema = [9, n0, _SNMMU,
+  { [_ht]: ["POST", "/network-migration/StartNetworkMigrationMappingUpdate", 202] }, () => StartNetworkMigrationMappingUpdateRequest$, () => StartNetworkMigrationMappingUpdateResponse$
 ];
 export var StartReplication$: StaticOperationSchema = [9, n0, _SR,
   { [_ht]: ["POST", "/StartReplication", 200] }, () => StartReplicationRequest$, () => SourceServer$
@@ -1829,6 +2634,12 @@ export var UpdateLaunchConfiguration$: StaticOperationSchema = [9, n0, _ULC,
 ];
 export var UpdateLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _ULCT,
   { [_ht]: ["POST", "/UpdateLaunchConfigurationTemplate", 200] }, () => UpdateLaunchConfigurationTemplateRequest$, () => LaunchConfigurationTemplate$
+];
+export var UpdateNetworkMigrationDefinition$: StaticOperationSchema = [9, n0, _UNMD,
+  { [_ht]: ["POST", "/network-migration/UpdateNetworkMigrationDefinition", 200] }, () => UpdateNetworkMigrationDefinitionRequest$, () => NetworkMigrationDefinition$
+];
+export var UpdateNetworkMigrationMapperSegment$: StaticOperationSchema = [9, n0, _UNMMS,
+  { [_ht]: ["POST", "/network-migration/UpdateNetworkMigrationMapperSegment", 200] }, () => UpdateNetworkMigrationMapperSegmentRequest$, () => NetworkMigrationMapperSegment$
 ];
 export var UpdateReplicationConfiguration$: StaticOperationSchema = [9, n0, _URC,
   { [_ht]: ["POST", "/UpdateReplicationConfiguration", 200] }, () => UpdateReplicationConfigurationRequest$, () => ReplicationConfiguration$

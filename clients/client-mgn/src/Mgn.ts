@@ -39,6 +39,11 @@ import {
   CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
 import {
+  CreateNetworkMigrationDefinitionCommand,
+  CreateNetworkMigrationDefinitionCommandInput,
+  CreateNetworkMigrationDefinitionCommandOutput,
+} from "./commands/CreateNetworkMigrationDefinitionCommand";
+import {
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
@@ -60,6 +65,11 @@ import {
   DeleteLaunchConfigurationTemplateCommandInput,
   DeleteLaunchConfigurationTemplateCommandOutput,
 } from "./commands/DeleteLaunchConfigurationTemplateCommand";
+import {
+  DeleteNetworkMigrationDefinitionCommand,
+  DeleteNetworkMigrationDefinitionCommandInput,
+  DeleteNetworkMigrationDefinitionCommandOutput,
+} from "./commands/DeleteNetworkMigrationDefinitionCommand";
 import {
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateCommandInput,
@@ -132,6 +142,16 @@ import {
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
 import {
+  GetNetworkMigrationDefinitionCommand,
+  GetNetworkMigrationDefinitionCommandInput,
+  GetNetworkMigrationDefinitionCommandOutput,
+} from "./commands/GetNetworkMigrationDefinitionCommand";
+import {
+  GetNetworkMigrationMapperSegmentConstructCommand,
+  GetNetworkMigrationMapperSegmentConstructCommandInput,
+  GetNetworkMigrationMapperSegmentConstructCommandOutput,
+} from "./commands/GetNetworkMigrationMapperSegmentConstructCommand";
+import {
   GetReplicationConfigurationCommand,
   GetReplicationConfigurationCommandInput,
   GetReplicationConfigurationCommandOutput,
@@ -162,12 +182,77 @@ import {
   ListImportErrorsCommandInput,
   ListImportErrorsCommandOutput,
 } from "./commands/ListImportErrorsCommand";
+import {
+  ListImportFileEnrichmentsCommand,
+  ListImportFileEnrichmentsCommandInput,
+  ListImportFileEnrichmentsCommandOutput,
+} from "./commands/ListImportFileEnrichmentsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListManagedAccountsCommand,
   ListManagedAccountsCommandInput,
   ListManagedAccountsCommandOutput,
 } from "./commands/ListManagedAccountsCommand";
+import {
+  ListNetworkMigrationAnalysesCommand,
+  ListNetworkMigrationAnalysesCommandInput,
+  ListNetworkMigrationAnalysesCommandOutput,
+} from "./commands/ListNetworkMigrationAnalysesCommand";
+import {
+  ListNetworkMigrationAnalysisResultsCommand,
+  ListNetworkMigrationAnalysisResultsCommandInput,
+  ListNetworkMigrationAnalysisResultsCommandOutput,
+} from "./commands/ListNetworkMigrationAnalysisResultsCommand";
+import {
+  ListNetworkMigrationCodeGenerationsCommand,
+  ListNetworkMigrationCodeGenerationsCommandInput,
+  ListNetworkMigrationCodeGenerationsCommandOutput,
+} from "./commands/ListNetworkMigrationCodeGenerationsCommand";
+import {
+  ListNetworkMigrationCodeGenerationSegmentsCommand,
+  ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+  ListNetworkMigrationCodeGenerationSegmentsCommandOutput,
+} from "./commands/ListNetworkMigrationCodeGenerationSegmentsCommand";
+import {
+  ListNetworkMigrationDefinitionsCommand,
+  ListNetworkMigrationDefinitionsCommandInput,
+  ListNetworkMigrationDefinitionsCommandOutput,
+} from "./commands/ListNetworkMigrationDefinitionsCommand";
+import {
+  ListNetworkMigrationDeployedStacksCommand,
+  ListNetworkMigrationDeployedStacksCommandInput,
+  ListNetworkMigrationDeployedStacksCommandOutput,
+} from "./commands/ListNetworkMigrationDeployedStacksCommand";
+import {
+  ListNetworkMigrationDeploymentsCommand,
+  ListNetworkMigrationDeploymentsCommandInput,
+  ListNetworkMigrationDeploymentsCommandOutput,
+} from "./commands/ListNetworkMigrationDeploymentsCommand";
+import {
+  ListNetworkMigrationExecutionsCommand,
+  ListNetworkMigrationExecutionsCommandInput,
+  ListNetworkMigrationExecutionsCommandOutput,
+} from "./commands/ListNetworkMigrationExecutionsCommand";
+import {
+  ListNetworkMigrationMapperSegmentConstructsCommand,
+  ListNetworkMigrationMapperSegmentConstructsCommandInput,
+  ListNetworkMigrationMapperSegmentConstructsCommandOutput,
+} from "./commands/ListNetworkMigrationMapperSegmentConstructsCommand";
+import {
+  ListNetworkMigrationMapperSegmentsCommand,
+  ListNetworkMigrationMapperSegmentsCommandInput,
+  ListNetworkMigrationMapperSegmentsCommandOutput,
+} from "./commands/ListNetworkMigrationMapperSegmentsCommand";
+import {
+  ListNetworkMigrationMappingsCommand,
+  ListNetworkMigrationMappingsCommandInput,
+  ListNetworkMigrationMappingsCommandOutput,
+} from "./commands/ListNetworkMigrationMappingsCommand";
+import {
+  ListNetworkMigrationMappingUpdatesCommand,
+  ListNetworkMigrationMappingUpdatesCommandInput,
+  ListNetworkMigrationMappingUpdatesCommandOutput,
+} from "./commands/ListNetworkMigrationMappingUpdatesCommand";
 import {
   ListSourceServerActionsCommand,
   ListSourceServerActionsCommandInput,
@@ -232,6 +317,36 @@ import {
 import { StartExportCommand, StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
 import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
+  StartImportFileEnrichmentCommand,
+  StartImportFileEnrichmentCommandInput,
+  StartImportFileEnrichmentCommandOutput,
+} from "./commands/StartImportFileEnrichmentCommand";
+import {
+  StartNetworkMigrationAnalysisCommand,
+  StartNetworkMigrationAnalysisCommandInput,
+  StartNetworkMigrationAnalysisCommandOutput,
+} from "./commands/StartNetworkMigrationAnalysisCommand";
+import {
+  StartNetworkMigrationCodeGenerationCommand,
+  StartNetworkMigrationCodeGenerationCommandInput,
+  StartNetworkMigrationCodeGenerationCommandOutput,
+} from "./commands/StartNetworkMigrationCodeGenerationCommand";
+import {
+  StartNetworkMigrationDeploymentCommand,
+  StartNetworkMigrationDeploymentCommandInput,
+  StartNetworkMigrationDeploymentCommandOutput,
+} from "./commands/StartNetworkMigrationDeploymentCommand";
+import {
+  StartNetworkMigrationMappingCommand,
+  StartNetworkMigrationMappingCommandInput,
+  StartNetworkMigrationMappingCommandOutput,
+} from "./commands/StartNetworkMigrationMappingCommand";
+import {
+  StartNetworkMigrationMappingUpdateCommand,
+  StartNetworkMigrationMappingUpdateCommandInput,
+  StartNetworkMigrationMappingUpdateCommandOutput,
+} from "./commands/StartNetworkMigrationMappingUpdateCommand";
+import {
   StartReplicationCommand,
   StartReplicationCommandInput,
   StartReplicationCommandOutput,
@@ -284,6 +399,16 @@ import {
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
 import {
+  UpdateNetworkMigrationDefinitionCommand,
+  UpdateNetworkMigrationDefinitionCommandInput,
+  UpdateNetworkMigrationDefinitionCommandOutput,
+} from "./commands/UpdateNetworkMigrationDefinitionCommand";
+import {
+  UpdateNetworkMigrationMapperSegmentCommand,
+  UpdateNetworkMigrationMapperSegmentCommandInput,
+  UpdateNetworkMigrationMapperSegmentCommandOutput,
+} from "./commands/UpdateNetworkMigrationMapperSegmentCommand";
+import {
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
@@ -320,8 +445,25 @@ import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { paginateListExportErrors } from "./pagination/ListExportErrorsPaginator";
 import { paginateListExports } from "./pagination/ListExportsPaginator";
 import { paginateListImportErrors } from "./pagination/ListImportErrorsPaginator";
+import { paginateListImportFileEnrichments } from "./pagination/ListImportFileEnrichmentsPaginator";
 import { paginateListImports } from "./pagination/ListImportsPaginator";
 import { paginateListManagedAccounts } from "./pagination/ListManagedAccountsPaginator";
+import { paginateListNetworkMigrationAnalyses } from "./pagination/ListNetworkMigrationAnalysesPaginator";
+import { paginateListNetworkMigrationAnalysisResults } from "./pagination/ListNetworkMigrationAnalysisResultsPaginator";
+import {
+  paginateListNetworkMigrationCodeGenerationSegments,
+} from "./pagination/ListNetworkMigrationCodeGenerationSegmentsPaginator";
+import { paginateListNetworkMigrationCodeGenerations } from "./pagination/ListNetworkMigrationCodeGenerationsPaginator";
+import { paginateListNetworkMigrationDefinitions } from "./pagination/ListNetworkMigrationDefinitionsPaginator";
+import { paginateListNetworkMigrationDeployedStacks } from "./pagination/ListNetworkMigrationDeployedStacksPaginator";
+import { paginateListNetworkMigrationDeployments } from "./pagination/ListNetworkMigrationDeploymentsPaginator";
+import { paginateListNetworkMigrationExecutions } from "./pagination/ListNetworkMigrationExecutionsPaginator";
+import {
+  paginateListNetworkMigrationMapperSegmentConstructs,
+} from "./pagination/ListNetworkMigrationMapperSegmentConstructsPaginator";
+import { paginateListNetworkMigrationMapperSegments } from "./pagination/ListNetworkMigrationMapperSegmentsPaginator";
+import { paginateListNetworkMigrationMappings } from "./pagination/ListNetworkMigrationMappingsPaginator";
+import { paginateListNetworkMigrationMappingUpdates } from "./pagination/ListNetworkMigrationMappingUpdatesPaginator";
 import { paginateListSourceServerActions } from "./pagination/ListSourceServerActionsPaginator";
 import { paginateListTemplateActions } from "./pagination/ListTemplateActionsPaginator";
 import { paginateListWaves } from "./pagination/ListWavesPaginator";
@@ -335,12 +477,14 @@ const commands = {
   CreateApplicationCommand,
   CreateConnectorCommand,
   CreateLaunchConfigurationTemplateCommand,
+  CreateNetworkMigrationDefinitionCommand,
   CreateReplicationConfigurationTemplateCommand,
   CreateWaveCommand,
   DeleteApplicationCommand,
   DeleteConnectorCommand,
   DeleteJobCommand,
   DeleteLaunchConfigurationTemplateCommand,
+  DeleteNetworkMigrationDefinitionCommand,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteSourceServerCommand,
   DeleteVcenterClientCommand,
@@ -356,6 +500,8 @@ const commands = {
   DisconnectFromServiceCommand,
   FinalizeCutoverCommand,
   GetLaunchConfigurationCommand,
+  GetNetworkMigrationDefinitionCommand,
+  GetNetworkMigrationMapperSegmentConstructCommand,
   GetReplicationConfigurationCommand,
   InitializeServiceCommand,
   ListApplicationsCommand,
@@ -363,8 +509,21 @@ const commands = {
   ListExportErrorsCommand,
   ListExportsCommand,
   ListImportErrorsCommand,
+  ListImportFileEnrichmentsCommand,
   ListImportsCommand,
   ListManagedAccountsCommand,
+  ListNetworkMigrationAnalysesCommand,
+  ListNetworkMigrationAnalysisResultsCommand,
+  ListNetworkMigrationCodeGenerationsCommand,
+  ListNetworkMigrationCodeGenerationSegmentsCommand,
+  ListNetworkMigrationDefinitionsCommand,
+  ListNetworkMigrationDeployedStacksCommand,
+  ListNetworkMigrationDeploymentsCommand,
+  ListNetworkMigrationExecutionsCommand,
+  ListNetworkMigrationMapperSegmentConstructsCommand,
+  ListNetworkMigrationMapperSegmentsCommand,
+  ListNetworkMigrationMappingsCommand,
+  ListNetworkMigrationMappingUpdatesCommand,
   ListSourceServerActionsCommand,
   ListTagsForResourceCommand,
   ListTemplateActionsCommand,
@@ -380,6 +539,12 @@ const commands = {
   StartCutoverCommand,
   StartExportCommand,
   StartImportCommand,
+  StartImportFileEnrichmentCommand,
+  StartNetworkMigrationAnalysisCommand,
+  StartNetworkMigrationCodeGenerationCommand,
+  StartNetworkMigrationDeploymentCommand,
+  StartNetworkMigrationMappingCommand,
+  StartNetworkMigrationMappingUpdateCommand,
   StartReplicationCommand,
   StartTestCommand,
   StopReplicationCommand,
@@ -392,6 +557,8 @@ const commands = {
   UpdateConnectorCommand,
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationTemplateCommand,
+  UpdateNetworkMigrationDefinitionCommand,
+  UpdateNetworkMigrationMapperSegmentCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
   UpdateSourceServerCommand,
@@ -410,8 +577,21 @@ const paginators = {
   paginateListExportErrors,
   paginateListExports,
   paginateListImportErrors,
+  paginateListImportFileEnrichments,
   paginateListImports,
   paginateListManagedAccounts,
+  paginateListNetworkMigrationAnalyses,
+  paginateListNetworkMigrationAnalysisResults,
+  paginateListNetworkMigrationCodeGenerations,
+  paginateListNetworkMigrationCodeGenerationSegments,
+  paginateListNetworkMigrationDefinitions,
+  paginateListNetworkMigrationDeployedStacks,
+  paginateListNetworkMigrationDeployments,
+  paginateListNetworkMigrationExecutions,
+  paginateListNetworkMigrationMapperSegmentConstructs,
+  paginateListNetworkMigrationMapperSegments,
+  paginateListNetworkMigrationMappings,
+  paginateListNetworkMigrationMappingUpdates,
   paginateListSourceServerActions,
   paginateListTemplateActions,
   paginateListWaves,
@@ -556,6 +736,23 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link CreateNetworkMigrationDefinitionCommand}
+   */
+  createNetworkMigrationDefinition(
+    args: CreateNetworkMigrationDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateNetworkMigrationDefinitionCommandOutput>;
+  createNetworkMigrationDefinition(
+    args: CreateNetworkMigrationDefinitionCommandInput,
+    cb: (err: any, data?: CreateNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+  createNetworkMigrationDefinition(
+    args: CreateNetworkMigrationDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateReplicationConfigurationTemplateCommand}
    */
   createReplicationConfigurationTemplate(
@@ -655,6 +852,23 @@ export interface Mgn {
     args: DeleteLaunchConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNetworkMigrationDefinitionCommand}
+   */
+  deleteNetworkMigrationDefinition(
+    args: DeleteNetworkMigrationDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkMigrationDefinitionCommandOutput>;
+  deleteNetworkMigrationDefinition(
+    args: DeleteNetworkMigrationDefinitionCommandInput,
+    cb: (err: any, data?: DeleteNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+  deleteNetworkMigrationDefinition(
+    args: DeleteNetworkMigrationDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkMigrationDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -918,6 +1132,40 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link GetNetworkMigrationDefinitionCommand}
+   */
+  getNetworkMigrationDefinition(
+    args: GetNetworkMigrationDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkMigrationDefinitionCommandOutput>;
+  getNetworkMigrationDefinition(
+    args: GetNetworkMigrationDefinitionCommandInput,
+    cb: (err: any, data?: GetNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+  getNetworkMigrationDefinition(
+    args: GetNetworkMigrationDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetNetworkMigrationMapperSegmentConstructCommand}
+   */
+  getNetworkMigrationMapperSegmentConstruct(
+    args: GetNetworkMigrationMapperSegmentConstructCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkMigrationMapperSegmentConstructCommandOutput>;
+  getNetworkMigrationMapperSegmentConstruct(
+    args: GetNetworkMigrationMapperSegmentConstructCommandInput,
+    cb: (err: any, data?: GetNetworkMigrationMapperSegmentConstructCommandOutput) => void
+  ): void;
+  getNetworkMigrationMapperSegmentConstruct(
+    args: GetNetworkMigrationMapperSegmentConstructCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkMigrationMapperSegmentConstructCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetReplicationConfigurationCommand}
    */
   getReplicationConfiguration(
@@ -1041,6 +1289,24 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link ListImportFileEnrichmentsCommand}
+   */
+  listImportFileEnrichments(): Promise<ListImportFileEnrichmentsCommandOutput>;
+  listImportFileEnrichments(
+    args: ListImportFileEnrichmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportFileEnrichmentsCommandOutput>;
+  listImportFileEnrichments(
+    args: ListImportFileEnrichmentsCommandInput,
+    cb: (err: any, data?: ListImportFileEnrichmentsCommandOutput) => void
+  ): void;
+  listImportFileEnrichments(
+    args: ListImportFileEnrichmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportFileEnrichmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListImportsCommand}
    */
   listImports(): Promise<ListImportsCommandOutput>;
@@ -1074,6 +1340,211 @@ export interface Mgn {
     args: ListManagedAccountsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListManagedAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationAnalysesCommand}
+   */
+  listNetworkMigrationAnalyses(
+    args: ListNetworkMigrationAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationAnalysesCommandOutput>;
+  listNetworkMigrationAnalyses(
+    args: ListNetworkMigrationAnalysesCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationAnalysesCommandOutput) => void
+  ): void;
+  listNetworkMigrationAnalyses(
+    args: ListNetworkMigrationAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationAnalysesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationAnalysisResultsCommand}
+   */
+  listNetworkMigrationAnalysisResults(
+    args: ListNetworkMigrationAnalysisResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationAnalysisResultsCommandOutput>;
+  listNetworkMigrationAnalysisResults(
+    args: ListNetworkMigrationAnalysisResultsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationAnalysisResultsCommandOutput) => void
+  ): void;
+  listNetworkMigrationAnalysisResults(
+    args: ListNetworkMigrationAnalysisResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationAnalysisResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationCodeGenerationsCommand}
+   */
+  listNetworkMigrationCodeGenerations(
+    args: ListNetworkMigrationCodeGenerationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationCodeGenerationsCommandOutput>;
+  listNetworkMigrationCodeGenerations(
+    args: ListNetworkMigrationCodeGenerationsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationCodeGenerationsCommandOutput) => void
+  ): void;
+  listNetworkMigrationCodeGenerations(
+    args: ListNetworkMigrationCodeGenerationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationCodeGenerationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationCodeGenerationSegmentsCommand}
+   */
+  listNetworkMigrationCodeGenerationSegments(
+    args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationCodeGenerationSegmentsCommandOutput>;
+  listNetworkMigrationCodeGenerationSegments(
+    args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationCodeGenerationSegmentsCommandOutput) => void
+  ): void;
+  listNetworkMigrationCodeGenerationSegments(
+    args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationCodeGenerationSegmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationDefinitionsCommand}
+   */
+  listNetworkMigrationDefinitions(): Promise<ListNetworkMigrationDefinitionsCommandOutput>;
+  listNetworkMigrationDefinitions(
+    args: ListNetworkMigrationDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationDefinitionsCommandOutput>;
+  listNetworkMigrationDefinitions(
+    args: ListNetworkMigrationDefinitionsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationDefinitionsCommandOutput) => void
+  ): void;
+  listNetworkMigrationDefinitions(
+    args: ListNetworkMigrationDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationDefinitionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationDeployedStacksCommand}
+   */
+  listNetworkMigrationDeployedStacks(
+    args: ListNetworkMigrationDeployedStacksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationDeployedStacksCommandOutput>;
+  listNetworkMigrationDeployedStacks(
+    args: ListNetworkMigrationDeployedStacksCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationDeployedStacksCommandOutput) => void
+  ): void;
+  listNetworkMigrationDeployedStacks(
+    args: ListNetworkMigrationDeployedStacksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationDeployedStacksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationDeploymentsCommand}
+   */
+  listNetworkMigrationDeployments(
+    args: ListNetworkMigrationDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationDeploymentsCommandOutput>;
+  listNetworkMigrationDeployments(
+    args: ListNetworkMigrationDeploymentsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationDeploymentsCommandOutput) => void
+  ): void;
+  listNetworkMigrationDeployments(
+    args: ListNetworkMigrationDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationExecutionsCommand}
+   */
+  listNetworkMigrationExecutions(
+    args: ListNetworkMigrationExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationExecutionsCommandOutput>;
+  listNetworkMigrationExecutions(
+    args: ListNetworkMigrationExecutionsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationExecutionsCommandOutput) => void
+  ): void;
+  listNetworkMigrationExecutions(
+    args: ListNetworkMigrationExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationMapperSegmentConstructsCommand}
+   */
+  listNetworkMigrationMapperSegmentConstructs(
+    args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationMapperSegmentConstructsCommandOutput>;
+  listNetworkMigrationMapperSegmentConstructs(
+    args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationMapperSegmentConstructsCommandOutput) => void
+  ): void;
+  listNetworkMigrationMapperSegmentConstructs(
+    args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationMapperSegmentConstructsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationMapperSegmentsCommand}
+   */
+  listNetworkMigrationMapperSegments(
+    args: ListNetworkMigrationMapperSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationMapperSegmentsCommandOutput>;
+  listNetworkMigrationMapperSegments(
+    args: ListNetworkMigrationMapperSegmentsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationMapperSegmentsCommandOutput) => void
+  ): void;
+  listNetworkMigrationMapperSegments(
+    args: ListNetworkMigrationMapperSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationMapperSegmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationMappingsCommand}
+   */
+  listNetworkMigrationMappings(
+    args: ListNetworkMigrationMappingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationMappingsCommandOutput>;
+  listNetworkMigrationMappings(
+    args: ListNetworkMigrationMappingsCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationMappingsCommandOutput) => void
+  ): void;
+  listNetworkMigrationMappings(
+    args: ListNetworkMigrationMappingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationMappingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNetworkMigrationMappingUpdatesCommand}
+   */
+  listNetworkMigrationMappingUpdates(
+    args: ListNetworkMigrationMappingUpdatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNetworkMigrationMappingUpdatesCommandOutput>;
+  listNetworkMigrationMappingUpdates(
+    args: ListNetworkMigrationMappingUpdatesCommandInput,
+    cb: (err: any, data?: ListNetworkMigrationMappingUpdatesCommandOutput) => void
+  ): void;
+  listNetworkMigrationMappingUpdates(
+    args: ListNetworkMigrationMappingUpdatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNetworkMigrationMappingUpdatesCommandOutput) => void
   ): void;
 
   /**
@@ -1333,6 +1804,108 @@ export interface Mgn {
   ): void;
 
   /**
+   * @see {@link StartImportFileEnrichmentCommand}
+   */
+  startImportFileEnrichment(
+    args: StartImportFileEnrichmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartImportFileEnrichmentCommandOutput>;
+  startImportFileEnrichment(
+    args: StartImportFileEnrichmentCommandInput,
+    cb: (err: any, data?: StartImportFileEnrichmentCommandOutput) => void
+  ): void;
+  startImportFileEnrichment(
+    args: StartImportFileEnrichmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportFileEnrichmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNetworkMigrationAnalysisCommand}
+   */
+  startNetworkMigrationAnalysis(
+    args: StartNetworkMigrationAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkMigrationAnalysisCommandOutput>;
+  startNetworkMigrationAnalysis(
+    args: StartNetworkMigrationAnalysisCommandInput,
+    cb: (err: any, data?: StartNetworkMigrationAnalysisCommandOutput) => void
+  ): void;
+  startNetworkMigrationAnalysis(
+    args: StartNetworkMigrationAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkMigrationAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNetworkMigrationCodeGenerationCommand}
+   */
+  startNetworkMigrationCodeGeneration(
+    args: StartNetworkMigrationCodeGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkMigrationCodeGenerationCommandOutput>;
+  startNetworkMigrationCodeGeneration(
+    args: StartNetworkMigrationCodeGenerationCommandInput,
+    cb: (err: any, data?: StartNetworkMigrationCodeGenerationCommandOutput) => void
+  ): void;
+  startNetworkMigrationCodeGeneration(
+    args: StartNetworkMigrationCodeGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkMigrationCodeGenerationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNetworkMigrationDeploymentCommand}
+   */
+  startNetworkMigrationDeployment(
+    args: StartNetworkMigrationDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkMigrationDeploymentCommandOutput>;
+  startNetworkMigrationDeployment(
+    args: StartNetworkMigrationDeploymentCommandInput,
+    cb: (err: any, data?: StartNetworkMigrationDeploymentCommandOutput) => void
+  ): void;
+  startNetworkMigrationDeployment(
+    args: StartNetworkMigrationDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkMigrationDeploymentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNetworkMigrationMappingCommand}
+   */
+  startNetworkMigrationMapping(
+    args: StartNetworkMigrationMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkMigrationMappingCommandOutput>;
+  startNetworkMigrationMapping(
+    args: StartNetworkMigrationMappingCommandInput,
+    cb: (err: any, data?: StartNetworkMigrationMappingCommandOutput) => void
+  ): void;
+  startNetworkMigrationMapping(
+    args: StartNetworkMigrationMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkMigrationMappingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNetworkMigrationMappingUpdateCommand}
+   */
+  startNetworkMigrationMappingUpdate(
+    args: StartNetworkMigrationMappingUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNetworkMigrationMappingUpdateCommandOutput>;
+  startNetworkMigrationMappingUpdate(
+    args: StartNetworkMigrationMappingUpdateCommandInput,
+    cb: (err: any, data?: StartNetworkMigrationMappingUpdateCommandOutput) => void
+  ): void;
+  startNetworkMigrationMappingUpdate(
+    args: StartNetworkMigrationMappingUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNetworkMigrationMappingUpdateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartReplicationCommand}
    */
   startReplication(
@@ -1534,6 +2107,40 @@ export interface Mgn {
     args: UpdateLaunchConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNetworkMigrationDefinitionCommand}
+   */
+  updateNetworkMigrationDefinition(
+    args: UpdateNetworkMigrationDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNetworkMigrationDefinitionCommandOutput>;
+  updateNetworkMigrationDefinition(
+    args: UpdateNetworkMigrationDefinitionCommandInput,
+    cb: (err: any, data?: UpdateNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+  updateNetworkMigrationDefinition(
+    args: UpdateNetworkMigrationDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNetworkMigrationDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateNetworkMigrationMapperSegmentCommand}
+   */
+  updateNetworkMigrationMapperSegment(
+    args: UpdateNetworkMigrationMapperSegmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNetworkMigrationMapperSegmentCommandOutput>;
+  updateNetworkMigrationMapperSegment(
+    args: UpdateNetworkMigrationMapperSegmentCommandInput,
+    cb: (err: any, data?: UpdateNetworkMigrationMapperSegmentCommandOutput) => void
+  ): void;
+  updateNetworkMigrationMapperSegment(
+    args: UpdateNetworkMigrationMapperSegmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNetworkMigrationMapperSegmentCommandOutput) => void
   ): void;
 
   /**
@@ -1743,6 +2350,17 @@ export interface Mgn {
   ): Paginator<ListImportErrorsCommandOutput>;
 
   /**
+   * @see {@link ListImportFileEnrichmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListImportFileEnrichmentsCommandOutput}.
+   */
+  paginateListImportFileEnrichments(
+    args?: ListImportFileEnrichmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListImportFileEnrichmentsCommandOutput>;
+
+  /**
    * @see {@link ListImportsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1763,6 +2381,138 @@ export interface Mgn {
     args?: ListManagedAccountsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListManagedAccountsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationAnalysesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationAnalysesCommandOutput}.
+   */
+  paginateListNetworkMigrationAnalyses(
+    args: ListNetworkMigrationAnalysesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationAnalysesCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationAnalysisResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationAnalysisResultsCommandOutput}.
+   */
+  paginateListNetworkMigrationAnalysisResults(
+    args: ListNetworkMigrationAnalysisResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationAnalysisResultsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationCodeGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationCodeGenerationsCommandOutput}.
+   */
+  paginateListNetworkMigrationCodeGenerations(
+    args: ListNetworkMigrationCodeGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationCodeGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationCodeGenerationSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationCodeGenerationSegmentsCommandOutput}.
+   */
+  paginateListNetworkMigrationCodeGenerationSegments(
+    args: ListNetworkMigrationCodeGenerationSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationCodeGenerationSegmentsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationDefinitionsCommandOutput}.
+   */
+  paginateListNetworkMigrationDefinitions(
+    args?: ListNetworkMigrationDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationDefinitionsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationDeployedStacksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationDeployedStacksCommandOutput}.
+   */
+  paginateListNetworkMigrationDeployedStacks(
+    args: ListNetworkMigrationDeployedStacksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationDeployedStacksCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationDeploymentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationDeploymentsCommandOutput}.
+   */
+  paginateListNetworkMigrationDeployments(
+    args: ListNetworkMigrationDeploymentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationDeploymentsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationExecutionsCommandOutput}.
+   */
+  paginateListNetworkMigrationExecutions(
+    args: ListNetworkMigrationExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationMapperSegmentConstructsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationMapperSegmentConstructsCommandOutput}.
+   */
+  paginateListNetworkMigrationMapperSegmentConstructs(
+    args: ListNetworkMigrationMapperSegmentConstructsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationMapperSegmentConstructsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationMapperSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationMapperSegmentsCommandOutput}.
+   */
+  paginateListNetworkMigrationMapperSegments(
+    args: ListNetworkMigrationMapperSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationMapperSegmentsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationMappingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationMappingsCommandOutput}.
+   */
+  paginateListNetworkMigrationMappings(
+    args: ListNetworkMigrationMappingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationMappingsCommandOutput>;
+
+  /**
+   * @see {@link ListNetworkMigrationMappingUpdatesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListNetworkMigrationMappingUpdatesCommandOutput}.
+   */
+  paginateListNetworkMigrationMappingUpdates(
+    args: ListNetworkMigrationMappingUpdatesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListNetworkMigrationMappingUpdatesCommandOutput>;
 
   /**
    * @see {@link ListSourceServerActionsCommand}
