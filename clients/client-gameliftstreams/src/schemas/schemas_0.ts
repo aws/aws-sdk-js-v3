@@ -62,7 +62,9 @@ const _GSSI = "GetStreamSessionInput";
 const _GSSO = "GetStreamSessionOutput";
 const _I = "Identifier";
 const _IC = "IdleCapacity";
+const _ICB = "Ipv4CidrBlocks";
 const _ISE = "InternalServerException";
+const _IVICB = "InternalVpcIpv4CidrBlock";
 const _Id = "Id";
 const _It = "Items";
 const _L = "Locations";
@@ -124,6 +126,8 @@ const _SSSt = "StartStreamSession";
 const _SWC = "SharedWithClient";
 const _T = "Tags";
 const _TE = "ThrottlingException";
+const _TGI = "TransitGatewayId";
+const _TGRSA = "TransitGatewayResourceShareArn";
 const _TIC = "TargetIdleCapacity";
 const _TK = "TagKeys";
 const _TR = "TagResource";
@@ -144,6 +148,9 @@ const _USGI = "UpdateStreamGroupInput";
 const _USGO = "UpdateStreamGroupOutput";
 const _V = "Version";
 const _VE = "ValidationException";
+const _VI = "VpcId";
+const _VTC = "VpcTransitConfiguration";
+const _VTCR = "VpcTransitConfigurationResponse";
 const _WSPU = "WebSdkProtocolUrl";
 const _c = "client";
 const _e = "error";
@@ -413,13 +420,13 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var LocationConfiguration$: StaticStructureSchema = [3, n0, _LCo,
   0,
-  [_LN, _AOC, _ODC, _TIC, _MC],
-  [0, 1, 1, 1, 1], 1
+  [_LN, _AOC, _ODC, _TIC, _MC, _VTC],
+  [0, 1, 1, 1, 1, () => VpcTransitConfiguration$], 1
 ];
 export var LocationState$: StaticStructureSchema = [3, n0, _LSo,
   0,
-  [_LN, _S, _AOC, _ODC, _TIC, _MC, _RC, _AC, _IC],
-  [0, 0, 1, 1, 1, 1, 1, 1, 1]
+  [_LN, _S, _AOC, _ODC, _TIC, _MC, _RC, _AC, _IC, _IVICB, _VTC],
+  [0, 0, 1, 1, 1, 1, 1, 1, 1, 0, () => VpcTransitConfigurationResponse$]
 ];
 export var PerformanceStatsConfiguration$: StaticStructureSchema = [3, n0, _PSC,
   0,
@@ -506,6 +513,16 @@ export var UpdateStreamGroupOutput$: StaticStructureSchema = [3, n0, _USGO,
   [_A, _D, _DA, _LS, _SC, _Id, _S, _SRt, _LUA, _CA, _EA, _AAs],
   [0, 0, () => DefaultApplication$, () => LocationStates, 0, 0, 0, 0, 4, 4, 4, 64 | 0], 1
 ];
+export var VpcTransitConfiguration$: StaticStructureSchema = [3, n0, _VTC,
+  0,
+  [_VI, _ICB],
+  [0, 64 | 0], 2
+];
+export var VpcTransitConfigurationResponse$: StaticStructureSchema = [3, n0, _VTCR,
+  0,
+  [_VI, _ICB, _TGI, _TGRSA],
+  [0, 64 | 0, 0, 0]
+];
 var __Unit = "unit" as const;
 var ApplicationSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => ApplicationSummary$
@@ -514,6 +531,7 @@ var ArnList = 64 | 0;
 var FilePaths = 64 | 0;
 var GameLaunchArgList = 64 | 0;
 var Identifiers = 64 | 0;
+var Ipv4CidrBlockList = 64 | 0;
 var LocationConfigurations: StaticListSchema = [1, n0, _LC,
   0, () => LocationConfiguration$
 ];

@@ -134,6 +134,8 @@ import {
   UpdateStreamGroupOutput$,
   ValidationException,
   ValidationException$,
+  VpcTransitConfiguration$,
+  VpcTransitConfigurationResponse$,
   waitForApplicationDeleted,
   waitForApplicationReady,
   waitForStreamGroupActive,
@@ -253,6 +255,8 @@ assert(typeof UpdateApplicationInput$ === "object");
 assert(typeof UpdateApplicationOutput$ === "object");
 assert(typeof UpdateStreamGroupInput$ === "object");
 assert(typeof UpdateStreamGroupOutput$ === "object");
+assert(typeof VpcTransitConfiguration$ === "object");
+assert(typeof VpcTransitConfigurationResponse$ === "object");
 // enums
 assert(typeof ApplicationStatus === "object");
 assert(typeof ApplicationStatusReason === "object");

@@ -49,6 +49,12 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  *       OnDemandCapacity: Number("int"),
  *       TargetIdleCapacity: Number("int"),
  *       MaximumCapacity: Number("int"),
+ *       VpcTransitConfiguration: { // VpcTransitConfiguration
+ *         VpcId: "STRING_VALUE", // required
+ *         Ipv4CidrBlocks: [ // Ipv4CidrBlockList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
  * };
@@ -67,6 +73,15 @@ export interface AddStreamGroupLocationsCommandOutput extends AddStreamGroupLoca
  * //       RequestedCapacity: Number("int"),
  * //       AllocatedCapacity: Number("int"),
  * //       IdleCapacity: Number("int"),
+ * //       InternalVpcIpv4CidrBlock: "STRING_VALUE",
+ * //       VpcTransitConfiguration: { // VpcTransitConfigurationResponse
+ * //         VpcId: "STRING_VALUE",
+ * //         Ipv4CidrBlocks: [ // Ipv4CidrBlockList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         TransitGatewayId: "STRING_VALUE",
+ * //         TransitGatewayResourceShareArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

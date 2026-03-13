@@ -140,6 +140,8 @@ export type {
   UpdateApplicationOutput,
   UpdateStreamGroupInput,
   UpdateStreamGroupOutput,
+  VpcTransitConfiguration,
+  VpcTransitConfigurationResponse,
   AccessDeniedException,
   ConflictException,
   InternalServerException,
