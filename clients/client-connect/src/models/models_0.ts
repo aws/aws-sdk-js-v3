@@ -5294,6 +5294,8 @@ export interface CreateNotificationRequest {
 
   /**
    * <p>The unique identifier for a notification.</p>
+   *
+   * @deprecated (since 3/13/2026) PredefinedNotificationId is deprecated. Use ClientToken for idempotency.
    * @public
    */
   PredefinedNotificationId?: string | undefined;
