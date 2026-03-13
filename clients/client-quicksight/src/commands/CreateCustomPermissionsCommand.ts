@@ -256,6 +256,7 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     Research: "DENY",
  *     SelfUpgradeUserRole: "DENY",
  *     Extension: "DENY",
+ *     ManageSharedFolders: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

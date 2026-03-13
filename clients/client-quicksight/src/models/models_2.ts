@@ -8011,6 +8011,14 @@ export interface Capabilities {
    * @public
    */
   Extension?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>
+   *          <p>
+   *             <b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>
+   * @public
+   */
+  ManageSharedFolders?: CapabilityState | undefined;
 }
 
 /**
