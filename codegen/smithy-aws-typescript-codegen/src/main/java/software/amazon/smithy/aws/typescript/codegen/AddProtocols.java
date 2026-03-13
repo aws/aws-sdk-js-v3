@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_0Trait;
 import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryTrait;
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryTrait;
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
@@ -42,6 +43,13 @@ public class AddProtocols implements TypeScriptIntegration {
             if (service.hasTrait(protocol)) {
                 supported.add(protocol);
             }
+        }
+
+        if (service.hasTrait(AwsQueryCompatibleTrait.ID)) {
+            // As the first protocol migration, SQS did not retain the AwsQueryTrait
+            // at the time, switching entirely to JSON. But the queryCompatible trait
+            // implies Query support.
+            supported.add(AwsQueryTrait.ID);
         }
 
         return supported;

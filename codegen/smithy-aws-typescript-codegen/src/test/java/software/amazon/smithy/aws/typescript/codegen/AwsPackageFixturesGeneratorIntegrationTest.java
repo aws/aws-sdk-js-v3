@@ -47,7 +47,7 @@ public class AwsPackageFixturesGeneratorIntegrationTest {
         assertThat(readme, containsString("AWS SDK for JavaScript NotSame Client")); // Description
         assertThat(readme, containsString("`NotSameClient`")); // Modular Client name
         assertThat(readme, containsString("`GetFooCommand`")); // Command name
-        assertThat(readme, containsString("AWS.NotSame")); // v2 compatible client name
+        assertThat(readme, containsString("{ NotSame }")); // v2 compatible client name
         assertThat(readme, containsString("client.getFoo")); // v2 compatible operation name                        
     }
 
