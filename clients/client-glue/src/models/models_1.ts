@@ -95,6 +95,54 @@ import {
 } from "./models_0";
 
 /**
+ * <p>A request to create a data quality ruleset.</p>
+ * @public
+ */
+export interface CreateDataQualityRulesetRequest {
+  /**
+   * <p>A unique name for the data quality ruleset.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the data quality ruleset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   * @public
+   */
+  Ruleset: string | undefined;
+
+  /**
+   * <p>A list of tags applied to the data quality ruleset.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A target table associated with the data quality ruleset.</p>
+   * @public
+   */
+  TargetTable?: DataQualityTargetTable | undefined;
+
+  /**
+   * <p>The name of the security configuration created with the data quality encryption option.</p>
+   * @public
+   */
+  DataQualitySecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateDataQualityRulesetResponse {
@@ -8526,28 +8574,4 @@ export interface ExportLabelsTaskRunProperties {
    * @public
    */
   OutputS3Path?: string | undefined;
-}
-
-/**
- * <p>Specifies configuration properties for a Find Matches task run.</p>
- * @public
- */
-export interface FindMatchesTaskRunProperties {
-  /**
-   * <p>The job ID for the Find Matches task run.</p>
-   * @public
-   */
-  JobId?: string | undefined;
-
-  /**
-   * <p>The name assigned to the job for the Find Matches task run.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The job run ID for the Find Matches task run.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
 }

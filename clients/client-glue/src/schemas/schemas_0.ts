@@ -3011,8 +3011,8 @@ export var BatchGetJobsResponse$: StaticStructureSchema = [3, n0, _BGJRa,
 ];
 export var BatchGetPartitionRequest$: StaticStructureSchema = [3, n0, _BGPR,
   0,
-  [_DN, _TN, _PTG, _CI],
-  [0, 0, () => BatchGetPartitionValueList, 0], 3
+  [_DN, _TN, _PTG, _CI, _ACu, _QSC],
+  [0, 0, () => BatchGetPartitionValueList, 0, () => AuditContext$, () => QuerySessionContext$], 3
 ];
 export var BatchGetPartitionResponse$: StaticStructureSchema = [3, n0, _BGPRa,
   0,
