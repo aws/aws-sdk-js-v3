@@ -4,14 +4,16 @@ import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListF
 import { PRIORITY_ORDER_ALGORITHMS } from "./types";
 
 describe(getChecksumAlgorithmListForResponse.name, () => {
-  const unknownAlgorithm = "UNKNOWNALGO";
+  const u1 = "UNKNOWNALGO1";
+  const u2 = "UNKNOWNALGO2";
+  const u3 = "UNKNOWNALGO3";
 
   it("returns empty if responseAlgorithms is empty", () => {
     expect(getChecksumAlgorithmListForResponse([])).toEqual([]);
   });
 
-  it("returns empty if contents of responseAlgorithms is not in priority order", () => {
-    expect(getChecksumAlgorithmListForResponse([unknownAlgorithm])).toEqual([]);
+  it("returns unknown algorithms in their existing order if no priority information is available", () => {
+    expect(getChecksumAlgorithmListForResponse([u1, u3, u2])).toEqual([u1, u3, u2]);
   });
 
   describe("returns list as per priority order", () => {
@@ -38,12 +40,18 @@ describe(getChecksumAlgorithmListForResponse.name, () => {
     );
   });
 
-  it("ignores algorithms not present in priority list", () => {
-    expect(getChecksumAlgorithmListForResponse([unknownAlgorithm, ...PRIORITY_ORDER_ALGORITHMS].reverse())).toEqual(
-      PRIORITY_ORDER_ALGORITHMS
-    );
-    expect(getChecksumAlgorithmListForResponse([...PRIORITY_ORDER_ALGORITHMS, unknownAlgorithm].reverse())).toEqual(
-      PRIORITY_ORDER_ALGORITHMS
-    );
+  it("does not ignore algorithms not present in the priority list. However, they receive lowest priority.", () => {
+    expect(getChecksumAlgorithmListForResponse([u1, u3, ...PRIORITY_ORDER_ALGORITHMS, u2].reverse())).toEqual([
+      ...PRIORITY_ORDER_ALGORITHMS,
+      u2,
+      u3,
+      u1,
+    ]);
+    expect(getChecksumAlgorithmListForResponse([u2, ...PRIORITY_ORDER_ALGORITHMS, u3, u1].reverse())).toEqual([
+      ...PRIORITY_ORDER_ALGORITHMS,
+      u1,
+      u3,
+      u2,
+    ]);
   });
 });
