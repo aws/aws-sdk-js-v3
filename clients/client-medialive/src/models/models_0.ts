@@ -9932,7 +9932,10 @@ export interface VideoDescription {
   RespondToAfd?: VideoDescriptionRespondToAfd | undefined;
 
   /**
-   * STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
+   * Configures how MediaLive transforms the video picture to match the output frame.
+   * Use STRETCH_TO_OUTPUT to stretch the video to fill the output frame. The video might get distorted.
+   * Use DEFAULT to insert pillar boxes or letter boxes around the video to fill the output frame. The video won't get distorted.
+   * Use SMART_CROP to enable the smart crop feature that uses the Elemental Inference service to crop the frame using AI - see the MediaLive User Guide for more information.
    * @public
    */
   ScalingBehavior?: VideoDescriptionScalingBehavior | undefined;
