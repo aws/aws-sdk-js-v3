@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-mediaconvert:** This update adds support for Dolby AC-4 audio output, frame rate conversion between non-Dolby Vision inputs to Dolby Vision outputs, and clear lead CMAF HLS output. ([11615b9](https://github.com/aws/aws-sdk-js-v3/commit/11615b9fb746fa82a001a19fd5620eba8eb951fe))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert

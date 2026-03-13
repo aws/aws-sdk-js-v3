@@ -23,6 +23,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.7 (2026-03-13)
+### Chores
+* **codegen:** sync for retry strategy lifecycle fix ([#7842](https://github.com/aws/aws-sdk-js-v3/issues/7842)) ([7bf8888](https://github.com/aws/aws-sdk-js-v3/commit/7bf8888b2423d2342ea2b689532e526715ec1d50))
+
+
+
 # 3.973.6 (2026-03-12)
 ### Bug Fixes
 * **util-user-agent-node:** read typescript version from app package.json ([#7840](https://github.com/aws/aws-sdk-js-v3/issues/7840)) ([5253141](https://github.com/aws/aws-sdk-js-v3/commit/5253141cd68e5be1bf6d3b5cd282bd5747450af2))

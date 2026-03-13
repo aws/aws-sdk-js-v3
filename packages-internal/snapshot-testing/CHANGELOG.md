@@ -2,6 +2,13 @@
 
 
 
+
+# 3.0.3 (2026-03-13)
+### Chores
+* **codegen:** sync for retry strategy lifecycle fix ([#7842](https://github.com/aws/aws-sdk-js-v3/issues/7842)) ([7bf8888](https://github.com/aws/aws-sdk-js-v3/commit/7bf8888b2423d2342ea2b689532e526715ec1d50))
+
+
+
 # 3.0.2 (2026-03-10)
 ### Tests
 * **snapshot-testing:** error response snapshots ([#7836](https://github.com/aws/aws-sdk-js-v3/issues/7836)) ([0e58193](https://github.com/aws/aws-sdk-js-v3/commit/0e58193f698c5b387bf04e03a4c8721f0d7a5ea7))

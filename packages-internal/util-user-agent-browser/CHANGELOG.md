@@ -10,6 +10,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.8 (2026-03-13)
+### Chores
+* **codegen:** sync for retry strategy lifecycle fix ([#7842](https://github.com/aws/aws-sdk-js-v3/issues/7842)) ([7bf8888](https://github.com/aws/aws-sdk-js-v3/commit/7bf8888b2423d2342ea2b689532e526715ec1d50))
+
+
+
 # 3.972.7 (2026-03-04)
 ### Chores
 * set downlevel types to be used in typescript@'<4.5' ([#7817](https://github.com/aws/aws-sdk-js-v3/issues/7817)) ([03dad66](https://github.com/aws/aws-sdk-js-v3/commit/03dad66b98363f09d1f0984b670be110caea8f62))

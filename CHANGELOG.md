@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway now supports an additional security policy "SecurityPolicy-TLS13-1-2-FIPS-PFS-PQ-2025-09" for REST APIs and custom domain names. The new policy is compliant with TLS 1.3, Federal Information Processing Standards (FIPS), Perfect Forward Secrecy (PFS), and post-quantum (PQ) cryptography ([663ec58](https://github.com/aws/aws-sdk-js-v3/commit/663ec5888aab7b276a6bf39d86286be93a583b73))
+* **client-config-service:** Fix pagination support for DescribeConformancePackCompliance, and update OrganizationConfigRule InputParameters max length to match ConfigRule. ([469faf6](https://github.com/aws/aws-sdk-js-v3/commit/469faf6f5a8bc5b2124c2e7e3e31e95693bf8fe4))
+* **client-connect:** Deprecating PredefinedNotificationID field ([20194f1](https://github.com/aws/aws-sdk-js-v3/commit/20194f10f25d5f0afe8639108a2ff0f161571d55))
+* **client-gameliftstreams:** Feature launch that enables customers to connect streaming sessions to their own VPCs running in AWS. ([9b2dfe8](https://github.com/aws/aws-sdk-js-v3/commit/9b2dfe80b10a0f8bdaf39e4ac6184f01a1fad23b))
+* **client-glue:** Add QuerySessionContext to BatchGetPartitionRequest ([e39731f](https://github.com/aws/aws-sdk-js-v3/commit/e39731faa4e134c6f6ab6704940f2e2a9c7bb56e))
+* **client-ivs-realtime:** Updates maximum reconnect window seconds from 60 to 300 for participant replication ([e384ea1](https://github.com/aws/aws-sdk-js-v3/commit/e384ea14b8e2672b599b0c2ca7340c254c4f7105))
+* **client-mediaconvert:** This update adds support for Dolby AC-4 audio output, frame rate conversion between non-Dolby Vision inputs to Dolby Vision outputs, and clear lead CMAF HLS output. ([11615b9](https://github.com/aws/aws-sdk-js-v3/commit/11615b9fb746fa82a001a19fd5620eba8eb951fe))
+* **client-mgn:** Network Migration APIs are now publicly available for direct programmatic access. Customers can now call Network Migration APIs directly without going through AWS Transform (ATX), enabling automation, integration with existing tools, and self-service migration workflows. ([2c814ea](https://github.com/aws/aws-sdk-js-v3/commit/2c814ea89efdffef4721d485021041b21d1f0dbb))
+* **client-quicksight:** The change adds a new capability named ManageSharedFolders in Custom Permissions ([cffca16](https://github.com/aws/aws-sdk-js-v3/commit/cffca16fe99af1027665be549ab3ba01a0312603))
+* **clients:** update client endpoints as of 2026-03-13 ([079cb59](https://github.com/aws/aws-sdk-js-v3/commit/079cb59479a663a63d859323cdb0ca7e96aec329))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 

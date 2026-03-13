@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-api-gateway:** API Gateway now supports an additional security policy "SecurityPolicy-TLS13-1-2-FIPS-PFS-PQ-2025-09" for REST APIs and custom domain names. The new policy is compliant with TLS 1.3, Federal Information Processing Standards (FIPS), Perfect Forward Secrecy (PFS), and post-quantum (PQ) cryptography ([663ec58](https://github.com/aws/aws-sdk-js-v3/commit/663ec5888aab7b276a6bf39d86286be93a583b73))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 **Note:** Version bump only for package @aws-sdk/client-api-gateway

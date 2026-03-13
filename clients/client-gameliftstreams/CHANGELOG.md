@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-gameliftstreams:** Feature launch that enables customers to connect streaming sessions to their own VPCs running in AWS. ([9b2dfe8](https://github.com/aws/aws-sdk-js-v3/commit/9b2dfe80b10a0f8bdaf39e4ac6184f01a1fad23b))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 **Note:** Version bump only for package @aws-sdk/client-gameliftstreams

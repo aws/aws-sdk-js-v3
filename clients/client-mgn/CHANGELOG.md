@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-mgn:** Network Migration APIs are now publicly available for direct programmatic access. Customers can now call Network Migration APIs directly without going through AWS Transform (ATX), enabling automation, integration with existing tools, and self-service migration workflows. ([2c814ea](https://github.com/aws/aws-sdk-js-v3/commit/2c814ea89efdffef4721d485021041b21d1f0dbb))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 **Note:** Version bump only for package @aws-sdk/client-mgn

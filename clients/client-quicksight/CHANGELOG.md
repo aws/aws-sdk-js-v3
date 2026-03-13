@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
+
+
+### Features
+
+* **client-quicksight:** The change adds a new capability named ManageSharedFolders in Custom Permissions ([cffca16](https://github.com/aws/aws-sdk-js-v3/commit/cffca16fe99af1027665be549ab3ba01a0312603))
+
+
+
+
+
 # [3.1008.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1007.0...v3.1008.0) (2026-03-12)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -22,6 +22,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.20 (2026-03-13)
+### Chores
+* **codegen:** sync for retry strategy lifecycle fix ([#7842](https://github.com/aws/aws-sdk-js-v3/issues/7842)) ([7bf8888](https://github.com/aws/aws-sdk-js-v3/commit/7bf8888b2423d2342ea2b689532e526715ec1d50))
+
+
+
 # 3.972.19 (2026-03-09)
 ### Tests
 * **snapshot-testing:** implement response snapshots ([#7803](https://github.com/aws/aws-sdk-js-v3/issues/7803)) ([2b96330](https://github.com/aws/aws-sdk-js-v3/commit/2b96330d9048ca3df807a4775da859f76d041554))
