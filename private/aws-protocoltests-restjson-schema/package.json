@@ -11,8 +11,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types tsconfig.cjs.tsbuildinfo tsconfig.es.tsbuildinfo tsconfig.types.tsbuildinfo",
     "test": "yarn g:vitest run --passWithNoTests",
-    "test:integration": "yarn dlx vitest run --passWithNoTests -c vitest.config.integ.mts",
-    "test:integration:watch": "yarn dlx vitest run --passWithNoTests -c vitest.config.integ.mts",
+    "test:integration": "yarn g:vitest run --passWithNoTests -c vitest.config.integ.mts",
+    "test:integration:watch": "yarn g:vitest watch --passWithNoTests -c vitest.config.integ.mts",
     "test:watch": "yarn g:vitest watch --passWithNoTests"
   },
   "main": "./dist-cjs/index.js",
