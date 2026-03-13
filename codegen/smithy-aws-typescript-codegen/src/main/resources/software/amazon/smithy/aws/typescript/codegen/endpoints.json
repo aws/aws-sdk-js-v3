@@ -31544,6 +31544,7 @@
                 }
               ]
             },
+            "eu-central-2": {},
             "eu-north-1": {
               "variants": [
                 {
@@ -46625,6 +46626,11 @@
           }
         },
         "monitoring": {
+          "endpoints": {
+            "eusc-de-east-1": {}
+          }
+        },
+        "network-firewall": {
           "endpoints": {
             "eusc-de-east-1": {}
           }
