@@ -70,14 +70,11 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
         // build CJS after types and ES because of rollup inliner.
         fromContent[name]["build"] = `concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs`;
         fromContent[name]["build:include:deps"] = `yarn g:turbo run build -F="$npm_package_name"`;
-        if (fromContent[name]["test"]) {
-          fromContent[name]["test"] = fromContent[name]["test"].replace(/yarn dlx vitest/g, "yarn g:vitest");
-        }
-        if (fromContent[name]["test:watch"]) {
-          fromContent[name]["test:watch"] = fromContent[name]["test:watch"].replace(
-            /yarn dlx vitest/g,
-            "yarn g:vitest"
-          );
+
+        for (const [k, v] of Object.entries(fromContent[name])) {
+          if (k === "test" || k.startsWith("test:")) {
+            fromContent[name][k] = v.replace(/yarn dlx vitest/g, "yarn g:vitest");
+          }
         }
       }
 
