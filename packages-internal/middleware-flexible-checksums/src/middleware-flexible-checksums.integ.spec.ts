@@ -1,7 +1,12 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
+import type { S3ExtensionConfiguration } from "@aws-sdk/client-s3";
 import { ChecksumAlgorithm, S3 } from "@aws-sdk/client-s3";
 import type { HttpHandler, HttpRequest } from "@smithy/protocol-http";
 import { HttpResponse } from "@smithy/protocol-http";
+import type { Checksum } from "@smithy/types";
+import { toBase64 } from "@smithy/util-base64";
+import { ChecksumStream } from "@smithy/util-stream";
+import { fromUtf8 } from "@smithy/util-utf8";
 import { Readable, Transform } from "node:stream";
 import { describe, expect, test as it } from "vitest";
 
@@ -233,6 +238,179 @@ describe("middleware-flexible-checksums", () => {
 
           expect.hasAssertions();
         });
+      });
+    });
+  });
+
+  describe("Novel checksums", () => {
+    /**
+     * This highly performant checksum algorithm always returns the bytes of the string "Hello, world."
+     * and the number of bytes seen.
+     */
+    class HelloWorldChecksum implements Checksum {
+      private hash = "Hello, world.";
+      private bytesSeen = 0;
+
+      public constructor() {}
+
+      public reset(): void {
+        this.bytesSeen = 0;
+      }
+
+      public update(data: Uint8Array): void {
+        this.bytesSeen += data.byteLength;
+      }
+
+      async digest(): Promise<Uint8Array> {
+        return fromUtf8(this.hash + this.bytesSeen);
+      }
+    }
+
+    class HelloWorldChecksumExtension {
+      configure(extensions: S3ExtensionConfiguration) {
+        extensions.addChecksumAlgorithm({
+          algorithmId() {
+            return "HELLOWORLD";
+          },
+          checksumConstructor() {
+            return HelloWorldChecksum;
+          },
+        });
+      }
+    }
+
+    describe("novel request checksum", () => {
+      it("should send a request with the novel checksum in the header if the implementation is provided", async () => {
+        const s3 = new S3({
+          credentials: {
+            accessKeyId: "INTEG",
+            secretAccessKey: "INTEG",
+          },
+          extensions: [new HelloWorldChecksumExtension()],
+        });
+        requireRequestsFrom(s3).toMatch({
+          headers: {
+            "x-amz-checksum-helloworld": toBase64(fromUtf8("Hello, world.2")),
+          },
+        });
+
+        await s3.putObject({
+          Bucket: "bucket",
+          Key: "key",
+          Body: "hi",
+          ChecksumAlgorithm: "HELLOWORLD" as any,
+        });
+
+        expect.assertions(1);
+      });
+
+      it("should throw an error if the requested algorithm implementation is not available", async () => {
+        const s3 = new S3({
+          credentials: {
+            accessKeyId: "INTEG",
+            secretAccessKey: "INTEG",
+          },
+          extensions: [],
+        });
+        requireRequestsFrom(s3).toMatch({
+          headers: {
+            "x-amz-checksum-helloworld": toBase64(fromUtf8("Hello, world.2")),
+          },
+        });
+
+        try {
+          await s3.putObject({
+            Bucket: "bucket",
+            Key: "key",
+            Body: "hi",
+            ChecksumAlgorithm: "HELLOWORLD" as any,
+          });
+        } catch (e) {
+          expect(e.message).toMatch(/The checksum algorithm "HELLOWORLD" is not supported by the client/);
+        }
+
+        expect.assertions(1);
+      });
+    });
+
+    describe("novel response checksum", () => {
+      it("should receive a request and verify the novel checksum", async () => {
+        const s3 = new S3({
+          credentials: {
+            accessKeyId: "INTEG",
+            secretAccessKey: "INTEG",
+          },
+          extensions: [new HelloWorldChecksumExtension()],
+        });
+
+        requireRequestsFrom(s3)
+          .toMatch({
+            hostname: "bucket.s3.us-west-2.amazonaws.com",
+          })
+          .respondWith(
+            new HttpResponse({
+              statusCode: 200,
+              headers: {
+                "x-amz-checksum-helloworld": toBase64(fromUtf8("Hello, world.2")),
+              },
+              body: Readable.from(Buffer.from("hi_extra_bytes")),
+            })
+          );
+
+        const get = await s3.getObject({
+          Bucket: "bucket",
+          Key: "key",
+        });
+
+        expect.assertions(3);
+
+        expect(get.Body).toBeInstanceOf(ChecksumStream);
+        try {
+          await get.Body?.transformToByteArray();
+        } catch (e) {
+          const [ex, ac] = [toBase64(fromUtf8("Hello, world.2")), toBase64(fromUtf8("Hello, world.14"))];
+          expect(e.message).toEqual(
+            `
+Checksum mismatch: expected "${ex}" but received "${ac}" in response header "x-amz-checksum-helloworld".
+`.trim()
+          );
+        }
+      });
+
+      it("should ignore the checksum header and perform no checksum validation if no matching algorithm implementation is available", async () => {
+        const s3 = new S3({
+          credentials: {
+            accessKeyId: "INTEG",
+            secretAccessKey: "INTEG",
+          },
+          extensions: [],
+        });
+
+        requireRequestsFrom(s3)
+          .toMatch({
+            hostname: "bucket.s3.us-west-2.amazonaws.com",
+          })
+          .respondWith(
+            new HttpResponse({
+              statusCode: 200,
+              headers: {
+                "x-amz-checksum-helloworld": toBase64(fromUtf8("Hello, world.2")),
+              },
+              body: Readable.from(Buffer.from("hi_extra_bytes")),
+            })
+          );
+
+        const get = await s3.getObject({
+          Bucket: "bucket",
+          Key: "key",
+        });
+
+        expect.assertions(3);
+
+        expect(get.Body).not.toBeInstanceOf(ChecksumStream);
+
+        const objectContent = await get.Body?.transformToString();
+        expect(objectContent).toEqual("hi_extra_bytes");
       });
     });
   });

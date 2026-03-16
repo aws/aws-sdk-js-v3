@@ -1,5 +1,5 @@
 import type { ChecksumAlgorithm } from "./constants";
-import { CLIENT_SUPPORTED_ALGORITHMS, PRIORITY_ORDER_ALGORITHMS } from "./types";
+import { PRIORITY_ORDER_ALGORITHMS } from "./types";
 
 /**
  * Returns the priority array of algorithm to use to verify checksum and names
@@ -8,12 +8,16 @@ import { CLIENT_SUPPORTED_ALGORITHMS, PRIORITY_ORDER_ALGORITHMS } from "./types"
 export const getChecksumAlgorithmListForResponse = (responseAlgorithms: string[] = []): ChecksumAlgorithm[] => {
   const validChecksumAlgorithms: ChecksumAlgorithm[] = [];
 
-  for (const algorithm of PRIORITY_ORDER_ALGORITHMS) {
-    if (!responseAlgorithms.includes(algorithm) || !CLIENT_SUPPORTED_ALGORITHMS.includes(algorithm)) {
-      continue;
+  let i = PRIORITY_ORDER_ALGORITHMS.length;
+
+  for (const algorithm of responseAlgorithms) {
+    const priority = PRIORITY_ORDER_ALGORITHMS.indexOf(algorithm as ChecksumAlgorithm);
+    if (priority !== -1) {
+      validChecksumAlgorithms[priority] = algorithm as ChecksumAlgorithm;
+    } else {
+      validChecksumAlgorithms[i++] = algorithm as ChecksumAlgorithm;
     }
-    validChecksumAlgorithms.push(algorithm as ChecksumAlgorithm);
   }
 
-  return validChecksumAlgorithms;
+  return validChecksumAlgorithms.filter(Boolean);
 };

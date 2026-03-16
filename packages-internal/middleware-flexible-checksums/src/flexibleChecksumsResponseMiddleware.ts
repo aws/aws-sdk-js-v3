@@ -73,21 +73,32 @@ export const flexibleChecksumsResponseMiddleware =
     // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
     if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
       const { clientName, commandName } = context;
+
+      const customChecksumAlgorithms = Object.keys(config.checksumAlgorithms ?? {}).filter((algorithm: string) => {
+        const responseHeader = getChecksumLocationName(algorithm);
+        return response.headers[responseHeader] !== undefined;
+      });
+      const algoList = getChecksumAlgorithmListForResponse([
+        ...(responseAlgorithms ?? []),
+        ...customChecksumAlgorithms,
+      ]);
+
       const isS3WholeObjectMultipartGetResponseChecksum =
         clientName === "S3Client" &&
         commandName === "GetObjectCommand" &&
-        getChecksumAlgorithmListForResponse(responseAlgorithms).every((algorithm: ChecksumAlgorithm) => {
+        algoList.every((algorithm: ChecksumAlgorithm) => {
           const responseHeader = getChecksumLocationName(algorithm);
           const checksumFromResponse = response.headers[responseHeader];
           return !checksumFromResponse || isChecksumWithPartNumber(checksumFromResponse);
         });
+
       if (isS3WholeObjectMultipartGetResponseChecksum) {
         return result;
       }
 
       await validateChecksumFromResponse(response as HttpResponse, {
         config,
-        responseAlgorithms,
+        responseAlgorithms: algoList,
         logger: context.logger,
       });
     }
