@@ -19,6 +19,19 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const CommandExecutionStatus = {
+  COMPLETED: "COMPLETED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+/**
+ * @public
+ */
+export type CommandExecutionStatus = (typeof CommandExecutionStatus)[keyof typeof CommandExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrowserSessionStatus = {
   READY: "READY",
   TERMINATED: "TERMINATED",

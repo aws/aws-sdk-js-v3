@@ -83,6 +83,11 @@ import {
   InvokeAgentRuntimeCommandOutput,
 } from "./commands/InvokeAgentRuntimeCommand";
 import {
+  InvokeAgentRuntimeCommandCommand,
+  InvokeAgentRuntimeCommandCommandInput,
+  InvokeAgentRuntimeCommandCommandOutput,
+} from "./commands/InvokeAgentRuntimeCommandCommand";
+import {
   InvokeCodeInterpreterCommand,
   InvokeCodeInterpreterCommandInput,
   InvokeCodeInterpreterCommandOutput,
@@ -186,6 +191,7 @@ const commands = {
   GetWorkloadAccessTokenForJWTCommand,
   GetWorkloadAccessTokenForUserIdCommand,
   InvokeAgentRuntimeCommand,
+  InvokeAgentRuntimeCommandCommand,
   InvokeCodeInterpreterCommand,
   ListActorsCommand,
   ListBrowserSessionsCommand,
@@ -535,6 +541,23 @@ export interface BedrockAgentCore {
     args: InvokeAgentRuntimeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeAgentRuntimeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeAgentRuntimeCommandCommand}
+   */
+  invokeAgentRuntimeCommand(
+    args: InvokeAgentRuntimeCommandCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeAgentRuntimeCommandCommandOutput>;
+  invokeAgentRuntimeCommand(
+    args: InvokeAgentRuntimeCommandCommandInput,
+    cb: (err: any, data?: InvokeAgentRuntimeCommandCommandOutput) => void
+  ): void;
+  invokeAgentRuntimeCommand(
+    args: InvokeAgentRuntimeCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeAgentRuntimeCommandCommandOutput) => void
   ): void;
 
   /**

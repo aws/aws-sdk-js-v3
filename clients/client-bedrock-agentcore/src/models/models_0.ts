@@ -5,6 +5,7 @@ import {
   AutomationStreamStatus,
   BrowserSessionStatus,
   CodeInterpreterSessionStatus,
+  CommandExecutionStatus,
   ContentBlockType,
   ExtractionJobStatus,
   MemoryRecordStatus,
@@ -22,6 +23,7 @@ import {
   ConflictException,
   InternalServerException,
   ResourceNotFoundException,
+  RuntimeClientError,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
@@ -168,19 +170,19 @@ export interface InvokeAgentRuntimeRequest {
   baggage?: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Resource Name (ARN) of the agent runtime to invoke. The ARN uniquely identifies the agent runtime resource in Amazon Bedrock AgentCore.</p>
+   * <p>The identifier of the agent runtime to invoke. You can specify either the full Amazon Web Services Resource Name (ARN) or the agent ID. If you use the agent ID, you must also provide the <code>accountId</code> query parameter.</p>
    * @public
    */
   agentRuntimeArn: string | undefined;
 
   /**
-   * <p>The qualifier to use for the agent runtime. This can be a version number or an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default version of the agent runtime.</p>
+   * <p>The qualifier to use for the agent runtime. This is an endpoint name that points to a specific version. If not specified, Amazon Bedrock AgentCore uses the default endpoint of the agent runtime.</p>
    * @public
    */
   qualifier?: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Web Services account for the agent runtime resource.</p>
+   * <p>The identifier of the Amazon Web Services account for the agent runtime resource. This parameter is required when you specify an agent ID instead of the full ARN for <code>agentRuntimeArn</code>.</p>
    * @public
    */
   accountId?: string | undefined;
@@ -255,6 +257,396 @@ export interface InvokeAgentRuntimeResponse {
    * @public
    */
   statusCode?: number | undefined;
+}
+
+/**
+ * Request body for InvokeAgentRuntimeCommand
+ * @public
+ */
+export interface InvokeAgentRuntimeCommandRequestBody {
+  /**
+   * The command to execute in the runtime container
+   * @public
+   */
+  command: string | undefined;
+
+  /**
+   * Command timeout in seconds (default: 300, min:1, max: 3600)
+   * @public
+   */
+  timeout?: number | undefined;
+}
+
+/**
+ * Request for InvokeAgentRuntimeCommand operation
+ * @public
+ */
+export interface InvokeAgentRuntimeCommandRequest {
+  /**
+   * <p>The MIME type of the input data in the request payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>
+   * @public
+   */
+  contentType?: string | undefined;
+
+  /**
+   * <p>The desired MIME type for the response from the agent runtime command. This tells the agent runtime what format to use for the response data. Common values include application/json for JSON data.</p>
+   * @public
+   */
+  accept?: string | undefined;
+
+  /**
+   * Runtime session identifier
+   * @public
+   */
+  runtimeSessionId?: string | undefined;
+
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
+   * <p>The trace state information for distributed tracing.</p>
+   * @public
+   */
+  traceState?: string | undefined;
+
+  /**
+   * <p>Additional context information for distributed tracing.</p>
+   * @public
+   */
+  baggage?: string | undefined;
+
+  /**
+   * ARN of the agent runtime
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * Version or alias qualifier
+   * @public
+   */
+  qualifier?: string | undefined;
+
+  /**
+   * Account ID (12 digits)
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * Request body containing command and timeout
+   * @public
+   */
+  body: InvokeAgentRuntimeCommandRequestBody | undefined;
+}
+
+/**
+ * Content event containing stdout or stderr output
+ * @public
+ */
+export interface ContentDeltaEvent {
+  /**
+   * Standard output content
+   * @public
+   */
+  stdout?: string | undefined;
+
+  /**
+   * Standard error content
+   * @public
+   */
+  stderr?: string | undefined;
+}
+
+/**
+ * First event indicating command execution has started
+ * @public
+ */
+export interface ContentStartEvent {}
+
+/**
+ * Final event indicating command execution has completed
+ * @public
+ */
+export interface ContentStopEvent {
+  /**
+   * Exit code: 0 = success, -1 = platform error, >0 = command error
+   * @public
+   */
+  exitCode: number | undefined;
+
+  /**
+   * Execution status
+   * @public
+   */
+  status: CommandExecutionStatus | undefined;
+}
+
+/**
+ * Response chunk containing exactly one of: contentStart, contentDelta, or contentStop
+ * @public
+ */
+export interface ResponseChunk {
+  /**
+   * First chunk - indicates command execution has started
+   * @public
+   */
+  contentStart?: ContentStartEvent | undefined;
+
+  /**
+   * Middle chunks - stdout/stderr output
+   * @public
+   */
+  contentDelta?: ContentDeltaEvent | undefined;
+
+  /**
+   * Last chunk - indicates command execution has completed
+   * @public
+   */
+  contentStop?: ContentStopEvent | undefined;
+}
+
+/**
+ * Streaming output for InvokeAgentRuntimeCommand operation
+ * Delivers typed events: contentStart (first), contentDelta (middle), contentStop (last)
+ * @public
+ */
+export type InvokeAgentRuntimeCommandStreamOutput =
+  | InvokeAgentRuntimeCommandStreamOutput.AccessDeniedExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.ChunkMember
+  | InvokeAgentRuntimeCommandStreamOutput.InternalServerExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.ResourceNotFoundExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.RuntimeClientErrorMember
+  | InvokeAgentRuntimeCommandStreamOutput.ServiceQuotaExceededExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.ThrottlingExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.ValidationExceptionMember
+  | InvokeAgentRuntimeCommandStreamOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InvokeAgentRuntimeCommandStreamOutput {
+  /**
+   * Response chunk containing command execution events
+   * @public
+   */
+  export interface ChunkMember {
+    chunk: ResponseChunk;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Exception events for error streaming
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    chunk?: never;
+    accessDeniedException: AccessDeniedException;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException: InternalServerException;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+   * @public
+   */
+  export interface ResourceNotFoundExceptionMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException: ResourceNotFoundException;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException: ServiceQuotaExceededException;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException: ThrottlingException;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when the input fails to satisfy the constraints specified by the service. Check the error message for details about which input parameter is invalid and correct your request.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException: ValidationException;
+    runtimeClientError?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The exception that occurs when there is an error in the runtime client. This can happen due to network issues, invalid configuration, or other client-side problems. Check the error message for specific details about the error.</p>
+   * @public
+   */
+  export interface RuntimeClientErrorMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError: RuntimeClientError;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    chunk?: never;
+    accessDeniedException?: never;
+    internalServerException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    runtimeClientError?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    chunk: (value: ResponseChunk) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    internalServerException: (value: InternalServerException) => T;
+    resourceNotFoundException: (value: ResourceNotFoundException) => T;
+    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    validationException: (value: ValidationException) => T;
+    runtimeClientError: (value: RuntimeClientError) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * Response for InvokeAgentRuntimeCommand operation
+ * @public
+ */
+export interface InvokeAgentRuntimeCommandResponse {
+  /**
+   * Runtime session identifier
+   * @public
+   */
+  runtimeSessionId?: string | undefined;
+
+  /**
+   * <p>The trace identifier for request tracking.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>The parent trace information for distributed tracing.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
+   * <p>The trace state information for distributed tracing.</p>
+   * @public
+   */
+  traceState?: string | undefined;
+
+  /**
+   * <p>Additional context information for distributed tracing.</p>
+   * @public
+   */
+  baggage?: string | undefined;
+
+  /**
+   * <p>The MIME type of the response data. This indicates how to interpret the response data. Common values include application/json for JSON data.</p>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the response. A status code of 200 indicates a successful operation. Other status codes indicate various error conditions.</p>
+   * @public
+   */
+  statusCode?: number | undefined;
+
+  /**
+   * Streaming output containing command execution events
+   * @public
+   */
+  stream: AsyncIterable<InvokeAgentRuntimeCommandStreamOutput> | undefined;
 }
 
 /**
@@ -893,7 +1285,7 @@ export interface StartBrowserSessionRequest {
   name?: string | undefined;
 
   /**
-   * <p>The time in seconds after which the session automatically terminates if there is no activity. The default value is 3600 seconds (1 hour). The minimum allowed value is 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</p>
+   * <p>The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 3600 seconds (1 hour). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).</p>
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
@@ -1300,7 +1692,7 @@ export interface StartCodeInterpreterSessionRequest {
   name?: string | undefined;
 
   /**
-   * <p>The time in seconds after which the session automatically terminates if there is no activity. The default value is 900 seconds (15 minutes). The minimum allowed value is 60 seconds, and the maximum allowed value is 28800 seconds (8 hours).</p>
+   * <p>The duration in seconds (time-to-live) after which the session automatically terminates, regardless of ongoing activity. Defaults to 900 seconds (15 minutes). Recommended minimum: 60 seconds. Maximum allowed: 28,800 seconds (8 hours).</p>
    * @public
    */
   sessionTimeoutSeconds?: number | undefined;
@@ -1407,7 +1799,7 @@ export type UserIdentifier =
  */
 export namespace UserIdentifier {
   /**
-   * <p>The OAuth2.0 token issued by the user’s identity provider</p>
+   * <p>The OAuth2.0 token issued by the user’s identity provider that was used to generate the workload access token</p>
    * @public
    */
   export interface UserTokenMember {

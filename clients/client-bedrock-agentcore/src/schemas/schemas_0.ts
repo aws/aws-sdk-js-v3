@@ -29,6 +29,7 @@ const _Br = "Branch";
 const _C = "Conversational";
 const _CB = "ContentBlock";
 const _CBL = "ContentBlockList";
+const _CDE = "ContentDeltaEvent";
 const _CE = "ConflictException";
 const _CEI = "CreateEventInput";
 const _CEO = "CreateEventOutput";
@@ -42,6 +43,8 @@ const _CRTA = "CompleteResourceTokenAuth";
 const _CRTAR = "CompleteResourceTokenAuthRequest";
 const _CRTARo = "CompleteResourceTokenAuthResponse";
 const _CRVT = "CustomRequestValueType";
+const _CSE = "ContentStartEvent";
+const _CSEo = "ContentStopEvent";
 const _CT = "Content-Type";
 const _Co = "Content";
 const _Con = "Context";
@@ -103,6 +106,11 @@ const _GWATFUIRe = "GetWorkloadAccessTokenForUserIdResponse";
 const _GWATR = "GetWorkloadAccessTokenRequest";
 const _GWATRe = "GetWorkloadAccessTokenResponse";
 const _IAR = "InvokeAgentRuntime";
+const _IARC = "InvokeAgentRuntimeCommand";
+const _IARCR = "InvokeAgentRuntimeCommandRequest";
+const _IARCRB = "InvokeAgentRuntimeCommandRequestBody";
+const _IARCRn = "InvokeAgentRuntimeCommandResponse";
+const _IARCSO = "InvokeAgentRuntimeCommandStreamOutput";
 const _IARR = "InvokeAgentRuntimeRequest";
 const _IARRn = "InvokeAgentRuntimeResponse";
 const _ICB = "InputContentBlock";
@@ -165,6 +173,7 @@ const _Pr = "Proxy";
 const _RC = "ResourceContent";
 const _RCE = "RetryableConflictException";
 const _RCEu = "RuntimeClientError";
+const _RCe = "ResponseChunk";
 const _RE = "RightExpression";
 const _RL = "ResourceLocation";
 const _RMR = "RetrieveMemoryRecords";
@@ -241,17 +250,22 @@ const _bA = "basicAuth";
 const _bI = "browserIdentifier";
 const _ba = "baggage";
 const _bl = "blob";
+const _bo = "body";
 const _bu = "bucket";
 const _by = "bypass";
 const _c = "client";
 const _cA = "createdAt";
 const _cC = "clearContext";
+const _cD = "contentDelta";
 const _cE = "conflictException";
 const _cII = "codeInterpreterIdentifier";
 const _cP = "customParameters";
 const _cS = "customState";
+const _cSo = "contentStart";
+const _cSon = "contentStop";
 const _cT = "clientToken";
 const _cTo = "contentType";
+const _ch = "chunk";
 const _co = "content";
 const _cod = "code";
 const _com = "command";
@@ -264,8 +278,8 @@ const _dPi = "directoryPath";
 const _de = "description";
 const _e = "error";
 const _eA = "evaluatorArn";
-const _eC = "errorCode";
-const _eCx = "exitCode";
+const _eC = "exitCode";
+const _eCr = "errorCode";
 const _eI = "eventId";
 const _eIv = "evaluatorId";
 const _eIva = "evaluationInput";
@@ -343,6 +357,7 @@ const _pr = "proxies";
 const _pre = "prefix";
 const _q = "qualifier";
 const _r = "reason";
+const _rCE = "runtimeClientError";
 const _rCPN = "resourceCredentialProviderName";
 const _rEI = "rootEventId";
 const _rI = "requestIdentifier";
@@ -403,7 +418,8 @@ const _tSa = "taskStatus";
 const _tT = "totalTokens";
 const _tU = "tokenUsage";
 const _te = "text";
-const _ti = "timestamp";
+const _ti = "timeout";
+const _tim = "timestamp";
 const _tr = "traceparent";
 const _tra = "tracestate";
 const _u = "uri";
@@ -667,6 +683,21 @@ export var ContentBlock$: StaticStructureSchema = [3, n0, _CB,
   [_t, _te, _d, _mT, _u, _n, _de, _si, _res],
   [0, 0, 21, 0, 0, 0, 0, 1, () => ResourceContent$], 1
 ];
+export var ContentDeltaEvent$: StaticStructureSchema = [3, n0, _CDE,
+  0,
+  [_std, _stde],
+  [0, 0]
+];
+export var ContentStartEvent$: StaticStructureSchema = [3, n0, _CSE,
+  0,
+  [],
+  []
+];
+export var ContentStopEvent$: StaticStructureSchema = [3, n0, _CSEo,
+  0,
+  [_eC, _sta],
+  [1, 0], 2
+];
 export var Conversational$: StaticStructureSchema = [3, n0, _C,
   0,
   [_co, _ro],
@@ -714,7 +745,7 @@ export var EvaluateResponse$: StaticStructureSchema = [3, n0, _ERv,
 ];
 export var EvaluationResultContent$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eM, _eC],
+  [_eA, _eIv, _eN, _con, _ex, _v, _la, _tU, _eM, _eCr],
   [0, 0, 0, () => Context$, [() => EvaluationExplanation, 0], 1, 0, () => TokenUsage$, 0, 0], 4
 ];
 export var Event$: StaticStructureSchema = [3, n0, _E,
@@ -857,6 +888,21 @@ export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
   [_pa, _te, _bl],
   [0, 0, [() => Body, 0]], 1
 ];
+export var InvokeAgentRuntimeCommandRequest$: StaticStructureSchema = [3, n0, _IARCR,
+  0,
+  [_aRA, _bo, _cTo, _a, _rSI, _tI, _tP, _tS, _ba, _q, _aIc],
+  [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _A }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
+];
+export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0, _IARCRB,
+  0,
+  [_com, _ti],
+  [0, 1], 1
+];
+export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _IARCRn,
+  0,
+  [_cTo, _stre, _rSI, _tI, _tP, _tS, _ba, _sCt],
+  [[0, { [_hH]: _CT }], [() => InvokeAgentRuntimeCommandStreamOutput$, 16], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [1, 32]], 2
+];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
   [_aRA, _p, _cTo, _a, _mSI, _rSI, _mPV, _rUI, _tI, _tP, _tS, _ba, _q, _aIc],
@@ -964,7 +1010,7 @@ export var MemoryRecord$: StaticStructureSchema = [3, n0, _MR,
 ];
 export var MemoryRecordCreateInput$: StaticStructureSchema = [3, n0, _MRCI,
   0,
-  [_rI, _nam, _co, _ti, _mSIe],
+  [_rI, _nam, _co, _tim, _mSIe],
   [0, 64 | 0, [() => MemoryContent$, 0], 4, 0], 4
 ];
 export var MemoryRecordDeleteInput$: StaticStructureSchema = [3, n0, _MRDI,
@@ -974,7 +1020,7 @@ export var MemoryRecordDeleteInput$: StaticStructureSchema = [3, n0, _MRDI,
 ];
 export var MemoryRecordOutput$: StaticStructureSchema = [3, n0, _MRO,
   0,
-  [_mRI, _sta, _rI, _eC, _eM],
+  [_mRI, _sta, _rI, _eCr, _eM],
   [0, 0, 0, 1, 0], 2
 ];
 export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
@@ -984,7 +1030,7 @@ export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
 ];
 export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   0,
-  [_mRI, _ti, _co, _nam, _mSIe],
+  [_mRI, _tim, _co, _nam, _mSIe],
   [0, 4, [() => MemoryContent$, 0], 64 | 0, 0], 2
 ];
 export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM,
@@ -1006,6 +1052,11 @@ export var ResourceContent$: StaticStructureSchema = [3, n0, _RC,
   0,
   [_t, _u, _mT, _te, _bl],
   [0, 0, 0, 0, 21], 1
+];
+export var ResponseChunk$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_cSo, _cD, _cSon],
+  [() => ContentStartEvent$, () => ContentDeltaEvent$, () => ContentStopEvent$]
 ];
 export var RetrieveMemoryRecordsInput$: StaticStructureSchema = [3, n0, _RMRI,
   0,
@@ -1119,7 +1170,7 @@ export var ToolArguments$: StaticStructureSchema = [3, n0, _TA,
 ];
 export var ToolResultStructuredContent$: StaticStructureSchema = [3, n0, _TRSC,
   0,
-  [_tIa, _tSa, _std, _stde, _eCx, _eTx],
+  [_tIa, _tSa, _std, _stde, _eC, _eTx],
   [0, 0, 0, 0, 1, 1]
 ];
 export var UpdateBrowserStreamRequest$: StaticStructureSchema = [3, n0, _UBSR,
@@ -1260,6 +1311,11 @@ export var ExtractionJobMessages$: StaticUnionSchema = [4, n0, _EJMx,
   [_mL],
   [() => MessagesList]
 ];
+export var InvokeAgentRuntimeCommandStreamOutput$: StaticUnionSchema = [4, n0, _IARCSO,
+  { [_st]: 1 },
+  [_ch, _aDE, _iSE, _rNFE, _sQEE, _tE, _vE, _rCE],
+  [() => ResponseChunk$, [() => AccessDeniedException$, 0], [() => InternalServerException$, 0], [() => ResourceNotFoundException$, 0], [() => ServiceQuotaExceededException$, 0], [() => ThrottlingException$, 0], [() => ValidationException$, 0], [() => RuntimeClientError$, 0]]
+];
 export var LeftExpression$: StaticUnionSchema = [4, n0, _LE,
   0,
   [_mK],
@@ -1366,6 +1422,9 @@ export var GetWorkloadAccessTokenForUserId$: StaticOperationSchema = [9, n0, _GW
 ];
 export var InvokeAgentRuntime$: StaticOperationSchema = [9, n0, _IAR,
   { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/invocations", 200] }, () => InvokeAgentRuntimeRequest$, () => InvokeAgentRuntimeResponse$
+];
+export var InvokeAgentRuntimeCommand$: StaticOperationSchema = [9, n0, _IARC,
+  { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/commands", 200] }, () => InvokeAgentRuntimeCommandRequest$, () => InvokeAgentRuntimeCommandResponse$
 ];
 export var InvokeCodeInterpreter$: StaticOperationSchema = [9, n0, _ICI,
   { [_ht]: ["POST", "/code-interpreters/{codeInterpreterIdentifier}/tools/invoke", 200] }, () => InvokeCodeInterpreterRequest$, () => InvokeCodeInterpreterResponse$

@@ -32,6 +32,7 @@ import {
   CodeInterpreterSessionStatus,
   CodeInterpreterSessionSummary$,
   CodeInterpreterStreamOutput$,
+  CommandExecutionStatus,
   CompleteResourceTokenAuth$,
   CompleteResourceTokenAuthCommand,
   CompleteResourceTokenAuthRequest$,
@@ -41,6 +42,9 @@ import {
   Content$,
   ContentBlock$,
   ContentBlockType,
+  ContentDeltaEvent$,
+  ContentStartEvent$,
+  ContentStopEvent$,
   Context$,
   Conversational$,
   CreateEvent$,
@@ -120,6 +124,12 @@ import {
   InvalidInputException$,
   InvokeAgentRuntime$,
   InvokeAgentRuntimeCommand,
+  InvokeAgentRuntimeCommand$,
+  InvokeAgentRuntimeCommandCommand,
+  InvokeAgentRuntimeCommandRequest$,
+  InvokeAgentRuntimeCommandRequestBody$,
+  InvokeAgentRuntimeCommandResponse$,
+  InvokeAgentRuntimeCommandStreamOutput$,
   InvokeAgentRuntimeRequest$,
   InvokeAgentRuntimeResponse$,
   InvokeCodeInterpreter$,
@@ -186,6 +196,7 @@ import {
   ResourceLocation$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResponseChunk$,
   RetrieveMemoryRecords$,
   RetrieveMemoryRecordsCommand,
   RetrieveMemoryRecordsInput$,
@@ -299,6 +310,8 @@ assert(typeof GetWorkloadAccessTokenForUserIdCommand === "function");
 assert(typeof GetWorkloadAccessTokenForUserId$ === "object");
 assert(typeof InvokeAgentRuntimeCommand === "function");
 assert(typeof InvokeAgentRuntime$ === "object");
+assert(typeof InvokeAgentRuntimeCommandCommand === "function");
+assert(typeof InvokeAgentRuntimeCommand$ === "object");
 assert(typeof InvokeCodeInterpreterCommand === "function");
 assert(typeof InvokeCodeInterpreter$ === "object");
 assert(typeof ListActorsCommand === "function");
@@ -357,6 +370,9 @@ assert(typeof CompleteResourceTokenAuthRequest$ === "object");
 assert(typeof CompleteResourceTokenAuthResponse$ === "object");
 assert(typeof Content$ === "object");
 assert(typeof ContentBlock$ === "object");
+assert(typeof ContentDeltaEvent$ === "object");
+assert(typeof ContentStartEvent$ === "object");
+assert(typeof ContentStopEvent$ === "object");
 assert(typeof Context$ === "object");
 assert(typeof Conversational$ === "object");
 assert(typeof CreateEventInput$ === "object");
@@ -399,6 +415,10 @@ assert(typeof GetWorkloadAccessTokenForUserIdResponse$ === "object");
 assert(typeof GetWorkloadAccessTokenRequest$ === "object");
 assert(typeof GetWorkloadAccessTokenResponse$ === "object");
 assert(typeof InputContentBlock$ === "object");
+assert(typeof InvokeAgentRuntimeCommandRequest$ === "object");
+assert(typeof InvokeAgentRuntimeCommandRequestBody$ === "object");
+assert(typeof InvokeAgentRuntimeCommandResponse$ === "object");
+assert(typeof InvokeAgentRuntimeCommandStreamOutput$ === "object");
 assert(typeof InvokeAgentRuntimeRequest$ === "object");
 assert(typeof InvokeAgentRuntimeResponse$ === "object");
 assert(typeof InvokeCodeInterpreterRequest$ === "object");
@@ -436,6 +456,7 @@ assert(typeof ProxyConfiguration$ === "object");
 assert(typeof ProxyCredentials$ === "object");
 assert(typeof ResourceContent$ === "object");
 assert(typeof ResourceLocation$ === "object");
+assert(typeof ResponseChunk$ === "object");
 assert(typeof RetrieveMemoryRecordsInput$ === "object");
 assert(typeof RetrieveMemoryRecordsOutput$ === "object");
 assert(typeof RightExpression$ === "object");
@@ -470,6 +491,7 @@ assert(typeof ViewPort$ === "object");
 assert(typeof AutomationStreamStatus === "object");
 assert(typeof BrowserSessionStatus === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
+assert(typeof CommandExecutionStatus === "object");
 assert(typeof ContentBlockType === "object");
 assert(typeof ExtractionJobStatus === "object");
 assert(typeof MemoryRecordStatus === "object");

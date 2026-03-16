@@ -314,6 +314,13 @@ InvokeAgentRuntime
 </details>
 <details>
 <summary>
+InvokeAgentRuntimeCommand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/InvokeAgentRuntimeCommandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeAgentRuntimeCommandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/InvokeAgentRuntimeCommandCommandOutput/)
+</details>
+<details>
+<summary>
 InvokeCodeInterpreter
 </summary>
 

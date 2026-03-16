@@ -117,6 +117,10 @@ import {
 } from "./commands/GetWorkloadAccessTokenForUserIdCommand";
 import { InvokeAgentRuntimeCommandInput, InvokeAgentRuntimeCommandOutput } from "./commands/InvokeAgentRuntimeCommand";
 import {
+  InvokeAgentRuntimeCommandCommandInput,
+  InvokeAgentRuntimeCommandCommandOutput,
+} from "./commands/InvokeAgentRuntimeCommandCommand";
+import {
   InvokeCodeInterpreterCommandInput,
   InvokeCodeInterpreterCommandOutput,
 } from "./commands/InvokeCodeInterpreterCommand";
@@ -199,6 +203,7 @@ export type ServiceInputTypes =
   | GetWorkloadAccessTokenCommandInput
   | GetWorkloadAccessTokenForJWTCommandInput
   | GetWorkloadAccessTokenForUserIdCommandInput
+  | InvokeAgentRuntimeCommandCommandInput
   | InvokeAgentRuntimeCommandInput
   | InvokeCodeInterpreterCommandInput
   | ListActorsCommandInput
@@ -240,6 +245,7 @@ export type ServiceOutputTypes =
   | GetWorkloadAccessTokenCommandOutput
   | GetWorkloadAccessTokenForJWTCommandOutput
   | GetWorkloadAccessTokenForUserIdCommandOutput
+  | InvokeAgentRuntimeCommandCommandOutput
   | InvokeAgentRuntimeCommandOutput
   | InvokeCodeInterpreterCommandOutput
   | ListActorsCommandOutput
