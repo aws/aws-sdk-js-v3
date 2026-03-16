@@ -49,7 +49,7 @@ const packageJson = {
     ...Object.fromEntries([...dependencies].sort().map((dep) => [dep, "latest"])),
     "@aws-sdk/config": "latest",
     "happy-dom": "20.8.3",
-    vitest: "^4.0.17",
+    vitest: "4.0.17",
   },
 };
 
