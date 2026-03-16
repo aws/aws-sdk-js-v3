@@ -41,7 +41,7 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  * const client = new BedrockClient(config);
  * const input = { // StartAutomatedReasoningPolicyBuildWorkflowRequest
  *   policyArn: "STRING_VALUE", // required
- *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY" || "GENERATE_FIDELITY_REPORT", // required
+ *   buildWorkflowType: "INGEST_CONTENT" || "REFINE_POLICY" || "IMPORT_POLICY" || "GENERATE_FIDELITY_REPORT" || "GENERATE_POLICY_SCENARIOS", // required
  *   clientRequestToken: "STRING_VALUE",
  *   sourceContent: { // AutomatedReasoningPolicyBuildWorkflowSource
  *     policyDefinition: { // AutomatedReasoningPolicyDefinition
