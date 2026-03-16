@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1010.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1009.0...v3.1010.0) (2026-03-16)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Supporting hosting of public ECR Container Images in AgentCore Runtime ([a3ca4b6](https://github.com/aws/aws-sdk-js-v3/commit/a3ca4b6eeb2d41a5dfac7880c095d937426498db))
+* **client-bedrock-agentcore:** Provide support to perform deterministic operations on agent runtime through shell command executions via the new InvokeAgentRuntimeCommand API ([14fb557](https://github.com/aws/aws-sdk-js-v3/commit/14fb5577676ccd1dded7633ce1efe6efcc3b1632))
+* **client-bedrock:** You can now generate policy scenarios on demand using the new GENERATE POLICY SCENARIOS build workflow type. Scenarios will no longer be automatically generated during INGEST CONTENT, REFINE POLICY, and IMPORT POLICY workflows, resulting in faster completion times for these operations. ([e9c8b9c](https://github.com/aws/aws-sdk-js-v3/commit/e9c8b9cecc7b2f89b3d4c89923927dc141ca09a3))
+* **client-ecs:** Amazon ECS now supports configuring whether tags are propagated to the EC2 Instance Metadata Service (IMDS) for instances launched by the Managed Instances capacity provider. This gives customers control over tag visibility in IMDS when using ECS Managed Instances. ([f165f18](https://github.com/aws/aws-sdk-js-v3/commit/f165f183a152e4de4138faba366871a3b9503d9e))
+* **clients:** update client endpoints as of 2026-03-16 ([6ae1dd8](https://github.com/aws/aws-sdk-js-v3/commit/6ae1dd8ab89d6ceb3dc82fef427f7d4f46fb0995))
+* **middleware-flexible-checksums:** allow custom checksums to be used in responses ([#7849](https://github.com/aws/aws-sdk-js-v3/issues/7849)) ([213defa](https://github.com/aws/aws-sdk-js-v3/commit/213defa2e2a2b1a1e45cdd301e8103f09cc1d43a))
+
+
+
+
+
 # [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
 
 

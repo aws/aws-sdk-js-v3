@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1010.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1009.0...v3.1010.0) (2026-03-16)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Provide support to perform deterministic operations on agent runtime through shell command executions via the new InvokeAgentRuntimeCommand API ([14fb557](https://github.com/aws/aws-sdk-js-v3/commit/14fb5577676ccd1dded7633ce1efe6efcc3b1632))
+
+
+
+
+
 # [3.1009.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1008.0...v3.1009.0) (2026-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore
