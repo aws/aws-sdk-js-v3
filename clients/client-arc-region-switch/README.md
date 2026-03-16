@@ -83,10 +83,10 @@ const client = new ARCRegionSwitchClient({
 
 This protocol uses CBOR payloads.
 ```js
-import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
 
 const client = new ARCRegionSwitchClient({
-  protocol: AwsJson1_0Protocol
+  protocol: AwsSmithyRpcV2CborProtocol
 });
 ```
 
