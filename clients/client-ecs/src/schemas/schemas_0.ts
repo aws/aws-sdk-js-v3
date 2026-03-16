@@ -693,6 +693,7 @@ const _iID = "instanceIdentityDocument";
 const _iIDS = "instanceIdentityDocumentSignature";
 const _iLT = "instanceLaunchTemplate";
 const _iM = "ipcMode";
+const _iMTP = "instanceMetadataTagsPropagation";
 const _iO = "infrastructureOptimization";
 const _iP = "ingressPaths";
 const _iPE = "initProcessEnabled";
@@ -1837,13 +1838,13 @@ export var InstanceHealthCheckResult$: StaticStructureSchema = [3, n0, _IHCR,
 ];
 export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
   0,
-  [_eIPA, _nC, _sCto, _mo, _cOT, _iR, _fE, _cR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
+  [_eIPA, _nC, _sCto, _mo, _cOT, _iMTP, _iR, _fE, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, 0, 2, [() => InstanceRequirementsRequest$, 0], 2, () => CapacityReservationRequest$], 2
 ];
 export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
   0,
-  [_eIPA, _nC, _sCto, _mo, _iR, _cR],
-  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
+  [_eIPA, _nC, _sCto, _iMTP, _mo, _iR, _cR],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => ManagedInstancesStorageConfiguration$, 2, 0, [() => InstanceRequirementsRequest$, 0], () => CapacityReservationRequest$]
 ];
 export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
   0,

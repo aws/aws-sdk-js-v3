@@ -77,6 +77,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * //         },
  * //         monitoring: "BASIC" || "DETAILED",
  * //         capacityOptionType: "ON_DEMAND" || "SPOT" || "RESERVED",
+ * //         instanceMetadataTagsPropagation: true || false,
  * //         instanceRequirements: { // InstanceRequirementsRequest
  * //           vCpuCount: { // VCpuCountRangeRequest
  * //             min: Number("int"), // required
