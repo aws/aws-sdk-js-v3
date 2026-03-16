@@ -45159,6 +45159,11 @@
             "eu-isoe-west-1": {}
           }
         },
+        "metrics.sagemaker": {
+          "endpoints": {
+            "eu-isoe-west-1": {}
+          }
+        },
         "monitoring": {
           "endpoints": {
             "eu-isoe-west-1": {}
