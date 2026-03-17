@@ -246,6 +246,8 @@ import {
   ListSupportedInstanceTypesCommand,
   ListSupportedInstanceTypesInput$,
   ListSupportedInstanceTypesOutput$,
+  LogType,
+  LogUploadPolicyValue,
   ManagedScalingPolicy$,
   MarketType,
   MetricDimension$,
@@ -334,6 +336,7 @@ import {
   RunJobFlowCommand,
   RunJobFlowInput$,
   RunJobFlowOutput$,
+  S3LoggingConfiguration$,
   S3MonitoringConfiguration$,
   ScaleDownBehavior,
   ScalingAction$,
@@ -711,6 +714,7 @@ assert(typeof RemoveTagsInput$ === "object");
 assert(typeof RemoveTagsOutput$ === "object");
 assert(typeof RunJobFlowInput$ === "object");
 assert(typeof RunJobFlowOutput$ === "object");
+assert(typeof S3LoggingConfiguration$ === "object");
 assert(typeof S3MonitoringConfiguration$ === "object");
 assert(typeof ScalingAction$ === "object");
 assert(typeof ScalingConstraints$ === "object");
@@ -776,6 +780,8 @@ assert(typeof InstanceRoleType === "object");
 assert(typeof InstanceState === "object");
 assert(typeof InstanceStateChangeReasonCode === "object");
 assert(typeof JobFlowExecutionState === "object");
+assert(typeof LogType === "object");
+assert(typeof LogUploadPolicyValue === "object");
 assert(typeof MarketType === "object");
 assert(typeof NotebookExecutionStatus === "object");
 assert(typeof OnClusterAppUIType === "object");

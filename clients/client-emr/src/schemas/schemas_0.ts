@@ -352,6 +352,7 @@ const _LSi = "ListSteps";
 const _LSis = "ListStudios";
 const _LT = "LogTypes";
 const _LTM = "LogTypesMap";
+const _LTUP = "LogTypeUploadPolicy";
 const _LU = "LogUri";
 const _M = "Message";
 const _MC = "MonitoringConfiguration";
@@ -528,6 +529,7 @@ const _SItu = "StudioId";
 const _SIu = "SubnetIds";
 const _SKJFAWNS = "SetKeepJobFlowAliveWhenNoSteps";
 const _SKJFAWNSI = "SetKeepJobFlowAliveWhenNoStepsInput";
+const _SLC = "S3LoggingConfiguration";
 const _SM = "SessionMapping";
 const _SMC = "S3MonitoringConfiguration";
 const _SMCt = "StepMonitoringConfiguration";
@@ -1381,8 +1383,8 @@ export var ModifyInstanceGroupsInput$: StaticStructureSchema = [3, n0, _MIGI,
 ];
 export var MonitoringConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
-  [_CWLC],
-  [() => CloudWatchLogConfiguration$]
+  [_CWLC, _SLC],
+  [() => CloudWatchLogConfiguration$, () => S3LoggingConfiguration$]
 ];
 export var NotebookExecution$: StaticStructureSchema = [3, n0, _NE,
   0,
@@ -1548,6 +1550,11 @@ export var RunJobFlowOutput$: StaticStructureSchema = [3, n0, _RJFO,
   0,
   [_JFI, _CA],
   [0, 0]
+];
+export var S3LoggingConfiguration$: StaticStructureSchema = [3, n0, _SLC,
+  0,
+  [_LTUP],
+  [128 | 0]
 ];
 export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
@@ -1884,6 +1891,7 @@ var TagList: StaticListSchema = [1, n0, _TL,
 var XmlStringList = 64 | 0;
 var XmlStringMaxLen256List = 64 | 0;
 var EnvironmentVariablesMap = 128 | 0;
+var LogTypeMap = 128 | 0;
 var LogTypesMap: StaticMapSchema = [2, n0, _LTM,
   0, 0, 64 | 0
 ];

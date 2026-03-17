@@ -24,6 +24,8 @@ import {
   InstanceState,
   InstanceStateChangeReasonCode,
   JobFlowExecutionState,
+  LogType,
+  LogUploadPolicyValue,
   MarketType,
   NotebookExecutionStatus,
   OnClusterAppUIType,
@@ -1376,7 +1378,49 @@ export interface KerberosAttributes {
 }
 
 /**
- * <p>Contains CloudWatch log configuration metadata and settings.</p>
+ * <p>Configuration for S3 logging behavior in EMR clusters. Defines how different types of logs are uploaded to S3 based on the specified upload policies for each log type.</p>
+ * @public
+ */
+export interface S3LoggingConfiguration {
+  /**
+   * <p>A map that specifies the upload policy for each log type. The key is the log type, and the value is the upload policy.</p>
+   *          <p>Valid log types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>system-logs</code>: System-level logs including daemon logs, bootstrap logs, and other infrastructure logs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application-logs</code>: Application-level logs from frameworks like Hadoop, Spark, Hive, etc.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>persistent-ui-logs</code>: Logs for persistent application UIs like Spark History Server.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid upload policies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>emr-managed</code>: Logs are uploaded to both the EMR-managed S3 bucket and the customer-specified S3 bucket (if LogUri is provided).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>on-customer-s3only</code>: Logs are uploaded only to the customer-specified S3 bucket. Requires LogUri to be specified in the cluster configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code>: Log upload is disabled for this log type.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LogTypeUploadPolicy?: Partial<Record<LogType, LogUploadPolicyValue>> | undefined;
+}
+
+/**
+ * <p>Contains CloudWatch log configuration and S3 logging configuration metadata and settings.</p>
  * @public
  */
 export interface MonitoringConfiguration {
@@ -1385,6 +1429,12 @@ export interface MonitoringConfiguration {
    * @public
    */
   CloudWatchLogConfiguration?: CloudWatchLogConfiguration | undefined;
+
+  /**
+   * <p>S3 logging configuration that controls how different types of logs (system logs, application logs, and persistent UI logs) are uploaded to S3. Each log type can be configured with a specific upload policy.</p>
+   * @public
+   */
+  S3LoggingConfiguration?: S3LoggingConfiguration | undefined;
 }
 
 /**

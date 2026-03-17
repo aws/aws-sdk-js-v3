@@ -355,6 +355,11 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *         ],
  *       },
  *     },
+ *     S3LoggingConfiguration: { // S3LoggingConfiguration
+ *       LogTypeUploadPolicy: { // LogTypeMap
+ *         "<keys>": "emr-managed" || "on-customer-s3only" || "disabled",
+ *       },
+ *     },
  *   },
  * };
  * const command = new RunJobFlowCommand(input);

@@ -298,6 +298,34 @@ export type InstanceCollectionType = (typeof InstanceCollectionType)[keyof typeo
  * @public
  * @enum
  */
+export const LogType = {
+  APPLICATION_LOGS: "application-logs",
+  PERSISTENT_UI_LOGS: "persistent-ui-logs",
+  SYSTEM_LOGS: "system-logs",
+} as const;
+/**
+ * @public
+ */
+export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogUploadPolicyValue = {
+  DISABLED: "disabled",
+  EMR_MANAGED: "emr-managed",
+  ON_CUSTOMER_S3ONLY: "on-customer-s3only",
+} as const;
+/**
+ * @public
+ */
+export type LogUploadPolicyValue = (typeof LogUploadPolicyValue)[keyof typeof LogUploadPolicyValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const PlacementGroupStrategy = {
   CLUSTER: "CLUSTER",
   NONE: "NONE",

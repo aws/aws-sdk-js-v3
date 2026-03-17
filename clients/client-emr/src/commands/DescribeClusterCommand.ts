@@ -176,6 +176,11 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * //           ],
  * //         },
  * //       },
+ * //       S3LoggingConfiguration: { // S3LoggingConfiguration
+ * //         LogTypeUploadPolicy: { // LogTypeMap
+ * //           "<keys>": "emr-managed" || "on-customer-s3only" || "disabled",
+ * //         },
+ * //       },
  * //     },
  * //   },
  * // };
