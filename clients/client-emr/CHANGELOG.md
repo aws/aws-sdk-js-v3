@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1011.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1010.0...v3.1011.0) (2026-03-17)
+
+
+### Features
+
+* **client-emr:** Add S3LoggingConfiguration to Control LogUploads ([8d30ccf](https://github.com/aws/aws-sdk-js-v3/commit/8d30ccf458f4738b1d83f3db8a8c2e955da0bba1))
+
+
+
+
+
 # [3.1010.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1009.0...v3.1010.0) (2026-03-16)
 
 **Note:** Version bump only for package @aws-sdk/client-emr
