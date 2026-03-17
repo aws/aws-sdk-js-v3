@@ -33,7 +33,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 final class DocumentClientCommandGenerator implements Runnable {
-    private static final String TRANSACT_WRITE_ITEMS_OPERATION = "TransactWriteItems";
 
     static final String COMMAND_PROPERTIES_SECTION = "command_properties";
     static final String COMMAND_BODY_EXTRA_SECTION = "command_body_extra";
@@ -321,9 +320,41 @@ final class DocumentClientCommandGenerator implements Runnable {
         });
     }
 
+    /**
+     * Detects operations requiring custom TransactWrite item type generation by inspecting
+     * the input shape structure (TransactItems list of structures with ConditionCheck/Put/Delete/Update).
+     */
+    private boolean requiresTransactWriteItemTypes() {
+        Optional<StructureShape> inputOpt = operationIndex.getInput(operation);
+        if (inputOpt.isEmpty()) {
+            return false;
+        }
+        StructureShape inputShape = inputOpt.get();
+        if (!inputShape.getMember("TransactItems").isPresent()) {
+            return false;
+        }
+        Shape transactItemsTarget = model.expectShape(
+            inputShape.getMember("TransactItems").get().getTarget()
+        );
+        if (!transactItemsTarget.isListShape()) {
+            return false;
+        }
+        Shape itemShape = model.expectShape(
+            ((CollectionShape) transactItemsTarget).getMember().getTarget()
+        );
+        if (!itemShape.isStructureShape()) {
+            return false;
+        }
+        StructureShape itemStructure = (StructureShape) itemShape;
+        return itemStructure.getMember("ConditionCheck").isPresent()
+            && itemStructure.getMember("Put").isPresent()
+            && itemStructure.getMember("Delete").isPresent()
+            && itemStructure.getMember("Update").isPresent();
+    }
+
     private void generateInputAndOutputTypes() {
         writer.write("");
-        if (operation.getId().getName().equals(TRANSACT_WRITE_ITEMS_OPERATION)) {
+        if (requiresTransactWriteItemTypes()) {
             generateTransactWriteItemTypes();
             writeTransactWriteInputType();
         } else {
