@@ -33,6 +33,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
 final class DocumentClientCommandGenerator implements Runnable {
+    private static final String TRANSACT_WRITE_ITEMS_OPERATION = "TransactWriteItems";
+
     static final String COMMAND_PROPERTIES_SECTION = "command_properties";
     static final String COMMAND_BODY_EXTRA_SECTION = "command_body_extra";
     static final String COMMAND_CONSTRUCTOR_SECTION = "command_constructor";
@@ -321,10 +323,117 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void generateInputAndOutputTypes() {
         writer.write("");
-        writeType(inputTypeName, originalInputTypeName, operationIndex.getInput(operation), inputMembersWithAttr);
+        if (operation.getId().getName().equals(TRANSACT_WRITE_ITEMS_OPERATION)) {
+            generateTransactWriteItemTypes();
+            writeTransactWriteInputType();
+        } else {
+            writeType(inputTypeName, originalInputTypeName, operationIndex.getInput(operation), inputMembersWithAttr);
+        }
         writer.write("");
         writeType(outputTypeName, originalOutputTypeName, operationIndex.getOutput(operation), outputMembersWithAttr);
         writer.write("");
+    }
+
+    private void generateTransactWriteItemTypes() {
+        String clientPkg = AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName();
+        String utilPkg = AwsDependency.UTIL_DYNAMODB.getPackageName();
+
+        registerTypeImport("ConditionCheck", "ConditionCheck", clientPkg);
+        registerTypeImport("Put", "Put", clientPkg);
+        registerTypeImport("Delete", "Delete", clientPkg);
+        registerTypeImport("Update", "Update", clientPkg);
+        registerTypeImport("TransactWriteItem", "ClientTransactWriteItem", clientPkg);
+        registerTypeImport("NativeAttributeValue", "NativeAttributeValue", utilPkg);
+
+        writer.writeDocs(
+            "Document client variant of ConditionCheck for TransactWrite.\n"
+                + "Uses native JavaScript types (NativeAttributeValue) instead of AttributeValue.\n@public"
+        );
+        writer.openBlock(
+            "export type TransactWriteConditionCheck = Omit<ConditionCheck, \"Key\" | \"ExpressionAttributeValues\"> & {",
+            "};",
+            () -> {
+                writer.write("Key: Record<string, NativeAttributeValue> | undefined;");
+                writer.write("ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;");
+            }
+        );
+        writer.write("");
+
+        writer.writeDocs(
+            "Document client variant of Put for TransactWrite.\n"
+                + "Uses native JavaScript types (NativeAttributeValue) instead of AttributeValue.\n@public"
+        );
+        writer.openBlock(
+            "export type TransactWritePut = Omit<Put, \"Item\" | \"ExpressionAttributeValues\"> & {",
+            "};",
+            () -> {
+                writer.write("Item: Record<string, NativeAttributeValue> | undefined;");
+                writer.write("ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;");
+            }
+        );
+        writer.write("");
+
+        writer.writeDocs(
+            "Document client variant of Delete for TransactWrite.\n"
+                + "Uses native JavaScript types (NativeAttributeValue) instead of AttributeValue.\n@public"
+        );
+        writer.openBlock(
+            "export type TransactWriteDelete = Omit<Delete, \"Key\" | \"ExpressionAttributeValues\"> & {",
+            "};",
+            () -> {
+                writer.write("Key: Record<string, NativeAttributeValue> | undefined;");
+                writer.write("ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;");
+            }
+        );
+        writer.write("");
+
+        writer.writeDocs(
+            "Document client variant of Update for TransactWrite.\n"
+                + "Uses native JavaScript types (NativeAttributeValue) instead of AttributeValue.\n@public"
+        );
+        writer.openBlock(
+            "export type TransactWriteUpdate = Omit<Update, \"Key\" | \"ExpressionAttributeValues\"> & {",
+            "};",
+            () -> {
+                writer.write("Key: Record<string, NativeAttributeValue> | undefined;");
+                writer.write("ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;");
+            }
+        );
+        writer.write("");
+
+        writer.writeDocs(
+            "Document client variant of TransactWriteItem.\n"
+                + "Uses native JavaScript types (NativeAttributeValue) instead of AttributeValue.\n"
+                + "Each item must have exactly one of ConditionCheck, Put, Delete, or Update.\n@public"
+        );
+        writer.openBlock(
+            "export type TransactWriteItem = Omit<ClientTransactWriteItem, "
+                + "\"ConditionCheck\" | \"Put\" | \"Delete\" | \"Update\"> & {",
+            "};",
+            () -> {
+                writer.write("ConditionCheck?: TransactWriteConditionCheck;");
+                writer.write("Put?: TransactWritePut;");
+                writer.write("Delete?: TransactWriteDelete;");
+                writer.write("Update?: TransactWriteUpdate;");
+            }
+        );
+        writer.write("");
+    }
+
+    private void writeTransactWriteInputType() {
+        registerTypeImport(
+            originalInputTypeName,
+            "__" + originalInputTypeName,
+            AwsDependency.CLIENT_DYNAMODB_PEER.getPackageName()
+        );
+        writer.writeDocs("@public");
+        writer.openBlock(
+            "export type $L = Omit<__$L, \"TransactItems\"> & {",
+            "};",
+            inputTypeName,
+            originalInputTypeName,
+            () -> writer.write("TransactItems: TransactWriteItem[] | undefined;")
+        );
     }
 
     private List<MemberShape> getStructureMembersWithAttr(Optional<StructureShape> optionalShape) {
