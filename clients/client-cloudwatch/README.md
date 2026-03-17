@@ -106,10 +106,10 @@ const client = new CloudWatchClient({
 
 This protocol uses CBOR payloads.
 ```js
-import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
 
 const client = new CloudWatchClient({
-  protocol: AwsJson1_0Protocol
+  protocol: AwsSmithyRpcV2CborProtocol
 });
 ```
 

@@ -83,10 +83,10 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
         """
         This protocol uses CBOR payloads.
         ```js
-        import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+        import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
 
         const client = new \\${serviceId}Client({
-          protocol: AwsJson1_0Protocol
+          protocol: AwsSmithyRpcV2CborProtocol
         });
         ```
         """,
@@ -94,10 +94,10 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
         """
         This protocol uses XML for structured payloads in the REST pattern.
         ```js
-        import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
+        import { AwsRestXmlProtocol } from "@aws-sdk/config/protocol";
 
         const client = new \\${serviceId}Client({
-          protocol: AwsSmithyRpcV2CborProtocol
+          protocol: AwsRestXmlProtocol
         });
         ```
         """,
