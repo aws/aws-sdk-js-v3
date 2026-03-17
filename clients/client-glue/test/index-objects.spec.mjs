@@ -1223,6 +1223,7 @@ import {
   OrphanFileDeletionConfiguration$,
   OrphanFileDeletionMetrics$,
   OtherMetadataValueListItem$,
+  OverwriteChildResourcePermissionsWithDefaultEnum,
   paginateDescribeEntity,
   paginateGetBlueprintRuns,
   paginateGetClassifiers,
@@ -3350,6 +3351,7 @@ assert(typeof MetadataOperation === "object");
 assert(typeof MLUserDataEncryptionModeString === "object");
 assert(typeof NodeType === "object");
 assert(typeof OAuth2GrantType === "object");
+assert(typeof OverwriteChildResourcePermissionsWithDefaultEnum === "object");
 assert(typeof ParamType === "object");
 assert(typeof ParquetCompressionType === "object");
 assert(typeof PartitionIndexStatus === "object");

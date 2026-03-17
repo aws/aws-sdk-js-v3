@@ -881,6 +881,7 @@ export type {
   MLUserDataEncryptionModeString,
   NodeType,
   OAuth2GrantType,
+  OverwriteChildResourcePermissionsWithDefaultEnum,
   ParamType,
   ParquetCompressionType,
   PartitionIndexStatus,

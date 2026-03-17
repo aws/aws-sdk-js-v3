@@ -93,6 +93,7 @@ export interface CreateCatalogCommandOutput extends CreateCatalogResponse, __Met
  *       },
  *     ],
  *     AllowFullTableExternalDataAccess: "True" || "False",
+ *     OverwriteChildResourcePermissionsWithDefault: "Accept" || "Deny",
  *   },
  *   Tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

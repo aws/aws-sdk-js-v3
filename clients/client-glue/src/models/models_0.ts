@@ -45,6 +45,7 @@ import {
   LogicalOperator,
   NodeType,
   OAuth2GrantType,
+  OverwriteChildResourcePermissionsWithDefaultEnum,
   ParamType,
   ParquetCompressionType,
   Permission,
@@ -9685,6 +9686,14 @@ export interface CatalogInput {
    * @public
    */
   AllowFullTableExternalDataAccess?: AllowFullTableExternalDataAccessEnum | undefined;
+
+  /**
+   * <p>
+   *       Overwrites existing Amazon Web Services Lake Formation permissions with <code>CatalogInput$CreateTableDefaultPermissions</code> and <code>CatalogInput$CreateDatabaseDefaultPermissions</code> for all child resources.
+   *     </p>
+   * @public
+   */
+  OverwriteChildResourcePermissionsWithDefault?: OverwriteChildResourcePermissionsWithDefaultEnum | undefined;
 }
 
 /**

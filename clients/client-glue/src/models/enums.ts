@@ -1014,6 +1014,20 @@ export type Permission = (typeof Permission)[keyof typeof Permission];
  * @public
  * @enum
  */
+export const OverwriteChildResourcePermissionsWithDefaultEnum = {
+  Accept: "Accept",
+  Deny: "Deny",
+} as const;
+/**
+ * @public
+ */
+export type OverwriteChildResourcePermissionsWithDefaultEnum =
+  (typeof OverwriteChildResourcePermissionsWithDefaultEnum)[keyof typeof OverwriteChildResourcePermissionsWithDefaultEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const CsvHeaderOption = {
   ABSENT: "ABSENT",
   PRESENT: "PRESENT",

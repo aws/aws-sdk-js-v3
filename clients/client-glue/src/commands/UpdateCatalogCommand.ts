@@ -93,6 +93,7 @@ export interface UpdateCatalogCommandOutput extends UpdateCatalogResponse, __Met
  *       },
  *     ],
  *     AllowFullTableExternalDataAccess: "True" || "False",
+ *     OverwriteChildResourcePermissionsWithDefault: "Accept" || "Deny",
  *   },
  * };
  * const command = new UpdateCatalogCommand(input);

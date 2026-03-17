@@ -1544,6 +1544,7 @@ const _OAPI = "OAuth2PropertiesInput";
 const _OB = "OrderBy";
 const _OC = "OffsetConfiguration";
 const _OCN = "OutputColumnName";
+const _OCRPWD = "OverwriteChildResourcePermissionsWithDefault";
 const _OF = "OutputFormat";
 const _OFD = "OrphanFileDeletion";
 const _OFDC = "OrphanFileDeletionConfiguration";
@@ -3216,8 +3217,8 @@ export var CatalogImportStatus$: StaticStructureSchema = [3, n0, _CISa,
 ];
 export var CatalogInput$: StaticStructureSchema = [3, n0, _CIa,
   0,
-  [_D, _FC, _Par, _TRC, _CP, _CTDP, _CDDP, _AFTEDA],
-  [0, () => FederatedCatalog$, 128 | 0, () => TargetRedshiftCatalog$, () => CatalogProperties$, () => PrincipalPermissionsList, () => PrincipalPermissionsList, 0]
+  [_D, _FC, _Par, _TRC, _CP, _CTDP, _CDDP, _AFTEDA, _OCRPWD],
+  [0, () => FederatedCatalog$, 128 | 0, () => TargetRedshiftCatalog$, () => CatalogProperties$, () => PrincipalPermissionsList, () => PrincipalPermissionsList, 0, 0]
 ];
 export var CatalogKafkaSource$: StaticStructureSchema = [3, n0, _CKS,
   0,
