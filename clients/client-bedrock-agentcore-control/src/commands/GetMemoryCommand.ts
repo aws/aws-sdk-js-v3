@@ -110,10 +110,16 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //                 namespaces: [ // NamespacesList
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 namespaceTemplates: [
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             },
  * //             episodicReflectionConfiguration: { // EpisodicReflectionConfiguration
- * //               namespaces: [ // required
+ * //               namespaces: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               namespaceTemplates: [
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
@@ -141,6 +147,7 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //         },
  * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM" || "EPISODIC", // required
  * //         namespaces: "<NamespacesList>", // required
+ * //         namespaceTemplates: "<NamespacesList>", // required
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",

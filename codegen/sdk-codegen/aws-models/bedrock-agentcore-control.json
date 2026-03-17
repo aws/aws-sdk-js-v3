@@ -5237,7 +5237,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces associated with the custom memory strategy.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates associated with the custom memory strategy.</p>"
           }
         },
         "configuration": {
@@ -6943,7 +6953,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces for which to create episodes.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates for which to create episodes.</p>"
           }
         },
         "reflectionConfiguration": {
@@ -7047,7 +7067,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates to use for episodic reflection. Can be less nested than the episodic namespaces.</p>"
           }
         }
       },
@@ -7061,8 +7091,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
-            "smithy.api#documentation": "<p>The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>",
-            "smithy.api#required": {}
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
+            "smithy.api#documentation": "<p>The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates for which to create reflections. Can be less nested than the episodic namespaces.</p>"
           }
         }
       },
@@ -7076,8 +7115,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
-            "smithy.api#documentation": "<p>The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>",
-            "smithy.api#required": {}
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
+            "smithy.api#documentation": "<p>The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates over which to create reflections. Can be less nested than episode namespaces.</p>"
           }
         }
       },
@@ -7105,7 +7153,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates over which reflections were created. Can be less nested than the episodic namespaces.</p>"
           }
         }
       },
@@ -13206,7 +13264,18 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces associated with the memory strategy.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates associated with the memory strategy.</p>",
             "smithy.api#required": {}
           }
         },
@@ -13630,7 +13699,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The updated namespaces for the memory strategy.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated namespaceTemplates for the memory strategy.</p>"
           }
         },
         "configuration": {
@@ -13737,7 +13816,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 1024
+          "max": 512
         },
         "smithy.api#pattern": "^[a-zA-Z0-9\\-_\\/]*(\\{(actorId|sessionId|memoryStrategyId)\\}[a-zA-Z0-9\\-_\\/]*)*$"
       }
@@ -13749,7 +13828,8 @@
       },
       "traits": {
         "smithy.api#length": {
-          "min": 1
+          "min": 1,
+          "max": 1
         }
       }
     },
@@ -15949,7 +16029,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces associated with the semantic memory strategy.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates associated with the semantic memory strategy.</p>"
           }
         }
       },
@@ -16584,7 +16674,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces associated with the summary memory strategy.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates associated with the summary memory strategy.</p>"
           }
         }
       },
@@ -19222,7 +19322,17 @@
         "namespaces": {
           "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
           "traits": {
+            "smithy.api#deprecated": {
+              "message": "Use namespaceTemplates instead",
+              "since": "2026-03-02"
+            },
             "smithy.api#documentation": "<p>The namespaces associated with the user preference memory strategy.</p>"
+          }
+        },
+        "namespaceTemplates": {
+          "target": "com.amazonaws.bedrockagentcorecontrol#NamespacesList",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespaceTemplates associated with the user preference memory strategy.</p>"
           }
         }
       },

@@ -4707,9 +4707,17 @@ export interface EpisodicOverrideReflectionConfigurationInput {
 
   /**
    * <p>The namespaces to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates to use for episodic reflection. Can be less nested than the episodic namespaces.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5147,9 +5155,17 @@ export interface CustomMemoryStrategyInput {
 
   /**
    * <p>The namespaces associated with the custom memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates associated with the custom memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 
   /**
    * <p>The configuration for the custom memory strategy.</p>
@@ -5165,9 +5181,17 @@ export interface CustomMemoryStrategyInput {
 export interface EpisodicReflectionConfigurationInput {
   /**
    * <p>The namespaces over which to create reflections. Can be less nested than episode namespaces.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
-  namespaces: string[] | undefined;
+  namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates over which to create reflections. Can be less nested than episode namespaces.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5189,9 +5213,17 @@ export interface EpisodicMemoryStrategyInput {
 
   /**
    * <p>The namespaces for which to create episodes.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates for which to create episodes.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 
   /**
    * <p>The configuration for the reflections created with the episodic memory strategy.</p>
@@ -5219,9 +5251,17 @@ export interface SemanticMemoryStrategyInput {
 
   /**
    * <p>The namespaces associated with the semantic memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates associated with the semantic memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5243,9 +5283,17 @@ export interface SummaryMemoryStrategyInput {
 
   /**
    * <p>The namespaces associated with the summary memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates associated with the summary memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5267,9 +5315,17 @@ export interface UserPreferenceMemoryStrategyInput {
 
   /**
    * <p>The namespaces associated with the user preference memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates associated with the user preference memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5904,9 +5960,17 @@ export interface EpisodicReflectionOverride {
 
   /**
    * <p>The namespaces over which reflections were created. Can be less nested than the episodic namespaces.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates over which reflections were created. Can be less nested than the episodic namespaces.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -5955,9 +6019,17 @@ export namespace CustomReflectionConfiguration {
 export interface EpisodicReflectionConfiguration {
   /**
    * <p>The namespaces for which to create reflections. Can be less nested than the episodic namespaces.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
-  namespaces: string[] | undefined;
+  namespaces?: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates for which to create reflections. Can be less nested than the episodic namespaces.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 }
 
 /**
@@ -6233,9 +6305,17 @@ export interface MemoryStrategy {
 
   /**
    * <p>The namespaces associated with the memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces: string[] | undefined;
+
+  /**
+   * <p>The namespaceTemplates associated with the memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates: string[] | undefined;
 
   /**
    * <p>The timestamp when the memory strategy was created.</p>
@@ -6912,9 +6992,17 @@ export interface ModifyMemoryStrategyInput {
 
   /**
    * <p>The updated namespaces for the memory strategy.</p>
+   *
+   * @deprecated (since 2026-03-02) Use namespaceTemplates instead.
    * @public
    */
   namespaces?: string[] | undefined;
+
+  /**
+   * <p>The updated namespaceTemplates for the memory strategy.</p>
+   * @public
+   */
+  namespaceTemplates?: string[] | undefined;
 
   /**
    * <p>The updated configuration for the memory strategy.</p>

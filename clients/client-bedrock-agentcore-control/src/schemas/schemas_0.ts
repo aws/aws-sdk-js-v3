@@ -704,7 +704,8 @@ const _n = "name";
 const _nC = "networkConfiguration";
 const _nM = "networkMode";
 const _nMC = "networkModeConfig";
-const _nT = "nextToken";
+const _nT = "namespaceTemplates";
+const _nTe = "nextToken";
 const _na = "namespaces";
 const _nu = "numerical";
 const _o = "operator";
@@ -1275,8 +1276,8 @@ export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _C
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
-  [_n, _d, _na, _con],
-  [0, [() => Description, 0], 64 | 0, [() => CustomConfigurationInput$, 0]], 1
+  [_n, _d, _na, _nT, _con],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => CustomConfigurationInput$, 0]], 1
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
@@ -1465,8 +1466,8 @@ export var EpisodicExtractionOverride$: StaticStructureSchema = [3, n0, _EEO,
 ];
 export var EpisodicMemoryStrategyInput$: StaticStructureSchema = [3, n0, _EMSI,
   0,
-  [_n, _d, _na, _rC],
-  [0, [() => Description, 0], 64 | 0, () => EpisodicReflectionConfigurationInput$], 1
+  [_n, _d, _na, _nT, _rC],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, () => EpisodicReflectionConfigurationInput$], 1
 ];
 export var EpisodicOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _EOCI,
   0,
@@ -1485,23 +1486,23 @@ export var EpisodicOverrideExtractionConfigurationInput$: StaticStructureSchema 
 ];
 export var EpisodicOverrideReflectionConfigurationInput$: StaticStructureSchema = [3, n0, _EORCI,
   0,
-  [_aTP, _mI, _na],
-  [[() => Prompt, 0], 0, 64 | 0], 2
+  [_aTP, _mI, _na, _nT],
+  [[() => Prompt, 0], 0, 64 | 0, 64 | 0], 2
 ];
 export var EpisodicReflectionConfiguration$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_na],
-  [64 | 0], 1
+  [_na, _nT],
+  [64 | 0, 64 | 0]
 ];
 export var EpisodicReflectionConfigurationInput$: StaticStructureSchema = [3, n0, _ERCI,
   0,
-  [_na],
-  [64 | 0], 1
+  [_na, _nT],
+  [64 | 0, 64 | 0]
 ];
 export var EpisodicReflectionOverride$: StaticStructureSchema = [3, n0, _ERO,
   0,
-  [_aTP, _mI, _na],
-  [[() => Prompt, 0], 0, 64 | 0], 2
+  [_aTP, _mI, _na, _nT],
+  [[() => Prompt, 0], 0, 64 | 0, 64 | 0], 2
 ];
 export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
@@ -1805,172 +1806,172 @@ export var LinkedinOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var ListAgentRuntimeEndpointsRequest$: StaticStructureSchema = [3, n0, _LARER,
   0,
-  [_aRI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_aRI, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
 ];
 export var ListAgentRuntimeEndpointsResponse$: StaticStructureSchema = [3, n0, _LARERi,
   0,
-  [_rE, _nT],
+  [_rE, _nTe],
   [[() => AgentRuntimeEndpoints, 0], 0], 1
 ];
 export var ListAgentRuntimesRequest$: StaticStructureSchema = [3, n0, _LARR,
   0,
-  [_mR, _nT],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [_mR, _nTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
 ];
 export var ListAgentRuntimesResponse$: StaticStructureSchema = [3, n0, _LARRi,
   0,
-  [_aR, _nT],
+  [_aR, _nTe],
   [[() => AgentRuntimes, 0], 0], 1
 ];
 export var ListAgentRuntimeVersionsRequest$: StaticStructureSchema = [3, n0, _LARVR,
   0,
-  [_aRI, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_aRI, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
 ];
 export var ListAgentRuntimeVersionsResponse$: StaticStructureSchema = [3, n0, _LARVRi,
   0,
-  [_aR, _nT],
+  [_aR, _nTe],
   [[() => AgentRuntimes, 0], 0], 1
 ];
 export var ListApiKeyCredentialProvidersRequest$: StaticStructureSchema = [3, n0, _LAKCPR,
   0,
-  [_nT, _mR],
+  [_nTe, _mR],
   [0, 1]
 ];
 export var ListApiKeyCredentialProvidersResponse$: StaticStructureSchema = [3, n0, _LAKCPRi,
   0,
-  [_cPre, _nT],
+  [_cPre, _nTe],
   [() => ApiKeyCredentialProviders, 0], 1
 ];
 export var ListBrowserProfilesRequest$: StaticStructureSchema = [3, n0, _LBPR,
   0,
-  [_mR, _nT],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [_mR, _nTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
 ];
 export var ListBrowserProfilesResponse$: StaticStructureSchema = [3, n0, _LBPRi,
   0,
-  [_pS, _nT],
+  [_pS, _nTe],
   [[() => BrowserProfileSummaries, 0], 0], 1
 ];
 export var ListBrowsersRequest$: StaticStructureSchema = [3, n0, _LBR,
   0,
-  [_mR, _nT, _t],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _t }]]
+  [_mR, _nTe, _t],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _t }]]
 ];
 export var ListBrowsersResponse$: StaticStructureSchema = [3, n0, _LBRi,
   0,
-  [_bSr, _nT],
+  [_bSr, _nTe],
   [[() => BrowserSummaries, 0], 0], 1
 ];
 export var ListCodeInterpretersRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
-  [_mR, _nT, _t],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _t }]]
+  [_mR, _nTe, _t],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _t }]]
 ];
 export var ListCodeInterpretersResponse$: StaticStructureSchema = [3, n0, _LCIRi,
   0,
-  [_cIS, _nT],
+  [_cIS, _nTe],
   [[() => CodeInterpreterSummaries, 0], 0], 1
 ];
 export var ListEvaluatorsRequest$: StaticStructureSchema = [3, n0, _LER,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_nTe, _mR],
+  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]]
 ];
 export var ListEvaluatorsResponse$: StaticStructureSchema = [3, n0, _LERi,
   0,
-  [_ev, _nT],
+  [_ev, _nTe],
   [[() => EvaluatorSummaryList, 0], 0], 1
 ];
 export var ListGatewaysRequest$: StaticStructureSchema = [3, n0, _LGR,
   0,
-  [_mR, _nT],
-  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+  [_mR, _nTe],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
 ];
 export var ListGatewaysResponse$: StaticStructureSchema = [3, n0, _LGRi,
   0,
-  [_it, _nT],
+  [_it, _nTe],
   [[() => GatewaySummaries, 0], 0], 1
 ];
 export var ListGatewayTargetsRequest$: StaticStructureSchema = [3, n0, _LGTR,
   0,
-  [_gIa, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+  [_gIa, _mR, _nTe],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]], 1
 ];
 export var ListGatewayTargetsResponse$: StaticStructureSchema = [3, n0, _LGTRi,
   0,
-  [_it, _nT],
+  [_it, _nTe],
   [[() => TargetSummaries, 0], 0], 1
 ];
 export var ListMemoriesInput$: StaticStructureSchema = [3, n0, _LMI,
   0,
-  [_mR, _nT],
+  [_mR, _nTe],
   [1, 0]
 ];
 export var ListMemoriesOutput$: StaticStructureSchema = [3, n0, _LMO,
   0,
-  [_memo, _nT],
+  [_memo, _nTe],
   [() => MemorySummaryList, 0], 1
 ];
 export var ListOauth2CredentialProvidersRequest$: StaticStructureSchema = [3, n0, _LOCPR,
   0,
-  [_nT, _mR],
+  [_nTe, _mR],
   [0, 1]
 ];
 export var ListOauth2CredentialProvidersResponse$: StaticStructureSchema = [3, n0, _LOCPRi,
   0,
-  [_cPre, _nT],
+  [_cPre, _nTe],
   [() => Oauth2CredentialProviders, 0], 1
 ];
 export var ListOnlineEvaluationConfigsRequest$: StaticStructureSchema = [3, n0, _LOECR,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_nTe, _mR],
+  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]]
 ];
 export var ListOnlineEvaluationConfigsResponse$: StaticStructureSchema = [3, n0, _LOECRi,
   0,
-  [_oEC, _nT],
+  [_oEC, _nTe],
   [[() => OnlineEvaluationConfigSummaryList, 0], 0], 1
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
   0,
-  [_pEI, _nT, _mR, _tRS],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _tRS }]], 1
+  [_pEI, _nTe, _mR, _tRS],
+  [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _tRS }]], 1
 ];
 export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
   0,
-  [_pol, _nT],
+  [_pol, _nTe],
   [[() => Policies, 0], 0], 1
 ];
 export var ListPolicyEnginesRequest$: StaticStructureSchema = [3, n0, _LPER,
   0,
-  [_nT, _mR],
-  [[0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]]
+  [_nTe, _mR],
+  [[0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]]
 ];
 export var ListPolicyEnginesResponse$: StaticStructureSchema = [3, n0, _LPERi,
   0,
-  [_pE, _nT],
+  [_pE, _nTe],
   [[() => PolicyEngines, 0], 0], 1
 ];
 export var ListPolicyGenerationAssetsRequest$: StaticStructureSchema = [3, n0, _LPGAR,
   0,
-  [_pGI, _pEI, _nT, _mR],
-  [[0, 1], [0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
+  [_pGI, _pEI, _nTe, _mR],
+  [[0, 1], [0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListPolicyGenerationAssetsResponse$: StaticStructureSchema = [3, n0, _LPGARi,
   0,
-  [_pGAo, _nT],
+  [_pGAo, _nTe],
   [() => PolicyGenerationAssets, 0]
 ];
 export var ListPolicyGenerationsRequest$: StaticStructureSchema = [3, n0, _LPGR,
   0,
-  [_pEI, _nT, _mR],
-  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+  [_pEI, _nTe, _mR],
+  [[0, 1], [0, { [_hQ]: _nTe }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListPolicyGenerationsResponse$: StaticStructureSchema = [3, n0, _LPGRi,
   0,
-  [_pG, _nT],
+  [_pG, _nTe],
   [() => PolicyGenerations, 0], 1
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -1985,12 +1986,12 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var ListWorkloadIdentitiesRequest$: StaticStructureSchema = [3, n0, _LWIR,
   0,
-  [_nT, _mR],
+  [_nTe, _mR],
   [0, 1]
 ];
 export var ListWorkloadIdentitiesResponse$: StaticStructureSchema = [3, n0, _LWIRi,
   0,
-  [_wI, _nT],
+  [_wI, _nTe],
   [() => WorkloadIdentityList, 0], 1
 ];
 export var LlmAsAJudgeEvaluatorConfig$: StaticStructureSchema = [3, n0, _LAAJEC,
@@ -2020,8 +2021,8 @@ export var Memory$: StaticStructureSchema = [3, n0, _M,
 ];
 export var MemoryStrategy$: StaticStructureSchema = [3, n0, _MS,
   0,
-  [_sI, _n, _t, _na, _d, _con, _cA, _uA, _st],
-  [0, 0, 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 4
+  [_sI, _n, _t, _na, _nT, _d, _con, _cA, _uA, _st],
+  [0, 0, 0, 64 | 0, 64 | 0, [() => Description, 0], [() => StrategyConfiguration$, 0], 4, 4, 0], 5
 ];
 export var MemorySummary$: StaticStructureSchema = [3, n0, _MSe,
   0,
@@ -2065,8 +2066,8 @@ export var ModifyMemoryStrategies$: StaticStructureSchema = [3, n0, _MMS,
 ];
 export var ModifyMemoryStrategyInput$: StaticStructureSchema = [3, n0, _MMSI,
   0,
-  [_mSI, _d, _na, _con],
-  [0, [() => Description, 0], 64 | 0, [() => ModifyStrategyConfiguration$, 0]], 1
+  [_mSI, _d, _na, _nT, _con],
+  [0, [() => Description, 0], 64 | 0, 64 | 0, [() => ModifyStrategyConfiguration$, 0]], 1
 ];
 export var ModifySelfManagedConfiguration$: StaticStructureSchema = [3, n0, _MSMC,
   0,
@@ -2225,8 +2226,8 @@ export var SemanticExtractionOverride$: StaticStructureSchema = [3, n0, _SEO,
 ];
 export var SemanticMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSI,
   0,
-  [_n, _d, _na],
-  [0, [() => Description, 0], 64 | 0], 1
+  [_n, _d, _na, _nT],
+  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
 ];
 export var SemanticOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCI,
   0,
@@ -2295,8 +2296,8 @@ export var SummaryConsolidationOverride$: StaticStructureSchema = [3, n0, _SCOu,
 ];
 export var SummaryMemoryStrategyInput$: StaticStructureSchema = [3, n0, _SMSIu,
   0,
-  [_n, _d, _na],
-  [0, [() => Description, 0], 64 | 0], 1
+  [_n, _d, _na, _nT],
+  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
 ];
 export var SummaryOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _SOCIu,
   0,
@@ -2505,8 +2506,8 @@ export var UserPreferenceExtractionOverride$: StaticStructureSchema = [3, n0, _U
 ];
 export var UserPreferenceMemoryStrategyInput$: StaticStructureSchema = [3, n0, _UPMSI,
   0,
-  [_n, _d, _na],
-  [0, [() => Description, 0], 64 | 0], 1
+  [_n, _d, _na, _nT],
+  [0, [() => Description, 0], 64 | 0, 64 | 0], 1
 ];
 export var UserPreferenceOverrideConfigurationInput$: StaticStructureSchema = [3, n0, _UPOCI,
   0,

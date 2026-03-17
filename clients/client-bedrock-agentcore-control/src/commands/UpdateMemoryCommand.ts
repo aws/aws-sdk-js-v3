@@ -55,11 +55,17 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *           namespaces: [ // NamespacesList
  *             "STRING_VALUE",
  *           ],
+ *           namespaceTemplates: [
+ *             "STRING_VALUE",
+ *           ],
  *         },
  *         summaryMemoryStrategy: { // SummaryMemoryStrategyInput
  *           name: "STRING_VALUE", // required
  *           description: "STRING_VALUE",
  *           namespaces: [
+ *             "STRING_VALUE",
+ *           ],
+ *           namespaceTemplates: [
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -69,13 +75,13 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *           namespaces: [
  *             "STRING_VALUE",
  *           ],
+ *           namespaceTemplates: "<NamespacesList>",
  *         },
  *         customMemoryStrategy: { // CustomMemoryStrategyInput
  *           name: "STRING_VALUE", // required
  *           description: "STRING_VALUE",
- *           namespaces: [
- *             "STRING_VALUE",
- *           ],
+ *           namespaces: "<NamespacesList>",
+ *           namespaceTemplates: "<NamespacesList>",
  *           configuration: { // CustomConfigurationInput Union: only one key present
  *             semanticOverride: { // SemanticOverrideConfigurationInput
  *               extraction: { // SemanticOverrideExtractionConfigurationInput
@@ -115,9 +121,8 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *               reflection: { // EpisodicOverrideReflectionConfigurationInput
  *                 appendToPrompt: "STRING_VALUE", // required
  *                 modelId: "STRING_VALUE", // required
- *                 namespaces: [
- *                   "STRING_VALUE",
- *                 ],
+ *                 namespaces: "<NamespacesList>",
+ *                 namespaceTemplates: "<NamespacesList>",
  *               },
  *             },
  *             selfManagedConfiguration: { // SelfManagedConfigurationInput
@@ -146,8 +151,10 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *           name: "STRING_VALUE", // required
  *           description: "STRING_VALUE",
  *           namespaces: "<NamespacesList>",
+ *           namespaceTemplates: "<NamespacesList>",
  *           reflectionConfiguration: { // EpisodicReflectionConfigurationInput
- *             namespaces: "<NamespacesList>", // required
+ *             namespaces: "<NamespacesList>",
+ *             namespaceTemplates: "<NamespacesList>",
  *           },
  *         },
  *       },
@@ -157,6 +164,7 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *         memoryStrategyId: "STRING_VALUE", // required
  *         description: "STRING_VALUE",
  *         namespaces: "<NamespacesList>",
+ *         namespaceTemplates: "<NamespacesList>",
  *         configuration: { // ModifyStrategyConfiguration
  *           extraction: { // ModifyExtractionConfiguration Union: only one key present
  *             customExtractionConfiguration: { // CustomExtractionConfigurationInput Union: only one key present
@@ -196,13 +204,15 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *           },
  *           reflection: { // ModifyReflectionConfiguration Union: only one key present
  *             episodicReflectionConfiguration: {
- *               namespaces: "<NamespacesList>", // required
+ *               namespaces: "<NamespacesList>",
+ *               namespaceTemplates: "<NamespacesList>",
  *             },
  *             customReflectionConfiguration: { // CustomReflectionConfigurationInput Union: only one key present
  *               episodicReflectionOverride: {
  *                 appendToPrompt: "STRING_VALUE", // required
  *                 modelId: "STRING_VALUE", // required
  *                 namespaces: "<NamespacesList>",
+ *                 namespaceTemplates: "<NamespacesList>",
  *               },
  *             },
  *           },
@@ -317,10 +327,16 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //                 namespaces: [ // NamespacesList
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 namespaceTemplates: [
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             },
  * //             episodicReflectionConfiguration: { // EpisodicReflectionConfiguration
- * //               namespaces: [ // required
+ * //               namespaces: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               namespaceTemplates: [
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
@@ -348,6 +364,7 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  * //         },
  * //         type: "SEMANTIC" || "SUMMARIZATION" || "USER_PREFERENCE" || "CUSTOM" || "EPISODIC", // required
  * //         namespaces: "<NamespacesList>", // required
+ * //         namespaceTemplates: "<NamespacesList>", // required
  * //         createdAt: new Date("TIMESTAMP"),
  * //         updatedAt: new Date("TIMESTAMP"),
  * //         status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
