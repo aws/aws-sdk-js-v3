@@ -7,4 +7,8 @@ describe("escape-element", () => {
     const value = "abc 123 &<>\"'%\n\r\u0085\u2028";
     expect(escapeElement(value)).toBe("abc 123 &amp;&lt;&gt;&quot;&apos;%&#x0A;&#x0D;&#x85;&#x2028;");
   });
+
+  it("escapes multiple \\u2028 occurrences", () => {
+    expect(escapeElement("a\u2028b\u2028c")).toBe("a&#x2028;b&#x2028;c");
+  });
 });

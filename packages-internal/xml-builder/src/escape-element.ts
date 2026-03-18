@@ -1,17 +1,22 @@
+const ELEMENT_ESCAPE_RE = /[&"'<>\r\n\u0085\u2028]/g;
+
+const ELEMENT_ESCAPE_MAP: Record<string, string> = {
+  "&": "&amp;",
+  '"': "&quot;",
+  "'": "&apos;",
+  "<": "&lt;",
+  ">": "&gt;",
+  "\r": "&#x0D;",
+  "\n": "&#x0A;",
+  "\u0085": "&#x85;",
+  "\u2028": "&#x2028;",
+};
+
 /**
  * @internal
  *
  * Escapes characters that can not be in an XML element.
  */
 export function escapeElement(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/\r/g, "&#x0D;")
-    .replace(/\n/g, "&#x0A;")
-    .replace(/\u0085/g, "&#x85;")
-    .replace(/\u2028/, "&#x2028;");
+  return value.replace(ELEMENT_ESCAPE_RE, (ch) => ELEMENT_ESCAPE_MAP[ch]);
 }
