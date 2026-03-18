@@ -6614,6 +6614,7 @@ export const Format = {
   avi: "avi",
   matroska: "matroska",
   mp4: "mp4",
+  mpegts: "mpegts",
   mxf: "mxf",
   quicktime: "quicktime",
   wave: "wave",
