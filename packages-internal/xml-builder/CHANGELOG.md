@@ -14,6 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.12 (2026-03-18)
+### Chores
+* bump fast-xml-parser to 5.5.6 ([#7862](https://github.com/aws/aws-sdk-js-v3/issues/7862)) ([5e8d73b](https://github.com/aws/aws-sdk-js-v3/commit/5e8d73bafb2f447b517e9af047595930acbffced))
+
+
+
 # 3.972.11 (2026-03-13)
 ### Chores
 * **codegen:** sync for retry strategy lifecycle fix ([#7842](https://github.com/aws/aws-sdk-js-v3/issues/7842)) ([7bf8888](https://github.com/aws/aws-sdk-js-v3/commit/7bf8888b2423d2342ea2b689532e526715ec1d50))

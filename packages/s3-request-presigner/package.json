@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-request-presigner",
-  "version": "3.1011.0",
+  "version": "3.1012.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline s3-request-presigner",
@@ -23,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.8",
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.9",
     "@aws-sdk/types": "workspace:^3.973.6",
     "@aws-sdk/util-format-url": "workspace:^3.972.8",
     "@smithy/middleware-endpoint": "^4.4.26",
@@ -33,7 +33,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1011.0",
+    "@aws-sdk/client-s3": "workspace:3.1012.0",
     "@smithy/hash-node": "^4.2.12",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",

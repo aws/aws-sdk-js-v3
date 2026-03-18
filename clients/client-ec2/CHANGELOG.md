@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1012.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1011.0...v3.1012.0) (2026-03-18)
+
+
+### Features
+
+* **client-ec2:** The DescribeInstanceTypes API now returns default connection tracking timeout values for TCP, UDP, and UDP stream via the new connectionTrackingConfiguration field on NetworkInfo. ([0ee6f8d](https://github.com/aws/aws-sdk-js-v3/commit/0ee6f8d16b85c73f7370a06a8edcc527011d45de))
+
+
+
+
+
 # [3.1011.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1010.0...v3.1011.0) (2026-03-17)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
