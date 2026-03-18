@@ -4,7 +4,7 @@
   "description": "XML utilities for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.13.1",
-    "fast-xml-parser": "5.4.1",
+    "fast-xml-parser": "5.5.6",
     "tslib": "^2.6.2"
   },
   "scripts": {
