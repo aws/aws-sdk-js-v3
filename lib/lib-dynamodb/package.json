@@ -32,8 +32,8 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.973.20",
     "@aws-sdk/util-dynamodb": "workspace:^3.996.2",
-    "@smithy/core": "^3.23.11",
-    "@smithy/smithy-client": "^4.12.5",
+    "@smithy/core": "^3.23.12",
+    "@smithy/smithy-client": "^4.12.6",
     "@smithy/types": "^4.13.1",
     "tslib": "^2.6.2"
   },

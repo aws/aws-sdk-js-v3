@@ -1,5 +1,15 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.47.0 (2026-03-05)
+
+### Features
+
+- (docs) Added generation of compatible AWS protocols to generated client READMEs ([#7839](https://github.com/aws/aws-sdk-js-v3/pull/7839))
+
+### Chores
+
+- Upgraded to smithy-typescript 0.47.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0470-2026-03-17))
+
 ## 0.46.0 (2026-03-05)
 
 ### Chores

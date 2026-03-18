@@ -102,6 +102,17 @@ const client = new CloudWatchClient({
 });
 ```
 
+##### AWS Query
+
+This protocol uses query format requests and XML responses.
+```js
+import { AwsQueryProtocol } from "@aws-sdk/config/protocol";
+
+const client = new CloudWatchClient({
+  protocol: AwsQueryProtocol
+});
+```
+
 ##### Smithy RPC v2 CBOR
 
 This protocol uses CBOR payloads.
