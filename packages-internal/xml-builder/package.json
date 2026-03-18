@@ -4,10 +4,10 @@
   "description": "XML utilities for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^4.13.1",
-    "fast-xml-parser": "5.5.8",
     "tslib": "^2.6.2"
   },
   "scripts": {
+    "profile": "node --inspect-brk ./scripts/benchmark",
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline xml-builder",
     "build:es": "tsc -p tsconfig.es.json",
