@@ -39,7 +39,6 @@ import {
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayPropagationState,
-  UnlimitedSupportedInstanceFamily,
   UserTrustProviderType,
   VerifiedAccessLogDeliveryStatusCode,
   VolumeAttributeName,
@@ -87,6 +86,7 @@ import {
   DnsEntry,
   ServiceConfiguration,
   ServiceTypeDetail,
+  TrafficMirrorTarget,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -112,6 +112,23 @@ import {
   ProductCode,
 } from "./models_3";
 import { RegisteredInstance } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeTrafficMirrorTargetsResult {
+  /**
+   * <p>Information about one or more Traffic Mirror targets.</p>
+   * @public
+   */
+  TrafficMirrorTargets?: TrafficMirrorTarget[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9102,23 +9119,4 @@ export interface GetDeclarativePoliciesReportSummaryResult {
    * @public
    */
   AttributeSummaries?: AttributeSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDefaultCreditSpecificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The instance family.</p>
-   * @public
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
 }

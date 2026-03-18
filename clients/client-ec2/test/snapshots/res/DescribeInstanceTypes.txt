@@ -448,6 +448,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <flexibleEnaQueuesSupport>
                     __FlexibleEnaQueuesSupport__
                 </flexibleEnaQueuesSupport>
+                <connectionTrackingConfiguration>
+                    <defaultTcpEstablishedTimeout>
+                        0
+                    </defaultTcpEstablishedTimeout>
+                    <defaultUdpTimeout>
+                        0
+                    </defaultUdpTimeout>
+                    <defaultUdpStreamTimeout>
+                        0
+                    </defaultUdpStreamTimeout>
+                </connectionTrackingConfiguration>
                 <secondaryNetworkSupported>
                     false
                 </secondaryNetworkSupported>
@@ -1280,6 +1291,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <flexibleEnaQueuesSupport>
                     __FlexibleEnaQueuesSupport__
                 </flexibleEnaQueuesSupport>
+                <connectionTrackingConfiguration>
+                    <defaultTcpEstablishedTimeout>
+                        0
+                    </defaultTcpEstablishedTimeout>
+                    <defaultUdpTimeout>
+                        0
+                    </defaultUdpTimeout>
+                    <defaultUdpStreamTimeout>
+                        0
+                    </defaultUdpStreamTimeout>
+                </connectionTrackingConfiguration>
                 <secondaryNetworkSupported>
                     false
                 </secondaryNetworkSupported>
@@ -2112,6 +2134,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <flexibleEnaQueuesSupport>
                     __FlexibleEnaQueuesSupport__
                 </flexibleEnaQueuesSupport>
+                <connectionTrackingConfiguration>
+                    <defaultTcpEstablishedTimeout>
+                        0
+                    </defaultTcpEstablishedTimeout>
+                    <defaultUdpTimeout>
+                        0
+                    </defaultUdpTimeout>
+                    <defaultUdpStreamTimeout>
+                        0
+                    </defaultUdpStreamTimeout>
+                </connectionTrackingConfiguration>
                 <secondaryNetworkSupported>
                     false
                 </secondaryNetworkSupported>
@@ -2720,6 +2753,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__"
         ],
         FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        ConnectionTrackingConfiguration: {
+          DefaultTcpEstablishedTimeout: (number) 0,
+          DefaultUdpTimeout: (number) 0,
+          DefaultUdpStreamTimeout: (number) 0
+        },
         SecondaryNetworkSupported: (boolean) false,
         MaximumSecondaryNetworkInterfaces: (number) 0,
         Ipv4AddressesPerSecondaryInterface: (number) 0
@@ -3104,6 +3142,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__"
         ],
         FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        ConnectionTrackingConfiguration: {
+          DefaultTcpEstablishedTimeout: (number) 0,
+          DefaultUdpTimeout: (number) 0,
+          DefaultUdpStreamTimeout: (number) 0
+        },
         SecondaryNetworkSupported: (boolean) false,
         MaximumSecondaryNetworkInterfaces: (number) 0,
         Ipv4AddressesPerSecondaryInterface: (number) 0
@@ -3488,6 +3531,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "__member__"
         ],
         FlexibleEnaQueuesSupport: "__FlexibleEnaQueuesSupport__",
+        ConnectionTrackingConfiguration: {
+          DefaultTcpEstablishedTimeout: (number) 0,
+          DefaultUdpTimeout: (number) 0,
+          DefaultUdpStreamTimeout: (number) 0
+        },
         SecondaryNetworkSupported: (boolean) false,
         MaximumSecondaryNetworkInterfaces: (number) 0,
         Ipv4AddressesPerSecondaryInterface: (number) 0

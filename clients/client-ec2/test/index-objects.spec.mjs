@@ -885,6 +885,7 @@ import {
   DataQuery$,
   DataResponse$,
   DeclarativePoliciesReport$,
+  DefaultConnectionTrackingConfiguration$,
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
   DefaultInstanceMetadataTagsState,
@@ -6560,6 +6561,7 @@ assert(typeof CustomerGateway$ === "object");
 assert(typeof DataQuery$ === "object");
 assert(typeof DataResponse$ === "object");
 assert(typeof DeclarativePoliciesReport$ === "object");
+assert(typeof DefaultConnectionTrackingConfiguration$ === "object");
 assert(typeof DeleteCapacityManagerDataExportRequest$ === "object");
 assert(typeof DeleteCapacityManagerDataExportResult$ === "object");
 assert(typeof DeleteCarrierGatewayRequest$ === "object");

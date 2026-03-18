@@ -168,6 +168,11 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //           "default" || "vpc-1" || "ebs-1",
  * //         ],
  * //         FlexibleEnaQueuesSupport: "unsupported" || "supported",
+ * //         ConnectionTrackingConfiguration: { // DefaultConnectionTrackingConfiguration
+ * //           DefaultTcpEstablishedTimeout: Number("int"),
+ * //           DefaultUdpTimeout: Number("int"),
+ * //           DefaultUdpStreamTimeout: Number("int"),
+ * //         },
  * //         SecondaryNetworkSupported: true || false,
  * //         MaximumSecondaryNetworkInterfaces: Number("int"),
  * //         Ipv4AddressesPerSecondaryInterface: Number("int"),

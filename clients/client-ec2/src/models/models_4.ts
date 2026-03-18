@@ -164,7 +164,6 @@ import {
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorSession,
-  TrafficMirrorTarget,
 } from "./models_2";
 import {
   type AttributeBooleanValue,
@@ -4078,6 +4077,34 @@ export interface MemoryInfo {
 }
 
 /**
+ * <p>Indicates default conntrack information for the instance type. For more
+ *   information, see
+ *   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts"> Connection tracking timeouts
+ *   </a> in the Amazon EC2 User Guide.
+ *  </p>
+ * @public
+ */
+export interface DefaultConnectionTrackingConfiguration {
+  /**
+   * <p>Default timeout (in seconds) for idle TCP connections in an established state.</p>
+   * @public
+   */
+  DefaultTcpEstablishedTimeout?: number | undefined;
+
+  /**
+   * <p>Default timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction.</p>
+   * @public
+   */
+  DefaultUdpTimeout?: number | undefined;
+
+  /**
+   * <p>Default timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction.</p>
+   * @public
+   */
+  DefaultUdpStreamTimeout?: number | undefined;
+}
+
+/**
  * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
  * @public
  */
@@ -4248,6 +4275,12 @@ export interface NetworkInfo {
    * @public
    */
   FlexibleEnaQueuesSupport?: FlexibleEnaQueuesSupport | undefined;
+
+  /**
+   * <p>Indicates conntrack information for the instance type</p>
+   * @public
+   */
+  ConnectionTrackingConfiguration?: DefaultConnectionTrackingConfiguration | undefined;
 
   /**
    * <p>Indicates whether secondary interface attachments from secondary network are supported.</p>
@@ -14766,23 +14799,6 @@ export interface DescribeTrafficMirrorTargetsRequest {
 
   /**
    * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTrafficMirrorTargetsResult {
-  /**
-   * <p>Information about one or more Traffic Mirror targets.</p>
-   * @public
-   */
-  TrafficMirrorTargets?: TrafficMirrorTarget[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -3189,6 +3189,7 @@ export type {
   DataQuery,
   DataResponse,
   DeclarativePoliciesReport,
+  DefaultConnectionTrackingConfiguration,
   DeleteCapacityManagerDataExportRequest,
   DeleteCapacityManagerDataExportResult,
   DeleteCarrierGatewayRequest,

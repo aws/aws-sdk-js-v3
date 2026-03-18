@@ -1277,6 +1277,7 @@ const _DCRTR = "DescribeCapacityReservationTopologyRequest";
 const _DCRTRe = "DescribeCapacityReservationTopologyResult";
 const _DCRe = "DescribeCapacityReservations";
 const _DCT = "DescribeConversionTasks";
+const _DCTC = "DefaultConnectionTrackingConfiguration";
 const _DCTL = "DescribeConversionTaskList";
 const _DCTR = "DescribeConversionTasksRequest";
 const _DCTRe = "DescribeConversionTasksResult";
@@ -2003,6 +2004,7 @@ const _DTA = "DpdTimeoutAction";
 const _DTC = "DeprecationTimeCondition";
 const _DTCR = "DeprecationTimeConditionRequest";
 const _DTCT = "DefaultTargetCapacityType";
+const _DTET = "DefaultTcpEstablishedTimeout";
 const _DTG = "DeleteTransitGateway";
 const _DTGA = "DescribeTransitGatewayAttachments";
 const _DTGAI = "DestinationTransitGatewayAttachmentId";
@@ -2141,6 +2143,8 @@ const _DTelet = "DeleteTags";
 const _DTes = "DescribeTags";
 const _DTi = "DisablingTime";
 const _DTis = "DisabledTime";
+const _DUST = "DefaultUdpStreamTimeout";
+const _DUT = "DefaultUdpTimeout";
 const _DV = "DesiredVersion";
 const _DVA = "DescribeVolumeAttribute";
 const _DVAE = "DeleteVerifiedAccessEndpoint";
@@ -6474,6 +6478,7 @@ const _dT = "deletionTime";
 const _dTA = "dpdTimeoutAction";
 const _dTC = "deprecationTimeCondition";
 const _dTCT = "defaultTargetCapacityType";
+const _dTET = "defaultTcpEstablishedTimeout";
 const _dTGAI = "destinationTransitGatewayAttachmentId";
 const _dTGAT = "destinationTransitGatewayAttachmentType";
 const _dTPC = "defaultThreadsPerCore";
@@ -6486,6 +6491,8 @@ const _dTel = "deleteTime";
 const _dTele = "deletionTimestamp";
 const _dTi = "disablingTime";
 const _dTis = "disabledTime";
+const _dUST = "defaultUdpStreamTimeout";
+const _dUT = "defaultUdpTimeout";
 const _dV = "destinationVpc";
 const _dVC = "defaultVCpus";
 const _dVD = "deviceValidationDomain";
@@ -11418,6 +11425,14 @@ export var DeclarativePoliciesReport$: StaticStructureSchema = [3, n0, _DPRec,
   , [_xN]: _eTn }], [0, { [_eQN]: `Status`
   , [_xN]: _sta }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }]]
+];
+export var DefaultConnectionTrackingConfiguration$: StaticStructureSchema = [3, n0, _DCTC,
+  0,
+  [_DTET, _DUT, _DUST],
+  [[1, { [_eQN]: `DefaultTcpEstablishedTimeout`
+  , [_xN]: _dTET }], [1, { [_eQN]: `DefaultUdpTimeout`
+  , [_xN]: _dUT }], [1, { [_eQN]: `DefaultUdpStreamTimeout`
+  , [_xN]: _dUST }]]
 ];
 export var DeleteCapacityManagerDataExportRequest$: StaticStructureSchema = [3, n0, _DCMDER,
   0,
@@ -20969,7 +20984,7 @@ export var NetworkCardInfo$: StaticStructureSchema = [3, n0, _NCIe,
 ];
 export var NetworkInfo$: StaticStructureSchema = [3, n0, _NIetw,
   0,
-  [_NPe, _MNI, _MNC, _DNCI, _NC, _IAPI, _IAPIp, _ISpvu, _ESna, _ESf, _EIf, _EITS, _ESSn, _BWa, _FEQS, _SNSe, _MSNI, _IAPSI],
+  [_NPe, _MNI, _MNC, _DNCI, _NC, _IAPI, _IAPIp, _ISpvu, _ESna, _ESf, _EIf, _EITS, _ESSn, _BWa, _FEQS, _CTC, _SNSe, _MSNI, _IAPSI],
   [[0, { [_eQN]: `NetworkPerformance`
   , [_xN]: _nPe }], [1, { [_eQN]: `MaximumNetworkInterfaces`
   , [_xN]: _mNI }], [1, { [_eQN]: `MaximumNetworkCards`
@@ -20985,7 +21000,8 @@ export var NetworkInfo$: StaticStructureSchema = [3, n0, _NIetw,
   , [_xN]: _eITSn }], [2, { [_eQN]: `EnaSrdSupported`
   , [_xN]: _eSSn }], [() => BandwidthWeightingTypeList, { [_eQN]: `BandwidthWeightings`
   , [_xN]: _bWa }], [0, { [_eQN]: `FlexibleEnaQueuesSupport`
-  , [_xN]: _fEQS }], [2, { [_eQN]: `SecondaryNetworkSupported`
+  , [_xN]: _fEQS }], [() => DefaultConnectionTrackingConfiguration$, { [_eQN]: `ConnectionTrackingConfiguration`
+  , [_xN]: _cTC }], [2, { [_eQN]: `SecondaryNetworkSupported`
   , [_xN]: _sNSec }], [1, { [_eQN]: `MaximumSecondaryNetworkInterfaces`
   , [_xN]: _mSNI }], [1, { [_eQN]: `Ipv4AddressesPerSecondaryInterface`
   , [_xN]: _iAPSI }]]

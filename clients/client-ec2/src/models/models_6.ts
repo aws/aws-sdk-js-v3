@@ -5,7 +5,6 @@ import {
   AnalysisStatus,
   ArchitectureType,
   ArchitectureValues,
-  AutoAcceptSharedAttachmentsValue,
   AutoPlacement,
   BootModeValues,
   CapacityReservationPreference,
@@ -13,13 +12,9 @@ import {
   DefaultHttpTokensEnforcedState,
   DefaultInstanceMetadataEndpointState,
   DefaultInstanceMetadataTagsState,
-  DefaultRouteTableAssociationValue,
-  DefaultRouteTablePropagationValue,
   DiskImageFormat,
-  DnsSupportValue,
   EkPubKeyFormat,
   EkPubKeyType,
-  EncryptionSupportOptionValue,
   EndDateType,
   ExcessCapacityTerminationPolicy,
   FleetExcessCapacityTerminationPolicy,
@@ -71,7 +66,6 @@ import {
   RouteServerPersistRoutesAction,
   RouteServerRouteInstallationStatus,
   RouteServerRouteStatus,
-  SecurityGroupReferencingSupportValue,
   SelfServicePortal,
   ShutdownBehavior,
   SnapshotAttributeName,
@@ -92,7 +86,6 @@ import {
   VirtualizationType,
   VolumeState,
   VolumeType,
-  VpnEcmpSupportValue,
 } from "./enums";
 import {
   type AddressAttribute,
@@ -170,6 +163,25 @@ import {
   ReservedInstancesConfiguration,
 } from "./models_4";
 import { RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetDefaultCreditSpecificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The instance family.</p>
+   * @public
+   */
+  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
+}
 
 /**
  * <p>Describes the default credit option for CPU usage of a burstable performance instance
@@ -9994,108 +10006,4 @@ export interface ModifyTrafficMirrorSessionResult {
    * @public
    */
   TrafficMirrorSession?: TrafficMirrorSession | undefined;
-}
-
-/**
- * <p>The transit gateway options.</p>
- * @public
- */
-export interface ModifyTransitGatewayOptions {
-  /**
-   * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
-   * @public
-   */
-  AddTransitGatewayCidrBlocks?: string[] | undefined;
-
-  /**
-   * <p>Removes CIDR blocks for the transit gateway.</p>
-   * @public
-   */
-  RemoveTransitGatewayCidrBlocks?: string[] | undefined;
-
-  /**
-   * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
-   * @public
-   */
-  VpnEcmpSupport?: VpnEcmpSupportValue | undefined;
-
-  /**
-   * <p>Enable or disable DNS support.</p>
-   * @public
-   */
-  DnsSupport?: DnsSupportValue | undefined;
-
-  /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
-   * @public
-   */
-  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
-
-  /**
-   * <p>Enable or disable automatic acceptance of attachment requests.</p>
-   * @public
-   */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | undefined;
-
-  /**
-   * <p>Enable or disable automatic association with the default association route table.</p>
-   * @public
-   */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
-
-  /**
-   * <p>The ID of the default association route table.</p>
-   * @public
-   */
-  AssociationDefaultRouteTableId?: string | undefined;
-
-  /**
-   * <p>Indicates whether resource attachments automatically propagate routes to the default
-   *           propagation route table. Enabled by default. If <code>defaultRouteTablePropagation</code>
-   *           is set to <code>enable</code>,
-   *           Amazon Web Services Transit Gateway will create the default transit gateway route
-   *           table.</p>
-   * @public
-   */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | undefined;
-
-  /**
-   * <p>The ID of the default propagation route table.</p>
-   * @public
-   */
-  PropagationDefaultRouteTableId?: string | undefined;
-
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-   *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
-   *          <p>The modify ASN operation is not allowed on a transit gateway if it has the following attachments:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Dynamic VPN</p>
-   *             </li>
-   *             <li>
-   *                <p>Static VPN</p>
-   *             </li>
-   *             <li>
-   *                <p>Direct Connect Gateway</p>
-   *             </li>
-   *             <li>
-   *                <p>Connect</p>
-   *             </li>
-   *          </ul>
-   *          <p>You must first delete all transit gateway attachments configured prior to modifying the ASN on
-   *             the transit gateway.</p>
-   * @public
-   */
-  AmazonSideAsn?: number | undefined;
-
-  /**
-   * <p>Enable or disable encryption support for VPC Encryption Control.</p>
-   * @public
-   */
-  EncryptionSupport?: EncryptionSupportOptionValue | undefined;
 }
